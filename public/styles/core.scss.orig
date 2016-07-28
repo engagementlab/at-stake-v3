@@ -1,0 +1,187 @@
+@import "core/variables";
+@import "core/mixins";
+@import "core/functions";
+@import "core/fonts";
+@import "core/forms";
+@import "core/player";
+
+<<<<<<< HEAD
+@include font-face(aileron, 'aileron-regular-webfont', null, null, eot woff ttf);
+=======
+$background-main: url(/images/layout/background_tileable.png);
+$background-monitor: url(/images/layout/raindrops_tileable_salmon.png);
+$playerImageStatic: url(/images/hyi/avatar_circle.png);
+$playerImageIcon: url(/images/hyi/avatar_nameplate.png);
+$playerSize: 100px;
+$playerColor: orange;
+
+$primary-color: #333;
+>>>>>>> 2b03207c5b6b390c45f20d5c933e45464c2bba2e
+
+// Navbar START
+
+#logo_img {
+	height: 50px;
+	width: 50px;
+	margin: 0 auto;
+}
+
+// Top Nav color
+.navbar-inverse {
+
+	background-color: #FFF;
+	border-color: #080808;
+
+	@include mobile-only {
+		display: none;
+	}
+
+}
+
+  nav.navbar {
+  	#login{
+    color: #FD7D4B;
+  }
+  #help {
+    color:#FECD40;
+  }
+  #about {
+    color:#20C5C1;
+  }
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	height: 100px;
+	background-color: orange;
+}
+
+.body {
+	overflow: hidden;
+  background-image: $background-main;
+  font-family: "aileron";
+
+	@include mobile-only {
+	  background-color: #fdae8f;
+	}
+}
+
+.body.login {
+
+  @include linear_transition(background, 0.5s);
+  background-color: #fdae8f;
+
+}
+
+<<<<<<< HEAD
+.body.player {
+
+  @include linear_transition(background, 0.5s);
+  background-image: $background-game;
+=======
+.body.monitor {
+  background-image: $background-monitor;
+
+>>>>>>> 2b03207c5b6b390c45f20d5c933e45464c2bba2e
+
+}
+
+.game {
+	height: 100%;
+	width: 100%;
+  position: relative;
+  margin: 10px auto;
+  background-color: white;
+  box-shadow: 10px 10px 10px #888888;
+  min-height: 200px;
+
+  @include vertical-align();
+}
+
+
+.game-header {
+	text-align: center;
+	margin: 40 auto;
+}
+
+.page-container {
+	top: 10%;
+	bottom: 0px;
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+.room-container{
+	top: 10%;
+	bottom: 10%;
+	position: relative;
+	margin: 10px auto;
+	background-color: white;
+	@include boxShadow(10px, #888888)
+}
+
+.players {
+	height: 100%;
+	top: 10%;
+	bottom: 10%;
+	position: relative;
+	margin: 10px auto;
+}
+
+.player-background {
+	display: block;
+	position: relative;
+	margin: 20px auto;
+	@include circle ($playerSize+10, $playerColor);
+
+}
+
+.player-background.playerIcon {
+		background-size: 100% 100%;
+		background-image: $playerImageIcon;
+	}
+
+.player-static {
+	height: 100%;
+	width: 100%;
+	background-position: center;
+	background-size: $playerSize;
+	background-repeat: no-repeat;
+	background-image: $playerImageStatic;
+}
+
+
+
+// START Main Content
+.gameLanding {
+	
+	margin-top: 10%;
+
+	@include tablet-landscape-and-up {
+		#desktop {
+			display: block;
+		}
+		#mobile {
+			display: none;
+		}
+	}
+
+	@include mobile-only {
+		#desktop {
+			display: none;
+		}
+		#mobile {
+			display: block;
+		}
+	}
+
+}
+#gameContent {
+
+		padding: 40px 15px;
+    text-align: center;
+
+}
+// END Main Content

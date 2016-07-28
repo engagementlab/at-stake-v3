@@ -1,0 +1,9 @@
+{
+	"name": "@Stake",
+	"directory": "at-stake-v3",
+	"database": "at-stake", 
+	"admin_nav": { 
+						"HomePage": "HomePage",
+						"Game Config": ["GameConfig", "GameSession"]						
+					}
+}

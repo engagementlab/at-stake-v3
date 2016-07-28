@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>@Stake v3</title>
+        <meta name="description" content="A suite of digital multiplayer games that teaches students how to critique and create civic media.">
+        <meta name="author" content="Engagement Lab">
+        
+
+        {{#ifeq section 'play'}}
+            {{!-- Mobile Meta --}}
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="theme-color" content="#FFAB43">
+        {{/ifeq}}
+
+        {{!-- Open Graph --}}
+        {{!-- <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1455896685/site/about/logo_color.png" /> --}}
+
+        {{!-- Load our CSS/docs --}}
+        {{> css environment=env section=section}}
+    </head>
+    
+    <body class="body {{gameType}}">
+          {{#ifeq section "group/monitor"}}
+                {{> group/header}}
+            {{/ifeq}}
+
+        {{#ifeq section "comingsoon"}}
+            {{> nav_comingsoon}}
+            <div class="col-sm-12">
+        {{else}}
+            {{#ifeq section "index"}}
+                {{> nav}}
+                <div class="container">
+            {{/ifeq}}
+            
+        {{/ifeq}}
+
+        {{!-- {{jsonPrint section}} --}}
+
+        <div id="wrapper">
+
+            <div id="overlay" class="modal">
+            </div>
+
+            {{#ifeq debug true}}
+                <div id="error-box">
+                </div>
+                
+                {{!-- DEBUGGING --}}
+                <div id="debugging" class="form" style="position: fixed;top: 0;">
+                    
+                    <div id="debug-info">
+                    </div>
+
+                    {{#ifeq section 'group/monitor'}}
+                        
+                        <button id="template_reload" class="submit">reload</button>
+                        <select id="template_selector" name="template_selector_player">
+                          <option value="">choose:</option>
+
+                          {{#ifeq gameType "htyi"}}
+                              <option value="partials/group/htyi/tweet" data-key="tweet" data-event_id="game:start">tweet</option>
+                              <option value="partials/group/htyi/voting" data-key="" data-event_id="hashtags:received">voting</option>
+                              <option value="partials/group/htyi/results" data-key="submissions" data-event_id="hashtags:results">results</option>
+                          {{/ifeq}}
+
+                          {{#ifeq gameType "wikigeeks"}}
+                              <option value="partials/group/wiki/topic" data-key="tweet" data-event_id="game:start">topic</option>
+                              <option value="partials/group/wiki/article" data-key="" data-event_id="hashtags:received">article</option>
+                              <option value="partials/group/wiki/results" data-key="submissions" data-event_id="wiki:results">results</option>
+                          {{/ifeq}}
+
+                        </select>
+
+                    {{else}}
+                        
+                        <button id="template_reload" class="submit">reload</button>
+                        <select id="template_selector" name="template_selector_player">
+                          <option value="">choose:</option>
+
+                          {{!-- {{#ifeq gameType "wikigeeks"}} --}}
+                              <option value="partials/player/wiki/results" data-key="submissions" data-event_id="wiki:results">wiki-results</option>
+                          {{!-- {{/ifeq}} --}}
+
+                        </select>
+
+                    {{/ifeq}}
+                      <br /><button id="countdowns_pause" data-resume="false" class="submit">pause countdowns</button>
+                      <br /><button id="goto_results" data-event="game:force_results" class="submit"{{!--  style="display:none" --}}>show results</button>
+
+                    <div id="slider-gsap">
+                    </div>
+                </div>
+            {{/ifeq}}
+
+                  <div class="container-fluid" id="gameContent">
+
+                    <!-- BODY CONTENT START -->
+                    {{{body}}}
+
+                  </div>
+            </div><!-- /.container -->
+
+            <!-- page-wrapper end -->
+            {{#ifeq env "development"}}
+                {{> script/development host=socketHost environment=env section=section subSection=sub_section}}
+            {{else}}
+                {{> script/production host=socketHost environment=env section=section}}
+            {{/ifeq}}
+
+        </div>
+
+    </body>
+</html>

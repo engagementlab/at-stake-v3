@@ -1,0 +1,44 @@
+<div id="topic-submission">
+
+	<div class="submission col-xs-12 col-lg-12">
+	  <div class="form-prompt">Which article do you want to start linking from?</div>
+	  <div class="form">
+
+				<div class="input-container">
+					<input id="article_input" name="element_1" class="prompt" type="text" autofocus="autofocus" placeholder="start typing article name here...">
+					
+				</div>
+				<br />
+				{{!-- Game error --}}
+        
+				<input id="btn_search" class="post-button submit" type="submit" name="submit" value="enter">
+				<div class="error">Error!</div>
+		
+		</div>
+		<div id="countdownTimer"></div>
+	</div>
+
+</div>
+
+{{!-- TODO: Add waiting screen --}}
+
+<section id="submitted" class="row" style="display:none">
+		<div class="col-lg-4 game-message">
+			<div class="row">your starting article is</div>
+		    <div class="article-name row">Article Name</div>
+		</div>
+	    <div class="col-lg-4 game-message">
+	        <span class="text centered row">waiting for other players, please wait a moment</span>
+	    </div>
+
+</section>
+
+{{!-- WIKI ARTICLE --}}
+<section id="article" style="display:none">
+
+	<div id="wiki-workspace" style="display:none"></div>
+	<div class="col-sm-1"></div>
+	<div id="wiki-content" class="col-sm-12" style="background:white;"></div>
+	<div class="col-sm-1"></div>
+
+</section>

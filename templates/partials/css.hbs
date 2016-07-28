@@ -1,0 +1,69 @@
+{{!< default}}
+{{!-- 
+/**
+	* Engagement Lab Website
+	* Developed by Engagement Lab, 2015
+	* ==============
+	* 
+	* Document includes partial 
+	* ==========
+	*/
+--}}
+
+<!-- DOCS START -->
+
+<!-- Favicons -->
+<link rel="shortcut icon" href="/images/favicons/favicon.ico">
+<!-- For third-generation iPad with high-resolution Retina display: -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicons/apple-icon-114x114.png">
+<!-- For iPhone with high-resolution Retina display: -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicons/apple-icon-114x114.png">
+<!-- For first- and second-generation iPad: -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicons/apple-icon-72x72.png">
+<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+<link rel="apple-touch-icon-precomposed" href="/images/favicons/apple-icon-57x57.png">
+
+{{!-- UI --}}
+<link href="https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.min.css" rel="stylesheet">
+
+{{#ifeq environment "development"}}
+	
+	{{!-- DEVELOPMENT --}}
+	
+	{{!-- Bootstrap non-responsive for group view --}}
+	{{#ifeq section 'group/monitor'}}
+		<link rel="stylesheet" href="/plugins/groupview/bootstrap.css">
+	{{else}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	{{/ifeq}}
+
+	{{!-- Core layout --}}
+	<link href="/styles/core.css" rel="stylesheet"/>
+	
+	<!-- Custom fonts -->
+	<link href="/fonts/fonts.css" rel="stylesheet"/>
+	
+	<link href="/bower_components/flipclock/compiled/flipclock.css" rel="stylesheet">
+
+	<!-- Font Awesome CSS -->
+	<link href="/fonts/icons/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+	<!-- Fontello CSS -->
+	<link href="/fonts/icons/fontello/css/fontello.css" rel="stylesheet">
+
+	{{!-- Bower plugins --}}
+	<link rel="stylesheet" href="/bower_components/glidejs/dist/css/glide.core.css">
+
+{{else}}
+
+	{{!-- PRODUCTION/STAGING --}}
+
+	{{!-- Bootstrap non-responsive for group view --}}
+	{{#ifeq section 'group/monitor'}}
+		<link rel="stylesheet" href="/plugins/groupview/bootstrap.css">
+	{{else}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	{{/ifeq}}
+	<link href="{{cdnAsset site='emerging-citizens' env=environment type='css' }}" rel="stylesheet">
+
+{{/ifeq}}

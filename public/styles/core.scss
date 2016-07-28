@@ -1,0 +1,303 @@
+@import "_core/fonts";
+@import "_core/variables";
+@import "_core/mixins";
+@import "_core/functions";
+@import "_core/forms";
+@import "_core/player";
+@import "_core/groupview";
+@import "_core/comingsoon";
+@import "_core/homepage";
+@import "_core/media";
+
+// Game-specific styling
+// @import "groupview";
+
+html, body {
+	max-height: 100%;
+}
+
+.text.centered {
+	text-align:center;
+}
+
+// Center any column, yay!
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+// Use for any elements hidden initially
+.hidden-el {
+	visibility: hidden;
+}
+
+.screen-title {
+	font-size: 4em;
+	color: white;
+}
+
+// Body
+.body {
+
+  font-family: "Avenir";
+
+	  background: white;
+	  color: black;
+
+	@include mobile-only {
+	  background-color: #fdae8f;
+	}
+}
+
+.body.game-bg {
+	
+	
+
+  @include linear_transition(background, 0.5s);
+
+  &.htyi {
+	  background: $background-groupview, $color-peach;
+	}
+	&.wikigeeks {
+	  background-image: $background-wiki;
+	}
+
+}
+
+.body.login {
+
+  @include linear_transition(background, 0.5s);
+  background-color: #fdae8f;
+
+}
+
+.body.player.wikigeeks {
+	  background-image: $background-wiki;
+
+}
+
+.body.monitor {
+  background: $background-groupview, $color-light-orange;
+  background-size: 35%;
+}
+
+// Modal container
+.modal {
+	display: none;
+	position: absolute;
+	width: 100%; 
+	height: 100%; 
+  z-index: 1999;
+  top: 0;
+	left: 0;
+
+  // Tutorial modal
+  .tutorial {
+		background-color: rgba(254, 120, 70, .7);
+		width: 100%; 
+		height: 100%; 
+		
+		#countdown, #continue {
+	    position: fixed !important; 
+	    bottom: 10%;
+	    right: 4%;
+	    width: 150px;
+	    cursor: pointer;
+	    .icon {
+				display: inline-block;
+				width: 1em;
+				height: 1em;
+				fill: currentColor;
+				margin-top: 22%;
+			}
+			.icon-arrow-right {
+				width: 0.8212890625em;
+			}
+
+	    .text {
+	    	font-size: 8em;
+	    	top: 58% !important;
+	    	color: #fff !important;
+	    }
+		}
+		
+  }
+}
+
+.desktop-only {
+	// Hide for mobile
+	@include mobile-only {
+		display: none;
+	}
+}
+.mobile-only {
+	// Hide for desktop
+	@include desktop-and-up {
+		display: none;
+	}
+}
+
+// Navbar START
+
+#logo_img {
+	height: 50px;
+	width: 50px;
+	margin: 0 auto;
+}
+
+// Top Nav
+nav.header.navbar-fixed-top{
+  position: static;
+
+	// Hide for mobile
+	@include mobile-only {
+		display: none;
+	}
+}
+nav.navbar.main {
+
+	background-color: #FFF;
+	padding-bottom: 2%;
+
+	#nav-logo {
+		padding-top: 1%;
+	}
+
+	#login{
+    color: #FD7D4B;
+  }
+  #help {
+    color:#FECD40;
+  }
+  #about {
+    color:#20C5C1;
+  }
+
+}
+
+nav.notfixed {
+	position: absolute!important;
+}
+
+// Group view header
+nav.header {
+	background-color: white;
+  padding-bottom: 1%;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 1;
+}
+
+.footer {
+	// position: static;
+	// bottom: 0;
+	// right: 0;
+	// height: 100px;
+	color: #FFF;
+	font-size: medium; 
+	background-color: #ff9971;
+
+	// Hide for mobile
+	@include mobile-only {
+		display: none;
+	}
+}
+
+.orange-font {
+	color: #ffa76d;
+}
+
+.green-font {
+	color: $color-green;
+}
+
+.red-font {
+	color: $color-red;
+}
+
+.bright-red-font {
+	color: $color-bright-red;
+}
+
+.teal-font {
+	color: $color-teal;
+}
+.tweetImg {
+	height: 300px;
+	width: 100%;
+	top: -100px;
+	position: relative;
+}
+
+.clockImg {
+	height: 150px;
+	width: 150px;
+	bottom: -50px;
+	position: relative;
+	@include circle(150px, white);
+}
+
+.game {
+	height: 100%;
+	width: 100%;
+  position: relative;
+  margin: 10px auto;
+  background-color: white;
+  box-shadow: 10px 10px 10px #888888;
+  min-height: 200px;
+}
+
+.game-header {
+	text-align: center;
+	font-size: 4em;
+	font-weight: bold;
+	letter-spacing: -0.06em;
+
+	span {
+		margin: -5px;
+	}
+}
+
+
+
+// START Main Content
+#debugging {
+	z-index: 1000;
+}
+
+.gameLanding {
+	
+	margin-top: 10%;
+  margin-bottom: 3%;
+  
+	@include tablet-landscape-and-up {
+		#desktop {
+			display: block;
+		}
+		#mobile {
+			display: none;
+		}
+	}
+
+	@include mobile-only {
+		#desktop {
+			display: none;
+		}
+		#mobile {
+			display: block;
+		}
+	}
+
+}
+#gameContent {
+
+	padding: 40px 15px;
+	padding-top: 3%;
+  text-align: center;
+
+}
+// END Main Content

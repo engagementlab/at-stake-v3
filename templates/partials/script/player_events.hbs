@@ -1,0 +1,159 @@
+{{!< default}}
+{{!-- 
+/**
+ * @Stake v3
+ * Developed by Engagement Lab, 2016
+ * ==============
+ * 
+ * Script includes partial for PLAYERS socket.io events
+ * ==========
+ */
+--}}
+
+var playerWasReconnected;
+{{!-- 
+window.addEventListener("beforeunload", function (e) {
+  (e || window.event).returnValue = null;
+  return null;
+}); --}}
+
+var getScript = function (gameType) {
+    $.getScript( '/js/events/' + gameType + '.js' )
+        .done(function( script, textStatus ) {
+            console.log( textStatus );
+          })
+          .fail(function( jqxhr, settings, exception ) {
+            console.error('Unable to load %s (error: "%s")', gameType + '.js', exception);
+        });
+}
+
+var socketEvents = function(eventId, eventData) {
+
+    switch (eventId) {
+
+        case 'connect':
+
+            console.log('--- Connected to server ---');
+
+            if(isDecider) {
+                // Session started, let's sign-up the decider for this room
+                socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));
+            }
+            else {
+                // Connected, let's sign-up for to receive messages for this room
+                socket.emit('room', emitData('player'));
+            }
+
+            $('#login').fadeOut(function() { $('#waiting').fadeIn(); });
+            
+            break;
+
+        case 'player:loggedin':
+
+            $('#gameContent').html(eventData.html);
+
+            sessionStorage.setItem("gameType", eventData.gameType);
+            
+            playerWasReconnected = false;
+
+            $('#debug-info').text('Player id: ' + eventData.id);
+            
+            console.log (eventData.id + " is the player ID");
+
+            playerId = eventData.id;
+
+            break;
+
+        case 'player:reconnected': 
+
+            // Set local player state as reconnected
+            playerWasReconnected = true;
+            
+
+            break;
+
+        case 'players:update':
+
+            var staticPlayers = $('.player-static');
+            var currentPlayers = _.pluck(eventData, 'username');
+
+            {{!-- // Allow to start?
+            if(currentPlayers.length === 2)
+            {
+                var startAnim = new TimelineLite();
+                startAnim.from($('#btn-start-game'), 1, {scale:0, autoAlpha: 0, ease:Elastic.easeOut})
+            } --}}
+
+            _.each(currentPlayers, function(name, index) {
+
+                var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
+
+                $('#players').append('<div class="col-sm-3">' + nameFormatted + '</div>');
+
+
+            });
+
+            break;
+
+        case 'game:start':
+
+            $('#gameContent').html(eventData);
+
+            break;
+
+        case 'game:ending':
+
+            $('#error-box').text(eventData);
+            $('#error-box').show();
+
+            break;
+
+        case 'game:ended':
+
+            // Remove saved game code since game is over
+            sessionStorage.removeItem('gameCode');
+
+            $('#gameContent').html(eventData);
+
+            break;
+
+        case 'game:resumed':
+
+            $('#error-box').hide();
+
+            break;
+
+        case 'game:notfound':
+
+            $('#error-box').text('game not found!');
+            $('#error-box').show();
+
+            break;
+
+        case 'game:countdown_ending':
+
+            $('.form .error').fadeIn().html(eventData);
+
+            break;
+
+        case 'game:end':
+        case 'game:round_over':
+        case 'game:countdown_end':
+        case 'players:update':
+
+            $('#gameContent').html(eventData);
+
+            var nextRoundAnim = new TimelineLite({ paused:true , onComplete:function() {}});
+            nextRoundAnim.from($('#nextRound'), 2.5, { scale: 0, opacity:0, ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block'});
+            nextRoundAnim.play();
+            break;
+
+        default:
+
+            console.warn('No handler found for event "' + eventId + '" in socketEvents.');
+
+            break;
+
+    }
+
+};

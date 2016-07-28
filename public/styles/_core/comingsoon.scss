@@ -1,0 +1,53 @@
+// COMING SOON INDEX
+#coming-soon {
+	margin-top: 6%;
+  font-size: x-large;
+}
+
+#coming-soon-banner {
+
+	color: white;
+  background-color: $color-peach;
+  padding: 2%;
+
+  #intro {
+  	padding-left: 10%;
+  	padding-right: 10%;
+  }
+
+  #mailing-list {
+  	font-family: "Avenir";
+  	font-weight: bolder;
+  	font-size: xx-large;
+  	border-bottom: solid 2px #ffddb0;
+
+  	a {
+  		color: white;
+  		&:hover {
+  			text-decoration: none;
+  		}
+  	}
+
+  	&:hover {
+  		border-bottom: none;
+  	}
+  }
+
+}
+
+.coming-soon-info {
+	
+  font-size: large;
+	color: $color-peach;
+	background-color: white;
+	padding: 3%;
+
+  margin-top: 2%;
+  margin-left: 2%;
+
+  @include box-shadow(6px, 7px, 10px, #C7C6C6);
+
+  h1 {
+    font-size: 30px;
+  }
+}
