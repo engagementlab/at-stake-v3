@@ -27,13 +27,17 @@ var Common = function (nsp, socket) {
             
         },
 
-
         'game:start': function(package) {
-
-            console.log (package, "package");
 
             Session.Get(package.gameId).
             StartGame(currentSpace);
+
+        },
+
+        'game:next': function(package) {
+
+            Session.Get(package.gameId).
+            ShowScreen(currentSpace);
 
         },
 

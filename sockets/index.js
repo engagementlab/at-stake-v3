@@ -14,7 +14,7 @@ module.exports = function(app) {
     // Create event handlers for this socket
     var eventHandlers = {
         common: new CommonHandler(io, socket),
-        wiki: new WikiHandler(io, socket),
+        // wiki: new WikiHandler(io, socket),
         login: new PlayerLogin(io, socket)
     };
 

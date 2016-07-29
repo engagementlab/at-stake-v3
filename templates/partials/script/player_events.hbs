@@ -96,6 +96,7 @@ var socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:start':
+        case 'game:next':
 
             $('#gameContent').html(eventData);
 
