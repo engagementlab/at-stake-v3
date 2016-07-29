@@ -24,17 +24,18 @@ var GameConfig = new keystone.List('GameConfig', {
     candelete: false
 });
 
-GameConfig.add({
-
-		name: { type: String, required: true, default: "Game Settings" },
-			  
-	  playerCountRangeMin: { type: Number, label: "Player Allowed Count Min", required: true, initial: true },
-	  playerCountRangeMax: { type: Number, label: "Player Allowed Count Max", required: true, initial: true },
+GameConfig.add(
+		{
+			name: { type: String, required: true, default: "Game Settings" },
+				  
+		  playerCountRangeMin: { type: Number, label: "Player Allowed Count Min", required: true, initial: true },
+		  playerCountRangeMax: { type: Number, label: "Player Allowed Count Max", required: true, initial: true }
+		},
 	  
 	  /*
 		* Coin settings
 		*/
-		'Coin settings': {
+		'Coin settings', {
 		  potCoinCount: { type: Number, label: "Pot Coin Count", note: "Number of coins that players start with at the beginning of the game", required: true, initial: true },
 		  playerStartCoinCount: { type: Number, label: "Player Start Coin Count", note: "Number of coins that players start with at the beginning of the game", required: true, initial: true },
 		  deciderStartCoinCount: { type: Number, label: "Decider Start Coin Count", note: "Number of coins that the Decider starts with at the beginning of the game", required: true, initial: true },
@@ -47,14 +48,12 @@ GameConfig.add({
 	  /*
 		* Time settings
 		*/
-		'Time settings': {
+		'Time settings', {
 		  thinkSeconds: { type: Number, label: "Think Seconds", note: 'Amount of time in the "think" segment of the round', required: true, initial: true },
 		  pitchSeconds: { type: Number, label: "Pitch Seconds", note: 'Amount of time in the "pitch" segment of the round', required: true, initial: true },
 		  extraSeconds: { type: Number, label: "Extra Seconds", note: 'Amount of time given to a player if they choose to use additional time for their pitch', required: true, initial: true },
 		  deliberateSeconds: { type: Number, label: "Deliberate Seconds", note: 'Amount of time in the "deliberate" segment of the round', required: true, initial: true }
 		}
-
-	}
 
 );
 

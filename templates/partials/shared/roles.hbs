@@ -1,11 +1,11 @@
 <h1>Roles for this round are...</h1>
 
 {{#each this}}
-	<div class="row">{{this}}</div>
+	<div class="row"><b>{{title}}:</b> {{name}}</div>
 {{/each}}
 
 {{!-- {{#if decider}} --}}
-	<div class="form row hidden-el" id="decider">
+	<div class="form row" id="decider">
     <input id="btn-start-game" data-event="game:next" class="post-button submit" type="submit" name="submit" value="next">
 	</div>
 {{!-- {{/if}} --}}

@@ -1,0 +1,45 @@
+// CONTENT SELECTION
+.submission {
+	
+	button {
+		color: white;
+		background-color: $color-orange;
+	    @include linear_transition(background-color, 0.3s);
+
+		&.inactive {
+			background-color: $color-gray-orange;
+		}
+	}
+	#access-code {
+		font-size: 4em; 
+	}
+
+}
+
+.ended-container {
+	background-color: white;
+	margin: 0 auto;
+}
+
+.winner {
+	background-color: white;
+}
+
+
+.room-container {
+	bottom: 10%;
+	padding-left: 10%;
+  padding-right: 10%;
+	position: relative;
+	margin: 10px auto;
+	background-color: white;
+
+	h1 {
+		font-size: 6em;
+	}
+}
+
+// HIDE ANY DECIDER-ONLY VIEWS BY DEFAULT
+#decider {
+		display: none;
+}
