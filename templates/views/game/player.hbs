@@ -4,7 +4,7 @@
     <input type="text" id="access_code" placeholder="room code"> <br />
     <input type="text" id="player_name" placeholder="name"> <br />
     <div class="error">Error!</div>
-    <input id="btn_submit_code" data-event="game:entry" data-package='{"code": "#access_code", "name": "#player_name"}' class="btn btn-default desktop-only game_login hidden-sm hidden-xs" type="submit" name="submit" value="play">
+    <input id="btn_submit_code" data-event="game:entry" data-package='{"code": "#access_code", "name": "#player_name"}' class="btn btn-default game_login" type="submit" name="submit" value="play">
   </div>
 
 </div>
@@ -21,7 +21,9 @@
   <div class="col-sm-3"></div>
 </div>
 
-{{!-- <footer id="footer">
+{{!-- 
+
+<footer id="footer">
 
   <!-- mobile footer start -->
   <div class="entry-footer col-md-12 col-xs-12 mobile-only">
@@ -34,9 +36,9 @@
 			        <div class="col-xs-6">
 								<button id="btn_submit_code" data-event="game:entry" data-package='{"code": "#access_code", "name": "#player_name"}' class="btn default mobile-login game_login">play</button>
 							</div>
-			        {{!-- <div class="col-xs-6">
+			        <div class="col-xs-6">
 								<button id="btn_submit_code" data-event="game:help" class="btn default mobile-login">help</button>
-							</div> --}}
+							</div>
 			      </div>
 
           </div>
@@ -46,4 +48,6 @@
   </div>
   <!-- mobile footer end -->
 
-</footer> --}}
+</footer>
+
+--}}
