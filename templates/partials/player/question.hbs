@@ -1,12 +1,12 @@
 <section class="col-lg-6 col-sm-6">
   <div id="game_code" class="row room-container">
-  
-  	<h3>{{name}} the {{title}}</h3>
+		
+		<h3>Round {{round}}</h3>
 
-  	{{{bio.html}}}
+		<h4><em>{{question}}</em></h4>
 
 	</div>
-	<div class="form row" id="decider">
+	<div class="form row {{!-- hidden-el --}}" id="decider">
     <input id="btn-start-game" data-event="game:next" class="post-button submit" type="submit" name="submit" value="next">
 	</div>
 </section>

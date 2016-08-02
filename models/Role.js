@@ -26,18 +26,21 @@ var Role = new keystone.List('Role', {
  * Model Fields
  * @main Role
  */
-Role.add({
+Role.add(
+	{
 
-	title: { type: String, required: true, initial: true },
-	bio: { type: Types.Markdown, required: true, initial: true },
-	
-	'Agenda Items': {
-		firstItem: { type: String, required: true, initial: true },
-		secondItem: { type: String, required: true, initial: true },
+		title: { type: String, required: true, initial: true },
+		bio: { type: Types.Markdown, required: true, initial: true },
+		dateCreated: { type: Date, noedit: true }
+
 	},
-  dateCreated: { type: Date, noedit: true }
+	
+	'Agenda Items', {
+		firstItem: { type: String, required: true, initial: true },
+		secondItem: { type: String, required: true, initial: true }
+	}
 
-});
+);
 
 
 Role.schema.pre('save', function(next) {
