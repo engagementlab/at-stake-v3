@@ -192,33 +192,45 @@
 			$('#btn_submit').click(function(evt) {
 				var data = {};
 
+		    data.deciderName = $('#player-name').val();
+
+		    if(!data.deciderName) {
+		        $('.submission .error').text('Please enter your name!').fadeIn();
+		        return;
+		    }
+
 				data.deckId = $(".form :input.active").map(function(){
 											    return $(this).val();
 											 }).get()[0];
 				data.accessCode = $('#access-code').text();
 
-			  $.post( 
+			  $.post(
 			  	"/api/create/",
-					data,
-					function( successData ) {
+					data)
+					.done(function(successData) {
 
-						if(successData.error_code !== undefined) {
+				    isDecider = true;
 
-							if(successData.error_code === 'need_content')
-								$('#session-create #categories').addClass('invalid');
-							
-							$('#session-create .error').text(successData.msg).fadeIn();
-							
-							return;
-						}
+				    // Open socket connection
+				    socket = io();
+				    registerEvents();
 
-						window.location = successData;
+				    $('#session-create').hide();
+				    $('#waiting').show();
 
-					  // $('#session-create').fadeOut(function() {
-					  // 	$('#waiting').fadeIn();
-					  // })
-					}
-				);
+				    gameCode = '{{gameCode}}';
+						
+						return;
+
+						// window.location = successData;
+					})
+					.fail(function(xhr, status, error) {
+
+						if(xhr.responseJSON.error)							
+							$('#session-create .error').text(xhr.responseJSON.error).fadeIn();
+
+					});
+
 			});
 
 				/*
@@ -334,7 +346,7 @@
           sessionStorage.setItem('uUID', playerUID);
 
 				  $.post( 
-				  	"/game",
+				  	"/login",
 				  	data,
 						function( data ) {
 

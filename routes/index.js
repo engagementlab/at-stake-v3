@@ -22,10 +22,10 @@ exports = module.exports = function(app) {
     // Views
     app.get('/', routes.views.index);
     app.get('/play/:debug?', routes.views.game.play);
-    app.post('/game', routes.views.game.player);
+    app.post('/login', routes.views.game.player);
 
-    app.get('/new', routes.views.decider.index);
-    app.get('/game/:accesscode/:debug?', routes.views.decider.game);
+    app.get('/game', routes.views.decider.index);
+    // app.get('/game/:accesscode/:debug?', routes.views.decider.game);
     
     app.post('/api/create', keystone.middleware.api, routes.api.gamesession.create);
     app.post('/api/load', keystone.middleware.api, routes.api.templates.load);

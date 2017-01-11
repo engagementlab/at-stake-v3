@@ -17,7 +17,7 @@ var appRoot = require('app-root-path'),
     colors = require('colors'),
 
     TemplateLoader = require(appRoot + '/lib/TemplateLoader'),
-    Session = require(appRoot + '/lib/SessionManager');
+    Session = require('learning-games-core').SessionManager,
     Common = require(appRoot + '/lib/Common');
 
 var PlayerLogin = function (nsp, socket, emitter) {
@@ -66,7 +66,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
         var player = {socket_id: currentSocket.id, username: package.msgData.username, uid: package.msgData.uid};
 
         Session.GroupView(package.gameId, currentSocket.id);
-        Session.Get(playerGameId).ModeratorJoin(player, currentSpace);
+        Session.Get(playerGameId).ModeratorJoin(currentSpace);
       }
         
       logger.info(currentSocket.id + ' connected to room.');

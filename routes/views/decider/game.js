@@ -20,7 +20,7 @@ var keystone = require('keystone'),
   Deck = keystone.list('Deck');
 
 var GameManager = require(appRoot + '/lib/GameManager'), 
-    Session = require(appRoot + '/lib/SessionManager');
+    Session = require('learning-games-core').SessionManager;
     
 exports = module.exports = function(req, res) {
 
@@ -35,33 +35,21 @@ exports = module.exports = function(req, res) {
 
     view.on('init', function(next) {
 
-        GameSession.model.findOne({accessCode: req.params.accesscode.toUpperCase()}, function (err, gameSession) {
-          
-          let session = Session.Get(req.params.accesscode.toUpperCase());
+      GameSession.model.findOne({accessCode: req.params.accesscode.toUpperCase()}, function (err, game) {
 
-          if(!session) {
+        // If session does not exist, create it; otherwise, flag current one as restarting
+        let sesh = Session.Get(game.accessCode);
+        if(!sesh) {
+          Session.Create(game.accessCode, new GameManager(game));
+          sesh = Session.Get(game.accessCode);
+        }
+        else
+          sesh.SetToRestarting();
 
-            //TODO: Not in prod
-            session = new Game(gameSession);
-            Session.Create(gameSession.accessCode, session);
+        locals.game = game;
+        locals.gameConfig = sesh.GetConfig();
 
-            locals.game = gameSession;
-            locals.gameConfig = session.GetConfig();
-          
-            // console.log("Game with ID '" + req.params.accesscode.toUpperCase() + "' not found!");
-            // return res.notfound('Game not found!', 'Sorry, but it looks like this game session does not exist!');  
-
-            next();
-
-          }
-          else {
-
-              locals.game = gameSession;
-              locals.gameConfig = session.GetConfig();
-
-              next();
-
-          }
+        next();
 
       });
 

@@ -3,11 +3,11 @@
 	
 	button {
 		color: white;
-		background-color: $color-orange;
+		background-color: orange;
 	    @include linear_transition(background-color, 0.3s);
 
 		&.inactive {
-			background-color: $color-gray-orange;
+			background-color: orange;
 		}
 	}
 	#access-code {
@@ -24,7 +24,6 @@
 .winner {
 	background-color: white;
 }
-
 
 .room-container {
 	bottom: 10%;

@@ -15,12 +15,11 @@
 		min-width: 100px;
 		min-height: 60px;
 		font-size: 3em;
-		background-color: $color-peach;
 	}
 	.invalid
 	{
 		@include animation('invalid-field .5s 1');
-		box-shadow:0 0 5px 1px $color-light-red;
+		box-shadow:0 0 5px 1px red;
 	}
 
 	// Center all divs
@@ -93,7 +92,7 @@
 	.error {
 		display: none;
 		color: white;
-		background-color: $color-light-red;
+		background-color: red;
 		font-size: medium;
 		// width: 40%;
 		min-height: 50px;

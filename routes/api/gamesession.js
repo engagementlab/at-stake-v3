@@ -19,7 +19,7 @@ var keystone = require('keystone'),
     
 var GameSession = keystone.list('GameSession'),
     Game = require(appRoot + '/lib/GameManager'),
-    Session = require(appRoot + '/lib/SessionManager'),
+    Session = require('learning-games-core').SessionManager,
     Deck = keystone.list('Deck');
 
 /**
@@ -46,11 +46,6 @@ exports.create = function(req, res) {
 
         // Save this session to memory for faster retrieval (deleted when game ends)
         Session.Create(data.accessCode, new Game(session));
-
-        // return res.apiResponse({
-        //     success: true,
-        //     code: data.accessCode
-        // });
 
         res.send('/game/' + data.accessCode);
         

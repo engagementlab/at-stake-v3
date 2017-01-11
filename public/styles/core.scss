@@ -37,37 +37,26 @@ html, body {
 
   font-family: "Avenir";
 
-	  background: white;
-	  color: black;
+  background: #fff;
+  color: black;
 
 	@include mobile-only {
 	  background-color: #fdae8f;
 	}
+	
 }
 
 .body.game-bg {
 
   @include linear_transition(background, 0.5s);
 
-  &.htyi {
-	  background: $background-groupview, $color-peach;
-	}
-	&.wikigeeks {
-	  background-image: $background-wiki;
-	}
-
 }
 
 .body.login {
 
   @include linear_transition(background, 0.5s);
-  background-color: #fdae8f;
+  background-color: #00BBB5;
 
-}
-
-.body.monitor {
-  background: $background-groupview, $color-light-orange;
-  background-size: 35%;
 }
 
 // Modal container

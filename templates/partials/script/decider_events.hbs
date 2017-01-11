@@ -16,6 +16,29 @@ var deciderEvents = function(eventId, eventData) {
     
     switch (eventId) {
 
+        case 'players:update':
+
+            var staticPlayers = $('.player-static');
+            var currentPlayers = _.pluck(eventData, 'username');
+
+            {{!-- // Allow to start?
+            if(currentPlayers.length === 2)
+            {
+                var startAnim = new TimelineLite();
+                startAnim.from($('#btn-start-game'), 1, {scale:0, autoAlpha: 0, ease:Elastic.easeOut})
+            } --}}
+
+            _.each(currentPlayers, function(name, index) {
+
+                var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
+
+                $('#players').append('<div class="col-sm-3">' + nameFormatted + '</div>');
+
+
+            });
+
+            break;
+
         case 'game:tutorial':
             
             $('#overlay').html(eventData).fadeIn();
@@ -141,4 +164,3 @@ var deciderLogin = function() {
     registerEvents();
     
 }
-$('#btn_submit_username').click(function() { deciderLogin(); });
