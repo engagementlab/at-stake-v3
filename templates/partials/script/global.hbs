@@ -1,7 +1,7 @@
 {{!< default}}
 {{!-- 
 /**
- * @Stake v3
+ * Emerging Citizens
  * Developed by Engagement Lab, 2016
  * ==============
  * 
@@ -12,68 +12,38 @@
 
 <script type="text/javascript">
 
-	var playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
-	
-	isDecider = false;
-  gameConfig = {};
-
-	{{#ifeq environment "production"}}
-		
-		// GA include
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-64617433-4', 'auto');
-	  ga('send', 'pageview');
-
-	{{else}}
-
-		// For socket debugging
-		sessionStorage.debug = '*';
-
-		// For countdown debugging
-    var countdownPaused = false;
-
-	{{/ifeq}}
-
-	var timeline = new TimelineLite();
-	
-	{{#ifeq section "index"}}
-
-		$(document).ready(function() {
-
-			if (jQuery.browser.mobile)
-				return;
-
-			$('.home-page-info.coming-soon').click(function(evt) {
-				evt.preventDefault();
-				$(evt.currentTarget).addClass('invalid');
-
-				setTimeout(
-					function() {
-						$(evt.currentTarget).removeClass('invalid');
-					}, 1000);
-			});
-
-
- 
-		}); 
-			
-	{{/ifeq}}
+//Checks if the site is being loaded on a mobile device
+(function(a){(jQuery.browser=jQuery.browser||{}).mobile=/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))})(navigator.userAgent||navigator.vendor||window.opera);
 
 	var socket;
+	var socketEvents;
   var gameCode;
+  var gameEnded = false;
+	var gameContainer;
+
   var playerId;
-  
+	var timeline = new TimelineLite();
+
+	// Can be set by any event logic waiting for content update
+	var updateContentCallback;
+
+	// For countdown debugging
+  var countdownPaused = false;
+
+	{{!-- Group view cleanup --}}
+	{{#ifeq viewType 'group'}}
+	    $('.body').addClass('game-bg group');
+	    $('#wrapper').addClass('group');
+	    $('.navbar.main').attr ('style', 'display:none;');
+	{{/ifeq}}
+
   var sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1/emerging-citizens/sfx/';
   {{#ifeq env "development"}}
   	sfxPath = '/sfx/'
   {{/ifeq}}
 
   // All possible socket event IDs
-  // TODO: Change based on game type
+  // TODO: Change based on game type?
 	var eventIds = [
 
 		{{#ifnoteq environment "production"}}
@@ -81,14 +51,17 @@
 		{{/ifnoteq}}
 
 		'connect',
+		'disconnect',
 		'player:loggedin',
+		'player:inactive',
 		'player:reconnected',
 		'players:update',
 		'player:finished',
 
+		'game:error',
+		'game:launchPlan',
 		'game:tutorial',
 		'game:start',
-		'game:next',
 		'game:ending',
 		'game:ended',
 		'game:end',
@@ -98,24 +71,52 @@
 		'game:countdown_ending',
 		'game:countdown_end',
 		'game:round_over',
+		'game:survey',
+		'game:advance',
+		
+		'hashtag:tryagain',
+		'hashtag:success',
+		'hashtag:voted',
+
+		'hashtags:received',
+		'hashtags:results',
+		'hashtags:reveal',
+	
+		'article:valid',
+		'article:random',
+		'article:tryagain',
+		'topic:info',
+		'wiki:click',
+		'wiki:results',
+		'wiki:waiting',
+
+		'meme:topic',
+		'meme:create',
+		'meme:tryagain',
+		'meme:received',
+		'meme:voting',
+		'meme:results',
+		'meme:voted',
+		'meme:liked'
 	
 	];
 
 	/* 
 	 Associate provided data object with current game ID
 	*/
-	function emitData(data) {
+	var emitData = function(data) {
 
 		if(gameCode === undefined && typeof(data.code) !== 'undefined')
 			gameCode = data.code;
 
 		return { gameId: gameCode, msgData: data };
-	}
+	
+	};
 
 	/* 
 	 Obtains the embedded data ('data-key="something"') object from the provided submit button
 	*/
-	function getFormData(submitElement) {
+	var getFormData = function(submitElement) {
 
 		var pkg;
 
@@ -142,402 +143,463 @@
 
 		return pkg;
 
+	};
+
+	/* 
+		Util to convert seconds to h:mm:ss
+	*/
+	var secondsToHms = function(d) {
+
+	  d = Number(d);
+	  var h = Math.floor(d / 3600);
+	  var m = Math.floor(d % 3600 / 60);
+	  var s = Math.floor(d % 3600 % 60);
+
+	  var hourDisplay = '<span id="h">' + (h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + '</span>';
+	  var minsDisplay = '<span id="m">' + m + '</span>';
+	  var secondsDisplay = '<span id="s">' + (s < 10 ? "0" : "") + s + '</span>';
+
+	  return (hourDisplay + minsDisplay + ":" + secondsDisplay); 
+
+	};
+
+  /**
+  * Util to inject markup into game content container and run any callbacks
+  *
+  * @param {String} content HTML to use
+  * @param {Function} callback Function to call after HTML updated
+  * @param {Boolean} pauseAnimate Don't animate screen back in; instead pass animate function to callback to use later
+  * @class global
+  * @name updateGameContent
+  */
+	var updateGameContent = function(content, callback, pauseAnimate) {
+
+		$('#top-header').remove();
+
+		var lobbyAnim = new TimelineLite();
+		lobbyAnim.to(gameContainer, .5, {xPercent:-100, ease:Expo.easeInOut, onComplete:function() {
+
+			// Inject markup content and fire callback when done
+			gameContainer.html(content)
+									 .promise()
+									 .done(function() {
+				
+											if(!pauseAnimate) {
+												// Animate screen back in now and then run callback
+												lobbyAnim.fromTo(gameContainer, .5, {xPercent:100}, {x:0, xPercent:0, ease:Expo.easeInOut, onComplete:function() {
+										 		
+											 		if(callback)
+												 		callback();
+
+												 	if(updateContentCallback)
+													 	updateContentCallback();
+
+												}})
+											}
+											else {
+													// Animate screen back in later using function passed to callback													
+											 		if(callback)
+												 		callback(function() {
+												 			lobbyAnim.fromTo(gameContainer, .5, {xPercent:100}, {x:0, xPercent:0, ease:Expo.easeInOut});
+												 		});
+												 	
+												 	if(updateContentCallback)
+													 	updateContentCallback();
+
+											}
+
+									    // Hide loading
+									    $('#loading-modal').fadeOut(250);
+
+									 });
+
+		}})
+
+		if($('#top-header').length > 0) {
+			var topBar = $('#top-header').detach();
+			topBar.after('#nav-close-wrapper');
+		}
 	}
 
-	{{#ifnoteq section 'decider/game'}}
+	/*
+	    Hide/show loading modal
+	*/
+	var loadToggle = function(show, fast) {
+	 
+	    if(fast) {
+	        // Hide/show loading w/o anim
+	        $('#loading-modal').toggle(show);
+	    }
+	    else {
+	        // Hide/show loading
+	        $('#loading-modal').fadeTo(250, (show ? 1 : 0), 'easeInOutQuart');
+	    }
 
-		// Load animations
-		{{> script/player_animation}}
+	}
 
-	{{/ifnoteq}}
+	/* 
+		Util to find font size of given length of text contents (WWDMM)
+	*/
+  var getFontSize = function(txt) {
 
-	$(document).ready(function() {
+    var fontSize = 0;
 
-			var isEmulated = window.frameElement && window.frameElement.getAttribute('data-emulated');
+    if (txt.length < 1) 
+        fontSize = 1;
+    
+    if (txt.length == 1) 
+        fontSize = 70;
+    
+    if (txt.length == 2) 
+        fontSize = 68;
+    
+    if (txt.length == 3) 
+        fontSize = 66;
+    
+    if (txt.length == 4) 
+        fontSize = 64;
+    
+    if (txt.length == 5) 
+        fontSize = 62;
+    
+    if (txt.length == 6) 
+        fontSize = 61;
+    
+    if (txt.length == 7) 
+        fontSize = 60;
+    
+    if (txt.length == 8) 
+        fontSize = 55;
+    
+    if (txt.length == 9) 
+        fontSize = 50;
+    
+    if (txt.length == 10)
+        fontSize = 45;
+   
+    if (txt.length > 10)
+        fontSize = Math.round(Math.max(((1 / (Math.pow(txt.length, 0.14285714285714285714285714285714))) * 50 + 10), 14));
+   
+    if (txt.length > 20)
+        fontSize = Math.round(Math.max(((1 / (Math.pow(txt.length, 0.125))) * 40 + 13), 14));
+   
+    if (txt.length > 90)
+        fontSize = Math.round(Math.max(((1 / (Math.pow((txt.length - 80), 0.125))) * 40 + 5), 14));
+   
+    if (txt.length > 206)
+        fontSize = Math.round(Math.max(((1 / (Math.pow((txt.length - 160), 0.125))) * 40 + 2), 14));
 
-			if(!isEmulated) {
+    return fontSize;
+
+  }
+
+	var registerEvents = function() {
+
+    {{#ifeq environment "development"}}
+        
+        socket.on('connect_timeout', function() {
+           console.warn('Client timed out when connecting.');
+           {{!-- debugger; --}}
+        });
+        socket.on('disconnect', function() {
+           console.warn('Client was disconnected!');
+           {{!-- debugger; --}}
+        });
+        socket.on('reconnecting', function() {
+           console.log('Reconnecting.');
+           {{!-- debugger; --}}
+        });
+        socket.on('reconnect_attempt', function() {
+           console.log('Trying to reconnect!');
+           {{!-- debugger; --}}
+        });
+        socket.on('reconnect_error', function(err) {
+           console.error('Reconnect error: %s', err);
+           {{!-- debugger; --}}
+        });
+
+        console.log('Connecting to game "' + gameCode + '".');
+
+    {{/ifeq}}
+
+    $.each(eventIds, function(index, id) {
+      
+      socket.on(id, function(eventData) {
+
+            {{#ifnoteq environment "production"}}
+
+                $('#last-event').text('last event: ' + id);
+
+                console.log("EVENT ID: ", id);
+
+            {{/ifnoteq}}
+            
+            socketEvents(id, eventData);
+
+            if(typeof(gameEvents) == "function")
+                gameEvents(id, eventData);
+
+        });
+
+    });
+
+	}
+
+window.onload = function() {
+
+	// Show body only after everything is loaded
+  // document.body.style.display = "block";
+  $('body').fadeIn(1000);
+
+  
+
+	// Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
+	detectPrivateMode(function(isPrivate) {
+
+		// Landing page class for body
+		{{#ifeq viewType 'landing'}}
+				$('body').addClass('landing');
+		{{/ifeq}}
+
+		// Global nav
+		var openAnim = new TimelineLite({paused: true, onComplete: function() { closeAnim.pause(0); }})				
+		.to($('#game-menu'), .3, {autoAlpha:0})
+		.from($('.nav-dropdown'), .2, {autoAlpha:0})
+		.from($('#game-logo, #game-logo-sm'), .2, {yPercent:50, scale:0, autoAlpha:0, ease: Ease.easeOut})
+		.from($('#nav-close'), .2, {yPercent:50, autoAlpha:0, display:'none', ease: Ease.easeOut})
+		.staggerFrom($('#navbar li'), .1, {yPercent:50, scale:0, autoAlpha:0, ease:Ease.easeInOut}, .05);
+
+		var closeAnim = new TimelineLite({paused: true, onComplete: function() { openAnim.pause(0); }})
+		.staggerTo($('#navbar li'), .1, {scale:0, autoAlpha:0, ease:Elastic.easeOut}, .05)
+		.to($('#game-logo, #game-logo-sm'), .2, {yPercent:50, autoAlpha:0})
+		.to($('#nav-close'), .2, {yPercent:50, autoAlpha:0, display:'none'})
+		.to($('.nav-dropdown'), .2, {autoAlpha:0, display:'none'})
+		.to($('#game-menu'), .3, {autoAlpha:1});
+
+		$("#nav-dropdown").on('click', function() {
+			$('.nav-dropdown').show();
+			$('#nav-close').show();
+
+			openAnim.play(0);
+
+		});
+		$('#nav-close').on('click', function() {
+
+			closeAnim.play();
+
+		});
+
+		{{#ifeq environment "production"}}
 			
-				ion.sound({
-			    sounds: [
-			        {
-			            name: "button_tiny"
-			        }
-			    ],
-			    volume: 0.5,
-			    path: sfxPath,
-			    preload: true,
-			    ready_callback: function(obj) { console.log('sounds ready', obj); }
-				});
+			// GA include
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+		  ga('create', 'UA-64617433-4', 'auto');
+		  ga('send', 'pageview');
+
+		{{else}}
+
+			if(!isPrivate) {
+				// For socket debugging
+				localStorage.debug = '*';
 			}
-			else
-				$('#debugging').remove();
-					
-      $('.body').addClass('login');
-			$('.navbar.main').hide();
 
-			$('.toggle-button').click(function(e) {
+		{{/ifeq}}
+		
+		{{#ifeq viewType 'player'}}
 
-				$('.toggle-button').each(function(ind, btn) {
-					$(btn).removeClass('active');
-					$(btn).addClass('inactive');
-				});
+			// Load animations
+			{{> script/player_animation}}
 
-				$(e.currentTarget).addClass('active');
-				$(e.currentTarget).removeClass('inactive');
+		{{/ifeq}}	
 
-			});
+		$(document).ready(function() {
 
-			// Form click to begin game
-			$('#btn_submit').click(function(evt) {
-				var data = {};
+			// Get reference to main content div
+			gameContainer = $('#gameContent');
+	
+			{{#ifnoteq viewType 'landing'}}
+				{{#ifnoteq section 'newgame'}}
 
-		    data.deciderName = $('#player-name').val();
+					/**
+					 * Listen for forms that dispatch socket events.
+					 *
+					 * ### Examples:
+					 *
+					 * @class global
+					 */
+					$(document).on('click', '.form .submit', function(evt) {
+					    
+				    var event = $(this).data().event;
+				    var pkg = getFormData($(this));
 
-		    if(!data.deciderName) {
-		        $('.submission .error').text('Please enter your name!').fadeIn();
-		        return;
-		    }
+				    // Emit event to socket
+				    socket.emit(event, emitData(pkg));
 
-				data.deckId = $(".form :input.active").map(function(){
-											    return $(this).val();
-											 }).get()[0];
-				data.accessCode = $('#access-code').text();
+				    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom
+				    if($(this).data().autohide) {
+				        new TimelineLite()
+				        .to('#' + $('#submitted').data('hide'), .5, {scale:0, autoAlpha:0, display:'none'})
+				        .from($('#submitted'), .5, {scale:0, autoAlpha:0});
+				    }
 
-			  $.post(
-			  	"/api/create/",
-					data)
-					.done(function(successData) {
-
-				    isDecider = true;
-
-				    // Open socket connection
-				    socket = io();
-				    registerEvents();
-
-				    $('#session-create').hide();
-				    $('#waiting').show();
-
-				    gameCode = '{{gameCode}}';
-						
-						return;
-
-						// window.location = successData;
-					})
-					.fail(function(xhr, status, error) {
-
-						if(xhr.responseJSON.error)							
-							$('#session-create .error').text(xhr.responseJSON.error).fadeIn();
+				    // Disable form button unless explicitly prevented, and show loading...
+				    if(!$(this).data().keep_enabled) {
+			        $(evt.currentTarget).attr('disabled', 'disabled');
+			        loadToggle(true);
+				    }
 
 					});
 
-			});
+				{{/ifnoteq}}
+			{{/ifnoteq}}
 
-				/*
-					Logs the player in
-				*/
-				function playerLogin(data) {
+			// PLAYER LOGIC
+			{{> script/player_logic section=section}}
 
-					gameCode = data.code;
-
-					// Save current game code to local storage
-					sessionStorage.setItem('gameCode', gameCode);
-
-					$('.navbar').slideUp();
+			// GROUP VIEW
+			{{#ifeq viewType 'group'}}
+			
+				// CATEGORY SELECT
+				{{#ifeq section 'newgame'}}			
 					
-					// Open socket connection
-					if(socket === undefined) {
-				    socket = io('//{{host}}');
-				    registerEvents();
-				  }
+		      /*$('.body').addClass('newgame');
+					$('.navbar.main').hide();
 
-					playerName = $('#player_name').val();
-					sessionStorage.setItem('username', playerName);
+					// Show categoriews
+	        new TimelineLite()
+	        .staggerFrom(_.shuffle($('.category-box')), 1.4, {scale:0, ease:Elastic.easeOut}, .2);*/
 
-					socket.on('disconnect', function(){
-					   // alert('disconnected!')
-					});
+				  // ACCESS CODE 
+				  $('#session-create #btn_submit').click(function(evt) {
+						var data = {};
 
-					console.log('Connecting to game "' + gameCode + '".');
+				    data.deciderName = $('#player-name').val();
 
-	        // Log player in
-					socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));
+				    if(!data.deciderName) {
+				        $('.submission .error').text('Please enter your name!').fadeIn();
+				        return;
+				    }
 
-				}
+						data.deckId = $(".form :input.active").map(function(){
+													    return $(this).val();
+													 }).get()[0];
+						data.accessCode = $('#access-code').text();
 
-				/*
-					Checks if this client is logged in as a player already
-				*/
-				function checkIfLoggedIn() {
-					
-					// Check if game code saved to session (player is already logged in)
-					if(!sessionStorage.getItem('gameCode'))
-						return;
+					  $.post(
+					  	"/api/create/",
+							data)
+							.done(function(successData) {
 
-					gameCode = sessionStorage.getItem('gameCode');
+						    isDecider = true;
 
-					console.log('Trying to re-connect to game "' + gameCode + '".');
-					
-					// Open socket connection
-					if(socket === undefined) {
-				    socket = io('//{{host}}');
-				    registerEvents();
-				  }
-          
-          // Check if player is active in game
-          socket.emit('login:active', {
-					  gameId: sessionStorage.getItem('gameCode'), 
-					  username: sessionStorage.getItem('username'),
-					  uid: sessionStorage.getItem('uUID')
-					});
+						    // Open socket connection
+						    socket = io();
+						    registerEvents();
 
-				}
+						    $('#session-create').hide();
+						    $('#waiting').show();
 
-				/**
-				 * Listen for forms that dispatch socket events.
-				 *
-				 * ### Examples:
-				 *
-				 * @class global
-				 */
-				$(document).on('click', '.form .submit', function() {
-					
-					var event = $(this).data().event;
-					var localEvent = $(this).data().local_event;
-					var sessionFlag = $(this).data().sessionFlag;
-					var pkg = getFormData($(this));
-
-					// If this is a local event, call immediately (don't emit)
-					if(localEvent !== undefined) {
-						socketEvents(localEvent);
-						return;
-					}
-
-					// If there is a session flag ('flag:value'), set it
-					if(sessionFlag !== undefined)
-						sessionStorage.setItem(sessionFlag.split(':')[0], sessionFlag.split(':')[1]);
-
-					socket.emit(event, emitData(pkg));
-
-					if($(this).data().autohide) {
-						$('#' + $('#submitted').data('hide')).remove();
-						$('#submitted').show();
-					}
-
-				});
-
-				/* 
-				 Disallows input from octothorp (#) character for hashtag submission
-				*/
-				$(document).on('keypress', '#tweet_input', function(key) {
-					
-					if(key.charCode === 35)
-						return false;
-
-				});
-				
-				/* 
-				 Logs player into game with room code and name
-				*/
-				$(document).on('click', '.btn.game_login', function() {
-
-					var data = getFormData($(this));
-
-          sessionStorage.setItem('uUID', playerUID);
-
-				  $.post( 
-				  	"/login",
-				  	data,
-						function( data ) {
-
-							$('.form input').removeClass('invalid');
-
-							if(data.error_code !== undefined) {
-
-								switch(data.error_code) {
-									case 'wrong_code': 
-										$('.form #class_code').addClass('invalid');
-										break;
-
-									case 'no_username':
-										$('.form #player_name').addClass('invalid');
-										break;
-
-									case 'username_taken':
-										$('.form #player_name').addClass('invalid');
-										break;
-								}
-
-								$('.form .error').text(data.msg).fadeIn();
+						    gameCode = '{{gameCode}}-group';
+								
 								return;
 
-							}
+								// window.location = successData;
+							})
+							.fail(function(xhr, status, error) {
 
-	            data.uid = playerUID;
-							playerLogin(data);							
+								if(xhr.responseJSON.error)							
+									$('#session-create .error').text(xhr.responseJSON.error).fadeIn();
 
-						}
-					);
+							});
 
-				});
+					});
+					
+					/*$('.category-box').click(function(evt) {
+						$(evt.currentTarget).toggleClass('selected');
 
-				// Check if this client is logged in on server
-				// checkIfLoggedIn();
-
-				// Load events for players
-				{{> script/player_events gameType=gameType}}
-			
-				{{!-- INDEX Template Script --}}
-				{{#ifeq section 'decider/game'}}
-				
-					gameCode = '{{game.accessCode}}-group'; 
-
-					var nav = $('nav.header');
-
-					{{#ifeq debug true}}
-	        	// Debugging view
-						$('#debugging').appendTo('body');
-	        {{/ifeq}}
-
-					// Load events for decider
-					{{> script/decider_events gameType=gameType}}
-
-				{{else}}
-
-					// Prevent device sleep
-					var noSleep = new NoSleep();
-					noSleep.enable(5000);
-
-          {{#ifeq debug true}}
-          	// Debugging view
-            {{#ifeq section 'play'}}
-                $('#access_code').val('TEST');
-                $('#player_name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
-            {{/ifeq}}
-          {{/ifeq}}
+						if(!$(evt.currentTarget).hasClass('selected'))
+							TweenLite.fromTo($(evt.currentTarget).find('.checkbox'), 1, {scale:1}, {autoAlpha:0, scale:0, ease: Elastic.easeOut});
+						else
+							TweenLite.fromTo($(evt.currentTarget).find('.checkbox'), 1, {autoAlpha:0, scale:0, rotation: "20_ccw"}, {autoAlpha:1, scale:1, rotation: "0_cw", ease: Elastic.easeOut});
+					});
+					
+					$('.category-box')
+					.hover(function(evt) {
+							TweenLite.fromTo($(evt.currentTarget), 1, {scale:1}, {scale:1.1, ease: Elastic.easeOut});
+					})
+					.mouseleave(function(evt) {
+							TweenLite.fromTo($(evt.currentTarget), 1, {scale:1.1}, {scale:1});
+					});*/
 				
 				{{/ifeq}}
 
-				function registerEvents() {
-
-					$.each(eventIds, function(index, id) {
-					  
-					  socket.on(id, function(eventData) {
-
-							{{#ifnoteq environment "production"}}
-
-								console.log("EVENT ID: ", id);
-								console.log("EVENT DATA: (" + eventData + ")");
-
-							{{/ifnoteq}}
-							
-							socketEvents(id, eventData);
-
-						 	if(typeof(deciderEvents) == "function")
-								deciderEvents(id, eventData);
-
-						});
-
-					});
-
-				}
-
-			{{#ifeq section 'index'}}
-
-				playerEntry();
-
-				$(document).on('click', '.btn.game_entry', function() {
-					
-					var type = $(this).data().game;
-
-				  $.get( 
-				  	"/game/get/" + type,
-						function( data ) {
-
-	            $('#gameContent').html(data);
-
-	            $('.form input[type=submit]')
-	            .hover(function(evt) {
-	            
-	            	timeline.to(evt.currentTarget, .5, { ease: Elastic.easeOut, scale:1.2 });
-	            
-	            })
-	            .mouseleave(function(evt) {
-
-	            	timeline.from(evt.currentTarget, .5, { scale:1.2 });
-	            
-	            });
-
-						}
-					);
-
-				});
+				{{> script/groupview_logic section=section}}
 
 			{{/ifeq}}
 
-			{{#ifeq section 'play'}}
+			function templateLoad() {
 
-          $('.body').addClass('game-bg');
-          $('.body').addClass('player');
+				var selected = $('#template_selector').find('option:selected');
+				var template = selected.val();
+				var templateData = selected.data('key');
+				var eventId = selected.data('event_id'); 
 
-      {{/ifeq}}
+			  $.post( 
+			  	"/api/load/",
+			  	{ template_path: template, debug_key: templateData, event_id: eventId },
+					function( data ) {
 
-		function templateLoad() {
+					 	socketEvents(data.id, data.eventData);
 
-			var selected = $('#template_selector').find('option:selected');
-			var template = selected.val();
-			var templateData = selected.data('key');
-			var eventId = selected.data('event_id'); 
+					 	if(typeof(gameEvents) == "function")
+							gameEvents(data.id, data.eventData);
 
-		  $.post( 
-		  	"/api/load/",
-		  	{ template_path: template, debug_key: templateData, event_id: eventId },
-				function( data ) {
+					}
+				);
 
-				 	socketEvents(data.id, data.eventData);
-
-				 	if(typeof(gameEvents) == "function")
-						gameEvents(data.id, data.eventData);
-
-				}
-			);
-
-		}
-		$("#template_reload").click(function() {
-
-			templateLoad();
-
-		});
-		$("#template_selector").change(function() {
-
-			templateLoad();
-		
-		});
-		$("#countdowns_pause").click(function(evt) {
-
-			var btn = $(evt.currentTarget);
-			socket.emit('debug:pause', emitData());
-
-			if(!$(btn).data('resume')) {
-				$(btn).text('resume countdowns');
-				$(btn).data('resume', 'true');
 			}
-			else {
-				$(btn).text('pause countdowns');
-				$(btn).data('resume', 'false');
-			}
+			$("#template_reload").click(function() {
 
-		});
-		$("#generate_players").click(function() {
+				templateLoad();
 
-			$("#generate_players").text('loading...');
+			});
+			$("#template_selector").change(function() {
 
-			$('#login').remove();
-			$('#emulate-players').fadeIn();
+				templateLoad();
 			
-			$('#emulate-players iframe').attr('src', 'http://localhost:3000/play/debug');
+			});
+			$("#countdowns_pause").click(function(evt) {
+
+				var btn = $(evt.currentTarget);
+				socket.emit('debug:pause', emitData());
+
+				if(!$(btn).data('resume')) {
+					$(btn).text('resume countdowns');
+					$(btn).data('resume', 'true');
+				}
+				else {
+					$(btn).text('pause countdowns');
+					$(btn).data('resume', 'false');
+				}
+
+			});				
+			$("#generate_players").click(function() {
+
+				$("#generate_players").text('loading...');
+
+				$('#login').remove();
+				$('#emulate-players').fadeIn();
+				
+				$('#emulate-players iframe').attr('src', 'http://localhost:3000/play/debug');
+			});
+
 		});
 
-});
+	});
 
+}
 </script>
