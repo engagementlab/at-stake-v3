@@ -98,10 +98,15 @@ socketEvents = function(eventId, eventData) {
         case 'game:start':
         case 'game:next':
 
-            $('#gameContent').html(eventData);
+            updateGameContent(eventData, function() {
 
-            if(isDecider)
-                $('#decider').show();
+                rulesAnim();
+
+                if(isDecider)
+                    $('#decider').show();
+
+            });
+            
             break;
 
         case 'game:ending':
