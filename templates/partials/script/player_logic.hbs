@@ -254,10 +254,7 @@ $(document).on('click', '.btn.game_login', function(evt) {
 });
 
 // Check if this client is logged in on server
-window.onload = checkIfLoggedIn();{{!--  {
-console.log("checking");
-    checkIfLoggedIn();
-}; --}}
+window.onload = checkIfLoggedIn();
 
 // Load events for players
 {{> script/player_events gameType=gameType}}

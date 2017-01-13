@@ -22,6 +22,7 @@
 	var gameContainer;
 
   var playerId;
+  var isDecider;
 	var timeline = new TimelineLite();
 
 	// Can be set by any event logic waiting for content update
@@ -461,7 +462,7 @@ window.onload = function() {
 			{{> script/player_logic section=section}}
 
 			// GROUP VIEW
-			{{#ifeq viewType 'group'}}
+			{{#ifeq viewType 'decider'}}
 			
 				// CATEGORY SELECT
 				{{#ifeq section 'newgame'}}			
@@ -474,6 +475,18 @@ window.onload = function() {
 	        .staggerFrom(_.shuffle($('.category-box')), 1.4, {scale:0, ease:Elastic.easeOut}, .2);*/
 
 				  // ACCESS CODE 
+	  			$('.toggle-button').click(function(e) {
+
+						$('.toggle-button').each(function(ind, btn) {
+							$(btn).removeClass('active');
+							$(btn).addClass('inactive');
+						});
+
+						$(e.currentTarget).addClass('active');
+						$(e.currentTarget).removeClass('inactive');
+
+					});
+
 				  $('#session-create #btn_submit').click(function(evt) {
 						var data = {};
 
@@ -484,7 +497,7 @@ window.onload = function() {
 				        return;
 				    }
 
-						data.deckId = $(".form :input.active").map(function(){
+						data.deckId = $("#decks :input.active").map(function(){
 													    return $(this).val();
 													 }).get()[0];
 						data.accessCode = $('#access-code').text();
@@ -537,7 +550,7 @@ window.onload = function() {
 				
 				{{/ifeq}}
 
-				{{> script/groupview_logic section=section}}
+				{{> script/decider_logic section=section}}
 
 			{{/ifeq}}
 
