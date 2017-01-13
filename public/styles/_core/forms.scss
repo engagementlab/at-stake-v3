@@ -36,9 +36,11 @@
 	    margin-bottom: 20px;
 	    position: relative;
 
+
 	  &:focus {
 	    outline: none !important;
 	    border:6px solid #00c5c2;
+
 	    box-shadow: 0 0 10px #719ECE;
 		}
 	}
@@ -52,9 +54,18 @@
 
 	}
 
+	input[type=text] {
+		border-radius: 50px;
+	}
+
 	input.prompt {
 		width: 100%;
 		display: inline;
+	}
+
+	input.game_login {
+		width: 300px;
+		background-color:orange;
 	}
 
 	.input-container {

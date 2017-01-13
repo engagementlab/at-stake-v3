@@ -93,9 +93,14 @@
     font-size: x-large;
     font-weight: bold;
     border: 0; }
+  .form input[type=text] {
+    border-radius: 50px; }
   .form input.prompt {
     width: 100%;
     display: inline; }
+  .form input.game_login {
+    width: 300px;
+    background-color: orange; }
   .form .input-container {
     position: relative; }
   .form .input-container input {
@@ -236,7 +241,7 @@ html, body {
 
 .body {
   font-family: "Avenir";
-  background: #fff;
+  background: blue;
   color: black; }
   @media (max-width: 480px) {
     .body {
