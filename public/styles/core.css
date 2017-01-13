@@ -173,6 +173,9 @@
 #decider {
   display: none; }
 
+.screen {
+  display: none; }
+
 @media (min-width: 1024px) {
   body .container {
     width: 100%; }

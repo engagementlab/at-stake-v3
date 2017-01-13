@@ -22,6 +22,7 @@
 	var gameContainer;
 
   var playerId;
+  var playerUID;
   var isDecider;
 	var timeline = new TimelineLite();
 
@@ -63,6 +64,7 @@
 		'game:launchPlan',
 		'game:tutorial',
 		'game:start',
+		'game:next',
 		'game:ending',
 		'game:ended',
 		'game:end',
@@ -74,31 +76,6 @@
 		'game:round_over',
 		'game:survey',
 		'game:advance',
-		
-		'hashtag:tryagain',
-		'hashtag:success',
-		'hashtag:voted',
-
-		'hashtags:received',
-		'hashtags:results',
-		'hashtags:reveal',
-	
-		'article:valid',
-		'article:random',
-		'article:tryagain',
-		'topic:info',
-		'wiki:click',
-		'wiki:results',
-		'wiki:waiting',
-
-		'meme:topic',
-		'meme:create',
-		'meme:tryagain',
-		'meme:received',
-		'meme:voting',
-		'meme:results',
-		'meme:voted',
-		'meme:liked'
 	
 	];
 
@@ -409,13 +386,9 @@ window.onload = function() {
 			}
 
 		{{/ifeq}}
-		
-		{{#ifeq viewType 'player'}}
 
-			// Load animations
-			{{> script/player_animation}}
-
-		{{/ifeq}}	
+		// Load animations
+		{{> script/player_animation}}
 
 		$(document).ready(function() {
 
@@ -423,7 +396,6 @@ window.onload = function() {
 			gameContainer = $('#gameContent');
 	
 			{{#ifnoteq viewType 'landing'}}
-				{{#ifnoteq section 'newgame'}}
 
 					/**
 					 * Listen for forms that dispatch socket events.
@@ -455,7 +427,6 @@ window.onload = function() {
 
 					});
 
-				{{/ifnoteq}}
 			{{/ifnoteq}}
 
 			// PLAYER LOGIC
@@ -508,6 +479,10 @@ window.onload = function() {
 							.done(function(successData) {
 
 						    isDecider = true;
+
+						    // Create uid for player
+						    playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
+						    sessionStorage.setItem('uUID', playerUID);
 
 						    // Open socket connection
 						    socket = io();

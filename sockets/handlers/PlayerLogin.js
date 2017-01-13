@@ -66,7 +66,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
         var player = {socket_id: currentSocket.id, username: package.msgData.username, uid: package.msgData.uid};
 
         Session.GroupView(package.gameId, currentSocket.id);
-        Session.Get(playerGameId).ModeratorJoin(currentSpace);
+        Session.Get(playerGameId).ModeratorJoin(currentSpace, player);
       }
         
       logger.info(currentSocket.id + ' connected to room.');
@@ -78,7 +78,9 @@ var PlayerLogin = function (nsp, socket, emitter) {
       var player = {socket_id: currentSocket.id, username: package.msgData.username, uid: package.msgData.uid};
 
       // Mark player as ready inside game session
-      Session.Get(package.gameId).PlayerReady(player, currentSpace);
+      Session.Get(package.gameId).PlayerReady(
+                                              player,
+                                              currentSpace);
 
       logger.info(player.username  + ' logged in.');
       
@@ -113,7 +115,10 @@ var PlayerLogin = function (nsp, socket, emitter) {
         currentSocket.emit('player:reconnected', true);
 
         // Mark player as ready inside game session
-        Session.Get(package.gameId).PlayerReady(player, currentSocket);
+        Session.Get(package.gameId).PlayerReady(
+                                                player,
+                                                currentSocket,
+                                                (package.msgData.type === 'decider'));
 
       }
       else {
