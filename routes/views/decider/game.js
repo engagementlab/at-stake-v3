@@ -27,7 +27,8 @@ exports = module.exports = function(req, res) {
     var view = new keystone.View(req, res);
     var locals = res.locals;
 
-    locals.section = 'decider/game';
+    locals.viewType = 'decider';
+    locals.section = 'game';
 
     // Enable debugging on staging only
     if(req.params.debug === 'debug' && process.env.NODE_ENV !== 'production')
@@ -56,6 +57,6 @@ exports = module.exports = function(req, res) {
     });
 
     // Render the view
-    view.render('decider/game');
+    view.render('decider/waiting');
 
 };

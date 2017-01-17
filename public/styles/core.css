@@ -17,7 +17,8 @@
   font-family: "AvenirBold"; }
 
 .form {
-  min-height: 100%; }
+  min-height: 100%;
+  color: black; }
 
 @-webkit-keyframes invalid-field {
   0% {
@@ -171,7 +172,9 @@
   padding-right: 10%;
   position: relative;
   margin: 10px auto;
-  background-color: white; }
+  background-color: white;
+  color: black;
+  min-height: 500px; }
   .room-container h1 {
     font-size: 6em; }
 
@@ -179,7 +182,9 @@
   display: none; }
 
 .screen {
-  display: none; }
+  display: none;
+  float: none;
+  margin: 0 auto; }
 
 @media (min-width: 1024px) {
   body .container {
@@ -245,7 +250,7 @@ html, body {
 .body {
   font-family: "Avenir";
   background: blue;
-  color: black; }
+  color: white; }
   @media (max-width: 480px) {
     .body {
       background-color: #fdae8f; } }

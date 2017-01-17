@@ -25,7 +25,7 @@ exports = module.exports = function(app) {
     app.post('/login', routes.views.game.player);
 
     app.get('/game', routes.views.decider.index);
-    // app.get('/game/:accesscode/:debug?', routes.views.decider.game);
+    app.get('/game/:accesscode/:debug?', routes.views.decider.game);
     
     app.post('/api/create', keystone.middleware.api, routes.api.gamesession.create);
     app.post('/api/load', keystone.middleware.api, routes.api.templates.load);

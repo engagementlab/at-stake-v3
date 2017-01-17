@@ -72,11 +72,7 @@
         $('#debugging').appendTo('body');
     {{/ifeq}}
 
-    // Load events for group
-    {{> script/groupview_events gameType=gameType}}
-
-    // Open socket connection
-    socket = io();
-    registerEvents();
+    // Load events for decider
+    {{> script/decider_events gameType=gameType}}
 
   {{/ifnoteq}}

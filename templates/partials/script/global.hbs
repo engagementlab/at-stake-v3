@@ -215,62 +215,6 @@
 
 	}
 
-	/* 
-		Util to find font size of given length of text contents (WWDMM)
-	*/
-  var getFontSize = function(txt) {
-
-    var fontSize = 0;
-
-    if (txt.length < 1) 
-        fontSize = 1;
-    
-    if (txt.length == 1) 
-        fontSize = 70;
-    
-    if (txt.length == 2) 
-        fontSize = 68;
-    
-    if (txt.length == 3) 
-        fontSize = 66;
-    
-    if (txt.length == 4) 
-        fontSize = 64;
-    
-    if (txt.length == 5) 
-        fontSize = 62;
-    
-    if (txt.length == 6) 
-        fontSize = 61;
-    
-    if (txt.length == 7) 
-        fontSize = 60;
-    
-    if (txt.length == 8) 
-        fontSize = 55;
-    
-    if (txt.length == 9) 
-        fontSize = 50;
-    
-    if (txt.length == 10)
-        fontSize = 45;
-   
-    if (txt.length > 10)
-        fontSize = Math.round(Math.max(((1 / (Math.pow(txt.length, 0.14285714285714285714285714285714))) * 50 + 10), 14));
-   
-    if (txt.length > 20)
-        fontSize = Math.round(Math.max(((1 / (Math.pow(txt.length, 0.125))) * 40 + 13), 14));
-   
-    if (txt.length > 90)
-        fontSize = Math.round(Math.max(((1 / (Math.pow((txt.length - 80), 0.125))) * 40 + 5), 14));
-   
-    if (txt.length > 206)
-        fontSize = Math.round(Math.max(((1 / (Math.pow((txt.length - 160), 0.125))) * 40 + 2), 14));
-
-    return fontSize;
-
-  }
-
 	var registerEvents = function() {
 
     {{#ifeq environment "development"}}
@@ -323,15 +267,27 @@
 
 	}
 
+	var setupDecider = function() {
+
+    isDecider = true;
+
+    // Create uid for player
+    playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
+    sessionStorage.setItem('uUID', playerUID);
+
+    // Open socket connection
+    socket = io();
+    registerEvents();
+
+	}
+
 window.onload = function() {
 
 	// Show body only after everything is loaded
   // document.body.style.display = "block";
   $('body').fadeIn(1000);
 
-  
-
-	// Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
+  // Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
 	detectPrivateMode(function(isPrivate) {
 
 		// Landing page class for body
@@ -478,15 +434,7 @@ window.onload = function() {
 							data)
 							.done(function(successData) {
 
-						    isDecider = true;
-
-						    // Create uid for player
-						    playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
-						    sessionStorage.setItem('uUID', playerUID);
-
-						    // Open socket connection
-						    socket = io();
-						    registerEvents();
+								setupDecider();
 
 						    $('#session-create').hide();
 						    $('#waiting').show();
@@ -523,6 +471,13 @@ window.onload = function() {
 							TweenLite.fromTo($(evt.currentTarget), 1, {scale:1.1}, {scale:1});
 					});*/
 				
+				{{/ifeq}}
+
+				// WAITING FOR PLAYERS (OLD SESSION)
+				{{#ifeq section 'game'}}	
+							
+					setupDecider();
+
 				{{/ifeq}}
 
 				{{> script/decider_logic section=section}}

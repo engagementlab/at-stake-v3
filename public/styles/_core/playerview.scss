@@ -32,6 +32,8 @@
 	position: relative;
 	margin: 10px auto;
 	background-color: white;
+	color: black;
+  min-height: 500px;
 
 	h1 {
 		font-size: 6em;
@@ -45,4 +47,6 @@
 
 .screen {
 	display: none;
+	float: none;
+  margin: 0 auto; 
 }

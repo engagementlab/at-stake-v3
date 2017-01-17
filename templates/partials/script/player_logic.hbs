@@ -267,6 +267,13 @@ window.onload = checkIfLoggedIn();
     {{/ifeq}}
 {{/ifeq}}
 
+// DECIDER
+{{#ifeq viewType 'decider'}}
+    {{#ifeq section 'game'}}
+        $('#player-name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
+    {{/ifeq}}
+{{/ifeq}}
+
 {{!-- {{#ifeq section 'index'}}
 
     playerEntry();

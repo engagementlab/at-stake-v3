@@ -20,7 +20,7 @@ function playerEntry() {
 		timeline.add(TweenMax.fromTo(el, animTiming[index], {scale:0}, {scale:1, ease:Elastic.easeOut}));
 
   });
-  {{!-- console.log ("animating players entering"); --}}
+
   timeline.play();
 
 }
@@ -28,14 +28,16 @@ function playerEntry() {
 function rulesAnim() {
 
 	var screens = $('.row.screen');
-  var screensAnim = new TimelineLite({paused: true});
+  var screensAnim = new TimelineLite({ paused: true, onComplete: 
+																										  	function() { TweenLite.from($('#btn-next'), 1, {scale:0, autoAlpha:0, ease:Elastic.easeOut}); } 
+																		});
 	
   _.each(screens, function(el, index) {
 
-		// timeline.add(TweenLite.fromTo(el, animTiming[index], {scale:0}, {scale:1, ease:Elastic.easeOut}));
+		screensAnim.fromTo(el, .5, {xPercent:-100}, { x:0, xPercent:0, ease:Expo.easeInOut, opacity: 1, display:'block', delay:.5 });
 
-		screensAnim.to(el, .5, {xPercent:-100, ease:Expo.easeInOut, opacity: 1, display:'block', delay: 3});
-		screensAnim.fromTo(el, .5, {xPercent:100}, {x:0, xPercent:0, ease:Expo.easeInOut, opacity:0, display:'none', delay: 3});
+		if(index < screens.length-1)
+			screensAnim.fromTo(el, .5, {xPercent:0}, { x:200, xPercent:200, ease:Expo.easeInOut, opacity:0, display:'none', delay:6 });
 
   });
 
