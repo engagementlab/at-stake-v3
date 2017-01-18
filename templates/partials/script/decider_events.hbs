@@ -9,9 +9,6 @@
  * ==========
  */
 --}}		
-
-var clockInterval;
-
 var deciderEvents = function(eventId, eventData) {
     
     switch (eventId) {
@@ -101,36 +98,6 @@ var deciderEvents = function(eventId, eventData) {
 
             break;
             
-        case 'game:countdown':
-
-            if(clockInterval)
-                clearInterval(clockInterval);
-
-            {{#ifeq gameType "htyi"}}
-
-                    var secondsLeft = eventData.duration;
-                    var timeFactor = 360 / secondsLeft;
-                    var clockHand = $('#clock-hand');
-                        
-                    clockInterval = setInterval(function() {
-
-                        function clockTick() {
-                            clockHand.css({
-                                transform:'rotateZ('+ -(timeFactor*secondsLeft) + 'deg)'
-                            });
-                            secondsLeft--;
-                        }
-
-                        clockTick();
-
-                        if(secondsLeft === 0)
-                            clearInterval(clockInterval);
-                    }, 1000);
-
-            {{/ifeq}}  
-
-            break;
-
         {{#ifnoteq environment "production"}}
             case 'debug:pause':
                 countdownPaused = !countdownPaused;

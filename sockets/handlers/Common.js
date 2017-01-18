@@ -41,10 +41,45 @@ var Common = function (nsp, socket) {
 
         },
 
+        'game:next_player': function(package) {
+
+            Session.Get(package.gameId).
+            NextPlayer();
+
+        },
+
+        'game:load_screen': function(package) {
+
+            Session.Get(package.gameId).
+            LoadScreenAtIndex(package.msgData.index);
+
+        },
+
         'game:next_round': function(package) {
 
             Session.Get(package.gameId).
             AdvanceRound(currentSpace);
+
+        },
+
+        'game:start_timer': function(package) {
+
+            Session.Get(package.gameId).
+            StartTimer(currentSpace);
+
+        },
+
+        'game:more_time': function(package) {
+
+            Session.Get(package.gameId).
+            AddTime(currentSpace);
+
+        },
+
+        'game:turn_done': function(package) {
+
+            Session.Get(package.gameId).
+            PlayerTurnDone(currentSpace);
 
         },
 

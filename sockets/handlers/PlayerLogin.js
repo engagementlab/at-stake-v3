@@ -80,7 +80,8 @@ var PlayerLogin = function (nsp, socket, emitter) {
       // Mark player as ready inside game session
       Session.Get(package.gameId).PlayerReady(
                                               player,
-                                              currentSpace);
+                                              currentSpace,
+                                              false);
 
       logger.info(player.username  + ' logged in.');
       

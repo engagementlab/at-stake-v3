@@ -65,6 +65,7 @@
 		'game:tutorial',
 		'game:start',
 		'game:next',
+		'game:next_round',
 		'game:ending',
 		'game:ended',
 		'game:end',
@@ -73,7 +74,9 @@
 		'game:countdown',
 		'game:countdown_ending',
 		'game:countdown_end',
+		'game:phase_over',
 		'game:round_over',
+		'game:player_done',
 		'game:survey',
 		'game:advance',
 	
@@ -484,25 +487,14 @@ window.onload = function() {
 
 			{{/ifeq}}
 
+    {{#ifeq environment "development"}}
+
 			function templateLoad() {
 
-				var selected = $('#template_selector').find('option:selected');
-				var template = selected.val();
-				var templateData = selected.data('key');
-				var eventId = selected.data('event_id'); 
+				var selected = $('#template_selector');
+				// var template = selected.val();
 
-			  $.post( 
-			  	"/api/load/",
-			  	{ template_path: template, debug_key: templateData, event_id: eventId },
-					function( data ) {
-
-					 	socketEvents(data.id, data.eventData);
-
-					 	if(typeof(gameEvents) == "function")
-							gameEvents(data.id, data.eventData);
-
-					}
-				);
+		    socket.emit('game:load_screen', emitData({ index: selected.prop('selectedIndex') }));
 
 			}
 			$("#template_reload").click(function() {
@@ -541,6 +533,8 @@ window.onload = function() {
 			});
 
 		});
+
+	{{/ifeq}}
 
 	});
 

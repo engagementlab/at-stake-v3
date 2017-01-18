@@ -1,0 +1,39 @@
+<section class="col-lg-6 col-sm-6">
+  <div class="row room-container">
+		
+    <div id="pitch">
+  		
+      {{#if isActive}}
+  			Bt
+  		{{else}}
+  			listen
+  		{{/if}}
+
+    	<h3>{{name}} the {{title}}</h3>
+
+    	{{{bio.html}}}
+
+    	<h4>Agenda</h4>
+
+    	<ul>
+    		<li>{{agendaItems.[0]}}</li>
+    		<li>{{agendaItems.[1]}}</li>
+    	</ul>
+
+      Time left: <span id="countdown"></span>
+      
+    </div>
+
+    {{!-- MORE TIME SCREEN SHOWS AT END OF COUNTDOWN --}}
+    {{#if isActive}}
+      
+      <div class="form row" id="more-time" style="display:none">
+        <h3>Need more time? Pay {{config.extraTimeCost}} coins for {{config.extraSeconds}} more seconds.</h3>
+        <input id="btn-more-time" data-event="game:more_time" class="post-button submit" type="submit" name="submit" value="more time">
+        <input id="btn-cancel" data-event="game:turn_done" class="post-button submit" type="submit" name="submit" value="no thanks">
+      </div>
+
+    {{/if}}
+
+	</div>
+</section>

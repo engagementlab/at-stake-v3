@@ -1,0 +1,12 @@
+<section class="col-lg-6 col-sm-6">
+  <div class="row room-container">
+
+		<h4><em>{{question}}</em></h4>
+    Time left: <span id="countdown"></span>
+
+	</div>
+	<div class="form row {{!-- hidden-el --}}" id="decider">
+    <input id="btn-time" data-event="game:start_timer" class="post-button submit" type="submit" name="submit" value="think ({{config.thinkSeconds}} seconds)">
+    <input id="btn-next" data-event="game:next" class="post-button submit" type="submit" name="submit" value="next" style="display:none">
+	</div>
+</section>

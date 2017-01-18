@@ -10,6 +10,7 @@
  */
 --}}
 
+var clockInterval;
 var playerWasReconnected;
 {{!-- 
 window.addEventListener("beforeunload", function (e) {
@@ -137,6 +138,33 @@ socketEvents = function(eventId, eventData) {
             $('#error-box').show();
 
             break;
+            
+        case 'game:countdown':
+
+            if(clockInterval)
+                clearInterval(clockInterval);
+
+                var secondsLeft = eventData.duration;
+                var timeFactor = 360 / secondsLeft;
+                var clockHand = $('#clock-hand');
+                    
+                clockInterval = setInterval(function() {
+
+                    function clockTick() {
+                        {{!-- clockHand.css({
+                            transform:'rotateZ('+ -(timeFactor*secondsLeft) + 'deg)'
+                        }); --}}
+                        $('#countdown').text(secondsLeft + ' seconds');
+                        secondsLeft--;
+                    }
+
+                    clockTick();
+
+                    if(secondsLeft === 0)
+                        clearInterval(clockInterval);
+                }, 1000);
+
+            break;
 
         case 'game:countdown_ending':
 
@@ -144,9 +172,37 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
-        case 'game:end':
-        case 'game:round_over':
+
+        case 'game:countdown_ending':
+
+            $('.form .error').fadeIn().html(eventData);
+
+            break;
+
         case 'game:countdown_end':
+
+            if(eventData === 'deliberateCountdown')
+                $('#btn-next').fadeIn();
+            
+            $('#more-time').fadeIn();
+            $('#btn-more-time,#btn-cancel').click(function() { $('#more-time').fadeOut()} );
+
+            break;
+
+        case 'game:player_done':
+            
+            $('#btn-next-player').fadeIn();
+            $('#btn-time').fadeOut();
+
+            break;
+
+        case 'game:phase_over':
+            
+            $('#btn-next').fadeIn();
+
+            break;
+
+        case 'game:end':
         case 'players:update':
 
             $('#gameContent').html(eventData);

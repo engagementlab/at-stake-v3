@@ -50,6 +50,9 @@ exports = module.exports = function(req, res) {
         locals.game = game;
         locals.gameConfig = sesh.GetConfig();
 
+        if(locals.debug)
+          locals.gameScreens = sesh.GetAllScreens();
+
         next();
 
       });

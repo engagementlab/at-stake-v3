@@ -44,7 +44,7 @@
             </div>
 
             {{#ifeq debug true}}
-              {{#ifeq section 'decider/game'}}
+              {{#ifeq viewType 'decider'}}
                 <div id="error-box">
                 </div>
                 
@@ -59,6 +59,14 @@
 
                     <div id="slider-gsap">
                     </div>
+
+                    <select id="template_selector" name="template_selector_player">
+                      <option value="">choose:</option>
+
+                            {{#each gameScreens}}
+                              <option value="{{this}}">{{this}}</option>
+                            {{/each}}
+                    </select>
                 </div>
               {{else}}
                 <div id="debugging" class="form" style="position: fixed;top: 0;">
