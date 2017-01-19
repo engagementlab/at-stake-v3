@@ -31,13 +31,9 @@ Role.add(
 
 		title: { type: String, required: true, initial: true },
 		bio: { type: Types.Markdown, required: true, initial: true },
+		agendaItems: { type: Types.TextArray },
 		dateCreated: { type: Date, noedit: true }
 
-	},
-	
-	'Agenda Items', {
-		firstItem: { type: String, required: true, initial: true },
-		secondItem: { type: String, required: true, initial: true }
 	}
 
 );

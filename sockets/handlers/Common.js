@@ -90,6 +90,20 @@ var Common = function (nsp, socket) {
 
         },
 
+        'game:agenda_yes': function(package) {
+
+            Session.Get(package.gameId).
+            AgendaItemAction(true);
+
+        },
+
+        'game:agenda_no': function(package) {
+
+            Session.Get(package.gameId).
+            AgendaItemAction(false);
+
+        },
+
         /* Pauses all game cooldowns (debugging only) */
         'debug:pause': function(package) {
 

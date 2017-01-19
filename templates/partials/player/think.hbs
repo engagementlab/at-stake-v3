@@ -6,8 +6,9 @@
   	<h4>Agenda</h4>
 
   	<ul>
-  		<li>{{agendaItems.[0]}}</li>
-  		<li>{{agendaItems.[1]}}</li>
+        {{#each agendaItems}}
+          <li>{{this}}</li>
+        {{/each}}
   	</ul>
 
     Time left: <span id="countdown"></span>

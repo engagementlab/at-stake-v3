@@ -6,7 +6,7 @@
 	</div>
 	<div class="form row" id="decider">
 		{{#each players}}
-	    <button class="post-button submit" data-event="game:proposal_selected" data-package='{{uid}}' data-keep_enabled="true" data-autohide="true" type="submit" name="submit" value="{{username}}" />
+	    <button class="post-button submit" data-event="game:proposal_selected" data-package='{{uid}}' data-keep_enabled="true" data-autohide="true" type="submit" name="submit">{{username}}</button>
 		{{/each}}
 		{{!-- <input data-event="game:proposal_selected" /> --}}
 	</div>

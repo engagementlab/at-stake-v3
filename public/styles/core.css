@@ -96,6 +96,9 @@
     border: 0; }
   .form input[type=text] {
     border-radius: 50px; }
+  .form.row button {
+    min-height: 200px;
+    min-width: 200px; }
   .form input.prompt {
     width: 100%;
     display: inline; }
@@ -177,6 +180,9 @@
   min-height: 500px; }
   .room-container h1 {
     font-size: 6em; }
+
+.role {
+  display: none; }
 
 #decider {
   display: none; }

@@ -202,6 +202,13 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'game:next_item':
+
+            $('#agenda-items .role:visible').remove();
+            $('#agenda-items .role').first().show();
+
+            break;
+
         case 'game:end':
         case 'players:update':
 

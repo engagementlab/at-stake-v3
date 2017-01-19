@@ -40,6 +40,10 @@
 	}
 }
 
+.role, .agenda_item {
+	display: none;
+}
+
 // HIDE ANY DECIDER-ONLY VIEWS BY DEFAULT
 #decider {
 		display: none;

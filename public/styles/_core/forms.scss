@@ -59,6 +59,13 @@
 		border-radius: 50px;
 	}
 
+	&.row {
+			button {
+			min-height: 200px;
+			min-width: 200px;
+		}
+	}
+
 	input.prompt {
 		width: 100%;
 		display: inline;

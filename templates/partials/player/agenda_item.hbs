@@ -1,0 +1,20 @@
+<section class="col-lg-6 col-sm-6">
+  <div class="row room-container">
+		
+		<section id="items">
+      {{#each agendaItems}}
+	      <div class="agenda_item" {{#if isActive}}style="display:block"{{/if}}>
+					The Decider is reviewing this agenda item:<br />
+					<h3>{{this}}</h3>
+				</div>
+      {{/each}}
+		</section>
+
+		<div id="chosen">
+		</div>
+		
+		<div id="not-chosen">
+		</div>
+
+	</div>
+</section>
