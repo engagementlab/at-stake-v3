@@ -83,6 +83,13 @@ var Common = function (nsp, socket) {
 
         },
 
+        'game:proposal_selected': function(package) {
+
+            Session.Get(package.gameId).
+            ProposalSelected(package.msgData);
+
+        },
+
         /* Pauses all game cooldowns (debugging only) */
         'debug:pause': function(package) {
 
