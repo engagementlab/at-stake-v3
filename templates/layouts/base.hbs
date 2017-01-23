@@ -81,16 +81,18 @@
                     {{{body}}}
 
                     {{#ifeq debug true}}
-                      <div id="emulate-players" style="display:none">
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                      </div>
+                        {{#ifnoteq viewType 'decider'}}
+                          <div id="emulate-players" style="display:none">
+                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                          </div>
+                      {{/ifnoteq}}
                     {{/ifeq}}
 
                   </div>

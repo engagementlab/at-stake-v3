@@ -1,7 +1,13 @@
 <h1>Roles for this round are...</h1>
 
 {{#each this}}
-	<div class="row"><b>{{title}}:</b> {{name}}</div>
+
+	{{#if decider}}
+		<div class="row"><b>Decider:</b> {{name}}</div>
+	{{else}}
+		<div class="row"><b>{{title}}:</b> {{name}}</div>
+	{{/if}}
+
 {{/each}}
 
 {{!-- {{#if decider}} --}}
