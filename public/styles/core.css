@@ -181,7 +181,7 @@
   .room-container h1 {
     font-size: 6em; }
 
-.role {
+.role, .agenda_item {
   display: none; }
 
 #decider {
