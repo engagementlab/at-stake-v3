@@ -114,20 +114,3 @@ var deciderEvents = function(eventId, eventData) {
     }
     
 };
-
-var deciderLogin = function() {
-
-    var deciderName = $('#player-name').val();
-
-    if(!deciderName) {
-        $('.submission .error').text('Please enter your name!').fadeIn();
-        return;
-    }
-
-    isDecider = true;
-
-    // Open socket connection
-    socket = io();
-    registerEvents();
-    
-}

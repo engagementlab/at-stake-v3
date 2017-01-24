@@ -77,6 +77,7 @@
 		'game:player_done',
 		'game:survey',
 		'game:advance',
+		'game:decider'
 	
 	];
 
@@ -475,9 +476,9 @@ window.onload = function() {
 			function templateLoad() {
 
 				var selected = $('#template_selector');
-				// var template = selected.val();
 
-		    socket.emit('game:load_screen', emitData({ index: selected.prop('selectedIndex') }));
+				if(selected.prop('selectedIndex') > 0)
+			    socket.emit('game:load_screen', emitData({ index: selected.prop('selectedIndex') }));
 
 			}
 			$("#template_reload").click(function() {

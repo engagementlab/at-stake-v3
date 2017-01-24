@@ -181,8 +181,8 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:countdown_end':
 
-            if(eventData === 'deliberateCountdown')
-                $('#btn-next').fadeIn();
+            {{!-- if(eventData === 'deliberateCountdown') --}}
+            $('#btn-next').fadeIn();
             
             $('#more-time').fadeIn();
             $('#btn-more-time,#btn-cancel').click(function() { $('#more-time').fadeOut()} );
@@ -206,6 +206,12 @@ socketEvents = function(eventId, eventData) {
 
             $('#agenda-items .role:visible').remove();
             $('#agenda-items .role').first().show();
+
+            break;
+
+        case 'game:decider':
+
+            isDecider = eventData;
 
             break;
 
