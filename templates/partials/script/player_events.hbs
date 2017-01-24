@@ -225,6 +225,18 @@ socketEvents = function(eventId, eventData) {
             nextRoundAnim.play();
             break;
 
+        case 'coins:add':
+
+            $('#' + eventData.type + '-coins span').text(eventData.amt);
+
+            break;
+
+        case 'coins:remove':
+
+            $('#player-coins span').text(eventData);
+
+            break;
+
         default:
 
             console.warn('No handler found for event "' + eventId + '" in socketEvents.');

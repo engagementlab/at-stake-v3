@@ -77,7 +77,10 @@
 		'game:player_done',
 		'game:survey',
 		'game:advance',
-		'game:decider'
+		'game:decider',
+
+		'coins:add',
+		'coins:remove',
 	
 	];
 
@@ -426,7 +429,7 @@ window.onload = function() {
 						    $('#session-create').hide();
 						    $('#waiting').show();
 
-						    gameCode = '{{gameCode}}-group';
+						    gameCode = '{{gameCode}}';
 								
 								return;
 
