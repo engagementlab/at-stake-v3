@@ -72,7 +72,7 @@ var Common = function (nsp, socket) {
         'game:more_time': function(package) {
 
             Session.Get(package.gameId).
-            AddTime(currentSpace);
+            AddTime(currentSpace, package.msgData);
 
         },
 

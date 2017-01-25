@@ -30,8 +30,8 @@
       
       <div class="form row" id="more-time" style="display:none">
         <h3>Need more time? Pay {{config.extraTimeCost}} coins for {{config.extraSeconds}} more seconds.</h3>
-        <input id="btn-more-time" data-event="game:more_time" class="post-button submit" type="submit" name="submit" value="more time">
-        <input id="btn-cancel" data-event="game:turn_done" class="post-button submit" type="submit" name="submit" value="no thanks">
+        <button id="btn-more-time" data-event="game:more_time" data-disable="false" data-package="{{../playerUid}}" class="post-button submit" type="submit" name="submit">more time</button>
+        <button id="btn-cancel" data-event="game:turn_done" class="post-button submit" type="submit" name="submit">no thanks</button>
       </div>
 
     {{/if}}

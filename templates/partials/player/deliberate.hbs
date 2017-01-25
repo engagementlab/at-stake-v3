@@ -15,8 +15,18 @@
         {{/each}}
     	</ul>
 
+      <div id="added-time" style="display:none">
+        It is Player 1's turn, since they added more time.
+      </div>
+
       Time left: <span id="countdown"></span>
       
+    </div>
+      
+    <div class="form row" id="more-time" style="display:none">
+      <h3>Need more time? Pay {{config.extraTimeCost}} coins for {{config.extraSeconds}} more seconds.</h3>
+      <button id="btn-more-time" data-event="game:more_time" data-disable="false" data-package="{{../playerUid}}" class="post-button submit" type="submit" name="submit">more time</button>
+      <button id="btn-cancel" data-event="game:turn_done" class="post-button submit" type="submit" name="submit">no thanks</button>
     </div>
 
 	</div>

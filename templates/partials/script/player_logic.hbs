@@ -52,10 +52,6 @@ $(document).on('click touchstart', 'div.error', function() {
     console.log("error tap away player logic");
 });
 
-// Set height of content to minimum of device height
-if(!isEmulated)
-    $('#gameContent').css("height", window.screen.height);
-
 // Do not enable sound for emulated (debug) player
 if(!isEmulated) {
 
@@ -208,9 +204,11 @@ $(document).on('click', '.btn.game_login', function(evt) {
     sessionStorage.setItem('uUID', playerUID);
 
     // Disable button and show loading modal
-    $(evt.currentTarget).attr('disabled', 'disabled');
-    $('#loading-modal').fadeIn(250);
-
+    if(!data.disable) {
+        $(evt.currentTarget).attr('disabled', 'disabled');
+        $('#loading-modal').fadeIn(250);
+    }
+    
     $.post(
         "/login",
         data,

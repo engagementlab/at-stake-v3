@@ -80,11 +80,6 @@
                     <!-- BODY CONTENT START -->
                     {{{body}}}
 
-                    <section id="bottom-bar">
-                        <div id="player-coins">[coins] <span></span></div>
-                        <div id="pot-coins">[pot] <span></span></div>
-                    </section>
-
                     {{#ifeq debug true}}
                         {{#ifnoteq viewType 'decider'}}
                           <div id="emulate-players" style="display:none">
@@ -101,6 +96,11 @@
                     {{/ifeq}}
 
                   </div>
+
+                <section id="bottom-bar">
+                    <div id="player-coins">[coins] <span></span></div>
+                    <div id="pot-coins">[pot] <span></span></div>
+                </section>
             </div><!-- /.container -->
 
             <!-- page-wrapper end -->

@@ -233,7 +233,9 @@ socketEvents = function(eventId, eventData) {
 
         case 'coins:remove':
 
-            $('#player-coins span').text(eventData);
+            var current = $('#player-coins span').text();
+
+            $('#player-coins span').text(current-eventData.amt);
 
             break;
 
