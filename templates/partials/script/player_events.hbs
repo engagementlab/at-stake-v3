@@ -189,6 +189,12 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'game:countdown_player':
+            
+            $('#added-time').text(eventData + " is speaking, since they added more time.").fadeIn();
+
+            break;
+
         case 'game:player_done':
             
             $('#btn-next-player').fadeIn();
