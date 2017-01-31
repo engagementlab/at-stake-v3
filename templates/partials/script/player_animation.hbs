@@ -10,6 +10,8 @@
  */
 --}}
 
+var screensAnim;
+
 function playerEntry() {
 
 	var animTiming = [.5, .6, .7, .8];
@@ -28,7 +30,8 @@ function playerEntry() {
 function rulesAnim() {
 
 	var screens = $('.row.screen');
-  var screensAnim = new TimelineLite({ paused: true, onComplete: 
+  
+  screensAnim = new TimelineLite({ paused: true, onComplete: 
 																										  	function() { TweenLite.from($('#btn-next'), 1, {scale:0, autoAlpha:0, ease:Elastic.easeOut}); } 
 																		});
 	
