@@ -1,20 +1,81 @@
-// CONTENT SELECTION
-.submission {
-	
-	button {
-		color: white;
-		background-color: orange;
-	    @include linear_transition(background-color, 0.3s);
+#gameContent {
+	background-color: $color-turquoise;
+	height:100%;
 
-		&.inactive {
-			background-color: orange;
+	&.in-game {
+		background-color: white;
+
+	}
+
+	&.login {
+
+	}
+
+	&.player-grid {
+		background-color:white;
+	}
+}
+
+// LOGIN
+#login {
+	.login-header {
+		width: 50%;
+		margin-left: 25%;
+
+		img {
+			height: auto;
+			width: 100%;
+			padding: 10px;
+		}
+
+		p {
+			color: white;
+			width: 80%;
+			margin-left: 10%;
+
+			@media (min-width: 1440px) {
+				width: 40%;
+				margin-left: 20%;
+			}
 		}
 	}
+
+}
+
+// CONTENT SELECTION
+.submission {
+
+	.form {
+		color: white;
+		width: 70%;
+		margin-left: 15%;
+	}
+
+	#decks {
+		width: 100%;
+
+		button {
+			width: 100%;
+			background-color: white;
+			color: $color-turquoise;
+			margin: 5px 0px;
+			padding: 5px;
+		}
+	}
+	
+	#btn_submit {
+		color: white;
+		background-color: green;
+		width: 100%;
+	}
+
 	#access-code {
 		font-size: 4em; 
 	}
 
 }
+
+
 
 .ended-container {
 	background-color: white;
@@ -53,4 +114,26 @@
 	display: none;
 	float: none;
   margin: 0 auto; 
+}
+
+// GAME
+
+.player-bio {
+	height: 100%;
+	display: table;
+	.room-container {
+
+		height:30%;
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+#rules {
+	height: 100%;
+	display: table;
+	.screen {
+		display: table-cell;
+		vertical-align: middle;
+	}
 }
