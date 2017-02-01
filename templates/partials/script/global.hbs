@@ -279,8 +279,18 @@
     isDecider = true;
 
     // Accesscode may be provided by server when debugging
-    if(!gameCode)
+    if(!gameCode) {
 	    gameCode = '{{accessCode}}';
+
+	    $('#player-name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
+
+	    // Ensure login is gone and all decide UI shows
+	    $('#login').remove();
+	    $('.access-code').text(gameCode);
+	    $('#decider .create').hide();
+      $('#decider').fadeIn();
+      $('#decider .waiting').show();
+		}
 
     // Create uid for player
     playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
@@ -384,13 +394,6 @@ window.onload = function() {
 			// PLAYER LOGIC
 			{{> script/player_logic section=section}}
 					
-      /*$('.body').addClass('newgame');
-			$('.navbar.main').hide();
-
-			// Show categoriews
-      new TimelineLite()
-      .staggerFrom(_.shuffle($('.category-box')), 1.4, {scale:0, ease:Elastic.easeOut}, .2);*/
-
 		  $('#decider #btn_submit').click(function(evt) {
 				var data = {};
 
@@ -430,26 +433,9 @@ window.onload = function() {
 					});
 
 			});
-			
-			/*$('.category-box').click(function(evt) {
-				$(evt.currentTarget).toggleClass('selected');
-
-				if(!$(evt.currentTarget).hasClass('selected'))
-					TweenLite.fromTo($(evt.currentTarget).find('.checkbox'), 1, {scale:1}, {autoAlpha:0, scale:0, ease: Elastic.easeOut});
-				else
-					TweenLite.fromTo($(evt.currentTarget).find('.checkbox'), 1, {autoAlpha:0, scale:0, rotation: "20_ccw"}, {autoAlpha:1, scale:1, rotation: "0_cw", ease: Elastic.easeOut});
-			});
-			
-			$('.category-box')
-			.hover(function(evt) {
-					TweenLite.fromTo($(evt.currentTarget), 1, {scale:1}, {scale:1.1, ease: Elastic.easeOut});
-			})
-			.mouseleave(function(evt) {
-					TweenLite.fromTo($(evt.currentTarget), 1, {scale:1.1}, {scale:1});
-			});*/
 
 		// WAITING FOR PLAYERS (OLD SESSION)
-		{{#ifeq section 'game'}}	
+		{{#ifeq section 'game-preloaded'}}	
 					
 			setupDecider();
 
@@ -497,7 +483,7 @@ window.onload = function() {
 
 				$("#generate_players").text('loading...');
 
-				$('#login').remove();
+				$('#gameContent').remove();
 				$('#emulate-players').fadeIn();
 				
 				$('#emulate-players iframe').attr('src', 'http://localhost:3000/play/debug');

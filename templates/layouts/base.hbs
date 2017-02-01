@@ -80,27 +80,27 @@
                     <!-- BODY CONTENT START -->
                     {{{body}}}
 
-                    {{#ifeq debug true}}
-                        {{#ifnoteq viewType 'decider'}}
-                          <div id="emulate-players" style="display:none">
-                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                            <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                          </div>
-                      {{/ifnoteq}}
-                    {{/ifeq}}
-
                   </div>
 
                 <section id="bottom-bar">
                     <div id="player-coins">[coins] <span></span></div>
                     <div id="pot-coins">[pot] <span></span></div>
                 </section>
+
+                {{#ifeq debug true}}
+                    {{#ifnoteq viewType 'decider'}}
+                      <div id="emulate-players" style="display:none">
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                      </div>
+                  {{/ifnoteq}}
+                {{/ifeq}}
             </div><!-- /.container -->
 
             <!-- page-wrapper end -->

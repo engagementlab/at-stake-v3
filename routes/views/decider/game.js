@@ -26,17 +26,19 @@ exports = module.exports = function(req, res) {
 
     var view = new keystone.View(req, res);
     var locals = res.locals;
+    let accessCode = req.params.accesscode.toUpperCase();
 
-    locals.viewType = 'decider';
-    locals.section = 'game';
+    locals.section = 'game-preloaded';
 
     // Enable debugging on staging only
-    if(req.params.debug === 'debug' && process.env.NODE_ENV !== 'production')
+    if(req.params.debug === 'debug' && process.env.NODE_ENV !== 'production') {
         locals.debug = true;
+        accessCode = 'TEST';
+    }
 
     view.on('init', function(next) {
 
-      GameSession.model.findOne({accessCode: req.params.accesscode.toUpperCase()}, function (err, game) {
+      GameSession.model.findOne({accessCode: accessCode}, function (err, game) {
 
         // If session does not exist, create it; otherwise, flag current one as restarting
         let sesh = Session.Get(game.accessCode);
@@ -61,6 +63,6 @@ exports = module.exports = function(req, res) {
     });
 
     // Render the view
-    view.render('decider/waiting');
+    view.render('game/player');
 
 };
