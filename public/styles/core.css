@@ -84,7 +84,9 @@
     padding: 20px;
     font-size: x-large;
     margin-bottom: 20px;
-    position: relative; }
+    position: relative;
+    max-width: 100%;
+    color: black; }
     .form input:focus {
       outline: none !important;
       border: 6px solid #00c5c2;
@@ -222,8 +224,7 @@
 .screen {
   display: none;
   float: none;
-  margin: 0 auto;
-  margin-top: 30%; }
+  margin: 0 auto; }
 
 .player-bio {
   height: 100%;
@@ -231,6 +232,13 @@
   .player-bio .room-container {
     height: 30%;
     display: table-cell;
+    vertical-align: middle; }
+
+#rules {
+  height: 100%;
+  display: table; }
+  #rules .screen {
+    display: none;
     vertical-align: middle; }
 
 @media (min-width: 1024px) {
