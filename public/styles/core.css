@@ -194,6 +194,10 @@
 .submission #access-code {
   font-size: 4em; }
 
+#bottom-bar {
+  background-color: #00D6B4;
+  font-size: large; }
+
 .ended-container {
   background-color: white;
   margin: 0 auto; }
@@ -209,7 +213,7 @@
   margin: 10px auto;
   background-color: white;
   color: black;
-  min-height: 500px; }
+  min-height: 250px; }
   .room-container h1 {
     font-size: 6em; }
 
@@ -222,8 +226,7 @@
 .screen {
   display: none;
   float: none;
-  margin: 0 auto;
-  margin-top: 30%; }
+  margin: 0 auto; }
 
 .player-bio {
   height: 100%;
@@ -231,6 +234,13 @@
   .player-bio .room-container {
     height: 30%;
     display: table-cell;
+    vertical-align: middle; }
+
+#rules {
+  height: 100%;
+  display: table; }
+  #rules .screen {
+    display: none;
     vertical-align: middle; }
 
 @media (min-width: 1024px) {
@@ -301,9 +311,6 @@ html, body {
 .body {
   font-family: "Avenir";
   color: white; }
-  @media (max-width: 480px) {
-    .body {
-      background-color: #fdae8f; } }
 
 .body.game-bg {
   -webkit-transition: background 0.5s linear;

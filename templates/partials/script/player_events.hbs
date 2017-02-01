@@ -45,7 +45,7 @@ socketEvents = function(eventId, eventData) {
                 socket.emit('room', emitData('player'));
             }
 
-            $('#login').fadeOut(function() { $('#waiting').fadeIn(); });
+            $('#login .form').fadeOut(function() { $('#login .waiting').fadeIn(); });
             
             break;
 

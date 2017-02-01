@@ -255,6 +255,46 @@ $(document).on('click', '.btn.game_login', function(evt) {
 
 });
 
+/* 
+ Get info for player when they ask to start new game
+*/
+$('#btn_new_game').click(function() {
+
+    $.get(
+        "/api/generate",
+        function( data ) {
+
+            gameCode = data.code;
+
+            $('.access-code').text(data.code);
+            
+            for(var i in data.decks) {
+                var deckInfo = data.decks[i];
+                $('#decks').append($('<button/>').addClass('toggle-button inactive').text(deckInfo.name).val(deckInfo._id));
+            }
+
+            $('#login').fadeOut(function() {
+                $('#decider').fadeIn();
+            });
+
+            // Enable deck select button events
+            $('.toggle-button').click(function(e) {
+
+                $('.toggle-button').each(function(ind, btn) {
+                    $(btn).removeClass('active');
+                    $(btn).addClass('inactive');
+                });
+
+                $(e.currentTarget).addClass('active');
+                $(e.currentTarget).removeClass('inactive');
+
+            });
+
+        }
+    );
+
+});
+
 // Check if this client is logged in on server
 window.onload = checkIfLoggedIn();
 
