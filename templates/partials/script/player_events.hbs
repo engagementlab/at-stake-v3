@@ -93,7 +93,6 @@ socketEvents = function(eventId, eventData) {
 
                 $('#players').append('<div class="col-sm-3">' + nameFormatted + '</div>');
 
-
             });
 
             break;
@@ -140,6 +139,15 @@ socketEvents = function(eventId, eventData) {
 
                 if(isDecider)
                     $('#decider').show();
+
+
+                $('#gameContent').addClass('in-game');
+
+                if ($('#gameContent').hasClass('login')) {
+                    $('#gameContent').removeClass('login');
+                } else if ($('#gameContent').hasClass('player-grid')) {
+                    $('#gameContent').removeClass('player-grid');
+                }
 
             });
             

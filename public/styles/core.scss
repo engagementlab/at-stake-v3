@@ -10,6 +10,11 @@
 
 html, body {
 	max-height: 100%;
+	height:100%;
+}
+
+#wrapper {
+	height:100%;
 }
 
 .text.centered {
@@ -37,7 +42,6 @@ html, body {
 
   font-family: "Avenir";
 
-  background: blue;
   color: white;
 
 	@include mobile-only {

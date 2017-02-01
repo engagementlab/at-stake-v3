@@ -148,16 +148,48 @@
   background: #fff;
   padding: 10px 10px 10px 20px; }
 
-.submission button {
+#gameContent {
+  background-color: #1EB4BB;
+  height: 100%; }
+  #gameContent.in-game {
+    background-color: white; }
+  #gameContent.player-grid {
+    background-color: white; }
+
+#login .login-header {
+  width: 50%;
+  margin-left: 25%; }
+  #login .login-header img {
+    height: auto;
+    width: 100%;
+    padding: 10px; }
+  #login .login-header p {
+    color: white;
+    width: 80%;
+    margin-left: 10%; }
+    @media (min-width: 1440px) {
+      #login .login-header p {
+        width: 40%;
+        margin-left: 20%; } }
+
+.submission .form {
   color: white;
-  background-color: orange;
-  -webkit-transition: background-color 0.3s linear;
-  -moz-transition: background-color 0.3s linear;
-  -ms-transition: background-color 0.3s linear;
-  -o-transition: background-color 0.3s linear;
-  transition: background-color 0.3s linear; }
-  .submission button.inactive {
-    background-color: orange; }
+  width: 70%;
+  margin-left: 15%; }
+
+.submission #decks {
+  width: 100%; }
+  .submission #decks button {
+    width: 100%;
+    background-color: white;
+    color: #1EB4BB;
+    margin: 5px 0px;
+    padding: 5px; }
+
+.submission #btn_submit {
+  color: white;
+  background-color: green;
+  width: 100%; }
 
 .submission #access-code {
   font-size: 4em; }
@@ -190,7 +222,16 @@
 .screen {
   display: none;
   float: none;
-  margin: 0 auto; }
+  margin: 0 auto;
+  margin-top: 30%; }
+
+.player-bio {
+  height: 100%;
+  display: table; }
+  .player-bio .room-container {
+    height: 30%;
+    display: table-cell;
+    vertical-align: middle; }
 
 @media (min-width: 1024px) {
   body .container {
@@ -237,7 +278,11 @@
     font-size: 6em; } }
 
 html, body {
-  max-height: 100%; }
+  max-height: 100%;
+  height: 100%; }
+
+#wrapper {
+  height: 100%; }
 
 .text.centered {
   text-align: center; }
@@ -255,7 +300,6 @@ html, body {
 
 .body {
   font-family: "Avenir";
-  background: blue;
   color: white; }
   @media (max-width: 480px) {
     .body {
