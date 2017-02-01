@@ -51,14 +51,15 @@
 
 		'connect',
 		'disconnect',
+
 		'player:loggedin',
 		'player:inactive',
 		'player:reconnected',
 		'players:update',
 		'player:finished',
+		'player:agenda_item',
 
 		'game:error',
-		'game:launchPlan',
 		'game:tutorial',
 		'game:start',
 		'game:next',
@@ -276,6 +277,9 @@
 	var setupDecider = function() {
 
     isDecider = true;
+
+    // Accesscode provided by server
+    gameCode = '{{accessCode}}';
 
     // Create uid for player
     playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));

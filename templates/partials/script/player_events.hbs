@@ -12,11 +12,11 @@
 
 var clockInterval;
 var playerWasReconnected;
-{{!-- 
-window.addEventListener("beforeunload", function (e) {
-  (e || window.event).returnValue = null;
-  return null;
-}); --}}
+
+// If true, screen doesn't advance right away via 'game:next',
+// it is saved in nextScreenData and advanced to later
+var waitForNextScreen = false;
+var nextScreenData;
 
 var getScript = function (gameType) {
     $.getScript( '/js/events/' + gameType + '.js' )
@@ -98,8 +98,41 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'player:agenda_item':
+
+            // Don't let next screen take over yet
+            waitForNextScreen = true;
+
+            var container = eventData.chosen ? $('#chosen') : $('#not-chosen');
+            
+            // Edit coin count
+            container.text(container.text().replace('{coins}', eventData.coins));
+
+            var chosenAnim = new TimelineLite({onComplete: function() {
+
+                setTimeout(function() { updateGameContent(nextScreenData, function() {
+
+                    waitForNextScreen = false;
+                    nextScreenData = undefined;
+
+                }) }, 1400);
+
+            }});
+
+            chosenAnim.from(container, .6, {scale:0, autoAlpha: 0, ease:Elastic.easeOut});
+
+            break;
+
         case 'game:start':
         case 'game:next':
+
+            // Don't show yet?
+            if(waitForNextScreen) {
+
+            debugger;
+                nextScreenData = eventData;
+                return;
+            }
 
             updateGameContent(eventData, function() {
 
@@ -135,6 +168,8 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:notfound':
+
+            if(isDecider) return;
 
             $('#error-box').text('game not found!');
             $('#error-box').show();
@@ -229,22 +264,15 @@ socketEvents = function(eventId, eventData) {
 
             $('#gameContent').html(eventData);
 
-            var nextRoundAnim = new TimelineLite({ paused:true , onComplete:function() {}});
+            var nextRoundAnim = new TimelineLite({ paused:true });
             nextRoundAnim.from($('#nextRound'), 2.5, { scale: 0, opacity:0, ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block'});
             nextRoundAnim.play();
             break;
 
         case 'coins:add':
-
-            $('#' + eventData.type + '-coins span').text(eventData.amt);
-
-            break;
-
         case 'coins:remove':
 
-            var current = $('#player-coins span').text();
-
-            $('#player-coins span').text(current-eventData.amt);
+            $('#' + eventData.type + '-coins span').text(eventData.amt);
 
             break;
 

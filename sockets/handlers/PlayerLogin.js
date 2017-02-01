@@ -42,16 +42,11 @@ var PlayerLogin = function (nsp, socket, emitter) {
         return;
       }
 
-      // If '-group' specified as room affix, remove for game id
-      if(package.gameId.indexOf('-group') !== -1)
-          playerGameId = package.gameId.replace('-group', '');
-      else {
-        playerGameId = package.gameId;
-  
-        if(!Session.Get(playerGameId)) {
-          currentSocket.emit('game:notfound');
-          return;
-        }
+      playerGameId = package.gameId;
+
+      if(!Session.Get(playerGameId)) {
+        currentSocket.emit('game:notfound');
+        return;
       }
   
       currentSocket.join(package.gameId, function(err) {
