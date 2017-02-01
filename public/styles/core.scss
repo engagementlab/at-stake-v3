@@ -41,12 +41,7 @@ html, body {
 .body {
 
   font-family: "Avenir";
-
   color: white;
-
-	@include mobile-only {
-	  background-color: #fdae8f;
-	}
 	
 }
 

@@ -196,6 +196,10 @@
 .submission #access-code {
   font-size: 4em; }
 
+#bottom-bar {
+  background-color: #00D6B4;
+  font-size: large; }
+
 .ended-container {
   background-color: white;
   margin: 0 auto; }
@@ -211,7 +215,7 @@
   margin: 10px auto;
   background-color: white;
   color: black;
-  min-height: 500px; }
+  min-height: 250px; }
   .room-container h1 {
     font-size: 6em; }
 
@@ -309,9 +313,6 @@ html, body {
 .body {
   font-family: "Avenir";
   color: white; }
-  @media (max-width: 480px) {
-    .body {
-      background-color: #fdae8f; } }
 
 .body.game-bg {
   -webkit-transition: background 0.5s linear;

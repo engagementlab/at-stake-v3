@@ -75,7 +75,11 @@
 
 }
 
-
+// BOTTOM BAR (COINS, NEXT)
+#bottom-bar {
+	background-color: $color-seafoam;
+	font-size: large;
+}
 
 .ended-container {
 	background-color: white;
@@ -94,7 +98,7 @@
 	margin: 10px auto;
 	background-color: white;
 	color: black;
-  min-height: 500px;
+  min-height: 250px;
 
 	h1 {
 		font-size: 6em;
@@ -117,7 +121,6 @@
 }
 
 // GAME
-
 .player-bio {
 	height: 100%;
 	display: table;
@@ -133,6 +136,7 @@
 	height: 100%;
 	display: table;
 	.screen {
+		// These are hidden by default
 		display: none;
 		vertical-align: middle;
 	}

@@ -278,8 +278,9 @@
 
     isDecider = true;
 
-    // Accesscode provided by server
-    gameCode = '{{accessCode}}';
+    // Accesscode may be provided by server when debugging
+    if(!gameCode)
+	    gameCode = '{{accessCode}}';
 
     // Create uid for player
     playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
@@ -382,102 +383,79 @@ window.onload = function() {
 
 			// PLAYER LOGIC
 			{{> script/player_logic section=section}}
-
-			// GROUP VIEW
-			{{#ifeq viewType 'decider'}}
-			
-				// CATEGORY SELECT
-				{{#ifeq section 'newgame'}}			
 					
-		      /*$('.body').addClass('newgame');
-					$('.navbar.main').hide();
+      /*$('.body').addClass('newgame');
+			$('.navbar.main').hide();
 
-					// Show categoriews
-	        new TimelineLite()
-	        .staggerFrom(_.shuffle($('.category-box')), 1.4, {scale:0, ease:Elastic.easeOut}, .2);*/
+			// Show categoriews
+      new TimelineLite()
+      .staggerFrom(_.shuffle($('.category-box')), 1.4, {scale:0, ease:Elastic.easeOut}, .2);*/
 
-				  // ACCESS CODE 
-	  			$('.toggle-button').click(function(e) {
+		  $('#decider #btn_submit').click(function(evt) {
+				var data = {};
 
-						$('.toggle-button').each(function(ind, btn) {
-							$(btn).removeClass('active');
-							$(btn).addClass('inactive');
-						});
+		    data.deciderName = $('#player-name').val();
 
-						$(e.currentTarget).addClass('active');
-						$(e.currentTarget).removeClass('inactive');
+		    if(!data.deciderName) {
+		        $('.submission .error').text('Please enter your name!').fadeIn();
+		        return;
+		    }
 
-					});
+				data.deckId = $("#decks button.active").map(function(){
+											    return $(this).val();
+											 }).get()[0];
+				data.accessCode = gameCode;
 
-				  $('#session-create #btn_submit').click(function(evt) {
-						var data = {};
+			  $.post(
+			  	"/api/create/",
+					data)
+					.done(function(data) {
 
-				    data.deciderName = $('#player-name').val();
+						if(data.sessionCreated) {
 
-				    if(!data.deciderName) {
-				        $('.submission .error').text('Please enter your name!').fadeIn();
-				        return;
-				    }
-
-						data.deckId = $("#decks :input.active").map(function(){
-													    return $(this).val();
-													 }).get()[0];
-						data.accessCode = $('#access-code').text();
-
-					  $.post(
-					  	"/api/create/",
-							data)
-							.done(function(successData) {
-
-								setupDecider();
-
-						    $('#session-create').hide();
-						    $('#waiting').show();
-
-						    gameCode = '{{gameCode}}';
-								
-								return;
-
-								// window.location = successData;
-							})
-							.fail(function(xhr, status, error) {
-
-								if(xhr.responseJSON.error)							
-									$('#session-create .error').text(xhr.responseJSON.error).fadeIn();
-
-							});
-
-					});
-					
-					/*$('.category-box').click(function(evt) {
-						$(evt.currentTarget).toggleClass('selected');
-
-						if(!$(evt.currentTarget).hasClass('selected'))
-							TweenLite.fromTo($(evt.currentTarget).find('.checkbox'), 1, {scale:1}, {autoAlpha:0, scale:0, ease: Elastic.easeOut});
-						else
-							TweenLite.fromTo($(evt.currentTarget).find('.checkbox'), 1, {autoAlpha:0, scale:0, rotation: "20_ccw"}, {autoAlpha:1, scale:1, rotation: "0_cw", ease: Elastic.easeOut});
-					});
-					
-					$('.category-box')
-					.hover(function(evt) {
-							TweenLite.fromTo($(evt.currentTarget), 1, {scale:1}, {scale:1.1, ease: Elastic.easeOut});
-					})
-					.mouseleave(function(evt) {
-							TweenLite.fromTo($(evt.currentTarget), 1, {scale:1.1}, {scale:1});
-					});*/
-				
-				{{/ifeq}}
-
-				// WAITING FOR PLAYERS (OLD SESSION)
-				{{#ifeq section 'game'}}	
+							setupDecider();
 							
-					setupDecider();
+							$('#login').remove();
 
-				{{/ifeq}}
+					    $('#decider .create').hide();
+					    $('#decider .waiting').show();
+						
+						}
+					})
+					.fail(function(xhr, status, error) {
+
+						if(xhr.responseJSON.error)							
+							$('#decider .error').text(xhr.responseJSON.error).fadeIn();
+
+					});
+
+			});
+			
+			/*$('.category-box').click(function(evt) {
+				$(evt.currentTarget).toggleClass('selected');
+
+				if(!$(evt.currentTarget).hasClass('selected'))
+					TweenLite.fromTo($(evt.currentTarget).find('.checkbox'), 1, {scale:1}, {autoAlpha:0, scale:0, ease: Elastic.easeOut});
+				else
+					TweenLite.fromTo($(evt.currentTarget).find('.checkbox'), 1, {autoAlpha:0, scale:0, rotation: "20_ccw"}, {autoAlpha:1, scale:1, rotation: "0_cw", ease: Elastic.easeOut});
+			});
+			
+			$('.category-box')
+			.hover(function(evt) {
+					TweenLite.fromTo($(evt.currentTarget), 1, {scale:1}, {scale:1.1, ease: Elastic.easeOut});
+			})
+			.mouseleave(function(evt) {
+					TweenLite.fromTo($(evt.currentTarget), 1, {scale:1.1}, {scale:1});
+			});*/
+
+		// WAITING FOR PLAYERS (OLD SESSION)
+		{{#ifeq section 'game'}}	
+					
+			setupDecider();
+
+		{{/ifeq}}
 
 				{{> script/decider_logic section=section}}
-
-			{{/ifeq}}
 
     {{#ifeq environment "development"}}
 
