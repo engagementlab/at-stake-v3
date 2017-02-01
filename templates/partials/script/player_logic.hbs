@@ -261,7 +261,7 @@ $(document).on('click', '.btn.game_login', function(evt) {
 $('#btn_new_game').click(function() {
 
     $.get(
-        "/api/generate",
+        "api/generate",
         function( data ) {
 
             gameCode = data.code;

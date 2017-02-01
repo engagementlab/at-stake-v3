@@ -13,34 +13,68 @@
 
 	&.player-grid {
 		background-color:white;
+		color: black;
+
+		#logo-bar {
+			display: block !important;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 50px;
+			background-color: pink;
+
+			img {
+				height: 50px;
+				width: auto;
+			}
+
+		}
+		#decider {
+			margin-top: 50px;
+		}
 	}
 }
 
 // LOGIN
-#login {
-	.login-header {
+#login-header {
+	width: 50%;
+	margin-left: 25%;
+
+	img {
+		height: 100%;
 		width: 50%;
-		margin-left: 25%;
-
-		img {
-			height: auto;
-			width: 100%;
-			padding: 10px;
-		}
-
-		p {
-			color: white;
-			width: 80%;
-			margin-left: 10%;
-
-			@media (min-width: 1440px) {
-				width: 40%;
-				margin-left: 20%;
-			}
-		}
+		padding: 10px;
 	}
 
+	p {
+		color: white;
+		width: 80%;
+		margin-left: 10%;
+
+		@media (min-width: 1440px) {
+			width: 40%;
+			margin-left: 20%;
+		}
+	}
 }
+
+input.post-button {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	margin-bottom: 0px;
+	background-color: $color-seafoam;
+	z-index: 1000;
+
+}
+
+#players {
+	width: 50%;
+	margin-left: 25%;
+}
+
 
 // CONTENT SELECTION
 .submission {
@@ -76,9 +110,12 @@
 }
 
 // BOTTOM BAR (COINS, NEXT)
-#bottom-bar {
+section#bottom-bar {
 	background-color: $color-seafoam;
 	font-size: large;
+	width: 100%;
+	bottom: 0px;
+	position: absolute;
 }
 
 .ended-container {
