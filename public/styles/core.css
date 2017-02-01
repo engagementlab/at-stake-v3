@@ -84,7 +84,9 @@
     padding: 20px;
     font-size: x-large;
     margin-bottom: 20px;
-    position: relative; }
+    position: relative;
+    max-width: 100%;
+    color: black; }
     .form input:focus {
       outline: none !important;
       border: 6px solid #00c5c2;
@@ -154,23 +156,50 @@
   #gameContent.in-game {
     background-color: white; }
   #gameContent.player-grid {
-    background-color: white; }
+    background-color: white;
+    color: black; }
+    #gameContent.player-grid #logo-bar {
+      display: block !important;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 50px;
+      background-color: pink; }
+      #gameContent.player-grid #logo-bar img {
+        height: 50px;
+        width: auto; }
+    #gameContent.player-grid #decider {
+      margin-top: 50px; }
 
-#login .login-header {
+#login-header {
   width: 50%;
   margin-left: 25%; }
-  #login .login-header img {
-    height: auto;
-    width: 100%;
+  #login-header img {
+    height: 100%;
+    width: 50%;
     padding: 10px; }
-  #login .login-header p {
+  #login-header p {
     color: white;
     width: 80%;
     margin-left: 10%; }
     @media (min-width: 1440px) {
-      #login .login-header p {
+      #login-header p {
         width: 40%;
         margin-left: 20%; } }
+
+input.post-button {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  margin-bottom: 0px;
+  background-color: #00D6B4;
+  z-index: 1000; }
+
+#players {
+  width: 50%;
+  margin-left: 25%; }
 
 .submission .form {
   color: white;
@@ -194,9 +223,12 @@
 .submission #access-code {
   font-size: 4em; }
 
-#bottom-bar {
+section#bottom-bar {
   background-color: #00D6B4;
-  font-size: large; }
+  font-size: large;
+  width: 100%;
+  bottom: 0px;
+  position: absolute; }
 
 .ended-container {
   background-color: white;

@@ -39,6 +39,8 @@ socketEvents = function(eventId, eventData) {
             if(isDecider) {
                 // Session started, let's sign-up the decider for this room
                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));
+
+                $('#gameContent').addClass('player-grid');
             }
             else {
                 // Connected, let's sign-up for to receive messages for this room
@@ -138,6 +140,7 @@ socketEvents = function(eventId, eventData) {
                 if(isDecider)
                     $('#decider').show();
 
+                console.log(eventData + " is the event data");
 
                 $('#gameContent').addClass('in-game');
 
