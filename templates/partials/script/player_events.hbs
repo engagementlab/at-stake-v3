@@ -138,9 +138,7 @@ socketEvents = function(eventId, eventData) {
                 rulesAnim();
 
                 if(isDecider)
-                    $('#decider-controls').show();
-
-                console.log(eventData + " is the event data");
+                    $('#decider-controls, #decider').show();
 
                 $('#gameContent').addClass('in-game');
 
@@ -265,6 +263,10 @@ socketEvents = function(eventId, eventData) {
         case 'game:decider':
 
             isDecider = eventData;
+
+            // Hide decider controls if no longer decdier
+            if(!isDecider)
+                $('#decider-controls').hide();
 
             break;
 

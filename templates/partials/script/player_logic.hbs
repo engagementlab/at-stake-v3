@@ -121,7 +121,7 @@ var checkIfLoggedIn = function() {
     if(!sessionStorage.getItem('gameCode')) {
         var isAndroid = /Android/ig.test(navigator.userAgent);
 
-        $('.form').show();
+        $('.form.login').show();
 
         if(!isEmulated) {
 

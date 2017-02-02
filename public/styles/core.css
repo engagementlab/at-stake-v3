@@ -244,8 +244,7 @@ section#bottom-bar {
   position: relative;
   margin: 10px auto;
   background-color: white;
-  color: black;
-  min-height: 250px; }
+  color: black; }
   .room-container h1 {
     font-size: 6em; }
 
@@ -342,7 +341,7 @@ html, body {
 
 .body {
   font-family: "Avenir";
-  color: white; }
+  color: black; }
 
 .body.game-bg {
   -webkit-transition: background 0.5s linear;

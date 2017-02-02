@@ -1,14 +1,33 @@
 <section class="col-lg-6 col-sm-6">
   <div class="row room-container">
-		<h3>"At the end of round {{round_number}} the scores are:"</h3>
 
-		<ul>
-			{{#each players}}
-				<li>{{username}}</li>
-			{{/each}}
-		</ul>
-	</div>
-	<div class="form row {{!-- hidden-el --}}" id="decider">
-    <input id="btn-next" data-event="game:next_round" class="post-button submit" type="submit" name="submit" value="next">
+  	{{!-- END OF GAME --}}
+  	{{#ifeq round 3}}
+
+			<h3>"End of the game! The final scores are:"</h3>
+
+			<ul>
+				{{#each players}}
+					<li>{{username}}: {{coins.current}}</li>
+				{{/each}}
+			</ul>
+
+		{{!-- END OF ROUND --}}
+  	{{else}}
+
+			<h3>"At the end of round {{round}} the scores are:"</h3>
+
+			<ul>
+				{{#each players}}
+					<li>{{username}}: Starting - {{coins.starting}}, Ending - {{coins.current}}</li>
+				{{/each}}
+			</ul>
+
+		{{/ifeq}}
+
+		<div class="form row {{!-- hidden-el --}}" id="decider">
+	    <input id="btn-next" data-event="game:next_round" class="submit" type="submit" name="submit" value="next round">
+		</div>
+
 	</div>
 </section>
