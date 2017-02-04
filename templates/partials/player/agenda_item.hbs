@@ -1,37 +1,35 @@
-<section class="col-lg-6 col-sm-6">
-  <div class="row room-container">
-		
-		{{#if isActive}}
-		
-			<section id="your-items">
-	      {{#each agendaItems}}
-		      <div class="agenda_item"{{#ifeq @index ../activeIndex}} style="display:block"{{/ifeq}}>
-						The Decider is reviewing your agenda item:<br />
-						<h3>{{this}}</h3>
-					</div>
-	      {{/each}}
-			</section>
-		
-		{{else}}
+<div class="row room-container">
+	
+	{{#if isActive}}
+	
+		<section id="your-items">
+      {{#each agendaItems}}
+	      <div class="agenda_item"{{#ifeq @index ../activeIndex}} style="display:block"{{/ifeq}}>
+					The Decider is reviewing your agenda item:<br />
+					<h3>{{this}}</h3>
+				</div>
+      {{/each}}
+		</section>
+	
+	{{else}}
 
-			<section id="their-items">
-	      {{#each agendaItems}}
-		      <div class="agenda_item"{{#ifeq @index ../activeIndex}} style="display:block"{{/ifeq}}>
-					The Decider is reviewing {{namePossessive ../activeUser}} agenda item:<br />
-						<h3>{{this}}</h3>
-					</div>
-	      {{/each}}
-			</section>
+		<section id="their-items">
+      {{#each agendaItems}}
+	      <div class="agenda_item"{{#ifeq @index ../activeIndex}} style="display:block"{{/ifeq}}>
+				The Decider is reviewing {{namePossessive ../activeUser}} agenda item:<br />
+					<h3>{{this}}</h3>
+				</div>
+      {{/each}}
+		</section>
 
-		{{/if}}
-		
-		<div id="chosen" class="hidden-el">
-			The decider accepted your agenda item (+{coins})
-		</div>
-		
-		<div id="not-chosen" class="hidden-el">
-		The decider did not accept your agenda item
-		</div>
-
+	{{/if}}
+	
+	<div id="chosen" class="hidden-el">
+		The decider accepted your agenda item (+{coins})
 	</div>
-</section>
+	
+	<div id="not-chosen" class="hidden-el">
+	The decider did not accept your agenda item
+	</div>
+
+</div>

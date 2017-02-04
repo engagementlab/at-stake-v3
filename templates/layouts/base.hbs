@@ -78,21 +78,23 @@
                   <section id="logo-bar" style="display:none">
                     <img src="http://res.cloudinary.com/engagement-lab-home/image/upload/e_grayscale/v1454520474/site/listings/odr1jt3rfkda0s1qce9q.png">
                 </section>
+                <button class="btn" id="lobby-back"><</button>
 
                     <!-- BODY CONTENT START -->
                     {{{body}}}
 
                   </div>
 
-                <section id="bottom-bar" class="row">
+                <section id="bottom-bar" class="row" style="display:none">
                     <div id="currency" class="col-sm-6">
                         <div id="player-coins">[coins] <span></span></div>
                         <div id="pot-coins">[pot] <span></span></div>
                     </div>
-                    <div class="form next decider col-sm-6" id="decider-controls">
-                        <input id="btn-next" data-keep_enabled="true" data-event="game:next" class="submit" type="submit" name="submit" value="next">
-                    </div>
+                    
                 </section>
+                <div class="form next decider col-sm-6" id="decider-controls">
+                    <input id="btn-next" data-keep_enabled="true" data-event="game:next" class="submit" type="submit" name="submit" value="next">
+                </div>
 
                 {{#ifeq debug true}}
                     {{#ifnoteq viewType 'decider'}}

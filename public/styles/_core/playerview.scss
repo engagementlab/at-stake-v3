@@ -1,16 +1,45 @@
 #gameContent {
 	background-color: $color-turquoise;
-	height:100%;
+	// Display as table to vertically center content elements
+	display: table;	
+	// Remove margin and extend width/height from table display settings
+	margin: 0px;
+	width: 100%;
+	height: 100%;
 
+	// During the gameplay
 	&.in-game {
 		background-color: white;
 
+		// Show coin and points bar
+		section#bottom-bar {
+			display: block;
+		}
+
 	}
 
-	&.login {
+	// Lobby game screens
+	&.lobby {
+		// Show back button on login screen
+		button#lobby-back {
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			margin: 10px;
+		}
 
 	}
 
+	// If not on login screen, hide the back button
+	&:not(.lobby) {
+		button#lobby-back {
+			display: none;
+			
+		}
+	}
+
+	// The lobby player grid
 	&.player-grid {
 		background-color:white;
 		color: black;
@@ -21,22 +50,53 @@
 			top: 0px;
 			left: 0px;
 			width: 100%;
-			height: 50px;
-			background-color: pink;
+			height: $nav-height;
+			background-color: $color-pink;
 
 			img {
-				height: 50px;
+				height: $nav-height - 5px;
 				width: auto;
 			}
 
 		}
-		#decider {
-			margin-top: 50px;
+		
+	}
+
+}
+
+.room-container {
+	bottom: 10%;
+	padding-left: 10%;
+  padding-right: 10%;
+	position: relative;
+	margin: 10px auto;
+	background-color: white;
+	color: black;
+  // min-height: 250px;
+  display: table-cell;
+  vertical-align: middle;
+
+	h1 {
+		font-size: 6em;
+	}
+
+	@if (section &) {
+		section & {
+			height: 100%;
+			width: 100%;
+			display: table;
 		}
 	}
+
 }
 
 // LOGIN
+
+#decider, #login {
+	display: table-cell;
+	vertical-align: middle;
+}
+
 #login-header {
 	width: 50%;
 	margin-left: 25%;
@@ -51,12 +111,8 @@
 		color: white;
 		width: 80%;
 		margin-left: 10%;
-
-		@media (min-width: 1440px) {
-			width: 40%;
-			margin-left: 20%;
-		}
 	}
+
 }
 
 input.post-button {
@@ -67,8 +123,9 @@ input.post-button {
 	margin-bottom: 0px;
 	background-color: $color-seafoam;
 	z-index: 1000;
-
 }
+
+// Player Grid
 
 #players {
 	width: 50%;
@@ -99,7 +156,7 @@ input.post-button {
 	
 	#btn_submit {
 		color: white;
-		background-color: green;
+		background-color: $color-seafoam;
 		width: 100%;
 	}
 
@@ -127,20 +184,7 @@ section#bottom-bar {
 	background-color: white;
 }
 
-.room-container {
-	bottom: 10%;
-	padding-left: 10%;
-  padding-right: 10%;
-	position: relative;
-	margin: 10px auto;
-	background-color: white;
-	color: black;
-  // min-height: 250px;
 
-	h1 {
-		font-size: 6em;
-	}
-}
 
 .role, .agenda_item {
 	display: none;
@@ -160,7 +204,9 @@ section#bottom-bar {
 // GAME
 .player-bio {
 	height: 100%;
+	width: 100%;
 	display: table;
+
 	.room-container {
 
 		height:30%;

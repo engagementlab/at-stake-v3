@@ -85,6 +85,8 @@ var playerLogin = function(data) {
         registerEvents();
     }
 
+    $('gameContent').addClass('lobby');
+
     playerName = $('#player_name').val();
     sessionStorage.setItem('username', playerName);
     {{!-- sessionStorage.setItem('gameCode', gameCode); --}}
@@ -274,8 +276,12 @@ $('#btn_new_game').click(function() {
             }
 
             $('#login').fadeOut(function() {
-                $('#decider').fadeIn();
+                $('#decider').fadeIn(function(){
+                    $('.lobby#decider').css('display','table-cell');
+                });
             });
+
+            $('#gameContent').addClass('lobby');
 
             // Enable deck select button events
             $('.toggle-button').click(function(e) {

@@ -1,11 +1,11 @@
-<div id="login" class="col-sm-12">
 
-<div id="login-header">
-  <img src="http://res.cloudinary.com/engagement-lab-home/image/upload/e_grayscale/v1454520474/site/listings/odr1jt3rfkda0s1qce9q.png">
-  <p>Welcome to At Stake: a deliberation game! You will need 3-4 players.</p>
-</div>
+<div class="lobby" id="login" class="col-sm-12">
 
   <div class="form login">
+  <div id="login-header">
+    <img src="http://res.cloudinary.com/engagement-lab-home/image/upload/e_grayscale/v1454520474/site/listings/odr1jt3rfkda0s1qce9q.png">
+    <p>Welcome to At Stake: a deliberation game! You will need 3-4 players.</p>
+  </div>
     <input type="text" id="access_code" placeholder="room code"> <br />
     <input type="text" id="player_name" placeholder="name"> <br />
     <div class="error">Error!</div>
@@ -13,10 +13,9 @@
     <input id="btn_new_game" class="btn btn-default" type="submit" name="submit" value="new game">
   </div>
 
-  <div class="row waiting" style="display:none">
+  <div class="row login waiting" style="display:none">
     <h1 id="game-code">{{game.accessCode}}</h1>
     <h3>Waiting for players</h3>
-
 
     <div class="col-sm-3"></div>
     <div class="row col-sm-9" id="players">
@@ -28,7 +27,7 @@
 
 </div>
 
-<div id="decider" style="display:none">
+<div class="lobby" id="decider" style="display:none">
 
   <div class="submission col-sm-6">
       <div class="form create">

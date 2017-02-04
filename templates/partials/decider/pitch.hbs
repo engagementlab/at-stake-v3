@@ -1,25 +1,23 @@
-<section class="col-lg-6 col-sm-6">
-  <div class="row room-container">
-		<h4><em>{{question}}</em></h4>
+<div class="row room-container">
+	<h4><em>{{question}}</em></h4>
 
-		"Now everyone will take turns pitching their proposal." 
+	"Now everyone will take turns pitching their proposal." 
 
-		<p>
-		{{#if firstPlayer}}
-			The first player to pitch is  
-		{{else}}
-			The next player to pitch is  
-		{{/if}}
-		<em>{{activePlayer.username}}</em> 
+	<p>
+	{{#if firstPlayer}}
+		The first player to pitch is  
+	{{else}}
+		The next player to pitch is  
+	{{/if}}
+	<em>{{activePlayer.username}}</em> 
 
-		<p>
-		Press 'start' to start the timer.
+	<p>
+	Press 'start' to start the timer.
 
-	</div>
-	<div class="form row {{!-- hidden-el --}}" id="decider">
-    <input id="btn-time" data-event="game:start_timer" class="submit" type="submit" name="time" value="start ({{config.pitchSeconds}} seconds)">
-    <input id="btn-next-player" data-event="game:next_player" class="submit" type="submit" name="next-player" value="next player" style="display:none">
-    <input id="btn-next-stage" data-event="game:next" class="submit" type="submit" name="next-stage" value="next" style="display:none">
-    Time left: <span id="countdown"></span>
-	</div>
-</section>
+</div>
+<div class="form row {{!-- hidden-el --}}" id="decider">
+  <input id="btn-time" data-event="game:start_timer" class="submit" type="submit" name="time" value="start ({{config.pitchSeconds}} seconds)">
+  <input id="btn-next-player" data-event="game:next_player" class="submit" type="submit" name="next-player" value="next player" style="display:none">
+  <input id="btn-next-stage" data-event="game:next" class="submit" type="submit" name="next-stage" value="next" style="display:none">
+  Time left: <span id="countdown"></span>
+</div>

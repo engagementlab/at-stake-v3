@@ -40,20 +40,22 @@ socketEvents = function(eventId, eventData) {
                 // Session started, let's sign-up the decider for this room
                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));
 
-                $('#gameContent').addClass('player-grid');
+                
             }
             else {
                 // Connected, let's sign-up for to receive messages for this room
                 socket.emit('room', emitData('player'));
             }
 
-            $('#login .form').fadeOut(function() { $('#login .waiting').fadeIn(); });
+            $('#gameContent').addClass('player-grid');
+
+            $('.login.form').fadeOut(function() { $('.login.waiting').fadeIn(); });
             
             break;
 
         case 'player:loggedin':
 
-            $('#gameContent').html(eventData.html);
+            {{!-- $('#gameContent').html(eventData.html); --}}
 
             sessionStorage.setItem("gameType", eventData.gameType);
             
@@ -136,6 +138,8 @@ socketEvents = function(eventId, eventData) {
             updateGameContent(eventData, function() {
 
                 rulesAnim();
+
+                console.log(isDecider);
 
                 if(isDecider)
                     $('#decider-controls, #decider').show();
