@@ -30,9 +30,12 @@ function playerEntry() {
 function rulesAnim(callback) {
 
 	var screens = $('.row.screen');
+
+	if(screens.length === 0)
+		return;
   
   screensAnim = new TimelineLite({ paused: true, onComplete: 
-																										  	function() { TweenLite.from($('#btn-next'), 1, {scale:0, autoAlpha:0, ease:Elastic.easeOut}); } 
+																										  	function() { TweenLite.fromTo($('#btn-next'), 1, {scale:0, autoAlpha:0}, {scale:1, autoAlpha:1, display:'block', ease:Elastic.easeOut}); } 
 																		});
 	
   _.each(screens, function(el, index) {

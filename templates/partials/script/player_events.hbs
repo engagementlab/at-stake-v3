@@ -139,8 +139,6 @@ socketEvents = function(eventId, eventData) {
 
                 rulesAnim();
 
-                console.log(isDecider);
-
                 if(isDecider)
                     $('#decider-controls, #decider').show();
 
@@ -231,7 +229,7 @@ socketEvents = function(eventId, eventData) {
 
             $('#added-time').hide();
 
-            $('#btn-next').fadeIn();
+            runMods();
             
             $('#more-time').fadeIn();
             $('#btn-more-time,#btn-cancel').click(function() { $('#more-time').fadeOut()} );

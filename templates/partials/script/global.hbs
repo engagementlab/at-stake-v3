@@ -168,6 +168,8 @@
 			gameContainer.html(content)
 									 .promise()
 									 .done(function() {
+
+									 		runMods();
 				
 											if(!pauseAnimate) {
 												// Animate screen back in now and then run callback
@@ -204,6 +206,20 @@
 			var topBar = $('#top-header').detach();
 			topBar.after('#nav-close-wrapper');
 		}
+	}
+
+	var runMods = function() {
+
+		// Engage any template script modifiers
+		if($('span#modifier').length > 0) {
+
+			if($('span#modifier').data().hide_next)
+		 		$('#btn-next').fadeOut();
+		 	else
+		 		$('#btn-next').fadeIn();
+	 	
+		}
+
 	}
 
 	/*
