@@ -14,10 +14,12 @@
 	<p>
 	Press 'start' to start the timer.
 
+	<div class="form row {{!-- hidden-el --}}" id="decider">
+	  <input id="btn-time" data-event="game:start_timer" class="submit" type="submit" name="time" value="start ({{config.pitchSeconds}} seconds)">
+	  <input id="btn-next-player" data-event="game:next_player" class="submit" type="submit" name="next-player" value="next player" style="display:none">
+	  <input id="btn-next-stage" data-event="game:next" class="submit" type="submit" name="next-stage" value="next" style="display:none">
+	  Time left: <span id="countdown"></span>
+	</div>
+
 </div>
-<div class="form row {{!-- hidden-el --}}" id="decider">
-  <input id="btn-time" data-event="game:start_timer" class="submit" type="submit" name="time" value="start ({{config.pitchSeconds}} seconds)">
-  <input id="btn-next-player" data-event="game:next_player" class="submit" type="submit" name="next-player" value="next player" style="display:none">
-  <input id="btn-next-stage" data-event="game:next" class="submit" type="submit" name="next-stage" value="next" style="display:none">
-  Time left: <span id="countdown"></span>
-</div>
+

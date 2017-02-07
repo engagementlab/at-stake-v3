@@ -2,10 +2,12 @@
 
 	Time's up! I will now choose the best proposal.
 
-</div>
-<div class="form row" id="decider">
+	<div class="form" id="decider">
 	{{#each players}}
     <button class="post-button submit" data-event="game:proposal_selected" data-package='{{uid}}' data-keep_enabled="true" data-autohide="true" type="submit" name="submit">{{username}}</button>
 	{{/each}}
 	{{!-- <input data-event="game:proposal_selected" /> --}}
 </div>
+
+</div>
+
