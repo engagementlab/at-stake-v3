@@ -28,10 +28,10 @@ module.exports = function(grunt, options) {
   var config = { uglify: { files: {} } };
 
   // Compile all gameplay events files
-  let eventsPath = __dirname + '/../public/release/events/';
+  var eventsPath = __dirname + '/../public/release/events/';
 
   // Loop through all the files in the events dir
-  let eventFiles = fs.readdirSync(__dirname + '/../public/js/events/');
+  var eventFiles = fs.readdirSync(__dirname + '/../public/js/events/');
 
   // TODO: Compile event files
 /*  for(var ind in eventFiles) {
