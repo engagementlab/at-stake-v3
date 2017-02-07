@@ -106,7 +106,7 @@
     display: inline; }
   .form input.game_login {
     width: 300px;
-    background-color: orange; }
+    background-color: #febb2c; }
   .form .input-container {
     position: relative; }
   .form .input-container input {
@@ -152,9 +152,22 @@
 
 #gameContent {
   background-color: #1EB4BB;
+  display: table;
+  margin: 0px;
+  width: 100%;
   height: 100%; }
   #gameContent.in-game {
     background-color: white; }
+    #gameContent.in-game section#bottom-bar {
+      display: block; }
+  #gameContent.lobby button#lobby-back {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 10px; }
+  #gameContent:not(.lobby) button#lobby-back {
+    display: none; }
   #gameContent.player-grid {
     background-color: white;
     color: black; }
@@ -165,12 +178,31 @@
       left: 0px;
       width: 100%;
       height: 50px;
-      background-color: pink; }
+      background-color: #fd2c76; }
       #gameContent.player-grid #logo-bar img {
-        height: 50px;
+        height: 45px;
         width: auto; }
-    #gameContent.player-grid #decider {
-      margin-top: 50px; }
+
+.room-container {
+  bottom: 10%;
+  padding-left: 10%;
+  padding-right: 10%;
+  position: relative;
+  margin: 10px auto;
+  background-color: white;
+  color: black;
+  display: table-cell;
+  vertical-align: middle; }
+  .room-container h1 {
+    font-size: 6em; }
+  section .room-container {
+    height: 100%;
+    width: 100%;
+    display: table; }
+
+#decider, #login {
+  display: table-cell;
+  vertical-align: middle; }
 
 #login-header {
   width: 50%;
@@ -183,10 +215,6 @@
     color: white;
     width: 80%;
     margin-left: 10%; }
-    @media (min-width: 1440px) {
-      #login-header p {
-        width: 40%;
-        margin-left: 20%; } }
 
 input.post-button {
   position: fixed;
@@ -217,7 +245,7 @@ input.post-button {
 
 .submission #btn_submit {
   color: white;
-  background-color: green;
+  background-color: #00D6B4;
   width: 100%; }
 
 .submission #access-code {
@@ -237,17 +265,6 @@ section#bottom-bar {
 .winner {
   background-color: white; }
 
-.room-container {
-  bottom: 10%;
-  padding-left: 10%;
-  padding-right: 10%;
-  position: relative;
-  margin: 10px auto;
-  background-color: white;
-  color: black; }
-  .room-container h1 {
-    font-size: 6em; }
-
 .role, .agenda_item {
   display: none; }
 
@@ -261,6 +278,7 @@ section#bottom-bar {
 
 .player-bio {
   height: 100%;
+  width: 100%;
   display: table; }
   .player-bio .room-container {
     height: 30%;

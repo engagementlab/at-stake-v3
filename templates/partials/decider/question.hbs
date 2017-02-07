@@ -1,11 +1,13 @@
-<section class="col-lg-6 col-sm-6">
-  <div class="row room-container">
-		Round {{round}}
+<div class="row room-container">
+	Round {{round}}
 
-		<h3>"Here is the question you'll answer this round. Is everyone ready to ponder a solution?"</h3>
+	<h3>"Here is the question you'll answer this round. Is everyone ready to ponder a solution?"</h3>
 
-		<h4><em>{{question}}</em></h4>
+	<h4><em>{{question}}</em></h4>
 
-		When everyone is ready, press next.
+	When everyone is ready, press next.
 
-</section>
+</div>
+<div class="form row" id="decider">
+  <input id="btn-start-game" data-event="game:next" class="post-button submit" type="submit" name="submit" value="next">
+</div>
