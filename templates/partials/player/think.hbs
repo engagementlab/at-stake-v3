@@ -1,20 +1,16 @@
-<section class="col-lg-6 col-sm-6">
-  <div class="row room-container">
-  
-  	<h3>{{name}} the {{title}}</h3>
+<div class="row room-container">
 
-  	<h4>Agenda</h4>
+	<h3>{{name}} the {{title}}</h3>
 
-  	<ul>
-        {{#each agendaItems}}
-          <li>{{this}}</li>
-        {{/each}}
-  	</ul>
+	<h4>Agenda</h4>
 
-    Time left: <span id="countdown"></span>
+	<ul>
+      {{#each agendaItems}}
+        <li>{{this}}</li>
+      {{/each}}
+	</ul>
 
-	</div>
-	<div class="form row" id="decider">
-    <input id="btn-start-game" data-event="game:next" class="post-button submit" type="submit" name="submit" value="next">
-	</div>
-</section>
+  Time left: <span id="countdown"></span>
+
+</div>
+
