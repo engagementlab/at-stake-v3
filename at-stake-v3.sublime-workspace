@@ -4,552 +4,554 @@
 		"selected_items":
 		[
 			[
-				"color-",
-				"color-seafoam"
+				"decid",
+				"decider-controls"
 			],
 			[
-				"color",
-				"color-seafoam"
+				"get",
+				"GetActivePlayers"
 			],
 			[
-				"max",
-				"maxHeight"
+				"curr",
+				"currentScreenIndex"
 			],
 			[
-				"wcss-media",
-				"wcss-media-max"
+				"cure",
+				"currentScreenIndex"
 			],
 			[
-				"c-arti",
-				"c-article__content"
+				"sort",
+				"sortedPlayers"
 			],
 			[
-				"case",
-				"CaseStudy"
+				"star",
+				"startingPlayerCoins"
 			],
 			[
-				"font",
-				"font-family"
+				"pl",
+				"playerCoins"
 			],
 			[
-				"builder",
-				"builderText"
+				"debugg",
+				"debugging"
 			],
 			[
-				"b",
-				"builderTitle"
+				"acce",
+				"accessCode"
+			],
+			[
+				"crete",
+				"create"
+			],
+			[
+				"accc",
+				"access-code"
+			],
+			[
+				"deid",
+				"decider"
+			],
+			[
+				"gameco",
+				"gameCode"
+			],
+			[
+				"deck",
+				"deckInfo"
+			],
+			[
+				"deci",
+				"deckInfo"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"cli",
+				"click"
+			],
+			[
+				"rewa",
+				"rewardAmt"
+			],
+			[
+				"activepl",
+				"activePlayer"
+			],
+			[
+				"pla",
+				"playerCoins"
+			],
+			[
+				"activ",
+				"activeAgendaItem"
+			],
+			[
+				"appr",
+				"approve"
+			],
+			[
+				"player",
+				"players_id"
+			],
+			[
+				"coins",
+				"Coins"
+			],
+			[
+				"ini",
+				"initialPotAmount"
+			],
+			[
+				"ii",
+				"initialPotAmount"
+			],
+			[
+				"count",
+				"countdownName"
 			],
 			[
 				"res",
-				"result"
+				"Reset"
 			],
 			[
-				"guide",
-				"guide_key"
+				"ext",
+				"extraSeconds"
 			],
 			[
-				"quer",
-				"queryGuidePage"
+				"dele",
+				"deliberateTimeQueue"
 			],
 			[
-				"Case",
-				"CaseStudy"
+				"delib",
+				"deliberateTimeQueue"
 			],
 			[
-				"result",
-				"resultAbout"
+				"countd",
+				"countdownName"
 			],
 			[
-				"activity",
-				"activityId"
+				"deli",
+				"deliberateTimeQueue"
 			],
 			[
-				"im",
-				"Implimentation"
+				"playe",
+				"playersId"
 			],
 			[
-				"Nav",
-				"Navigation"
+				"this",
+				"thisPlayer"
 			],
 			[
-				"na",
-				"Navigation"
-			],
-			[
-				"Link",
-				"linkText"
-			],
-			[
-				"group",
-				"groupReady"
-			],
-			[
-				"Playe",
-				"playerProgress"
-			],
-			[
-				"remove",
-				"removeItem"
-			],
-			[
-				"initial",
-				"initialSearch"
+				"a",
+				"add"
 			],
 			[
 				"_curr",
 				"_current_players"
 			],
 			[
-				"_cur",
-				"_current_player_cap"
+				"_dec",
+				"_current_decider"
 			],
 			[
-				"tran",
-				"transform"
+				"play",
+				"players_id"
 			],
 			[
-				"hover",
-				"hover-text-color"
-			],
-			[
-				"text",
-				"text-decoration"
-			],
-			[
-				"content",
-				"contentWidth"
-			],
-			[
-				"meme",
-				"memeHeight"
-			],
-			[
-				"sele",
-				"select-buttons"
-			],
-			[
-				"clas",
-				"hasClass"
-			],
-			[
-				"width",
-				"min-width"
-			],
-			[
-				"back",
-				"background-image"
-			],
-			[
-				"survey",
-				"survey-ready"
-			],
-			[
-				"font-",
-				"font-style"
-			],
-			[
-				"this",
-				"thisPlayerProgress"
-			],
-			[
-				"last",
-				"lastRound"
-			],
-			[
-				"player",
-				"playerSubmission"
-			],
-			[
-				"game",
-				"game_type"
-			],
-			[
-				"import",
-				"important"
-			],
-			[
-				"cli",
-				"clickedPlayer"
-			],
-			[
-				"finishe",
-				"finishedPlayer"
-			],
-			[
-				"fin",
-				"finishedPlayer"
-			],
-			[
-				"event",
-				"eventData"
+				"Coin",
+				"CoinsLib"
 			],
 			[
 				"even",
 				"eventData"
 			],
 			[
-				"play",
-				"playerSubmitted"
+				"soc",
+				"socket"
 			],
 			[
-				"map",
-				"mapOptions"
+				"group",
+				"groupSocket"
 			],
 			[
-				"timel",
-				"timeLimitMeme"
+				"sock",
+				"socket_id"
 			],
 			[
-				"bacg",
-				"background-image"
+				"current",
+				"_current_winner"
 			],
 			[
-				"web",
-				"webkit-appearance"
+				"un",
+				"unavaiable"
 			],
 			[
-				"curr",
-				"currentSocket"
+				"ass",
+				"assignedRoleIndicdes"
 			],
 			[
-				"article",
-				"articleTitle"
+				"prior",
+				"prior_roles"
 			],
 			[
-				"color-te",
-				"color-light-teal"
+				"role",
+				"roleIndex"
 			],
 			[
-				"topic",
-				"topic-submission"
+				"_ac",
+				"_active_deck_roles"
 			],
 			[
-				"_countdown",
-				"_countdown_duration"
+				"activepla",
+				"activePlayerInfo"
 			],
 			[
-				"countdow",
-				"countdownName"
+				"acti",
+				"activeAgendaItem"
 			],
 			[
-				"countdown",
-				"countdownEnded"
+				"agend",
+				"agendaItems"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"agenda",
+				"agendaItems"
+			],
+			[
+				"plae",
+				"player"
+			],
+			[
+				"next",
+				"NextScreen"
+			],
+			[
+				"win",
+				"winner"
+			],
+			[
+				"winen",
+				"winnerUid"
+			],
+			[
+				"scree",
+				"screenName"
+			],
+			[
+				"scr",
+				"screensAnim"
+			],
+			[
+				"scre",
+				"screens"
+			],
+			[
+				"Meme",
+				"MemeLib"
+			],
+			[
+				"allpa",
+				"allPlayersFinished"
+			],
+			[
+				"art",
+				"articleInput"
+			],
+			[
+				"sco",
+				"score_sum"
+			],
+			[
+				"ccl",
+				"clockInterval"
+			],
+			[
+				"cont",
+				"countdownContainer"
+			],
+			[
+				"coutn",
+				"countdownContainer"
+			],
+			[
+				"fo",
+				"font-size"
+			],
+			[
+				"color-re",
+				"color-results-light-orange"
+			],
+			[
+				"color-res",
+				"color-results-peach"
+			],
+			[
+				"St",
+				"StartExcessCountdown"
 			],
 			[
 				"exc",
 				"excessDuration"
 			],
 			[
-				"ec",
-				"excessCountdown"
-			],
-			[
-				"ex",
-				"excessDuration"
-			],
-			[
-				"exce",
-				"excessDuration"
-			],
-			[
-				"chec",
-				"checkSearching"
-			],
-			[
-				"Start",
-				"StartExcessCountdown"
-			],
-			[
-				"exess",
-				"excessDuration"
-			],
-			[
-				"colo",
-				"color-light-orange"
-			],
-			[
-				"_con",
-				"_countdown_duration"
-			],
-			[
-				"second",
-				"secondsLeft"
-			],
-			[
-				"grou",
-				"group_id"
-			],
-			[
-				"players",
-				"players_id"
-			],
-			[
-				"_cu",
-				"_current_players"
-			],
-			[
-				"tweet-",
-				"tweet-submission"
-			],
-			[
-				"find",
-				"findWhere"
-			],
-			[
-				"check",
-				"CheckIfSearching"
-			],
-			[
-				"Display",
-				"DisplayArticle"
-			],
-			[
-				"_game",
-				"_game_in_session"
-			],
-			[
-				"ruond",
-				"roundNumber-1"
-			],
-			[
-				"abs",
-				"absolute"
-			],
-			[
-				"po",
-				"position"
-			],
-			[
-				"creator",
-				"creatorWrapper"
-			],
-			[
 				"fade",
-				"fadeOut"
+				"fadeIn"
 			],
 			[
-				"section",
-				"sectionCurrent"
+				"waiit",
+				"waitingForFinish"
 			],
 			[
-				"email",
-				"emailinput"
+				"wait",
+				"waitingForFinish"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"color",
+				"color-dark-orange"
+			],
+			[
+				"fn",
+				"font-size"
+			],
+			[
+				"ev",
+				"eventsPath"
+			],
+			[
+				"wi",
+				"writeln"
+			],
+			[
+				"co",
+				"countdown"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"r",
+				"reveal"
+			],
+			[
+				"cound",
+				"countdownAnim"
+			],
+			[
+				"rev",
+				"revealContainer"
+			],
+			[
+				"reveal",
+				"revealContainer"
+			],
+			[
+				"color-r",
+				"color-red"
+			],
+			[
+				"color-da",
+				"color-dark-yellow"
+			],
+			[
+				"color-er",
+				"color-results-peach"
+			],
+			[
+				"color-",
+				"color-peach"
 			],
 			[
 				"background",
-				"background-color"
-			],
-			[
-				"articl",
-				"article-name"
-			],
-			[
-				"Dis",
-				"DisplayArticle"
-			],
-			[
-				"backg",
 				"background-image"
 			],
 			[
-				"project",
-				"projectContainer"
+				"toppal",
+				"topPlayersAnim"
 			],
 			[
-				"proje",
-				"projectContainer"
+				"toppla",
+				"topPlayersAnim"
 			],
 			[
-				"col",
-				"color-white"
+				"top",
+				"topPlayer"
 			],
 			[
-				"padd",
-				"padding-left"
+				"scorean",
+				"scoreAnimPlay"
 			],
 			[
-				"padding",
-				"padding-top"
+				"off",
+				"offset"
+			],
+			[
+				"bse",
+				"baseXVal"
 			],
 			[
 				"base",
-				"color-base-light"
+				"baseXVal"
 			],
 			[
-				"paddin",
-				"padding-top"
+				"progr",
+				"playerProgress"
 			],
 			[
-				"color-base",
-				"color-base-dark"
+				"env",
+				"environment"
 			],
 			[
-				"coo",
-				"color-base"
+				"coun",
+				"countdownPaused"
 			],
 			[
-				"colr",
-				"color-gray"
+				"_co",
+				"_countdown_paused"
 			],
 			[
-				"color-blue",
-				"color-blue-dark"
+				"tim",
+				"timingOffset"
 			],
 			[
-				"_curre",
-				"_currentPlayers"
+				"timi",
+				"timingOffset"
 			],
 			[
-				"if",
-				"ifeq"
+				"dot",
+				"dots"
 			],
 			[
-				"eve",
-				"eventEmitter"
+				"text",
+				"texts"
 			],
 			[
-				"time",
-				"timeleft"
+				"firs",
+				"firstText"
 			],
 			[
-				"ty",
-				"Types"
+				"bac",
+				"background-color"
 			],
 			[
-				"all",
-				"_all_articles"
+				"playerso",
+				"playerSocketId"
 			],
 			[
-				"All",
-				"_all_articles"
+				"WIKI",
+				"wiki"
 			],
 			[
-				"dest",
-				"destinationLinks"
+				"gro",
+				"groupSocket"
 			],
 			[
-				"artic",
-				"articleIndex"
+				"event",
+				"event_id"
 			],
 			[
-				"Wiki",
-				"WikiLib"
+				"games",
+				"_game_session"
 			],
 			[
-				"_All",
-				"_ALL_ARTICLES"
+				"templ",
+				"Templates"
 			],
 			[
-				"_ALL",
-				"_ALL_ARTICLES"
+				"fun",
+				"function"
 			],
 			[
-				"Wik",
-				"WikiGame"
+				"arti",
+				"articleInput"
 			],
 			[
-				"de",
-				"destinationLinks"
+				"te",
+				"text"
 			],
 			[
-				"hashtag",
-				"hashtagVotes"
+				"topic",
+				"topicName"
 			],
 			[
-				"_c",
-				"_CURRENT_SUBMISSIONS"
+				"round",
+				"roundCountdown"
 			],
 			[
-				"hash",
-				"hashtagSubmissions"
+				"_cur",
+				"_current_players"
 			],
 			[
-				"_Player",
-				"_PLAYERS_SUBMITTED"
+				"comm",
+				"CommonHandler"
 			],
 			[
-				"_Pl",
-				"_PLAYERS"
+				"clock",
+				"clockName"
 			],
 			[
-				"submitter",
-				"submitterId"
+				"wiki",
+				"wikiCountdown"
 			],
 			[
-				"random",
-				"randomizedHashtags"
+				"playr",
+				"playerSocket"
 			],
 			[
-				"_PLAY",
-				"_PLAYERS_SUBMITTED"
-			],
-			[
-				"_play",
-				"_PLAYERS_SUBMITTED"
-			],
-			[
-				"Curr",
-				"_CURRENT_SUBMISSIONS"
-			],
-			[
-				"_Play",
-				"_PLAYERS_SUBMITTED"
-			],
-			[
-				"_PLA",
-				"_PLAYERS_SUBMITTED"
-			],
-			[
-				"uni",
-				"uniqueHashtags"
-			],
-			[
-				"Hash",
-				"HashtagSubmitted"
-			],
-			[
-				"min",
-				"min-height"
-			],
-			[
-				"margin",
-				"margin-top"
+				"topc",
+				"topic"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "templates/views/game/player.hbs",
+			"file": "templates/partials/script/global.hbs",
 			"settings":
 			{
-				"buffer_size": 3034,
+				"buffer_size": 11760,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "public/styles/_core/playerview.scss",
+			"file": "/Users/Johnny/Documents/Projects/learning-games-core/lib/TemplateLoader.js",
 			"settings":
 			{
-				"buffer_size": 2971,
+				"buffer_size": 1262,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 131 files for \"staging.js \" (case sensitive)\n\n0 matches\n\nSearching 131 files for \"staging.js\" (case sensitive)\n\n0 matches\n\nSearching 131 files for \"staging\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/app.js:\n   31  \tvar io = require(rootDir + '/sockets/')(appServer);\n   32  \n   33: \tif(process.env.NODE_ENV === 'staging')\n   34  \t\tvar consolere = require('console-remote-client').connect('console.re','80','emerging-citizens-qa');\n   35  \telse\n\n/Users/Johnny/Documents/Projects/at-stake-v3/deploy.json:\n    6        \"NODE_ENV\": \"production\"\n    7      },\n    8:     \"env_staging\": {\n    9:       \"NODE_ENV\": \"staging\"\n   10      }\n   11    }],\n   12    \"deploy\" : {\n   13  \n   14:     \"sdk-staging\" : {\n   15        \"user\": \"node\",\n   16        \"host\": \"199.94.80.19\",\n   ..\n   19        \"path\": \"/srv/website\",\n   20        \"pre-deploy-local\" : \"echo 'Cloning and running npm install. Be patient.';\",\n   21:       \"post-deploy\" : \"npm i ; npm update ; grunt compile --sites=at-stake --env staging ; nvm use ; pm2 restart 0\",\n   22        \"env\": {\n   23:         \"NODE_ENV\": \"staging\"\n   24        }\n   25      },\n   26  \n   27:     \"staging\" : {\n   28        \"user\": \"node\",\n   29        \"host\": \"199.94.80.19\",\n   ..\n   32        \"path\": \"/srv/at-stake-v3\",\n   33        \"pre-deploy-local\" : \"echo 'NPM linking at-stake-v3 and restarting app.'; git pull git@github.com:engagementgamelab/el-web-sdk.git master;\",\n   34:       \"post-deploy\" : \"npm i ; npm update ; cd /srv/website/current/ ; npm i ; grunt compile --sites=at-stake --env staging ; nvm use ; NODE_ENV=staging pm2 restart 0\"\n   35      }\n   36  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/game.js:\n   31      locals.section = 'game-preloaded';\n   32  \n   33:     // Enable debugging on staging only\n   34      if(req.params.debug === 'debug' && process.env.NODE_ENV !== 'production') {\n   35          locals.debug = true;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/play.js:\n   27    locals.socketHost = req.headers.host;\n   28  \n   29:   // Enable debugging on staging/dev only\n   30    if(req.params.debug === 'debug' && process.env.NODE_ENV !== 'production')\n   31  \t  locals.debug = true;\n\n11 matches across 4 files\n\n\nSearching 131 files for \"cdnAsset \" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/css.hbs:\n   59  \t{{!-- PRODUCTION/STAGING --}}\n   60    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" integrity=\"sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7\" crossorigin=\"anonymous\">\n   61: \t<link href=\"{{cdnAsset site='at-stake' env=environment type='css' }}\" rel=\"stylesheet\">\n   62  \n   63  {{/ifeq}}\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/production.hbs:\n   16  \n   17  {{!-- Site JS --}}\n   18: <script type=\"text/javascript\" src=\"{{cdnAsset site='at-stake' env=environment type='js' }}\"></script>\n   19  \n   20  {{!-- TEMP --}}\n\n2 matches across 2 files\n\n\nSearching 131 files for \"cdnAsset\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/css.hbs:\n   59  \t{{!-- PRODUCTION/STAGING --}}\n   60    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" integrity=\"sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7\" crossorigin=\"anonymous\">\n   61: \t<link href=\"{{cdnAsset site='at-stake' env=environment type='css' }}\" rel=\"stylesheet\">\n   62  \n   63  {{/ifeq}}\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n   13  <script type=\"text/javascript\">\n   14  \n   15: alert('{{cdnAsset site='at-stake' env=environment type='js' }}')\n   16  \n   17  \tvar socket;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/production.hbs:\n   16  \n   17  {{!-- Site JS --}}\n   18: <script type=\"text/javascript\" src=\"{{cdnAsset product='at-stake' env=environment type='js' }}\"></script>\n   19  \n   20  {{!-- TEMP --}}\n\n3 matches across 3 files\n",
+			"settings":
+			{
+				"buffer_size": 4082,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "templates/partials/script/production.hbs",
+			"settings":
+			{
+				"buffer_size": 940,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/partials/player/decide.hbs",
-			"settings":
-			{
-				"buffer_size": 353,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "at-stake-v3.sublime-project",
-			"settings":
-			{
-				"buffer_size": 878,
 				"line_ending": "Unix"
 			}
 		}
@@ -557,220 +559,112 @@
 	"build_system": "",
 	"build_system_choices":
 	[
-		[
-			[
-				[
-					"Packages/Python/Python.sublime-build",
-					""
-				],
-				[
-					"Packages/Python/Python.sublime-build",
-					"Syntax Check"
-				]
-			],
-			[
-				"Packages/Python/Python.sublime-build",
-				""
-			]
-		]
 	],
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 187.0,
-		"last_filter": "mark",
+		"height": 384.0,
+		"last_filter": "color",
 		"selected_items":
 		[
 			[
-				"mark",
-				"Markdown HTML Preview"
+				"color",
+				"Colorsublime: Install Theme"
 			],
 			[
-				"renam",
-				"ANF: Rename File"
+				"pack",
+				"Package Control: Install Package"
 			],
 			[
-				"edit",
-				"Project: Edit Project"
+				"reso",
+				"PackageResourceViewer: Open Resource"
 			],
 			[
-				"markd",
-				"Markdown HTML Preview"
+				"PackageResourceViewer",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"sublimelinter",
+				"SublimeLinter: Choose Gutter Theme"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"jsli",
+				"JSLint"
 			],
 			[
 				"install",
 				"Package Control: Install Package"
 			],
 			[
-				"user",
-				"Preferences: Settings - User"
-			],
-			[
-				"settings",
-				"Preferences: Settings - User"
-			],
-			[
-				"line",
-				"Line Ending: Unix"
+				"beautif",
+				"Javascript Beautify"
 			],
 			[
 				"insta",
 				"Package Control: Install Package"
 			],
 			[
-				"lin",
-				"Line Ending: Unix"
+				"markd",
+				"Markdown Preview: Preview in Browser"
 			],
 			[
-				"keyuse",
-				"Preferences: Key Bindings - User"
+				"ins",
+				"Package Control: Install Package"
 			],
 			[
-				"keyu",
-				"Preferences: Key Bindings - User"
+				"sas",
+				"SassBeautify"
 			],
 			[
-				"ed",
-				"Project: Edit Project"
-			],
-			[
-				"fetc",
-				"Fetch: File"
+				"package contr",
+				"Package Control: Install Package"
 			],
 			[
 				"instal",
 				"Package Control: Install Package"
 			],
 			[
-				"edi",
-				"Project: Edit Project"
+				"c",
+				"Colorsublime: Install Theme"
 			],
 			[
-				"keyb",
-				"Preferences: Key Bindings - User"
+				"theme",
+				"Colorsublime: Browse Themes"
 			],
 			[
-				"pref",
-				"Preferences: Settings - User"
-			],
-			[
-				"key",
-				"Preferences: Key Bindings - User"
-			],
-			[
-				"disable",
+				"packae",
 				"Package Control: Disable Package"
 			],
 			[
-				"source",
-				"Scope Hunter: Toggle Instant Scoper"
+				"omnisharp",
+				"OmniSharpSublime: Remove From Project"
 			],
 			[
-				"scop",
-				"Scope Hunter: Toggle Instant Scoper"
-			],
-			[
-				"htmlb",
-				"HTMLBeautify"
-			],
-			[
-				"html",
-				"Set Syntax: HTML"
-			],
-			[
-				"hand",
-				"Set Syntax: Handlebars"
-			],
-			[
-				"jinj",
-				"Set Syntax: Jinja2"
-			],
-			[
-				"htmlbe",
-				"HTMLBeautify"
-			],
-			[
-				"editp",
-				"Project: Edit Project"
-			],
-			[
-				"ke",
-				"Preferences: Key Bindings - User"
-			],
-			[
-				"edor",
-				"Project: Edit Project"
-			],
-			[
-				"keyn",
-				"Preferences: Key Bindings - Default"
-			],
-			[
-				"scope",
-				"Toggle ScopeAlways"
-			],
-			[
-				"wor",
-				"Word Wrap: Toggle"
-			],
-			[
-				"mar",
-				"Markdown HTML Preview"
-			],
-			[
-				"json",
-				"Set Syntax: JSON"
-			],
-			[
-				"rein",
-				"Indentation: Reindent Lines"
-			],
-			[
-				"w",
-				"Word Wrap: Toggle"
-			],
-			[
-				"word",
-				"Word Wrap: Toggle"
-			],
-			[
-				"preview",
-				"Markdown HTML Preview"
-			],
-			[
-				"pac",
-				"Package Control: List Packages"
-			],
-			[
-				"fet",
-				"Fetch: File"
-			],
-			[
-				"origamide",
-				"Origami: Destroy Pane Below"
-			],
-			[
-				"jsonre",
-				"JSON Reindent: reindent file or selection"
-			],
-			[
-				"re",
-				"Indentation: Reindent Lines"
-			],
-			[
-				"editpr",
-				"Project: Edit Project"
-			],
-			[
-				"in",
+				"Package Control: ",
 				"Package Control: Install Package"
 			],
 			[
-				"Snippet: ",
-				"Snippet: Lorem ipsum"
+				"jso",
+				"JSON Reindent: reindent file or selection"
+			],
+			[
+				"json",
+				"JSON Reindent: reindent file or selection"
+			],
+			[
+				"pscka",
+				"Package Control: Install Package"
 			]
 		],
-		"width": 477.0
+		"width": 475.0
 	},
 	"console":
 	{
@@ -791,186 +685,241 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/routes/views",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/routes/views/game",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/views/game",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/public/styles",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/public/styles/_core"
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials",
+		"/Users/Johnny/Documents/Projects/at-stake-v3",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/errors",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game",
+		"/Users/Johnny/Documents/Projects/learning-games-core",
+		"/Users/Johnny/Documents/Projects/learning-games-core/lib"
 	],
 	"file_history":
 	[
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/layouts/base.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/script/player_animation.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/script/player_events.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/script/player_logic.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/script/global.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/shared/rules.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/shared/scoreboard.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/decider/agenda.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/player/bio.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/decider/agenda_item.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/decider/agenda_item_instructions.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/decider/bio.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/decider/decide.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/decider/deliberate.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/player/agenda_item_instructions.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/at-stake-v3.sublime-project",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/public/styles/_core/variables.scss",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/public/styles/_core/forms.scss",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/player/agenda_item.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/player/agenda.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/decider/think_instructions.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/decider/think.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/decider/question.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/decider/pitch.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/decider/deliberate_instructions.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/views/decider/game.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/views/decider/index.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/script/decider_logic.hbs",
-		"/Users/egl_manager/Developer/git-repositories/at-stake-v3/templates/partials/script/decider_events.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/script/global.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/components/card.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/views/caseStudies.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/components/_article.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/views/about.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/MainNav.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/routes/middleware.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/routes/views/caseStudy.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/routes/views/guidePage.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/meta.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/guideSidebar.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/layouts/base.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/js/modules/tool.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/script/development.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/Image.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/views/caseStudy.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/articleNav.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/views/guide-page.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/script/production.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/Partner.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/routes/views/caseStudies.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/views/toolkitHome.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/views/index.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/components/tool/modal.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/Activity.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/CaseStudy.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/scopes/_tool.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/generic/_link.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/tools/_typography.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/settings/_typography.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/components/_topnav.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/components/_hero.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/views/toolkit.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/components/_off-canvas.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/.sass-cache/48edf9e72e29d04b0c6392a82a3d77b318dbab1e/_article.scssc",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/tools/_media.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/tools/_rem.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/objects/_wrapper.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/Meta.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/modality.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/settings/_breakpoints.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/css/style.css",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/components/_buttons.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/views/game.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/.sass-cache/48edf9e72e29d04b0c6392a82a3d77b318dbab1e/_topnav.scssc",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/components/_modal.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/components/_icon-button.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/scss/objects/_layout.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/routes/views/toolkitHome.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/components/tool/steps.hbs",
-		"/Users/egl_manager/Developer/git-repositories/engagement-lab-website/updates/0.0.2-admins.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/node_modules/less/test/less-bom/modifyVars/extended.less",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/Index.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/routes/views/toolkit.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/Card.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/About.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/Video.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/Toolkit.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/CaseStudiesPage.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/caseStudyCard.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/routes/views/index.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/GuideHome.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/routes/index.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/routes/views/about.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/views/guideHome.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/routes/views/guideHome.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/Guide.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/config.json",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/config.codekit3",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/views/tool.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/caseStudy.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/Game.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/Footer.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/link.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/public/styles/core.scss",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/image.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/Link.js",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/footer.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/templates/partials/nav.hbs",
-		"/Users/egl_manager/Developer/git-repositories/city-accelerator-website/models/Category.js",
-		"/Users/egl_manager/Documents/starter-module/config.json",
-		"/Users/egl_manager/Documents/EL-Website/sites/emerging-citizens/grunt/uglify.js",
-		"/Users/egl_manager/Documents/starter-module/deploy.json",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/templates/partials/player/htyi/tweet.hbs",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/lib/games/Wiki.js",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/templates/partials/shared/typeform.hbs",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/templates/views/game/player.hbs",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/public/styles/_wwdmm/groupview.scss",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/lib/games/HTYI.js",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/lib/games/Meme.js",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/templates/partials/group/meme/results.hbs",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/templates/partials/group/htyi/results.hbs",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/templates/partials/group/wiki/results.hbs",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/public/styles/_core/groupview.scss",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/templates/partials/script/groupview_logic.hbs",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/templates/views/group.hbs",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/public/js/events/group/wwdmm.js",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/templates/partials/group/meme/voting.hbs",
-		"/Users/egl_manager/Developer/git-repositories/emerging-citizens/models/WikiLink.js"
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/css.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/package.json",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/deploy.json",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt/uglify.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/production.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_animation.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/playerview.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/deliberate.hbs",
+		"/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/app.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/config.json",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/think.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Coins.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/bio.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/roles.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/scoreboard.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/pitch.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/winner.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-project",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/game.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/agenda.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/agenda_item_instructions.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/deliberate_instructions.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/question.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/think_instructions.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/index.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api/gamesession.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/play.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/pitch.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/agenda_item.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/variables.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_logic.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/deliberate.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/decide.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/models/GameConfig.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_events.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/bio.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/SessionManager.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/agenda_item.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers/index.js",
+		"/Users/Johnny/Downloads/Examples/Instrumentality/Instrumentality_Start.html",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/agenda.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/think.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/decide.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/models/Role.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/forms.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/agenda_item_instructions.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/deliberate_instructions.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/round_instructions.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api/templates.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/round_instructions.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/rules.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/index.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/waiting.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/pot.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/development.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/index.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global-new.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/media.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/comingsoon.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/mixins.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/game.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/index.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/player.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/middleware.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/models/MemeTopic.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/routes/api/gamesession.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/views/index.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/lib/GameManager.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/grunt/uglify.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/lib/games/Wiki.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/public/js/events/group/wikigeeks.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/lib/games/Common.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/public/js/events/wikigeeks.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/script/global.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/script/development.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/css.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/script/player_events.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/_wiki/groupview.scss",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/helpers/index.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/svg.html",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/player/wiki/search.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/views/game/player.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/config.json",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/wiki/results.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/_core/variables.scss",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/player/wiki/results.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/wiki/article.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/wiki/monitor.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/htyi/monitor.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/script/groupview_events.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/public/js/events/group/htyi.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/layouts/base.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/public/js/events/htyi.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/wiki/topic.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/sockets/handlers/Wiki.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/core.scss",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/tutorial.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/core.css",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/script/htyi_results.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/wiki/header.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/nav.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/htyi/results.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/app.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/lib/TemplateLoader.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/sockets/handlers/Common.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/routes/views/group/monitor.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/_wiki/playerview.scss",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/_core/homepage.scss",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/_core/groupview.scss",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/views/group/monitor.hbs",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/routes/api/templates.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/_core/media.scss",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/routes/index.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/routes/views/game/templates.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/lib/games/HTYI.js",
+		"/Users/Johnny/Documents/Projects/emerging-citizens/sockets/handlers/PlayerLogin.js"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 70.0
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 187.0,
 		"where_history":
 		[
-			"/Users/egl_manager/Developer/git-repositories/at-stake-v3",
-			"/Users/egl_manager/Developer/git-repositories/city-accelerator-website",
-			"/Users/egl_manager/Developer/git-repositories/emerging-citizens",
-			"/Users/egl_manager/Developer/git-repositories/learning-games-core",
-			"/Users/egl_manager/Developer/git-repositories/emerging-citizens",
-			"/Users/egl_manager/Developer/git-repositories/boston-civic-media ",
-			"/Users/egl_manager/Developer/git-repositories/boston-civic-media .scss",
-			"/Users/egl_manager/Developer/git-repositories/boston-civic-media *.scss",
-			"/Users/egl_manager/Developer/git-repositories/boston-civic-media",
-			"/Users/egl_manager/Developer/git-repositories/boston-civic-media/public/styles,*.scss",
-			"/Users/egl_manager/Developer/git-repositories/boston-civic-media/public/styles",
-			"/Users/egl_manager/Developer/git-repositories/boston-civic-media",
-			"/Users/egl_manager/Developer/git-repositories/unity-projects/master-server,/Users/egl_manager/Developer/git-repositories/emerging-citizens",
-			"/Users/egl_manager/Developer/git-repositories/unity-projects/master-server",
-			"/Users/egl_manager/Developer/git-repositories/unity-projects/AtStake_v2/Assets/Scripts",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website,-*.min*,-*.html,-*.less,-*.map*,-*.bson,-*.metadata*",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website,-*.min*,-*.html,-*.less,-*.map*,-*.bson,-*.metadata*,-/Users/egl_manager/Developer/git-repositories/EL-Website/node_modules",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website,-*.min*,-*.html,-*.less,-*.map*,-*.bson,-*.metadata*,-/node_modules",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website,-*.min*,-*.html,-*.less,-*.map*,-*.bson,-*.metadata*",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website,-*.min*,-*.html,-*.less,-*.map*,-*.bson,-*.metadata*,-node_modules",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website,-*.min*,-*.html,-*.less,-*.map*,-*.bson,-*.metadata*",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website,-*.min*,",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website,-*.min*,*.scss",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website,-*.min*",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website,-*/Users/egl_manager/Developer/git-repositories/EL-Website/node_modules",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website,-/Users/egl_manager/Developer/git-repositories/EL-Website/node_modules",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website,*.scss",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website,-/node_modules",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website,-*/node_modules",
-			"/Users/egl_manager/Developer/git-repositories/EL-Website",
-			"/Users/egl_manager/Developer/git-repositories/DataBasic",
+			"/Users/Johnny/Documents/Projects/at-stake-v3, /Users/Johnny/Documents/Projects/learning-games-core, -*/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/bower_components/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/release/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/Static/*",
+			"/Users/Johnny/Documents/Projects/at-stake-v3, -*/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/bower_components/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/release/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/Static/*",
+			"/Users/Johnny/Documents/Projects/emerging-citizens, -*/Users/Johnny/Documents/Projects/emerging-citizens/node_modules/*, -*/Users/Johnny/Documents/Projects/emerging-citizens/public/bower_components/*, -*/Users/Johnny/Documents/Projects/emerging-citizens/public/release/*, -*/Users/Johnny/Documents/Projects/emerging-citizens/Static/*",
+			"/Users/Johnny/Documents/Projects/emerging-citizens, -*/Users/Johnny/Documents/Projects/emerging-citizens/node_modules/*, -*/Users/Johnny/Documents/Projects/emerging-citizens/public/bower_components/*, -*/Users/Johnny/Documents/Projects/emerging-citizens/public/release/*",
+			"/Users/Johnny/Documents/Projects/emerging-citizens, -*/Users/Johnny/Documents/Projects/emerging-citizens/node_modules/*, -*/Users/Johnny/Documents/Projects/emerging-citizens/public/bower_components/* ",
+			"/Users/Johnny/Documents/Projects/emerging-citizens/node_modules/keystone/lib/core, ",
+			"/Users/Johnny/Documents/Projects/emerging-citizens/node_modules/keystone, ",
+			"/Users/Johnny/Documents/Projects/emerging-citizens/node_modules/keystone, -*/Users/Johnny/Documents/Projects/emerging-citizens/node_modules/*, -*/Users/Johnny/Documents/Projects/emerging-citizens/public/bower_components/*",
+			"/Users/Johnny/Documents/Projects/emerging-citizens/, -*/Users/Johnny/Documents/Projects/emerging-citizens/node_modules/*, -*/Users/Johnny/Documents/Projects/emerging-citizens/public/bower_components/*",
+			"/Users/Johnny/Documents/Projects/emerging-citizens/, *.scss, -*/Users/Johnny/Documents/Projects/emerging-citizens/node_modules/*, -*/Users/Johnny/Documents/Projects/emerging-citizens/public/bower_components/*",
+			"/Users/Johnny/Documents/Projects/emerging-citizens/, -*/Users/Johnny/Documents/Projects/emerging-citizens/node_modules/*, -*/Users/Johnny/Documents/Projects/emerging-citizens/public/bower_components/*",
+			"/Users/Johnny/Documents/Projects/emerging-citizens/, -*/Users/Johnny/Documents/Projects/emerging-citizens/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*//Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website/, *.js, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/cmp/node_modules/keystone, *.js, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/, *-/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.js, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/, *.js, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/node_modules/keystone, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.js, -*.min.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.hbs",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.scss, *.css, -*.min.css",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.scss, *.css, *.min.css",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.scss, *.css",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/node_modules/keystone ,*.js",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.js",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.scsss",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.js, *.hbs",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/* ,*.js",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.scss, *.css",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.scss, *.css",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/node_modules/keystone, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website/node_modules/keystone, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.s'css",
+			"/Users/Johnny/Documents/Projects/EL-Website/node_modules/keystone, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.css",
+			"/Users/Johnny/Documents/Projects/EL-Website/node_modules/keystone, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*, *.hbs",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website/",
+			"/Users/Johnny/Documents/Projects/EL-Website/, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, *.hbs",
+			"/Users/Johnny/Documents/Projects/EL-Website/",
+			"/Users/Johnny/Documents/Projects/EL-Website/, *.hbs",
+			"/Users/Johnny/Documents/Projects/EL-Website/node_modules/keystone/, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website/, /Users/Johnny/Documents/Projects/EL-Website/node_modules/",
+			"/Users/Johnny/Documents/Projects/EL-Website/, -*/Users/Johnny/Documents/Projects/EL-Website/node_modules/*",
+			"/Users/Johnny/Documents/Projects/sydjs-site/, -*/Users/Johnny/Documents/Projects/sydjs-site/node_modules/*",
+			"/Users/Johnny/Documents/Projects/sydjs-site/",
+			"/Users/Johnny/Documents/Projects/EL-Website/",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/node_modules/*",
+			"/Users/Johnny/Documents/Projects/EL-Website, -*/node_modules",
+			"/Users/Johnny/Documents/Projects/EL-Website",
+			"/Users/Johnny/Documents/Projects/EL-Website/models",
+			"/Users/Johnny/Documents/Projects/EL-Website/routes",
+			"/Users/Johnny/Documents/Projects/EL-Website/views",
+			"/Users/Johnny/Documents/Projects/EL-Website/views, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website, *.js",
+			"/Users/Johnny/Documents/Projects/EL-Website, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website, *.scss, *.css",
+			"/Users/Johnny/Documents/Projects/EL-Website, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website",
+			"/Users/Johnny/Documents/Projects/EL-Website, *.scss",
+			"/Users/Johnny/Documents/Projects/EL-Website",
+			"/Users/Johnny/Documents/Projects/EL-Website-test",
+			"/Users/Johnny/Documents/Projects/EL-Website-test, *.json",
+			"/Users/Johnny/Documents/Projects/EL-Website, *.js,<open folders>",
+			"/Users/Johnny/Documents/Projects/EL-Website, *.js",
+			"/Users/Johnny/Documents/Projects/WorldBank-RBF/WorldBank-RBF/Assets, *.cs,/Users/Johnny/Documents/Projects/egl-homepage",
+			"/Users/Johnny/Documents/Projects/WorldBank-RBF/WorldBank-RBF/Assets, *.cs",
 			""
 		]
 	},
@@ -979,134 +928,134 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"rule",
-			"rules",
-			"create",
-			"btn_submit",
-			"btn",
-			"isDecider",
-			"rules",
+			"cdnAsset",
+			"cdnAsset ",
+			"staging",
+			"staging.js",
+			"staging.js ",
+			"#ifeq env",
+			"cdnAsset ",
+			"handlebars-express",
+			"queueNextTimer",
+			"timerCallback",
+			"queueNextTimer",
+			"_deliberate_time_queue",
+			"game:countdown_player",
+			".room-container",
+			".room-containeer",
+			"game:decider",
+			"isDecider =",
+			"game:advance",
+			"AdvanceRound",
+			"RestorePot",
 			"#decider",
-			"#login",
-			"!",
-			"isDecider",
-			"login",
-			"playerLogin",
-			"btn_submit_code",
-			"btn_new_game",
-			"api/create",
-			"/api/generate",
-			"/api/create",
-			"form",
-			"rulesAnim",
-			"rules",
-			"Rule",
-			"Rules",
-			"rulesAnim",
+			"Johnny",
+			"at-stake-v3",
+			".form",
+			"file_excl",
+			".form",
+			"]\n",
+			".form",
+			"decider-controls",
+			"Tween",
+			"#decider",
+			"\n\t<div class=\"form row {{!-- hidden-el --}}\" id=\"decider\">\n    <input id=\"btn-next\" data-event=\"game:next\" class=\"post-button submit\" type=\"submit\" name=\"submit\" value=\"next\">\n\t</div>",
 			"game:next",
-			"html",
-			"jsonPrint",
-			"script/global",
-			"/global",
-			"global",
-			"console",
-			"js-tool-sidebar-empty",
-			"c-article",
-			"Table Of Contents",
-			"table of content",
-			"Table of Contents",
-			"is-active",
-			"js-tool-back",
-			"s-tool__",
-			"s-tool__prev",
-			"o-wrapper--large",
-			"c-card-list",
-			"wcss-rem",
-			"wcss-res",
-			"input",
-			"js-tool-nav",
-			"last_",
-			"goNext",
-			"c-top-nav__title",
-			"@include wcss-font-size",
-			"hero",
-			"gamma",
-			"s-tool__grid__block__title",
-			"js-tool-grid-block-title",
-			"js-tool-step-title",
-			"js-tool-step",
-			"views",
-			"js-tool-grid-block-title",
-			"title",
-			"uncertainty",
-			"Image",
-			"impliment",
-			"uncertainty",
-			"Guide",
-			"components/tool/modal",
-			"uncertainty-dictionary",
-			"uncertainty-dictionarycity-accelerator-website",
-			"uncertainty-dictionary",
-			"CaseStudy",
-			"Guide",
-			"Activity",
-			"Guide",
-			"CaseStudy",
-			"Guide",
-			"Link",
-			"Guide",
-			"Link",
-			"Category",
-			"Index",
-			"btn_",
-			"login",
-			"game:",
-			"survey",
-			"animateIn",
-			"logo_ec",
-			"logo",
-			"login",
-			"access_code",
-			"#login",
-			"code",
-			"return",
-			"survey",
-			"update",
-			"-",
-			"-            ",
-			"player_face",
-			"Advance",
-			"avatar",
-			"advance",
-			"game:start",
-			"reconnect",
-			"game:countdown",
+			"#decider",
+			"decider# ",
+			"$('#player-name').",
+			"setupDecider",
+			"debug",
+			"setupDecider",
+			"''}}",
+			"section 'game'",
+			"setupDecider",
+			"setup",
+			"decider",
+			"PlayerLost",
 			"PlayerRemove",
-			"resetSession",
-			"resume",
-			"currentArticle",
-			"State",
-			"countdown",
-			"re-join",
-			"PlayerReady()",
-			"active",
-			"GET",
-			"player:inactive",
-			"\"You were inactive for too long",
-			"\"you were inactive for too long",
-			"login:submit",
-			"setItem('gameCode',",
-			"setItem('gameCode')",
-			"smartlook",
-			"Tut",
-			"player:loggedin",
-			"socket.",
-			"socket.emi",
-			"err",
-			"IsFull",
-			"disconnect",
-			"dimension",
-			"wrapper"
+			"https://www.youtube.com/watch?v=oi_ySxbjrk8",
+			"generate_players",
+			"/api/",
+			"#decider",
+			"#start",
+			"gameCode =",
+			"emitData",
+			"game:notfound",
+			"#waiting",
+			"#decks",
+			"btn_submit",
+			"btn_submit_code",
+			"SDK",
+			"login-header",
+			"room-container",
+			"rulesAnim",
+			"'game:next'",
+			"launchPlan",
+			"Give",
+			"pot",
+			"amount",
+			"setupDecider",
+			"gameCode =",
+			"var emit",
+			"game:notfound",
+			"group_id",
+			"gameCode",
+			"accessCode",
+			"emitData",
+			"players_id",
+			"btn-cancel",
+			"firstPlayer",
+			"btn-next",
+			"screensAnim",
+			"rulesAnim",
+			"#debugging",
+			" viewType",
+			" rulesAnim",
+			" <",
+			"player_done",
+			"PlayerTurnDone",
+			"turn_done",
+			"game:next_item",
+			"next_player",
+			"NextPlayer",
+			"_active_player_index",
+			"GetActivePlayerData",
+			"activeAgendaItem",
+			"agenda_item",
+			"game:next_item",
+			"post-button",
+			"post-button submit",
+			"disable",
+			"eventEmitter",
+			"timerCallback",
+			"deliberateTimeQueue",
+			"assignedRoleIndices",
+			"this._active_deck_roles",
+			"availableRoleIndices",
+			"more-time",
+			" \"",
+			"countdown_player",
+			"20",
+			"_countdown_duration",
+			"countdownEnded",
+			"more-time",
+			"this._players_id",
+			"playe",
+			"disabled",
+			"autohide",
+			"data-",
+			"more_time",
+			"AddTime",
+			"coins:remove",
+			"gameContent",
+			"Coins",
+			"-group",
+			"group_id",
+			"players_id",
+			"group_id",
+			"players_id",
+			"this.groupSocket"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1114,10 +1063,134 @@
 		"regex": false,
 		"replace_history":
 		[
-			"PlayerAgendaItem",
-			"NetworkMasterClient",
-			"NetworkMasterServer",
-			"MultiplayerManager"
+			"Username",
+			"project-name",
+			"_deliberate_time_queue",
+			"_current_decider",
+			"playerObj",
+			"playerObject",
+			"<div",
+			"MemeTopic",
+			"_group_socket",
+			"var ",
+			"playersSubmitted",
+			"Common",
+			"groupSocket",
+			"h2",
+			".",
+			"h1",
+			"allHashtags",
+			"_current_players",
+			"_current_submissions",
+			"WikiLink",
+			"let",
+			"allArticles",
+			"removeDom",
+			"ifeq gameType",
+			"_core/",
+			"'use strict';",
+			"this._currentSubmissions",
+			"(html) =>",
+			"",
+			"this._currentPlayers",
+			"_real_hashtag",
+			"_votes",
+			"_players_submitted",
+			"_current_submissions",
+			"_current_round",
+			"_current_tweet",
+			"_config",
+			"_game_timeout",
+			"_game_session",
+			"",
+			"_currentPlayers",
+			"Common.prototype.",
+			"_currentPlayers",
+			"_current_players",
+			"lastEventId",
+			"currentPlayer",
+			"sessionStorage",
+			"thisPlayer",
+			"home-page",
+			"HomePage",
+			"addClass('game-bg",
+			"ecplay.org",
+			"GROUP_ID",
+			"PLAYERS_ID",
+			".to(GROUP-ID",
+			".to(PLAYERS-ID",
+			"{{> group/",
+			"group/",
+			"GroupView",
+			"partials/group/",
+			"-group",
+			"GROUP",
+			"PLAYERS)",
+			"col-sm-",
+			"console.",
+			"{{!-- style=\"visibility: hidden; --}}",
+			"{{-- style=\"visibility: hidden; --}}",
+			"Avenir",
+			"otf",
+			"ComingSoon",
+			"_ALL_HASHTAGS",
+			"_ALL_TWEETS",
+			"_CURRENT_SUBMISSIONS",
+			"hashtagsAnim",
+			"player-static",
+			"player-background",
+			"ShowSubmissions",
+			"class=\"nameplate\"",
+			"class=\"icon",
+			"",
+			"Templates.Load('partials/",
+			"$prop",
+			"$duration",
+			"logger.info",
+			"Session.Get",
+			"_GAME_SESSION",
+			"GameConfig",
+			"ContentCategory",
+			"HashtagCategory",
+			"Templates.Load('player/",
+			"_CURRENT_HASHTAGS",
+			"_ALL_HASHTAGS",
+			"HashtagGame",
+			"Templates",
+			"_HASHTAGS",
+			"CPIRegistration",
+			"\"",
+			"slack.Post",
+			"Device",
+			"console.log('",
+			"\"",
+			"mountSiteModule",
+			"virtual",
+			"\"",
+			"/static/uh",
+			"--}}",
+			"{{!--",
+			"src=\"static/uh/js/",
+			"src=\"static/uh/images/",
+			"href=\"static/uh/fonts/",
+			"href=\"static/uh/css/",
+			"custom_name",
+			"'",
+			" featured_content",
+			" --}}",
+			" --))",
+			"{{!-- ",
+			"href=\"public/",
+			"<link href=\"public/",
+			"@include",
+			"> people/person",
+			"person",
+			"",
+			"background",
+			"@mixin gradient-",
+			"",
+			" ",
+			"$amt"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1128,76 +1201,45 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "templates/views/game/player.hbs",
+					"file": "templates/partials/script/global.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3034,
+						"buffer_size": 11760,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								20,
-								20
+								203,
+								209
 							]
 						],
 						"settings":
 						{
-							"is_xml": false,
 							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4533.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "public/styles/_core/playerview.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2971,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1366,
-								1366
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 878.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "templates/partials/player/decide.hbs",
+					"file": "/Users/Johnny/Documents/Projects/learning-games-core/lib/TemplateLoader.js",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 353,
+						"buffer_size": 1262,
 						"regions":
 						{
 						},
@@ -1210,42 +1252,149 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 39.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4082,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										343,
+										350
+									],
+									[
+										602,
+										609
+									],
+									[
+										640,
+										647
+									],
+									[
+										721,
+										728
+									],
+									[
+										1021,
+										1028
+									],
+									[
+										1107,
+										1114
+									],
+									[
+										1165,
+										1172
+									],
+									[
+										1568,
+										1575
+									],
+									[
+										1597,
+										1604
+									],
+									[
+										1805,
+										1812
+									],
+									[
+										2101,
+										2108
+									],
+									[
+										2666,
+										2675
+									],
+									[
+										2932,
+										2941
+									],
+									[
+										3460,
+										3468
+									],
+									[
+										3706,
+										3714
+									],
+									[
+										3957,
+										3965
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								3462,
+								3462
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 5,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1428.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "at-stake-v3.sublime-project",
+					"file": "templates/partials/script/production.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 878,
+						"buffer_size": 940,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								339,
-								339
+								440,
+								440
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 159.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1253,11 +1402,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 26.0
 	},
 	"input":
 	{
-		"height": 34.0
+		"height": 64.0
 	},
 	"layout":
 	{
@@ -1284,21 +1433,25 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 358.0
+		"height": 25.0
 	},
 	"output.find_results":
 	{
 		"height": 0.0
 	},
-	"output.scope_viewer":
+	"output.unsaved_changes":
 	{
-		"height": 112.0
+		"height": 98.0
+	},
+	"output.variable_get":
+	{
+		"height": 0.0
 	},
 	"pinned_build_system": "",
 	"project": "at-stake-v3.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 114.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1308,516 +1461,516 @@
 		"selected_items":
 		[
 			[
-				"inde",
-				"index.js"
+				"global",
+				"Partials/script/global.hbs"
 			],
 			[
-				"hosts",
-				"hosts.js"
+				"base",
+				"All/templates/layouts/base.hbs"
 			],
 			[
-				"readm",
-				"README.md"
+				"gamelo",
+				"Library/GameLogic.js"
 			],
 			[
-				"clients",
-				"service/clients.js"
+				"player_e",
+				"Partials/script/player_events.hbs"
 			],
 			[
-				"messages",
-				"service/messages.js"
+				"player_lo",
+				"Partials/script/player_logic.hbs"
 			],
 			[
-				"co",
-				"config.template.js"
-			],
-			[
-				"confi",
-				"config.js"
-			],
-			[
-				"reame",
-				"README.md"
-			],
-			[
-				"r",
-				"models/Room.js"
-			],
-			[
-				"room",
-				"models/Room.js"
-			],
-			[
-				"clie",
-				"service/clients.js"
-			],
-			[
-				"roo",
-				"service/rooms.js"
-			],
-			[
-				"index",
-				"index.js"
-			],
-			[
-				"pac",
-				"package.json"
-			],
-			[
-				"packa",
-				"package.json"
-			],
-			[
-				"clien",
-				"models/Client.js"
-			],
-			[
-				"message",
-				"models/Message.js"
-			],
-			[
-				"routes",
-				"routes.js"
-			],
-			[
-				"model",
-				"models.js"
-			],
-			[
-				"temp",
-				"config.template.js"
-			],
-			[
-				"confte",
-				"config.template.js"
-			],
-			[
-				"config",
-				"config.js"
-			],
-			[
-				"mulma",
-				"AtStake_v2/Assets/Scripts/Networking/MultiplayerManager.cs"
-			],
-			[
-				"sm",
-				"AtStake_v2/Assets/smcs.rsp"
-			],
-			[
-				"multde",
-				"AtStake_v2/Assets/Scripts/Debug/MultiplayerManagerDebug.cs"
-			],
-			[
-				"multma",
-				"AtStake_v2/Assets/Scripts/Networking/MultiplayerManager.cs"
-			],
-			[
-				"datam",
-				"AtStake_v2/Assets/Scripts/Utilities/DataManager.cs"
-			],
-			[
-				"teman",
-				"AtStake_v2/Assets/Scripts/Screen/TemplateManager.cs"
-			],
-			[
-				"templatsc",
-				"AtStake_v2/Assets/Scripts/Screen/TemplatesContainer.cs"
-			],
-			[
-				"templatecon",
-				"AtStake_v2/Assets/Scripts/Screen/TemplateContainer.cs"
-			],
-			[
-				"temcn",
-				"AtStake_v2/Assets/Scripts/Screen/TemplateContainer.cs"
-			],
-			[
-				"temman",
-				"AtStake_v2/Assets/Scripts/Screen/TemplateManager.cs"
-			],
-			[
-				"tec",
-				"AtStake_v2/Assets/Scripts/Screen/TemplateContainer.cs"
-			],
-			[
-				"multman",
-				"AtStake_v2/Assets/Scripts/Networking/MultiplayerManager.cs"
-			],
-			[
-				"sc",
-				"AtStake_v2/Assets/smcs.rsp"
-			],
-			[
-				"netcli",
-				"AtStake_v2/Assets/Scripts/Networking/MasterServer/NetworkMasterClient.cs"
-			],
-			[
-				"netse",
-				"AtStake_v2/Assets/Scripts/Networking/MasterServer/NetworkMasterServer.cs"
-			],
-			[
-				"mastdisc",
-				"AtStake_v2/Assets/Scripts/Networking/MasterServer/MasterServerDiscovery.cs"
-			],
-			[
-				"s",
-				"AtStake_v2/Assets/smcs.rsp"
-			],
-			[
-				"glo",
-				"AtStake_v2/Assets/global_preprocessors.txt"
-			],
-			[
-				"gim",
-				"AtStake_v2/Assets/Scripts/LocalDev/GameInstanceManager.cs"
-			],
-			[
-				"objectpo",
-				"AtStake_v2/Assets/Scripts/Utilities/ObjectPool.cs"
-			],
-			[
-				"smcs",
-				"AtStake_v2/Assets/smcs.rsp"
-			],
-			[
-				"viewscore",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Scoreboard.cs"
-			],
-			[
-				"scoreb",
-				"EL-API/content/Screens/Scoreboard.yml"
-			],
-			[
-				"ageitersul",
-				"AtStake_v2/Assets/Scripts/Screen/Views/AgendaItemResult.cs"
-			],
-			[
-				"mode",
-				"AtStake_v2/Assets/Scripts/Data/Models.cs"
-			],
-			[
-				"viewma",
-				"AtStake_v2/Assets/Scripts/Screen/ViewManager.cs"
-			],
-			[
-				"viewdec",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Deck.cs"
-			],
-			[
-				"deckam",
-				"AtStake_v2/Assets/Scripts/Data/DeckManager.cs"
-			],
-			[
-				"deckma",
-				"AtStake_v2/Assets/Scripts/Data/DeckManager.cs"
+				"player_log",
+				"Partials/script/player_logic.hbs"
 			],
 			[
 				"playe",
-				"AtStake_v2/Assets/Scripts/Data/PlayerAgendaItem.cs"
+				"Partials/script/player_logic.hbs"
 			],
 			[
-				"ageiteresu",
-				"AtStake_v2/Assets/Scripts/Screen/Views/AgendaItemResult.cs"
+				"coin",
+				"at-stake-v3/lib/Coins.js"
 			],
 			[
-				"viewagei",
-				"AtStake_v2/Assets/Scripts/Screen/Views/AgendaItem.cs"
+				"glob",
+				"at-stake-v3/templates/partials/script/global.hbs"
 			],
 			[
-				"ageit",
-				"EL-API/content/Screens/AgendaItem.yml"
+				"ommo",
+				"at-stake-v3/lib/Common.js"
 			],
 			[
-				"scoma",
-				"AtStake_v2/Assets/Scripts/ScoreManager.cs"
+				"core",
+				"learning-games-core/lib/Core.js"
 			],
 			[
-				"viewnam",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Name.cs"
+				"pitch",
+				"at-stake-v3/templates/partials/player/pitch.hbs"
 			],
 			[
-				"mast",
-				"AtStake_v2/Assets/Scripts/Networking/MasterServer/Master.cs"
+				"player_even",
+				"at-stake-v3/templates/partials/script/player_events.hbs"
 			],
 			[
-				"masclie",
-				"AtStake_v2/Assets/Scripts/Networking/MasterServer/NetworkMasterClient.cs"
+				"decide.hbs",
+				"at-stake-v3/templates/partials/player/decide.hbs"
 			],
 			[
-				"multm",
-				"AtStake_v2/Assets/Scripts/Networking/MultiplayerManager.cs"
+				"bio",
+				"at-stake-v3/templates/partials/player/bio.hbs"
 			],
 			[
-				"plama",
-				"AtStake_v2/Assets/Scripts/PlayerManager.cs"
+				"decider",
+				"at-stake-v3/templates/partials/script/decider_events.hbs"
 			],
 			[
-				"lobb",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Lobby.cs"
+				"index.js",
+				"at-stake-v3/templates/helpers/index.js"
 			],
 			[
-				"plam",
-				"AtStake_v2/Assets/Scripts/PlayerManager.cs"
+				"agendit",
+				"at-stake-v3/templates/partials/decider/agenda_item.hbs"
 			],
 			[
-				"mulde",
-				"AtStake_v2/Assets/Scripts/Debug/MultiplayerManagerDebug.cs"
+				"decid",
+				"at-stake-v3/templates/partials/script/decider_events.hbs"
 			],
 			[
-				"vielobb",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Lobby.cs"
+				"ptich",
+				"at-stake-v3/templates/partials/player/pitch.hbs"
 			],
 			[
-				"plma",
-				"AtStake_v2/Assets/Scripts/PlayerManager.cs"
+				"base.",
+				"at-stake-v3/templates/layouts/base.hbs"
 			],
 			[
-				"gic",
-				"AtStake_v2/Assets/Scripts/LocalDev/GameInstanceComponent.cs"
+				"global.",
+				"at-stake-v3/templates/partials/script/global.hbs"
 			],
 			[
-				"gib",
-				"AtStake_v2/Assets/Scripts/LocalDev/GameInstanceBehaviour.cs"
+				"gamelog",
+				"at-stake-v3/lib/GameLogic.js"
 			],
 			[
-				"gamin",
-				"AtStake_v2/Assets/Scripts/LocalDev/GameInstance.cs"
+				"globl",
+				"at-stake-v3/templates/partials/script/global.hbs"
 			],
 			[
-				"viewwinn",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Winner.cs"
+				"develop",
+				"at-stake-v3/templates/partials/script/development.hbs"
 			],
 			[
-				"gc",
-				"AtStake_v2/Assets/Scripts/Data/GameController.cs"
+				"player_",
+				"at-stake-v3/templates/partials/script/player_events.hbs"
 			],
 			[
-				"views",
-				"AtStake_v2/Assets/Scripts/Screen/View.cs"
+				"decide",
+				"at-stake-v3/templates/partials/script/decider_events.hbs"
 			],
 			[
-				"gain",
-				"AtStake_v2/Assets/Scripts/LocalDev/GameInstance.cs"
+				"wikige",
+				"public/js/events/wikigeeks.js"
 			],
 			[
-				"rounma",
-				"AtStake_v2/Assets/Scripts/RoundManager.cs"
+				"glbo",
+				"templates/partials/script/global.hbs"
 			],
 			[
-				"extratimde",
-				"AtStake_v2/Assets/Scripts/Screen/Views/ExtraTimeDeliberate.cs"
+				"var",
+				"public/styles/_core/variables.scss"
 			],
 			[
-				"vieextra",
-				"AtStake_v2/Assets/Scripts/Screen/Views/ExtraTime.cs"
+				"gro",
+				"public/styles/_wiki/groupview.scss"
 			],
 			[
-				"scorema",
-				"AtStake_v2/Assets/Scripts/ScoreManager.cs"
+				"results",
+				"templates/partials/group/wiki/results.hbs"
 			],
 			[
-				"vieageitemac",
-				"AtStake_v2/Assets/Scripts/Screen/Views/AgendaItemAccept.cs"
+				"wikigeek",
+				"public/js/events/wikigeeks.js"
 			],
 			[
-				"ageitac",
-				"EL-API/content/Screens/AgendaItemAccept.yml"
+				"player_ev",
+				"templates/partials/script/player_events.hbs"
 			],
 			[
-				"vieageite",
-				"AtStake_v2/Assets/Scripts/Screen/Views/AgendaItem.cs"
+				"group",
+				"templates/partials/script/groupview_events.hbs"
 			],
 			[
-				"ageiac",
-				"AtStake_v2/Assets/Scripts/Screen/Views/AgendaItemAccept.cs"
+				"article",
+				"templates/partials/group/wiki/article.hbs"
 			],
 			[
-				"viewpi",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Pitch.cs"
+				"tipoic",
+				"templates/partials/group/wiki/topic.hbs"
 			],
 			[
-				"gi",
-				"AtStake_v2/Assets/Scripts/LocalDev/GameInstance.cs"
+				"topic",
+				"templates/partials/group/wiki/topic.hbs"
 			],
 			[
-				"vewfina",
-				"AtStake_v2/Assets/Scripts/Screen/Views/FinalScoreboard.cs"
+				"htyi",
+				"public/js/events/group/htyi.js"
 			],
 			[
-				"finalsc",
-				"EL-API/content/Screens/FinalScoreboard.yml"
+				"varia",
+				"public/styles/_core/variables.scss"
 			],
 			[
-				"viescore",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Scoreboard.cs"
+				"glo",
+				"templates/partials/script/global.hbs"
 			],
 			[
-				"coine",
-				"AtStake_v2/Assets/Scripts/Screen/Elements/CoinsElement.cs"
+				"wikigeeks",
+				"public/js/events/group/wikigeeks.js"
 			],
 			[
-				"potel",
-				"AtStake_v2/Assets/Scripts/Screen/Elements/PotElement.cs"
+				"groupview",
+				"public/styles/_wiki/groupview.scss"
 			],
 			[
-				"viewpo",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Pot.cs"
+				"globa.",
+				"templates/partials/script/global.hbs"
 			],
 			[
-				"mult",
-				"AtStake_v2/Assets/Scripts/Networking/MultiplayerManager.cs"
+				"wikigee",
+				"public/js/events/wikigeeks.js"
 			],
 			[
-				"viewlobb",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Lobby.cs"
+				"wiki.js",
+				"sockets/handlers/Wiki.js"
 			],
 			[
-				"pla",
-				"AtStake_v2/Assets/Scripts/Data/PlayerAgendaItem.cs"
+				"deve",
+				"templates/partials/script/development.hbs"
 			],
 			[
-				"scorem",
-				"AtStake_v2/Assets/Scripts/ScoreManager.cs"
+				"gl",
+				"templates/partials/script/global.hbs"
 			],
 			[
-				"viewageite",
-				"AtStake_v2/Assets/Scripts/Screen/Views/AgendaItem.cs"
+				"groupv",
+				"templates/partials/script/groupview_events.hbs"
 			],
 			[
-				"mdo",
-				"AtStake_v2/Assets/Scripts/Data/Models.cs"
+				"devel",
+				"templates/partials/script/development.hbs"
 			],
 			[
-				"viewageit",
-				"AtStake_v2/Assets/Scripts/Screen/Views/AgendaItem.cs"
+				"commo",
+				"lib/games/Common.js"
 			],
 			[
-				"viewpit",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Pitch.cs"
+				"tem",
+				"lib/TemplateLoader.js"
 			],
 			[
-				"vieageresu",
-				"AtStake_v2/Assets/Scripts/Screen/Views/AgendaItemResult.cs"
+				"comm",
+				"lib/games/Common.js"
 			],
 			[
-				"viedecide",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Decide.cs"
+				"com",
+				"lib/games/Common.js"
 			],
 			[
-				"viewextrde",
-				"AtStake_v2/Assets/Scripts/Screen/Views/ExtraTimeDeliberate.cs"
+				"base.hb",
+				"templates/layouts/base.hbs"
 			],
 			[
-				"viewdel",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Deliberate.cs"
+				"player",
+				"sockets/handlers/PlayerLogin.js"
 			],
 			[
-				"viewex",
-				"AtStake_v2/Assets/Scripts/Screen/Views/ExtraTime.cs"
+				"htyi_",
+				"templates/partials/script/htyi_results.hbs"
 			],
 			[
-				"viepit",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Pitch.cs"
+				"htiy.",
+				"public/js/events/htyi.js"
 			],
 			[
-				"vithin",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Think.cs"
+				"common",
+				"lib/games/Common.js"
 			],
 			[
-				"thinkin",
-				"AtStake_v2/Assets/Scripts/Screen/Views/ThinkInstructions.cs"
+				"htyi.js",
+				"public/js/events/htyi.js"
 			],
 			[
-				"viewque",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Question.cs"
+				"wiki",
+				"lib/games/Wiki.js"
 			],
 			[
-				"viewagen",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Agenda.cs"
+				"playerl",
+				"sockets/handlers/PlayerLogin.js"
 			],
 			[
-				"viewage",
-				"AtStake_v2/Assets/Scripts/Screen/Views/AgendaItem.cs"
+				"playerlog",
+				"sockets/handlers/PlayerLogin.js"
 			],
 			[
-				"viewbi",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Bio.cs"
+				"ht",
+				"emerging-citizens/lib/games/HTYI.js"
 			],
 			[
-				"viewm",
-				"AtStake_v2/Assets/Scripts/Screen/ViewManager.cs"
+				"groupvi",
+				"emerging-citizens/templates/partials/script/groupview_events.hbs"
 			],
 			[
-				"view",
-				"AtStake_v2/Assets/Scripts/Screen/View.cs"
+				"groupvie",
+				"emerging-citizens/templates/partials/script/groupview_events.hbs"
 			],
 			[
-				"gami",
-				"AtStake_v2/Assets/Scripts/LocalDev/GameInstance.cs"
+				"htyi.",
+				"emerging-citizens/lib/games/HTYI.js"
 			],
 			[
-				"temrol",
-				"AtStake_v2/Assets/Scripts/Screen/Templates/Roles.cs"
+				"tutori",
+				"templates/partials/group/tutorial.hbs"
 			],
 			[
-				"viewrol",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Roles.cs"
+				"vari",
+				"public/styles/core/variables.scss"
 			],
 			[
-				"exte",
-				"AtStake_v2/Assets/Scripts/Utilities/ExtensionMethods.cs"
+				"core.sc",
+				"public/styles/core.scss"
 			],
 			[
-				"clzf",
-				"AtStake_v2/Assets/Scripts/Data/CLZF2.cs"
+				"forms.s",
+				"public/styles/core/forms.scss"
 			],
 			[
-				"clf",
-				"AtStake_v2/Assets/Scripts/Data/CLZF2.cs"
+				"pro",
+				"templates/partials/script/production.hbs"
 			],
 			[
-				"disp",
-				"AtStake_v2/Assets/Scripts/Networking/MessageDispatcher.cs"
+				"css.",
+				"templates/partials/css.hbs"
 			],
 			[
-				"clz",
-				"AtStake_v2/Assets/Scripts/Data/CLZF2.cs"
+				"hash",
+				"lib/Hashtag.js"
 			],
 			[
-				"viewagein",
-				"AtStake_v2/Assets/Scripts/Screen/Views/AgendaItem.cs"
+				"nosleep",
+				"public/bower_components/nosleep/NoSleep.js"
 			],
 			[
-				"ageires",
-				"AtStake_v2/Assets/Scripts/Screen/Views/AgendaItemResult.cs"
+				"prod",
+				"templates/partials/script/production.hbs"
 			],
 			[
-				"playeage",
-				"AtStake_v2/Assets/Scripts/Data/PlayerAgendaItem.cs"
+				"develo",
+				"templates/partials/script/development.hbs"
 			],
 			[
-				"deck",
-				"EL-API/content/Screens/Deck.yml"
+				"res",
+				"templates/partials/group/results.hbs"
 			],
 			[
-				"ex",
-				"AtStake_v2/Assets/Scripts/Utilities/ExtensionMethods.cs"
+				"produ",
+				"templates/partials/script/production.hbs"
 			],
 			[
-				"ext",
-				"AtStake_v2/Assets/Scripts/Utilities/ExtensionMethods.cs"
+				"hasht",
+				"lib/Hashtag.js"
 			],
 			[
-				"vieroles",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Roles.cs"
+				"index.hbs",
+				"templates/views/index.hbs"
 			],
 			[
-				"viepo",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Pot.cs"
+				"mixins",
+				"public/styles/core/mixins.scss"
 			],
 			[
-				"viewrole",
-				"AtStake_v2/Assets/Scripts/Screen/Views/Roles.cs"
+				"homep",
+				"public/styles/core/homepage.scss"
+			],
+			[
+				"cores",
+				"public/styles/core.scss"
+			],
+			[
+				"resu",
+				"templates/partials/group/results.hbs"
+			],
+			[
+				"core.cs",
+				"public/styles/core.scss"
+			],
+			[
+				"produc",
+				"templates/partials/script/production.hbs"
+			],
+			[
+				"cors.js",
+				"node_modules/keystone/lib/middleware/cors.js"
+			],
+			[
+				"core.scs",
+				"public/styles/core.scss"
+			],
+			[
+				"production",
+				"templates/partials/script/production.hbs"
+			],
+			[
+				"result",
+				"templates/partials/group/results.hbs"
+			],
+			[
+				"monitor",
+				"routes/views/group/monitor.js"
+			],
+			[
+				"voting.",
+				"templates/partials/player/voting.hbs"
+			],
+			[
+				"voti",
+				"templates/partials/group/voting.hbs"
+			],
+			[
+				"gameended",
+				"templates/partials/player/gameended.hbs"
+			],
+			[
+				"voting",
+				"templates/partials/player/voting.hbs"
+			],
+			[
+				"tutor",
+				"templates/partials/group/tutorial.hbs"
+			],
+			[
+				"core.s",
+				"public/styles/core.scss"
+			],
+			[
+				"round",
+				"public/styles/round-about.css"
+			],
+			[
+				"gamemana",
+				"lib/GameManager.js"
+			],
+			[
+				"tutora",
+				"templates/partials/group/tutorial.hbs"
+			],
+			[
+				"core.",
+				"public/styles/core.scss"
+			],
+			[
+				"resul",
+				"templates/partials/group/results.hbs"
+			],
+			[
+				"hashtag.",
+				"lib/Hashtag.js"
+			],
+			[
+				"template",
+				"routes/views/game/template_load.js"
+			],
+			[
+				"tweet.",
+				"templates/partials/group/tweet.hbs"
+			],
+			[
+				"csss",
+				"templates/partials/css.hbs"
+			],
+			[
+				"tweet.hbs",
+				"templates/partials/group/tweet.hbs"
+			],
+			[
+				"player_bad",
+				"templates/partials/group/player_badge.hbs"
+			],
+			[
+				"templ",
+				"routes/views/game/template_load.js"
+			],
+			[
+				"results.hbs",
+				"templates/partials/group/results.hbs"
+			],
+			[
+				"lbase",
+				"templates/layouts/base.hbs"
+			],
+			[
+				"player_evne",
+				"templates/partials/script/player_events.hbs"
+			],
+			[
+				"hashta",
+				"lib/Hashtag.js"
+			],
+			[
+				"player_ba",
+				"templates/partials/moderator/player_badge.hbs"
+			],
+			[
+				"dev",
+				"templates/partials/script/development.hbs"
+			],
+			[
+				"template_l",
+				"routes/views/game/template_load.js"
+			],
+			[
+				"hashtag",
+				"lib/Hashtag.js"
+			],
+			[
+				"core.scss",
+				"public/styles/core.scss"
+			],
+			[
+				"moderator",
+				"templates/partials/script/moderator_events.hbs"
+			],
+			[
+				"results.",
+				"templates/partials/moderator/results.hbs"
+			],
+			[
+				"comingsoon",
+				"templates/views/comingsoon.hbs"
+			],
+			[
+				"mixi",
+				"public/styles/core/mixins.scss"
+			],
+			[
+				"base.h",
+				"templates/layouts/base.hbs"
+			],
+			[
+				"fonts.scss",
+				"public/styles/core/fonts.scss"
+			],
+			[
+				"moder",
+				"templates/partials/script/moderator_events.hbs"
+			],
+			[
+				"template_lo",
+				"routes/views/game/template_load.js"
+			],
+			[
+				"player.js",
+				"routes/views/game/player.js"
 			]
 		],
 		"width": 0.0
@@ -1825,16 +1978,16 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "",
+		"last_filter": "edis",
 		"selected_items":
 		[
 			[
-				"da",
-				"~/Developer/git-repositories/DataBasic/DataBasic.sublime-project"
+				"edis",
+				"~/Documents/Projects/edison.sublime-project"
 			],
 			[
 				"",
-				"~/Developer/git-repositories/unity-projects/WorldBank-RBF/WorldBank-RBF/WorldBank-RBF.sublime-project"
+				"~/Documents/Projects/AtStake_v2/AtStake.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -1852,11 +2005,11 @@
 	"settings":
 	{
 	},
-	"show_minimap": false,
-	"show_open_files": false,
+	"show_minimap": true,
+	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 217.0,
+	"side_bar_width": 258.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
