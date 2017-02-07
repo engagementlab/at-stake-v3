@@ -1,0 +1,52 @@
+{
+	"folders":
+	[
+		// {
+		// 	"name": "Client",
+		// 	"path": "public/js"
+		// },
+		{
+			"name": "Library",
+			"path": "lib"
+		},
+		{
+			"name": "Partials",
+			"path": "templates/partials"
+		},
+		{
+			"name": "Views",
+			"path": "templates/views"
+		},
+		{
+			"name": "Models",
+			"path": "models"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				"*.css",
+				"*.orig",
+				"*.map"
+			],
+			"name": "Styles",
+			"path": "public/styles"
+		},
+		{
+			"folder_exclude_patterns":
+			[
+				"node_modules",
+				"public/plugins"
+			],
+			"name": "All",
+			"path": "/Users/Johnny/Documents/Projects/at-stake-v3"
+		},
+		{
+			"name": "../Games SDK",
+			"path": "/Users/Johnny/Documents/Projects/learning-games-core"
+		},
+		{
+			"name": "../Web SDK",
+			"path": "/Users/Johnny/Documents/Projects/el-web-sdk"
+		}
+	]
+}
