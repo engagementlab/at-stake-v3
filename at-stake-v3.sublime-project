@@ -1,21 +1,13 @@
 {
 	"folders":
 	[
-		{
-			"name": "Client",
-			"path": "public/js"
-		},
-		{
-			"name": "Models",
-			"path": "models"
-		},
+		// {
+		// 	"name": "Client",
+		// 	"path": "public/js"
+		// },
 		{
 			"name": "Library",
 			"path": "lib"
-		},
-		{
-			"name": "Routes",
-			"path": "routes"
 		},
 		{
 			"name": "Partials",
@@ -24,6 +16,10 @@
 		{
 			"name": "Views",
 			"path": "templates/views"
+		},
+		{
+			"name": "Models",
+			"path": "models"
 		},
 		{
 			"file_exclude_patterns":
@@ -42,15 +38,15 @@
 				"public/plugins"
 			],
 			"name": "All",
-			"path": "/Users/egl_manager/Developer/git-repositories/at-stake-v3"
+			"path": "/Users/Johnny/Documents/Projects/at-stake-v3"
 		},
 		{
 			"name": "../Games SDK",
-			"path": "/Users/egl_manager/Developer/git-repositories/learning-games-core"
+			"path": "/Users/Johnny/Documents/Projects/learning-games-core"
 		},
 		{
 			"name": "../Web SDK",
-			"path": "/Users/egl_manager/Developer/git-repositories/el-web-sdk"
+			"path": "/Users/Johnny/Documents/Projects/el-web-sdk"
 		}
 	]
 }

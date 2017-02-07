@@ -1,6 +1,7 @@
 {
 	"name": "@Stake",
 	"directory": "at-stake-v3",
+	"subdomain": "atstake",
 	"database": "at-stake", 
 	"admin_nav": { 
 						"HomePage": "HomePage",

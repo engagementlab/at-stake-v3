@@ -1,0 +1,38 @@
+{
+  "apps" : [{
+    "name": "Emerging Citizens",
+    "script": "server.js",
+    "env_production": {
+      "NODE_ENV": "production"
+    },
+    "env_staging": {
+      "NODE_ENV": "staging"
+    }
+  }],
+  "deploy" : {
+
+    "web-staging" : {
+      "user": "node",
+      "host": "199.94.80.19",
+      "repo": "git@github.com:engagementgamelab/el-web-sdk.git",
+      "ref": "origin/master",
+      "path": "/srv/website",
+      "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.';",
+      "post-deploy" : "npm i ; npm update ; grunt compile --sites=at-stake --env staging ; pm2 restart 0",
+      "env": {
+        "NODE_ENV": "staging"
+      }
+    },
+
+    "staging" : {
+      "user": "node",
+      "host": "199.94.80.19",
+      "repo": "git@github.com:engagementgamelab/at-stake-v3.git",
+      "ref": "origin/master",
+      "path": "/srv/at-stake-v3",
+      "pre-deploy-local" : "echo 'NPM linking at-stake-v3 and restarting app.'; git pull git@github.com:engagementgamelab/el-web-sdk.git master;",
+      "post-deploy" : "npm i ; npm update ; cd /srv/website/current/ ; npm i ; grunt compile --sites=at-stake --env staging ; NODE_ENV=staging pm2 restart 0"
+    }
+
+  }
+}
