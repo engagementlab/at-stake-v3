@@ -187,10 +187,12 @@
   position: absolute;
   bottom: 0px;
   width: 100%;
+  left: 0px;
   max-height: 80px;
   margin: 0px; }
   .form.decider input, .form#decider input, .form#decider-controls input {
     width: 100%;
+    left: 0px;
     margin: 0px;
     position: absolute;
     bottom: 0px;
