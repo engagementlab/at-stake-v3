@@ -187,6 +187,8 @@ socketEvents = function(eventId, eventData) {
             
         case 'game:countdown':
 
+            $('#btn-time').fadeOut();
+
             if(clockInterval)
                 clearInterval(clockInterval);
 
@@ -231,7 +233,7 @@ socketEvents = function(eventId, eventData) {
 
             runMods();
             
-            $('#more-time').fadeIn();
+            $('#more-time,#btn-next').fadeIn();
             $('#btn-more-time,#btn-cancel').click(function() { $('#more-time').fadeOut()} );
 
             break;
@@ -245,7 +247,6 @@ socketEvents = function(eventId, eventData) {
         case 'game:player_done':
             
             $('#btn-next-player').fadeIn();
-            $('#btn-time').fadeOut();
 
             break;
 
