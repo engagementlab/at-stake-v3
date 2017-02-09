@@ -12,7 +12,7 @@
 		background-color: white;
 
 		// Show coin and points bar
-		section#bottom-bar {
+		footer#bottom-bar {
 			display: block;
 		}
 
@@ -192,7 +192,7 @@ input.post-button {
 }
 
 // BOTTOM BAR (COINS, NEXT)
-section#bottom-bar {
+footer#bottom-bar {
 	background-color: $color-seafoam;
 	font-size: large;
 	width: 100%;

@@ -157,7 +157,7 @@
   height: 100%; }
   #gameContent.in-game {
     background-color: white; }
-    #gameContent.in-game section#bottom-bar {
+    #gameContent.in-game footer#bottom-bar {
       display: block; }
   #gameContent.lobby button#lobby-back {
     display: block;
@@ -263,7 +263,7 @@ input.post-button {
 .submission #access-code {
   font-size: 4em; }
 
-section#bottom-bar {
+footer#bottom-bar {
   background-color: #00D6B4;
   font-size: large;
   width: 100%;
