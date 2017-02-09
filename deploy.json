@@ -2,6 +2,7 @@
   "apps" : [{
     "name": "Emerging Citizens",
     "script": "server.js",
+    "interpreter" : "node@4.4.2",
     "env_production": {
       "NODE_ENV": "production"
     },

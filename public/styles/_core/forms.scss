@@ -33,18 +33,23 @@
 	input {
 
 		padding: 20px;
-	    font-size: x-large;
-	    margin-bottom: 20px;
-	    position: relative;
-	    max-width: 100%;
-	    color: black;
-
-
+    font-size: x-large;
+    margin-bottom: 20px;
+    position: relative;
+    max-width: 100%;
+    color: black;
+		
 	  &:focus {
 	    outline: none !important;
 	    border:6px solid #00c5c2;
 
 	    box-shadow: 0 0 10px #719ECE;
+		}
+	}
+
+	&.login, &.create {
+		input {
+			width: 100%;
 		}
 	}
 
@@ -74,7 +79,6 @@
 	}
 
 	input.game_login {
-		width: 300px;
 		background-color: $color-orange;
 	}
 
