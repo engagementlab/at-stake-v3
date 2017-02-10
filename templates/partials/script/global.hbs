@@ -1,8 +1,8 @@
 {{!< default}}
 {{!-- 
 /**
- * Emerging Citizens
- * Developed by Engagement Lab, 2016
+ * @Stake v3.0
+ * Developed by Engagement Lab, 2016-2017
  * ==============
  * 
  * Script include for global logic
@@ -213,11 +213,17 @@
 		// Engage any template script modifiers
 		if($('span#modifier').length > 0) {
 
-			if($('span#modifier').data().hide_next)
+			if($('span#modifier').data().hide_next) 
 		 		$('#btn-next').fadeOut();
 		 	else
 		 		$('#btn-next').fadeIn();
 	 	
+		}
+		else {
+
+				// Defaults
+		 		$('#btn-next').fadeIn();
+
 		}
 
 	}
@@ -317,6 +323,11 @@
     registerEvents();
 
 	}
+
+	{{#if mobile}}
+		{{!-- LOAD MOBILE METHODS IF MOBILE DEVICE --}}
+		{{> script/mobile}}
+	{{/if}}
 
 window.onload = function() {
 

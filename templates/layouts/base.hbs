@@ -5,9 +5,9 @@
     <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>@Stake v3</title>
-        <meta name="description" content="A suite of digital multiplayer games that teaches students how to critique and create civic media.">
-        <meta name="author" content="Engagement Lab">
+        <title>@Stake</title>
+        <meta name="description" content="@Stake is an online and mobile role-playing game that fosters democracy, empathy, and creative problem solving for civic issues.">
+        <meta name="author" content="Engagement Lab at Emerson College">
         
         {{#ifeq section 'play'}}
             {{!-- Mobile Meta --}}
@@ -25,7 +25,7 @@
         {{> css environment=env section=section}}
     </head>
     
-    <body class="body {{gameType}}">
+    <body class="body{{#if mobile}} mobile{{/if}}">
         {{#ifeq section "comingsoon"}}
             {{> nav_comingsoon}}
             <div class="col-sm-12">
@@ -73,26 +73,27 @@
 
             {{/ifeq}}
 
-                  <div class="container-fluid" id="gameContent">
+                <div class="col-sm-12 col-lg-12" id="gameContent">
 
-                  <section id="logo-bar" style="display:none">
-                    <img src="http://res.cloudinary.com/engagement-lab-home/image/upload/e_grayscale/v1454520474/site/listings/odr1jt3rfkda0s1qce9q.png">
-                </section>
-                <button class="btn" id="lobby-back"><</button>
+                    <section id="logo-bar" style="display:none">
+                        <img src="http://res.cloudinary.com/engagement-lab-home/image/upload/e_grayscale/v1454520474/site/listings/odr1jt3rfkda0s1qce9q.png">
+                    </section>
+                    <button class="btn" id="lobby-back"><</button>
 
                     <!-- BODY CONTENT START -->
                     {{{body}}}
 
-                  </div>
+                </div>
 
-                <section id="bottom-bar" class="row" style="display:none">
+                <footer id="bottom-bar">
+                    
                     <div id="currency" class="col-sm-6">
                         <div id="player-coins">[coins] <span></span></div>
                         <div id="pot-coins">[pot] <span></span></div>
                     </div>
                     
-                </section>
-                
+                </footer>
+
                 <div class="form next decider row" id="decider-controls" style="display:none;">
                     <input id="btn-next" data-keep_enabled="true" data-event="game:next" class="submit" type="submit" name="submit" value="next">
                 </div>

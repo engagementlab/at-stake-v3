@@ -2,7 +2,7 @@
 {{!-- 
 /**
  * @Stake v3
- * Developed by Engagement Lab, 2016
+ * Developed by Engagement Lab, 2016-2017
  * ==============
  * 
  * Script includes partial for PLAYERS socket.io events
@@ -12,6 +12,7 @@
 
 var clockInterval;
 var playerWasReconnected;
+var startAnim = new TimelineLite({paused: true}).fromTo($('#btn-start-game'), 1, {scale:0, autoAlpha:0}, {scale:1, autoAlpha:1, visibility:'visible', ease:Elastic.easeOut});
 
 // If true, screen doesn't advance right away via 'game:next',
 // it is saved in nextScreenData and advanced to later
@@ -84,14 +85,13 @@ socketEvents = function(eventId, eventData) {
                 return {name: player.username, icon: player.index};
             });
 
-            console.log(currentPlayers);
+            var playersNeeded = {{#ifeq debug true}}2{{else}}3{{/ifeq}}
 
-            {{!-- // Allow to start?
-            if(currentPlayers.length === 2)
-            {
-                var startAnim = new TimelineLite();
-                startAnim.from($('#btn-start-game'), 1, {scale:0, autoAlpha: 0, ease:Elastic.easeOut})
-            } --}}
+            // Allow to start?
+            if(currentPlayers.length === playersNeeded)
+                startAnim.play();
+            else if(currentPlayers.length < playersNeeded)
+                startAnim.reverse();
 
             $('#players').empty();
 
@@ -193,6 +193,8 @@ socketEvents = function(eventId, eventData) {
             
         case 'game:countdown':
 
+            $('#btn-time').fadeOut();
+
             if(clockInterval)
                 clearInterval(clockInterval);
 
@@ -237,7 +239,7 @@ socketEvents = function(eventId, eventData) {
 
             runMods();
             
-            $('#more-time').fadeIn();
+            $('#more-time,#btn-next').fadeIn();
             $('#btn-more-time,#btn-cancel').click(function() { $('#more-time').fadeOut()} );
 
             break;
@@ -251,7 +253,6 @@ socketEvents = function(eventId, eventData) {
         case 'game:player_done':
             
             $('#btn-next-player').fadeIn();
-            $('#btn-time').fadeOut();
 
             break;
 

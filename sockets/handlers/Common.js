@@ -1,6 +1,6 @@
 /**
  * @Stake v3
- * Developed by Engagement Lab, 2016
+ * Developed by Engagement Lab, 2016-2017
  * ==============
  * Common game socket handler.
  *

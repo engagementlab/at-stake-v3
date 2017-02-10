@@ -1,31 +1,87 @@
-<div class="row gameLanding" id="homepage">
-    
-  <div class="row" id="home-page-banner">
-      <div id="intro">{{{content.introText.html}}}</div>
-  </div>
+{{!--
+/**
+* ==============
+* atStake Website Landing Page
+* Developed by Engagement Lab, 2017
+* Author: Matt Benson
+* ==========
+*/
+--}}
 
-</div>
-
-<footer id="footer">
-
-  <!-- .footer start -->
-  <div class="footer col-md-12">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="row">
-          <div class="footer-content text-center padding-ver-clear">
-
-            <div class="logos-footer center-block">
-              <a href="http://elab.emerson.edu/"><img id="logo" src="/images/layout/logo_el.png" alt="Engagement Lab" width="60" height="60"></a>
-            </div>
-
-            <p class="text-center">An applied research lab at Emerson College for reimagining civic engagement in a digital culture<br />
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="siteLanding" id="homepage">
+  <div class="row top">
+    {{!-- TOP SECTION/LANDING --}}
+    <div class="top-section">
+      <div class="header">{{{content.header}}}</div>
+      <div class="play-button"></div>
     </div>
   </div>
-  <!-- .footer end -->
+  
+  {{!-- GAME PITCH --}}
+  <div class="row game-pitch">
+  	<div class="tagline">{{{content.tagline}}}</div>
+  	<div class="cta-para-one">{{{content.ctaParagraphOne}}}</div>
+  	<div class="cta-para-two">{{{content.ctaParagraphTwo}}}</div>
+  	<div class="examples">
+  		<ul>
+  			<li>{{{content.exampleOneText}}}</li>
+  			<li>{{{content.exampleTwoText}}}</li>
+  			<li>{{{content.exampleThreeText}}}</li>
+  		</ul>
+  	</div>
+  	<div class="cta-points">
+  		<div class="point-one">{{{content.pointOneText}}}</div>
+  		<div class="point-two">{{{content.pointTwoText}}}</div>
+  		<div class="point-three">{{{content.pointThreeText}}}</div>
+  	</div>
+  	<div class="cta-image">{{{cloudinaryImg content.showcaseImage crop=scale height=200}}}
+  	</div>
+  </div>
 
-</footer>
+  {{!-- FEATURES --}}
+  <div class="row feature col-lg-10 col-sm-12 col-centered">
+    <div class="feature-one">
+    	<div class="feature-image feature-one-image">{{{cloudinaryImg content.featureOneIcon crop=scale height=200}}}</div>
+    	<div class="feature-text feature-one-text">{{{content.featureOneParagraph}}}</div>
+    </div>
+    <div class="feature-two">
+    	<div class="feature-image feature-two-image">{{{cloudinaryImg content.featureTwoIcon crop=scale height=200}}}</div>
+    	<div class="feature-text feature-two-text">{{{content.featureTwoParagraph}}}</div>
+    </div>
+    <div class="feature-three">
+    <div class="feature-image feature-three-image">{{{cloudinaryImg content.featureThreeIcon crop=scale height=200}}}</div>
+    	<div class="feature-text feature-three-text">{{{content.featureThreeParagraph}}}</div>
+    </div>
+  </div>
+
+  {{!-- FLOW OF PLAY --}}
+  <div class="row flow-play col-lg-10 col-sm-12 col-centered">
+    <div class="flow-play-header">{{{content.flowOfGameHeader}}}</div>
+  	<div class="flow-play-para">{{{content.flowOfGameParagraph}}}</div>
+  	<div class="flow-play-pic">{{{cloudinaryImg content.flowOfGamePicture crop=scale height=200}}}</div>
+  </div>
+
+    {{!-- LEARN MORE --}}
+  <div class="row learn-more col-lg-8 col-sm-12 col-centered">
+  	<div class="learn-more-header">{{{content.learnMoreHeader}}}</div>
+  	<div class="learn-more-para">{{{content.learnMoreParagraph}}}</div>
+  </div>
+
+  {{!-- CREDITS --}}
+  <div id="credits" class="row col-lg-10 col-sm-12 col-centered">
+  	<div class="design-dev-team">
+	    <h3>Design and Development Team</h3>
+	    <div class="principal-investigator">{{{content.principalInvestigator}}}</div>
+	    <div class="product-manager">{{{content.productManager}}}</div>
+	    <div class="project-manager">{{{content.projectManager}}}</div>
+	    <div class="lead-developer">{{{content.leadDeveloper}}}</div>
+	    <div class="art-director">{{{content.artDirector}}}</div>
+	    <div class="game-designer">{{{content.gameDesigner}}}</div>
+	    <div class="other-game-designer">{{{content.otherGameDesigner}}}</div>
+	    <div class="junior-developer">{{{content.juniorDeveloper}}}</div>
+	    <div class="production-assistant">{{{content.productionAssistant}}}</div>
+	    <div class="other-production-assistant">{{{content.otherProductionAssistant}}}</div>
+    </div>
+    <div class="el-logo">
+    </div>
+  </div>
