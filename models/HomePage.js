@@ -71,14 +71,14 @@ var Types = keystone.Field.Types;
 'Call To Action', {
 	ctaParagraphOne: {
 		type: Types.Markdown,
-		label: "Call to Action Paragraph One"},
+		label: "Call to Action Paragraph One",
 		initial: false,
 		required: false
 	},
 	
 	ctaParagraphTwo: {
 		type: Types.Markdown,
-		label: "Call to Action Paragraph Two"},
+		label: "Call to Action Paragraph Two",
 		initial: false,
 		required: false
 	},
