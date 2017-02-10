@@ -14,7 +14,7 @@
  */
 var keystone = require('keystone'),
     GameConfig = keystone.list('GameConfig'),
-    HomePage = keystone.list('HomePage');
+    Homepage = keystone.list('Homepage');
 
 exports = module.exports = function(req, res) {
 
@@ -28,7 +28,7 @@ exports = module.exports = function(req, res) {
       }
     });
 
-    var queryHomePage = HomePage.model.findOne({}, {}, {
+    var queryHomepage = Homepage.model.findOne({}, {}, {
       sort: {
           'createdAt': -1
       }
@@ -37,9 +37,9 @@ exports = module.exports = function(req, res) {
     queryConfig.exec(function(err, resultConfig) {
 
 	  	// If game is enabled, get home page content
-	    queryHomePage.exec(function(err, resultHomePage) {
+	    queryHomepage.exec(function(err, resultHomepage) {
 	    
-	    	locals.content = resultHomePage;
+	    	locals.content = resultHomepage;
 		    locals.section = 'index';
 			  
 			  // Render the view
