@@ -278,6 +278,9 @@ $('#btn_new_game').click(function() {
             $('#login').fadeOut(function() {
                 $('#decider').fadeIn(function(){
                     $('.lobby#decider').css('display','table-cell');
+
+                    // Tell mobile action has completed
+                    $('body').trigger('mobileCallback');
                 });
             });
 

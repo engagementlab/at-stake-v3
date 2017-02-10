@@ -5,10 +5,13 @@
  * Developed by Engagement Lab, 2016-2017
  * ==============
  * 
- * Script include for mobile-only logic
+ * Script include for mobile native app-only logic
  * ==========
  */
 --}}
+var doc = $('body');
+var isApple = mobileDetect.is('iOS');
+var isAndroid = mobileDetect.is('Android');
 
 /*
 	* Run actions called for by mobile native app.
@@ -17,6 +20,30 @@
 	*
 */	
 var mobileAction = function(strAction) {
+
+	// Called upon mobileCallback event and posts response to mobile native app
+	function callback() {
+
+		if(isApple) {
+		
+	    try {
+	        webkit.messageHandlers.callbackHandler.postMessage({status: "okeydokey", action: strAction});
+	    } catch(err) {
+	        console.log('The native context does not exist.');
+	    }
+
+	  }
+	  else if(isAndroid) {
+
+	  }
+	  else {
+	  	//????
+	  }
+
+	}
+
+	// Listen for 'mobileCallback' event anywhere on document
+	doc.on('mobileCallback', function() { callback() });
 
 	switch(strAction) {
 
@@ -34,8 +61,6 @@ var mobileAction = function(strAction) {
 
 
 	}
-
-	{{!-- return {msg: "okeydokey", action: strAction}; --}}
-	return "okeydokey";
+	{{!-- return "okeydokey"; --}}
 
 }

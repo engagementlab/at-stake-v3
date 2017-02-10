@@ -22,6 +22,7 @@
   var playerUID;
   var isDecider;
 	var timeline = new TimelineLite();
+	var mobileDetect = new MobileDetect(window.navigator.userAgent);
 
 	// Can be set by any event logic waiting for content update
 	var updateContentCallback;

@@ -6,17 +6,20 @@
 //  Copyright © 2017 Engagement Lab at Emerson College. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import WebKit
 
-class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
+class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler {
     
     @IBOutlet var containerView : UIView! = nil
+    @IBOutlet weak var menuView: UIView!
     
     var webView: WKWebView!
     var contentController: WKUserContentController!
     var webConfig: WKWebViewConfiguration!
     
+    // Makes calls to webview logic
     var callWebAction = WKUserScript(
         source: "mobileAction(strAction)",
         injectionTime: WKUserScriptInjectionTime.atDocumentEnd,
@@ -35,6 +38,11 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         webAction(actionString: "new");
     }
     
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
+        menuView.isHidden = false
+        
+    }
     
     // Load URL to webview
     func loadURL() {
@@ -51,29 +59,10 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     
     func webAction(actionString: String) {
         
-        webView.evaluateJavaScript("mobileAction('\(actionString)')") { (result: Any?, error: Error?) in
+        webView.evaluateJavaScript("mobileAction('\(actionString)')") { (result, error) in
             if error != nil {
                 print(result ?? "Unable to print mobileAction response:")
-                print(error as Any)
-            }
-            else {
-                
-                print(result)
-                
-                if result as? String == "okeydokey" {
-                    print("all good")
-                    self.webView.isHidden = false
-                }
-                
-//                do {
-//                    
-//                    let json = try JSONSerialization.jsonObject(with: result as! Data, options: []) as Dictionary
-//                    print(json)
-//                    
-//                }
-//                catch let error as NSError {
-//                    print(error)
-//                }
+                print(error?.localizedDescription as Any)
             }
         }
         
@@ -87,34 +76,21 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         contentController = WKUserContentController()
         webConfig = WKWebViewConfiguration()
         
-        
-//        contentController.addUserScript(callWebAction)
-//        contentController.add(
-//            self as! WKScriptMessageHandler,
-//            name: "callbackHandler"
-//        )
-        
+        contentController.add(
+            self,
+            name: "callbackHandler"
+        )
         webConfig.userContentController = contentController
         
         webView = WKWebView(
             frame: containerView.frame,
             configuration: webConfig
         )
+        webView.navigationDelegate = self
         webView.translatesAutoresizingMaskIntoConstraints = false
         webView.isHidden = true
         
         view.addSubview(webView)
-
-        /*
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-[webView]-|",
-                                                                           options: NSLayoutFormatOptions(rawValue: 0),
-                                                                           metrics: nil,
-                                                                           views: ["webView": webView]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-20-[webView]-|",
-                                                                           options: NSLayoutFormatOptions(rawValue: 0),
-                                                                           metrics: nil,
-                                                                           views: ["webView": webView]))
-        */
         
         loadURL()
         contentController.addUserScript(callWebAction)
@@ -122,19 +98,40 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     }
 
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    
     }
     
     // Respond to calls from webview
-        func userContentController(userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-            if let messageBody: NSDictionary = message.body as? NSDictionary {
-                if let innerBody: NSDictionary = messageBody["body"] as? NSDictionary {
-                    print(innerBody)
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        
+        if let messageBody: NSDictionary = message.body as? NSDictionary {
+            
+            // Webview returned valid response?
+            if(messageBody["status"] as! String == "okeydokey") {
+                
+                switch(messageBody["action"] as! String) {
+                    
+                    // New game UI opened
+                    case "new":
+                        
+                        self.webView.isHidden = false;
+                        
+                        break;
+                        
+                    default:
+                        
+                        print("No handler for action '\(messageBody["action"])\'")
+                        
+                        break;
+                        
                 }
+                
             }
+            
         }
-
+    }
 
 }
-

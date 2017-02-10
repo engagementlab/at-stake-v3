@@ -42,6 +42,7 @@
 		B20048B31E4D35C100E05187 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B20048881E4D13AF00E05187 /* icon@2x.png */; };
 		B20048B41E4D35C100E05187 /* icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = B20048911E4D146500E05187 /* icon-144.png */; };
 		B20048B51E4D35C100E05187 /* icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = B200488F1E4D146500E05187 /* icon-76.png */; };
+		B20048BB1E4E5E2B00E05187 /* AtStake Dev.app in Resources */ = {isa = PBXBuildFile; fileRef = B20048B91E4D35C100E05187 /* AtStake Dev.app */; };
 		B2B8744F1E4B9B1300572938 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8744E1E4B9B1300572938 /* AppDelegate.swift */; };
 		B2B874511E4B9B1300572938 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B874501E4B9B1300572938 /* ViewController.swift */; };
 		B2B874541E4B9B1300572938 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2B874521E4B9B1300572938 /* Main.storyboard */; };
@@ -352,6 +353,7 @@
 				B20048A71E4D35C100E05187 /* icon@2x-568h.png in Resources */,
 				B20048A81E4D35C100E05187 /* icon-96.png in Resources */,
 				B20048A91E4D35C100E05187 /* LaunchScreen.storyboard in Resources */,
+				B20048BB1E4E5E2B00E05187 /* AtStake Dev.app in Resources */,
 				B20048AA1E4D35C100E05187 /* splash_640x1136.png in Resources */,
 				B20048AB1E4D35C100E05187 /* Assets.xcassets in Resources */,
 				B20048AC1E4D35C100E05187 /* icon-36.png in Resources */,
