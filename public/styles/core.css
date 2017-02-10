@@ -153,7 +153,6 @@
 
 #gameContent {
   background-color: #1EB4BB;
-  display: table;
   height: 100%; }
   #gameContent.in-game {
     background-color: white; }
@@ -231,19 +230,12 @@
   position: relative;
   margin: 10px auto;
   background-color: white;
-  color: black;
-  display: table-cell;
-  vertical-align: middle; }
+  color: black; }
   .room-container h1 {
     font-size: 6em; }
   section {
     height: 100%;
-    width: 100%;
-    display: table; }
-
-#decider, #login {
-  display: table-cell;
-  vertical-align: middle; }
+    width: 100%; }
 
 #login-header img {
   height: 100%;
@@ -316,19 +308,12 @@ footer#bottom-bar {
 
 .player-bio {
   height: 100%;
-  width: 100%;
-  display: table; }
-  .player-bio .room-container {
-    height: 30%;
-    display: table-cell;
-    vertical-align: middle; }
+  width: 100%; }
 
 #rules {
-  height: 100%;
-  display: table; }
+  height: 100%; }
   #rules .screen {
-    display: none;
-    vertical-align: middle; }
+    display: none; }
 
 @media (min-width: 1024px) {
   body .container {
