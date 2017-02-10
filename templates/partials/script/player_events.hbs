@@ -80,7 +80,11 @@ socketEvents = function(eventId, eventData) {
         case 'players:update':
 
             var staticPlayers = $('.player-static');
-            var currentPlayers = _.pluck(eventData.players, 'username');
+            var currentPlayers = _.map(eventData.players, function(player){
+                return {name: player.username, icon: player.index};
+            });
+
+            console.log(currentPlayers);
 
             {{!-- // Allow to start?
             if(currentPlayers.length === 2)
@@ -91,11 +95,13 @@ socketEvents = function(eventId, eventData) {
 
             $('#players').empty();
 
-            _.each(currentPlayers, function(name, index) {
+            _.each(currentPlayers, function(player, index) {
 
-                var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
+            console.log(player);
 
-                $('#players').append('<div class="col-sm-3">' + nameFormatted + '</div>');
+                var nameFormatted = (player.name.length <= 15) ? player.name : player.name.substring(0, 15) + "...";
+
+                $('#players').append('<div class="col-sm-3 player-logo"><div class="logo" id="player-' + player.icon + '"></div><p>' + nameFormatted + '</p></div>');
 
             });
 

@@ -64,6 +64,44 @@
 
 }
 
+// Players
+.player-logo {
+
+	height: 80px;
+	width: 80px;
+	display: inline-block;
+	margin: 15px;
+	padding:0px;
+
+	.logo {
+		height:100%;
+		width:100%;
+	}
+
+	#player-0 {
+		background: $player-one-logo;
+		background-size: contain;
+	}
+	#player-1 {
+		background: $player-two-logo;
+		background-size: contain;
+	}
+	#player-2 {
+		background: $player-three-logo;
+		background-size: contain;
+	}
+	#player-3 {
+		background: $player-four-logo;
+		background-size: contain;
+	}
+	#player-4 {
+		background: $player-five-logo;
+		background-size: contain;
+	}
+
+}
+
+
 .form {
 	&.decider, &#decider, &#decider-controls {
 		position: absolute;
@@ -154,13 +192,6 @@ input.post-button {
 	z-index: 1000;
 }
 
-// Player Grid
-
-#players {
-	width: 50%;
-	margin-left: 25%;
-}
-
 
 // CONTENT SELECTION
 .submission {
@@ -228,6 +259,13 @@ section#bottom-bar {
 	display: none;
 	float: none;
   margin: 0 auto; 
+}
+
+// Add background to any "read out loud" decider instructions
+.read {
+	background: $player-blue;
+	padding: 10px;
+	color: white;
 }
 
 // GAME

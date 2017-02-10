@@ -42,6 +42,10 @@ function rulesAnim(callback) {
 
 		screensAnim.fromTo(el, .5, {xPercent:-100}, { x:0, xPercent:0, ease:Expo.easeInOut, opacity: 1, display:'table-cell', delay:.5 });
 
+		if ($(el).find('.rules-image')) {
+			$('rules-image').show();
+		}
+
 		if(index < screens.length-1)
 			screensAnim.fromTo(el, .5, {xPercent:0}, { x:200, xPercent:200, ease:Expo.easeInOut, opacity:0, display:'none', delay:3 });
 
