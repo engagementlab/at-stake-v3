@@ -26,7 +26,7 @@ TeamMembers.add({
  		type: String, 
  		required: true,
  		initial: true
- 	},
+ 	}
 });
 
 TeamMembers.defaultSort = '-createdAt';

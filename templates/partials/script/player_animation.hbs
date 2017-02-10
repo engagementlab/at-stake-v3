@@ -40,7 +40,7 @@ function rulesAnim(callback) {
 	
   _.each(screens, function(el, index) {
 
-		screensAnim.fromTo(el, .5, {xPercent:-100}, { x:0, xPercent:0, ease:Expo.easeInOut, opacity: 1, display:'table-cell', delay:.5 });
+		screensAnim.fromTo(el, .5, {xPercent:-100}, { x:0, xPercent:0, ease:Expo.easeInOut, opacity: 1, display:'block', delay:.5 });
 
 		if ($(el).find('.rules-image')) {
 			$('rules-image').show();

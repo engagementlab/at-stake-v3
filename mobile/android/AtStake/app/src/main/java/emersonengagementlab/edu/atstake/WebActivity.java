@@ -20,6 +20,7 @@ public class WebActivity extends Activity {
             urlString = "https://atstakegame.com/play/mobile";
 
         WebView gameWebView = (WebView) findViewById(R.id.webView);
+        gameWebView.addJavascriptInterface(new WebAppInterface(this), "android");
         gameWebView.loadUrl(urlString);
     }
 }
