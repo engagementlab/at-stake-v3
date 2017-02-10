@@ -182,6 +182,31 @@
         height: 45px;
         width: auto; }
 
+.player-logo {
+  height: 80px;
+  width: 80px;
+  display: inline-block;
+  margin: 15px;
+  padding: 0px; }
+  .player-logo .logo {
+    height: 100%;
+    width: 100%; }
+  .player-logo #player-0 {
+    background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743670/at-stake/yellow_avatar.png);
+    background-size: contain; }
+  .player-logo #player-1 {
+    background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743596/at-stake/avatar_green.png);
+    background-size: contain; }
+  .player-logo #player-2 {
+    background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743592/at-stake/avatar_pink.png);
+    background-size: contain; }
+  .player-logo #player-3 {
+    background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743590/at-stake/avatar_red.png);
+    background-size: contain; }
+  .player-logo #player-4 {
+    background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743594/at-stake/avatar_orange.png);
+    background-size: contain; }
+
 .form.decider, .form#decider, .form#decider-controls {
   position: absolute;
   bottom: 0px;
@@ -239,10 +264,6 @@ input.post-button {
   background-color: #00D6B4;
   z-index: 1000; }
 
-#players {
-  width: 50%;
-  margin-left: 25%; }
-
 .submission .form {
   color: white; }
 
@@ -287,6 +308,11 @@ footer#bottom-bar {
   display: none;
   float: none;
   margin: 0 auto; }
+
+.read {
+  background: #35AFD2;
+  padding: 10px;
+  color: white; }
 
 .player-bio {
   height: 100%;
