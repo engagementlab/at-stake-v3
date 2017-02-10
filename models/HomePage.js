@@ -29,8 +29,8 @@ var Types = keystone.Field.Types;
 		nodelete: true
 	});
 
- Homepage.add(
- {
+ Homepage.add({
+ 	
  	name: { 
  		type: String, 
  		default: "Home Page", 
@@ -66,7 +66,7 @@ var Types = keystone.Field.Types;
 		noedit: true, 
 		hidden: true 
 	}
- },
+},
 
 'Call To Action', {
 	ctaParagraphOne: {
@@ -209,7 +209,7 @@ var Types = keystone.Field.Types;
 		type: Types.Markdown,
 		label: "Paragraph for Game Overview"
 	}
-}
+},
 
 'Learn More', {
 	learnMoreHeader: {
@@ -228,7 +228,7 @@ var Types = keystone.Field.Types;
 		type: Types.Markdown,
 		label: "Learn More Paragraph"
 	}
-}
+},
 
 'Design and Development Team', {
 	principalInvestigator : { 
@@ -281,9 +281,7 @@ var Types = keystone.Field.Types;
 		ref: 'TeamMembers',
 		label: "Project Manager"
 	}
-}
-
- );
+});
 
 Homepage.defaultSort = '-createdAt';
 Homepage.defaultColumns = 'name, updatedAt';
