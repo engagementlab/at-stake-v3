@@ -11,7 +11,7 @@
  * ==========
  */
 
- require('./users.js');
+// require('./users.js');
 
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
@@ -117,7 +117,6 @@ var Types = keystone.Field.Types;
 		type: Types.CloudinaryImage,
 		folder: 'at-stake-site/images/layout/home/landing',
 		label: 'Call to Action Image'
-        autoCleanup: true
 	}
  },
 
@@ -126,7 +125,6 @@ var Types = keystone.Field.Types;
 		type: Types.CloudinaryImage,
 		folder: 'at-stake-site/images/layout/home/landing',
 		label: 'Feature One Icon'
-        autoCleanup: true
 	},
 
 	featureOneParagraph: {
@@ -138,7 +136,6 @@ var Types = keystone.Field.Types;
 		type: Types.CloudinaryImage,
 		folder: 'at-stake-site/images/layout/home/landing',
 		label: 'Feature Two Icon'
-        autoCleanup: true
 	},
 
 	featureTwoParagraph: {
@@ -150,7 +147,6 @@ var Types = keystone.Field.Types;
 		type: Types.CloudinaryImage,
 		folder: 'at-stake-site/images/layout/home/landing',
 		label: 'Feature Three Icon'
-        autoCleanup: true
 	},
 
 	featureThreeParagraph: {
@@ -200,9 +196,8 @@ var Types = keystone.Field.Types;
 
 	flowOfGamePicture: {
 		type: Types.CloudinaryImage,
-        label: 'Gameplay Image',
-        folder: 'at-stake-site/images/layout/home/landing',
-        autoCleanup: true
+    label: 'Gameplay Image',
+    folder: 'at-stake-site/images/layout/home/landing'
 	},
 
 	flowOfGameParagraph: {
@@ -219,9 +214,8 @@ var Types = keystone.Field.Types;
 
 	learnMorePicture: {
 		type: Types.CloudinaryImage,
-        label: 'Learn More Image',
-        folder: 'at-stake-site/images/layout/home/landing',
-        autoCleanup: true
+    label: 'Learn More Image',
+    folder: 'at-stake-site/images/layout/home/landing'
 	},
 
 	learnMoreParagraph: {
@@ -232,52 +226,52 @@ var Types = keystone.Field.Types;
 
 'Design and Development Team', {
 	principalInvestigator : { 
-		type: keystone.Field.Types.Relationship, 
+		type: Types.Relationship, 
 		ref: 'TeamMembers',
 		label: "Principal Investigator"
 	},
 	productManager : { 
-		type: keystone.Field.Types.Relationship, 
+		type: Types.Relationship, 
 		ref: 'TeamMembers',
 		label: "Product Manager"
 	},
 	projectManager : { 
-		type: keystone.Field.Types.Relationship, 
+		type: Types.Relationship, 
 		ref: 'TeamMembers',
 		label: "Project Manager"
 	},
 	leadDeveloper : { 
-		type: keystone.Field.Types.Relationship, 
+		type: Types.Relationship, 
 		ref: 'TeamMembers',
 		label: "Lead Developer"
 	},
 	artDirector : { 
-		type: keystone.Field.Types.Relationship, 
+		type: Types.Relationship, 
 		ref: 'TeamMembers',
 		label: "Art Director"
 	},
 	gameDesigner : { 
-		type: keystone.Field.Types.Relationship, 
+		type: Types.Relationship, 
 		ref: 'TeamMembers',
 		label: "Game Designer"
 	},
 	otherGameDesigner : { 
-		type: keystone.Field.Types.Relationship, 
+		type: Types.Relationship, 
 		ref: 'TeamMembers',
 		label: "Game Designer"
 	},
 	juniorDeveloper : { 
-		type: keystone.Field.Types.Relationship, 
+		type: Types.Relationship, 
 		ref: 'TeamMembers',
 		label: "Junior Developer"
 	},
 	productionAssistant : { 
-		type: keystone.Field.Types.Relationship, 
+		type: Types.Relationship, 
 		ref: 'TeamMembers',
 		label: "Project Manager"
 	},
 	otherProductionAssistant : { 
-		type: keystone.Field.Types.Relationship, 
+		type: Types.Relationship, 
 		ref: 'TeamMembers',
 		label: "Project Manager"
 	}
