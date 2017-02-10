@@ -7,37 +7,117 @@
 //
 
 import UIKit
+import WebKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     
-    @IBOutlet weak var navigationTitle: UINavigationItem!
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet var containerView : UIView! = nil
     
-    @IBAction func backAction(sender: AnyObject) {
-        if webView.canGoBack {
-            webView.goBack()
+    var webView: WKWebView!
+    var contentController: WKUserContentController!
+    var webConfig: WKWebViewConfiguration!
+    
+    var callWebAction = WKUserScript(
+        source: "mobileAction(strAction)",
+        injectionTime: WKUserScriptInjectionTime.atDocumentEnd,
+        forMainFrameOnly: true
+    )
+    
+    // GAME ACTIONS
+    @IBAction func joinGame() {
+        
+        webAction(actionString: "join");
+        
+    }
+    
+    @IBAction func hostGame() {
+        
+        webAction(actionString: "new");
+    }
+    
+    
+    // Load URL to webview
+    func loadURL() {
+        #if DEVELOPMENT
+        let urlString = "http://127.0.0.1:3000/play/mobile"
+        #else
+        let urlString = "https://qa.atstakegame.com/play/mobile"
+        #endif
+        
+        guard let url = NSURL(string: urlString) else {return}
+        let request = NSMutableURLRequest(url:url as URL)
+        webView.load(request as URLRequest)
+    }
+    
+    func webAction(actionString: String) {
+        
+        webView.evaluateJavaScript("mobileAction('\(actionString)')") { (result: Any?, error: Error?) in
+            if error != nil {
+                print(result ?? "Unable to print mobileAction response:")
+                print(error as Any)
+            }
+            else {
+                
+                print(result)
+                
+                if result as? String == "okeydokey" {
+                    print("all good")
+                    self.webView.isHidden = false
+                }
+                
+//                do {
+//                    
+//                    let json = try JSONSerialization.jsonObject(with: result as! Data, options: []) as Dictionary
+//                    print(json)
+//                    
+//                }
+//                catch let error as NSError {
+//                    print(error)
+//                }
+            }
         }
-    }
-    
-    @IBAction func forwardAction(sender: AnyObject) {
-        if webView.canGoForward {
-            webView.goForward()
-        }
-    }
-    
-    @IBAction func refreshAction(sender: AnyObject) {
-        webView.reload()
-    }
-    
-    @IBAction func stopAction(sender: AnyObject) {
-        webView.stopLoading()
+        
     }
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        webView.loadRequest(NSURLRequest(url: NSURL(string: "https://qa.atstakegame.com/play/")! as URL) as URLRequest)
+        // Create webview and its config
+        contentController = WKUserContentController()
+        webConfig = WKWebViewConfiguration()
         
+        
+//        contentController.addUserScript(callWebAction)
+//        contentController.add(
+//            self as! WKScriptMessageHandler,
+//            name: "callbackHandler"
+//        )
+        
+        webConfig.userContentController = contentController
+        
+        webView = WKWebView(
+            frame: containerView.frame,
+            configuration: webConfig
+        )
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        webView.isHidden = true
+        
+        view.addSubview(webView)
+
+        /*
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-[webView]-|",
+                                                                           options: NSLayoutFormatOptions(rawValue: 0),
+                                                                           metrics: nil,
+                                                                           views: ["webView": webView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-20-[webView]-|",
+                                                                           options: NSLayoutFormatOptions(rawValue: 0),
+                                                                           metrics: nil,
+                                                                           views: ["webView": webView]))
+        */
+        
+        loadURL()
+        contentController.addUserScript(callWebAction)
         
     }
 
@@ -45,6 +125,15 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // Respond to calls from webview
+        func userContentController(userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+            if let messageBody: NSDictionary = message.body as? NSDictionary {
+                if let innerBody: NSDictionary = messageBody["body"] as? NSDictionary {
+                    print(innerBody)
+                }
+            }
+        }
 
 
 }

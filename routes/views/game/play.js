@@ -27,8 +27,10 @@ exports = module.exports = function(req, res) {
   locals.socketHost = (process.env.NODE_ENV === 'staging') ? 'qa.atstakegame.com' : req.headers.host;
 
   // Enable debugging on staging/dev only
-  if(req.params.debug === 'debug' && process.env.NODE_ENV !== 'production')
+  if(req.params.mode === 'debug' && process.env.NODE_ENV !== 'production')
 	  locals.debug = true;
+  else if(req.params.mode === 'mobile')
+    locals.mobile = true;
 
   view.on('init', function(next) {
         next();

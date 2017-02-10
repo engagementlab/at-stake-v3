@@ -1,7 +1,7 @@
 'use strict';
 /**
  * @Stake v3
- * Developed by Engagement Lab, 2016
+ * Developed by Engagement Lab, 2016-2017
  * ==============
  * 
  * Script for GROUP'S WikiGeeks socket events. Loaded to group screen upon load of monitor view.

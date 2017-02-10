@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AtStake copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>AtStake.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>B200489E1E4D35C100E05187</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B2B8744A1E4B9B1200572938</key>
 		<dict>
 			<key>primary</key>

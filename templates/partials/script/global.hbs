@@ -1,8 +1,8 @@
 {{!< default}}
 {{!-- 
 /**
- * Emerging Citizens
- * Developed by Engagement Lab, 2016
+ * @Stake v3.0
+ * Developed by Engagement Lab, 2016-2017
  * ==============
  * 
  * Script include for global logic
@@ -323,6 +323,11 @@
     registerEvents();
 
 	}
+
+	{{#if mobile}}
+		{{!-- LOAD MOBILE METHODS IF MOBILE DEVICE --}}
+		{{> script/mobile}}
+	{{/if}}
 
 window.onload = function() {
 
