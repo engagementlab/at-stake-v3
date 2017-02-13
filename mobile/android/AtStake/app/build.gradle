@@ -15,6 +15,7 @@ android {
         debug {
             buildConfigField "boolean", "REPORT_CRASHES", "true"
             buildConfigField "String", "ENVIRONMENT", '"debug"'
+
         }
         qa {
             buildConfigField "boolean", "REPORT_CRASHES", "true"
@@ -24,6 +25,14 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "ENVIRONMENT", '"production"'
+        }
+        applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                def formattedDate = new Date().format('yyyyMMdd_HHmm')
+                println(output.outputFile)
+                def newName = variant.name + "AtStake_v" + defaultConfig.versionName + "_" + formattedDate + ".apk"
+                output.outputFile = new File(output.outputFile.parent, newName)
+            }
         }
     }
 }

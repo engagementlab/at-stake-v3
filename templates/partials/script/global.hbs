@@ -24,6 +24,10 @@
 	var timeline = new TimelineLite();
 	var mobileDetect = new MobileDetect(window.navigator.userAgent);
 
+	var isApple = mobileDetect.is('iOS');
+	var isAndroid = mobileDetect.is('Android') || mobileDetect.match('Android');
+	var isMobile = (isAndroid || isApple);
+
 	// Can be set by any event logic waiting for content update
 	var updateContentCallback;
 

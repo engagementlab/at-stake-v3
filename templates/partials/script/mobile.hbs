@@ -10,8 +10,6 @@
  */
 --}}
 var doc = $('body');
-var isApple = mobileDetect.is('iOS');
-var isAndroid = mobileDetect.is('Android');
 
 /*
 	* Run actions called for by mobile native app.
@@ -24,16 +22,20 @@ var mobileAction = function(strAction) {
 	// Called upon mobileCallback event and posts response to mobile native app
 	function callback() {
 
+		var response = {status: "okeydokey", action: strAction};
+
 		if(isApple) {
 		
 	    try {
-	        webkit.messageHandlers.callbackHandler.postMessage({status: "okeydokey", action: strAction});
+	        webkit.messageHandlers.callbackHandler.postMessage(response);
 	    } catch(err) {
 	        console.log('The native context does not exist.');
 	    }
 
 	  }
 	  else if(isAndroid) {
+
+	  	Android.webViewResponse(JSON.stringify(response));
 
 	  }
 	  else {
