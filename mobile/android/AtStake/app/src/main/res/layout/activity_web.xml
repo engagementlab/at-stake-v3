@@ -18,7 +18,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:padding="0dp"
+        android:layout_margin="0dp"
+        android:layout_marginEnd="0dp" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -49,4 +54,19 @@
             android:layout_gravity="center_horizontal"
             android:visibility="invisible" />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Dev Build"
+        android:id="@+id/buildText"
+        android:textSize="24sp"
+        tools:text="Dev Build"
+        android:textStyle="normal|italic"
+        android:backgroundTintMode="screen"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"
+        android:textAlignment="center"
+        android:clickable="false" />
 </RelativeLayout>

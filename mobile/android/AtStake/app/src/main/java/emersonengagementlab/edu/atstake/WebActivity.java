@@ -9,6 +9,7 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,6 +18,9 @@ public class WebActivity extends Activity {
 
     String urlString = "http://app.local:3000/play/mobile";
     WebView gameWebView;
+
+    Button joinGameBtn;
+    Button newGameBtn;
 
     public class WebAppInterface {
 
@@ -53,6 +57,8 @@ public class WebActivity extends Activity {
                             @Override
                             public void run() {
                                 gameWebView.setVisibility(View.VISIBLE);
+                                joinGameBtn.setVisibility(View.INVISIBLE);
+                                newGameBtn.setVisibility(View.INVISIBLE);
                             }
                         });
 
@@ -86,13 +92,19 @@ public class WebActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
 
-        if(BuildConfig.ENVIRONMENT == "staging")
-            urlString = "https://qa.atstakegame.com/play/mobile";
-        if(BuildConfig.ENVIRONMENT == "production")
-            urlString = "https://atstakegame.com/play/mobile";
+        TextView buildTextView = (TextView) findViewById(R.id.buildText);
 
-        final Button joinGameBtn = (Button) findViewById(R.id.joinGame);
-        final Button newGameBtn = (Button) findViewById(R.id.newGame);
+        if(BuildConfig.ENVIRONMENT == "staging") {
+            urlString = "https://qa.atstakegame.com/play/mobile";
+            buildTextView.setText("QA Build");
+        }
+        if(BuildConfig.ENVIRONMENT == "production") {
+            urlString = "https://atstakegame.com/play/mobile";
+            buildTextView.setText("Prod Build");
+        }
+
+        joinGameBtn = (Button) findViewById(R.id.joinGame);
+        newGameBtn = (Button) findViewById(R.id.newGame);
 
         gameWebView = (WebView) findViewById(R.id.webView);
 
