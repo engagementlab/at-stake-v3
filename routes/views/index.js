@@ -28,11 +28,18 @@ exports = module.exports = function(req, res) {
       }
     });
 
+    // var queryHomepage = Homepage.model.findOne({}, {}, {
+    //   sort: {
+    //       'createdAt': -1
+    //   }
+    // }).populate("principalInvestigator");
+
     var queryHomepage = Homepage.model.findOne({}, {}, {
       sort: {
           'createdAt': -1
       }
-    });
+    }).populate({path: "principalInvestigator productManager projectManager leadDeveloper artDirector gameDesigner otherGameDesigner juniorDeveloper productionAssistant otherProductionAssistant", select: 'name -_id'});
+
 
     queryConfig.exec(function(err, resultConfig) {
 
