@@ -33,8 +33,7 @@ var Types = keystone.Field.Types;
  	
  	name: { 
  		type: String, 
- 		default: "Home Page", 
- 		hidden: true, 
+ 		default: "Home Page (Name in Keystone)", 
  		required: true, 
  		initial: true 
  	},
@@ -60,6 +59,13 @@ var Types = keystone.Field.Types;
 		required: true
 	},
 
+	summary: {
+		type: Types.Markdown, 
+		label: "Summary", 
+		initial: true, 
+		required: true
+	},
+
 	createdAt: { 
 		type: Date, 
 		default: Date.now, 
@@ -68,17 +74,32 @@ var Types = keystone.Field.Types;
 	}
 },
 
-'Call To Action', {
-	ctaParagraphOne: {
+'Game Features', {
+	featuresParagraph: {
 		type: Types.Markdown,
-		label: "Call to Action Paragraph One",
+		label: "Game Features Paragraph",
 		initial: false,
 		required: false
 	},
 	
-	ctaParagraphTwo: {
+	pointOneText: {
 		type: Types.Markdown,
-		label: "Call to Action Paragraph Two",
+		label: "Point One Text"
+	},
+	
+	pointTwoText: {
+		type: Types.Markdown,
+		label: "Point Two Text"		
+	},
+	
+	pointThreeText: {
+		type: Types.Markdown,
+		label: "Point Three Text"
+	},
+
+	exampleParagraph: {
+		type: Types.Markdown,
+		label: "Organize/Sample Use Paragraph",
 		initial: false,
 		required: false
 	},
@@ -98,62 +119,12 @@ var Types = keystone.Field.Types;
 		label: "Example Three Text"
 	},
 	
-	pointOneText: {
-		type: Types.Markdown,
-		label: "Point One Text"
-	},
-	
-	pointTwoText: {
-		type: Types.Markdown,
-		label: "Point Two Text"		
-	},
-	
-	pointThreeText: {
-		type: Types.Markdown,
-		label: "Point Three Text"
-	},
-	
 	showcaseImage: {
 		type: Types.CloudinaryImage,
 		folder: 'at-stake-site/images/layout/home/landing',
-		label: 'Call to Action Image'
+		label: 'Features Image'
 	}
  },
-
- 'Game Features', {
-	featureOneIcon: {
-		type: Types.CloudinaryImage,
-		folder: 'at-stake-site/images/layout/home/landing',
-		label: 'Feature One Icon'
-	},
-
-	featureOneParagraph: {
-		type: Types.Markdown,
-		label: "Feature One Paragraph"
-	},
-
-	featureTwoIcon: {
-		type: Types.CloudinaryImage,
-		folder: 'at-stake-site/images/layout/home/landing',
-		label: 'Feature Two Icon'
-	},
-
-	featureTwoParagraph: {
-		type: Types.Markdown,
-		label: "Feature Two Paragraph"
-	},
-
-	featureThreeIcon: {
-		type: Types.CloudinaryImage,
-		folder: 'at-stake-site/images/layout/home/landing',
-		label: 'Feature Three Icon'
-	},
-
-	featureThreeParagraph: {
-		type: Types.Markdown,
-		label: "Feature Three Paragraph"
-	}
-},
 
 // // Flowchart Version
 // 'Game Overview Flowchart', {
@@ -161,29 +132,29 @@ var Types = keystone.Field.Types;
 // 		type: Types.Markdown,
 // 		label: "Header for Game Overview"
 // 	},
-// 	overviewRoundOneHeader: {
+// 	brainstormHeader: {
 // 		type: Types.Markdown,
-// 		label: "Round One Header"
+// 		label: "Brainstorm Header"
 // 	},
-// 	overviewRoundOneParagraph: {
+// 	brainstormParagraph: {
 // 		type: Types.Markdown,
-// 		label: "Round One Paragraph"
+// 		label: "Brainstorm Paragraph"
 // 	},
-// 	overviewRoundTwoHeader: {
+// 	pitchHeader: {
 // 		type: Types.Markdown,
-// 		label: "Round Two Header"
+// 		label: "Pitch Header"
 // 	},
-// 	overviewRoundTwoParagraph: {
+// 	pitchParagraph: {
 // 		type: Types.Markdown,
-// 		label: "Round Two Paragraph"
+// 		label: "Pitch Paragraph"
 // 	},
-// 	overviewRoundThreeHeader: {
+// 	deliberateHeader: {
 // 		type: Types.Markdown,
-// 		label: "Round Three Header"
+// 		label: "Deliberate Header"
 // 	},
-// 	overviewRoundThreeParagraph: {
+// 	deliberateParagraph: {
 // 		type: Types.Markdown,
-// 		label: "Round Three Paragraph"
+// 		label: "Deliberate Paragraph"
 // 	}	
 // }
 
@@ -268,12 +239,12 @@ var Types = keystone.Field.Types;
 	productionAssistant : { 
 		type: Types.Relationship, 
 		ref: 'TeamMembers',
-		label: "Project Manager"
+		label: "Production Assistant"
 	},
 	otherProductionAssistant : { 
 		type: Types.Relationship, 
 		ref: 'TeamMembers',
-		label: "Project Manager"
+		label: "Production Assistant"
 	}
 });
 
