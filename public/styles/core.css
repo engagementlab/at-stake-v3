@@ -315,6 +315,21 @@ footer#bottom-bar {
   #rules .screen {
     display: none; }
 
+.siteLanding#homepage {
+  background-color: #43d8b3; }
+  .siteLanding#homepage #homepage .row .top {
+    background-color: #43d8b3; }
+  .siteLanding#homepage #homepage .row .pitch {
+    background-color: #ffffff; }
+  .siteLanding#homepage #homepage .row .feature {
+    background-color: #2eb5e4; }
+  .siteLanding#homepage #homepage .row .flow-play {
+    background-color: #ffffff; }
+  .siteLanding#homepage #homepage .row .learn-more {
+    background-color: #20c7a9; }
+  .siteLanding#homepage #homepage .row .credits {
+    background-color: #43d8b3; }
+
 @media (min-width: 1024px) {
   body .container {
     width: 100%; }

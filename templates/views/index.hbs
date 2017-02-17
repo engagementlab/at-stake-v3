@@ -18,69 +18,77 @@
   </div>
   
   {{!-- GAME PITCH --}}
-  <div class="row game-pitch">
-  	<div class="tagline">{{{content.tagline.html}}}</div>
-  	<div class="cta-para-one">{{{content.ctaParagraphOne.html}}}</div>
-  	<div class="cta-para-two">{{{content.ctaParagraphTwo.html}}}</div>
-  	<div class="examples">
-  		<ul>
-  			<li>{{{content.exampleOneText.html}}}</li>
-  			<li>{{{content.exampleTwoText.html}}}</li>
-  			<li>{{{content.exampleThreeText.html}}}</li>
-  		</ul>
-  	</div>
-  	<div class="cta-points">
-  		<div class="point-one">{{{content.pointOneText.html}}}</div>
-  		<div class="point-two">{{{content.pointTwoText.html}}}</div>
-  		<div class="point-three">{{{content.pointThreeText.html}}}</div>
-  	</div>
-  	<div class="cta-image">{{{cloudinaryImg content.showcaseImage crop=scale height=200}}}
-  	</div>
+  <div class="row pitch">
+    <div class="game-pitch">
+    	<div class="tagline">{{{content.tagline.html}}}</div>
+    	<div class="cta-para-one">{{{content.ctaParagraphOne.html}}}</div>
+    	<div class="cta-para-two">{{{content.ctaParagraphTwo.html}}}</div>
+    	<div class="examples">
+    		<ul>
+    			<li>{{{content.exampleOneText.html}}}</li>
+    			<li>{{{content.exampleTwoText.html}}}</li>
+    			<li>{{{content.exampleThreeText.html}}}</li>
+    		</ul>
+    	</div>
+    	<div class="cta-points">
+    		<div class="point-one">{{{content.pointOneText.html}}}</div>
+    		<div class="point-two">{{{content.pointTwoText.html}}}</div>
+    		<div class="point-three">{{{content.pointThreeText.html}}}</div>
+    	</div>
+    	<div class="cta-image">{{{cloudinaryImg content.showcaseImage crop=scale height=200}}}
+    	</div>
+    </div>
   </div>
 
   {{!-- FEATURES --}}
   <div class="row feature col-lg-10 col-sm-12 col-centered">
-    <div class="feature-one">
-    	<div class="feature-image feature-one-image">{{{cloudinaryImg content.featureOneIcon crop=scale height=200}}}</div>
-    	<div class="feature-text feature-one-text">{{{content.featureOneParagraph.html}}}</div>
-    </div>
-    <div class="feature-two">
-    	<div class="feature-image feature-two-image">{{{cloudinaryImg content.featureTwoIcon crop=scale height=200}}}</div>
-    	<div class="feature-text feature-two-text">{{{content.featureTwoParagraph.html}}}</div>
-    </div>
-    <div class="feature-three">
-    <div class="feature-image feature-three-image">{{{cloudinaryImg content.featureThreeIcon crop=scale height=200}}}</div>
-    	<div class="feature-text feature-three-text">{{{content.featureThreeParagraph.html}}}</div>
+    <div class="game-features">
+      <div class="feature-one">
+      	<div class="feature-image feature-one-image">{{{cloudinaryImg content.featureOneIcon crop=scale height=200}}}</div>
+      	<div class="feature-text feature-one-text">{{{content.featureOneParagraph.html}}}</div>
+      </div>
+      <div class="feature-two">
+      	<div class="feature-image feature-two-image">{{{cloudinaryImg content.featureTwoIcon crop=scale height=200}}}</div>
+      	<div class="feature-text feature-two-text">{{{content.featureTwoParagraph.html}}}</div>
+      </div>
+      <div class="feature-three">
+      <div class="feature-image feature-three-image">{{{cloudinaryImg content.featureThreeIcon crop=scale height=200}}}</div>
+      	<div class="feature-text feature-three-text">{{{content.featureThreeParagraph.html}}}</div>
+      </div>
     </div>
   </div>
 
   {{!-- FLOW OF PLAY --}}
   <div class="row flow-play col-lg-10 col-sm-12 col-centered">
-    <div class="flow-play-header">{{{content.flowOfGameHeader.html}}}</div>
-  	<div class="flow-play-para">{{{content.flowOfGameParagraph.html}}}</div>
-  	<div class="flow-play-pic">{{{cloudinaryImg content.flowOfGamePicture crop=scale height=200}}}</div>
+    <div class="game-flow">
+      <div class="flow-play-header">{{{content.flowOfGameHeader.html}}}</div>
+    	<div class="flow-play-para">{{{content.flowOfGameParagraph.html}}}</div>
+    	<div class="flow-play-pic">{{{cloudinaryImg content.flowOfGamePicture crop=scale height=200}}}</div>
+    </div>
   </div>
 
     {{!-- LEARN MORE --}}
   <div class="row learn-more col-lg-8 col-sm-12 col-centered">
-  	<div class="learn-more-header">{{{content.learnMoreHeader.html}}}</div>
-  	<div class="learn-more-para">{{{content.learnMoreParagraph.html}}}</div>
+    <div class="game-learn">
+    	<div class="learn-more-header">{{{content.learnMoreHeader.html}}}</div>
+    	<div class="learn-more-para">{{{content.learnMoreParagraph.html}}}</div>
+    </div>
   </div>
 
   {{!-- CREDITS --}}
-  <div id="credits" class="row col-lg-10 col-sm-12 col-centered">
+  <div class="row credits col-lg-10 col-sm-12 col-centered">
   	<div class="design-dev-team">
 	    <h3>Design and Development Team</h3>
-	    <div class="principal-investigator">{{content.principalInvestigator.name}}</div>
-	    <div class="product-manager">{{content.productManager.name}}</div>
-	    <div class="project-manager">{{content.projectManager.name}}</div>
-	    <div class="lead-developer">{{content.leadDeveloper.name}}</div>
-	    <div class="art-director">{{content.artDirector.name}}</div>
-	    <div class="game-designer">{{content.gameDesigner.name}}</div>
-	    <div class="other-game-designer">{{content.otherGameDesigner.name}}</div>
-	    <div class="junior-developer">{{content.juniorDeveloper.name}}</div>
-	    <div class="production-assistant">{{content.productionAssistant.name}}</div>
-	    <div class="other-production-assistant">{{content.otherProductionAssistant.name}}</div>
+	    <div class="team principal-investigator">{{content.principalInvestigator.name}}</div>
+	    <div class="team product-manager">{{content.productManager.name}}</div>
+	    <div class="team project-manager">{{content.projectManager.name}}</div>
+	    <div class="team lead-developer">{{content.leadDeveloper.name}}</div>
+	    <div class="team art-director">{{content.artDirector.name}}</div>
+	    <div class="team game-designer">{{content.gameDesigner.name}}</div>
+	    <div class="team other-game-designer">{{content.otherGameDesigner.name}}</div>
+	    <div class="team junior-developer">{{content.juniorDeveloper.name}}</div>
+	    <div class="team production-assistant">{{content.productionAssistant.name}}</div>
+	    <div class="team other-production-assistant">{{content.otherProductionAssistant.name}}</div>
     </div>
     <div class="el-logo">
     </div>

@@ -1,1 +1,147 @@
+//SASS vars
+$light-mint: #43d8b3;
+$dark-mint: #20c7a9;
+$light-blue: #5fe2fd;
+$dark-blue: #2eb5e4;
+$white: #ffffff;
+
 // HOME PAGE
+.siteLanding#homepage{
+	background-color: $light-mint;
+
+	.row{
+
+		.top{
+			background-color: $light-mint;
+		}
+		.pitch{
+			background-color: $white;
+		}
+		.feature{
+			background-color: $dark-blue;
+		}
+		.flow-play{
+			background-color: $white;
+		}
+		.learn-more{
+			background-color: $dark-mint;
+		}
+		.credits{
+			background-color: $light-mint;
+		}
+	}
+	.top-section{
+
+		.header{
+
+		}
+		.play-button{
+
+		}
+	}
+	.game-pitch{
+
+		.tagline{
+
+		}
+		.cta-para-one{
+
+		}
+		.cta-para-two{
+
+		}
+		.examples{
+
+			li{
+
+			}
+		}
+		.cta-points{
+
+			.point-one{
+
+			}
+			.point-two{
+
+			}
+			.point-three{
+
+			}
+		}
+		.cta-image{
+
+		}
+	}
+	.game-features{
+		
+		.feature-text{
+
+		}
+		.feature-image{
+
+		}
+		.feature-one{
+
+			.feature-one-image{
+
+			}
+			.feature-one-text{
+
+			}
+		}
+		.feature-two{
+
+			.feature-two-image{
+
+			}
+			.feature-two-text{
+
+			}
+		}
+		.feature-three{
+
+			.feature-three-image{
+
+			}
+			.feature-three-text{
+
+			}
+		}
+	}
+	.game-flow{
+
+		.flow-play-header{
+
+
+		}
+		.flow-play-para{
+
+
+		}
+		.flow-play-pic{
+
+
+		}
+	}
+	.game-learn{
+		.learn-more-header{
+
+		}
+		.learn-more-para{
+
+		}
+	}
+	.design-dev-team{
+		
+		h3{
+
+		}
+
+		.team{
+
+		}
+		.el-logo{
+
+		}
+	}
+}
