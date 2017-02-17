@@ -1,32 +1,51 @@
 //SASS vars
-$light-mint: #43d8b3;
-$dark-mint: #20c7a9;
-$light-blue: #5fe2fd;
-$dark-blue: #2eb5e4;
+$background-mint: #00d5b4;
+$type-dark-mint: #178f79;
+$type-black: #6a6a6a;
+$light-mint: #38d9b3;
+$dark-mint: #00c8a9;
+$light-blue: #57e2ff;
+$dark-blue: #20b5e6;
 $white: #ffffff;
 
+$body-type: Avenir Next Med, sans-serif;
+$header-type: Avenir Next Bold, sans-serif;
+$sub-header-type: Avenir Next Demi Bold, sans-serif;
+$at-sign-type: Avenir Next Ultra-Light, sans-serif;
+
+.container{
+	padding: 0;
+}
+
+#gameContent{
+	padding: 0;
+}
 // HOME PAGE
 .siteLanding#homepage{
 	background-color: $light-mint;
+	width: 100%;
 
 	.row{
+		width: 100%;
+		padding: 0;
+		margin: 0;
 
-		.top{
+		&.top{
 			background-color: $light-mint;
 		}
-		.pitch{
+		&.pitch{
 			background-color: $white;
 		}
-		.feature{
+		&.feature{
 			background-color: $dark-blue;
 		}
-		.flow-play{
+		&.flow-play{
 			background-color: $white;
 		}
-		.learn-more{
+		&.learn-more{
 			background-color: $dark-mint;
 		}
-		.credits{
+		&.credits{
 			background-color: $light-mint;
 		}
 	}
@@ -44,32 +63,36 @@ $white: #ffffff;
 		.tagline{
 
 		}
-		.cta-para-one{
-
-		}
-		.cta-para-two{
-
-		}
-		.examples{
-
-			li{
+		.half-1{
+			.cta-para-one{
 
 			}
-		}
-		.cta-points{
-
-			.point-one{
+			.cta-para-two{
 
 			}
-			.point-two{
+			.examples{
 
-			}
-			.point-three{
+				li{
 
+				}
 			}
 		}
-		.cta-image{
+		.half-2{
+			.cta-points{
 
+				.point-one{
+
+				}
+				.point-two{
+
+				}
+				.point-three{
+
+				}
+			}
+			.cta-image{
+
+			}
 		}
 	}
 	.game-features{
@@ -112,18 +135,16 @@ $white: #ffffff;
 
 		.flow-play-header{
 
-
 		}
 		.flow-play-para{
-
 
 		}
 		.flow-play-pic{
 
-
 		}
 	}
 	.game-learn{
+
 		.learn-more-header{
 
 		}
@@ -134,11 +155,15 @@ $white: #ffffff;
 	.design-dev-team{
 		
 		h3{
-
+			color: $white;
 		}
 
 		.team{
-
+			display: inline;
+			color: $white;
+		}
+		.team-title{
+			color: $type-dark-mint;
 		}
 		.el-logo{
 

@@ -12,7 +12,7 @@
   <div class="row top">
     {{!-- TOP SECTION/LANDING --}}
     <div class="top-section">
-      <div class="header">{{{content.header.html}}}</div>
+      <h2 class="header">{{{content.header.html}}}</h2>
       <div class="play-button"></div>
     </div>
   </div>
@@ -20,24 +20,20 @@
   {{!-- GAME PITCH --}}
   <div class="row pitch">
     <div class="game-pitch">
-    	<div class="tagline">{{{content.tagline.html}}}</div>
+    <div class="half-1">
+    	<h4 class="tagline">{{{content.tagline.html}}}</h4>
     	<div class="cta-para-one">{{{content.ctaParagraphOne.html}}}</div>
     	<div class="cta-para-two">{{{content.ctaParagraphTwo.html}}}</div>
-    	<div class="examples">
-    		<ul>
-    			<li>{{{content.exampleOneText.html}}}</li>
-    			<li>{{{content.exampleTwoText.html}}}</li>
-    			<li>{{{content.exampleThreeText.html}}}</li>
-    		</ul>
-    	</div>
     	<div class="cta-points">
-    		<div class="point-one">{{{content.pointOneText.html}}}</div>
-    		<div class="point-two">{{{content.pointTwoText.html}}}</div>
-    		<div class="point-three">{{{content.pointThreeText.html}}}</div>
-    	</div>
+    		<ul>
+    			<li>{{{content.pointOneText.html}}}</li>
+    			<li>{{{content.pointTwoText.html}}}</li>
+    			<li>{{{content.pointThreeText.html}}}</li>
+    		</ul>
     	<div class="cta-image">{{{cloudinaryImg content.showcaseImage crop=scale height=200}}}
-    	</div>
+      </div>
     </div>
+    <div>
   </div>
 
   {{!-- FEATURES --}}
@@ -61,7 +57,7 @@
   {{!-- FLOW OF PLAY --}}
   <div class="row flow-play col-lg-10 col-sm-12 col-centered">
     <div class="game-flow">
-      <div class="flow-play-header">{{{content.flowOfGameHeader.html}}}</div>
+      <h3 class="flow-play-header">{{{content.flowOfGameHeader.html}}}</h3>
     	<div class="flow-play-para">{{{content.flowOfGameParagraph.html}}}</div>
     	<div class="flow-play-pic">{{{cloudinaryImg content.flowOfGamePicture crop=scale height=200}}}</div>
     </div>
@@ -70,7 +66,7 @@
     {{!-- LEARN MORE --}}
   <div class="row learn-more col-lg-8 col-sm-12 col-centered">
     <div class="game-learn">
-    	<div class="learn-more-header">{{{content.learnMoreHeader.html}}}</div>
+    	<h3 class="learn-more-header">{{{content.learnMoreHeader.html}}}</h3>
     	<div class="learn-more-para">{{{content.learnMoreParagraph.html}}}</div>
     </div>
   </div>
@@ -79,16 +75,16 @@
   <div class="row credits col-lg-10 col-sm-12 col-centered">
   	<div class="design-dev-team">
 	    <h3>Design and Development Team</h3>
-	    <div class="team principal-investigator">{{content.principalInvestigator.name}}</div>
-	    <div class="team product-manager">{{content.productManager.name}}</div>
-	    <div class="team project-manager">{{content.projectManager.name}}</div>
-	    <div class="team lead-developer">{{content.leadDeveloper.name}}</div>
-	    <div class="team art-director">{{content.artDirector.name}}</div>
-	    <div class="team game-designer">{{content.gameDesigner.name}}</div>
-	    <div class="team other-game-designer">{{content.otherGameDesigner.name}}</div>
-	    <div class="team junior-developer">{{content.juniorDeveloper.name}}</div>
-	    <div class="team production-assistant">{{content.productionAssistant.name}}</div>
-	    <div class="team other-production-assistant">{{content.otherProductionAssistant.name}}</div>
+	    <h5 class="team-title">Principal Investigator</h5><div class="team principal-investigator">{{content.principalInvestigator.name}}</div>
+	    <h5 class="team-title">Product Manager</h5><div class="team product-manager">{{content.productManager.name}}</div>
+	    <h5 class="team-title">Project Manager</h5><div class="team project-manager">{{content.projectManager.name}}</div>
+	    <h5 class="team-title">Lead Developer</h5><div class="team lead-developer">{{content.leadDeveloper.name}}</div>
+	    <h5 class="team-title">Art Director</h5><div class="team art-director">{{content.artDirector.name}}</div>
+	    <h5 class="team-title">Game Designer</h5><div class="team game-designer">{{content.gameDesigner.name}}</div>
+	    <h5 class="team-title">Game Designer</h5><div class="team other-game-designer">{{content.otherGameDesigner.name}}</div>
+	    <h5 class="team-title">Junior Developer</h5><div class="team junior-developer">{{content.juniorDeveloper.name}}</div>
+	    <h5 class="team-title">Production Assistant</h5><div class="team production-assistant">{{content.productionAssistant.name}}</div>
+	    <h5 class="team-title">Production Assistant</h5><div class="team other-production-assistant">{{content.otherProductionAssistant.name}}</div>
     </div>
     <div class="el-logo">
     </div>
