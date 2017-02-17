@@ -1,9 +1,22 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        qa {
+            storeFile file('/Users/Johnny/android.jks')
+            keyAlias 'Android'
+            keyPassword 'Pontiac93'
+            storePassword 'Pontiac93'
+        }
+        config {
+            keyAlias 'Android'
+            storeFile file('/Users/Johnny/android.jks')
+            keyPassword 'Pontiac93'
+            storePassword 'Pontiac93'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
-
     defaultConfig {
         applicationId "emersonengagementlab.edu.atstake"
         minSdkVersion 15
@@ -15,30 +28,40 @@ android {
         debug {
             buildConfigField "boolean", "REPORT_CRASHES", "true"
             buildConfigField "String", "ENVIRONMENT", '"debug"'
-
+            resValue "string", "app_name", "@Stake Dev"
+            signingConfig signingConfigs.config
+            debuggable true
         }
         qa {
             buildConfigField "boolean", "REPORT_CRASHES", "true"
             buildConfigField "String", "ENVIRONMENT", '"staging"'
+            resValue "string", "app_name", '"@Stake QA"'
+            signingConfig signingConfigs.qa
+            debuggable true
+            jniDebuggable true
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "ENVIRONMENT", '"production"'
+            resValue "string", "app_name", "@Stake"
+            debuggable false
+            jniDebuggable false
         }
         applicationVariants.all { variant ->
             variant.outputs.each { output ->
-                def formattedDate = new Date().format('yyyyMMdd_HHmm')
-                println(output.outputFile)
-                def newName = variant.name + "AtStake_v" + defaultConfig.versionName + "_" + formattedDate + ".apk"
+                def formattedDate = new Date().format('MM-dd-yyyy_HH:mm')
+                def newName = "@Stake-" + variant.name + "_v" + defaultConfig.versionName + "_" + formattedDate + ".apk"
+
                 output.outputFile = new File(output.outputFile.parent, newName)
             }
         }
+
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.0.1'
 }
