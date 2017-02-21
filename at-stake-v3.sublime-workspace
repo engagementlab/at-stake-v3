@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"ini",
+				"initialPath"
+			],
+			[
+				"fs",
+				"fsPath"
+			],
+			[
+				"model",
+				"modelPrefix"
+			],
+			[
+				"ats",
+				"atstake"
+			],
+			[
+				"key",
+				"keystoneInst"
+			],
+			[
+				"at-",
+				"at-stake-v3"
+			],
+			[
+				"mobi",
+				"mobileCallback"
+			],
+			[
+				"pla",
+				"play"
+			],
+			[
+				"star",
+				"startAnim"
+			],
+			[
 				"decid",
 				"decider-controls"
 			],
@@ -22,10 +58,6 @@
 			[
 				"sort",
 				"sortedPlayers"
-			],
-			[
-				"star",
-				"startingPlayerCoins"
 			],
 			[
 				"pl",
@@ -80,10 +112,6 @@
 				"activePlayer"
 			],
 			[
-				"pla",
-				"playerCoins"
-			],
-			[
 				"activ",
 				"activeAgendaItem"
 			],
@@ -98,10 +126,6 @@
 			[
 				"coins",
 				"Coins"
-			],
-			[
-				"ini",
-				"initialPotAmount"
 			],
 			[
 				"ii",
@@ -490,67 +514,78 @@
 			[
 				"round",
 				"roundCountdown"
-			],
-			[
-				"_cur",
-				"_current_players"
-			],
-			[
-				"comm",
-				"CommonHandler"
-			],
-			[
-				"clock",
-				"clockName"
-			],
-			[
-				"wiki",
-				"wikiCountdown"
-			],
-			[
-				"playr",
-				"playerSocket"
-			],
-			[
-				"topc",
-				"topic"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "templates/partials/script/global.hbs",
+			"file": "app.js",
 			"settings":
 			{
-				"buffer_size": 11760,
+				"buffer_size": 1581,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/Johnny/Documents/Projects/learning-games-core/lib/TemplateLoader.js",
+			"file": "node_modules/app-root-path/index.js",
 			"settings":
 			{
-				"buffer_size": 1262,
+				"buffer_size": 131,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Searching 131 files for \"staging.js \" (case sensitive)\n\n0 matches\n\nSearching 131 files for \"staging.js\" (case sensitive)\n\n0 matches\n\nSearching 131 files for \"staging\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/app.js:\n   31  \tvar io = require(rootDir + '/sockets/')(appServer);\n   32  \n   33: \tif(process.env.NODE_ENV === 'staging')\n   34  \t\tvar consolere = require('console-remote-client').connect('console.re','80','emerging-citizens-qa');\n   35  \telse\n\n/Users/Johnny/Documents/Projects/at-stake-v3/deploy.json:\n    6        \"NODE_ENV\": \"production\"\n    7      },\n    8:     \"env_staging\": {\n    9:       \"NODE_ENV\": \"staging\"\n   10      }\n   11    }],\n   12    \"deploy\" : {\n   13  \n   14:     \"sdk-staging\" : {\n   15        \"user\": \"node\",\n   16        \"host\": \"199.94.80.19\",\n   ..\n   19        \"path\": \"/srv/website\",\n   20        \"pre-deploy-local\" : \"echo 'Cloning and running npm install. Be patient.';\",\n   21:       \"post-deploy\" : \"npm i ; npm update ; grunt compile --sites=at-stake --env staging ; nvm use ; pm2 restart 0\",\n   22        \"env\": {\n   23:         \"NODE_ENV\": \"staging\"\n   24        }\n   25      },\n   26  \n   27:     \"staging\" : {\n   28        \"user\": \"node\",\n   29        \"host\": \"199.94.80.19\",\n   ..\n   32        \"path\": \"/srv/at-stake-v3\",\n   33        \"pre-deploy-local\" : \"echo 'NPM linking at-stake-v3 and restarting app.'; git pull git@github.com:engagementgamelab/el-web-sdk.git master;\",\n   34:       \"post-deploy\" : \"npm i ; npm update ; cd /srv/website/current/ ; npm i ; grunt compile --sites=at-stake --env staging ; nvm use ; NODE_ENV=staging pm2 restart 0\"\n   35      }\n   36  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/game.js:\n   31      locals.section = 'game-preloaded';\n   32  \n   33:     // Enable debugging on staging only\n   34      if(req.params.debug === 'debug' && process.env.NODE_ENV !== 'production') {\n   35          locals.debug = true;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/play.js:\n   27    locals.socketHost = req.headers.host;\n   28  \n   29:   // Enable debugging on staging/dev only\n   30    if(req.params.debug === 'debug' && process.env.NODE_ENV !== 'production')\n   31  \t  locals.debug = true;\n\n11 matches across 4 files\n\n\nSearching 131 files for \"cdnAsset \" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/css.hbs:\n   59  \t{{!-- PRODUCTION/STAGING --}}\n   60    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" integrity=\"sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7\" crossorigin=\"anonymous\">\n   61: \t<link href=\"{{cdnAsset site='at-stake' env=environment type='css' }}\" rel=\"stylesheet\">\n   62  \n   63  {{/ifeq}}\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/production.hbs:\n   16  \n   17  {{!-- Site JS --}}\n   18: <script type=\"text/javascript\" src=\"{{cdnAsset site='at-stake' env=environment type='js' }}\"></script>\n   19  \n   20  {{!-- TEMP --}}\n\n2 matches across 2 files\n\n\nSearching 131 files for \"cdnAsset\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/css.hbs:\n   59  \t{{!-- PRODUCTION/STAGING --}}\n   60    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" integrity=\"sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7\" crossorigin=\"anonymous\">\n   61: \t<link href=\"{{cdnAsset site='at-stake' env=environment type='css' }}\" rel=\"stylesheet\">\n   62  \n   63  {{/ifeq}}\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n   13  <script type=\"text/javascript\">\n   14  \n   15: alert('{{cdnAsset site='at-stake' env=environment type='js' }}')\n   16  \n   17  \tvar socket;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/production.hbs:\n   16  \n   17  {{!-- Site JS --}}\n   18: <script type=\"text/javascript\" src=\"{{cdnAsset product='at-stake' env=environment type='js' }}\"></script>\n   19  \n   20  {{!-- TEMP --}}\n\n3 matches across 3 files\n",
+			"file": "models/HomePage.js",
 			"settings":
 			{
-				"buffer_size": 4082,
+				"buffer_size": 4651,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "node_modules/keystone/index.js",
+			"settings":
+			{
+				"buffer_size": 7545,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 1346 files for \"'module root'\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/app.js:\n   50  \tvar keystoneInst = require('keystone');\n   51  \t\n   52: \tkeystoneInst.set('module root', appRootPath);\n   53  \tkeystoneInst.set('model prefix', 'atstake');\n   54  \n\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 303,
 				"line_ending": "Unix",
 				"name": "Find Results",
 				"scratch": true
 			}
 		},
 		{
-			"file": "templates/partials/script/production.hbs",
+			"file": "sockets/index.js",
 			"settings":
 			{
-				"buffer_size": 940,
+				"buffer_size": 759,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "models/User.js",
+			"settings":
+			{
+				"buffer_size": 650,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "deploy.json",
+			"settings":
+			{
+				"buffer_size": 2189,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -563,10 +598,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 384.0,
-		"last_filter": "color",
+		"height": 292.0,
+		"last_filter": "beauti",
 		"selected_items":
 		[
+			[
+				"beauti",
+				"HTMLBeautify"
+			],
 			[
 				"color",
 				"Colorsublime: Install Theme"
@@ -664,7 +703,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 475.0
+		"width": 467.0
 	},
 	"console":
 	{
@@ -685,95 +724,101 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/models",
 		"/Users/Johnny/Documents/Projects/at-stake-v3",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/errors",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game",
-		"/Users/Johnny/Documents/Projects/learning-games-core",
-		"/Users/Johnny/Documents/Projects/learning-games-core/lib"
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets"
 	],
 	"file_history":
 	[
+		"/Users/Johnny/Documents/Projects/at-stake-v3/config.json",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/keystone/index.js",
+		"/Users/Johnny/Documents/Projects/el-web-sdk/.env",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/mobile.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/deploy.json",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/production.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/.bowerrc",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/development.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/index.js",
+		"/Users/Johnny/Documents/Projects/el-web-sdk/node_modules/grunt-execute/tasks/execute.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/play.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/game.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameManager.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameType.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/SessionManager.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/ShuffleUtil.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/TemplateLoader.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/js/events/group/wikigeeks.js.orig",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_events.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_animation.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/errors/404.hbs",
+		"/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
+		"/Users/Johnny/Documents/Projects/learning-games-core/lib/SessionManager.js",
+		"/Users/Johnny/Documents/Projects/learning-games-core/lib/ShuffleUtil.js",
+		"/Users/Johnny/Documents/Projects/learning-games-core/lib/TemplateLoader.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Coins.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/playerview.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/think.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/game.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/waiting.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/waiting.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/index.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/index.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/rules.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/forms.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/agenda_item.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/deliberate.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/decide.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/pitch.hbs",
+		"/Users/Johnny/Documents/Projects/ansible-nginx/roles/nginx/tasks/main.yml",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/css.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/package.json",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/deploy.json",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt/uglify.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/production.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_animation.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/playerview.scss",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/deliberate.hbs",
-		"/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/app.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/config.json",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/think.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Coins.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/bio.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/roles.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/scoreboard.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/pitch.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/winner.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-project",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/game.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/agenda.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/agenda_item_instructions.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/deliberate_instructions.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/question.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/think_instructions.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/index.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api/gamesession.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/play.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/pitch.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/agenda_item.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/variables.scss",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_logic.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/deliberate.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/decide.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/models/GameConfig.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_events.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/bio.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/SessionManager.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/agenda_item.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers/index.js",
 		"/Users/Johnny/Downloads/Examples/Instrumentality/Instrumentality_Start.html",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/agenda.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/think.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/decide.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/models/Role.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/forms.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/agenda_item_instructions.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/deliberate_instructions.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/round_instructions.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api/templates.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/round_instructions.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/rules.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/index.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/waiting.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/pot.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/development.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/index.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global-new.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/media.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/comingsoon.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/mixins.scss",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/game.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/index.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/player.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/middleware.js",
@@ -812,23 +857,7 @@
 		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/tutorial.hbs",
 		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/core.css",
 		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/script/htyi_results.hbs",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/wiki/header.hbs",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/nav.hbs",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/htyi/results.hbs",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/app.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/lib/TemplateLoader.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/sockets/handlers/Common.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/routes/views/group/monitor.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/_wiki/playerview.scss",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/_core/homepage.scss",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/_core/groupview.scss",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/views/group/monitor.hbs",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/routes/api/templates.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/_core/media.scss",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/routes/index.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/routes/views/game/templates.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/lib/games/HTYI.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/sockets/handlers/PlayerLogin.js"
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/wiki/header.hbs"
 	],
 	"find":
 	{
@@ -928,6 +957,74 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"'module root'",
+			"mobileDetect",
+			"isApple",
+			"localStorage",
+			"isApple",
+			"localStorage",
+			"localhost:3000",
+			"http://localhost:3000/js/jquery/jquery-2.1.4.js",
+			".getScript",
+			"GetData",
+			"#btn_new_game",
+			"game-bg",
+			"btn_new_game",
+			"* Developed by Engagement Lab, 2016",
+			"* Emerging Citizens",
+			"btn-next",
+			"runMods",
+			"in-game",
+			"bottom-bar",
+			"section {",
+			".reverse",
+			"debug",
+			"fromTo",
+			"decider-controls",
+			"/login",
+			"btn-start-game",
+			"decider/game",
+			"decider/index",
+			"btn-start-game",
+			"waiting for",
+			"StartGame",
+			"col-lg-6",
+			"centered",
+			".submission",
+			"width: 70%;",
+			"width: 70%; */",
+			"game_login",
+			".login",
+			"max-width: 100%",
+			".form ",
+			".form input",
+			"container-fluid",
+			"#gameContent",
+			"#login-header",
+			"_ = ",
+			"game:turn_done",
+			"PlayerTurnDone",
+			"game:player_done",
+			"btn-next-player",
+			"StartTimer",
+			"game:start_timer",
+			"btn-time",
+			"btn-next",
+			"isActive",
+			"more-time",
+			"game:countdown_end",
+			"runMod",
+			"bio",
+			"scoreboard",
+			"_.mapObject",
+			"#btn-next",
+			"rulesAni",
+			"rulesAnim",
+			"updateGame",
+			"socket = io",
+			"socketHost",
+			"> global",
+			"specification",
 			"cdnAsset",
 			"cdnAsset ",
 			"staging",
@@ -987,75 +1084,7 @@
 			"btn_submit",
 			"btn_submit_code",
 			"SDK",
-			"login-header",
-			"room-container",
-			"rulesAnim",
-			"'game:next'",
-			"launchPlan",
-			"Give",
-			"pot",
-			"amount",
-			"setupDecider",
-			"gameCode =",
-			"var emit",
-			"game:notfound",
-			"group_id",
-			"gameCode",
-			"accessCode",
-			"emitData",
-			"players_id",
-			"btn-cancel",
-			"firstPlayer",
-			"btn-next",
-			"screensAnim",
-			"rulesAnim",
-			"#debugging",
-			" viewType",
-			" rulesAnim",
-			" <",
-			"player_done",
-			"PlayerTurnDone",
-			"turn_done",
-			"game:next_item",
-			"next_player",
-			"NextPlayer",
-			"_active_player_index",
-			"GetActivePlayerData",
-			"activeAgendaItem",
-			"agenda_item",
-			"game:next_item",
-			"post-button",
-			"post-button submit",
-			"disable",
-			"eventEmitter",
-			"timerCallback",
-			"deliberateTimeQueue",
-			"assignedRoleIndices",
-			"this._active_deck_roles",
-			"availableRoleIndices",
-			"more-time",
-			" \"",
-			"countdown_player",
-			"20",
-			"_countdown_duration",
-			"countdownEnded",
-			"more-time",
-			"this._players_id",
-			"playe",
-			"disabled",
-			"autohide",
-			"data-",
-			"more_time",
-			"AddTime",
-			"coins:remove",
-			"gameContent",
-			"Coins",
-			"-group",
-			"group_id",
-			"players_id",
-			"group_id",
-			"players_id",
-			"this.groupSocket"
+			"login-header"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1063,6 +1092,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"* Developed by Engagement Lab, 2016-2017",
+			"* @Stake v3.0",
+			"col-lg-12",
 			"Username",
 			"project-name",
 			"_deliberate_time_queue",
@@ -1187,10 +1219,7 @@
 			"person",
 			"",
 			"background",
-			"@mixin gradient-",
-			"",
-			" ",
-			"$amt"
+			"@mixin gradient-"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1201,45 +1230,73 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "templates/partials/script/global.hbs",
+					"file": "app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11760,
+						"buffer_size": 1581,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								203,
-								209
+								1401,
+								1446
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4533.0,
+						"translation.y": 175.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/Users/Johnny/Documents/Projects/learning-games-core/lib/TemplateLoader.js",
+					"file": "node_modules/app-root-path/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 131,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								99,
+								99
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "models/HomePage.js",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1262,
+						"buffer_size": 4651,
 						"regions":
 						{
 						},
@@ -1253,22 +1310,50 @@
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 39.0,
+						"translation.y": 414.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
+					"file": "node_modules/keystone/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4082,
+						"buffer_size": 7545,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3721,
+								3721
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1015.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 303,
 						"regions":
 						{
 							"match":
@@ -1277,68 +1362,8 @@
 								"regions":
 								[
 									[
-										343,
-										350
-									],
-									[
-										602,
-										609
-									],
-									[
-										640,
-										647
-									],
-									[
-										721,
-										728
-									],
-									[
-										1021,
-										1028
-									],
-									[
-										1107,
-										1114
-									],
-									[
-										1165,
-										1172
-									],
-									[
-										1568,
-										1575
-									],
-									[
-										1597,
-										1604
-									],
-									[
-										1805,
-										1812
-									],
-									[
-										2101,
-										2108
-									],
-									[
-										2666,
-										2675
-									],
-									[
-										2932,
-										2941
-									],
-									[
-										3460,
-										3468
-									],
-									[
-										3706,
-										3714
-									],
-									[
-										3957,
-										3965
+										194,
+										207
 									]
 								],
 								"scope": ""
@@ -1347,15 +1372,15 @@
 						"selection":
 						[
 							[
-								3462,
-								3462
+								201,
+								201
 							]
 						],
 						"settings":
 						{
 							"detect_indentation": false,
 							"line_numbers": false,
-							"output_tag": 5,
+							"output_tag": 1,
 							"result_base_dir": "",
 							"result_file_regex": "^([^ \t].*):$",
 							"result_line_regex": "^ +([0-9]+):",
@@ -1363,38 +1388,98 @@
 							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1428.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "templates/partials/script/production.hbs",
+					"buffer": 5,
+					"file": "sockets/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 940,
+						"buffer_size": 759,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								440,
-								440
+								755,
+								755
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "models/User.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 650,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "deploy.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2189,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								262,
+								262
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 107.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -1461,12 +1546,28 @@
 		"selected_items":
 		[
 			[
-				"global",
-				"Partials/script/global.hbs"
+				"mobil",
+				"Partials/script/mobile.hbs"
+			],
+			[
+				"gamel",
+				"Library/GameLogic.js"
+			],
+			[
+				"play.js",
+				"All/routes/views/game/play.js"
 			],
 			[
 				"base",
 				"All/templates/layouts/base.hbs"
+			],
+			[
+				"player_ev",
+				"Partials/script/player_events.hbs"
+			],
+			[
+				"global",
+				"Partials/script/global.hbs"
 			],
 			[
 				"gamelo",
@@ -1591,10 +1692,6 @@
 			[
 				"wikigeek",
 				"public/js/events/wikigeeks.js"
-			],
-			[
-				"player_ev",
-				"templates/partials/script/player_events.hbs"
 			],
 			[
 				"group",
@@ -1959,18 +2056,6 @@
 			[
 				"fonts.scss",
 				"public/styles/core/fonts.scss"
-			],
-			[
-				"moder",
-				"templates/partials/script/moderator_events.hbs"
-			],
-			[
-				"template_lo",
-				"routes/views/game/template_load.js"
-			],
-			[
-				"player.js",
-				"routes/views/game/player.js"
 			]
 		],
 		"width": 0.0
@@ -1978,28 +2063,28 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "edis",
+		"last_filter": "",
 		"selected_items":
 		[
 			[
-				"edis",
-				"~/Documents/Projects/edison.sublime-project"
+				"",
+				"~/Documents/Projects/boston-civic-media/boston-civic-media.sublime-project"
 			],
 			[
-				"",
-				"~/Documents/Projects/AtStake_v2/AtStake.sublime-project"
+				"edis",
+				"~/Documents/Projects/edison.sublime-project"
 			]
 		],
 		"width": 380.0
 	},
 	"select_symbol":
 	{
-		"height": 0.0,
+		"height": 354.0,
 		"last_filter": "",
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 404.0
 	},
 	"selected_group": 0,
 	"settings":

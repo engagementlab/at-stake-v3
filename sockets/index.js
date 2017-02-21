@@ -28,6 +28,4 @@ module.exports = function(app) {
 
   });
 
-  console.log('emerging-citizens: socket.io inititalized');
-
 };

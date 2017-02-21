@@ -1,8 +1,5 @@
 // Return server object
-serverStart = function() {
-  
-  /* Global accessor for underscore  */
-	_ = require('underscore');
+var serverStart = function() {
 
   /* Global accessor for logger  */
   logger = require('winston');
@@ -23,33 +20,25 @@ serverStart = function() {
 };
 
 // Any custom app initialization logic should go here
-appStart = function(app) {
+var appStart = function(app) {
 	
-	var keystone = require('keystone');
-	var appServer = keystone.get('appServer');
-	var rootDir = require('app-root-path');
-	var io = require(rootDir + '/sockets/')(appServer);
+	var keystone = require('keystone'),
+			appServer = keystone.get('appServer'),
+			rootDir = require('app-root-path');
 
-	if(process.env.NODE_ENV === 'staging')
-		var consolere = require('console-remote-client').connect('console.re','80','emerging-citizens-qa');
-	else
-		console.re = console;
+	var io = require(rootDir + '/sockets/')(appServer);
 
 };
 
 module.exports = function(frameworkDir, shared) {
 
 	// Add main dependencies and EL web framework dependencies if not mounted with EL framework API
-	if(!shared) {
-		require('app-module-path').addPath(__dirname + '/node_modules'); 
-		require('app-module-path').addPath(frameworkDir + '/node_modules'); 
-	}
+	// if(!shared)
+	require('app-module-path').addPath(frameworkDir + '/node_modules'); 
 	
 	// Obtain app root path and set as keystone's module root
-	var appRootPath = require('app-root-path').path;
 	var keystoneInst = require('keystone');
 	
-	keystoneInst.set('module root', appRootPath);
 
 	return { 
 

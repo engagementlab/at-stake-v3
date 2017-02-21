@@ -2,9 +2,9 @@
 	"name": "@Stake",
 	"directory": "at-stake-v3",
 	"subdomain": "atstake",
+	"db_prefix": "atstake",
 	"database": "at-stake", 
 	"admin_nav": { 
-						"Homepage": "Homepage",
 						"Game Config": ["GameConfig", "GameSession"]						
 					}
 }
