@@ -73,6 +73,8 @@
 
             {{/ifeq}}
 
+            {{#ifnoteq section 'homepage'}}
+
                 <div class="col-sm-12 col-lg-12" id="gameContent">
 
                     <section id="logo-bar" style="display:none">
@@ -80,10 +82,24 @@
                     </section>
                     <button class="btn" id="lobby-back"><</button>
 
+                    {{> shared/resuming }}
+
                     <!-- BODY CONTENT START -->
                     {{{body}}}
 
                 </div>
+
+            {{/ifnoteq}}
+            {{#ifeq section 'homepage'}}
+
+                <div class="col-sm-12 col-lg-12" id="homeContent">
+
+                    <!-- BODY CONTENT START -->
+                    {{{body}}}
+
+                </div>
+
+            {{/ifeq}}
 
                 <footer id="bottom-bar" style="display:none">
                     

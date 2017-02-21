@@ -89,7 +89,7 @@ var playerLogin = function(data) {
 
     playerName = $('#player_name').val();
     sessionStorage.setItem('username', playerName);
-    {{!-- sessionStorage.setItem('gameCode', gameCode); --}}
+    sessionStorage.setItem('gameCode', gameCode);
 
     // Log player in
     socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));
@@ -100,6 +100,8 @@ var playerLogin = function(data) {
     Checks if this client is logged in as a player already
 */
 var checkIfLoggedIn = function() {
+
+        console.log("checking player");
 
     // Disallow private/incognito
     if(isPrivate) {
