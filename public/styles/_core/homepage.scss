@@ -1,1 +1,206 @@
+//SASS vars
+$background-mint: #00d5b4;
+$type-dark-mint: #178f79;
+$type-black: #6a6a6a;
+$light-mint: #38d9b3;
+$dark-mint: #00c8a9;
+$light-blue: #57e2ff;
+$dark-blue: #20b5e6;
+$type-blue: #006f93;
+$white: #ffffff;
+
+$body-type: Avenir Next Med, sans-serif;
+$header-type: Avenir Next Bold, sans-serif;
+$sub-header-type: Avenir Next Demi Bold, sans-serif;
+$at-sign-type: Avenir Next Ultra-Light, sans-serif;
+
+@include font-face(Avenir, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0', null, null, woff2 woff eot ttf);
+@include font-face(AvenirLight, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_1_0', null, null, woff2 woff eot ttf);
+@include font-face(AvenirBold, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0', null, null, woff2 woff eot ttf);
+
+p {
+	font-family: Avenir;
+}
+
+h3 {
+	font-family: AvenirBold;
+}
+
+h5 {
+	font-family: AvenirBold;
+}
+
+.container{
+	padding: 0;
+}
+
+#gameContent{
+	padding: 0;
+}
 // HOME PAGE
+.siteLanding#homepage{
+	background-color: $light-mint;
+	width: 100%;
+
+	.row{
+		width: 100%;
+		padding: 25px;
+		margin: 0;
+
+		&.top{
+			background-color: $light-mint;
+			min-height: 300px;
+		}
+		&.pitch{
+			background-color: $white;
+		}
+		&.feature{
+			background-color: $dark-blue;
+		}
+		&.flow-play{
+			background-color: $white;
+		}
+		&.learn-more{
+			background-color: $dark-mint;
+		}
+		&.credits{
+			background-color: $light-mint;
+		}
+	}
+	.top-section{
+
+		.header{
+			color: white;
+		}
+
+		.whats{
+			font-family: AvenirBold;
+		}
+
+		.at-sign{
+			font-family: AvenirLight;
+		}
+
+		.header-stake{
+			font-family: AvenirBold;
+		}
+
+		.play-button{
+
+		}
+	}
+	.game-pitch{
+		float: right;
+		.tagline{
+
+		}
+		.half-1{
+			.cta-para-one{
+
+			}
+			.cta-para-two{
+
+			}
+			.examples{
+
+				li{
+
+				}
+			}
+		}
+		.half-2{
+			.cta-points{
+
+				.point-one{
+
+				}
+				.point-two{
+
+				}
+				.point-three{
+
+				}
+			}
+			.cta-image{
+
+			}
+		}
+	}
+	.game-features{
+		color: $type-blue;
+		.feature-text{
+
+		}
+		.feature-image{
+
+		}
+		.feature-one{
+
+			.feature-one-image{
+
+			}
+			.feature-one-text{
+
+			}
+		}
+		.feature-two{
+
+			.feature-two-image{
+
+			}
+			.feature-two-text{
+
+			}
+		}
+		.feature-three{
+
+			.feature-three-image{
+
+			}
+			.feature-three-text{
+
+			}
+		}
+	}
+	.game-flow{
+
+		.flow-play-header{
+			color: $background-mint;
+			padding-bottom: 1px;
+		}
+		.flow-play-para{
+
+		}
+		.flow-play-pic{
+
+		}
+	}
+	.game-learn{
+		padding: 0 50px;
+		color:white;
+		.learn-more-header{
+			padding-bottom: 1px;
+		}
+		.learn-more-para{
+
+		}
+	}
+	.design-dev-team{
+		display: inline;
+		
+		h3{
+			color: $white;
+		}
+
+		.team{
+			color: $white;
+			display: inline;
+		}
+		.team-title{
+			color: $type-dark-mint;
+		}
+		.el-logo{
+
+		}
+	}
+}

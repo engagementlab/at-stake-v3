@@ -45,13 +45,6 @@ var Types = keystone.Field.Types;
 		required: true 
 	},
 
-	header: { 
-		type: Types.Markdown, 
-		label: "Homepage Header",  
-		initial: true, 
-		required: true 
-	},
-
 	tagline: {
 		type: Types.Markdown, 
 		label: "Tagline", 
@@ -74,19 +67,27 @@ var Types = keystone.Field.Types;
 	}
 },
 
-'Game Features', {
-	featuresParagraph: {
+
+'Pitch', {
+	ctaParagraphOne: {
 		type: Types.Markdown,
-		label: "Game Features Paragraph",
+		label: "Pitch Paragraph One",
+		initial: false,
+		required: false
+	},
+	
+	ctaParagraphTwo: {
+		type: Types.Markdown,
+		label: "Pitch Paragraph Two",
 		initial: false,
 		required: false
 	},
 	
 	pointOneText: {
 		type: Types.Markdown,
-		label: "Point One Text"
+		label: "Point One Text"		
 	},
-	
+
 	pointTwoText: {
 		type: Types.Markdown,
 		label: "Point Two Text"		
@@ -96,33 +97,73 @@ var Types = keystone.Field.Types;
 		type: Types.Markdown,
 		label: "Point Three Text"
 	},
-
-	exampleParagraph: {
-		type: Types.Markdown,
-		label: "Organize/Sample Use Paragraph",
-		initial: false,
-		required: false
-	},
-
-	exampleOneText: {
-		type: Types.Markdown,
-		label: "Example One Text"
-	},
-
-	exampleTwoText: {
-		type: Types.Markdown,
-		label: "Example Two Text"
-	},
-
-	exampleThreeText: {
-		type: Types.Markdown,
-		label: "Example Three Text"
-	},
 	
 	showcaseImage: {
 		type: Types.CloudinaryImage,
 		folder: 'at-stake-site/images/layout/home/landing',
 		label: 'Features Image'
+	}
+ },
+
+'Game Features', {
+	featureOneTitle: {
+		type: Types.Markdown,
+		label: "Game Feature Title One",
+		initial: false,
+		required: false
+	},
+
+	featureOneParagraph: {
+		type: Types.Markdown,
+		label: "Game Feature Paragraph One",
+		initial: false,
+		required: false
+	},
+	
+	featureOneIcon: {
+		type: Types.CloudinaryImage,
+		folder: 'at-stake-site/images/layout/home/landing',
+		label: 'Feature One Image'
+	},
+
+	featureTwoTitle: {
+		type: Types.Markdown,
+		label: "Game Feature Title Two",
+		initial: false,
+		required: false
+	},
+
+	featureTwoParagraph: {
+		type: Types.Markdown,
+		label: "Game Feature Paragraph Two",
+		initial: false,
+		required: false
+	},
+	
+	featureTwoIcon: {
+		type: Types.CloudinaryImage,
+		folder: 'at-stake-site/images/layout/home/landing',
+		label: 'Feature Two Image'
+	},
+
+	featureThreeTitle: {
+		type: Types.Markdown,
+		label: "Game Feature Title Three",
+		initial: false,
+		required: false
+	},
+
+	featureThreeParagraph: {
+		type: Types.Markdown,
+		label: "Game Feature Paragraph Three",
+		initial: false,
+		required: false
+	},
+	
+	featureThreeIcon: {
+		type: Types.CloudinaryImage,
+		folder: 'at-stake-site/images/layout/home/landing',
+		label: 'Feature One Image'
 	}
  },
 
