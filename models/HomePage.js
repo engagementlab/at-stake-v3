@@ -45,13 +45,6 @@ var Types = keystone.Field.Types;
 		required: true 
 	},
 
-	header: { 
-		type: Types.Markdown, 
-		label: "Homepage Header",  
-		initial: true, 
-		required: true 
-	},
-
 	tagline: {
 		type: Types.Markdown, 
 		label: "Tagline", 
@@ -113,6 +106,13 @@ var Types = keystone.Field.Types;
  },
 
 'Game Features', {
+	featureOneTitle: {
+		type: Types.Markdown,
+		label: "Game Feature Title One",
+		initial: false,
+		required: false
+	},
+
 	featureOneParagraph: {
 		type: Types.Markdown,
 		label: "Game Feature Paragraph One",
@@ -126,6 +126,13 @@ var Types = keystone.Field.Types;
 		label: 'Feature One Image'
 	},
 
+	featureTwoTitle: {
+		type: Types.Markdown,
+		label: "Game Feature Title Two",
+		initial: false,
+		required: false
+	},
+
 	featureTwoParagraph: {
 		type: Types.Markdown,
 		label: "Game Feature Paragraph Two",
@@ -137,6 +144,13 @@ var Types = keystone.Field.Types;
 		type: Types.CloudinaryImage,
 		folder: 'at-stake-site/images/layout/home/landing',
 		label: 'Feature Two Image'
+	},
+
+	featureThreeTitle: {
+		type: Types.Markdown,
+		label: "Game Feature Title Three",
+		initial: false,
+		required: false
 	},
 
 	featureThreeParagraph: {
