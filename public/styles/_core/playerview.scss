@@ -22,6 +22,8 @@
 
 	// Lobby game screens
 	&.lobby {
+
+		padding-top: 40px;
 		// Show back button on login screen
 		button#lobby-back {
 			display: block;
