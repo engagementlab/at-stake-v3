@@ -8,6 +8,7 @@
 	height: 100%;
 	text-align: center;
 	padding: 40px;
+	padding-top: 80px;
 
 	// During the gameplay
 	&.in-game {
@@ -22,8 +23,6 @@
 
 	// Lobby game screens
 	&.lobby {
-
-		padding-top: 40px;
 		// Show back button on login screen
 		button#lobby-back {
 			display: block;
