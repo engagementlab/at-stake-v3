@@ -1,10 +1,5 @@
 #gameContent {
 	background-color: $color-turquoise;
-	// Display as table to vertically center content elements
-	// display: table;	
-	// Remove margin and extend width/height from table display settings
-	// margin: 0px;
-	// width: 100%;
 	height: 100%;
 	text-align: center;
 	padding: 40px;
@@ -22,7 +17,7 @@
 	}
 
 	// Lobby game screens
-	&.lobby {
+	.lobby {
 		// Show back button on login screen
 		button#lobby-back {
 			display: block;
@@ -30,6 +25,12 @@
 			left: 0;
 			top: 0;
 			margin: 10px;
+		}
+
+		&#choices {
+			.btn {
+				display: table;
+			}
 		}
 
 	}
