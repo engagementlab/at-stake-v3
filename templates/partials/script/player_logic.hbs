@@ -87,7 +87,7 @@ var playerLogin = function(data) {
 
     $('gameContent').addClass('lobby');
 
-    playerName = $('#player_name').val();
+    playerName = $('#player-name').val();
     sessionStorage.setItem('username', playerName);
     sessionStorage.setItem('gameCode', gameCode);
 
@@ -135,7 +135,7 @@ var checkIfLoggedIn = function() {
             .from($('#logo_ec'), 1.5, {scale:2, delay:1, ease:Expo.easeOut}, .6)
 
             .from($('#access_code'), 1.5, {yPercent:-20, autoAlpha:0, delay:1.3, ease:Expo.easeOut}, .7)
-            .from($('#player_name'), 1.5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .8)
+            .from($('#player-name'), 1.5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .8)
             .from($('.entry-footer'), 1.5, {yPercent:100, autoAlpha:0, delay:1.5, ease:Expo.easeOut}, .5)
             .from($('#btn_submit_code, #btn_help'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut}, .5);
 
@@ -152,7 +152,7 @@ var checkIfLoggedIn = function() {
             });
         }
 
-        $('#player_name').keydown(function(evt) {
+        $('#player-name').keydown(function(evt) {
             
             if(evt.keyCode == 13)
                 $('#btn_submit_code').click();
@@ -178,9 +178,32 @@ var checkIfLoggedIn = function() {
 /*
  Save player name and advance to next screen
 */
-$(document).on('click', '.btn.game_login', function(evt) {
+$(document).on('click', '.btn.submit_name', function(evt) {
 
+    var data = getFormData($(this));
+    var errorBox = $('.form .error');
 
+    // Hide errors during typing
+    $('.form input').keyup(function() {
+        $('.form input').removeClass('invalid');
+    });
+
+    if(!data.name || data.name.length === 0) {
+        $('.form #player-name').addClass('invalid');
+        errorBox.text('You need to enter a name!').fadeIn(); 
+
+        return;
+    }
+
+    $('#login').fadeOut(function() {
+        $('#choices').fadeIn();
+
+        $('#btn_join_game').click(function() {
+            $('#choices').fadeOut(function() {
+                $('#join').fadeIn();
+            });            
+        });
+    })
 
 });
 
@@ -206,7 +229,7 @@ $(document).on('click', '.btn.game_login', function(evt) {
     }
     // Player entered name?
     else if(!data.name || data.name.length === 0) {
-        $('.form #player_name').addClass('invalid');
+        $('.form #player-name').addClass('invalid');
         errorBox.text('You need to enter a name!').fadeIn(); 
 
         return;
@@ -243,7 +266,7 @@ $(document).on('click', '.btn.game_login', function(evt) {
 
                     case 'no_username':
                     case 'username_taken':
-                        $('.form #player_name').addClass('invalid');
+                        $('.form #player-name').addClass('invalid');
                         break;
 
                     case 'game_active': 
@@ -286,7 +309,7 @@ $('#btn_new_game').click(function() {
                 $('#decks').append($('<button/>').addClass('toggle-button inactive').text(deckInfo.name).val(deckInfo._id));
             }
 
-            $('#login').fadeOut(function() {
+            $('#choices').fadeOut(function() {
                 $('#decider').fadeIn(function(){
                     $('.lobby#decider').css('display','block');
 
@@ -325,7 +348,7 @@ window.onload = checkIfLoggedIn();
     // Debugging view
     {{#ifeq section 'login'}}
         $('#access_code').val('TEST');
-        $('#player_name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
+        $('#player-name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
     {{/ifeq}}
 {{/ifeq}}
 
