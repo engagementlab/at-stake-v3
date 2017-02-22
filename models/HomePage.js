@@ -26,7 +26,6 @@ var Types = keystone.Field.Types;
 		label: 'Home Page',
 		singular: 'Home Page',
 		track: true,
-		nodelete: true
 	});
 
  Homepage.add({
