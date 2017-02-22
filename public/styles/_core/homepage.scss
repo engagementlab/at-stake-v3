@@ -199,6 +199,9 @@ h5 {
 	.design-dev-team{
 		display: inline;
 		text-align: center;
+		h3 {
+			color: white;
+		}
 		.team-header{
 			color: $white;
 			font-family: $header-type;
@@ -206,10 +209,25 @@ h5 {
 
 		.team{
 			color: $white;
-			display: inline;
+			padding: 0px;
+
+
+			&.pi {
+				text-align: center;
+
+			}
+		}
+
+		.team-1-half {
+			text-align: left;
+		}
+
+		.team-2-half {
+			text-align: right;
 		}
 		.team-title{
 			color: $type-dark-mint;
+			display: inline;
 		}
 		.el-logo{
 

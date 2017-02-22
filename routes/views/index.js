@@ -49,7 +49,6 @@ exports = module.exports = function(req, res) {
 	    queryHomepage.exec(function(err, resultHomepage) {
 	    
 	    	locals.content = resultHomepage;
-        console.log(resultHomepage)
 			  
 			  // Render the view
 		    view.render('index');
