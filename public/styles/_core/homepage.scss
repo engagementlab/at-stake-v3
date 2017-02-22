@@ -1,13 +1,15 @@
+
+
 p {
-	font-family: AvenirNext;
+	font-family: $body-type;
 }
 
 h3 {
-	font-family: AvenirBold;
+	font-family: $header-type;
 }
 
 h5 {
-	font-family: AvenirBold;
+	font-family: $header-type;
 }
 
 .container{
@@ -36,6 +38,8 @@ h5 {
 		}
 		&.feature{
 			background-color: $dark-blue;
+			padding: 25px 40px;
+			border-bottom: solid 20px $light-blue;
 		}
 		&.flow-play{
 			background-color: $white;
@@ -49,20 +53,23 @@ h5 {
 	}
 	.top-section{
 
-		.header{
+		.landing-header{
 			color: white;
 		}
 
 		.whats{
-			font-family: AvenirBold;
+			font-family: $sub-header-type;
+			font-size: 2em;
 		}
 
 		.at-sign{
-			font-family: AvenirLight;
+			font-family: $at-sign-type;
+			font-size: 5em;
 		}
 
 		.header-stake{
-			font-family: AvenirBold;
+			font-family: $sub-header-type;
+			font-size: 3.5em;
 		}
 
 		.play-button{
@@ -90,7 +97,9 @@ h5 {
 		}
 		.half-2{
 			.cta-points{
-
+				p{
+					font-family: $sub-header-type;
+				}
 				.point-one{
 
 				}
@@ -108,14 +117,20 @@ h5 {
 	}
 	.game-features{
 		color: $type-blue;
+		text-align: center;
 		.feature-text{
-
+			padding: 0 30px;
 		}
 		.feature-image{
 
 		}
 		.feature-one{
 
+			.feature-header-one{
+				p{
+				font-family: $header-type;
+				}
+			}
 			.feature-one-image{
 
 			}
@@ -124,6 +139,12 @@ h5 {
 			}
 		}
 		.feature-two{
+
+			.feature-header-two{
+				p{
+				font-family: $header-type;
+				}
+			}
 
 			.feature-two-image{
 
@@ -134,6 +155,11 @@ h5 {
 		}
 		.feature-three{
 
+			.feature-header-three{
+				p{
+				font-family: $header-type;
+				}
+			}
 			.feature-three-image{
 
 			}
@@ -143,10 +169,13 @@ h5 {
 		}
 	}
 	.game-flow{
-
+		text-align: center;
 		.flow-play-header{
-			color: $background-mint;
 			padding-bottom: 1px;
+			p{
+				font-family: $header-type;
+				color: $background-mint;
+			}
 		}
 		.flow-play-para{
 
@@ -156,10 +185,15 @@ h5 {
 		}
 	}
 	.game-learn{
+		text-align: center;
 		padding: 0 50px;
 		color:white;
 		.learn-more-header{
 			padding-bottom: 1px;
+			
+			p{
+				font-family: $header-type;
+			}
 		}
 		.learn-more-para{
 
@@ -167,17 +201,36 @@ h5 {
 	}
 	.design-dev-team{
 		display: inline;
-		
-		h3{
+		text-align: center;
+		h3 {
+			color: white;
+		}
+		.team-header{
 			color: $white;
+			font-family: $header-type;
 		}
 
 		.team{
 			color: $white;
-			display: inline;
+			padding: 0px;
+
+
+			&.pi {
+				text-align: center;
+
+			}
+		}
+
+		.team-1-half {
+			text-align: left;
+		}
+
+		.team-2-half {
+			text-align: right;
 		}
 		.team-title{
 			color: $type-dark-mint;
+			display: inline;
 		}
 		.el-logo{
 

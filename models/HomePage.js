@@ -26,7 +26,7 @@ var Types = keystone.Field.Types;
 		label: 'Home Page',
 		singular: 'Home Page',
 		track: true,
-		nodelete: true
+		sortable: true
 	});
 
  Homepage.add({
@@ -289,7 +289,7 @@ var Types = keystone.Field.Types;
 	}
 });
 
-Homepage.defaultSort = '-createdAt';
+// Homepage.defaultSort = '-createdAt';
 Homepage.defaultColumns = 'name, updatedAt';
 Homepage.register();
 exports = module.exports = Homepage;

@@ -21,7 +21,7 @@ exports = module.exports = function(req, res) {
     var view = new keystone.View(req, res);
     var locals = res.locals;
 
-    locals.section = 'homepage'
+    locals.section = 'homepage';
 
 		// Query to get current game config data
     var queryConfig = GameConfig.model.findOne({}, {}, {
@@ -49,7 +49,6 @@ exports = module.exports = function(req, res) {
 	    queryHomepage.exec(function(err, resultHomepage) {
 	    
 	    	locals.content = resultHomepage;
-		    locals.section = 'index';
 			  
 			  // Render the view
 		    view.render('index');

@@ -28,8 +28,13 @@
 @include font-face(AvenirNext, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1487785800/at-stake/fonts/AvenirNext-Regular', null, null, woff2 woff eot ttf);
 @include font-face(AvenirNext-Bold, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1487785800/at-stake/fonts/AvenirNext-Bold', null, null, woff2 woff eot ttf);
 @include font-face(AvenirNext-DemiBold, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1487785800/at-stake/fonts/AvenirNext-DemiBold', null, null, woff2 woff eot ttf);
-@include font-face(AvenirNext-UltraLight, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1487785800/at-stake/fonts/AvenirNext-UltraLight', null, null, woff2 woff eot ttf);
+@include font-face(AvenirNext-UltraLight, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1487785800/at-stake/fonts/AvenirNextCondensed-UltraLight', null, null, woff2 woff eot ttf);
 @include font-face(AvenirNext-Medium, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1487785800/at-stake/fonts/AvenirNext-Medium', null, null, woff2 woff eot ttf);
+
+$body-type: AvenirNext-Medium, sans-serif;
+$header-type: AvenirNext-Bold, sans-serif;
+$sub-header-type: AvenirNext-DemiBold, sans-serif;
+$at-sign-type: AvenirNext-UltraLight, sans-serif;
 
 .light {
 	font-family: "AvenirNext-UltraLight";
