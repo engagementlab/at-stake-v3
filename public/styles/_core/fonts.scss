@@ -25,13 +25,21 @@
 	}
 }
 
-@include font-face(Avenir, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0', null, null, woff2 woff eot ttf);
-@include font-face(AvenirLight, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_1_0', null, null, woff2 woff eot ttf);
-@include font-face(AvenirBold, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0', null, null, woff2 woff eot ttf);
+@include font-face(AvenirNext, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1487785800/at-stake/fonts/AvenirNext-Regular', null, null, woff2 woff eot ttf);
+@include font-face(AvenirNext-Bold, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1487785800/at-stake/fonts/AvenirNext-Bold', null, null, woff2 woff eot ttf);
+@include font-face(AvenirNext-DemiBold, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1487785800/at-stake/fonts/AvenirNext-DemiBold', null, null, woff2 woff eot ttf);
+@include font-face(AvenirNext-UltraLight, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1487785800/at-stake/fonts/AvenirNext-UltraLight', null, null, woff2 woff eot ttf);
+@include font-face(AvenirNext-Medium, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1487785800/at-stake/fonts/AvenirNext-Medium', null, null, woff2 woff eot ttf);
 
 .light {
-	font-family: "AvenirLight";
+	font-family: "AvenirNext-UltraLight";
 }
 .bold {
-	font-family: "AvenirBold";
+	font-family: "AvenirNext-Bold";
+}
+.demi-bold {
+	font-family: "AvenirNext-DemiBold";
+}
+.medium {
+	font-family: "AvenirNext-Medium";
 }

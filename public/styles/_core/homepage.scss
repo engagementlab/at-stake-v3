@@ -1,25 +1,5 @@
-//SASS vars
-$background-mint: #00d5b4;
-$type-dark-mint: #178f79;
-$type-black: #6a6a6a;
-$light-mint: #38d9b3;
-$dark-mint: #00c8a9;
-$light-blue: #57e2ff;
-$dark-blue: #20b5e6;
-$type-blue: #006f93;
-$white: #ffffff;
-
-$body-type: Avenir Next Med, sans-serif;
-$header-type: Avenir Next Bold, sans-serif;
-$sub-header-type: Avenir Next Demi Bold, sans-serif;
-$at-sign-type: Avenir Next Ultra-Light, sans-serif;
-
-@include font-face(Avenir, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0', null, null, woff2 woff eot ttf);
-@include font-face(AvenirLight, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_1_0', null, null, woff2 woff eot ttf);
-@include font-face(AvenirBold, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0', null, null, woff2 woff eot ttf);
-
 p {
-	font-family: Avenir;
+	font-family: AvenirNext;
 }
 
 h3 {
