@@ -38,7 +38,7 @@ h5 {
 		}
 		&.feature{
 			background-color: $dark-blue;
-			padding: 25px 40px;
+			padding: 30px 40px;
 			border-bottom: solid 20px $light-blue;
 		}
 		&.flow-play{
@@ -55,64 +55,52 @@ h5 {
 
 		.landing-header{
 			color: white;
+			margin: 5% 40%;
+			height: 25%;
 		}
 
 		.whats{
 			font-family: $sub-header-type;
-			font-size: 2em;
+			font-size: 4em;
+			z-index: 2;
 		}
 
 		.at-sign{
 			font-family: $at-sign-type;
-			font-size: 5em;
+			font-size: 9em;
+			z-index: 1;
 		}
 
 		.header-stake{
 			font-family: $sub-header-type;
-			font-size: 3.5em;
+			font-size: 5em;
 		}
 
 		.play-button{
 
 		}
 	}
+
+	.showcaseImage{
+		padding: 20px;
+	}
+
 	.game-pitch{
 		float: right;
 		.tagline{
 
 		}
 		.half-1{
+			padding-top: 30px;
 			.cta-para-one{
 
 			}
 			.cta-para-two{
 
 			}
-			.examples{
-
-				li{
-
-				}
-			}
-		}
-		.half-2{
 			.cta-points{
-				p{
-					font-family: $sub-header-type;
-				}
-				.point-one{
 
-				}
-				.point-two{
-
-				}
-				.point-three{
-
-				}
-			}
-			.cta-image{
-
-			}
+			}			
 		}
 	}
 	.game-features{
@@ -170,6 +158,7 @@ h5 {
 	}
 	.game-flow{
 		text-align: center;
+		padding: 0 5%;
 		.flow-play-header{
 			padding-bottom: 1px;
 			p{
@@ -186,7 +175,7 @@ h5 {
 	}
 	.game-learn{
 		text-align: center;
-		padding: 0 50px;
+		padding: 0 3%;
 		color:white;
 		.learn-more-header{
 			padding-bottom: 1px;

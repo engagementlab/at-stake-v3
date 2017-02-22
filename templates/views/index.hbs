@@ -11,25 +11,26 @@
   <div class="row top">
     {{!-- TOP SECTION/LANDING --}}
     <div class="top-section">
-      <h2 class="landing-header"><span class="whats">what's</span> <span class="at-sign">@</span><span class="header-stake">stake?</span></h2>
+      <div class="landing-header">
+        <span class="whats">what's</span></br><span class="at-sign">@</span><span class="header-stake">stake?</span>
+      </div>
       <div class="play-button"></div>
     </div>
   </div>
   
   {{!-- GAME PITCH --}}
   <div class="row pitch">
-    <div class="game-pitch col-md-9 col-sm-10">
-      <div class="half-1">
+  <div class="phone-pic col-lg-4 col-sm-12"><img class="showcaseImage" src="{{{cloudinaryUrl content.showcaseImage width=auto height=350 crop='scale' quality=100}}}"></div>
+    <div class="game-pitch col-lg-8 col-sm-10">
+      <div class="half-1 col-lg-10 col-sm-12 col-centered">
         <h4 class="tagline">{{{content.tagline.html}}}</h4>
         <div class="cta-para-one">{{{content.ctaParagraphOne.html}}}</div>
         <div class="cta-para-two">{{{content.ctaParagraphTwo.html}}}</div>
-        <div class="cta-points">
-          <ul>
-            <li class="cta-points"><strong>{{{content.pointOneText.html}}}</strong></li>
-            <li class="cta-points"><strong>{{{content.pointTwoText.html}}}</strong></li>
-            <li class="cta-points"><strong>{{{content.pointThreeText.html}}}</strong></li>
+          <ul class="cta-points">
+            <li><strong>{{{content.pointOneText.html}}}</strong></li>
+            <li><strong>{{{content.pointTwoText.html}}}</strong></li>
+            <li><strong>{{{content.pointThreeText.html}}}</strong></li>
           </ul>
-        </div>
       </div>
     </div>
   </div>
@@ -60,7 +61,7 @@
     <div class="game-flow">
       <h3 class="flow-play-header">{{{content.flowOfGameHeader.html}}}</h3>
     	<div class="flow-play-para">{{{content.flowOfGameParagraph.html}}}</div>
-    	<div class="flow-play-pic"><img src="{{{cloudinaryUrl content.featureOneIcon width=auto height=100 crop='scale' quality=100}}}"></div>
+    	<div class="flow-play-pic"><img src="{{{cloudinaryUrl content.flowOfGamePicture width=auto height=100 crop='scale' quality=100}}}"></div>
     </div>
   </div>
 
