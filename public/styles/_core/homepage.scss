@@ -53,20 +53,23 @@ h5 {
 	}
 	.top-section{
 
-		.header{
+		.landing-header{
 			color: white;
 		}
 
 		.whats{
-			
+			font-family: $sub-header-type;
+			font-size: 2em;
 		}
 
 		.at-sign{
-			
+			font-family: $at-sign-type;
+			font-size: 5em;
 		}
 
 		.header-stake{
-			
+			font-family: $sub-header-type;
+			font-size: 3.5em;
 		}
 
 		.play-button{
