@@ -39,6 +39,7 @@ h5 {
 		&.feature{
 			background-color: $dark-blue;
 			padding: 25px 40px;
+			border-bottom: solid 20px $light-blue;
 		}
 		&.flow-play{
 			background-color: $white;
@@ -57,15 +58,15 @@ h5 {
 		}
 
 		.whats{
-			font-family: AvenirBold;
+			
 		}
 
 		.at-sign{
-			font-family: AvenirLight;
+			
 		}
 
 		.header-stake{
-			font-family: AvenirBold;
+			
 		}
 
 		.play-button{
@@ -93,7 +94,9 @@ h5 {
 		}
 		.half-2{
 			.cta-points{
-
+				p{
+					font-family: $sub-header-type;
+				}
 				.point-one{
 
 				}
@@ -120,6 +123,11 @@ h5 {
 		}
 		.feature-one{
 
+			.feature-header-one{
+				p{
+				font-family: $header-type;
+				}
+			}
 			.feature-one-image{
 
 			}
@@ -128,6 +136,12 @@ h5 {
 			}
 		}
 		.feature-two{
+
+			.feature-header-two{
+				p{
+				font-family: $header-type;
+				}
+			}
 
 			.feature-two-image{
 
@@ -138,6 +152,11 @@ h5 {
 		}
 		.feature-three{
 
+			.feature-header-three{
+				p{
+				font-family: $header-type;
+				}
+			}
 			.feature-three-image{
 
 			}
@@ -149,9 +168,11 @@ h5 {
 	.game-flow{
 		text-align: center;
 		.flow-play-header{
-			font-family: $header-type;
-			color: $background-mint;
 			padding-bottom: 1px;
+			p{
+				font-family: $header-type;
+				color: $background-mint;
+			}
 		}
 		.flow-play-para{
 
@@ -166,7 +187,10 @@ h5 {
 		color:white;
 		.learn-more-header{
 			padding-bottom: 1px;
-			font-family: $header-type;
+			
+			p{
+				font-family: $header-type;
+			}
 		}
 		.learn-more-para{
 
@@ -174,7 +198,7 @@ h5 {
 	}
 	.design-dev-team{
 		display: inline;
-		
+		text-align: center;
 		.team-header{
 			color: $white;
 			font-family: $header-type;
