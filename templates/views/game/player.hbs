@@ -1,19 +1,16 @@
-{{!-- NAME ENTRY --}}
+{{!-- JOIN GAME --}}
+
 <div class="lobby" id="login" class="col-sm-12">
-  <div class="form login col-xs-12 col-centered">
+  <div class="form login col-lg-6 col-md-6 col-sm-6 col-xs-12 col-centered">
     <div id="login-header">
       <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/e_grayscale/v1454520474/site/listings/odr1jt3rfkda0s1qce9q.png">
-      <p>A Game for Deliberative Democracy</p>
+      <p>Welcome to At Stake: a deliberation game! You will need 3-4 players.</p>
     </div>
-    {{!-- <input type="text" id="access_code" placeholder="room code"> <br /> --}}
-    <input type="text" id="player_name" placeholder="Type your name here"> <br />
+    <input type="text" id="access_code" placeholder="room code"> <br />
+    <input type="text" id="player_name" placeholder="name"> <br />
     <div class="error">Error!</div>
-    <input id="btn_submit_name" class="btn btn-default game_login" type="submit" name="submit" value="play">
-    {{!-- <input id="btn_new_game" class="btn btn-default" type="submit" name="submit" value="new game"> --}}
-    <section id="description">
-    <p>@Stake was created to help facilitate productive and fair conversations in classrooms, conferences, strategic board meetings, and public events. By playing @Stake, participants learn that productive conversations thrive off of authentic listening and multiple perspectives. All you need to get started is 3-5 players.</p>
-    </section>
-
+    <input id="btn_submit_code" data-event="game:entry" data-package='{"code": "#access_code", "name": "#player_name"}' class="btn btn-default game_login" type="submit" name="submit" value="play">
+    <input id="btn_new_game" class="btn btn-default" type="submit" name="submit" value="new game">
   </div>
   <div class="row login waiting" style="display:none">
     <h1 id="game-code">{{game.accessCode}}</h1>
@@ -43,12 +40,16 @@
     </div>
   </div>
   <div class="row waiting" style="display:none">
+   
+    <h2>SHARE YOUR ROOM CODE</h2>
+    <p>Share this 4 digit code with other players. Once at least 3 players have joined, press the start button to begin!</p>
     <h1 class="access-code"></h1>
-    <p>You are the decider</p>
-    <p>Waiting for players</p>
+    <div class="deck"></div>
+
 
     <div class="col-sm-12">
       <div class="row" id="players">
+        
       </div>
     </div>
     <div class="form row" id="start">
@@ -57,3 +58,27 @@
     </div>
   </div>
 </div>
+{{!--
+<footer id="footer">
+  <!-- mobile footer start -->
+  <div class="entry-footer col-md-12 col-xs-12 mobile-only">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="row">
+          <div class="footer-content text-center padding-ver-clear">
+            <div class="player-form form col-xl-2 col-xs-12">
+              <div class="col-xs-6">
+                <button id="btn_submit_code" data-event="game:entry" data-package='{"code": "#access_code", "name": "#player_name"}' class="btn default mobile-login game_login">play</button>
+              </div>
+              <div class="col-xs-6">
+                <button id="btn_submit_code" data-event="game:help" class="btn default mobile-login">help</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- mobile footer end -->
+</footer>
+--}}

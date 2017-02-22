@@ -101,7 +101,7 @@ socketEvents = function(eventId, eventData) {
 
                 var nameFormatted = (player.name.length <= 15) ? player.name : player.name.substring(0, 15) + "...";
 
-                $('#players').append('<div class="col-sm-3 player-logo"><div class="logo" id="player-' + player.icon + '"></div><p>' + nameFormatted + '</p></div>');
+                $('#players').append('<div class="col-sm-12 player-logo"><div class="logo" id="player-' + player.icon + '"></div><p>' + nameFormatted + '</p></div>');
 
             });
 

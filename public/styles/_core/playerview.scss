@@ -71,15 +71,19 @@
 .player-logo {
 
 	height: 80px;
-	width: 80px;
+	width: 100%;
 	display: inline-block;
-	margin: 15px;
 	padding:0px;
+	background-color: grey;
 
-	.logo {
-		height:100%;
-		width:100%;
+	p {
+		display: inline;
 	}
+
+	// .logo {
+	// 	height:100%;
+	// 	width:100%;
+	// }
 
 	#player-0 {
 		background: $player-one-logo;
@@ -190,6 +194,18 @@ input.post-button {
 	margin-bottom: 0px;
 	background-color: $color-seafoam;
 	z-index: 1000;
+}
+
+.waiting {
+	width: 100%;
+	padding: 0px;
+
+	.access-code {
+		border: 1px dashed black;
+	}
+	p {
+		font-size: 16px;
+	}
 }
 
 
