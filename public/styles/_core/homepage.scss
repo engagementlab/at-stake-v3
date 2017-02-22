@@ -1,13 +1,15 @@
+
+
 p {
-	font-family: AvenirNext;
+	font-family: $body-type;
 }
 
 h3 {
-	font-family: AvenirBold;
+	font-family: $header-type;
 }
 
 h5 {
-	font-family: AvenirBold;
+	font-family: $header-type;
 }
 
 .container{
@@ -36,6 +38,7 @@ h5 {
 		}
 		&.feature{
 			background-color: $dark-blue;
+			padding: 25px 40px;
 		}
 		&.flow-play{
 			background-color: $white;
@@ -108,8 +111,9 @@ h5 {
 	}
 	.game-features{
 		color: $type-blue;
+		text-align: center;
 		.feature-text{
-
+			padding: 0 30px;
 		}
 		.feature-image{
 
@@ -143,8 +147,9 @@ h5 {
 		}
 	}
 	.game-flow{
-
+		text-align: center;
 		.flow-play-header{
+			font-family: $header-type;
 			color: $background-mint;
 			padding-bottom: 1px;
 		}
@@ -156,10 +161,12 @@ h5 {
 		}
 	}
 	.game-learn{
+		text-align: center;
 		padding: 0 50px;
 		color:white;
 		.learn-more-header{
 			padding-bottom: 1px;
+			font-family: $header-type;
 		}
 		.learn-more-para{
 
@@ -168,16 +175,35 @@ h5 {
 	.design-dev-team{
 		display: inline;
 		
-		h3{
+		h3 {
+			color: white;
+		}
+		.team-header{
 			color: $white;
+			font-family: $header-type;
 		}
 
 		.team{
 			color: $white;
-			display: inline;
+			padding: 0px;
+
+
+			&.pi {
+				text-align: center;
+
+			}
+		}
+
+		.team-1-half {
+			text-align: left;
+		}
+
+		.team-2-half {
+			text-align: right;
 		}
 		.team-title{
 			color: $type-dark-mint;
+			display: inline;
 		}
 		.el-logo{
 
