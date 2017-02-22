@@ -42,7 +42,7 @@
       "ref": "origin/production",
       "path": "/srv/at-stake-v3",
       "pre-deploy-local" : "echo 'NPM linking at-stake-v3 and restarting app.';",
-      "post-deploy" : "npm i ; npm update ; cd /srv/framework/current/ ; grunt compile --sites=at-stake-v3 --env production ; NODE_ENV=production pm2 restart server.js -- at-stake-v3 --env production"
+      "post-deploy" : "npm i ; npm update ; cd /srv/framework/current/ ; grunt compile --sites=at-stake --env production ; NODE_ENV=production pm2 restart 'server'"
     }
 
   }

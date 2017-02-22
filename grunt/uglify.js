@@ -27,30 +27,6 @@ module.exports = function(grunt, options) {
   var fileOut = __dirname + '/../public/release/' + env + '.js';
   var config = { uglify: { files: {} } };
 
-  // Compile all gameplay events files
-  var eventsPath = __dirname + '/../public/release/events/';
-
-  // Loop through all the files in the events dir
-  var eventFiles = fs.readdirSync(__dirname + '/../public/js/events/');
-
-  // TODO: Compile event files
-/*  for(var ind in eventFiles) {
-
-    grunt.log.writeln('Found file %s', eventFiles[ind])
-
-    fs.stat(eventsPath + eventFiles[ind], ( error, stat ) => {
-      if( error ) {
-          grunt.log.writeln( "Error stating file.", error );
-          return;
-      }
-
-      if(stat.isFile())
-          grunt.log.writeln( "'%s' is a file.", fromPath );
-
-    });
-
-  }*/
-
   // Files to uglify
   config.uglify.files[fileOut] = [
 
