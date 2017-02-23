@@ -59,12 +59,14 @@ exports.create = function(req, res) {
  */
 exports.generate = function(req, res) {
 
+    var TemplateLoader = require(appRoot + '/lib/TemplateLoader');
     const randomstring = require('randomstring'); 
     let gameCode;
 
     function generateCode() {
 
-        return randomstring.generate({ length: 4, charset: 'alphabetic' }).toUpperCase();
+        return randomstring.
+               generate({ length: 4, charset: 'alphabetic' }).toUpperCase();
     
     }
 
@@ -74,13 +76,25 @@ exports.generate = function(req, res) {
     GameSession.model.findOne({accessCode: gameCode}, function (err, session) {
 
         // There is! A one in 15,000 probability! Make a new one
-        if(session)
+        if (session)
             gameCode = generateCode();
 
         // Get all decks
-        Deck.model.find({}, '_id name', function (err, decks) {
+        var decksQuery = Deck.model.find({}).populate('roles');
+        decksQuery.exec((err, decks) => {
+            
+            var Templates = new TemplateLoader();
 
-            res.send({code: gameCode, decks: decks});
+            // Shuffle deck roles and only get 6
+            _.each(decks, (deck, i) => {
+                deck.roles = _.sample(deck.roles, 6);
+            });
+
+            Templates.Load('partials/decider/decks', decks, function(html) {
+
+                res.send({code: gameCode, html: html});
+
+            });
 
         });
 

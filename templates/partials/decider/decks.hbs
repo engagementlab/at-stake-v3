@@ -1,0 +1,28 @@
+{{#each this}}
+
+  <div class="deck">
+
+    <h2>{{name}}</h2>
+
+    <div class="description">
+      {{description}}
+    </div>
+
+    <h3>Talking Points</h3>
+    <ul>
+      {{#each questions}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+
+    <div class="col-sm-3">
+      {{#each roles}}
+        <span>{{title}}</span>
+
+        {{#ifeq @index 3}}</div><div class="col-sm-3">{{/ifeq}}              
+      {{/each}}
+    </div>
+
+  </div>
+
+{{/each}}

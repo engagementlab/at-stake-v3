@@ -1,75 +1,93 @@
+<section id="begin">
 
-<div id="login-header">
-  <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/e_grayscale/v1454520474/site/listings/odr1jt3rfkda0s1qce9q.png">
-  <p>A Game for Deliberative Democracy</p>
-</div>
-
-{{!-- NAME ENTRY --}}
-<div class="lobby" id="login" class="col-sm-12">
-  <div class="form col-xs-12 col-centered">
-
-    <input type="text" id="player-name" placeholder="Type your name here"> <br />
-    <div class="error">Error!</div>
-    <input id="btn_submit_name" data-package='{"name": "#player-name"}' class="btn btn-default submit_name" type="submit" name="submit" value="play">
-
-    <section id="description">
-      <p>@Stake was created to help facilitate productive and fair conversations in classrooms, conferences, strategic board meetings, and public events. By playing @Stake, participants learn that productive conversations thrive off of authentic listening and multiple perspectives. All you need to get started is 3-5 players.</p>
-    </section>
-
+  <div id="login-header">
+    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/e_grayscale/v1454520474/site/listings/odr1jt3rfkda0s1qce9q.png">
+    <p>A Game for Deliberative Democracy</p>
   </div>
-</div>
 
-{{!-- PLAYER CHOICES--}}
-<div class="lobby" id="choices" class="col-sm-12" style="display:none">
-  <div class="form login col-xs-12 col-centered">
+  {{!-- NAME ENTRY --}}
+  <div class="lobby" id="name" class="col-sm-12">
+    <div class="form col-xs-12 col-centered">
 
-    <div id="btn_new_game" class="btn btn-default">
-      <h2>Start New Game</h2>
-      <p>Select a deck and receive a 4 digit room code that other players can use to join your game</p>
-    </div>
-
-    <div id="btn_join_game" class="btn btn-default">
-      <h2>Join a Game</h2>
-      <p>use your 4 digit room code to join a game</p>
-    </div>
-
-  </div>
-</div>
-
-{{!-- JOIN GAME --}}
-<div class="lobby form" id="join" style="display:none">
-    <input type="text" id="access_code" placeholder="Type your room code here"> <br />
-  <div class="error">Error!</div>
-  <input id="btn_submit_code"  data-event="game:entry" data-package='{"code": "#access_code", "name": "#player-name"}' class="btn btn-default game_login" type="submit" name="submit" value="play">
-</div>
-
-{{!-- NEW GAME --}}
-<div class="lobby" id="decider" style="display:none">
-  <div class="submission">
-    <div class="form create col-lg-6 col-centered">
-      <div class="form-prompt white">access code:</div>
-      <div class="access-code"></div>
-      <br />
-      <div class="form-prompt white">select the deck to use:</div>
-      <div id="decks">
-      </div>
-      
+      <input type="text" id="player-name" placeholder="Type your name here"> <br />
       <div class="error">Error!</div>
-      <input id="btn_submit" class="button_text" type="submit" name="submit" value="Start!">
+      <input id="btn_submit_name" data-package='{"name": "#player-name"}' class="btn btn-default submit_name" type="submit" name="submit" value="play">
+
+      <section id="description">
+        <p>@Stake was created to help facilitate productive and fair conversations in classrooms, conferences, strategic board meetings, and public events. By playing @Stake, participants learn that productive conversations thrive off of authentic listening and multiple perspectives. All you need to get started is 3-5 players.</p>
+      </section>
+
     </div>
   </div>
-  <div class="row waiting" style="display:none">
-    <h1 class="access-code"></h1>
-    <p>You are the decider</p>
-    <p>Waiting for players</p>
 
-    <div class="col-sm-12">
+  {{!-- PLAYER CHOICES--}}
+  <div class="lobby" id="choices" class="col-sm-12" style="display:none">
+    <div class="form login col-xs-12 col-centered">
+
+      <div id="btn_new_game" class="btn btn-default">
+        <h2>Start New Game</h2>
+        <p>Select a deck and receive a 4 digit room code that other players can use to join your game</p>
+      </div>
+
+      <div id="btn_join_game" class="btn btn-default">
+        <h2>Join a Game</h2>
+        <p>use your 4 digit room code to join a game</p>
+      </div>
+
+    </div>
+  </div>
+
+  {{!-- JOIN GAME --}}
+  <div class="lobby form" id="join" style="display:none">
+
+    <div class="login input">
+      <input type="text" id="access_code" placeholder="Type your room code here"> <br />
+      <div class="error">Error!</div>
+      <input id="btn_submit_code"  data-event="game:entry" data-package='{"code": "#access_code", "name": "#player-name"}' class="btn btn-default game_login" type="submit" name="submit" value="play">
+    </div>
+
+    <div class="row login waiting" style="display:none">
+      <h3>Waiting for players</h3>
       <div class="row" id="players">
       </div>
     </div>
-    <div class="form row" id="start">
-      <input id="btn-start-game" data-event="game:start" class="post-button submit" type="submit" name="submit" value="start">
 
+  </div>
+
+  {{!-- NEW GAME --}}
+  <div class="lobby" id="decider" style="display:none">
+    <div class="submission">
+      <div class="form create col-sm-6 col-centered">
+ {{!--        <div class="form-prompt white">access code:</div>
+        <div class="access-code"></div> --}}
+        <h2>Select a deck</h2>
+        <h3>Your deck will determine what problems you solve and what roles you get to play.</h3>
+        <br />
+        <div class="form-prompt white">select the deck to use:</div>
+        
+        <section id="decks">
+
+        </section>
+        
+        <div class="error">Error!</div>
+        <input id="btn_submit" class="button_text" type="submit" name="submit" value="Start!">
+      </div>
+    </div>
+    <div class="row waiting" style="display:none">
+      <h1 class="access-code"></h1>
+      <input type="text" id="player-name" class="hidden-el"> <br />
+
+      <p>You are the decider</p>
+      <p>Waiting for players</p>
+
+      <div class="col-sm-12">
+        <div class="row" id="players">
+        </div>
+      </div>
+      <div class="form row" id="start">
+        <input id="btn-start-game" data-event="game:start" class="post-button submit" type="submit" name="submit" value="start">
+      </div>
     </div>
   </div>
-</div>
+
+</section>

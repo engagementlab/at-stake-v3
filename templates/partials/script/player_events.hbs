@@ -34,14 +34,20 @@ socketEvents = function(eventId, eventData) {
     switch (eventId) {
 
         case 'connect':
-
-            console.log('--- Connected to server ---');
+            
+            if(sessionStorage.getItem('gameCode')) {
+                // Check if player is active in game
+                socket.emit('login:active', {
+                  gameId: sessionStorage.getItem('gameCode'), 
+                  username: sessionStorage.getItem('username'),
+                  uid: sessionStorage.getItem('uUID'),
+                  decider: isDecider
+                });
+            }
 
             if(isDecider) {
                 // Session started, let's sign-up the decider for this room
                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));
-
-                
             }
             else {
                 // Connected, let's sign-up for to receive messages for this room
@@ -52,6 +58,23 @@ socketEvents = function(eventId, eventData) {
 
             $('.login.form').fadeOut(function() { $('.login.waiting').fadeIn(); });
             
+            break;
+
+        case 'disconnect':
+
+            if(gameEnded)
+                return;
+
+            // Remove saved sesh
+            resetSession();
+
+            if ($('.modal'))
+                $('.modal').fadeOut();
+
+            $('#error-disconnected').fadeIn(function() {
+                $('#error-disconnected #text').css('top', '0');
+            });
+
             break;
 
         case 'player:loggedin':
@@ -134,6 +157,8 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:start':
         case 'game:next':
+
+            sessionStorage.setItem('gameCode', gameCode);
 
             // Don't show yet?
             if(waitForNextScreen) {

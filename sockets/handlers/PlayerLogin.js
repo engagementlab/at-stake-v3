@@ -114,7 +114,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
         Session.Get(package.gameId).PlayerReady(
                                                 player,
                                                 currentSocket,
-                                                (package.msgData.type === 'decider'));
+                                                package.decider);
 
       }
       else {

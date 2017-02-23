@@ -89,7 +89,7 @@ var playerLogin = function(data) {
 
     playerName = $('#player-name').val();
     sessionStorage.setItem('username', playerName);
-    sessionStorage.setItem('gameCode', gameCode);
+    // sessionStorage.setItem('gameCode', gameCode);
 
     // Log player in
     socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));
@@ -165,7 +165,14 @@ var checkIfLoggedIn = function() {
     $('#resuming').show();
 
     gameCode = sessionStorage.getItem('gameCode');
-    playerName = sessionStorage.getItem('username')
+    playerName = sessionStorage.getItem('username');
+
+    $('#name, .login.input').fadeOut(function() {
+
+        $('#begin').addClass('waiting');
+        $('#join, .login.waiting').fadeIn();
+
+    });
     
     // Open socket connection
     if(!socket) {
@@ -195,7 +202,7 @@ $(document).on('click', '.btn.submit_name', function(evt) {
         return;
     }
 
-    $('#login').fadeOut(function() {
+    $('#name').fadeOut(function() {
         $('#choices').fadeIn();
 
         $('#btn_join_game').click(function() {
@@ -203,7 +210,7 @@ $(document).on('click', '.btn.submit_name', function(evt) {
                 $('#join').fadeIn();
             });            
         });
-    })
+    });
 
 });
 
@@ -274,7 +281,6 @@ $(document).on('click', '.btn.game_login', function(evt) {
                         break;
 
                 }
-    
                 $('.btn.game_login').removeAttr('disabled');
                 errorBox.text(data.msg).fadeIn();
                 loadToggle(false, true);
@@ -282,6 +288,11 @@ $(document).on('click', '.btn.game_login', function(evt) {
                 return;
 
             }
+
+            $('.login.input').fadeOut(function() {
+                $('#begin').addClass('waiting');
+                $('.login.waiting').fadeIn();
+            });
 
             data.uid = playerUID;
             playerLogin(data);                          
@@ -302,12 +313,9 @@ $('#btn_new_game').click(function() {
 
             gameCode = data.code;
 
+            $('#decks').html(data.html);
             $('.access-code').text(data.code);
             
-            for(var i in data.decks) {
-                var deckInfo = data.decks[i];
-                $('#decks').append($('<button/>').addClass('toggle-button inactive').text(deckInfo.name).val(deckInfo._id));
-            }
 
             $('#choices').fadeOut(function() {
                 $('#decider').fadeIn(function(){

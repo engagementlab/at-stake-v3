@@ -31,7 +31,8 @@ exports = module.exports = function(req, res) {
     // item in the header navigation.
     locals.section = 'player';
 
-    if(Session.Get(accessCode) !== undefined) {
+    if(Session.Get(accessCode)) {
+
         if(Session.Get(accessCode).IsFull()) {
            res.send({error_code: 'session_full', msg: 'Sorry! This game is full!'});
            return;
@@ -40,10 +41,7 @@ exports = module.exports = function(req, res) {
            res.send({error_code: 'no_username', msg: 'You need to enter a username!'});
            return;
         }
-        else if(!Session.Get(accessCode).UsernameAvailable(data.name)) {
-           res.send({error_code: 'username_taken', msg: 'Sorry! This username is taken!'});
-           return;
-        }
+        
     }
 
     GameSession.model.findOne({ accessCode: accessCode }, function (err, game) {
