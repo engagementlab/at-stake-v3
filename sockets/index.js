@@ -2,8 +2,7 @@ module.exports = function(app) {
 
   var io = require('socket.io')(app);
 
-  var GameManager = require('../lib/GameManager'),
-      CommonHandler = require('./handlers/Common'),
+  var CommonHandler = require('./handlers/Common'),
       PlayerLogin = require('./handlers/PlayerLogin');
 
   io.on('connection', function (socket) {

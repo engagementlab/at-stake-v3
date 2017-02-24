@@ -143,6 +143,51 @@
 			display: none;
 		}
 	}
+
+
+	// CONTENT SELECTION
+	.submission {
+
+		.form {
+			color: white;
+		}
+
+		#decks {
+			width: 100%;
+
+			button {
+				// width: 100%;
+				// background-color: white;
+				color: $color-turquoise;
+				margin: 5px 0px;
+				padding: 5px;
+			}
+
+			.glide__bullets {
+
+				bottom: auto;
+				height: auto;
+				position: relative;
+
+			}
+				
+			.glide__slide {
+		    // background: white;
+				.deck {
+			    font-size: small;
+			    background-color: white;
+			    color: black;
+			    margin: 1%;
+			    display: inline-block;
+				}
+			}
+			
+			.glide--horizontal {
+				.glide__arrows {
+			    top: 22%;
+			  }
+			}
+		}
 }
 
 #login-header {
@@ -182,25 +227,6 @@ input.post-button {
 	}
 }
 
-
-// CONTENT SELECTION
-.submission {
-
-	.form {
-		color: white;
-	}
-
-	#decks {
-		width: 100%;
-
-		button {
-			width: 100%;
-			background-color: white;
-			color: $color-turquoise;
-			margin: 5px 0px;
-			padding: 5px;
-		}
-	}
 	
 	#btn_submit {
 		color: white;

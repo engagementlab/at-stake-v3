@@ -101,8 +101,6 @@ var playerLogin = function(data) {
 */
 var checkIfLoggedIn = function() {
 
-        console.log("checking player");
-
     // Disallow private/incognito
     if(isPrivate) {
 
@@ -127,19 +125,9 @@ var checkIfLoggedIn = function() {
 
         $('.form.login').show();
 
-        if(!isEmulated) {
-
-            var entryAnim = new TimelineLite()
-            .from($('#logo_ec'), .5, {autoAlpha:0, delay:1, ease:Expo.easeOut}, .1)
-            .from($('#logo_ec img'), 1.5, {css:{'margin-top':'10%'}, delay:1, ease:Expo.easeOut}, .6)
-            .from($('#logo_ec'), 1.5, {scale:2, delay:1, ease:Expo.easeOut}, .6)
-
-            .from($('#access_code'), 1.5, {yPercent:-20, autoAlpha:0, delay:1.3, ease:Expo.easeOut}, .7)
-            .from($('#player-name'), 1.5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .8)
-            .from($('.entry-footer'), 1.5, {yPercent:100, autoAlpha:0, delay:1.5, ease:Expo.easeOut}, .5)
-            .from($('#btn_submit_code, #btn_help'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut}, .5);
-
-        }
+        // Login form animation
+        if(!isEmulated)
+            loginEnterName();
 
         // For Android only, move input boxes into view on phones
         if(isAndroid) {
@@ -155,7 +143,7 @@ var checkIfLoggedIn = function() {
         $('#player-name').keydown(function(evt) {
             
             if(evt.keyCode == 13)
-                $('#btn_submit_code').click();
+                $('#btn_submit_name').click();
 
         });
 
@@ -202,15 +190,8 @@ $(document).on('click', '.btn.submit_name', function(evt) {
         return;
     }
 
-    $('#name').fadeOut(function() {
-        $('#choices').fadeIn();
-
-        $('#btn_join_game').click(function() {
-            $('#choices').fadeOut(function() {
-                $('#join').fadeIn();
-            });            
-        });
-    });
+    // Show new game/join
+    loginPlayerChoices();
 
 });
 
@@ -307,42 +288,53 @@ $(document).on('click', '.btn.game_login', function(evt) {
 */
 $('#btn_new_game').click(function() {
 
+    if($.trim( $('#decks').html() ).length > 0) {
+        
+        loginNewGame();
+        return;
+    }
+
     $.get(
         "/api/generate",
         function( data ) {
 
             gameCode = data.code;
 
-            $('#decks').html(data.html);
-            $('.access-code').text(data.code);
-            
+            $('#decks')
+             .html(data.html)
+             .promise()
+             .done(function() {
 
-            $('#choices').fadeOut(function() {
-                $('#decider').fadeIn(function(){
-                    $('.lobby#decider').css('display','block');
+                loginNewGame(function() {
 
                     // Tell mobile action has completed
                     $('body').trigger('mobileCallback');
+                    
+                        $('#decks').glide({
+                            type: 'carousel',
+                            paddings: '10%',
+                            autoplay: false,
+                            autoheight: true
+                        });
+                    
                 });
-            });
 
+             });
+
+            $('.access-code').text(data.code);
             $('#gameContent').addClass('lobby');
-
-            // Enable deck select button events
-            $('.toggle-button').click(function(e) {
-
-                $('.toggle-button').each(function(ind, btn) {
-                    $(btn).removeClass('active');
-                    $(btn).addClass('inactive');
-                });
-
-                $(e.currentTarget).addClass('active');
-                $(e.currentTarget).removeClass('inactive');
-
-            });
 
         }
     );
+
+});
+
+/* 
+ Show join game screen
+*/
+$('#btn_join_game').click(function() {
+
+    loginJoinGame();
 
 });
 

@@ -30,6 +30,7 @@ module.exports = function(grunt, options) {
   config.target.files[fileOut] = [
 
     __dirname + '/../public/styles/core.css', // site SCSS
+    __dirname + '/../public/bower_components/glidejs/dist/css/glide.core.css', // glidejs
   
   ];
 
