@@ -26,12 +26,14 @@ h5 {
 
 	.row{
 		width: 100%;
-		padding: 25px;
+		padding: 35px;
 		margin: 0;
 
 		&.top{
 			background-color: $light-mint;
-			min-height: 300px;
+			min-height: 350px;
+			padding: 0;
+			position: relative;
 		}
 		&.pitch{
 			background-color: $white;
@@ -49,40 +51,67 @@ h5 {
 		}
 		&.credits{
 			background-color: $light-mint;
+			padding: 2% 8%;
 		}
 	}
+	.landing-image{
+			height: 125px;
+			float: right;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			margin-top: 150px;
+			opacity: 0.24;
+		}
 	.top-section{
-
+		position: relative;
 		.landing-header{
 			color: white;
-			margin: 5% 40%;
-			height: 25%;
+			position: relative;
+			text-align: center;
+			margin: 0 auto;
+			margin-top: 50px;
 		}
 
 		.whats{
 			font-family: $sub-header-type;
-			font-size: 4em;
-			z-index: 2;
+			font-size: 7em;
+			z-index: 1;
+			margin-right: 200px;
+			display: inline-block;
+			position: relative;
 		}
 
 		.at-sign{
 			font-family: $at-sign-type;
-			font-size: 9em;
-			z-index: 1;
+			font-size: 7em;
+			z-index: 2;
+			display: inline-block;
+			margin-top: -45px;
+			position: absolute;
 		}
 
 		.header-stake{
 			font-family: $sub-header-type;
-			font-size: 5em;
+			font-size: 7em;
+			z-index: 3;
+			display: inline-block;
+			margin-left: 65px;
+			margin-top: -45px;
 		}
 
 		.play-button{
 
 		}
-	}
 
+
+	}
+	.phone-pic{
+		padding: 0 auto;
+	}
 	.showcaseImage{
-		padding: 20px;
+		margin: 0 auto;
+		display: table;
 	}
 
 	.game-pitch{
@@ -107,7 +136,7 @@ h5 {
 		color: $type-blue;
 		text-align: center;
 		.feature-text{
-			padding: 0 30px;
+			padding: 15px 30px;
 		}
 		.feature-image{
 
@@ -158,7 +187,7 @@ h5 {
 	}
 	.game-flow{
 		text-align: center;
-		padding: 0 5%;
+		padding: 0 10%;
 		.flow-play-header{
 			padding-bottom: 1px;
 			p{
@@ -175,22 +204,22 @@ h5 {
 	}
 	.game-learn{
 		text-align: center;
-		padding: 0 3%;
+		padding: 0 10%;
 		color:white;
 		.learn-more-header{
 			padding-bottom: 1px;
-			
 			p{
 				font-family: $header-type;
 			}
 		}
 		.learn-more-para{
-
 		}
 	}
 	.design-dev-team{
 		display: inline;
 		text-align: center;
+		padding: 0 100px;
+		width: 100%;
 		h3 {
 			color: white;
 		}
@@ -199,9 +228,18 @@ h5 {
 			font-family: $header-type;
 		}
 
+		.left{
+			float: left;
+		}
+
+		.right{
+			float: right;
+		}
+
 		.team{
 			color: $white;
 			padding: 0px;
+			display: inline-block;
 
 
 			&.pi {
@@ -210,12 +248,8 @@ h5 {
 			}
 		}
 
-		.team-1-half {
-			text-align: left;
-		}
+		.team-row{
 
-		.team-2-half {
-			text-align: right;
 		}
 		.team-title{
 			color: $type-dark-mint;
