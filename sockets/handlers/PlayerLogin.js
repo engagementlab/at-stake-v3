@@ -103,6 +103,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
       logger.info('login:active', 'Checking if player "' + package.uid + '" is active.');
 
       // See if this player is still marked as active inside game session
+      console.log(Session.Get(package.gameId).PlayerIsActive(package.uid) + " okay");
       if(Session.Get(package.gameId).PlayerIsActive(package.uid)) {
 
         var player = {socket_id: currentSocket.id, username: package.username, uid: package.uid};

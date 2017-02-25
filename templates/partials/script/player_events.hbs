@@ -19,6 +19,16 @@ var startAnim = new TimelineLite({paused: true}).fromTo($('#btn-start-game'), 1,
 var waitForNextScreen = false;
 var nextScreenData;
 
+var resetSession = function() {
+
+    // Remove saved game code, submission, and set to not reconnected
+    sessionStorage.removeItem('gameCode');
+    {{!-- sessionStorage.removeItem('playerSubmission'); --}}
+    {{!-- sessionStorage.removeItem('playerVote'); --}}
+    sessionStorage.setItem('reconnected', false);
+
+}
+
 var getScript = function (gameType) {
     $.getScript( '/js/events/' + gameType + '.js' )
         .done(function( script, textStatus ) {
@@ -318,6 +328,14 @@ socketEvents = function(eventId, eventData) {
         case 'coins:remove':
 
             $('#' + eventData.type + '-coins span').text(eventData.amt);
+
+            break;
+
+        case 'game:last':
+
+            let markup = sessionStorage.getItem('markup');
+
+            $('#gameContent').html(markup);
 
             break;
 
