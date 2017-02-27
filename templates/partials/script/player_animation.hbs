@@ -5,27 +5,13 @@
  * Developed by Engagement Lab, 2016-2017
  * ==============
  * 
- * Script include for global logic
+ * Script include for animation logic
  * ==========
  */
 --}}
 
 var screensAnim;
-
-function playerEntry() {
-
-	var animTiming = [.5, .6, .7, .8];
-	var entryButtons = $('.gameLanding a');
-	
-  _.each(entryButtons, function(el, index) {
-
-		timeline.add(TweenMax.fromTo(el, animTiming[index], {scale:0}, {scale:1, ease:Elastic.easeOut}));
-
-  });
-
-  timeline.play();
-
-}
+var loginAnim;
 
 function rulesAnim(callback) {
 
@@ -52,5 +38,60 @@ function rulesAnim(callback) {
   });
 
   screensAnim.play();
+	
+}
+
+function loginEnterName() {
+
+	loginAnim = new TimelineMax();
+
+	loginAnim.from($('#player-name'), .5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .2, 'name')
+            .from($('#btn_submit_name'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut}, .5);
+
+  $('.back-button').click(function(evt) {
+  	loginGoBack($(evt.currentTarget).data('from'), $(evt.currentTarget).data('to'));
+  });
+
+}
+
+function loginPlayerChoices() {
+
+	// loginAnim.clear();
+	loginAnim.to($('#name'), .5, { autoAlpha:0, display: 'none' }, 'choices')
+					 .fromTo($('#choices'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' });
+
+	loginAnim.play();
+
+}
+
+function loginNewGame(callback) {
+
+	// loginAnim = new TimelineLite({onComplete:function() {
+	// 	if(callback)
+	// 		callback();
+	// }});
+
+	loginAnim.to($('#choices'), .5, { autoAlpha:0, display: 'none' }, 'new')
+					 .fromTo($('#decider'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' })
+	
+	loginAnim.play();
+
+}
+
+function loginJoinGame() {
+
+	// loginAnim.clear();
+	loginAnim.to($('#choices'), .5, { autoAlpha:0, display: 'none' }, 'join')
+					 .fromTo($('#join'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' });
+
+	loginAnim.play();
+
+}
+
+
+function loginGoBack(from, to) {
+
+	// loginAnim.reverse(0);
+	loginAnim.tweenTo(from, to);
 	
 }

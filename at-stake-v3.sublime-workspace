@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"col",
+				"col-sm-3"
+			],
+			[
+				"fade",
+				"fadeOut"
+			],
+			[
+				"player",
+				"player-name"
+			],
+			[
+				"btn",
+				"btn_new_game"
+			],
+			[
+				"whi",
+				"white"
+			],
+			[
+				"AvenirN",
+				"AvenirNext-Bold"
+			],
+			[
+				"AvenirNe",
+				"AvenirNext-UltraLight"
+			],
+			[
 				"app",
 				"appRoot"
 			],
@@ -130,10 +158,6 @@
 			[
 				"appr",
 				"approve"
-			],
-			[
-				"player",
-				"players_id"
 			],
 			[
 				"coins",
@@ -336,10 +360,6 @@
 				"excessDuration"
 			],
 			[
-				"fade",
-				"fadeIn"
-			],
-			[
 				"waiit",
 				"waitingForFinish"
 			],
@@ -494,71 +514,70 @@
 			[
 				"gro",
 				"groupSocket"
-			],
-			[
-				"event",
-				"event_id"
-			],
-			[
-				"games",
-				"_game_session"
-			],
-			[
-				"templ",
-				"Templates"
-			],
-			[
-				"fun",
-				"function"
-			],
-			[
-				"arti",
-				"articleInput"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app.js",
+			"file": "templates/views/game/player.hbs",
 			"settings":
 			{
-				"buffer_size": 1168,
+				"buffer_size": 3436,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
+			"file": "templates/partials/decider/decks.hbs",
 			"settings":
 			{
-				"buffer_size": 20089,
+				"buffer_size": 447,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "deploy.json",
+			"file": "routes/api/gamesession.js",
 			"settings":
 			{
-				"buffer_size": 2189,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "package.json",
-			"settings":
-			{
-				"buffer_size": 813,
+				"buffer_size": 2574,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "node_modules/app-root-path/lib/resolve.js",
+			"file": "public/styles/core.scss",
 			"settings":
 			{
-				"buffer_size": 2157,
+				"buffer_size": 2916,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 1345 files for \"Deck\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/@StakeMockups_Jordan_V1_1.9.16.sketch:\n    <binary>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/@StakeMockups_Jordan_V1_1.9.16_Erica_v1.sketch:\n    <binary>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n   74  \n   75              var GameConfig = this.keystone.list('GameConfig').model;\n   76:             var Deck = this.keystone.list('Deck').model;\n   77  \n   78              this.assignedRoleIndices = [];\n   ..\n   98                  }\n   99              });\n  100:             var queryDeck = Deck.findById(gameSession.deckId).populate('roles');\n  101  \n  102              // Get data about this session's deck\n  103:             queryDeck.exec((err, deckData) => {\n  104  \n  105                  this._deck_data = deckData;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/models/Deck.js:\n    2   * @Stake v3\n    3   * \n    4:  * Deck Model\n    5   * @module models\n    6:  * @class Deck\n    7   * @author Johnny Richardson\n    8   * \n    .\n   15  \n   16  /**\n   17:  * Deck Model\n   18   * ==========\n   19   */\n   20: var Deck = new keystone.List('Deck', {\n   21      track: true\n   22  });\n   ..\n   24  /**\n   25   * Model Fields\n   26:  * @main Deck\n   27   */\n   28: Deck.add({\n   29  \n   30  \tname: { type: String, required: true, initial: true },\n   ..\n   44  \n   45  \n   46: Deck.schema.pre('save', function(next) {\n   47    \n   48    this.dateCreated = new Date();\n   ..\n   52  });\n   53  \n   54: Deck.defaultColumns = 'name, description';\n   55  \n   56  /**\n   57   * Registration\n   58   */\n   59: Deck.register();\n   60: exports = module.exports = Deck;\n   61  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/routes/api/gamesession.js:\n   22      Game = require(appRoot + '/lib/GameManager'),\n   23      Session = require('learning-games-core').SessionManager,\n   24:     Deck = keystone.list('Deck');\n   25  \n   26  /**\n   ..\n   38      // Check if deck id specified\n   39      if(!data.deckId)        \n   40:         return res.apiError('Deck not specified!');  \n   41  \n   42      session = new GameSession.model();\n   ..\n   81  \n   82          // Get all decks\n   83:         Deck.model.find({}, function (err, decks) {\n   84              \n   85              var Templates = new TemplateLoader();\n\n/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/game.js:\n   18    Game = require(appRoot + '/lib/GameManager'),\n   19    GameSession = keystone.list('GameSession'),\n   20:   Deck = keystone.list('Deck');\n   21  \n   22  var GameManager = require(appRoot + '/lib/GameManager'), \n\n24 matches across 6 files\n",
+			"settings":
+			{
+				"buffer_size": 2650,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "public/styles/_core/playerview.scss",
+			"settings":
+			{
+				"buffer_size": 3502,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/partials/script/player_logic.hbs",
+			"settings":
+			{
+				"buffer_size": 10892,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -698,39 +717,63 @@
 	"expanded_folders":
 	[
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core",
 		"/Users/Johnny/Documents/Projects/at-stake-v3",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/bower_components",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts"
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts",
+		"/Users/Johnny/Documents/Projects/learning-games-core/lib"
 	],
 	"file_history":
 	[
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/models/Deck.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss",
+		"/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/playerview.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/game.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/player.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/game.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/forms.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/app.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/fonts.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/homepage.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/deploy.json",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt/uglify.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/variables.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/config.json",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/app-root-path/lib/resolve.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/package.json",
 		"/Users/Johnny/Documents/Projects/learning-games-core/lib/TemplateLoader.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api/templates.js",
 		"/Users/Johnny/Documents/Projects/learning-games-core/app.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/deploy.json",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/models/User.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/index.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/keystone/index.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/app-root-path/index.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/config.json",
 		"/Users/Johnny/Documents/Projects/el-web-sdk/.env",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/mobile.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/production.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/.bowerrc",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/development.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/index.js",
 		"/Users/Johnny/Documents/Projects/el-web-sdk/node_modules/grunt-execute/tasks/execute.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/play.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/game.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameManager.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameType.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/SessionManager.js",
@@ -738,15 +781,12 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/TemplateLoader.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/js/events/group/wikigeeks.js.orig",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_events.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_animation.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/errors/404.hbs",
-		"/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
 		"/Users/Johnny/Documents/Projects/learning-games-core/lib/SessionManager.js",
 		"/Users/Johnny/Documents/Projects/learning-games-core/lib/ShuffleUtil.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Coins.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/playerview.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/think.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/game.hbs",
@@ -755,7 +795,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/index.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/index.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/rules.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/forms.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/agenda_item.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/deliberate.hbs",
@@ -763,13 +802,9 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/pitch.hbs",
 		"/Users/Johnny/Documents/Projects/ansible-nginx/roles/nginx/tasks/main.yml",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/css.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/package.json",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt/uglify.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/app.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/bio.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/roles.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/scoreboard.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/winner.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-project",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/agenda.hbs",
@@ -780,7 +815,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api/gamesession.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/pitch.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/agenda_item.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/variables.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_logic.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/deliberate.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/decide.hbs",
@@ -800,7 +834,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/media.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/comingsoon.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/mixins.scss",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/player.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/middleware.js",
 		"/Users/Johnny/Documents/Projects/emerging-citizens/models/MemeTopic.js",
 		"/Users/Johnny/Documents/Projects/emerging-citizens/routes/api/gamesession.js",
@@ -829,12 +862,7 @@
 		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/htyi/monitor.hbs",
 		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/script/groupview_events.hbs",
 		"/Users/Johnny/Documents/Projects/emerging-citizens/public/js/events/group/htyi.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/layouts/base.hbs",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/public/js/events/htyi.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/wiki/topic.hbs",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/sockets/handlers/Wiki.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/core.scss",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/tutorial.hbs"
+		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/layouts/base.hbs"
 	],
 	"find":
 	{
@@ -934,6 +962,66 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Deck",
+			"Deck.model",
+			"#gameContent",
+			"var Templates = new TemplateLoader(",
+			"_.each",
+			"Templates.Load",
+			"this",
+			"decks",
+			"this._config",
+			"GetActivePlayers",
+			"this._config",
+			"'login:active'",
+			"this._config",
+			"_config",
+			"'rules'",
+			"GetData",
+			"rules",
+			".player-logo",
+			"game:start",
+			"sessionStorage.setItem('gameCode'",
+			"_game_in_session",
+			"login:active",
+			"login:submit",
+			"gameEnded",
+			"\n\ncase 'disconnect':\n\n    console.log('--- Server disconnect: %s ---', eventData);\n\n    if(gameEnded)\n        return;\n\n    // Remove saved sesh\n    resetSession();\n\n    if ($('.modal')) {\n        $('.modal').fadeOut();\n    }\n\n    $('#error-disconnected').fadeIn(function() {\n        $('#error-disconnected #text').css('top', '0');\n    });\n\n    document.title = 'Emerging Citizens';\n\n    break;",
+			"playerName",
+			"resuming",
+			"resuming your session...",
+			"#choices",
+			"btn_submit_name",
+			"logo-bar",
+			"players:upd",
+			".login.input",
+			"/login",
+			"btn_submit_code",
+			"btn_submit",
+			"submission",
+			"player-name",
+			"row waiting",
+			"setupDecider",
+			"game-preloaded",
+			"playerLogin",
+			"login:submit",
+			"PlayerReady",
+			"/login",
+			"btn_submit_name",
+			"#player_name",
+			"player_name",
+			"player-name",
+			"btn_new_game",
+			"lobby-back",
+			".lobby",
+			"btn_submit",
+			"font-si",
+			"border-radius",
+			"Democracy",
+			"#login-header ",
+			"form login",
+			"homeContent",
+			"homepage",
 			";\n",
 			"serverStart",
 			"'module root'",
@@ -1001,67 +1089,7 @@
 			"rulesAnim",
 			"updateGame",
 			"socket = io",
-			"socketHost",
-			"> global",
-			"specification",
-			"cdnAsset",
-			"cdnAsset ",
-			"staging",
-			"staging.js",
-			"staging.js ",
-			"#ifeq env",
-			"cdnAsset ",
-			"handlebars-express",
-			"queueNextTimer",
-			"timerCallback",
-			"queueNextTimer",
-			"_deliberate_time_queue",
-			"game:countdown_player",
-			".room-container",
-			".room-containeer",
-			"game:decider",
-			"isDecider =",
-			"game:advance",
-			"AdvanceRound",
-			"RestorePot",
-			"#decider",
-			"Johnny",
-			"at-stake-v3",
-			".form",
-			"file_excl",
-			".form",
-			"]\n",
-			".form",
-			"decider-controls",
-			"Tween",
-			"#decider",
-			"\n\t<div class=\"form row {{!-- hidden-el --}}\" id=\"decider\">\n    <input id=\"btn-next\" data-event=\"game:next\" class=\"post-button submit\" type=\"submit\" name=\"submit\" value=\"next\">\n\t</div>",
-			"game:next",
-			"#decider",
-			"decider# ",
-			"$('#player-name').",
-			"setupDecider",
-			"debug",
-			"setupDecider",
-			"''}}",
-			"section 'game'",
-			"setupDecider",
-			"setup",
-			"decider",
-			"PlayerLost",
-			"PlayerRemove",
-			"https://www.youtube.com/watch?v=oi_ySxbjrk8",
-			"generate_players",
-			"/api/",
-			"#decider",
-			"#start",
-			"gameCode =",
-			"emitData",
-			"game:notfound",
-			"#waiting",
-			"#decks",
-			"btn_submit",
-			"btn_submit_code"
+			"socketHost"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1069,6 +1097,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"this.GetConfig()",
+			"#player-name",
 			"* Developed by Engagement Lab, 2016-2017",
 			"* @Stake v3.0",
 			"col-lg-12",
@@ -1194,9 +1224,7 @@
 			"@include",
 			"> people/person",
 			"person",
-			"",
-			"background",
-			"@mixin gradient-"
+			""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1212,48 +1240,77 @@
 			[
 				{
 					"buffer": 0,
-					"file": "app.js",
+					"file": "templates/views/game/player.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1168,
+						"buffer_size": 3436,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								990,
-								990
+								2685,
+								2685
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 113.0,
+						"translation.y": 702.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "templates/partials/decider/decks.hbs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 447,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								311,
+								311
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
+					"buffer": 2,
+					"file": "routes/api/gamesession.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 20089,
+						"buffer_size": 2574,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2727,
-								2739
+								2437,
+								2437
 							]
 						],
 						"settings":
@@ -1263,37 +1320,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1039.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "deploy.json",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2189,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 879.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1301,29 +1328,27 @@
 				},
 				{
 					"buffer": 3,
-					"file": "package.json",
-					"semi_transient": false,
+					"file": "public/styles/core.scss",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 813,
+						"buffer_size": 2916,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								147,
-								147
+								0,
+								2916
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Theme - Coffee/icons/Langs/npm JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2912.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -1331,31 +1356,191 @@
 				},
 				{
 					"buffer": 4,
-					"file": "node_modules/app-root-path/lib/resolve.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2157,
+						"buffer_size": 2650,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										422,
+										426
+									],
+									[
+										449,
+										453
+									],
+									[
+										603,
+										607
+									],
+									[
+										610,
+										614
+									],
+									[
+										752,
+										756
+									],
+									[
+										945,
+										949
+									],
+									[
+										998,
+										1002
+									],
+									[
+										1085,
+										1089
+									],
+									[
+										1139,
+										1143
+									],
+									[
+										1165,
+										1169
+									],
+									[
+										1264,
+										1268
+									],
+									[
+										1287,
+										1291
+									],
+									[
+										1398,
+										1402
+									],
+									[
+										1521,
+										1525
+									],
+									[
+										1624,
+										1628
+									],
+									[
+										1675,
+										1679
+									],
+									[
+										1898,
+										1902
+									],
+									[
+										1920,
+										1924
+									],
+									[
+										2066,
+										2070
+									],
+									[
+										2206,
+										2210
+									],
+									[
+										2520,
+										2524
+									],
+									[
+										2542,
+										2546
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								643,
+								661
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 79.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/styles/_core/playerview.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3502,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2120,
-								2120
+								69,
+								69
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "templates/partials/script/player_logic.hbs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10892,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8063,
+								8001
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 455.0,
+						"translation.y": 4726.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1421,6 +1606,22 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"playerlog",
+				"All/sockets/handlers/PlayerLogin.js"
+			],
+			[
+				"playerlogi",
+				"All/sockets/handlers/PlayerLogin.js"
+			],
+			[
+				"player",
+				"Partials/script/player_events.hbs"
+			],
+			[
+				"player_logic",
+				"Partials/script/player_logic.hbs"
+			],
 			[
 				"mobil",
 				"Partials/script/mobile.hbs"
@@ -1654,10 +1855,6 @@
 				"templates/layouts/base.hbs"
 			],
 			[
-				"player",
-				"sockets/handlers/PlayerLogin.js"
-			],
-			[
 				"htyi_",
 				"templates/partials/script/htyi_results.hbs"
 			],
@@ -1679,10 +1876,6 @@
 			],
 			[
 				"playerl",
-				"sockets/handlers/PlayerLogin.js"
-			],
-			[
-				"playerlog",
 				"sockets/handlers/PlayerLogin.js"
 			],
 			[
@@ -1924,14 +2117,6 @@
 			[
 				"mixi",
 				"public/styles/core/mixins.scss"
-			],
-			[
-				"base.h",
-				"templates/layouts/base.hbs"
-			],
-			[
-				"fonts.scss",
-				"public/styles/core/fonts.scss"
 			]
 		],
 		"width": 0.0

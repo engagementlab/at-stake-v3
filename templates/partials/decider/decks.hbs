@@ -1,28 +1,46 @@
-{{#each this}}
+<h3>Swipe left and right to switch decks</h3>
+<div class="glide__bullets"></div>
 
-  <div class="deck">
+<div class="glide__arrows">
+  <button class="glide__arrow prev" data-glide-dir="<">prev</button>
+  <button class="glide__arrow next" data-glide-dir=">">next</button>
+</div>
 
-    <h2>{{name}}</h2>
+<div class="glide__wrapper">
+  <ul class="glide__track">
+    
+    {{#each this}}
 
-    <div class="description">
-      {{description}}
-    </div>
+      <li class="glide__slide" style="{{!-- width: 80%; --}}">
 
-    <h3>Talking Points</h3>
-    <ul>
-      {{#each questions}}
-        <li>{{this}}</li>
-      {{/each}}
-    </ul>
+        <div class="deck">
+        
+          <h2>{{name}}</h2>
 
-    <div class="col-sm-3">
-      {{#each roles}}
-        <span>{{title}}</span>
+          <div class="description">
+            {{description}}
+          </div>
 
-        {{#ifeq @index 3}}</div><div class="col-sm-3">{{/ifeq}}              
-      {{/each}}
-    </div>
+          <h3>Talking Points</h3>
+          <ul>
+            {{#each questions}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
 
-  </div>
+          <h3>Sample Stakeholders</h3>
+          <div class="col-sm-6">
+            {{#each roles}}
+              <span>{{title}}</span>
 
-{{/each}}
+              {{#ifeq @index 2}}</div><div class="col-sm-6">{{/ifeq}}              
+            {{/each}}
+          </div>
+
+        </div>
+      </li>
+
+    {{/each}}
+
+  </ul>
+</div>
