@@ -10,6 +10,7 @@
     <div class="form col-xs-12 col-centered">
 
       <input type="text" id="player-name" placeholder="Type your name here" class="hidden-el"> <br />
+      <p>Type your name and hit the play button to begin!</p>
       <div class="error">Error!</div>
       <input id="btn_submit_name" data-package='{"name": "#player-name"}' class="btn btn-default submit_name hidden-el" type="submit" name="submit" value="play">
 
@@ -22,17 +23,20 @@
 
   {{!-- PLAYER CHOICES--}}
   <div class="lobby" id="choices" class="col-sm-12" style="display:none">
+
+    <h2>Hey <span id="username"></span>!</h2>
+    <p>Welcome to @Stake!</p>
     <div class="form login col-xs-12 col-centered">
 
       <div id="btn_new_game" class="btn btn-default">
         <h2>Start New Game</h2>
-        <p>Select a deck and receive a 4 digit room code that other players can use to join your game</p>
       </div>
+      <p class="btn_cap">Select a deck and receive a 4 digit room code that other players can use to join your game</p>
 
       <div id="btn_join_game" class="btn btn-default">
         <h2>Join a Game</h2>
-        <p>use your 4 digit room code to join a game</p>
       </div>
+      <p class="btn_cap">use your 4 digit room code to join a game</p>
 
       <button class="back-button" data-from="choices" data-to="name">back</button>
 

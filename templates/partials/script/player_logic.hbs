@@ -190,6 +190,8 @@ $(document).on('click', '.btn.submit_name', function(evt) {
         return;
     }
 
+    $('#username').text(data.name);
+
     // Show new game/join
     loginPlayerChoices();
 
@@ -310,12 +312,12 @@ $('#btn_new_game').click(function() {
                     // Tell mobile action has completed
                     $('body').trigger('mobileCallback');
                     
-                        $('#decks').glide({
-                            type: 'carousel',
-                            paddings: '10%',
-                            autoplay: false,
-                            autoheight: true
-                        });
+                    $('#decks').glide({
+                        type: 'carousel',
+                        paddings: '10%',
+                        autoplay: false,
+                        autoheight: true
+                    });
                     
                 });
 

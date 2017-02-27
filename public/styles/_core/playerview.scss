@@ -1,8 +1,9 @@
 #gameContent {
-	background-color: $color-turquoise;
+	background-color: $color-seafoam;
 	height: 100%;
 	text-align: center;
 	padding: 40px;
+	color: white;
 
 	// During the gameplay
 	&.in-game {
@@ -19,21 +20,45 @@
 	// Lobby game screens
 	.lobby {
 		// Show back button on login screen
-		button#lobby-back {
+		.back-button {
 			display: block;
 			position: absolute;
 			left: 0;
-			top: 0;
 			margin: 10px;
+			color: white;
+			border: 2px white solid;
+			background-color: $color-seafoam;
 		}
 
 		&#choices {
+			height:100%;
 			.btn {
 				width:300px;
 				white-space: normal;
+				color: white;
+				border: 2px white solid;
+				height:60px;
+				margin-bottom: 10px;
+
+				h2 {
+					margin:7px;
+				}
+
+				&#btn_new_game {
+					background-color:red;
+				}
+
+				&#btn_join_game {
+					background-color:blue;
+				}
+
 			}
 		}
 
+	}
+
+	.form.login {
+		height:100%;
 	}
 
 	// If not on login screen, hide the back button
@@ -67,6 +92,40 @@
 		
 	}
 
+}
+
+#name.lobby {
+	#player-name {
+		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		  font-size: 20px;
+		  line-height: 44px;
+		}
+		&::-moz-placeholder { /* Firefox 19+ */
+		  font-size: 20px;
+		  line-height: 44px;
+		}
+		&:-ms-input-placeholder { /* IE 10+ */
+		  font-size: 20px;
+		  line-height: 44px;
+		}
+		&:-moz-placeholder { /* Firefox 18- */
+		  font-size: 20px;
+		  line-height: 44px;
+		}
+	}
+
+	#description {
+		font-size: 10px;
+		bottom: 0px;
+		left: 5%;
+		width:90%;
+		position: fixed;
+	}
+	#btn_submit_name {
+		background-color:red;
+		color: white;
+		border: 0px;
+	}
 }
 
 // Players
@@ -139,11 +198,17 @@
 
 // LOGIN
 #begin {
+	height:100%;
 	&.waiting {
 		#login-header {
 			display: none;
 		}
 	}
+
+#login-header {
+	padding-top:0px;
+	margin-top: -30px;
+}
 
 
 	// CONTENT SELECTION
