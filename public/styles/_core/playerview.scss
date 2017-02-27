@@ -1,13 +1,13 @@
 #gameContent {
 	background-color: $color-turquoise;
-	// height: 100%;
+	height: 100%;
 	text-align: center;
 	padding: 40px;
-	padding-top: 80px;
 
 	// During the gameplay
 	&.in-game {
 		background-color: white;
+		padding-top:80px;
 
 		// Show coin and points bar
 		footer#bottom-bar {
@@ -29,7 +29,8 @@
 
 		&#choices {
 			.btn {
-				display: table;
+				width:300px;
+				white-space: normal;
 			}
 		}
 
