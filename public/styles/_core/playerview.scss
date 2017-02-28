@@ -2,7 +2,7 @@
 	background-color: $color-seafoam;
 	height: 100%;
 	text-align: center;
-	padding: 40px;
+	padding: 20px 10px;
 	color: white;
 
 	// During the gameplay
@@ -17,8 +17,24 @@
 
 	}
 
+	.light {
+		line-height: normal;
+	}
+
 	// Lobby game screens
 	.lobby {
+		&:not(#decider) {
+			width: 100%;
+		  height: 370px;
+		  border-radius: 5px;
+		  background-color: #00dcba;
+		  box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.25);
+		  border: solid 1px #ebebeb;
+		}
+		&#decider {
+			background-color: #00dcba;
+		}
+
 		// Show back button on login screen
 		.back-button {
 			display: block;
@@ -26,22 +42,40 @@
 			left: 0;
 			margin: 10px;
 			color: white;
-			border: 2px white solid;
-			background-color: $color-seafoam;
+			width: 96px;
+		  height: 24px;
+		  border-radius: 5px;
+		  background-color: transparent;
+		  box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
+		  border: solid 1px #ebebeb;
+		}
+
+		.username {
+			margin-bottom: 40px;
+			h2 {
+				font-size: 24px;
+			}
+			p {
+				font-size: 12px;
+			}
+
 		}
 
 		&#choices {
-			height:100%;
 			.btn {
-				width:300px;
+				width:272px;
 				white-space: normal;
 				color: white;
-				border: 2px white solid;
-				height:60px;
+				border: 1px #ebebeb solid;
+				box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
+				height:48px;
+				padding:0px;
 				margin-bottom: 10px;
 
 				h2 {
-					margin:7px;
+					font-size: 24px;
+					line-height: 48px;
+					margin:0px;
 				}
 
 				&#btn_new_game {
@@ -51,15 +85,15 @@
 				&#btn_join_game {
 					background-color:blue;
 				}
-
+			}
+			.btn_cap {
+				width: 90%;
+				margin: 5% auto;
 			}
 		}
 
 	}
 
-	.form.login {
-		height:100%;
-	}
 
 	// If not on login screen, hide the back button
 	&:not(.lobby) {
@@ -71,7 +105,6 @@
 
 	// The lobby player grid
 	&.player-grid {
-		background-color:white;
 		color: black;
 
 		#logo-bar {
@@ -95,36 +128,66 @@
 }
 
 #name.lobby {
+	.form {
+		padding: 8px;
+	}
+	p {
+		font-size: 12px;
+	}
 	#player-name {
+		height: 48px;
+		// line-height: 48px;
+	  border-radius: 2px;
+	  background-color: #d8d8d8;
+	  box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.2);
+	  border: solid 1px #949494;
+	  margin: 0px;
+	  margin-bottom: 5px;
 		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-		  font-size: 20px;
-		  line-height: 44px;
+		  font-size:14px;
+		  text-align: center;
+		  height: 48px;
+		  line-height: 1.13em;
 		}
 		&::-moz-placeholder { /* Firefox 19+ */
-		  font-size: 20px;
-		  line-height: 44px;
+		  font-size: 14px;
+		  text-align: center;
+		  height: 48px;
+		  line-height: 1.13em;
 		}
 		&:-ms-input-placeholder { /* IE 10+ */
-		  font-size: 20px;
-		  line-height: 44px;
+		  font-size: 14px;
+		  text-align: center;
+		  height: 48px;
+		  line-height: 1.13em;
 		}
 		&:-moz-placeholder { /* Firefox 18- */
-		  font-size: 20px;
-		  line-height: 44px;
+		  font-size: 14px;
+		  text-align: center;
+		  height: 48px;
+		  line-height: 1.13em;
 		}
 	}
 
-	#description {
+	#description p{
 		font-size: 10px;
 		bottom: 0px;
-		left: 5%;
-		width:90%;
-		position: fixed;
+		width:98%;
+		color: #555555;
+		margin: 1% auto;
+		text-align: justify;
+		
 	}
 	#btn_submit_name {
 		background-color:red;
 		color: white;
 		border: 0px;
+		height:48px;
+		width: 160px;
+		padding:0px;
+		font-size: 24px;
+		margin-bottom: 100px;
+		border: 0.5px solid white;
 	}
 }
 
@@ -170,6 +233,13 @@
 
 }
 
+#players {
+	height: 344px;
+  border-radius: 5px;
+  box-shadow: 0 0 4px 0 rgba(85, 85, 85, 0.25);
+  border: solid 1px #ebebeb;
+}
+
 .form {
 	&.decider, &#decider, &#decider-controls {
 		position: absolute;
@@ -199,18 +269,36 @@
 // LOGIN
 #begin {
 	height:100%;
-	&.waiting {
+	.form {
+		padding: 7px;
+	}
+	&.wait {
 		#login-header {
 			display: none;
 		}
 	}
-
-#login-header {
-	padding-top:0px;
-	margin-top: -30px;
 }
 
+#login-header {
 
+	padding-top:0px;
+	margin-top: -30px;
+
+	img {
+		height: 136px;
+		width: 287px;
+		padding: 10px;
+		margin-top: 16px;
+	}
+
+	p {
+		color: white;
+		width: 80%;
+		margin-left: 10%;
+		font-size: 12px;
+	}
+
+}
 	// CONTENT SELECTION
 	.submission {
 
@@ -256,20 +344,6 @@
 		}
 }
 
-#login-header {
-
-	img {
-		height: 100%;
-		padding: 10px;
-	}
-
-	p {
-		color: white;
-		width: 80%;
-		margin-left: 10%;
-	}
-
-}
 
 input.post-button {
 	position: fixed;
@@ -281,29 +355,46 @@ input.post-button {
 	z-index: 1000;
 }
 
+#share_code {
+	text-align: center;
+  color: #ebebeb;
+  margin-top: -30px;
+
+	h1 {
+	  font-size: 24px;
+	  width: 100%;
+	}
+	p {
+		font-size: 12px;
+	  
+	}
+}
+
 .waiting {
 	width: 100%;
 	padding: 0px;
 
 	.access-code {
-		border: 1px dashed black;
+		width: 160px;
+	  height: 56px;
+	  font-size: 56px;
+	  color: #0098d0;
+	  border: 1px #ebebeb dashed;
+	  margin: 10px auto;
 	}
 	p {
 		font-size: 16px;
 	}
 }
 
-	
-	#btn_submit {
-		color: white;
-		background-color: $color-seafoam;
-		width: 100%;
-	}
+#btn_submit {
+	color: white;
+	background-color: $color-seafoam;
+	width: 100%;
+}
 
-	#access-code {
-		font-size: 4em; 
-	}
-
+#access-code {
+	font-size: 56px; 
 }
 
 // BOTTOM BAR (COINS, NEXT)
@@ -323,8 +414,6 @@ footer#bottom-bar {
 .winner {
 	background-color: white;
 }
-
-
 
 .role, .agenda_item {
 	display: none;
@@ -352,8 +441,8 @@ footer#bottom-bar {
 .player-bio {
 	height: 100%;
 	width: 100%;
-	.room-container {
 
+	.room-container {
 
 	}
 }
