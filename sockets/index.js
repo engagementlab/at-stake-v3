@@ -1,13 +1,11 @@
-module.exports = function(app) {
+module.exports = function(app, socket) {
 
-  var io = require('socket.io')(app);
+  var io = require('socket.io')(app, {path: '/at-stake-socket/'});
 
   var CommonHandler = require('./handlers/Common'),
       PlayerLogin = require('./handlers/PlayerLogin');
 
   io.on('connection', function (socket) {
-
-    console.log("Player connection", socket.id)
 
     // Create event handlers for this socket
     var eventHandlers = {

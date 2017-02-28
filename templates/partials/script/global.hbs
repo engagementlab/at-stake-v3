@@ -331,7 +331,7 @@
     sessionStorage.setItem('uUID', playerUID);
 
     // Open socket connection
-    socket = io('//{{host}}', {'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
+    socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
     registerEvents();
 
 	}

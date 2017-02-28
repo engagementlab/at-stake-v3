@@ -81,7 +81,7 @@ var playerLogin = function(data) {
     
     // Open socket connection
     if(!socket) {
-        socket = io('//{{host}}', {'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
+        socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
         registerEvents();
     }
 
@@ -164,7 +164,7 @@ var checkIfLoggedIn = function() {
     
     // Open socket connection
     if(!socket) {
-        socket = io('//{{host}}', {'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
+        socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
         registerEvents();
     }
 
