@@ -157,7 +157,7 @@ var checkIfLoggedIn = function() {
 
     $('#name, .login.input').fadeOut(function() {
 
-        $('#begin').addClass('waiting');
+        $('#begin').addClass('wait');
         $('#join, .login.waiting').fadeIn();
 
     });
@@ -273,7 +273,7 @@ $(document).on('click', '.btn.game_login', function(evt) {
             }
 
             $('.login.input').fadeOut(function() {
-                $('#begin').addClass('waiting');
+                $('#begin').addClass('wait');
                 $('.login.waiting').fadeIn();
             });
 

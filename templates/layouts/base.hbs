@@ -8,6 +8,7 @@
         <title>@Stake</title>
         <meta name="description" content="@Stake is an online and mobile role-playing game that fosters democracy, empathy, and creative problem solving for civic issues.">
         <meta name="author" content="Engagement Lab at Emerson College">
+        <meta name="viewport" content="width=device-width">
         
         {{#ifeq section 'play'}}
             {{!-- Mobile Meta --}}
@@ -88,8 +89,7 @@
 
                 </div>
 
-            {{/ifnoteq}}
-            {{#ifeq section 'homepage'}}
+            {{else}}
 
                 <div class="col-sm-12 col-lg-12" id="homeContent">
 
@@ -98,7 +98,7 @@
 
                 </div>
 
-            {{/ifeq}}
+            {{/ifnoteq}}
 
                 <footer id="bottom-bar" style="display:none">
                     

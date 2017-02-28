@@ -2,7 +2,7 @@
 
   <div id="login-header">
     <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/e_grayscale/v1454520474/site/listings/odr1jt3rfkda0s1qce9q.png" width=300px>
-    <p>A Game for Deliberative Democracy</p>
+    <p class="light">A Game for Deliberative Democracy</p>
   </div>
 
   {{!-- NAME ENTRY --}}
@@ -10,9 +10,9 @@
     <div class="form col-xs-12 col-centered">
 
       <input type="text" id="player-name" placeholder="Type your name here" class="hidden-el"> <br />
-      <p>Type your name and hit the play button to begin!</p>
+      <p class="light">Type your name and hit the play button to begin!</p>
       <div class="error">Error!</div>
-      <input id="btn_submit_name" data-package='{"name": "#player-name"}' class="btn btn-default submit_name hidden-el" type="submit" name="submit" value="play">
+      <input id="btn_submit_name" data-package='{"name": "#player-name"}' class="btn btn-default submit_name hidden-el" type="submit" name="submit" value="PLAY">
 
       <section id="description">
         <p>@Stake was created to help facilitate productive and fair conversations in classrooms, conferences, strategic board meetings, and public events. By playing @Stake, participants learn that productive conversations thrive off of authentic listening and multiple perspectives. All you need to get started is 3-5 players.</p>
@@ -24,19 +24,21 @@
   {{!-- PLAYER CHOICES--}}
   <div class="lobby" id="choices" class="col-sm-12" style="display:none">
 
-    <h2>Hey <span id="username"></span>!</h2>
-    <p>Welcome to @Stake!</p>
+    <div class="username">
+      <h2>HEY <span id="username"></span>!</h2>
+      <p class="light">Welcome to @Stake!</p>
+    </div>
     <div class="form login col-xs-12 col-centered">
 
       <div id="btn_new_game" class="btn btn-default">
         <h2>Start New Game</h2>
       </div>
-      <p class="btn_cap">Select a deck and receive a 4 digit room code that other players can use to join your game</p>
+      <p class="btn_cap light">Select a deck and receive a 4 digit room code that other players can use to join your game</p>
 
       <div id="btn_join_game" class="btn btn-default">
         <h2>Join a Game</h2>
       </div>
-      <p class="btn_cap">use your 4 digit room code to join a game</p>
+      <p class="btn_cap light">use your 4 digit room code to join a game</p>
 
       <button class="back-button" data-from="choices" data-to="name">back</button>
 
@@ -51,7 +53,7 @@
       <div class="error">Error!</div>
 
       <button class="back-button" data-from="join" data-to="choices">back</button>
-      <input id="btn_submit_code"  data-event="game:entry" data-package='{"code": "#access_code", "name": "#player-name"}' class="btn btn-default game_login" type="submit" name="submit" value="play">
+      <input id="btn_submit_code"  data-event="game:entry" data-package='{"code": "#access_code", "name": "#player-name"}' class="btn btn-default game_login" type="submit" name="submit" value="PLAY">
     </div>
 
     <div class="row login waiting" style="display:none">
@@ -79,12 +81,17 @@
         <input id="btn_submit" class="button_text" type="submit" name="submit" value="Start!">
       </div>
     </div>
-    <div class="row waiting" style="display:none">
-      <h1 class="access-code"></h1>
+
+    <div class="waiting" style="display:none">
       <input type="text" id="player-name" class="hidden-el"> <br />
 
-      <p>You are the decider</p>
-      <p>Waiting for players</p>
+      <div id="share_code"> 
+        <h1>SHARE YOUR ROOM CODE</h1>
+        <p>Share this 4 digit code with players. Once at least 3 players have joined, press the start button to play</p>
+      </div>
+
+      <h1 class="access-code"></h1>
+
 
       <div class="col-sm-12">
         <div class="row" id="players">
@@ -92,7 +99,11 @@
       </div>
       <div class="form row" id="start">
         <input id="btn-start-game" data-event="game:start" class="post-button submit" type="submit" name="submit" value="start">
+              <button class="back-button" data-from="choices" data-to="name">back</button>
+
       </div>
+
+
     </div>
   </div>
 
