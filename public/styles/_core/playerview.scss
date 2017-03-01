@@ -3,12 +3,12 @@
 	height: 100%;
 	text-align: center;
 	padding: 20px 10px;
-	color: white;
+	color: black;
 
 	// During the gameplay
 	&.in-game {
 		background-color: white;
-		padding-top:80px;
+		// padding-top:80px;
 
 		// Show coin and points bar
 		footer#bottom-bar {
@@ -21,214 +21,40 @@
 		line-height: normal;
 	}
 
-	// Lobby game screens
-	.lobby {
-		&:not(#decider) {
-			width: 100%;
-		  height: 370px;
-		  border-radius: 5px;
-		  background-color: #00dcba;
-		  box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.25);
-		  border: solid 1px #ebebeb;
-		}
-		&#decider {
-			background-color: #00dcba;
-		}
-
-		// Show back button on login screen
-		.back-button {
-			display: block;
-			position: absolute;
-			left: 0;
-			margin: 10px;
-			color: white;
-			width: 96px;
-		  height: 24px;
-		  border-radius: 5px;
-		  background-color: transparent;
-		  box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
-		  border: solid 1px #ebebeb;
-		}
-
-		.username {
-			margin-bottom: 40px;
-			h2 {
-				font-size: 24px;
-			}
-			p {
-				font-size: 12px;
-			}
-
-		}
-
-		&#choices {
-			.btn {
-				width:272px;
-				white-space: normal;
-				color: white;
-				border: 1px #ebebeb solid;
-				box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
-				height:48px;
-				padding:0px;
-				margin-bottom: 10px;
-
-				h2 {
-					font-size: 24px;
-					line-height: 48px;
-					margin:0px;
-				}
-
-				&#btn_new_game {
-					background-color:red;
-				}
-
-				&#btn_join_game {
-					background-color:blue;
-				}
-			}
-			.btn_cap {
-				width: 90%;
-				margin: 5% auto;
-			}
-		}
-
-	}
-
-
-	// If not on login screen, hide the back button
-	&:not(.lobby) {
-		button#lobby-back {
-			display: none;
-			
-		}
-	}
-
-	// The lobby player grid
-	&.player-grid {
-		color: black;
-
-		#logo-bar {
-			// display: block !important;
-			position: absolute;
-			top: 0px;
-			left: 0px;
-			width: 100%;
-			height: $nav-height;
-			background-color: $color-pink;
-
-			img {
-				height: $nav-height - 5px;
-				width: auto;
-			}
-
-		}
-		
-	}
-
 }
-
-#name.lobby {
-	.form {
-		padding: 8px;
-	}
-	p {
-		font-size: 12px;
-	}
-	#player-name {
-		height: 48px;
-		// line-height: 48px;
-	  border-radius: 2px;
-	  background-color: #d8d8d8;
-	  box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.2);
-	  border: solid 1px #949494;
-	  margin: 0px;
-	  margin-bottom: 5px;
-		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-		  font-size:14px;
-		  text-align: center;
-		  height: 48px;
-		  line-height: 1.13em;
-		}
-		&::-moz-placeholder { /* Firefox 19+ */
-		  font-size: 14px;
-		  text-align: center;
-		  height: 48px;
-		  line-height: 1.13em;
-		}
-		&:-ms-input-placeholder { /* IE 10+ */
-		  font-size: 14px;
-		  text-align: center;
-		  height: 48px;
-		  line-height: 1.13em;
-		}
-		&:-moz-placeholder { /* Firefox 18- */
-		  font-size: 14px;
-		  text-align: center;
-		  height: 48px;
-		  line-height: 1.13em;
-		}
-	}
-
-	#description p{
-		font-size: 10px;
-		bottom: 0px;
-		width:98%;
-		color: #555555;
-		margin: 1% auto;
-		text-align: justify;
-		
-	}
-	#btn_submit_name {
-		background-color:red;
-		color: white;
-		border: 0px;
-		height:48px;
-		width: 160px;
-		padding:0px;
-		font-size: 24px;
-		margin-bottom: 100px;
-		border: 0.5px solid white;
-	}
-}
-
 // Players
 .player-logo {
 
 	height: 80px;
 	width: 100%;
 	display: inline-block;
-	padding:0px;
-	background-color: grey;
+	padding: 0px;
+  background-repeat: no-repeat;
+	background-size: contain;
 	color: white;
 
 	p {
 		display: inline;
 	}
 
-	// .logo {
-	// 	height:100%;
-	// 	width:100%;
-	// }
-
-	#player-0 {
-		background: $player-one-logo;
-		background-size: contain;
+	&#player-0 {
+		background-image : $player-one-logo;
+		background-color: $sunflower;
 	}
-	#player-1 {
-		background: $player-two-logo;
-		background-size: contain;
+	&#player-1 {
+		background-image : $player-two-logo;
+		background-color: $blue-violet;
 	}
-	#player-2 {
-		background: $player-three-logo;
-		background-size: contain;
+	&#player-2 {
+		background-image : $player-three-logo;
+		background-color: $pumpkin-orange;
 	}
-	#player-3 {
-		background: $player-four-logo;
-		background-size: contain;
+	&#player-3 {
+		background-image : $player-four-logo;
+		background-color: $cerulean;
 	}
-	#player-4 {
-		background: $player-five-logo;
-		background-size: contain;
+	&#player-4 {
+		background-image : $player-five-logo;
 	}
 
 }
@@ -266,84 +92,6 @@
 	}
 }
 
-// LOGIN
-#begin {
-	height:100%;
-	.form {
-		padding: 7px;
-	}
-	&.wait {
-		#login-header {
-			display: none;
-		}
-	}
-}
-
-#login-header {
-
-	padding-top:0px;
-	margin-top: -30px;
-
-	img {
-		height: 136px;
-		width: 287px;
-		padding: 10px;
-		margin-top: 16px;
-	}
-
-	p {
-		color: white;
-		width: 80%;
-		margin-left: 10%;
-		font-size: 12px;
-	}
-
-}
-	// CONTENT SELECTION
-	.submission {
-
-		.form {
-			color: white;
-		}
-
-		#decks {
-			width: 100%;
-
-			button {
-				// width: 100%;
-				// background-color: white;
-				color: $color-turquoise;
-				margin: 5px 0px;
-				padding: 5px;
-			}
-
-			.glide__bullets {
-
-				bottom: auto;
-				height: auto;
-				position: relative;
-
-			}
-				
-			.glide__slide {
-		    // background: white;
-				.deck {
-			    font-size: small;
-			    background-color: white;
-			    color: black;
-			    margin: 1%;
-			    display: inline-block;
-				}
-			}
-			
-			.glide--horizontal {
-				.glide__arrows {
-			    top: 22%;
-			  }
-			}
-		}
-}
-
 
 input.post-button {
 	position: fixed;
@@ -361,7 +109,7 @@ input.post-button {
   margin-top: -30px;
 
 	h1 {
-	  font-size: 24px;
+    font-size: 1.6em;
 	  width: 100%;
 	}
 	p {
@@ -387,25 +135,9 @@ input.post-button {
 	}
 }
 
-#btn_submit {
-	color: white;
-	background-color: $color-seafoam;
-	width: 100%;
-}
-
 #access-code {
 	font-size: 56px; 
 }
-
-// BOTTOM BAR (COINS, NEXT)
-footer#bottom-bar {
-	background-color: $color-seafoam;
-	font-size: large;
-	width: 100%;
-	bottom: 0px;
-	position: absolute;
-}
-
 .ended-container {
 	background-color: white;
 	margin: 0 auto;
@@ -432,19 +164,9 @@ footer#bottom-bar {
 
 // Add background to any "read out loud" decider instructions
 .read {
-	background: $player-blue;
+	background: $dark-sky-blue;
 	padding: 10px;
 	color: white;
-}
-
-// GAME
-.player-bio {
-	height: 100%;
-	width: 100%;
-
-	.room-container {
-
-	}
 }
 
 #rules {
@@ -453,4 +175,69 @@ footer#bottom-bar {
 		// These are hidden by default
 		display: none;
 	}
+}
+
+// Screen instructions
+.instruction {
+	font-size: .8em;
+	h1 {
+		font-size: 1.4em;
+	}
+}
+
+// Speech bubbles
+.speech {
+    position: relative;
+    padding: 50px 15px;
+    margin: 1em 0 3em;
+    border: 10px solid #5a8f00;
+    text-align: center;
+    color: #333;
+    background: #fff;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    &:before {
+	    content: "";
+	    position: absolute;
+	    z-index: 10;
+	    bottom: -40px;
+	    left: 50px;
+	    width: 50px;
+	    height: 30px;
+	    border-style: solid;
+	    border-width: 0 10px 10px 0;
+	    border-color: #5a8f00;
+	    background: transparent;
+	    -webkit-border-bottom-right-radius: 80px 50px;
+	    -moz-border-radius-bottomright: 80px 50px;
+	    border-bottom-right-radius: 80px 50px;
+	    display: block;
+    }
+    &:after {
+      content: "";
+	    position: absolute;
+	    z-index: 10;
+	    bottom: -40px;
+	    left: 50px;
+	    width: 20px;
+	    height: 30px;
+	    border-style: solid;
+	    border-width: 0 10px 10px 0;
+	    border-color: #5a8f00;
+	    background: transparent;
+	    -webkit-border-bottom-right-radius: 40px 50px;
+	    -moz-border-radius-bottomright: 40px 50px;
+	    border-bottom-right-radius: 40px 50px;
+	    display: block;
+    }
+}
+
+// BOTTOM BAR (COINS, NEXT)
+footer#bottom-bar {
+	background-color: $color-seafoam;
+	font-size: large;
+	width: 100%;
+	bottom: 0px;
+	position: absolute;
 }

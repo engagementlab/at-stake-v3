@@ -1,17 +1,17 @@
-<h3>Swipe left and right to switch decks</h3>
+<span class="light">Swipe left and right to switch decks</span>
 <div class="glide__bullets"></div>
 
-<div class="glide__arrows">
+{{!-- <div class="glide__arrows">
   <button class="glide__arrow prev" data-glide-dir="<">prev</button>
   <button class="glide__arrow next" data-glide-dir=">">next</button>
-</div>
+</div> --}}
 
 <div class="glide__wrapper">
-  <ul class="glide__track">
+  <div class="glide__track">
     
     {{#each this}}
 
-      <li class="glide__slide" style="{{!-- width: 80%; --}}">
+      <div class="glide__slide" style="{{!-- width: 80%; --}}">
 
         <div class="deck">
         
@@ -22,11 +22,11 @@
           </div>
 
           <h3>Talking Points</h3>
-          <ul>
+          {{!-- <ul> --}}
             {{#each questions}}
-              <li>{{this}}</li>
+              <div>{{this}}</div>
             {{/each}}
-          </ul>
+          {{!-- </ul> --}}
 
           <h3>Sample Stakeholders</h3>
           <div class="col-sm-6">
@@ -38,9 +38,9 @@
           </div>
 
         </div>
-      </li>
+      </div>
 
     {{/each}}
 
-  </ul>
+  </div>
 </div>

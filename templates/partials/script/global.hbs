@@ -317,7 +317,7 @@
 	    $('#decider .create').hide();
       $('#decider').show();
       $('#decider .waiting, #decider-debugging').show();
-      $('#begin').addClass('wait');
+      $('#lobby').addClass('wait');
 
 	    $('#player-name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
 
@@ -439,14 +439,14 @@ window.onload = function() {
 		    data.deciderName = $('#player-name').val();
 
 		    if(!data.deciderName) {
-		        $('.submission .error').text('Please enter your name!').fadeIn();
-		        return;
+	        $('.submission .error').text('Please enter your name!').fadeIn();
+	        return;
 		    }
 
 				data.deckId = $("#decks button.active").map(function(){
 											    return $(this).val();
 											 }).get()[0];
-				deck = $("#decks button.active").text();
+				var deck = $("#decks button.active").text();
 				data.accessCode = gameCode;
 
 			  $.post(

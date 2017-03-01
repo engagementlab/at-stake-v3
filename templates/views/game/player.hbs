@@ -1,7 +1,7 @@
-<section id="begin">
+<section id="lobby">
 
   <div id="login-header">
-    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/e_grayscale/v1454520474/site/listings/odr1jt3rfkda0s1qce9q.png" width=300px>
+    {{{cloudinaryUrl "v1488383913/at-stake/layout/logo_lg.png" width=287 color="#ffd461" effect="colorize:100"}}}
     <p class="light">A Game for Deliberative Democracy</p>
   </div>
 
@@ -40,9 +40,9 @@
       </div>
       <p class="btn_cap light">use your 4 digit room code to join a game</p>
 
-      <button class="back-button" data-from="choices" data-to="name">back</button>
-
     </div>
+
+    <button class="back-button" data-from="choices" data-to="name">back</button>
   </div>
 
   {{!-- JOIN GAME --}}
@@ -61,25 +61,22 @@
       <div class="row" id="players">
       </div>
     </div>
-
   </div>
 
   {{!-- NEW GAME --}}
   <div class="lobby" id="decider" style="display:none">
-    <div class="submission">
-      <div class="form create col-sm-12 col-lg-6 col-centered">
+    <div class="form create col-sm-12 col-lg-6 col-centered">
 
-        <h3>Your deck will determine what problems you solve and what roles you get to play.</h3>
-        <div class="form-prompt white">select the deck to use:</div>
-        
-        <section id="decks" class="glide">
+      <h3>select a deck</h3>
+      <div class="form-prompt white">Your deck will determine what problems you solve and what roles you get to play.</div>
+      
+      <section id="decks" class="glide">
 
-        </section>
-        
-        <div class="error">Error!</div>
-        <button class="back-button" data-from="new" data-to="choices">back</button>
-        <input id="btn_submit" class="button_text" type="submit" name="submit" value="Start!">
-      </div>
+      </section>
+      
+      <div class="error">Error!</div>
+      <button class="back-button" data-from="new" data-to="choices">back</button>
+      <input id="btn_submit" class="button_text game_login" type="submit" name="submit" value="Start!">
     </div>
 
     <div class="waiting" style="display:none">
@@ -92,18 +89,19 @@
 
       <h1 class="access-code"></h1>
 
-
       <div class="col-sm-12">
+        <div class="row" id="deck">
+          <h1 id="name"></h1>
+          <span id="description"></span>
+        </div>
         <div class="row" id="players">
         </div>
       </div>
+
       <div class="form row" id="start">
-        <input id="btn-start-game" data-event="game:start" class="post-button submit" type="submit" name="submit" value="start">
-              <button class="back-button" data-from="choices" data-to="name">back</button>
-
+        <input id="btn-start-game" data-event="game:start" class="{{!-- post-button  --}}submit" type="submit" name="submit" value="start">
+        <button class="back-button" data-from="choices" data-to="name">back</button>
       </div>
-
-
     </div>
   </div>
 

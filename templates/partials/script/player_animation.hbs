@@ -66,13 +66,15 @@ function loginPlayerChoices() {
 
 function loginNewGame(callback) {
 
-	// loginAnim = new TimelineLite({onComplete:function() {
-	// 	if(callback)
-	// 		callback();
-	// }});
-
+	// loginAnim.clear();
 	loginAnim.to($('#choices'), .5, { autoAlpha:0, display: 'none' }, 'new')
+					 .to($('#login-header'), .5, { autoAlpha:0, height:0, display: 'none' })
 					 .fromTo($('#decider'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' })
+					 .call(function() {
+							if(callback)
+								callback();
+						})
+					 .from($('#decks'), .5, { autoAlpha:0, yPercent:10, ease:Expo.easeOut });
 	
 	loginAnim.play();
 
@@ -91,7 +93,8 @@ function loginJoinGame() {
 
 function loginGoBack(from, to) {
 
-	// loginAnim.reverse(0);
 	loginAnim.tweenTo(from, to);
+	// loginAnim.remove('new');
+	// loginAnim.remove('join');
 	
 }
