@@ -1,7 +1,9 @@
 
 
+
 p {
 	font-family: $body-type;
+	color: $type-black;
 }
 
 h3 {
@@ -26,7 +28,7 @@ h5 {
 
 	.row{
 		width: 100%;
-		padding: 35px;
+		padding: 30px 40px;
 		margin: 0;
 
 		&.top{
@@ -55,12 +57,12 @@ h5 {
 		}
 	}
 	.landing-image{
-			height: 125px;
+			height: 200px;
 			float: right;
 			position: absolute;
 			right: 0;
 			bottom: 0;
-			margin-top: 150px;
+			margin-top: 75px;
 			opacity: 0.24;
 		}
 	.top-section{
@@ -75,9 +77,9 @@ h5 {
 
 		.whats{
 			font-family: $sub-header-type;
-			font-size: 7em;
+			font-size: 6em;
 			z-index: 1;
-			margin-right: 200px;
+			margin-right: 250px;
 			display: inline-block;
 			position: relative;
 		}
@@ -101,7 +103,17 @@ h5 {
 		}
 
 		.play-button{
-
+			width: 25%;
+			height: 75px;
+			position: relative;
+			margin: 0 auto;
+			margin-bottom: 45px;
+			padding-top: 18px;
+			text-align: center;
+			color: $white;
+			font-family: $sub-header-type;
+			font-size: 1.25em;
+			border: solid white 4px;
 		}
 
 
@@ -122,21 +134,44 @@ h5 {
 		.half-1{
 			padding-top: 30px;
 			.cta-para-one{
-
+				text-align: justify;
 			}
 			.cta-para-two{
-
-			}
-			.cta-points{
-
-			}			
+				text-align: justify;
+			}	
 		}
+		.cta-points{
+			font-size: 68px !important;
+			color: $light-mint;
+			line-height: 80%;
+			list-style-position: inside;
+			position: relative;
+			z-index: 1;
+
+			li{
+				height: 50px;
+			}
+
+			p{
+				z-index: 2;
+				position: relative;
+				bottom: 56px;
+				left: 45px;
+				text-align-last: auto;
+			}
+
+			.point-content{
+				font-size: 14px;
+				color: $type-black;
+			}
+		}		
 	}
 	.game-features{
 		color: $type-blue;
 		text-align: center;
 		.feature-text{
 			padding: 15px 30px;
+			text-align: justify;
 		}
 		.feature-image{
 
@@ -146,13 +181,17 @@ h5 {
 			.feature-header-one{
 				p{
 				font-family: $header-type;
+				color: $type-blue;
 				}
 			}
 			.feature-one-image{
 
 			}
 			.feature-one-text{
-
+				p{
+					color: $type-blue;
+					text-align-last: center;
+				}
 			}
 		}
 		.feature-two{
@@ -160,6 +199,7 @@ h5 {
 			.feature-header-two{
 				p{
 				font-family: $header-type;
+				color: $type-blue;
 				}
 			}
 
@@ -167,7 +207,10 @@ h5 {
 
 			}
 			.feature-two-text{
-
+				p{
+					color: $type-blue;
+					text-align-last: center;
+				}
 			}
 		}
 		.feature-three{
@@ -175,13 +218,17 @@ h5 {
 			.feature-header-three{
 				p{
 				font-family: $header-type;
+				color: $type-blue;
 				}
 			}
 			.feature-three-image{
 
 			}
 			.feature-three-text{
-
+				p{
+					color: $type-blue;
+					text-align-last: center;
+				}
 			}
 		}
 	}
@@ -193,10 +240,14 @@ h5 {
 			p{
 				font-family: $header-type;
 				color: $background-mint;
+				text-align-last: center;
 			}
 		}
 		.flow-play-para{
-
+			text-align: justify;
+			p{
+				text-align-last: center;
+			}
 		}
 		.flow-play-pic{
 
@@ -205,14 +256,20 @@ h5 {
 	.game-learn{
 		text-align: center;
 		padding: 0 10%;
-		color:white;
 		.learn-more-header{
 			padding-bottom: 1px;
+			color:white !important;
 			p{
 				font-family: $header-type;
+				color:white !important;
 			}
 		}
 		.learn-more-para{
+			text-align: justify;
+			p{
+				color: white !important;
+				text-align-last: center;
+			}
 		}
 	}
 	.design-dev-team{
@@ -239,7 +296,7 @@ h5 {
 		.team{
 			color: $white;
 			padding: 0px;
-			display: inline-block;
+			display: block;
 
 
 			&.pi {
@@ -248,15 +305,20 @@ h5 {
 			}
 		}
 
-		.team-row{
+		.team-col{
 
 		}
 		.team-title{
 			color: $type-dark-mint;
 			display: inline;
 		}
-		.el-logo{
+	}
+	.logo{
 
-		}
+	}
+	.el-logo{
+		width: 150px;
+		margin: 0 auto;
+		display: block;
 	}
 }
