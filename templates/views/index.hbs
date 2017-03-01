@@ -21,7 +21,7 @@
   
   {{!-- GAME PITCH --}}
   <div class="row pitch">
-  <div class="phone-pic col-md-5"><img class="showcaseImage" src="{{{cloudinaryUrl content.showcaseImage width=auto height=400 crop='scale' quality=100}}}"></div>
+  <div class="phone-pic col-md-5"><img class="showcaseImage" src="{{{cloudinaryUrl content.showcaseImage width=auto height=350 crop='scale' quality=100}}}"></div>
     <div class="game-pitch col-md-7">
       <div class="half-1 col-sm-12 col-centered">
         <h4 class="tagline">{{{content.tagline.html}}}</h4>
@@ -75,7 +75,31 @@
   </div>
 
   {{!-- CREDITS --}}
-  <div class="credits row col-sm-12 col-centered">
+  <div class="credits row col-lg-12 col-centered">
+    <div class="design-dev-team">
+      <h3>Design and Development Team</h3>
+        <div class="people">
+          <div class="team row pi"><h5 class="team-title">Principal Investigator </h5>{{content.principalInvestigator.name}}</div>
+          <div class="team-col col-md-6" style="padding:0px">
+            <div class="team"><h5 class="team-title">Product Manager</h5>{{content.productManager.name}}</div>
+            <div class="team"><h5 class="team-title">Lead Developer </h5>{{content.leadDeveloper.name}}</div>
+            <div class="team"><h5 class="team-title">Game Designer </h5>{{content.otherGameDesigner.name}}, {{content.gameDesigner.name}}</div>
+            <div class="team"><h5 class="team-title">Junior Developer </h5>{{content.juniorDeveloper.name}}</div>
+          </div>
+          <div class="team-col col-md-6" style="padding:0px">
+            <div class="team"><h5 class="team-title">Project Manager </h5>{{content.projectManager.name}}</div>
+            <div class="team"><h5 class="team-title">Art Director </h5>{{content.artDirector.name}}</div>
+            <div class="team"><h5 class="team-title">Production Assistant </h5>{{content.productionAssistant.name}}</div>
+            <div class="team"><h5 class="team-title">Production Assistant </h5>{{content.otherProductionAssistant.name}}</div>
+          </div>
+        </div>
+    </div>
+    <div class="logo"><img class="el-logo" src="http://res.cloudinary.com/engagement-lab-home/image/upload/v1488406912/at-stake-site/el_logo_square_white_720.png"></div>
+
+
+{{!--     OLD CREDITS LAYOUT (hugs sides of page, stacks weirdly on small screens) --}}
+
+  {{!-- <div class="credits row col-sm-12 col-centered">
   	<div class="design-dev-team">
 	    <h3>Design and Development Team</h3>
 	    <div class="team row pi"><h5 class="team-title">Principal Investigator </h5>{{content.principalInvestigator.name}}</div>
@@ -97,5 +121,5 @@
       </div>
     </div>
     <div class="el-logo">
-    </div>
-  </div>
+    </div> --}}
+</div>
