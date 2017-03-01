@@ -101,7 +101,17 @@ h5 {
 		}
 
 		.play-button{
-
+			width: 25%;
+			height: 75px;
+			position: relative;
+			margin: 0 auto;
+			margin-bottom: 45px;
+			padding-top: 18px;
+			text-align: center;
+			color: $white;
+			font-family: $sub-header-type;
+			font-size: 1.25em;
+			border: solid white 4px;
 		}
 
 
@@ -122,21 +132,43 @@ h5 {
 		.half-1{
 			padding-top: 30px;
 			.cta-para-one{
-
+				text-align: justify;
 			}
 			.cta-para-two{
-
-			}
-			.cta-points{
-
-			}			
+				text-align: justify;
+			}	
 		}
+		.cta-points{
+			font-size: 68px !important;
+			color: $light-mint;
+			line-height: 80%;
+			list-style-position: inside;
+			position: relative;
+			z-index: 1;
+
+			li{
+				height: 50px;
+			}
+
+			p{
+				z-index: 2;
+				position: relative;
+				bottom: 56px;
+				left: 45px;
+			}
+
+			.point-content{
+				font-size: 14px;
+				color: $type-black;
+			}
+		}		
 	}
 	.game-features{
 		color: $type-blue;
 		text-align: center;
 		.feature-text{
 			padding: 15px 30px;
+			text-align: justify;
 		}
 		.feature-image{
 
@@ -196,7 +228,7 @@ h5 {
 			}
 		}
 		.flow-play-para{
-
+			text-align: justify;
 		}
 		.flow-play-pic{
 
@@ -213,6 +245,7 @@ h5 {
 			}
 		}
 		.learn-more-para{
+			text-align: justify;
 		}
 	}
 	.design-dev-team{
