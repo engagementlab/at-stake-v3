@@ -44,6 +44,11 @@
             <div id="overlay" class="modal">
             </div>
 
+            {{!-- ROLE CARD OVERLAY --}}
+            <section class="col-sm-12" id="role-card">
+
+            </section>
+
             {{#ifeq debug true}}
                 {{!-- DEBUGGING --}}
                 <div id="debugging" class="form" style="position: fixed;top: 0;">
@@ -78,9 +83,9 @@
 
                 <div class="col-sm-12 col-lg-12" id="gameContent">
 
-                    <section id="logo-bar" style="display:none">
+                    {{!-- <section id="logo-bar" style="display:none">
                         <img src="http://res.cloudinary.com/engagement-lab-home/image/upload/e_grayscale/v1454520474/site/listings/odr1jt3rfkda0s1qce9q.png">
-                    </section>
+                    </section> --}}
 
                     {{> shared/resuming }}
 
@@ -103,8 +108,14 @@
                 <footer id="bottom-bar" style="display:none">
                     
                     <div id="currency" class="col-sm-6">
-                        <div id="player-coins">[coins] <span></span></div>
-                        <div id="pot-coins">[pot] <span></span></div>
+                        <div class="col-sm-3">
+                            <button id="btn-role-card">role card</button>
+                            <button id="btn-menu">menu</button>
+                        </div>
+                        <div class="col-sm-3">
+                            <div id="player-coins">[coins] <span></span></div>
+                            <div id="pot-coins">[pot] <span></span></div>
+                        </div>
                     </div>
                     
                 </footer>

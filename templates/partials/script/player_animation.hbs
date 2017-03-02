@@ -56,6 +56,9 @@ function loginEnterName() {
 
 function loginPlayerChoices() {
 
+	if(!loginAnim)
+		loginAnim = new TimelineMax();
+
 	// loginAnim.clear();
 	loginAnim.to($('#name'), .5, { autoAlpha:0, display: 'none' }, 'choices')
 					 .fromTo($('#choices'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' });

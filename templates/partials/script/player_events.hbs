@@ -101,6 +101,8 @@ socketEvents = function(eventId, eventData) {
 
             playerId = eventData.id;
 
+            $('#bottom-bar').show();
+
             break;
 
         case 'player:reconnected': 
@@ -164,6 +166,18 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'player:assignrole':
+
+            $('#role-card').html(eventData);
+            $('#btn-role-card').click(function(evt) {
+                $('#role-card').show();
+            });
+            $('#btn-close-role-card').click(function(evt) {
+                $('#role-card').hide();
+            });
+
+            break;
+
         case 'game:start':
         case 'game:next':
 
@@ -186,11 +200,13 @@ socketEvents = function(eventId, eventData) {
 
                 $('#gameContent').addClass('in-game');
 
-                if ($('#gameContent').hasClass('login')) {
+                if ($('#gameContent').hasClass('login'))
                     $('#gameContent').removeClass('login');
-                } else if ($('#gameContent').hasClass('player-grid')) {
+                else if ($('#gameContent').hasClass('player-grid'))
                     $('#gameContent').removeClass('player-grid');
-                }
+
+                // Add 'game:next' trigger to next buttons
+                $('#next').data('event', 'game:next');
 
             });
             

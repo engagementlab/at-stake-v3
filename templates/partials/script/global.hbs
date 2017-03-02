@@ -65,6 +65,7 @@
 		'players:update',
 		'player:finished',
 		'player:agenda_item',
+		'player:assignrole',
 
 		'game:error',
 		'game:tutorial',
@@ -165,8 +166,6 @@
   * @name updateGameContent
   */
 	var updateGameContent = function(content, callback, pauseAnimate) {
-
-		$('#top-header').remove();
 
 		var lobbyAnim = new TimelineLite();
 		lobbyAnim.to(gameContainer, .5, {xPercent:-100, ease:Expo.easeInOut, onComplete:function() {
