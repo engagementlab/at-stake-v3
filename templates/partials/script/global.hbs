@@ -35,7 +35,8 @@
 	// For countdown debugging
   var countdownPaused = false;
 
-  // Tracks current screen during each stage
+  // Tracks current phase index and the screen during each phase
+  var currentPhaseIndex = -1;
   var currentScreenIndex = 0;
 
 	{{!-- Group view cleanup --}}
@@ -219,13 +220,18 @@
 
 	var runMods = function() {
 
-		// Engage any template script modifiers
-		if($('span#modifier').length > 0) {
+		var modifier = $('span#modifier');
 
-			if($('span#modifier').data().hide_next) 
+		// Engage any template script modifiers
+		if(modifier.length > 0) {
+
+			if(modifier.data().hide_next) 
 		 		$('#btn-next').fadeOut();
 		 	else
 		 		$('#btn-next').fadeIn();
+			
+			if(modifier.data().highlight) 
+				$(modifier.data().highlight).addClass('highlight');
 	 	
 		}
 		else {
@@ -305,7 +311,7 @@
 
 	}
 
-	var setupDecider = function(deck) {
+	var setupDecider = function() {
 
     isDecider = true;
 
@@ -324,9 +330,6 @@
 	    $('#player-name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
 
 		}
-
-		if(deck)
-			$('.waiting .deck').text(deck);
 
     // Create uid for player
     playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
@@ -445,10 +448,7 @@ window.onload = function() {
 	        return;
 		    }
 
-				data.deckId = $("#decks button.active").map(function(){
-											    return $(this).val();
-											 }).get()[0];
-				var deck = $("#decks button.active").text();
+				data.deckId = $("#decks .glide__slide.active").data('id');
 				data.accessCode = gameCode;
 
 			  $.post(
@@ -458,7 +458,7 @@ window.onload = function() {
 
 						if(data.sessionCreated) {
 
-							setupDecider(deck);
+							setupDecider();
 							
 							$('#login').remove();
 

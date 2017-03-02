@@ -47,16 +47,17 @@
             {{!-- STAGES BAR --}}
             <section class="col-sm-12" id="stages-bar">
 
-                <span id="progress"></span>
+                {{!-- <div style="position:absolute; top:50%; height:10em; margin-top:-5em"> --}}
+                    <span id="progress"></span>
 
-                <img src="/images/layout/stageicons/meet.svg" />
-                <img src="/images/layout/stageicons/brainstorm.svg" />
-                <img src="/images/layout/stageicons/pitch.svg" />
-                <img src="/images/layout/stageicons/deliberate.svg" />
-                <img src="/images/layout/stageicons/grandstand.svg" />
-                <img src="/images/layout/stageicons/decide.svg" />
-                <img src="/images/layout/stageicons/score.svg" />
-
+                    <img src="/images/layout/stageicons/meet.svg" class="disabled" />
+                    <img src="/images/layout/stageicons/brainstorm.svg" class="disabled" />
+                    <img src="/images/layout/stageicons/pitch.svg" class="disabled" />
+                    <img src="/images/layout/stageicons/deliberate.svg" class="disabled" />
+                    <img src="/images/layout/stageicons/grandstand.svg" class="disabled" />
+                    <img src="/images/layout/stageicons/decide.svg" class="disabled" />
+                    <img src="/images/layout/stageicons/score.svg" class="disabled" />
+                {{!-- </div> --}}
             </section>
 
             {{!-- ROLE CARD OVERLAY --}}
@@ -121,17 +122,15 @@
             {{/ifnoteq}}
 
                 <footer id="bottom-bar" style="display:none">
-                    
-                    <div id="currency" class="col-sm-6">
-                        <div class="col-sm-3">
-                            <button id="btn-role-card">role card</button>
-                            <button id="btn-menu">menu</button>
-                        </div>
-                        <div class="col-sm-3">
+                
+                    <div class="col-sm-3">
+                        <button id="btn-role-card">role card</button>
+                        <button id="btn-menu">menu</button>
+                    </div>
+                        <div id="currency" class="col-sm-3">
                             <div id="player-coins">[coins] <span></span></div>
                             <div id="pot-coins">[pot] <span></span></div>
                         </div>
-                    </div>
                     
                 </footer>
 
