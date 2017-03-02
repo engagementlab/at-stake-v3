@@ -41,6 +41,17 @@
 	}
 
 }
+
+// Highlight/glow for any block element
+@include keyframes(highlight-pulse) {
+  0%   {box-shadow: 0 0 15px 10px $color-orange}
+	60%  {box-shadow: 0 0 0px 0px $color-orange}
+	100% {box-shadow: 0 0 15px 10px $color-orange}
+}
+.highlight {
+	@include animation('highlight-pulse 3s infinite');
+}
+
 // Players
 .player-logo {
 
@@ -190,16 +201,34 @@ input.post-button {
 
 // Upper stages bar
 #stages-bar {
+	text-align: justify;
+  line-height: 0;
+
+  &:after {
+	  content: "";
+	  width: 100%;
+	  display: inline-block;
+	  vertical-align: bottom;
+  }
+
 	img {
-		margin-left: 5%;
-		margin-right: 5%;
+    position: relative;
+	  display: inline-block;
+	  vertical-align:middle;
+		z-index: 1;
+		&.disabled {
+			@include filter(grayscale, 100%);
+		}
 	}
 	#progress {
     position: absolute;
     display: block;
+		z-index: 0;
     height: 5px;
-    width: 400px;
+    width: 0%;
+    top: 47%;
     background-color: palegoldenrod;
+    @include linear_transition(width, 0.5s);
     &:after {
     	content: "";
     }
@@ -287,4 +316,24 @@ footer#bottom-bar {
 	width: 100%;
 	bottom: 0px;
 	position: fixed;
+
+	button {
+		margin: 10px;
+		color: white;
+		width: 125px;
+	  height: 24px;
+	  padding-left: 2em;
+	  border-radius: 5px;
+	  background-color: transparent;
+  	background-repeat: no-repeat;
+	  box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
+	  border: solid 1px #ebebeb;
+
+	  &#btn-role-card {
+	  	background-image: url('/images/layout/rolecard-icon.svg');
+	  }
+	  &#btn-menu {
+	  	background-image: url('/images/layout/menu-icon.jpg');
+	  }
+	}
 }

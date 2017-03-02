@@ -171,7 +171,20 @@ var checkIfLoggedIn = function() {
 
 }
 
-var nextStageStep = function() {
+var nextPhase = function() {
+
+    currentPhaseIndex++; 
+
+    // Update progress bar
+    $('#stages-bar #progress').css('width', (currentPhaseIndex * 17 ) + '%');
+
+    // Change phase icon status
+    $('#stages-bar img:eq('+currentPhaseIndex+')').removeClass('disabled');
+    $('#stages-bar img:not(:eq('+currentPhaseIndex+'))').addClass('disabled');
+
+}
+
+var nextPhaseScreen = function() {
     
     currentScreenIndex++;
     $($('.screen')[0]).remove();

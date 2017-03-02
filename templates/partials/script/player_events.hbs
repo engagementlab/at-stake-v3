@@ -192,6 +192,7 @@ socketEvents = function(eventId, eventData) {
             updateGameContent(eventData, function() {
 
                 rulesAnim();
+                nextPhase();
 
                 // Reset screen index
                 currentScreenIndex = 0;
@@ -211,7 +212,7 @@ socketEvents = function(eventId, eventData) {
                 // Add 'game:next' trigger to next buttons
                 $('#next').data('event', 'game:next');
                 $('.next-step').click(function(evt) {
-                    nextStageStep();
+                    nextPhaseScreen();
                 });
 
                 // Show initial

@@ -14,6 +14,10 @@
 			"path": "templates/partials"
 		},
 		{
+			"name": "Routes",
+			"path": "routes"
+		},
+		{
 			"name": "Views",
 			"path": "templates/views"
 		},
