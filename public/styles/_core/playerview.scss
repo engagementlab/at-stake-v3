@@ -169,6 +169,24 @@ input.post-button {
 	color: white;
 }
 
+// Upper stages bar
+#stages-bar {
+	img {
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+	#progress {
+    position: absolute;
+    display: block;
+    height: 5px;
+    width: 400px;
+    background-color: palegoldenrod;
+    &:after {
+    	content: "";
+    }
+	}
+}
+
 // Player role card
 #role-card {
 	position: absolute;

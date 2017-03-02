@@ -1,6 +1,6 @@
 <div id="meet">
 
-	<div class="one">
+	<div class="screen initial">
 		
 		<section class="instruction decider">
 			<h1>read the text in the blue box outloud</h1>
@@ -14,7 +14,7 @@
 
 		<blockquote class="speech decider form">
         <p>"Everyone open your role card using the button at the bottom of your screen and review your character role. You will be playing from this character's perspective this round."</p>
-			<button id="next" class="submit">next</button>
+			<button class="next-step submit">next</button>
     </blockquote>
 		<blockquote class="speech player">
 			<p>"Everyone open your role card using the button at the bottom of your screen and review your character role. You will be playing from this character's perspective this round."</p>
@@ -22,25 +22,70 @@
 
 	</div>
 
-{{!-- 	<div class="two">
+	{{!-- ROLE CARDS --}}
+	<div class="screen">
 		
-		<section id="instruction" class="decider">
+		<section class="instruction decider">
 			<h1>read the text in the blue box outloud</h1>
 			<div>Once you have finished speaking the instructions to other players, press next to continue</div>
 		</section>
-		<section id="instruction" class="player">
+		<section class="instruction player">
 			<h1>Open your Role Card and review your role</h1>
 			<div>Press the Role Card buton on the bottom of the screen to review your title and bio.</div>
 		</section>
 
-		<div class="speech" class="decider">
+		<div class="speech decider form">
 			"Everyone open your role card using the button at the bottom of your screen and review your character role. You will be playing from this character's perspective this round."
-			<button id="next">next</button>
+			<button class="next-step submit">next</button>
 		</div>
-		<div class="speech" class="player">
+		<div class="speech player">
 			"Everyone open your role card using the button at the bottom of your screen and review your character role. You will be playing from this character's perspective this round."
 		</div>
 
-	</div> --}}
+	</div>
+
+	{{!-- READ ROLES --}}
+	<div class="screen">
+		
+		<section class="instruction decider">
+			<h1>read the text in the blue box outloud</h1>
+			<div>Once all players have introduced themselves, press next to continue</div>
+		</section>
+		<section class="instruction player">
+			<h1>Open your Role Card and prepare to share</h1>
+			<div>On your turn, read your character role title and bio outloud to the group.</div>
+		</section>
+
+		<div class="speech decider form">
+			"One at a time, go around the table introducing yourself by reading your character role title and short bio. Do not read your hidden agenda items outloud!"
+			<button class="next-step submit">next</button>
+		</div>
+		<div class="speech player">
+			"One at a time, go around the table introducing yourself by reading your character role title and short bio. Do not read your hidden agenda items outloud!"
+		</div>
+
+	</div>
+
+	{{!-- AGENDA ITEMS --}}
+	<div class="screen">
+		
+		<section class="instruction decider">
+			<h1>read the text in the blue box outloud</h1>
+			<div>Once everyone has had enough time to review their hidden agenda items, press next to continue.</div>
+		</section>
+		<section class="instruction player">
+			<h1>Review your Hidden Agenda items</h1>
+			<div>At the bottom of your role card are your hidden agenda items. Secretly review them now.</div>
+		</section>
+
+		<div class="speech decider form">
+			"Now everyone quietly review your hidden agenda items at the bottom of your role card. You’ll earn coins if they are included in the winning proposal. Keep them secret!"
+			<button id="next" class="submit">next</button>
+		</div>
+		<div class="speech player">
+			"Now everyone quietly review your hidden agenda items at the bottom of your role card. You’ll earn coins if they are included in the winning proposal. Keep them secret!"
+		</div>
+
+	</div>
 
 </div>

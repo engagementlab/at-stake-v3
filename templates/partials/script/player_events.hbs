@@ -193,6 +193,9 @@ socketEvents = function(eventId, eventData) {
 
                 rulesAnim();
 
+                // Reset screen index
+                currentScreenIndex = 0;
+
                 if(isDecider)
                     $('.player').remove();
                 else
@@ -207,6 +210,12 @@ socketEvents = function(eventId, eventData) {
 
                 // Add 'game:next' trigger to next buttons
                 $('#next').data('event', 'game:next');
+                $('.next-step').click(function(evt) {
+                    nextStageStep();
+                });
+
+                // Show initial
+                $('.screen.initial').show();
 
             });
             

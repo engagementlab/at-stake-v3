@@ -49,7 +49,6 @@ $(document).ready(function() {
 // Tap away any errors
 $(document).on('click touchstart', 'div.error', function() {
     $(this).hide();
-    console.log("error tap away player logic");
 });
 
 // Do not enable sound for emulated (debug) player
@@ -169,6 +168,14 @@ var checkIfLoggedIn = function() {
         socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
         registerEvents();
     }
+
+}
+
+var nextStageStep = function() {
+    
+    currentScreenIndex++;
+    $($('.screen')[0]).remove();
+    $($('.screen')[0]).show();
 
 }
 

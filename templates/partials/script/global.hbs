@@ -35,6 +35,9 @@
 	// For countdown debugging
   var countdownPaused = false;
 
+  // Tracks current screen during each stage
+  var currentScreenIndex = 0;
+
 	{{!-- Group view cleanup --}}
 	{{#ifeq viewType 'group'}}
 	    $('.body').addClass('game-bg group');
