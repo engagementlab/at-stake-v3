@@ -79,6 +79,12 @@
 
 	input.game_login {
 		background-color: $color-orange;
+		width: 160px;
+	  height: 48px;
+	  box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
+	  border: solid 1px #ebebeb;
+	  padding: 0px;
+	  font-size: 24px;
 	}
 
 	.input-container {
