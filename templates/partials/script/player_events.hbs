@@ -66,6 +66,7 @@ socketEvents = function(eventId, eventData) {
 
             $('#gameContent').addClass('player-grid');
 
+
             $('.login.form').fadeOut(function() { $('.login.waiting').fadeIn(); });
             
             break;
@@ -180,6 +181,10 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:start':
         case 'game:next':
+
+        {{!-- if (!($('#stages-bar'))) { --}}
+        $('#stages-bar').show();
+        {{!-- } --}}
 
             sessionStorage.setItem('gameCode', gameCode);
 
