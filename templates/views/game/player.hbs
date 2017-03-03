@@ -42,7 +42,7 @@
 
     </div>
 
-    <button class="back-button" data-from="choices" data-to="name">back</button>
+    <button class="back-button" data-from="choices" data-to="name">BACK</button>
   </div>
 
   {{!-- JOIN GAME --}}
@@ -50,9 +50,10 @@
 
     <div class="login input">
       <input type="text" id="access_code" placeholder="Type your room code here" maxlength="4"> <br />
+      <p class="light">Type your name and hit the play button to begin!</p>
       <div class="error">Error!</div>
 
-      <button class="back-button" data-from="join" data-to="choices">back</button>
+      <button class="back-button" data-from="join" data-to="choices">BACK</button>
       <input id="btn_submit_code"  data-event="game:entry" data-package='{"code": "#access_code", "name": "#player-name"}' class="btn btn-default game_login" type="submit" name="submit" value="PLAY">
     </div>
 
@@ -75,8 +76,8 @@
       </section>
       
       <div class="error">Error!</div>
-      <button class="back-button" data-from="new" data-to="choices">back</button>
-      <input id="btn_submit" class="button_text game_login" type="submit" name="submit" value="Start!">
+      <button class="back-button" data-from="new" data-to="choices">BACK</button>
+      <input id="btn_submit" class="button_text game_login" type="submit" name="submit" value="START">
     </div>
 
     <div class="waiting" style="display:none">
@@ -99,8 +100,8 @@
       </div>
 
       <div class="form row" id="start">
-        <input id="btn-start-game" data-event="game:start" class="{{!-- post-button  --}}submit" type="submit" name="submit" value="start">
-        <button class="back-button" data-from="choices" data-to="name">back</button>
+        <input id="btn-start-game" data-event="game:start" class="{{!-- post-button  --}}submit" type="submit" name="submit" value="START">
+        <button class="back-button" data-from="choices" data-to="name">BACK</button>
       </div>
     </div>
   </div>

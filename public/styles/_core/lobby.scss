@@ -15,8 +15,11 @@
 	// Lobby game screens
 	.lobby {
 		&:not(#decider) {
-			width: 100%;
+			width: 90%;
 		  height: 370px;
+		  position: fixed;
+		  bottom: 20px;
+		  left: 5%;
 		  border-radius: 5px;
 		  background-color: #00dcba;
 		  box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.25);
@@ -24,18 +27,25 @@
 		}
 		&#decider {
 			background-color: #00dcba;
+
+			.waiting {
+				width: 90%;
+				margin: 5% auto;
+			}
 		}
 
 		// Show back button on login screen
 		.back-button {
 			display: block;
-			position: absolute;
+			position: fixed;
 			left: 0;
 			bottom: 0;
-			margin: 10px;
+			margin: 30px;
 			color: white;
 			width: 96px;
+			min-width: 0px;
 		  height: 24px;
+		  min-height: 0px;
 		  border-radius: 5px;
 		  background-color: transparent;
 		  box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
@@ -187,6 +197,61 @@
 		}
 	}
 
+	#join.lobby {
+
+		#access_code {
+			height: 48px;
+			width: 95%;
+			margin: 2.5%;
+		  border-radius: 2px;
+		  background-color: #d8d8d8;
+		  box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.2);
+		  border: solid 1px #949494;
+		  -webkit-text-stroke: 1px #ebebeb;
+
+		  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			  font-size:14px;
+			  text-align: center;
+			  height: 48px;
+			  padding:0px;
+			  line-height: 14px;
+			}
+			&::-moz-placeholder { /* Firefox 19+ */
+			  font-size: 14px;
+			  text-align: center;
+			  height: 48px;
+			  line-height: 1.13em;
+			}
+			&:-ms-input-placeholder { /* IE 10+ */
+			  font-size: 14px;
+			  text-align: center;
+			  height: 48px;
+			  line-height: 1.13em;
+			}
+			&:-moz-placeholder { /* Firefox 18- */
+			  font-size: 14px;
+			  text-align: center;
+			  height: 48px;
+			  line-height: 1.13em;
+			}
+		}
+
+		#btn_submit_code {
+			background-color:red;
+			color: white;
+			border: 0px;
+			height:48px;
+			width: 160px;
+			padding:0px;
+			font-size: 24px;
+			margin-bottom: 100px;
+			border: 0.5px solid white;
+			position:relative;
+		}
+
+
+	}
+
 	// Deck selection
 	.create {
 
@@ -197,6 +262,7 @@
 		#decks {
 			width: 100%;
 			visibility: hidden;
+			margin-top: 10%;
 
 			button {
 				color: $color-turquoise;
@@ -242,7 +308,8 @@
 					  color: white;
 
 					  :not(.num) {
-					  	margin: 4px 12px 4px 44px;
+					  	margin: 2px 12px 2px 44px;
+					  	line-height: 16px;
 					  }
 					  
 					  .num {
