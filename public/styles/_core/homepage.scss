@@ -4,6 +4,7 @@
 p {
 	font-family: $body-type;
 	color: $type-black;
+	text-justify: distribute;
 }
 
 h3 {
@@ -31,6 +32,16 @@ h5 {
 		padding: 30px 40px;
 		margin: 0;
 
+		@media (min-width: 1350px){
+			padding: 35px 95px;
+		}
+		@media (min-width: 1650px){
+			padding: 30px 220px;
+		}
+		@media (min-width: 1950px){
+			padding: 30px 270px;
+		}
+
 		&.top{
 			background-color: $light-mint;
 			min-height: 350px;
@@ -42,7 +53,7 @@ h5 {
 		}
 		&.feature{
 			background-color: $dark-blue;
-			padding: 30px 40px;
+			padding: 30px 70px;
 			border-bottom: solid 20px $light-blue;
 		}
 		&.flow-play{
@@ -73,6 +84,11 @@ h5 {
 			text-align: center;
 			margin: 0 auto;
 			margin-top: 50px;
+			overflow: auto;
+
+			@media(max-width: 383px){
+				font-size: .8em;
+			}
 		}
 
 		.whats{
@@ -114,6 +130,13 @@ h5 {
 			font-family: $sub-header-type;
 			font-size: 1.25em;
 			border: solid white 4px;
+		
+			@media(max-width: 516px){
+				height: 95px;
+			}
+			@media(max-width: 290px){
+				height: 110px;
+			}
 		}
 
 
@@ -124,6 +147,10 @@ h5 {
 	.showcaseImage{
 		margin: 0 auto;
 		display: table;
+
+		@media(max-width: 425px){
+			height: 175px;
+		}
 	}
 
 	.game-pitch{
@@ -190,7 +217,7 @@ h5 {
 			.feature-one-text{
 				p{
 					color: $type-blue;
-					text-align-last: center;
+					text-align-last: left;
 				}
 			}
 		}
@@ -209,7 +236,7 @@ h5 {
 			.feature-two-text{
 				p{
 					color: $type-blue;
-					text-align-last: center;
+					text-align-last: left;
 				}
 			}
 		}
@@ -227,7 +254,7 @@ h5 {
 			.feature-three-text{
 				p{
 					color: $type-blue;
-					text-align-last: center;
+					text-align-last: left;
 				}
 			}
 		}
