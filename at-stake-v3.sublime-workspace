@@ -4,6 +4,66 @@
 		"selected_items":
 		[
 			[
+				"back",
+				"background-repeat"
+			],
+			[
+				"bac",
+				"background-image"
+			],
+			[
+				"role",
+				"role-card"
+			],
+			[
+				"high",
+				"highlight-pulse"
+			],
+			[
+				"color",
+				"color-orange"
+			],
+			[
+				"curr",
+				"currentPhaseIndex"
+			],
+			[
+				"stg",
+				"stages-bar"
+			],
+			[
+				"remo",
+				"remove"
+			],
+			[
+				"sock",
+				"socket"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"logi",
+				"loginAnim"
+			],
+			[
+				"max",
+				"maxlength\tAttr"
+			],
+			[
+				"logine",
+				"loginNewGame"
+			],
+			[
+				"log",
+				"loginAnim"
+			],
+			[
 				"col",
 				"col-sm-3"
 			],
@@ -86,10 +146,6 @@
 			[
 				"get",
 				"GetActivePlayers"
-			],
-			[
-				"curr",
-				"currentScreenIndex"
 			],
 			[
 				"cure",
@@ -236,10 +292,6 @@
 				"groupSocket"
 			],
 			[
-				"sock",
-				"socket_id"
-			],
-			[
 				"current",
 				"_current_winner"
 			],
@@ -254,10 +306,6 @@
 			[
 				"prior",
 				"prior_roles"
-			],
-			[
-				"role",
-				"roleIndex"
 			],
 			[
 				"_ac",
@@ -372,10 +420,6 @@
 				"return"
 			],
 			[
-				"color",
-				"color-dark-orange"
-			],
-			[
 				"fn",
 				"font-size"
 			],
@@ -470,105 +514,16 @@
 			[
 				"env",
 				"environment"
-			],
-			[
-				"coun",
-				"countdownPaused"
-			],
-			[
-				"_co",
-				"_countdown_paused"
-			],
-			[
-				"tim",
-				"timingOffset"
-			],
-			[
-				"timi",
-				"timingOffset"
-			],
-			[
-				"dot",
-				"dots"
-			],
-			[
-				"text",
-				"texts"
-			],
-			[
-				"firs",
-				"firstText"
-			],
-			[
-				"bac",
-				"background-color"
-			],
-			[
-				"playerso",
-				"playerSocketId"
-			],
-			[
-				"WIKI",
-				"wiki"
-			],
-			[
-				"gro",
-				"groupSocket"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "templates/views/game/player.hbs",
+			"file": "templates/partials/script/player_events.hbs",
 			"settings":
 			{
-				"buffer_size": 3436,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/partials/decider/decks.hbs",
-			"settings":
-			{
-				"buffer_size": 447,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "routes/api/gamesession.js",
-			"settings":
-			{
-				"buffer_size": 2574,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/styles/core.scss",
-			"settings":
-			{
-				"buffer_size": 2916,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 1345 files for \"Deck\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/@StakeMockups_Jordan_V1_1.9.16.sketch:\n    <binary>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/@StakeMockups_Jordan_V1_1.9.16_Erica_v1.sketch:\n    <binary>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n   74  \n   75              var GameConfig = this.keystone.list('GameConfig').model;\n   76:             var Deck = this.keystone.list('Deck').model;\n   77  \n   78              this.assignedRoleIndices = [];\n   ..\n   98                  }\n   99              });\n  100:             var queryDeck = Deck.findById(gameSession.deckId).populate('roles');\n  101  \n  102              // Get data about this session's deck\n  103:             queryDeck.exec((err, deckData) => {\n  104  \n  105                  this._deck_data = deckData;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/models/Deck.js:\n    2   * @Stake v3\n    3   * \n    4:  * Deck Model\n    5   * @module models\n    6:  * @class Deck\n    7   * @author Johnny Richardson\n    8   * \n    .\n   15  \n   16  /**\n   17:  * Deck Model\n   18   * ==========\n   19   */\n   20: var Deck = new keystone.List('Deck', {\n   21      track: true\n   22  });\n   ..\n   24  /**\n   25   * Model Fields\n   26:  * @main Deck\n   27   */\n   28: Deck.add({\n   29  \n   30  \tname: { type: String, required: true, initial: true },\n   ..\n   44  \n   45  \n   46: Deck.schema.pre('save', function(next) {\n   47    \n   48    this.dateCreated = new Date();\n   ..\n   52  });\n   53  \n   54: Deck.defaultColumns = 'name, description';\n   55  \n   56  /**\n   57   * Registration\n   58   */\n   59: Deck.register();\n   60: exports = module.exports = Deck;\n   61  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/routes/api/gamesession.js:\n   22      Game = require(appRoot + '/lib/GameManager'),\n   23      Session = require('learning-games-core').SessionManager,\n   24:     Deck = keystone.list('Deck');\n   25  \n   26  /**\n   ..\n   38      // Check if deck id specified\n   39      if(!data.deckId)        \n   40:         return res.apiError('Deck not specified!');  \n   41  \n   42      session = new GameSession.model();\n   ..\n   81  \n   82          // Get all decks\n   83:         Deck.model.find({}, function (err, decks) {\n   84              \n   85              var Templates = new TemplateLoader();\n\n/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/game.js:\n   18    Game = require(appRoot + '/lib/GameManager'),\n   19    GameSession = keystone.list('GameSession'),\n   20:   Deck = keystone.list('Deck');\n   21  \n   22  var GameManager = require(appRoot + '/lib/GameManager'), \n\n24 matches across 6 files\n",
-			"settings":
-			{
-				"buffer_size": 2650,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "public/styles/_core/playerview.scss",
-			"settings":
-			{
-				"buffer_size": 3502,
+				"buffer_size": 10282,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -577,7 +532,60 @@
 			"file": "templates/partials/script/player_logic.hbs",
 			"settings":
 			{
-				"buffer_size": 10892,
+				"buffer_size": 10523,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/layouts/base.hbs",
+			"settings":
+			{
+				"buffer_size": 6621,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 1361 files for \"stages-bar\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/playerview.scss:\n  182  \n  183  // Upper stages bar\n  184: #stages-bar {\n  185  \ttext-align: justify;\n  186    line-height: 0;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css:\n  476    color: white; }\n  477  \n  478: #stages-bar {\n  479    text-align: justify;\n  480    line-height: 0; }\n  481:   #stages-bar:after {\n  482      content: \"\";\n  483      width: 100%;\n  484      display: inline-block;\n  485      vertical-align: bottom; }\n  486:   #stages-bar img {\n  487      position: relative;\n  488      display: inline-block;\n  489      vertical-align: middle;\n  490      z-index: 1; }\n  491:     #stages-bar img.disabled {\n  492        -webkit-filter: grayscale(100%);\n  493        -moz-filter: grayscale(100%);\n  ...\n  495        -o-filter: grayscale(100%);\n  496        filter: grayscale(100%); }\n  497:   #stages-bar #progress {\n  498      position: absolute;\n  499      display: block;\n  ...\n  508      -o-transition: width 0.5s linear;\n  509      transition: width 0.5s linear; }\n  510:     #stages-bar #progress:after {\n  511        content: \"\"; }\n  512  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs:\n   46  \n   47              {{!-- STAGES BAR --}}\n   48:             <section class=\"col-sm-12\" id=\"stages-bar\">\n   49                      <span id=\"progress\"></span>\n   50  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n  177  \n  178      // Update progress bar\n  179:     $('#stages-bar #progress').css('width', (currentPhaseIndex * 17 ) + '%');\n  180  \n  181      // Change phase icon status\n  182:     $('#stages-bar img:eq('+currentPhaseIndex+')').removeClass('disabled');\n  183:     $('#stages-bar img:not(:eq('+currentPhaseIndex+'))').addClass('disabled');\n  184  \n  185  }\n\n11 matches across 4 files\n\n\nSearching 1361 files for \"stages-bar\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/playerview.scss:\n  182  \n  183  // Upper stages bar\n  184: #stages-bar {\n  185  \tdisplay: none;\n  186  \ttext-align: justify;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css:\n  476    color: white; }\n  477  \n  478: #stages-bar {\n  479    display: none;\n  480    text-align: justify;\n  481    line-height: 0; }\n  482:   #stages-bar:after {\n  483      content: \"\";\n  484      width: 100%;\n  485      display: inline-block;\n  486      vertical-align: bottom; }\n  487:   #stages-bar img {\n  488      position: relative;\n  489      display: inline-block;\n  490      vertical-align: middle;\n  491      z-index: 1; }\n  492:     #stages-bar img.disabled {\n  493        -webkit-filter: grayscale(100%);\n  494        -moz-filter: grayscale(100%);\n  ...\n  496        -o-filter: grayscale(100%);\n  497        filter: grayscale(100%); }\n  498:   #stages-bar #progress {\n  499      position: absolute;\n  500      display: block;\n  ...\n  509      -o-transition: width 0.5s linear;\n  510      transition: width 0.5s linear; }\n  511:     #stages-bar #progress:after {\n  512        content: \"\"; }\n  513  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs:\n   46  \n   47              {{!-- STAGES BAR --}}\n   48:             <section class=\"col-sm-12\" id=\"stages-bar\">\n   49                      <span id=\"progress\"></span>\n   50  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n  177  \n  178      // Update progress bar\n  179:     $('#stages-bar #progress').css('width', (currentPhaseIndex * 17 ) + '%');\n  180  \n  181      // Change phase icon status\n  182:     $('#stages-bar img:eq('+currentPhaseIndex+')').removeClass('disabled');\n  183:     $('#stages-bar img:not(:eq('+currentPhaseIndex+'))').addClass('disabled');\n  184  \n  185  }\n\n11 matches across 4 files\n\n\nSearching 1361 files for \"cloudinaryUrl\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-workspace:\n  991  \t\t\t\"at-stake-socket\",\n  992  \t\t\t\"read\",\n  993: \t\t\t\"cloudinaryUrl\",\n  994  \t\t\t\"player-blue\",\n  995  \t\t\t\"player-logo\",\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs:\n    2  \n    3    <div id=\"login-header\">\n    4:     {{{cloudinaryUrl \"v1488383913/at-stake/layout/logo_lg.png\" width=287 color=\"#ffd461\" effect=\"colorize:100\"}}}\n    5      <p class=\"light\">A Game for Deliberative Democracy</p>\n    6    </div>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/index.hbs:\n   22    {{!-- GAME PITCH --}}\n   23    <div class=\"row pitch\">\n   24:   <div class=\"phone-pic col-md-5\"><img class=\"showcaseImage\" src=\"{{{cloudinaryUrl content.showcaseImage width=auto height=350 crop='scale' quality=100}}}\"></div>\n   25      <div class=\"game-pitch col-md-7\">\n   26        <div class=\"half-1 col-sm-12 col-centered\">\n   ..\n   41      <div class=\"game-features\">\n   42        <div class=\"feature-one col-sm-4\">\n   43:       \t<div class=\"feature-image feature-one-image\"><img src=\"{{{cloudinaryUrl content.featureOneIcon width=auto height=100 crop='scale' quality=100}}}\"></div>\n   44          <div class=\"feature-header-one\"><h3>{{{content.featureOneTitle.html}}}</h3></div>\n   45        \t<div class=\"feature-text feature-one-text\">{{{content.featureOneParagraph.html}}}</div>\n   46        </div>\n   47        <div class=\"feature-two col-sm-4\">\n   48:       \t<div class=\"feature-image feature-two-image\"><img src=\"{{{cloudinaryUrl content.featureTwoIcon width=auto height=100 crop='scale' quality=100}}}\"></div>\n   49          <div class=\"feature-header-two\"><h3>{{{content.featureTwoTitle.html}}}</h3></div>\n   50        \t<div class=\"feature-text feature-two-text\">{{{content.featureTwoParagraph.html}}}</div>\n   51        </div>\n   52        <div class=\"feature-three col-sm-4\">\n   53:         <div class=\"feature-image feature-three-image\"><img src=\"{{{cloudinaryUrl content.featureThreeIcon width=auto height=100 crop='scale' quality=100}}}\"></div>\n   54          <div class=\"feature-header-three\"><h3>{{{content.featureThreeTitle.html}}}</h3></div>  \n   55        \t<div class=\"feature-text feature-three-text\">{{{content.featureThreeParagraph.html}}}</div>\n   ..\n   63        <h3 class=\"flow-play-header\">{{{content.flowOfGameHeader.html}}}</h3>\n   64      \t<div class=\"flow-play-para\">{{{content.flowOfGameParagraph.html}}}</div>\n   65:     \t<div class=\"flow-play-pic\"><img src=\"{{{cloudinaryUrl content.flowOfGamePicture width=auto height=100 crop='scale' quality=100}}}\"></div>\n   66      </div>\n   67    </div>\n\n7 matches across 3 files\n",
+			"settings":
+			{
+				"buffer_size": 6609,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "templates/views/game/player.hbs",
+			"settings":
+			{
+				"buffer_size": 4126,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/styles/_core/playerview.scss",
+			"settings":
+			{
+				"buffer_size": 5388,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/styles/_core/mixins.scss",
+			"settings":
+			{
+				"buffer_size": 7825,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/GameLogic.js",
+			"settings":
+			{
+				"buffer_size": 18666,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -716,46 +724,53 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core",
-		"/Users/Johnny/Documents/Projects/at-stake-v3",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/bower_components",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts",
-		"/Users/Johnny/Documents/Projects/learning-games-core/lib"
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game"
 	],
 	"file_history":
 	[
-		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/models/Deck.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss",
-		"/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/lobby.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/meet.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/decks.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-project",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/playerview.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/variables.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/rolecard.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/models/Role.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/agenda_item.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/agenda_item.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/think.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_animation.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/development.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/production.hbs",
+		"/Users/Johnny/Documents/Projects/el-web-sdk/app.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/app.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/game.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/play.js",
+		"/Users/Johnny/Documents/Projects/website-template/templates/helpers/index.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/index.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js",
+		"/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/css.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt/uglify.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt/cssmin.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api/gamesession.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/models/Deck.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/game.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/player.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/game.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/forms.scss",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/app.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/fonts.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/homepage.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/deploy.json",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt/uglify.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/variables.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/config.json",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/app-root-path/lib/resolve.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/package.json",
@@ -763,17 +778,13 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api/templates.js",
 		"/Users/Johnny/Documents/Projects/learning-games-core/app.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/models/User.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/index.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/keystone/index.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/app-root-path/index.js",
 		"/Users/Johnny/Documents/Projects/el-web-sdk/.env",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/mobile.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/production.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/.bowerrc",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/development.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/index.js",
 		"/Users/Johnny/Documents/Projects/el-web-sdk/node_modules/grunt-execute/tasks/execute.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/play.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameManager.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameType.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/SessionManager.js",
@@ -782,12 +793,10 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/js/events/group/wikigeeks.js.orig",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_events.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_animation.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/errors/404.hbs",
 		"/Users/Johnny/Documents/Projects/learning-games-core/lib/SessionManager.js",
 		"/Users/Johnny/Documents/Projects/learning-games-core/lib/ShuffleUtil.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Coins.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/think.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/game.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/waiting.hbs",
@@ -796,25 +805,20 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/index.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/rules.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/agenda_item.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/deliberate.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/decide.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/pitch.hbs",
 		"/Users/Johnny/Documents/Projects/ansible-nginx/roles/nginx/tasks/main.yml",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/css.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/bio.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/roles.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/scoreboard.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/winner.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-project",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/agenda.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/agenda_item_instructions.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/deliberate_instructions.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/question.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/think_instructions.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api/gamesession.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/pitch.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/agenda_item.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_logic.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/deliberate.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/decide.hbs",
@@ -823,8 +827,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers/index.js",
 		"/Users/Johnny/Downloads/Examples/Instrumentality/Instrumentality_Start.html",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/agenda.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/think.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/models/Role.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/agenda_item_instructions.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/deliberate_instructions.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/round_instructions.hbs",
@@ -855,14 +857,7 @@
 		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/views/game/player.hbs",
 		"/Users/Johnny/Documents/Projects/emerging-citizens/config.json",
 		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/wiki/results.hbs",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/_core/variables.scss",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/player/wiki/results.hbs",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/wiki/article.hbs",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/wiki/monitor.hbs",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/group/htyi/monitor.hbs",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/script/groupview_events.hbs",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/public/js/events/group/htyi.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/layouts/base.hbs"
+		"/Users/Johnny/Documents/Projects/emerging-citizens/public/styles/_core/variables.scss"
 	],
 	"find":
 	{
@@ -962,6 +957,97 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"cloudinaryUrl",
+			"stages-bar",
+			"bottom-bar",
+			"back-button",
+			"orange",
+			"runMods =",
+			"modifier",
+			"runMods",
+			"setupDecider",
+			"{{@",
+			"{{@key}}",
+			"#btn_submit",
+			"gray",
+			"transition(",
+			";\n",
+			"'game:next'",
+			"wait",
+			"login-header",
+			"AssignRoleToPlayer",
+			"agendaItems",
+			"bottom-bar",
+			"-coins",
+			"gameContainer",
+			".decider",
+			"loginEnterName",
+			"sfxPath",
+			"game:next",
+			"btn-next",
+			"game:next",
+			"#gameContent",
+			"btn-start-game",
+			"socket = ",
+			"at-stake-socket",
+			"read",
+			"cloudinaryUrl",
+			"player-blue",
+			"player-logo",
+			"players:update",
+			"back-button",
+			"btn_submit",
+			"margin-bottom: 40px;",
+			"back-button",
+			"padding: 7",
+			"loginNewGame",
+			"#decks",
+			"#decider",
+			"btn_submit",
+			">\n",
+			"submission",
+			"wait",
+			"player-one-logo",
+			"#share",
+			"#login-header",
+			"#description",
+			"100",
+			"socket.io.js",
+			"{{cloudinary",
+			"socket.io.js",
+			"socketHost",
+			".host",
+			"{{host}}",
+			"eventHandlersAtStake",
+			"io('",
+			"io(",
+			"eventHandlers",
+			"player:loggedin",
+			"SessionManager",
+			"state",
+			"revese",
+			"loginGoBack(",
+			"sessionStorage",
+			"btn_new_game",
+			"btn_join_game",
+			"SaveState",
+			"_game_in_session",
+			"btn_new_game",
+			"join",
+			"#join",
+			"loginPlayerChoices",
+			");\n",
+			"player-name",
+			"playerEntry",
+			"TweenMax",
+			"Tween",
+			"Timeline",
+			"#name",
+			"btn_submit_name",
+			"lobby-back",
+			"#decks",
+			"setTimeout",
+			"decider",
 			"Deck",
 			"Deck.model",
 			"#gameContent",
@@ -998,98 +1084,7 @@
 			"/login",
 			"btn_submit_code",
 			"btn_submit",
-			"submission",
-			"player-name",
-			"row waiting",
-			"setupDecider",
-			"game-preloaded",
-			"playerLogin",
-			"login:submit",
-			"PlayerReady",
-			"/login",
-			"btn_submit_name",
-			"#player_name",
-			"player_name",
-			"player-name",
-			"btn_new_game",
-			"lobby-back",
-			".lobby",
-			"btn_submit",
-			"font-si",
-			"border-radius",
-			"Democracy",
-			"#login-header ",
-			"form login",
-			"homeContent",
-			"homepage",
-			";\n",
-			"serverStart",
-			"'module root'",
-			"mobileDetect",
-			"isApple",
-			"localStorage",
-			"isApple",
-			"localStorage",
-			"localhost:3000",
-			"http://localhost:3000/js/jquery/jquery-2.1.4.js",
-			".getScript",
-			"GetData",
-			"#btn_new_game",
-			"game-bg",
-			"btn_new_game",
-			"* Developed by Engagement Lab, 2016",
-			"* Emerging Citizens",
-			"btn-next",
-			"runMods",
-			"in-game",
-			"bottom-bar",
-			"section {",
-			".reverse",
-			"debug",
-			"fromTo",
-			"decider-controls",
-			"/login",
-			"btn-start-game",
-			"decider/game",
-			"decider/index",
-			"btn-start-game",
-			"waiting for",
-			"StartGame",
-			"col-lg-6",
-			"centered",
-			".submission",
-			"width: 70%;",
-			"width: 70%; */",
-			"game_login",
-			".login",
-			"max-width: 100%",
-			".form ",
-			".form input",
-			"container-fluid",
-			"#gameContent",
-			"#login-header",
-			"_ = ",
-			"game:turn_done",
-			"PlayerTurnDone",
-			"game:player_done",
-			"btn-next-player",
-			"StartTimer",
-			"game:start_timer",
-			"btn-time",
-			"btn-next",
-			"isActive",
-			"more-time",
-			"game:countdown_end",
-			"runMod",
-			"bio",
-			"scoreboard",
-			"_.mapObject",
-			"#btn-next",
-			"rulesAni",
-			"rulesAnim",
-			"updateGame",
-			"socket = io",
-			"socketHost"
+			"submission"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1097,6 +1092,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"eventHandlers",
+			"eventHandlersAtStake",
 			"this.GetConfig()",
 			"#player-name",
 			"* Developed by Engagement Lab, 2016-2017",
@@ -1222,9 +1219,7 @@
 			"href=\"public/",
 			"<link href=\"public/",
 			"@include",
-			"> people/person",
-			"person",
-			""
+			"> people/person"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1235,24 +1230,272 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "templates/views/game/player.hbs",
+					"file": "templates/partials/script/player_events.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3436,
+						"buffer_size": 10282,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2685,
-								2685
+								5523,
+								5523
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2736.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "templates/partials/script/player_logic.hbs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10523,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4733,
+								4747
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1413.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "templates/layouts/base.hbs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6621,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1644,
+								1634
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 740.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6609,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										181,
+										191
+									],
+									[
+										359,
+										369
+									],
+									[
+										439,
+										449
+									],
+									[
+										587,
+										597
+									],
+									[
+										741,
+										751
+									],
+									[
+										953,
+										963
+									],
+									[
+										1141,
+										1151
+									],
+									[
+										1379,
+										1389
+									],
+									[
+										1602,
+										1612
+									],
+									[
+										1734,
+										1744
+									],
+									[
+										1817,
+										1827
+									],
+									[
+										2115,
+										2125
+									],
+									[
+										2291,
+										2301
+									],
+									[
+										2395,
+										2405
+									],
+									[
+										2543,
+										2553
+									],
+									[
+										2697,
+										2707
+									],
+									[
+										2909,
+										2919
+									],
+									[
+										3097,
+										3107
+									],
+									[
+										3335,
+										3345
+									],
+									[
+										3558,
+										3568
+									],
+									[
+										3690,
+										3700
+									],
+									[
+										3773,
+										3783
+									],
+									[
+										4083,
+										4096
+									],
+									[
+										4283,
+										4296
+									],
+									[
+										4685,
+										4698
+									],
+									[
+										5046,
+										5059
+									],
+									[
+										5480,
+										5493
+									],
+									[
+										5919,
+										5932
+									],
+									[
+										6451,
+										6464
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								4389,
+								4280
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 3,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2125.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "templates/views/game/player.hbs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4126,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3065,
+								3076
 							]
 						],
 						"settings":
@@ -1262,226 +1505,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 702.0,
+						"translation.y": 926.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "templates/partials/decider/decks.hbs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 447,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								311,
-								311
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "routes/api/gamesession.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2574,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2437,
-								2437
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 879.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "public/styles/core.scss",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2916,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								2916
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2912.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2650,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										422,
-										426
-									],
-									[
-										449,
-										453
-									],
-									[
-										603,
-										607
-									],
-									[
-										610,
-										614
-									],
-									[
-										752,
-										756
-									],
-									[
-										945,
-										949
-									],
-									[
-										998,
-										1002
-									],
-									[
-										1085,
-										1089
-									],
-									[
-										1139,
-										1143
-									],
-									[
-										1165,
-										1169
-									],
-									[
-										1264,
-										1268
-									],
-									[
-										1287,
-										1291
-									],
-									[
-										1398,
-										1402
-									],
-									[
-										1521,
-										1525
-									],
-									[
-										1624,
-										1628
-									],
-									[
-										1675,
-										1679
-									],
-									[
-										1898,
-										1902
-									],
-									[
-										1920,
-										1924
-									],
-									[
-										2066,
-										2070
-									],
-									[
-										2206,
-										2210
-									],
-									[
-										2520,
-										2524
-									],
-									[
-										2542,
-										2546
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								643,
-								661
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 79.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1490,15 +1517,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3502,
+						"buffer_size": 5388,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								69,
-								69
+								2761,
+								2761
 							]
 						],
 						"settings":
@@ -1507,27 +1534,57 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2308.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "templates/partials/script/player_logic.hbs",
+					"file": "public/styles/_core/mixins.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10892,
+						"buffer_size": 7825,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8063,
-								8001
+								5283,
+								5293
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2843.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "lib/GameLogic.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18666,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10722,
+								10722
 							]
 						],
 						"settings":
@@ -1537,10 +1594,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4726.0,
+						"translation.y": 5661.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -1607,16 +1664,92 @@
 		"selected_items":
 		[
 			[
+				"player",
+				"Views/game/player.hbs"
+			],
+			[
+				"mixins",
+				"Styles/_core/mixins.scss"
+			],
+			[
+				"playeri",
+				"Styles/_core/playerview.scss"
+			],
+			[
+				"decks",
+				"Partials/decider/decks.hbs"
+			],
+			[
+				"glob",
+				"Partials/script/global.hbs"
+			],
+			[
+				"gl",
+				"Partials/script/global.hbs"
+			],
+			[
+				"player_e",
+				"Partials/script/player_events.hbs"
+			],
+			[
+				"va",
+				"Styles/_core/variables.scss"
+			],
+			[
+				"playervi",
+				"Styles/_core/playerview.scss"
+			],
+			[
+				"bas",
+				"All/templates/layouts/base.hbs"
+			],
+			[
+				"players.",
+				"Views/game/player.hbs"
+			],
+			[
+				"lobb",
+				"Styles/_core/lobby.scss"
+			],
+			[
+				"dev",
+				"Partials/script/development.hbs"
+			],
+			[
+				"prod",
+				"Partials/script/production.hbs"
+			],
+			[
+				"varia",
+				"Styles/_core/variables.scss"
+			],
+			[
+				"layerani",
+				"Partials/script/player_animation.hbs"
+			],
+			[
+				"produc",
+				"Partials/script/production.hbs"
+			],
+			[
+				"css",
+				"Partials/css.hbs"
+			],
+			[
+				"devel",
+				"Partials/script/development.hbs"
+			],
+			[
+				"develop",
+				"Partials/script/development.hbs"
+			],
+			[
 				"playerlog",
 				"All/sockets/handlers/PlayerLogin.js"
 			],
 			[
 				"playerlogi",
 				"All/sockets/handlers/PlayerLogin.js"
-			],
-			[
-				"player",
-				"Partials/script/player_events.hbs"
 			],
 			[
 				"player_logic",
@@ -1651,10 +1784,6 @@
 				"Library/GameLogic.js"
 			],
 			[
-				"player_e",
-				"Partials/script/player_events.hbs"
-			],
-			[
 				"player_lo",
 				"Partials/script/player_logic.hbs"
 			],
@@ -1669,10 +1798,6 @@
 			[
 				"coin",
 				"at-stake-v3/lib/Coins.js"
-			],
-			[
-				"glob",
-				"at-stake-v3/templates/partials/script/global.hbs"
 			],
 			[
 				"ommo",
@@ -1735,10 +1860,6 @@
 				"at-stake-v3/templates/partials/script/global.hbs"
 			],
 			[
-				"develop",
-				"at-stake-v3/templates/partials/script/development.hbs"
-			],
-			[
 				"player_",
 				"at-stake-v3/templates/partials/script/player_events.hbs"
 			],
@@ -1791,10 +1912,6 @@
 				"public/js/events/group/htyi.js"
 			],
 			[
-				"varia",
-				"public/styles/_core/variables.scss"
-			],
-			[
 				"glo",
 				"templates/partials/script/global.hbs"
 			],
@@ -1823,16 +1940,8 @@
 				"templates/partials/script/development.hbs"
 			],
 			[
-				"gl",
-				"templates/partials/script/global.hbs"
-			],
-			[
 				"groupv",
 				"templates/partials/script/groupview_events.hbs"
-			],
-			[
-				"devel",
-				"templates/partials/script/development.hbs"
 			],
 			[
 				"commo",
@@ -1927,10 +2036,6 @@
 				"public/bower_components/nosleep/NoSleep.js"
 			],
 			[
-				"prod",
-				"templates/partials/script/production.hbs"
-			],
-			[
 				"develo",
 				"templates/partials/script/development.hbs"
 			],
@@ -1951,10 +2056,6 @@
 				"templates/views/index.hbs"
 			],
 			[
-				"mixins",
-				"public/styles/core/mixins.scss"
-			],
-			[
 				"homep",
 				"public/styles/core/homepage.scss"
 			],
@@ -1969,10 +2070,6 @@
 			[
 				"core.cs",
 				"public/styles/core.scss"
-			],
-			[
-				"produc",
-				"templates/partials/script/production.hbs"
 			],
 			[
 				"cors.js",
@@ -2077,46 +2174,6 @@
 			[
 				"player_evne",
 				"templates/partials/script/player_events.hbs"
-			],
-			[
-				"hashta",
-				"lib/Hashtag.js"
-			],
-			[
-				"player_ba",
-				"templates/partials/moderator/player_badge.hbs"
-			],
-			[
-				"dev",
-				"templates/partials/script/development.hbs"
-			],
-			[
-				"template_l",
-				"routes/views/game/template_load.js"
-			],
-			[
-				"hashtag",
-				"lib/Hashtag.js"
-			],
-			[
-				"core.scss",
-				"public/styles/core.scss"
-			],
-			[
-				"moderator",
-				"templates/partials/script/moderator_events.hbs"
-			],
-			[
-				"results.",
-				"templates/partials/moderator/results.hbs"
-			],
-			[
-				"comingsoon",
-				"templates/views/comingsoon.hbs"
-			],
-			[
-				"mixi",
-				"public/styles/core/mixins.scss"
 			]
 		],
 		"width": 0.0
