@@ -78,7 +78,18 @@
 	}
 
 	input.game_login {
-		background-color: $color-orange;
+		background-color: grey;
+		width: 160px;
+	  height: 48px;
+	  box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
+	  border: solid 1px #ebebeb;
+	  border-radius:2px;
+	  position: fixed;
+	  bottom:0;
+	  right:0;
+	  margin: 30px;
+	  padding: 0px;
+	  font-size: 24px;
 	}
 
 	.input-container {

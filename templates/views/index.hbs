@@ -21,8 +21,8 @@
   
   {{!-- GAME PITCH --}}
   <div class="row pitch">
-  <div class="phone-pic col-md-5"><img class="showcaseImage" src="{{{cloudinaryUrl content.showcaseImage width=auto height=350 crop='scale' quality=100}}}"></div>
-    <div class="game-pitch col-md-7">
+  <div class="phone-pic col-md-5 col-xs-12"><img class="showcaseImage" src="{{{cloudinaryUrl content.showcaseImage width=auto height=450 crop='scale' quality=100}}}"></div>
+    <div class="game-pitch col-md-7 col-xs-12">
       <div class="half-1 col-sm-12 col-centered">
         <h4 class="tagline">{{{content.tagline.html}}}</h4>
         <div class="cta-para-one">{{{content.ctaParagraphOne.html}}}</div>
@@ -62,8 +62,10 @@
     <div class="game-flow">
       <h3 class="flow-play-header">{{{content.flowOfGameHeader.html}}}</h3>
     	<div class="flow-play-para">{{{content.flowOfGameParagraph.html}}}</div>
-    	<div class="flow-play-pic"><img src="{{{cloudinaryUrl content.flowOfGamePicture width=auto height=100 crop='scale' quality=100}}}"></div>
+    	<div class="flow-play-pic"><img class="play-pic col-centered" src="{{{cloudinaryUrl content.flowOfGamePicture width=auto height=350 crop='scale' quality=100}}}"></div>
     </div>
+    <img class="game-flow-graphic left" src="http://res.cloudinary.com/engagement-lab-home/image/upload/v1488559363/at-stake-site/trophyCrop.png">
+    <img class="game-flow-graphic right" src="http://res.cloudinary.com/engagement-lab-home/image/upload/v1488559363/at-stake-site/stake_cropped.png">
   </div>
 
     {{!-- LEARN MORE --}}

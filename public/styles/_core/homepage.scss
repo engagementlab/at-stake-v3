@@ -4,6 +4,7 @@
 p {
 	font-family: $body-type;
 	color: $type-black;
+	text-justify: inter-word;
 }
 
 h3 {
@@ -30,6 +31,19 @@ h5 {
 		width: 100%;
 		padding: 30px 40px;
 		margin: 0;
+		position: relative;
+		z-index: 2;
+		overflow: auto;
+
+		@media (min-width: 1350px){
+			padding: 35px 95px;
+		}
+		@media (min-width: 1650px){
+			padding: 30px 220px;
+		}
+		@media (min-width: 1950px){
+			padding: 30px 270px;
+		}
 
 		&.top{
 			background-color: $light-mint;
@@ -42,8 +56,12 @@ h5 {
 		}
 		&.feature{
 			background-color: $dark-blue;
-			padding: 30px 40px;
+			padding: 30px 70px;
 			border-bottom: solid 20px $light-blue;
+
+			@media(max-width: 400px){
+				padding: 30px 20px;
+			}
 		}
 		&.flow-play{
 			background-color: $white;
@@ -73,12 +91,17 @@ h5 {
 			text-align: center;
 			margin: 0 auto;
 			margin-top: 50px;
+			overflow: auto;
+
+			@media(max-width: 383px){
+				font-size: .8em;
+			}
 		}
 
 		.whats{
 			font-family: $sub-header-type;
 			font-size: 6em;
-			z-index: 1;
+			z-index: 2;
 			margin-right: 250px;
 			display: inline-block;
 			position: relative;
@@ -87,7 +110,7 @@ h5 {
 		.at-sign{
 			font-family: $at-sign-type;
 			font-size: 7em;
-			z-index: 2;
+			z-index: 3;
 			display: inline-block;
 			margin-top: -45px;
 			position: absolute;
@@ -96,7 +119,7 @@ h5 {
 		.header-stake{
 			font-family: $sub-header-type;
 			font-size: 7em;
-			z-index: 3;
+			z-index: 4;
 			display: inline-block;
 			margin-left: 65px;
 			margin-top: -45px;
@@ -114,6 +137,13 @@ h5 {
 			font-family: $sub-header-type;
 			font-size: 1.25em;
 			border: solid white 4px;
+		
+			@media(max-width: 516px){
+				height: 95px;
+			}
+			@media(max-width: 290px){
+				height: 110px;
+			}
 		}
 
 
@@ -124,14 +154,23 @@ h5 {
 	.showcaseImage{
 		margin: 0 auto;
 		display: table;
+
+		@media(max-width: 600px){
+			height: 175px;
+		}
 	}
 
 	.game-pitch{
 		float: right;
+		padding: 0px 40px;
+		@media(max-width: 990px){
+			padding: 0px 90px;
+		}
 		.tagline{
 
 		}
 		.half-1{
+			min-width: 200px;
 			padding-top: 30px;
 			.cta-para-one{
 				text-align: justify;
@@ -146,7 +185,7 @@ h5 {
 			line-height: 80%;
 			list-style-position: inside;
 			position: relative;
-			z-index: 1;
+			z-index: 2;
 
 			li{
 				height: 50px;
@@ -155,9 +194,10 @@ h5 {
 			p{
 				z-index: 2;
 				position: relative;
-				bottom: 56px;
+				bottom: 35px;
 				left: 45px;
 				text-align-last: auto;
+				line-height: 110%;
 			}
 
 			.point-content{
@@ -172,6 +212,10 @@ h5 {
 		.feature-text{
 			padding: 15px 30px;
 			text-align: justify;
+
+			@media(max-width: 767px) and (min-width: 650px){
+				padding: 15px 45px;
+			}
 		}
 		.feature-image{
 
@@ -190,7 +234,7 @@ h5 {
 			.feature-one-text{
 				p{
 					color: $type-blue;
-					text-align-last: center;
+					text-align-last: left;
 				}
 			}
 		}
@@ -209,7 +253,7 @@ h5 {
 			.feature-two-text{
 				p{
 					color: $type-blue;
-					text-align-last: center;
+					text-align-last: left;
 				}
 			}
 		}
@@ -227,7 +271,7 @@ h5 {
 			.feature-three-text{
 				p{
 					color: $type-blue;
-					text-align-last: center;
+					text-align-last: left;
 				}
 			}
 		}
@@ -235,6 +279,8 @@ h5 {
 	.game-flow{
 		text-align: center;
 		padding: 0 10%;
+		position: relative;
+		z-index: 2;
 		.flow-play-header{
 			padding-bottom: 1px;
 			p{
@@ -249,10 +295,60 @@ h5 {
 				text-align-last: center;
 			}
 		}
-		.flow-play-pic{
-
+		.play-pic{
+			display: block;
+			@media(min-width: 1200px){
+				height: 400px;
+				width: auto;
+			}
+			@media(max-width: 900px){
+				height: 250px;
+				width: auto;
+			}
+			@media(max-width: 650px){
+				height: 175px;
+				width: auto;
+			}
+			@media(max-width: 455px){
+				height: 125px;
+				width: auto;
+			}
 		}
 	}
+
+	.game-flow-graphic{
+		position: absolute;
+		height: 325px;
+		top: 175px;
+		z-index: 1;
+		opacity: .75;
+	
+		@media(min-width: 1200px){
+			top: 180px;
+			height: 375px;
+		}
+		@media(max-width: 900px){
+			height: 250px;
+			top: 175px;
+		}
+		@media(max-width: 650px){
+			height: 175px;
+			top: 225px;
+		}
+		@media(max-width: 455px){
+			height: 125px;
+			top: 325px;
+		}
+	}
+
+	.left{
+		left: 0;
+		}
+
+	.right{
+		right: 0;
+	}
+
 	.game-learn{
 		text-align: center;
 		padding: 0 10%;
@@ -283,14 +379,6 @@ h5 {
 		.team-header{
 			color: $white;
 			font-family: $header-type;
-		}
-
-		.left{
-			float: left;
-		}
-
-		.right{
-			float: right;
 		}
 
 		.team{

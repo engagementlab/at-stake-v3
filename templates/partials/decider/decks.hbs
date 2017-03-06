@@ -1,4 +1,4 @@
-<span class="light">Swipe left and right to switch decks</span>
+<span class="light white subtitle">Swipe left and right to switch decks</span>
 <div class="glide__bullets"></div>
 
 {{!-- <div class="glide__arrows">
@@ -14,26 +14,28 @@
       <div class="glide__slide" data-id="{{_id}}">
 
         <div class="deck">
-        
-          <h2>{{name}}</h2>
 
-          <div class="description">
-            {{description}}
+          <div class="deck-header">
+            <h2 class="header white">{{name}}</h2>
+
+            <div class="description white subtitle">
+              {{description}}
+            </div>
           </div>
 
-          <h3>Talking Points</h3>
+          <h3 class="white flag">TALKING POINTS</h3>
           {{!-- <ul> --}}
             {{#each questions}}
-              <div>{{this}}</div>
+            <div class="question"><div class="num">{{@index}}</div><div>{{this}}</div></div>
             {{/each}}
           {{!-- </ul> --}}
 
-          <h3>Sample Stakeholders</h3>
-          <div class="col-sm-6">
+          <h3 class="white flag sub-header">SAMPLE STAKEHOLDERS</h3>
+          <div class="stakeholders">
             {{#each roles}}
-              <span>{{title}}</span>
+              <span class="deck-role">{{title}}</span>
 
-              {{#ifeq @index 2}}</div><div class="col-sm-6">{{/ifeq}}              
+              {{#ifeq @index 2}}</div><div class="stakeholders">{{/ifeq}}              
             {{/each}}
           </div>
 
