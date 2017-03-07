@@ -67,7 +67,9 @@ socketEvents = function(eventId, eventData) {
             $('#gameContent').addClass('player-grid');
 
 
-            $('.login.form').fadeOut(function() { $('.login.waiting').fadeIn(); });
+            $('.login.form').fadeOut(function() { $('.login.waiting').fadeIn(function(){
+                $('.lobby#join').addClass('player-grid');
+            }); });
             
             break;
 
@@ -170,11 +172,16 @@ socketEvents = function(eventId, eventData) {
         case 'player:assignrole':
 
             $('#role-card').html(eventData);
-            $('#btn-role-card').click(function(evt) {
-                $('#role-card').show();
+            $('#btn-close-role-card').on('click', function(evt) {
+                console.log("closing");
+                $('#role-card').removeClass('open').addClass('closed');
             });
-            $('#btn-close-role-card').click(function(evt) {
-                $('#role-card').hide();
+            $('#btn-role-card').on('click', function(evt) {
+                $('#role-card').removeClass('closed').addClass('open');
+            });
+            $('#role-card').on('swipe', function() {
+                console.log("closing");
+                $('#role-card').removeClass('open').addClass('closed');
             });
 
             break;
