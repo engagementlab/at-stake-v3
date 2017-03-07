@@ -24,7 +24,14 @@
 		  background-color: #00dcba;
 		  box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.25);
 		  border: solid 1px #ebebeb;
+
+		  &.player-grid {
+		  	animation-name: player-login;
+		  	animation-duration: 0.5s;
+		  	animation-fill-mode: forwards;
+		  }
 		}
+		
 		&#decider {
 			background-color: #00dcba;
 

@@ -8,6 +8,7 @@
 @import "_core/comingsoon";
 @import "_core/homepage";
 @import "_core/media";
+@import "_core/animations";
 
 html, body {
 	max-height: 100%;
@@ -16,6 +17,7 @@ html, body {
 
 #wrapper {
 	height:100%;
+	// overflow:hidden;
 }
 
 .text.centered {

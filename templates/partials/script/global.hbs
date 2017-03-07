@@ -421,6 +421,18 @@ window.onload = function() {
 
 			// Get reference to main content div
 			gameContainer = $('#gameContent');
+
+			if(isMobile) {
+
+				{{#ifnoteq section 'homepage'}}
+					let gameHeight = $(window).height();
+					$('#wrapper').height(gameHeight);
+					$('body, html').css('overflow', 'hidden');
+				{{else}}				
+					console.log("youre not playing the game silly");
+				{{/ifnoteq}}
+
+			}
 	
 			{{#ifnoteq viewType 'landing'}}
 
@@ -458,7 +470,9 @@ window.onload = function() {
 
 			// PLAYER LOGIC
 			{{> script/player_logic section=section}}
-					
+
+			
+
 		  $('#decider #btn_submit').click(function(evt) {
 				var data = {};
 
