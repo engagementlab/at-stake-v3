@@ -62,8 +62,7 @@
 
 		<div class="speech decider">
 			<div>{{question}}</div>
-			{{> component/timer}}
-   		<span id="modifier" class="hidden-el" data-timer="button"></span>
+			{{> component/timer button=true}}
 		</div>
 		<div class="speech player">
 			<div>{{question}}</div>
@@ -85,9 +84,12 @@
 
 		<div class="speech decider">
 			<div>{{question}}</div>
+			{{> component/timer time=config.thinkSeconds}}
+   		{{!-- <span id="modifier" class="hidden-el" data-timer="button"></span> --}}
 		</div>
 		<div class="speech player">
 			<div>{{question}}</div>
+			{{> component/timer time=config.thinkSeconds}}
 		</div>
 
 	</div>

@@ -1,5 +1,19 @@
-{{!-- BUTTON TO START --}}
-<div class="timer button" style="cursor:pointer" onclick="startTimer();"></div>
+{{#if button}}
 
-{{!-- CIRCULAR TIMER --}}
-<div class="timer"></div>
+  {{!-- BUTTON TO START --}}
+  <div class="form row">
+    <button data-event="game:start_timer" class="timer-button next-step submit">start</button>
+  </div>
+
+  {{!-- <div class="timer button" style="cursor:pointer" onclick="startTimer();"></div> --}}
+
+{{else}}
+
+  {{!-- CIRCULAR TIMER --}}
+  <div class="timer"></div>
+  <div class="form row">
+    <button id="btn-next" data-event="game:next" class="timer-button next-step submit">next</button>
+    <span id="modifier" class="hidden-el" data-hide_next="true"></span>
+  </div>
+
+{{/if}}
