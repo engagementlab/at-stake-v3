@@ -37,6 +37,13 @@ var Common = function (nsp, socket) {
         'game:next': function(package) {
 
             Session.Get(package.gameId).
+            NextPhase();
+
+        },
+
+        'game:next_screen': function(package) {
+
+            Session.Get(package.gameId).
             NextScreen();
 
         },

@@ -51,23 +51,9 @@ $(document).on('click touchstart', 'div.error', function() {
     $(this).hide();
 });
 
-// Do not enable sound for emulated (debug) player
-/*if(!isEmulated) {
-
-    ion.sound({
-    sounds: [
-        {
-            name: "button_tiny"
-        }
-    ],
-    volume: 0.5,
-    path: sfxPath,
-    preload: true
-    });
-
-}
-else
-    $('#debugging').remove();*/
+// Remove debugging for emulated (debug) player
+if(isEmulated)
+    $('#debugging').remove();
 
 /*
     Logs the player in

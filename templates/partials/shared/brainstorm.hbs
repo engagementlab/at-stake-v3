@@ -16,7 +16,7 @@
 		<blockquote class="speech decider form">
       <p>"Here is the question you’ll answer this round."</p>
 			<div>{{question}}</div>
-			<button class="next-step submit">next</button>
+			<button class="next-step submit" data-event="game:next_screen">next</button>
     </blockquote>
 		<blockquote class="speech player">
       <p>"Here is the question you’ll answer this round."</p>
@@ -37,14 +37,14 @@
 			<div>Round question: {{question}}</div>
 		</section>
 
-		<div class="speech decider form">
+		<blockquote class="speech decider form">
 			<p>"Once I start the timer, You will have 60 seconds to brainstorm a solution to this question. Get Ready!"</p>
-			<button class="next-step submit">next</button>
-		</div>
-		<div class="speech player">
+			<button class="next-step submit" data-event="game:next_screen">next</button>
+		</blockquote>
+		<blockquote class="speech player">
 			<p>"Once I start the timer, You will have 60 seconds to brainstorm a solution to this question. Get Ready!"</p>
 			<div>{{question}}</div>
-		</div>
+		</blockquote>
 
 	</div>
 
@@ -60,13 +60,13 @@
 			<div>Remember you can open your rolecard anytime. Try to include your agenda items in your solution!</div>
 		</section>
 
-		<div class="speech decider">
+		<blockquote class="speech decider">
 			<div>{{question}}</div>
 			{{> component/timer button=true}}
-		</div>
-		<div class="speech player">
+		</blockquote>
+		<blockquote class="speech player">
 			<div>{{question}}</div>
-		</div>
+		</blockquote>
 
 	</div>
 
@@ -85,7 +85,6 @@
 		<div class="speech decider">
 			<div>{{question}}</div>
 			{{> component/timer time=config.thinkSeconds}}
-   		{{!-- <span id="modifier" class="hidden-el" data-timer="button"></span> --}}
 		</div>
 		<div class="speech player">
 			<div>{{question}}</div>
