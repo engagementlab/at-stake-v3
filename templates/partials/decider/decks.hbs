@@ -1,4 +1,3 @@
-<span class="light white subtitle">Swipe left and right to switch decks</span>
 <div class="glide__bullets"></div>
 
 {{!-- <div class="glide__arrows">
@@ -23,14 +22,14 @@
             </div>
           </div>
 
-          <h3 class="white flag">TALKING POINTS</h3>
+          <h3 class="flag">Talking Points</h3>
           {{!-- <ul> --}}
             {{#each questions}}
-            <div class="question"><div class="num">{{@index}}</div><div>{{this}}</div></div>
+            <div class="question">{{this}}</div>
             {{/each}}
           {{!-- </ul> --}}
 
-          <h3 class="white flag sub-header">SAMPLE STAKEHOLDERS</h3>
+          <h3 class="flag sub-header">Sample Stakeholders</h3>
           <div class="stakeholders">
             {{#each roles}}
               <span class="deck-role">{{title}}</span>
