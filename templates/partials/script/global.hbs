@@ -409,7 +409,7 @@ window.onload = function() {
 			if(isMobile) {
 
 				{{#ifnoteq section 'homepage'}}
-					let gameHeight = $(window).height();
+					var gameHeight = $(window).height();
 					$('#wrapper').height(gameHeight);
 					$('body, html').css('overflow', 'hidden');
 				{{/ifnoteq}}

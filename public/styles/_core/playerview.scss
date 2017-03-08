@@ -1,11 +1,13 @@
 
 #gameContent {
-	background-color: $background-color;
+	background: -moz-linear-gradient(top, $background-color 55%, $turquoise-dark 45%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, $background-color 55%, $turquoise-dark 45%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, $background-color 55%, $turquoise-dark 45%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	height: 100%;
 	// overflow: hidden;
 	text-align: center;
 	padding: 8px;
-	color: black;
+	color: white;
 
 	// During the gameplay
 	&.in-game {
@@ -54,54 +56,6 @@
 	@include animation('highlight-pulse 3s infinite');
 }
 
-// Players
-.player-logo {
-
-	height: 80px;
-	width: 100%;
-	display: inline-block;
-	padding: 0px;
-  background-repeat: no-repeat;
-	background-size: contain;
-	color: white;
-
-	p {
-		display: inline;
-		color: white;
-    text-transform: uppercase;
-    line-height: 80px;
-
-	}
-
-	&#player-0 {
-		background-image : $player-one-logo;
-		background-color: $sunflower;
-	}
-	&#player-1 {
-		background-image : $player-two-logo;
-		background-color: $blue-violet;
-	}
-	&#player-2 {
-		background-image : $player-three-logo;
-		background-color: $pumpkin-orange;
-	}
-	&#player-3 {
-		background-image : $player-four-logo;
-		background-color: $cerulean;
-	}
-	&#player-4 {
-		background-image : $player-five-logo;
-	}
-
-}
-
-#players {
-	height: auto;
-  border-radius: 5px;
-  box-shadow: 0 0 4px 0 rgba(85, 85, 85, 0.25);
-  border: solid 1px #ebebeb;
-
-}
 
 .form {
 	&#decider, &#decider-controls {
@@ -119,11 +73,11 @@
 			margin: 0px;
 			position: absolute;
 			bottom: 0px;
-			background-color: $color-seafoam;
+			background-color: $turquoise-dark;
 		}
 
 		.next-step {
-			background-color: $color-seafoam;
+			background-color: $turquoise-dark;
 			color: white;
 			border-radius: 5px;
 		  box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
@@ -146,45 +100,10 @@ input.post-button {
 	left: 0px;
 	width: 100%;
 	margin-bottom: 0px;
-	background-color: $color-seafoam;
+	background-color: $turquoise-dark;
 	z-index: 1000;
 }
 
-#share_code {
-	text-align: center;
-  color: #ebebeb;
-  margin-top: -30px;
-
-	h1 {
-    font-size: 24px;
-	  width: 100%;
-	  font-family: $aileron;
-	}
-	p {
-		font-size: 12px;
-	  color: #ebebeb;
-	  font-family: $avenir-reg;
-	}
-}
-
-.waiting {
-	width: 100%;
-	padding: 0px;
-
-	.access-code {
-		width: 50%;
-	  height: 56px;
-	  font-size: 56px;
-	  color: #0098d0;
-	  border: 1px #ebebeb dashed;
-	  margin: 10px auto;
-	  -webkit-text-stroke: white 1px;
-	  font-family: $aileron;
-	}
-	p {
-		font-size: 16px;
-	}
-}
 
 
 .ended-container {
@@ -213,7 +132,7 @@ input.post-button {
 
 // Add background to any "read out loud" decider instructions
 .read {
-	background: $dark-sky-blue;
+	background: $blue-dark;
 	padding: 10px;
 	color: white;
 }
@@ -279,7 +198,7 @@ input.post-button {
   height:         calc(100% - 8px);
   margin: 8px;
   margin-bottom: 0px;
-  background: $pumpkin-orange;
+  background: $orange-dark;
   border-radius: 20px 20px 0px 0px ;
   border: 3px white solid;
   border-bottom: 0px;
@@ -311,7 +230,7 @@ input.post-button {
 
   .role-info {
   	color:white;
-  	background-color: $action-button;
+  	background-color: $color-grey;
   	margin: 40px -15px;
   	padding-bottom: 20px;
 
@@ -327,7 +246,7 @@ input.post-button {
   }
   .agenda-item {
   	border-radius: 100px;
-  	background-color: $tangerine;
+  	background-color: $orange-light;
   	margin: 10px;
 
   	.value {
@@ -403,7 +322,7 @@ blockquote.speech {
 
 // BOTTOM BAR (COINS, NEXT)
 footer#bottom-bar {
-	background-color: $color-seafoam;
+	background-color: $turquoise-dark;
 	font-size: large;
 	width: 100%;
 	bottom: 0px;
