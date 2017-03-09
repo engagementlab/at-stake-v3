@@ -3,70 +3,77 @@
 
 	{{!-- ROLE CARDS --}}
 	<div class="screen initial">
-		
-		<section class="instruction decider">
-			<h1>read the text in the blue box outloud</h1>
-			<div>Once you have finished speaking the instructions to other players, press next to continue</div>
-		</section>
 
-		<section class="instruction player">
-			<h1>Open your Role Card and review your role</h1>
-			<div>Press the Role Card buton on the bottom of the screen to review your title and bio.</div>
-			{{!-- 'Modifier' data tag modifies script behavior --}}
-   		<span id="modifier" class="hidden-el" data-highlight="#btn-role-card"></span>
-		</section>
+		{{> component/instructions 
+				decider=true
+				heading="read the text in the blue box outloud"
+				body="Once you have finished speaking the instructions to other players, press next to continue"
+		}}
 
-		<blockquote class="speech decider form">
-        <p>"Everyone open your role card using the button at the bottom of your screen and review your character role. You will be playing from this character's perspective this round."</p>
-			<button class="next-step submit" data-event="game:next_screen">next</button>
-    </blockquote>
-		<blockquote class="speech player">
-			<p>"Everyone open your role card using the button at the bottom of your screen and review your character role. You will be playing from this character's perspective this round."</p>
-		</blockquote>
+		{{> component/instructions 
+				heading="Open your Role Card and review your role"
+				body="Press the Role Card buton on the bottom of the screen to review your title and bio."
+		}}
+
+		{{> component/speech 
+				decider=true
+				body="Everyone open your role card using the button at the bottom of your screen and review your character role. You will be playing from this character's perspective this round."
+		}}
+
+		{{> component/speech 
+				body="Everyone open your role card using the button at the bottom of your screen and review your character role. You will be playing from this character's perspective this round."
+		}}
 
 	</div>
 
 	{{!-- READ ROLES --}}
 	<div class="screen">
 		
-		<section class="instruction decider">
-			<h1>read the text in the blue box outloud</h1>
-			<div>Once all players have introduced themselves, press next to continue</div>
-		</section>
-		<section class="instruction player">
-			<h1>Open your Role Card and prepare to share</h1>
-			<div>On your turn, read your character role title and bio outloud to the group.</div>
-		</section>
+		{{> component/instructions 
+				decider=true
+				heading="read the text in the blue box outloud"
+				body="Once all players have introduced themselves, press next to continue"
+		}}
 
-		<blockquote class="speech decider form">
-			"One at a time, go around the table introducing yourself by reading your character role title and short bio. Do not read your hidden agenda items outloud!"
-			<button class="next-step submit" data-event="game:next_screen">next</button>
-		</blockquote>
-		<blockquote class="speech player">
-			"One at a time, go around the table introducing yourself by reading your character role title and short bio. Do not read your hidden agenda items outloud!"
-		</blockquote>
+		{{> component/instructions 
+				heading="Open your Role Card and prepare to share"
+				body="On your turn, read your character role title and bio outloud to the group."
+		}}
+
+		{{> component/speech 
+				decider=true
+				body="One at a time, go around the table introducing yourself by reading your character role title and short bio. Do not read your hidden agenda items outloud!"
+		}}
+
+		{{> component/speech 
+				body="One at a time, go around the table introducing yourself by reading your character role title and short bio. Do not read your hidden agenda items outloud!"
+		}}
 
 	</div>
 
 	{{!-- AGENDA ITEMS --}}
 	<div class="screen">
 		
-		<section class="instruction decider">
-			<h1>read the text in the blue box outloud</h1>
-			<div>Once everyone has had enough time to review their hidden agenda items, press next to continue.</div>
-		</section>
-		<section class="instruction player">
-			<h1>Review your Hidden Agenda items</h1>
-			<div>At the bottom of your role card are your hidden agenda items. Secretly review them now.</div>
-		</section>
+		{{> component/instructions 
+				decider=true
+				heading="read the text in the blue box outloud"
+				body="Once everyone has had enough time to review their hidden agenda items, press next to continue."
+		}}
 
-		<blockquote class="speech decider form">
-			"Now everyone quietly review your hidden agenda items at the bottom of your role card. You’ll earn coins if they are included in the winning proposal. Keep them secret!"
-			<button id="next" class="submit" data-event="game:next">next</button>
-		</blockquote>
-		<blockquote class="speech player">
-			"Now everyone quietly review your hidden agenda items at the bottom of your role card. You’ll earn coins if they are included in the winning proposal. Keep them secret!"
-		</blockquote>
+		{{> component/instructions 
+				heading="Review your Hidden Agenda items"
+				body="At the bottom of your role card are your hidden agenda items. Secretly review them now."
+		}}
+
+		{{> component/speech 
+				decider=true
+				advance=true
+				body="Now everyone quietly review your hidden agenda items at the bottom of your role card. You’ll earn coins if they are included in the winning proposal. Keep them secret!"
+		}}
+
+		{{> component/speech 
+				body="Now everyone quietly review your hidden agenda items at the bottom of your role card. You’ll earn coins if they are included in the winning proposal. Keep them secret!"
+		}}
 
 	</div>
 

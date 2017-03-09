@@ -1,0 +1,21 @@
+{{!-- 
+
+* COMPONENT: Speech Bubble 
+* @param {Bool} decider - Is decider speech?
+* @param {Bool} advance - Is last bubble of phase?
+* @param {String} body - Speech bubble body text
+* @param {String} secondary - Speech bubble secondary text, showing under body
+
+--}}
+
+<blockquote class="speech {{#ifeq decider true}}decider form{{else}}player{{/ifeq}}">
+  <p>"{{body}}"</p>
+
+  {{#if secondary}}
+	  <div>{{secondary}}</div>
+  {{/if}}
+  
+  {{#ifeq decider true}}
+    <button class="next-step submit" data-event="{{#ifeq advance true}}game:next{{else}}game:next_screen{{/ifeq}}">next</button>
+  {{/ifeq}}
+</blockquote>

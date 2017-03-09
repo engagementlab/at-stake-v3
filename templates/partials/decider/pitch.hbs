@@ -1,27 +1,84 @@
-<div class="row room-container">
-	<h4><em>{{question}}</em></h4>
+{{!-- PITCH PHASE UI --}}
+<div id="pitch">
 
-	"Now everyone will take turns pitching their proposal." 
+	{{!-- TIMER START --}}
+	<div class="screen initial">
+		
+		<section class="instruction decider">
+		</section>
 
-	<p>
-	{{#if firstPlayer}}
-		The first player to pitch is  
-	{{else}}
-		The next player to pitch is  
-	{{/if}}
-	<em>{{activePlayer.username}}</em> 
+		<blockquote class="speech decider form">
+      <p>"Now everyone will take turns pitching their proposal."</p>
+			
+			{{#if firstPlayer}}
+				The first player to pitch is  
+			{{else}}
+				The next player to pitch is  
+			{{/if}}
+			
+			<em>{{activePlayer.username}}</em> 
+      {{!-- <button class="next-step submit" data-event="game:next_screen">next</button> --}}
+			{{> component/timer button=true}}
+    </blockquote>
 
-	<p>
-	Press 'start' to start the timer.
+{{!--     {{> component/instructions 
+				decider=true
+				heading=""
+				body=""
+		}}
 
-	<div class="form row {{!-- hidden-el --}}" id="decider">
-	  <input id="btn-time" data-event="game:start_timer" class="submit" type="submit" name="time" value="start ({{config.pitchSeconds}} seconds)">
-	  <input id="btn-next-player" data-event="game:next_player" class="submit" type="submit" name="next-player" value="next player" style="display:none">
-	  <input id="btn-next-stage" data-event="game:next" class="submit" type="submit" name="next-stage" value="next" style="display:none">
-	  Time left: <span id="countdown"></span>
+    {{> component/instructions 
+				heading=""
+				body=""
+		}}
+
+		{{> component/speech 
+				decider=true
+				body=""
+		}}
+
+		{{> component/speech 
+				body=""
+				secondary=question
+		}}  --}}
+
+	</div>
+
+	<div class="screen">
+		
+{{!-- 		<section class="instruction decider">
+			<h1>Press the button to start the timer</h1>
+			<div>Make sure everyone is ready and understands the instructions, then press the button to start the timer.</div>
+		</section> --}}
+
+		<div class="speech decider">
+			{{!-- <div>{{question}}</div> --}}
+			{{> component/timer time=config.thinkSeconds}}
+		</div>
+
+	</div>
+
+	{{!-- COUNTDOWN --}}
+	<div class="screen no-transition">
+		
+		<section class="instruction decider">
+			<h1>Wait For timer to reach zero</h1>
+			<div>When the timer reaches zero shout "pencils down!"</div>
+		</section>
+		{{!-- <section class="instruction player">
+			<h1>think of a solution to the question</h1>
+			<div>Try to keep your idea concise, clear, and from your character's perspective! Be ready to pitch!</div>
+		</section> --}}
+
+		<div class="speech decider">
+			<div>{{question}}</div>
+			{{> component/timer time=config.pitchSeconds}}
+		</div>
+		<div class="speech player">
+			<div>{{question}}</div>
+			{{> component/timer time=config.pitchSeconds}}
+		</div>
+
 	</div>
 
 </div>
-
-{{!-- Div's data tag modifies script behavior --}}
-<span id="modifier" class="hidden-el" data-hide_next="true"></span>

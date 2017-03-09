@@ -15,7 +15,7 @@
 		margin-bottom: 15%;
 		width: 180px;
 		height: 180px;
-		border-radius: 90px;
+    @include radius(90px);
 	}
 	body .player-background .icon img {
 		width: 180px;

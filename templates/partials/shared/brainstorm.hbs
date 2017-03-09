@@ -2,95 +2,116 @@
 <div id="brainstorm">
 
 	<div class="screen initial">
-		
-		<section class="instruction decider">
-			<h1>read the text in the blue box outloud</h1>
-			<div>Once you have finished speaking the instructions to other players, press next to continue.</div>
-		</section>
 
-		<section class="instruction player">
-			<h1>Read the revealed round question</h1>
-			<div>From your character's perspective, you will brainstorm a solution to the question below.</div>
-		</section>
+		{{> component/instructions 
+				decider=true
+				heading="read the text in the blue box outloud"
+				body="Once you have finished speaking the instructions to other players, press next to continue."
+		}}
 
-		<blockquote class="speech decider form">
-      <p>"Here is the question you’ll answer this round."</p>
-			<div>{{question}}</div>
-			<button class="next-step submit" data-event="game:next_screen">next</button>
-    </blockquote>
-		<blockquote class="speech player">
-      <p>"Here is the question you’ll answer this round."</p>
-			<div>{{question}}</div>
-		</blockquote>
+		{{> component/instructions 
+				heading="Read the revealed round question"
+				body="From your character's perspective, you will brainstorm a solution to the question below."
+		}}
+
+		{{> component/speech 
+				decider=true
+				body="Here is the question you’ll answer this round."
+				secondary=question
+		}}
+
+		{{> component/speech 
+				body="Here is the question you’ll answer this round."
+				secondary=question
+		}}
 
 	</div>
 
 	{{!-- GET READY --}}
 	<div class="screen">
-		
-		<section class="instruction decider">
-			<h1>read the text in the blue box outloud</h1>
-			<div>Once you have finished speaking the instructions to other players, press next to continue</div>
-		</section>
-		<section class="instruction player">
-			<h1>Get Ready to Brainstorm a solution</h1>
-			<div>Round question: {{question}}</div>
-		</section>
 
-		<blockquote class="speech decider form">
-			<p>"Once I start the timer, You will have 60 seconds to brainstorm a solution to this question. Get Ready!"</p>
-			<button class="next-step submit" data-event="game:next_screen">next</button>
-		</blockquote>
-		<blockquote class="speech player">
-			<p>"Once I start the timer, You will have 60 seconds to brainstorm a solution to this question. Get Ready!"</p>
-			<div>{{question}}</div>
-		</blockquote>
+		{{> component/instructions 
+				decider=true
+				heading="read the text in the blue box outloud"
+				body="Once you have finished speaking the instructions to other players, press next to continue."
+		}}
+		
+		{{!-- 'combine' merges two strings --}}
+		{{> component/speech 
+				body="Get Ready to Brainstorm a solution"
+				secondary=(combine 'Round question: ' question)
+		}}
+
+		{{> component/speech 
+				decider=true
+				body="Once I start the timer, You will have 60 seconds to brainstorm a solution to this question. Get Ready!"
+		}}
+
+		{{> component/speech 
+				body="Once I start the timer, You will have 60 seconds to brainstorm a solution to this question. Get Ready!"
+				secondary=question
+		}}
 
 	</div>
 
 	{{!-- TIMER START --}}
 	<div class="screen">
-		
-		<section class="instruction decider">
-			<h1>Press the button to start the timer</h1>
-			<div>Make sure everyone is ready and understands the instructions, then press the button to start the timer.</div>
-		</section>
-		<section class="instruction player">
-			<h1>Get Ready to Brainstorm a solution</h1>
-			<div>Remember you can open your rolecard anytime. Try to include your agenda items in your solution!</div>
-		</section>
 
-		<blockquote class="speech decider">
-			<div>{{question}}</div>
-			{{> component/timer button=true}}
-		</blockquote>
-		<blockquote class="speech player">
-			<div>{{question}}</div>
-		</blockquote>
+		{{> component/instructions 
+				decider=true
+				heading="Press the button to start the timer"
+				body="Make sure everyone is ready and understands the instructions, then press the button to start the timer."
+		}}
+		
+		{{> component/speech 
+				body="Get Ready to Brainstorm a solution"
+				secondary="Remember you can open your rolecard anytime. Try to include your agenda items in your solution!"
+		}}
+
+		{{> component/speech 
+				decider=true
+				body="Once I start the timer, You will have 60 seconds to brainstorm a solution to this question. Get Ready!"
+		}}
+
+		{{> component/speech 
+				body="Once I start the timer, You will have 60 seconds to brainstorm a solution to this question. Get Ready!"
+				secondary=question
+		}}
+		
+		{{!-- 		<blockquote class="speech decider">
+					<div>{{question}}</div>
+				</blockquote> --}}
+		{{> component/timer 
+				decider=true
+				button=true
+		}}
 
 	</div>
 
 	{{!-- COUNTDOWN --}}
 	<div class="screen no-transition">
+
+		{{> component/instructions 
+				decider=true
+				heading="Wait For timer to reach zero"
+				body='When the timer reaches zero shout "pencils down!"'
+		}}
 		
-		<section class="instruction decider">
-			<h1>Wait For timer to reach zero</h1>
-			<div>When the timer reaches zero shout "pencils down!"</div>
-		</section>
-		<section class="instruction player">
-			<h1>think of a solution to the question</h1>
-			<div>Try to keep your idea concise, clear, and from your character's perspective! Be ready to pitch!</div>
-		</section>
+		{{> component/speech 
+				body="think of a solution to the question"
+				secondary="Try to keep your idea concise, clear, and from your character's perspective! Be ready to pitch!"
+		}}
 
-		<div class="speech decider">
-			<div>{{question}}</div>
-			{{> component/timer time=config.thinkSeconds}}
-		</div>
-		<div class="speech player">
-			<div>{{question}}</div>
-			{{> component/timer time=config.thinkSeconds}}
-		</div>
-
+		{{!-- <div>{{question}}</div> --}}
+		{{> component/timer 
+				time=config.thinkSeconds
+				decider=true
+				advance=true
+		}}
+		{{> component/timer 
+				time=config.thinkSeconds
+		}}
+	
 	</div>
 
 </div>

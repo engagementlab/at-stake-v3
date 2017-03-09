@@ -238,8 +238,11 @@ socketEvents = function(eventId, eventData) {
                     nextPhaseScreen();
                 });
 
+                // This makes duplicate of all speech bubbles and 
+                // makes them all child of respective bubble,
+                // in order to achieve proper "bottom border" effect
                 _.each($('.screen blockquote.speech'), function(el, i) {
-                    $(el).clone().addClass('under').appendTo(el);
+                    $(el).clone().addClass('under').remove('button').appendTo(el);
                 });
 
                 // Show initial

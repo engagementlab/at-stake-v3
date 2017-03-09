@@ -23,43 +23,6 @@ module.exports = function() {
 
     };
 
-    // run a function
-    _helpers.runFunction = function(funcName) {
-
-        eval(funcName);
-
-        return null;
-
-    };
-
-    //  ### int addition helper
-    // Used for increasing int by amount
-    //
-    //  @amt: Amount to offset
-    //
-    //  *Usage example:*
-    //  `{{sum @index 3}}
-
-    _helpers.sum = function(ind, amt) {
- 
-        return parseInt(ind) + amt;
-
-    };
-
-    //  ### int multiplier helper
-    // Used for multiplying int by factor
-    //
-    //  @factor: Factor to multiply by
-    //
-    //  *Usage example:*
-    //  `{{multiply 3 @index}}
-
-    _helpers.multiply = function(ind, factor) {
- 
-        return parseInt(ind) * parseInt(factor);
-
-    };
-
     // Remove <p> tag from html string
     _helpers.removePara = function (str) {
 
@@ -82,15 +45,6 @@ module.exports = function() {
 
     };
 
-    _helpers.ordinalPosition = function(index) {
-        
-        var affixes = ["th","st","nd","rd"],
-        remainder = (index+1) % 100;
-
-       return (index+1) + (affixes[(remainder - 20) % 10] || affixes[remainder] || affixes[0]);
-    
-    }
-
     _helpers.ellipsis = function (limit, currentText) {
             if (currentText) {
               console.log (currentText, "current text");
@@ -101,6 +55,13 @@ module.exports = function() {
     _helpers.namePossessive = function (strName) {
         
         return ( strName.charAt(strName.length-1) === 's' ) ? strName + "'" : strName + "'s";
+
+    }
+
+    // Concatenate two strings (combine is alias)
+    _helpers.combine = _helpers.concat = function(str, str2) {
+
+        return str + str2;
 
     }
 

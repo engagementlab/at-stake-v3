@@ -321,12 +321,17 @@
     isDecider = true;
 
     // Accesscode may be provided by server when debugging
+    var gameCodeHtml = '';
     if(!gameCode) {
 	    gameCode = '{{accessCode}}';
 
+      _.each(gameCode.split(''), function(char, i) {
+          gameCodeHtml += '<span>' + char + '</span>';
+      });
+
 	    // Ensure login is gone and all decide UI shows
 	    $('#name,#join').remove();
-	    $('.access-code').text(gameCode);
+	    $('.access-code').html(gameCodeHtml);
 	    $('#decider .create').hide();
       $('#decider').show();
       $('#decider .waiting, #decider-debugging').show();

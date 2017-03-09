@@ -80,6 +80,18 @@
 		  border-radius: 0px;
 		  background-color: transparent;
 		  border: 0px;
+	    &:before {
+		    content: "";
+				position: absolute;
+		    z-index: 10;
+		    bottom: 5px;
+		    left: 18px;
+		    width: 0;
+		    height: 0;
+		    border-right: 10px solid $turquoise-light;
+		    border-top: 7px solid transparent;
+		    border-bottom: 7px solid transparent;
+	    }
 		}
 
 		#btn-start-game {
@@ -441,6 +453,20 @@
 		  background-color: lighten($turquoise-dark, 3%);
 		  margin: 10px auto;
 		  font-family: $aileron;
+
+		  span:nth-child(1) {
+		  	color: $aquamarine;
+		  }
+		  // TODO: color var
+		  span:nth-child(2) {
+		  	color: #61f5de;
+		  }
+		  span:nth-child(3) {
+			  color: $turquoise-dark;
+		  }
+		  span:nth-child(4) {
+		  	color: $aquamarine;
+		  }
 		}
 		p {
 			font-size: 16px;

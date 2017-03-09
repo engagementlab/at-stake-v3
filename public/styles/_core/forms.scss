@@ -65,32 +65,17 @@
 		border-radius: 20px;
 	}
 
-	&.row {
-			button {
-			min-height: 200px;
-			min-width: 200px;
-		}
-	}
+	// &.row {
+	// 		button {
+	// 		min-height: 200px;
+	// 		min-width: 200px;
+	// 	}
+	// }
 
 	input.prompt {
 		width: 100%;
 		display: inline;
 	}
-
-	// input.game_login {
-	// 	background-color: grey;
-	// 	width: 160px;
-	//   height: 48px;
-	//   box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
-	//   border: solid 1px #ebebeb;
-	//   border-radius:2px;
-	//   position: fixed;
-	//   bottom:0;
-	//   right:0;
-	//   margin: 30px;
-	//   padding: 0px;
-	//   font-size: 24px;
-	// }
 
 	.input-container {
 	
@@ -117,7 +102,6 @@
 		color: white;
 		background-color: red;
 		font-size: medium;
-		// width: 40%;
 		min-height: 50px;
 		padding: 10px;
 		border: 0;

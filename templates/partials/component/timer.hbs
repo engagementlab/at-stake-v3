@@ -1,19 +1,25 @@
 {{#if button}}
 
   {{!-- BUTTON TO START --}}
-  <div class="form row">
-    <button data-event="game:start_timer" class="timer-button next-step submit">start</button>
-  </div>
+  <blockquote class="speech {{#ifeq decider true}}decider{{else}}player{{/ifeq}}">
+          {{!-- <div>{{question}}</div> --}}
+    <div class="form row">
+      <button data-event="game:start_timer" class="timer-button next-step submit">start</button>
+    </div>
+  </blockquote>
 
   {{!-- <div class="timer button" style="cursor:pointer" onclick="startTimer();"></div> --}}
 
 {{else}}
 
   {{!-- CIRCULAR TIMER --}}
-  <div class="timer"></div>
-  <div class="form row">
-    <button id="btn-next" data-event="game:next_screen" class="timer-button next-step submit" style="display:none">next</button>
-    <span id="modifier" class="hidden-el" data-hide_next="false"></span>
+  <div class="speech {{#ifeq decider true}}decider{{else}}player{{/ifeq}}">
+    <div class="timer"></div>
+    <div class="form row">
+      <button id="btn-next" data-event="{{#if advance}}game:next{{else}}game:next_screen{{/if}}" class="timer-button next-step submit" style="display:none">next</button>
+      <button id="btn-next-player" data-event="game:next_player" class="timer-buttonm submit" style="display:none">next player</button>
+      <span id="modifier" class="hidden-el" data-hide_next="false"></span>
+    </div>
   </div>
 
 {{/if}}

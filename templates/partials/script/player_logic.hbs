@@ -330,7 +330,11 @@ $('#btn_new_game').click(function() {
 
              });
 
-            $('.access-code').text(data.code);
+             var gameCode = '';
+            _.each(data.code.split(''), function(char, i) {
+                gameCode += '<span>' + char + '</span>';
+            });
+            $('.access-code').html(gameCode);
             $('#gameContent').addClass('lobby');
 
         }
