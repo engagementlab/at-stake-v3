@@ -20,6 +20,15 @@ html, body {
 	// overflow:hidden;
 }
 
+// remove default button and input states
+button, input {
+	&:hover, &:focus, &:visited, &:active {
+		outline: none;
+		border: 0px;
+		box-shadow: none;
+	}
+}
+
 .text.centered {
 	text-align:center;
 }

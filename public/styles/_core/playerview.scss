@@ -357,24 +357,50 @@ footer#bottom-bar {
 	width: 100%;
 	bottom: 0px;
 	position: fixed;
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+	#currency {
+		text-align:right;
+		div {
+			display: inline-block;
+		}
+		p {
+			font-size: 12px;
+			margin: 0px;
+			text-align: center;
+			color: white;
+		}
+		img {
+			height: 60px;
+			width: 60px;
+		}
+
+	}
 
 	button {
-		margin: 10px;
+		margin: 5px;
 		color: white;
-		width: 125px;
-	  height: 24px;
+		width: 140px;
+	  height: 36px;
 	  padding-left: 2em;
-	  border-radius: 5px;
-	  background-color: transparent;
+	  border-radius: 0px;
+	  text-align: right;
+	  // background-color: transparent;
   	background-repeat: no-repeat;
-	  box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
-	  border: solid 1px #ebebeb;
+	  box-shadow: 0px;
+	  border: 0px;
+	  // margin-left: -5px;
+
+
 
 	  &#btn-role-card {
 	  	background-image: url('/images/layout/rolecard-icon.svg');
+	  	background-color: $orange-dark;
 	  }
 	  &#btn-menu {
 	  	background-image: url('/images/layout/menu-icon.jpg');
+	  	background-color: $orange-light;
 	  }
 	}
 }

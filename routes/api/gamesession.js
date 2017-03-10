@@ -48,7 +48,7 @@ exports.create = function(req, res) {
         // Save this session to memory for faster retrieval (deleted when game ends)
         Session.Create(data.accessCode, new Game(session));
 
-        res.apiResponse({sessionCreated: true});
+        res.apiResponse({sessionCreated: true, accessCode: data.accessCode});
         
     });
 
