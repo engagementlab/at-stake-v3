@@ -66,6 +66,7 @@
 		'player:loggedin',
 		'player:inactive',
 		'player:reconnected',
+		'player:lost',
 		'players:update',
 		'player:finished',
 		'player:agenda_item',
@@ -342,9 +343,13 @@
 		}
 
     // Create uid for player
-    playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
-    sessionStorage.setItem('uUID', playerUID);
-
+    if(!sessionStorage.getItem('uUID')) {
+        playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
+        sessionStorage.setItem('uUID', playerUID);
+    }
+    else 
+        playerUID = sessionStorage.getItem('uUID');
+    
     // Open socket connection
     socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
     registerEvents();

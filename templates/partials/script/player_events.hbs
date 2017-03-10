@@ -21,10 +21,9 @@ var nextScreenData;
 
 var resetSession = function() {
 
-    // Remove saved game code, submission, and set to not reconnected
+    // Remove saved game code, uid, and set to not reconnected
     sessionStorage.removeItem('gameCode');
-    {{!-- sessionStorage.removeItem('playerSubmission'); --}}
-    {{!-- sessionStorage.removeItem('playerVote'); --}}
+    sessionStorage.removeItem('uUID');
     sessionStorage.setItem('reconnected', false);
 
 }
@@ -65,7 +64,6 @@ socketEvents = function(eventId, eventData) {
             }
 
             $('#gameContent').addClass('player-grid');
-
 
             $('.login.form').fadeOut(function() { $('.login.waiting').fadeIn(function(){
                 $('.lobby#join').addClass('player-grid');
@@ -111,9 +109,45 @@ socketEvents = function(eventId, eventData) {
             // Set local player state as reconnected
             playerWasReconnected = true;
 
+            let markup = sessionStorage.getItem('markup');
+
+            $('#gameContent').html(markup);
+
+            // Add trigger to go to next step on next-step buttons
+            $('.next-step').click(function(evt) {
+                nextPhaseScreen();
+            });
+
+            break;
+
+        case 'player:lost':
+
+            // A current player lost from session
+            var timeLeft = eventData.timeout;
+            var modal = $('#error-player-disconnected');
+            
+            modal.find('h2 #player').text(eventData.name);
+            modal.find('h2 #time').text(timeLeft + 's');
+            modal.show();
+
+            var timeoutClock = setInterval(function() {
+
+                timeLeft--;
+                modal.find('h2 #time').text(timeLeft + 's');
+
+                if(timeLeft === 0)
+                    clearInterval(timeoutClock);
+
+            }, 1000);
+
             break;
 
         case 'players:update':
+
+            if(eventData.state === 'rejoined') {
+                $('#error-player-disconnected').hide();
+                return;
+            }
 
             var staticPlayers = $('.player-static');
             var currentPlayers = _.map(eventData.players, function(player){
@@ -203,9 +237,7 @@ socketEvents = function(eventId, eventData) {
         case 'game:next_phase':
 
             $('#stages-bar').show();
-
             sessionStorage.setItem('gameCode', gameCode);
-            $('#stages-bar').show();
 
             // Don't show yet?
             if(waitForNextScreen) {
@@ -221,10 +253,7 @@ socketEvents = function(eventId, eventData) {
                 // Reset screen index
                 currentScreenIndex = 0;
 
-                if(isDecider)
-                    $('.player').remove();
-                else
-                    $('.decider').remove();
+                $(isDecider ? '.player' : '.decider').remove();
 
                 $('#gameContent').addClass('in-game');
 
@@ -245,8 +274,10 @@ socketEvents = function(eventId, eventData) {
                     $(el).clone().addClass('under').remove('button').appendTo(el);
                 });
 
+
                 // Show initial
                 $('.screen.initial').show();
+                sessionStorage.setItem('markup', $('#gameContent').html())
 
             });
             
@@ -261,8 +292,9 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:ended':
 
-            // Remove saved game code since game is over
-            sessionStorage.removeItem('gameCode');
+            // Reset game session data and send back to logn
+            resetSession();
+            // window.location = window.location;
 
             $('#gameContent').html(eventData);
 
@@ -385,7 +417,6 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:end':
-        case 'players:update':
 
             $('#gameContent').html(eventData);
 
@@ -394,18 +425,14 @@ socketEvents = function(eventId, eventData) {
             nextRoundAnim.play();
             break;
 
+        case 'game:last':
+
+            break;
+
         case 'coins:add':
         case 'coins:remove':
 
             $('#' + eventData.type + '-coins span').text(eventData.amt);
-
-            break;
-
-        case 'game:last':
-
-            {{!-- let markup = sessionStorage.getItem('markup'); --}}
-
-            $('#gameContent').html(markup);
 
             break;
 

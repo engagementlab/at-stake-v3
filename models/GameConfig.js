@@ -29,7 +29,8 @@ GameConfig.add(
 			name: { type: String, required: true, default: "Game Settings" },
 				  
 		  playerCountRangeMin: { type: Number, label: "Player Allowed Count Min", required: true, initial: true },
-		  playerCountRangeMax: { type: Number, label: "Player Allowed Count Max", required: true, initial: true }
+		  playerCountRangeMax: { type: Number, label: "Player Allowed Count Max", required: true, initial: true },
+		  timeTimeoutPlayer: { type: Number, label: "Player Disconnect Timeout", note: "Time (seconds) before game ends after player disconnects", required: true, initial: true }
 		},
 	  
 	  /*

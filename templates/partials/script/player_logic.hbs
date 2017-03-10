@@ -234,8 +234,12 @@ $(document).on('click', '.btn.game_login', function(evt) {
     }
 
     // Create uid for player
-    playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
-    sessionStorage.setItem('uUID', playerUID);
+    if(!sessionStorage.getItem('uUID')) {
+        playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
+        sessionStorage.setItem('uUID', playerUID);
+    }
+    else 
+        playerUID = sessionStorage.getItem('uUID');
 
     // Disable button and show loading modal
     if(!data.disable) {
