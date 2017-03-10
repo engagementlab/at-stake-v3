@@ -321,6 +321,8 @@
 
     isDecider = true;
 
+    console.log("setup")
+
     // Accesscode may be provided by server when debugging
     var gameCodeHtml = '';
     if(!gameCode) {
@@ -474,7 +476,9 @@ window.onload = function() {
 		    }
 
 				data.deckId = $("#decks .glide__slide.active").data('id');
-				data.accessCode = gameCode;
+				data.accessCode = $('.access-code span').text();
+
+				// setupDecider();
 
 			  $.post(
 			  	"/api/create/",
@@ -484,12 +488,26 @@ window.onload = function() {
 						if(data.sessionCreated) {
 
 							setupDecider();
+							var gameCodeHtml = '';
 							
 							$('#login').remove();
 
 					    $('#decider .create').hide();
 					    $('#decider .waiting').show();
-						
+
+					    _.each(data.accessCode.split(''), function(char, i) {
+				          gameCodeHtml += '<span>' + char + '</span>';
+				      });
+
+					    // Ensure login is gone and all decide UI shows
+					    $('#name,#join').remove();
+					    $('.access-code').html(gameCodeHtml);
+					    $('#decider .create').hide();
+				      $('#decider').show();
+				      $('#decider .waiting, #decider-debugging').show();
+				      $('#lobby').addClass('wait');
+
+					    $('#player-name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
 						}
 					})
 					.fail(function(xhr, status, error) {
