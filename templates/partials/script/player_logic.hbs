@@ -157,9 +157,7 @@ var checkIfLoggedIn = function() {
 
 }
 
-var nextPhase = function() {
-
-    currentPhaseIndex++; 
+var phaseBarProgress = function() {
 
     // Update progress bar
     $('#stages-bar #progress').css('width', (currentPhaseIndex * 17 ) + '%');
@@ -170,11 +168,29 @@ var nextPhase = function() {
 
 }
 
+var nextPhase = function() {
+
+    currentPhaseIndex++; 
+
+    phaseBarProgress();
+
+    // Local session update
+    sessionStorage.setItem('markup', $('#gameContent').html());    
+    sessionStorage.setItem('phase', currentPhaseIndex);    
+
+}
+
 var nextPhaseScreen = function() {
     
     currentScreenIndex++;
+
+    //TODO: Animate
     $($('.screen')[0]).remove();
     $($('.screen')[0]).show();
+
+    // Local session update
+    sessionStorage.setItem('markup', $('#gameContent').html());   
+    sessionStorage.setItem('screen', currentScreenIndex);
 
 }
 
@@ -334,11 +350,11 @@ $('#btn_new_game').click(function() {
 
              });
 
-             var gameCode = '';
+             var gameCodeMarkup = '';
             _.each(data.code.split(''), function(char, i) {
-                gameCode += '<span>' + char + '</span>';
+                gameCodeMarkup += '<span>' + char + '</span>';
             });
-            $('.access-code').html(gameCode);
+            $('.access-code').html(gameCodeMarkup);
             $('#gameContent').addClass('lobby');
 
         }

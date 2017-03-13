@@ -38,6 +38,44 @@ var getScript = function (gameType) {
         });
 }
 
+var setupTriggers = function() {
+
+    // Add trigger to go to next step on next-step buttons
+    $('.next-step').click(function(evt) {
+        nextPhaseScreen();
+    });
+
+    // Reset screen index
+    currentScreenIndex = 0;
+
+    $(isDecider ? '.player' : '.decider').remove();
+
+    if ($('#gameContent').hasClass('login'))
+        $('#gameContent').removeClass('login');
+    else if ($('#gameContent').hasClass('player-grid'))
+        $('#gameContent').removeClass('player-grid');
+
+    $('#gameContent').addClass('in-game');
+    $('#stages-bar').show();
+
+    // This makes duplicate of all speech bubbles and 
+    // makes them all child of respective bubble,
+    // in order to achieve proper "bottom border" effect
+    _.each($('.screen blockquote.speech'), function(el, i) {
+        $(el).clone().addClass('under').remove('button').appendTo(el);
+    });
+
+    // Show initial
+    $('.screen.initial').show();
+    sessionStorage.setItem('markup', $('#gameContent').html());
+
+    currentPhaseIndex = sessionStorage.getItem('phase');
+    currentScreenIndex = sessionStorage.getItem('screen');
+
+    phaseBarProgress();
+
+}
+
 socketEvents = function(eventId, eventData) {
 
     switch (eventId) {
@@ -109,13 +147,14 @@ socketEvents = function(eventId, eventData) {
             // Set local player state as reconnected
             playerWasReconnected = true;
 
-            let markup = sessionStorage.getItem('markup');
+            var markup = sessionStorage.getItem('markup');
+            markup = $(markup).not('blockquote.speech.under');
 
-            $('#gameContent').html(markup);
+            $('#bottom-bar').show();
+            $('#gameContent').html(markup).promise().done(function() {
+                
+                setupTriggers();
 
-            // Add trigger to go to next step on next-step buttons
-            $('.next-step').click(function(evt) {
-                nextPhaseScreen();
             });
 
             break;
@@ -249,38 +288,20 @@ socketEvents = function(eventId, eventData) {
 
                 rulesAnim();
                 nextPhase();
-
-                // Reset screen index
-                currentScreenIndex = 0;
-
-                $(isDecider ? '.player' : '.decider').remove();
-
-                $('#gameContent').addClass('in-game');
-
-                if ($('#gameContent').hasClass('login'))
-                    $('#gameContent').removeClass('login');
-                else if ($('#gameContent').hasClass('player-grid'))
-                    $('#gameContent').removeClass('player-grid');
-
-                // Add trigger to go to next step on next-step buttons
-                $('.next-step').click(function(evt) {
-                    nextPhaseScreen();
-                });
-
-                // This makes duplicate of all speech bubbles and 
-                // makes them all child of respective bubble,
-                // in order to achieve proper "bottom border" effect
-                _.each($('.screen blockquote.speech'), function(el, i) {
-                    $(el).clone().addClass('under').remove('button').appendTo(el);
-                });
-
-
-                // Show initial
-                $('.screen.initial').show();
-                sessionStorage.setItem('markup', $('#gameContent').html())
+                setupTriggers();
 
             });
             
+            break;
+
+        case 'game:refresh_screen':
+
+            updateGameContent(eventData, function() {
+
+                setupTriggers();
+
+            });
+
             break;
 
         case 'game:ending':
@@ -294,7 +315,7 @@ socketEvents = function(eventId, eventData) {
 
             // Reset game session data and send back to logn
             resetSession();
-            // window.location = window.location;
+            window.location = window.location;
 
             $('#gameContent').html(eventData);
 

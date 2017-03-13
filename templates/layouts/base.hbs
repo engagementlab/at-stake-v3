@@ -44,9 +44,16 @@
             <div id="overlay" class="modal">
             </div>
 
+            <section id="error-disconnected" class="modal error-modal">
+                <div id="text" class="col-sm-8 col-centered">
+                  <h1>Yikes! :-(</h1>
+                  <h2>It looks like the game server is not responding for some reason. Try playing later!</h2>
+                </div>
+            </section>
+
             <section id="error-player-disconnected" class="modal error-modal">
                 <div id="text" class="col-sm-8 col-centered">
-                  <h1>Hmmm....</h1>
+                  <h1>Ummm...</h1>
                   <h2>It looks like <span id="player"></span> got disconnected from the game! They have <span id="time">60s</span> to reconnect before the game ends!</h2>
                 </div>
             </section>
@@ -132,8 +139,8 @@
                         <button id="btn-menu">menu</button>
                     </div>
                     <div id="currency" class="col-sm-6 col-xs-6">
-                        <div id="pot-coins"><p>coin pot</p><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/pot_stroke.png" > <span></span></div>
-                        <div id="player-coins"><p>your coins</p><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/coin_stroke.png" > <span></span></div>
+                        <div id="pot-coins"><p>coin pot</p> {{{cloudinaryUrl "v1486743650/at-stake/layout/pot_stroke.png" width=60}}} <span></span></div>
+                        <div id="player-coins"><p>your coins</p> {{{cloudinaryUrl "v1486743650/at-stake/layout/coin_stroke.png" width=60}}} <span></span></div>
                     </div>
                     
                 </footer>
