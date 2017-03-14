@@ -2,12 +2,15 @@
 
 * COMPONENT: Instructions 
 * @param {Bool} decider - Is decider instructions?
+* @param {Bool} active_player - Show this speech only for active player?
+* @param {Bool} inactive_player - Show this speech only for inactive player?
 * @param {String} heading - Instructions heading
 * @param {String} body - Instructions body text
 
 --}}
 
-<section class="instruction {{#ifeq decider true}}decider{{else}}player{{/ifeq}}">
+<section class="instruction {{showHide this}}">
+
   <h1>{{heading}}</h1>
   <div>{{body}}</div>
   {{!-- 'Modifier' data tag modifies script behavior --}}

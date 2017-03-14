@@ -86,7 +86,7 @@
                     <div id="decider-debugging">
 
                         <br /><button id="countdowns_pause" data-resume="false" class="submit">pause countdowns</button>
-                        <br /><button id="goto_results" data-event="game:force_results" class="submit"{{!--  style="display:none" --}}>show results</button>
+                        <br /><button id="end_game" data-event="debug:end" class="submit">end game</button>
 
                         <div id="slider-gsap">
                         </div>
@@ -148,14 +148,14 @@
                 {{#ifeq debug true}}
                     {{#ifnoteq viewType 'decider'}}
                       <div id="emulate-players" style="display:none">
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
                       </div>
                   {{/ifnoteq}}
                 {{/ifeq}}

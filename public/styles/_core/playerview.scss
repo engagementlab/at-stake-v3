@@ -283,6 +283,11 @@ input.post-button {
 	h1 {
 		font-size: 1.4em;
 	}
+
+  // Inactive player - hide this bubble
+  &.hidden {
+  	display: none;
+  }
 }
 
 // Speech bubbles
@@ -323,6 +328,11 @@ blockquote.speech {
 	    &:before {
 		    border-top: 26px solid $cerulean;
 	    }
+    }
+
+    // Inactive player - hide this bubble
+    &.hidden {
+    	display: none;
     }
 }
 .speech {

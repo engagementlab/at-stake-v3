@@ -39,13 +39,6 @@
   var currentPhaseIndex = -1;
   var currentScreenIndex = 0;
 
-	{{!-- Group view cleanup --}}
-	{{#ifeq viewType 'group'}}
-	    $('.body').addClass('game-bg group');
-	    $('#wrapper').addClass('group');
-	    $('.navbar.main').attr ('style', 'display:none;');
-	{{/ifeq}}
-
   var sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1/at-stake/sfx/';
   {{#ifeq env "development"}}
   	sfxPath = '/sfx/'
@@ -57,6 +50,7 @@
 
 		{{#ifnoteq environment "production"}}
 		'debug:pause',
+		'debug:end',
 		{{/ifnoteq}}
 
 		'connect',
@@ -322,8 +316,6 @@
 
     isDecider = true;
 
-    console.log("setup")
-
     // Accesscode may be provided by server when debugging
     var gameCodeHtml = '';
     if(!gameCode) {
@@ -373,9 +365,8 @@ window.onload = function() {
   // Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
 	detectPrivateMode(function(isPrivate) {
 
-		// Landing page class for body
-		{{#ifeq viewType 'landing'}}
-				$('body').addClass('landing');
+		{{#ifeq debug true}}
+			isPrivate = false;
 		{{/ifeq}}
 
 		$("#nav-dropdown").on('click', function() {

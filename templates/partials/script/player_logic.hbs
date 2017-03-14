@@ -188,6 +188,22 @@ var nextPhaseScreen = function() {
     $($('.screen')[0]).remove();
     $($('.screen')[0]).show();
 
+    var hasTimer = $($('.screen')[0]).find('.timer.preview').length === 1;
+    if(hasTimer) {
+        new ProgressBar.Circle(
+          '.screen .timer.preview', 
+          {
+              color: '#fff',
+              duration: secondsLeft*1000,
+              easing: 'easeInOut',
+              strokeWidth: 6,
+              trailColor: 'rbga(235, 235, 235, 0.5)',
+              trailWidth: 0.8,
+              fill: '#20b5e6'
+          }
+        );
+    }
+
     // Local session update
     sessionStorage.setItem('markup', $('#gameContent').html());   
     sessionStorage.setItem('screen', currentScreenIndex);

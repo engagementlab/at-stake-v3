@@ -65,6 +65,53 @@ module.exports = function() {
 
     }
 
+    // Given component params, generate classes that make up its display mode
+    _helpers.showHide = function(attr) {
+
+        let strClasses = '';
+
+        // Is this component only visible to decider?
+        if(attr.decider && attr.decider === true)
+            strClasses = 'decider';
+
+        // For non-decider
+        else {
+            strClasses = 'player';
+
+            // Is this component only visible to active players or not?
+            if(attr.active_player)
+                strClasses += (attr.active_player === true) ? ' showing' : ' hidden';
+            else if(attr.inactive_player)
+                strClasses += (attr.inactive_player === true) ? ' showing' : ' hidden';
+        }
+
+
+        return strClasses;
+
+    }
+
+    // Given decider's speech component params, generate event that fires when 'next' is hit
+    _helpers.nextEvent = function(attr) {
+
+        let strEvent = 'game:';
+
+        // Is this speech bubble's button...
+        //... advancing to next phase?
+        if(attr.advance && attr.advance === true)
+            strEvent += 'next';
+
+        //... advancing to a timer?
+        else if(attr.timer && attr.timer === true)
+            strEvent += 'start_timer';
+
+        // ... just moving to next bubble?
+        else
+            strEvent += 'next_screen';
+
+        return strEvent;
+
+    }
+
     return _helpers;
 
 

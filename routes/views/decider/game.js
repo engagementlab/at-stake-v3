@@ -34,7 +34,7 @@ exports = module.exports = function(req, res) {
     locals.socketHost = (process.env.NODE_ENV === 'staging') ? 'qa.atstakegame.com' : req.headers.host;
 
     // Enable debugging on staging only
-    if(req.params.mode === 'debug' && process.env.NODE_ENV !== 'production') {
+    if(req.params.debug === 'debug' && process.env.NODE_ENV !== 'production') {
         locals.debug = true;
         accessCode = 'TEST';
     }

@@ -117,6 +117,12 @@ var Common = function (nsp, socket) {
             Session.Get(package.gameId).
             PauseResumeCooldown(currentSpace);
 
+        },
+
+        /* End game now (debugging only) */
+        'debug:end': function(package) {
+            Session.Get(package.gameId).
+            EndGame(currentSpace);
         }
     
     };

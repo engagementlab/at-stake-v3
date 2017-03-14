@@ -37,9 +37,9 @@
 		}}
 		
 		{{!-- 'combine' merges two strings --}}
-		{{> component/speech 
-				body="Get Ready to Brainstorm a solution"
-				secondary=(combine 'Round question: ' question)
+		{{> component/instructions 
+				heading="Get Ready to Brainstorm a solution"
+				body=(combine 'Round question: ' question)
 		}}
 
 		{{> component/speech 
@@ -63,13 +63,15 @@
 				body="Make sure everyone is ready and understands the instructions, then press the button to start the timer."
 		}}
 		
-		{{> component/speech 
-				body="Get Ready to Brainstorm a solution"
-				secondary="Remember you can open your rolecard anytime. Try to include your agenda items in your solution!"
+		{{> component/instructions 
+				heading="Get Ready to Brainstorm a solution"
+				body="Remember you can open your rolecard anytime. Try to include your agenda items in your solution!"
 		}}
 
-		{{> component/speech 
+		{{!-- Timer in button mode  --}}
+		{{> component/timer 
 				decider=true
+				button=true
 				body="Once I start the timer, You will have 60 seconds to brainstorm a solution to this question. Get Ready!"
 		}}
 
@@ -77,12 +79,6 @@
 				body="Once I start the timer, You will have 60 seconds to brainstorm a solution to this question. Get Ready!"
 				secondary=question
 		}}
-		
-		{{> component/timer 
-				decider=true
-				button=true
-		}}
-
 	</div>
 
 	{{!-- COUNTDOWN --}}
@@ -94,12 +90,11 @@
 				body='When the timer reaches zero shout "pencils down!"'
 		}}
 		
-		{{> component/speech 
-				body="think of a solution to the question"
-				secondary="Try to keep your idea concise, clear, and from your character's perspective! Be ready to pitch!"
+		{{> component/instructions 
+				heading="think of a solution to the question"
+				body="Try to keep your idea concise, clear, and from your character's perspective! Be ready to pitch!"
 		}}
-
-		{{!-- <div>{{question}}</div> --}}
+ 
 		{{> component/timer 
 				time=config.thinkSeconds
 				decider=true

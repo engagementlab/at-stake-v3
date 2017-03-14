@@ -26,7 +26,7 @@
 	</div>
 
 	{{!-- INSTRUCTIONS --}}
-	<div class="screen initial">
+	<div class="screen">
 		
 		{{> component/instructions
 				decider=true 
@@ -50,7 +50,7 @@
 	</div>
 
 	{{!-- INSTRUCTIONS part 2 --}}
-	<div class="screen initial">
+	<div class="screen">
 		
 		{{> component/instructions
 				decider=true 
@@ -82,15 +82,31 @@
 				body="Make sure the player pitching is ready and understands the instructions, then start the timer."
 		}}
 
-		{{> component/speech 
-				active_player=true
+		{{!-- active player --}}
+		{{> component/instructions 
+				active_player=isActive
 				heading="It’s your turn! Get ready to pitch!"
 				body="Wait for the decider to start the timer. You will have 60 seconds, with the ability to buy another 30."
 		}}
-		
+
+		{{!-- inactive player --}}
+		{{> component/instructions 
+				inactive_player=isInactive
+				heading="Listen to the other player’s proposal"
+				body="Take notes on other player’s proposals so you can better engage critically during deliberation!"
+		}}
+
+		{{!-- Timer in button mode  --}}
 		{{> component/timer 
 				button=true
+				decider=true
 				body=(combine activePlayer.username ', it is your turn to pitch. are you ready?')
+		}}
+
+		{{> component/timer
+				active_player=isActive 
+				preview=true
+				time=config.pitchSeconds
 		}}
 
 	</div>
