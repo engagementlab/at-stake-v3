@@ -2,8 +2,8 @@
 
 * COMPONENT: Timer 
 * @param {Bool} button - Just show timer 'start' button?
-* @param {Bool} advance_player - Button shown when timer done advances to next player's turn?
-* @param {Bool} advance - Button shown when timer done advances to next phase (ignored if 'advance_player' is true)?
+* @param {Bool} next_player - Button shown when timer done advances to next player's turn?
+* @param {Bool} advance - Button shown when timer done advances to next phase? (ignored if 'next_player' is true)
 * @param {Bool} active_player - Show this speech only for active player?
 * @param {Bool} inactive_player - Show this speech only for inactive player?
 * @param {String} body - Speech bubble body text for when 'button' is true
@@ -21,7 +21,6 @@
 
 {{else}}
 
-{{{jsonPrint this}}}
 
   {{!-- CIRCULAR TIMER --}}
   <div class="timer_wrap {{#ifeq decider true}}decider{{else}}player{{/ifeq}}">
@@ -33,12 +32,13 @@
         <div class="timer"></div>
     {{/ifeq}}
 
-    <div class="form row">
-      {{#if advance_player}}
+    <div class="decider form row">
+    <p>{{next_player}}</p>
+      {{#ifeq next_player true}}
         <button id="btn-next-player" data-event="game:next_player" class="timer-button submit" style="display:none">next player</button>
       {{else}}
         <button id="btn-next" data-event="{{#if advance}}game:next{{else}}game:next_screen{{/if}}" class="timer-button next-step submit" style="display:none">next</button>
-      {{/if}}
+      {{/ifeq}}
 
       <span id="modifier" class="hidden-el" data-hide_next="false"></span>
     </div>
