@@ -207,7 +207,16 @@ input.post-button {
 
 // More Time Card
 .form.choices.player.ACTIVE {
-	background-color: $
+	background-color: $color-turquoise;
+	border: white 3px solid;
+	color: white;
+	button {
+		width: 80%;
+		margin: 20px auto;
+		height: 80px;
+		border-radius: 40px;
+		background-color: blue;
+	}
 }
 
 // Player role card
@@ -395,6 +404,8 @@ footer#bottom-bar {
 
 	#currency {
 		text-align:right;
+		height:100%;
+		min-height: 100px;
 		
 		div {
 			display: inline-block;
@@ -410,18 +421,30 @@ footer#bottom-bar {
 			width: 60px;
 		}
 		#player-coins {
+			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/coin_stroke.png');
+			height: 100%;
+	    background-repeat: no-repeat;
+	    background-size: contain;
+	    background-position: center;
+
 			span {
-		    left: 35px;
-		    top: 60px;
-		    position: absolute;
+		 //    left: 35px;
+		 //    top: 60px;
+		 //    position: absolute;
 		    color: white;
 		  }
 		}
 		#pot-coins {
+			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/pot_stroke.png');
+			height: 100%;
+	    background-repeat: no-repeat;
+	    background-size: contain;
+	    background-position: center;
+
 			span {
-		    right: 40px;
-		    top: 60px;
-		    position: absolute;
+		    // right: 40px;
+		    // top: 60px;
+		    // position: absolute;
 		    color: white;
 		  }
 		}
