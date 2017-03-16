@@ -137,6 +137,24 @@ input.post-button {
 	color: white;
 }
 
+// Timer Animation
+.timer_wrap {
+	font-size: 36px;
+
+	svg {
+		width: 60% !important;
+		margin: 20px auto;
+		
+	}
+}
+
+#more-time {
+	position: absolute;
+	height: 100%;
+	top: 10px;
+}
+
+
 // Upper stages bar
 #stages-bar {
 	display: none;
@@ -185,6 +203,11 @@ input.post-button {
     	content: "";
     }
 	}
+}
+
+// More Time Card
+.form.choices.player.ACTIVE {
+	background-color: $
 }
 
 // Player role card
@@ -359,10 +382,6 @@ blockquote.speech {
   }
 }
 
-// Choice box
-.choice {
-	
-}
 
 // BOTTOM BAR (COINS, NEXT)
 footer#bottom-bar {
@@ -376,6 +395,7 @@ footer#bottom-bar {
 
 	#currency {
 		text-align:right;
+		
 		div {
 			display: inline-block;
 		}
@@ -388,6 +408,22 @@ footer#bottom-bar {
 		img {
 			height: 60px;
 			width: 60px;
+		}
+		#player-coins {
+			span {
+		    left: 35px;
+		    top: 60px;
+		    position: absolute;
+		    color: white;
+		  }
+		}
+		#pot-coins {
+			span {
+		    right: 40px;
+		    top: 60px;
+		    position: absolute;
+		    color: white;
+		  }
 		}
 
 	}
