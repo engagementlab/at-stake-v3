@@ -11,29 +11,6 @@ module.exports = function() {
      * ===================
      */
 
-
-    //  ### less than checker
-    _helpers.iflt = function(a, b, options) {
-
-        if (a < b) {
-            return options.fn(this);
-        } else {
-            return options.inverse(this);
-        }
-
-    };
-
-    // Remove <p> tag from html string
-    _helpers.removePara = function (str) {
-
-        if(!str)
-            return '';
-
-        str = str.replace (/<p>/g, '').replace (/<\/p>/g, '');
-        return str;
-
-    };
-
     // Get time in minutes for provided seconds
     _helpers.getMinutes = function (strSeconds) {
 
@@ -46,10 +23,10 @@ module.exports = function() {
     };
 
     _helpers.ellipsis = function (limit, currentText) {
-            if (currentText) {
-              console.log (currentText, "current text");
-              return currentText.substr(0, limit) + "...";
-            }
+     
+        if (currentText) 
+          return currentText.substr(0, limit) + "...";
+        
     }
 
     _helpers.namePossessive = function (strName) {
@@ -58,11 +35,16 @@ module.exports = function() {
 
     }
 
-    // Concatenate two strings (combine is alias)
-    _helpers.combine = _helpers.concat = function(str, str2) {
+    // Concatenate all passed in strings (combine is alias)
+    _helpers.combine = _helpers.concat = function() {
 
-        return str + str2;
+        let strCombined = '';
 
+        // Skip the last argument.
+        for(let i = 0; i < arguments.length - 1; ++i) 
+            strCombined += arguments[i];
+
+        return strCombined;
     }
 
     // Given component params, generate classes that make up its display mode
