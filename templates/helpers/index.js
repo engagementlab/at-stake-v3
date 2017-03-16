@@ -79,10 +79,11 @@ module.exports = function() {
             strClasses = 'player';
 
             // Is this component only visible to active players or not?
-            if(attr.active_player)
-                strClasses += (attr.active_player === true) ? ' showing' : ' hidden';
-            else if(attr.inactive_player)
-                strClasses += (attr.inactive_player === true) ? ' showing' : ' hidden';
+            if(attr.active_player !== undefined)
+                strClasses += (attr.active_player === true) ? ' showing ACTIVE' : ' hidden ACTIVE';
+
+            else if(attr.inactive_player !== undefined)
+                strClasses += (attr.inactive_player === true) ? ' showing INACTIVE' : ' hidden INACTIVE';
         }
 
 

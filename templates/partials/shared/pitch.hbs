@@ -74,7 +74,8 @@
 	</div>
 
 	{{!-- COUNTDOWN START --}}
-	<div class="screen">
+	{{!-- this is where phase re-starts for subsequent players --}}
+	<div class="screen restart">
 
 		{{> component/instructions
 				decider=true 
@@ -84,14 +85,14 @@
 
 		{{!-- active player --}}
 		{{> component/instructions 
-				active_player=isActive
+				active_player=player.isActive
 				heading="It’s your turn! Get ready to pitch!"
 				body="Wait for the decider to start the timer. You will have 60 seconds, with the ability to buy another 30."
 		}}
 
 		{{!-- inactive player --}}
 		{{> component/instructions 
-				inactive_player=isInactive
+				inactive_player=player.isInactive
 				heading="Listen to the other player’s proposal"
 				body="Take notes on other player’s proposals so you can better engage critically during deliberation!"
 		}}
@@ -104,7 +105,7 @@
 		}}
 
 		{{> component/timer
-				active_player=isActive 
+				active_player=player.isActive 
 				preview=true
 				time=config.pitchSeconds
 		}}
@@ -114,16 +115,41 @@
 	{{!-- COUNTDOWN --}}
 	<div class="screen">
 
-{{!-- 		{{> component/instructions
+		{{> component/instructions
 				decider=true 
-				heading="Press the button to start the timer"
-				body="Make sure everyone is ready and understands the instructions, then press the button to start the timer."
-		}} --}}
+				heading="Wait for the timer to reach zero"
+				body="When the timer reaches zero shout 'times up!'. and make sure they don’t keep pitching!"
+		}}
 
+		{{!-- active player --}}
+		{{> component/instructions 
+				active_player=player.isActive
+				heading="It’s your turn! Get ready to pitch!"
+				body="You’re on! Try to keep within the time limit, and stop speaking when time runs out."
+		}}
+
+		{{!-- inactive player --}}
+		{{> component/instructions 
+				inactive_player=player.isInactive
+				heading="Listen to the other player’s proposal"
+				body="Take notes on other player’s proposals so you can better engage critically during deliberation!"
+		}}
+
+		{{!-- timers, one for decider and one for non-deciders --}}
 		{{> component/timer 
 				time=config.pitchSeconds
 				decider=true
-				advance_player=true
+				next_player=repeatScreen
+				advance=true
+		}}
+
+		{{> component/timer 
+				time=config.pitchSeconds
+		}}
+
+		{{!-- choice box for buying more time --}}
+		{{> component/choice 
+				active_player=player.isActive
 		}}
 
 	</div>
