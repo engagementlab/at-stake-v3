@@ -72,11 +72,11 @@
 		{{> component/timer 
 				decider=true
 				button=true
-				body="Once I start the timer, You will have 60 seconds to brainstorm a solution to this question. Get Ready!"
+				body=(combine 'Once I start the timer, You will have ' config.thinkSeconds ' seconds to brainstorm a solution to this question. Get Ready!')
 		}}
 
 		{{> component/speech 
-				body="Once I start the timer, You will have 60 seconds to brainstorm a solution to this question. Get Ready!"
+				body=(combine 'Once I start the timer, You will have ' config.thinkSeconds ' seconds to brainstorm a solution to this question. Get Ready!')
 				secondary=question
 		}}
 	</div>

@@ -1,0 +1,81 @@
+{{!-- DELIBERATE PHASE UI --}}
+<div id="deliberate">
+
+	<div class="screen initial">
+
+		{{> component/instructions 
+				decider=true
+				heading="read the text in the blue box outloud"
+				body="Once you have finished speaking the instructions to other players, press next to continue."
+		}}
+
+		{{> component/instructions 
+				heading="Read the revealed round question"
+				body="now time to deliberate lallalalala!"
+		}}
+
+		{{> component/speech 
+				decider=true
+				body=(combine 'you will get ' config.deliberateSeconds ' seconds to delib, yo.')
+				secondary=question
+		}}
+
+		{{> component/speech 
+				body=(combine 'you will get ' config.deliberateSeconds ' seconds to delib, yo.')
+		}}
+
+	</div>
+
+	{{!-- TIMER START --}}
+	<div class="screen">
+
+		{{> component/instructions 
+				decider=true
+				heading="Press the button to start the timer"
+				body="Make sure everyone is ready and understands the instructions, then press the button to start the timer."
+		}}
+		
+		{{> component/instructions 
+				heading="Get Ready to delib"
+				body="Remember you can open your rolecard blahblah!"
+		}}
+
+		{{!-- Timer in button mode  --}}
+		{{> component/timer 
+				decider=true
+				button=true
+				body=(combine 'Once I start the timer ' config.deliberateSeconds ' seconds to delib, yo.')
+		}}
+
+		{{> component/speech 
+				body=(combine 'Once I start the timer ' config.deliberateSeconds ' seconds to delib, yo.')
+				secondary=question
+		}}
+	</div>
+
+	{{!-- COUNTDOWN --}}
+	<div class="screen no-transition">
+
+		{{> component/instructions 
+				decider=true
+				heading="Wait For timer to reach zero"
+				body="Something here yada"
+		}}
+		
+		{{> component/instructions 
+				heading="time to delib"
+				body="Yo hi hello how is ya!"
+		}}
+ 
+		{{> component/timer 
+				time=config.deliberateSeconds
+				decider=true
+				advance=true
+		}}
+		{{> component/timer 
+				time=config.deliberateSeconds
+		}}
+	
+	</div>
+
+</div>
