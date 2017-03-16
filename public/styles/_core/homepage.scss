@@ -3,8 +3,13 @@
 
 p {
 	font-family: $body-type;
-	color: black;
+	color: $type-black;
 	text-justify: inter-word;
+	-moz-hyphens: auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+	hyphenate-before: 2;
+	hyphenate-after:2;
 }
 
 h3 {
@@ -93,7 +98,7 @@ h5 {
 			margin-top: 50px;
 			overflow: auto;
 
-			@media(max-width: 383px){
+			@media(max-width: 440px){
 				font-size: .8em;
 			}
 		}
@@ -164,8 +169,9 @@ h5 {
 		float: right;
 		padding: 0px 40px;
 		@media(max-width: 990px){
-			padding: 0px 90px;
+			padding: 0px 25px;
 		}
+		color: $type-black;
 		.tagline{
 
 		}
@@ -174,9 +180,21 @@ h5 {
 			padding-top: 30px;
 			.cta-para-one{
 				text-align: justify;
+					text-justify: inter-word;
+	-moz-hyphens: auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+	hyphenate-before: 2;
+	hyphenate-after:2;
 			}
 			.cta-para-two{
 				text-align: justify;
+					text-justify: inter-word;
+	-moz-hyphens: auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+	hyphenate-before: 2;
+	hyphenate-after:2;
 			}	
 		}
 		.cta-points{
@@ -192,17 +210,18 @@ h5 {
 			}
 
 			p{
-				z-index: 2;
-				position: relative;
-				bottom: 35px;
-				left: 45px;
 				text-align-last: auto;
 				line-height: 110%;
 			}
 
 			.point-content{
+				z-index: 2;
+				position: relative;
+				left: 30px; 
+				bottom: 35px;
 				font-size: 14px;
 				color: $type-black;
+				line-height: 1.1em;
 			}
 		}		
 	}
@@ -212,7 +231,12 @@ h5 {
 		.feature-text{
 			padding: 15px 30px;
 			text-align: justify;
-
+				text-justify: inter-word;
+	-moz-hyphens: auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+	hyphenate-before: 2;
+	hyphenate-after:2;
 			@media(max-width: 767px) and (min-width: 650px){
 				padding: 15px 45px;
 			}
@@ -283,17 +307,20 @@ h5 {
 		z-index: 2;
 		.flow-play-header{
 			padding-bottom: 1px;
-			p{
-				font-family: $header-type;
-				color: $background-mint;
-				text-align-last: center;
-			}
+			font-family: $header-type;
+			color: $background-mint;
+			text-align-last: center;
 		}
 		.flow-play-para{
 			text-align: justify;
-			p{
-				text-align-last: center;
-			}
+				text-justify: inter-word;
+	-moz-hyphens: auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+	hyphenate-before: 2;
+	hyphenate-after:2;
+			text-align-last: center;
+			color: $type-black;
 		}
 		.play-pic{
 			display: block;
@@ -362,10 +389,14 @@ h5 {
 		}
 		.learn-more-para{
 			text-align: justify;
-			p{
-				color: white !important;
-				text-align-last: center;
-			}
+			color: white !important;
+			text-align-last: center;
+				text-justify: inter-word;
+	-moz-hyphens: auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+	hyphenate-before: 2;
+	hyphenate-after:2;
 		}
 	}
 	.design-dev-team{
