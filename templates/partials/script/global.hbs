@@ -96,6 +96,22 @@
 	
 	];
 
+	
+
+	$(window).on('resize', function () {
+
+		if ($('#overlay').css('display' , 'block')) {
+			var windowsize = $(window).width();
+			var bodysize = $('#wrapper').width();
+			console.log(windowsize, bodysize);
+			var extraWindow = (windowsize - bodysize)/2;
+			// var leftPosition = windowsize - extraWindow;
+			$('#overlay').css('left', extraWindow);
+			$('#overlay').show();
+		}
+		
+	});
+
 	/* 
 	 Associate provided data object with current game ID
 	*/

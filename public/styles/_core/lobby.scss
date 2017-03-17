@@ -18,7 +18,6 @@
 
 	.game_login {
 		display: block;
-			position: fixed;
 			right: 0;
 			bottom: 0;
 			margin-bottom: 10px;
@@ -37,12 +36,10 @@
 	// Lobby game screens
 	.lobby {
 		&:not(#decider) {
-			width: 90%;
+			width: 100%;
 		  height: 70%;
-		  position: fixed;
-		  bottom: 0px;
-		  left: 5%;
-		  
+		  // position: fixe;
+		  bottom: 0px;		  
 
 		  &.player-grid {
 		  	width:100% !important;
@@ -192,8 +189,9 @@
 
 		.form {
 			padding: 8px;
-	    position: absolute;
+	    // position: absolute;
 	    top: 10px;
+	    margin: 0 auto;
 	    z-index: 1000;
 		}
 		p {
@@ -250,7 +248,7 @@
 			margin-left: -30px;
 			margin-right:-30px;
 			padding:30px;
-			height: 70%;
+			height: 40%;
 		}
 
 		#description p {
