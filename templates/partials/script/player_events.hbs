@@ -1,3 +1,4 @@
+
 {{!< default}}
 {{!-- 
 /**
@@ -424,9 +425,20 @@ socketEvents = function(eventId, eventData) {
             $('#added-time').hide();
 
             runMods();
-            
-            $('#more-time').fadeIn();
-            $('#btn-more-time,#btn-cancel').click(function() { $('#more-time').fadeOut()} );
+
+            $('#overlay').append($('#more-time-wrapper.ACTIVE'));
+
+            if ($('#overlay').html().length > 0) {
+
+                $('#overlay').fadeIn(function() {
+                    $('#more-time-wrapper.player.ACTIVE').fadeIn();
+                });
+
+                 $('#btn-more-time,#btn-cancel').click(function() { 
+                    $('#more-time-wrapper.ACTIVE').fadeOut();
+                    $('#overlay').empty();
+                });
+            }
 
             if(isDecider)
                 $('#btn-next').show();

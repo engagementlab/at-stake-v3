@@ -217,7 +217,7 @@
 			  font-size:14px;
 			  height: 48px;
 			  text-align: center;
-			  line-height: 48px !important;
+			  // line-height: 48px !important;
 			}
 			&::-moz-placeholder{
 				font-size:14px;
@@ -278,6 +278,10 @@
 	}
 
 	#join.lobby {
+
+		.login {
+			padding-top: 10%;
+		}
 
 		#access_code {
 			height: 60px;
@@ -374,16 +378,17 @@
 			    // box-shadow: 0 2px 4px 0 rgba(85, 85, 85, 0.25);
 			    border-radius: 0px;
 			    height:100%;
+			    width: 90%;
 
 					.deck-header {
-						background-color: $orange-dark;
+						background-color: $color-orange;
 						padding: 10px 0px;
 						color: white;
 					}
 
 					.flag {
 						color:$orange-dark;
-					  margin: 4px;
+					  margin: 10% 5%;
 					  font-size: 20px;
 					}
 
@@ -397,7 +402,7 @@
 					}
 
 					.stakeholders {
-						width: 50%;
+						width: 100%;
 						padding:0px;
 						display: inline-block;
 					}
@@ -406,8 +411,8 @@
 					  display: block;
 					  font-size: 12px;
 				    color: $orange-light;
-				    padding: 4px;
-				    margin: 4px;
+				    padding: 5%;
+				    margin: 0px;
 
 					}
 

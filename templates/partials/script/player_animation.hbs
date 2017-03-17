@@ -19,6 +19,8 @@ function rulesAnim(callback) {
 
 	if(screens.length === 0)
 		return;
+
+		console.log(screens);
   
   screensAnim = new TimelineLite({ paused: true, onComplete: 
 																										  	function() { TweenLite.fromTo($('#btn-next'), 1, {scale:0, autoAlpha:0}, {scale:1, autoAlpha:1, display:'block', ease:Elastic.easeOut}); } 
