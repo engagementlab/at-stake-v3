@@ -103,10 +103,7 @@ const PlayerLogin = function(nsp, socket, emitter) {
       if(Session.Get(payload.gameId).PlayerIsActive(payload.uid)) {
 
         var player = {socket_id: currentSocket.id, username: payload.username, uid: payload.uid};
-
-        // Set client to reconnected state
-        currentSocket.emit('player:reconnected', true);
-
+        
         // Mark player as ready inside game session
         Session.Get(payload.gameId).PlayerReady(
                                                 player,
