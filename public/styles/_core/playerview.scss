@@ -148,11 +148,7 @@ input.post-button {
 	}
 }
 
-#more-time {
-	position: absolute;
-	height: 100%;
-	top: 10px;
-}
+
 
 
 // Upper stages bar
@@ -160,7 +156,9 @@ input.post-button {
 	display: none;
 	text-align: justify;
   line-height: 0;
-  top: 8px;
+  top: 0px;
+  height: 50px;
+  padding:8px;
   background: $turquoise-dark;
 
   &:after {
@@ -206,17 +204,45 @@ input.post-button {
 }
 
 // More Time Card
-.form.choices.player.ACTIVE {
-	background-color: $color-turquoise;
+#more-time-wrapper {
+	position: absolute;
+	text-align:center;
+	height: 100%;
+	width: 100%;
+	left: 0px;
+	top: 0px;
+	background-color: transparentize($color-blue, 0.6);
+}
+#more-time {
+	position: absolute;
+  height: 60%;
+  width: 90%;
+  top: 60px;
+  left: 5%;
+  background-color: $color-turquoise;
 	border: white 3px solid;
 	color: white;
+
 	button {
 		width: 80%;
-		margin: 20px auto;
-		height: 80px;
-		border-radius: 40px;
-		background-color: blue;
+		margin: 10px auto;
+		height: 60px;
+		border-radius: 30px;
+		color: white;
+		border: 0px;
+
+		&#btn-more-time {
+			background-color: $color-red;
+			background-size: 50px 50px;
+			background-position: 3px center;
+			background-repeat: no-repeat;
+			background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/coin_stroke.png");
+		}
+		&#btn-cancel {
+			background-color: $orange-dark;
+		}
 	}
+
 }
 
 // Player role card
@@ -409,44 +435,47 @@ footer#bottom-bar {
 		
 		div {
 			display: inline-block;
+			text-align: center;
+
 		}
 		p {
 			font-size: 12px;
 			margin: 0px;
 			text-align: center;
 			color: white;
+			padding-bottom: 40px;
+			padding-top: 10px;
 		}
 		img {
 			height: 60px;
 			width: 60px;
 		}
-		#player-coins {
-			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/coin_stroke.png');
-			height: 100%;
-	    background-repeat: no-repeat;
-	    background-size: contain;
-	    background-position: center;
 
-			span {
-		 //    left: 35px;
-		 //    top: 60px;
-		 //    position: absolute;
+		span {
 		    color: white;
 		  }
+		#player-coins {
+			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/coin_stroke.png');
+			height: 100px;
+			width: 60px;
+	    background-repeat: no-repeat;
+	    background-size: 50px 50px;
+	    background-position: center;
+
+			// span {
+		 //    color: white;
+
+		 //  }
 		}
 		#pot-coins {
 			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/pot_stroke.png');
-			height: 100%;
+			height: 100px;
+			width: 60px;
 	    background-repeat: no-repeat;
-	    background-size: contain;
+	    background-size: 50px 50px;
 	    background-position: center;
 
-			span {
-		    // right: 40px;
-		    // top: 60px;
-		    // position: absolute;
-		    color: white;
-		  }
+			
 		}
 
 	}

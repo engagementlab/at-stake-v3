@@ -51,11 +51,11 @@
 
     <div class="login input">
       <input type="text" id="access_code" placeholder="Type your room code here" maxlength="4"> <br />
-      <p class="light">Type your name and hit the play button to begin!</p>
+      <p class="light">Type in your game's access code and hit the play button to begin!</p>
       <div class="error">Error!</div>
 
       <button class="back-button" data-from="join" data-to="choices">back</button>
-      <input id="btn_submit_code"  data-event="game:entry" data-package='{"code": "#access_code", "name": "#player-name"}' class="btn btn-default game_login" type="submit" name="submit" value="next">
+      <input id="btn_submit_code"  data-event="game:entry" data-package='{"code": "#access_code", "name": "#player-name"}' class="btn btn-default game_login" type="submit" name="submit" value="login">
     </div>
 
     <div class="row login waiting" style="display:none">
@@ -67,7 +67,7 @@
 
   {{!-- NEW GAME --}}
   <div class="lobby" id="decider" style="display:none">
-    <div class="form create col-sm-12 col-lg-6 col-centered">
+    <div class="form create col-sm-12 col-lg-6 col-centered" id="deck-choice">
 
       <h3 class="white header">Select a Deck</h3>
       <div class="form-prompt white">Your deck will determine what problems you solve and what roles you get to play.</div>
@@ -81,7 +81,7 @@
       <input id="btn_submit" class="button_text game_login" type="submit" name="submit" value="next">
     </div>
 
-    <div class="waiting" style="display:none">
+    <div class="waiting" style="display:none" id="share-code">
       <input type="text" id="player-name" class="hidden-el"> <br />
 
       <div id="share_code"> 
@@ -101,7 +101,7 @@
 
       <div class="form row" id="start">
         <input id="btn-start-game" data-event="game:start" class="{{!-- post-button  --}}submit" type="submit" name="submit" value="play!">
-        <button class="back-button" data-from="choices" data-to="name">back</button>
+        <button class="back-button" data-from="share-code" data-to="deck-choice">back</button>
       </div>
     </div>
   </div>

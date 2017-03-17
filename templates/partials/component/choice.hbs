@@ -4,10 +4,11 @@
 * @param {Bool} active_player - Show this choice dialog only for active player?
 
 --}}
-
-<div class="form choice {{showHide this}}" id="more-time" style="display:none">
-  <h3>Pay {{config.extraTimeCost}} to continue pitching?</h3>
-  <h2>Recieve an additional {{config.extraSeconds}} seconds of uninterrupted talking time.</h2>
-  <button id="btn-more-time" data-event="game:more_time" data-keep_enabled="true" data-package="{{player.playerUid}}" class="post-button submit" type="submit" name="submit">get more time</button>
-  <button id="btn-cancel" data-event="game:turn_done" class="post-button submit" type="submit" name="submit">no thanks</button>
+<div id="more-time-wrapper" class="{{showHide this}}" style="display:none">
+	<div class="form choice" id="more-time" >
+	  <h3>Pay {{config.extraTimeCost}} to continue pitching?</h3>
+	  <h4>Recieve an additional {{config.extraSeconds}} seconds of uninterrupted talking time.</h4>
+	  <button id="btn-more-time" data-event="game:more_time" data-keep_enabled="true" data-package="{{player.playerUid}}" class="post-button submit" type="submit" name="submit">get more time</button>
+	  <button id="btn-cancel" data-event="game:turn_done" class="post-button submit" type="submit" name="submit">no thanks</button>
+	</div>
 </div>
