@@ -260,7 +260,7 @@ socketEvents = function(eventId, eventData) {
                 var nameFormatted = (player.name.length <= 15) ? player.name : player.name.substring(0, 15) + "...";
                 var index = player.icon;
 
-                $('#players').append('<div id="player-' + index + '" class="col-sm-12 player-logo"><p>' + nameFormatted + '</p></div>');
+                $('#players').append('<div id="player-' + index + '" class="col-sm-12 player-logo col-centered"><p>' + nameFormatted + '</p></div>');
 
             });
 

@@ -1,6 +1,6 @@
 @media (min-width: 425px) {
 
-	#wrapper {
+	#wrapper:not(.home-wrap), .modal {
 		max-width: 425px;
 		height: 100%;
 		margin: 0 auto;

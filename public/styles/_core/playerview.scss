@@ -205,7 +205,7 @@ input.post-button {
 
 // More Time Card
 #more-time-wrapper {
-	position: absolute;
+	position: relative;
 	text-align:center;
 	height: 100%;
 	width: 100%;
@@ -214,7 +214,7 @@ input.post-button {
 	background-color: transparentize($color-blue, 0.6);
 }
 #more-time {
-	position: absolute;
+	position: relative;
   height: 60%;
   width: 90%;
   top: 60px;
@@ -424,9 +424,11 @@ footer#bottom-bar {
 	font-size: large;
 	width: 100%;
 	bottom: 0px;
-	position: fixed;
+	left: 0px;
+	position: absolute;
 	padding-top: 5px;
 	padding-bottom: 5px;
+	max-width: 425px;
 
 	#currency {
 		text-align:right;

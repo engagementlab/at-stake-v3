@@ -32,6 +32,13 @@
 	// Can be set by any event logic waiting for content update
 	var updateContentCallback;
 
+	// Absolute positioning variables
+	var maxWidth = 425;
+	var absolutes;
+	var windowsize;
+	var bodysize;
+	var extraWindow;
+
 	// For countdown debugging
   var countdownPaused = false;
 
@@ -98,18 +105,87 @@
 
 	
 
+
+
+	var absoluteLayout = function() {
+
+		absolutes = [];
+
+		windowsize = $(window).width();
+		bodysize = $('#wrapper').width();
+		extraWindow = (windowsize - bodysize)/2;
+		console.log(windowsize, extraWindow);
+
+		findAbsolutes();
+
+	};
+
+	var findAbsolutes = function() {
+
+		outerAbsolutes = 
+		$('#wrapper :not(#gameContent *, #homeContent *, #stages-bar *)')
+		.filter(function(){
+		  return ($(this).css('position') == 'absolute');
+		});
+
+		// innerAbsolutes = 
+		// $('#gameContent, #homeContent)').filter(function(){
+		// 						  return ($(this).css('position') == 'absolute');
+		// 						});
+
+		setAbsolutes(outerAbsolutes);
+	};
+
+	var setAbsolutes = function(absolutes) {
+		
+
+		_.each(absolutes, function(item) {
+
+			let position = {};
+
+			// Check current positions
+			if ($(item).css('left') != null)
+				position.left = $(item).css('left');
+
+			if ($(item).css('right') != null)
+				position.right = $(item).css('right');
+
+			// If left, set it
+			if (position.left) {
+				position.left =+ extraWindow;
+				$(item).css('left', position.left);
+			}
+
+			// If right, set it
+			if (position.right){
+				position.right =+ extraWindow;
+				$(item).css('right', position.right);
+			}
+
+			// Call finish function after 300 milaseconds
+			var finish = _.debounce(finishResize, 500);
+			finish();
+
+		});
+	};
+
+	var finishResize = function() {
+
+		// Show wrapper now that resize is complete
+		$('#wrapper').css('visibility', 'visible');
+
+	}
+
 	$(window).on('resize', function () {
 
-		if ($('#overlay').css('display' , 'block')) {
-			var windowsize = $(window).width();
-			var bodysize = $('#wrapper').width();
-			console.log(windowsize, bodysize);
-			var extraWindow = (windowsize - bodysize)/2;
-			// var leftPosition = windowsize - extraWindow;
-			$('#overlay').css('left', extraWindow);
-			$('#overlay').show();
-		}
-		
+		// Hide content wrapper during resize
+		$('#wrapper').css('visibility' ,'hidden');
+
+		absoluteLayout();
+
+		// TO DO: Work out overlay during resize?
+		// $('#overlay').html('<div style="margin-top: 10%" class="col-sm-12 col-centered">looks like you\'re doing some resizing...</div>').show();
+
 	});
 
 	/* 

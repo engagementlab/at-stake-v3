@@ -30,7 +30,7 @@ var deciderEvents = function(eventId, eventData) {
 
                 var nameFormatted = (player.name.length <= 15) ? player.name : playername.substring(0, 15) + "...";
 
-                $('#players').append('<div class="col-sm-3 player-logo"><div class="logo" id="player-' + player.icon + '"></div><p>' + nameFormatted + '</p></div>');
+                $('#players').append('<div class="col-sm-12 col-centered player-logo"><div class="logo" id="player-' + player.icon + '"></div><p>' + nameFormatted + '</p></div>');
 
             });
 
