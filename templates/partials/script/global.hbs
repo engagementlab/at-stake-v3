@@ -429,6 +429,9 @@
 		{{> script/mobile}}
 	{{/if}}
 
+	// Initialize layout
+	absoluteLayout();
+
 	$(window).on('resize', function () {
 
 		// Hide content wrapper during resize
@@ -440,9 +443,6 @@
 		// $('#overlay').html('<div style="margin-top: 10%" class="col-sm-12 col-centered">looks like you\'re doing some resizing...</div>').show();
 
 	});
-
-	// Initialize layout
-	absoluteLayout();
 
 	window.onload = function() {
 

@@ -163,9 +163,8 @@ socketEvents = function(eventId, eventData) {
             if ($('.modal'))
                 $('.modal').fadeOut();
 
-            $('#error-disconnected').fadeIn(function() {
-                $('#error-disconnected #text').css('top', '0');
-            });
+            $('#error-disconnected').trigger('show');
+            $('#error-disconnected #text').css('top', '0');
 
             break;
 
@@ -215,7 +214,7 @@ socketEvents = function(eventId, eventData) {
             
             modal.find('h2 #player').text(eventData.name);
             modal.find('h2 #time').text(timeLeft + 's');
-            modal.show();
+            modal.trigger('show');
 
             countdownPaused = true;
 
@@ -234,7 +233,7 @@ socketEvents = function(eventId, eventData) {
         case 'players:update':
 
             if(eventData.state === 'rejoined') {
-                $('#error-player-disconnected').hide();
+                $('#error-player-disconnected').trigger('hide');
 
                 countdownPaused = false;
                 return;

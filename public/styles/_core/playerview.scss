@@ -157,7 +157,6 @@ input.post-button {
   top: 0px;
   height: 50px;
   padding:8px;
-  background: $turquoise-dark;
 
   &:after {
 	  content: "";
@@ -165,14 +164,11 @@ input.post-button {
 	  display: inline-block;
 	  vertical-align: bottom;
   }
-
+	
 	img {
-    position: relative;
-	  display: inline-block;
-	  vertical-align:middle;
-		z-index: 1;
+		display: block;
+    margin: auto;
 		
-
 		&.disabled {
 			@include filter(grayscale, 100%);
 			animation-name: exit-stage;
@@ -186,18 +182,39 @@ input.post-button {
 			animation-fill-mode: forwards;
 		}
 	}
-	#progress {
+
+  .icon {
+    position: relative;
+	  display: inline-block;
+	  vertical-align: middle;
+		z-index: 1;
+		span {
+			display: flex;
+	    margin-top: 20%;
+		}
+
+  }
+  
+	.phase-path {
     position: absolute;
     display: block;
 		z-index: 0;
     height: 5px;
-    width: 0%;
+    width: 100%;
     top: 47%;
-    background-color: palegoldenrod;
-    @include linear_transition(width, 0.5s);
     &:after {
     	content: "";
     }
+
+    &#fill {
+	    background-color: #66F6DE;
+	    @include box-shadow(1px, 3px, 3px, #53CDB2);
+    }
+		&#progress {
+	    width: 0%;
+	    background-color: white;
+	    @include linear_transition(width, 0.5s);
+		}
 	}
 }
 
