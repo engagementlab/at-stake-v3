@@ -11,8 +11,12 @@
 @import "_core/animations";
 
 html, body {
+	
 	max-height: 100%;
 	height:100%;
+	
+	@include gradient-vertical($background-color, $turquoise-dark, 55%, 45%);
+
 }
 
 #wrapper {

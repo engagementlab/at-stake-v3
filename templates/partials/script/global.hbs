@@ -32,12 +32,8 @@
 	// Can be set by any event logic waiting for content update
 	var updateContentCallback;
 
-	// Absolute positioning variables
+	// Absolute positioning global
 	var maxWidth = 425;
-	var absolutes;
-	var windowsize;
-	var bodysize;
-	var extraWindow;
 
 	// For countdown debugging
   var countdownPaused = false;
@@ -103,70 +99,65 @@
 	
 	];
 
-	
-
-
-
+	/* 
+		Manually position absolutely-positioned elements on window re-size
+	*/
 	var absoluteLayout = function() {
 
-		absolutes = [];
+		// Setup config for layout
+		var absolutes = [],
+				windowsize = $(window).width(),
+				bodysize = $('#wrapper').width(),
+				extraWindow = (windowsize - bodysize)/2;
 
-		windowsize = $(window).width();
-		bodysize = $('#wrapper').width();
-		extraWindow = (windowsize - bodysize)/2;
-		console.log(windowsize, extraWindow);
+		// Locally-scoped methods
+		var findAbsolutes = function() {
+
+					// Get all absolutely-positioned elements
+					var outerAbsolutes = 
+					$('#wrapper :not(#gameContent *, #homeContent *, #stages-bar *)')
+					.filter(function(){
+					  return ($(this).css('position') == 'absolute');
+					});
+
+					setAbsolutes(outerAbsolutes);
+
+				},
+				setAbsolutes = function(absolutes) {
+			
+					_.each(absolutes, function(item) {
+
+						let position = {};
+
+						// Check current positions
+						if ($(item).css('left') != null)
+							position.left = $(item).css('left');
+
+						if ($(item).css('right') != null)
+							position.right = $(item).css('right');
+
+						// If left, set it
+						if (position.left) {
+							position.left =+ extraWindow;
+							$(item).css('left', position.left);
+						}
+
+						// If right, set it
+						if (position.right){
+							position.right =+ extraWindow;
+							$(item).css('right', position.right);
+						}
+
+						// Call finish function after 300 milaseconds
+						var finish = _.debounce(finishResize, 500);
+						finish();
+
+					});
+
+				};
 
 		findAbsolutes();
 
-	};
-
-	var findAbsolutes = function() {
-
-		outerAbsolutes = 
-		$('#wrapper :not(#gameContent *, #homeContent *, #stages-bar *)')
-		.filter(function(){
-		  return ($(this).css('position') == 'absolute');
-		});
-
-		// innerAbsolutes = 
-		// $('#gameContent, #homeContent)').filter(function(){
-		// 						  return ($(this).css('position') == 'absolute');
-		// 						});
-
-		setAbsolutes(outerAbsolutes);
-	};
-
-	var setAbsolutes = function(absolutes) {
-		
-
-		_.each(absolutes, function(item) {
-
-			let position = {};
-
-			// Check current positions
-			if ($(item).css('left') != null)
-				position.left = $(item).css('left');
-
-			if ($(item).css('right') != null)
-				position.right = $(item).css('right');
-
-			// If left, set it
-			if (position.left) {
-				position.left =+ extraWindow;
-				$(item).css('left', position.left);
-			}
-
-			// If right, set it
-			if (position.right){
-				position.right =+ extraWindow;
-				$(item).css('right', position.right);
-			}
-
-			// Call finish function after 300 milaseconds
-			var finish = _.debounce(finishResize, 500);
-			finish();
-
-		});
 	};
 
 	var finishResize = function() {
@@ -175,21 +166,6 @@
 		$('#wrapper').css('visibility', 'visible');
 
 	}
-
-	$(window).on('resize', function () {
-
-		// Hide content wrapper during resize
-		$('#wrapper').css('visibility' ,'hidden');
-
-		absoluteLayout();
-
-		// TO DO: Work out overlay during resize?
-		// $('#overlay').html('<div style="margin-top: 10%" class="col-sm-12 col-centered">looks like you\'re doing some resizing...</div>').show();
-
-	});
-
-	// Initialize layout
-	absoluteLayout();
 
 	/* 
 	 Associate provided data object with current game ID
@@ -453,221 +429,236 @@
 		{{> script/mobile}}
 	{{/if}}
 
-window.onload = function() {
+	$(window).on('resize', function () {
 
-	// Show body only after everything is loaded
-  // document.body.style.display = "block";
-  $('body').fadeIn(1000);
+		// Hide content wrapper during resize
+		$('#wrapper').css('visibility' ,'hidden');
 
-  // Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
-	detectPrivateMode(function(isPrivate) {
+		absoluteLayout();
 
-		{{#ifeq debug true}}
-			isPrivate = false;
-		{{/ifeq}}
-
-		$("#nav-dropdown").on('click', function() {
-			$('.nav-dropdown').show();
-			$('#nav-close').show();
-
-			openAnim.play(0);
-
-		});
-		$('#nav-close').on('click', function() {
-
-			closeAnim.play();
-
-		});
-
-		{{#ifeq environment "production"}}
-			
-			// GA include
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-		  ga('create', 'UA-64617433-4', 'auto');
-		  ga('send', 'pageview');
-
-		{{else}}
-
-			if(!isPrivate) {
-				// For socket debugging
-				localStorage.debug = '*';
-			}
-
-		{{/ifeq}}
-
-		// Load animations
-		{{> script/player_animation}}
-
-		$(document).ready(function() {
-
-			// Get reference to main content div
-			gameContainer = $('#gameContent');
-
-			if(isMobile) {
-
-				{{#ifnoteq section 'homepage'}}
-					var gameHeight = $(window).height();
-					$('#wrapper').height(gameHeight);
-					$('body, html').css('overflow', 'hidden');
-				{{/ifnoteq}}
-
-			}
-	
-			{{#ifnoteq viewType 'landing'}}
-
-					/**
-					 * Listen for forms that dispatch socket events.
-					 *
-					 * ### Examples:
-					 *
-					 * @class global
-					 */
-					$(document).on('click', '.form .submit', function(evt) {
-					    
-				    var event = $(this).data().event;
-				    var pkg = getFormData($(this));
-
-				    // Emit event to socket
-				    socket.emit(event, emitData(pkg));
-
-				    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom
-				    if($(this).data().autohide) {
-				        new TimelineLite()
-				        .to('#' + $('#submitted').data('hide'), .5, {scale:0, autoAlpha:0, display:'none'})
-				        .from($('#submitted'), .5, {scale:0, autoAlpha:0});
-				    }
-
-				    // Disable form button unless explicitly prevented, and show loading...
-				    if(!$(this).data().keep_enabled) {
-			        $(evt.currentTarget).attr('disabled', 'disabled');
-			        loadToggle(true);
-				    }
-
-					});
-
-			{{/ifnoteq}}
-
-			// PLAYER LOGIC
-			{{> script/player_logic section=section}}
-
-		  $('#decider #btn_submit').click(function(evt) {
-				var data = {};
-
-		    data.deciderName = $('#player-name').val();
-
-		    if(!data.deciderName) {
-	        $('.submission .error').text('Please enter your name!').fadeIn();
-	        return;
-		    }
-
-				data.deckId = $("#decks .glide__slide.active").data('id');
-				data.accessCode = $('.access-code span').text();
-
-				// setupDecider();
-
-			  $.post(
-			  	"/api/create/",
-					data)
-					.done(function(data) {
-
-						if(data.sessionCreated) {
-
-							setupDecider();
-							var gameCodeHtml = '';
-							
-							$('#login').remove();
-
-					    $('#decider .create').hide();
-					    $('#decider .waiting').show();
-
-					    _.each(data.accessCode.split(''), function(char, i) {
-				          gameCodeHtml += '<span>' + char + '</span>';
-				      });
-
-					    // Ensure login is gone and all decide UI shows
-					    $('#name,#join').remove();
-					    $('.access-code').html(gameCodeHtml);
-					    $('#decider .create').hide();
-				      $('#decider').show();
-				      $('#decider .waiting, #decider-debugging').show();
-				      $('#lobby').addClass('wait');
-
-					    $('#player-name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
-						}
-					})
-					.fail(function(xhr, status, error) {
-
-						if(xhr.responseJSON.error)							
-							$('#decider .error').text(xhr.responseJSON.error).fadeIn();
-
-					});
-
-			});
-
-		// WAITING FOR PLAYERS (OLD SESSION)
-		{{#ifeq section 'game-preloaded'}}	
-					
-			setupDecider();
-
-		{{/ifeq}}
-
-				{{> script/decider_logic section=section}}
-
-    {{#ifeq environment "development"}}
-
-			function templateLoad() {
-
-				var selected = $('#template_selector');
-
-				if(selected.prop('selectedIndex') > 0)
-			    socket.emit('game:load_screen', emitData({ index: selected.prop('selectedIndex') }));
-
-			}
-			$("#template_reload").click(function() {
-
-				templateLoad();
-
-			});
-			$("#template_selector").change(function() {
-
-				templateLoad();
-				screensAnim.stop();
-			
-			});
-			$("#countdowns_pause").click(function(evt) {
-
-				var btn = $(evt.currentTarget);
-				socket.emit('debug:pause', emitData());
-
-				if(!$(btn).data('resume')) {
-					$(btn).text('resume countdowns');
-					$(btn).data('resume', 'true');
-				}
-				else {
-					$(btn).text('pause countdowns');
-					$(btn).data('resume', 'false');
-				}
-
-			});				
-			$("#generate_players").click(function() {
-
-				$("#generate_players").text('loading...');
-
-				$('#gameContent').remove();
-				$('#emulate-players').fadeIn();
-				
-				$('#emulate-players iframe').attr('src', 'http://localhost:3000/play/debug');
-			});
-
-	{{/ifeq}}
-
-		});
+		// TODO: Work out overlay during resize?
+		// $('#overlay').html('<div style="margin-top: 10%" class="col-sm-12 col-centered">looks like you\'re doing some resizing...</div>').show();
 
 	});
 
-}
+	// Initialize layout
+	absoluteLayout();
+
+	window.onload = function() {
+
+		// Show body only after everything is loaded
+	  // document.body.style.display = "block";
+	  $('body').fadeIn(1000);
+
+	  // Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
+		detectPrivateMode(function(isPrivate) {
+
+			{{#ifeq debug true}}
+				isPrivate = false;
+			{{/ifeq}}
+
+			$("#nav-dropdown").on('click', function() {
+				$('.nav-dropdown').show();
+				$('#nav-close').show();
+
+				openAnim.play(0);
+
+			});
+			$('#nav-close').on('click', function() {
+
+				closeAnim.play();
+
+			});
+
+			{{#ifeq environment "production"}}
+				
+				// GA include
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			  ga('create', 'UA-64617433-4', 'auto');
+			  ga('send', 'pageview');
+
+			{{else}}
+
+				if(!isPrivate) {
+					// For socket debugging
+					localStorage.debug = '*';
+				}
+
+			{{/ifeq}}
+
+			// Load animations
+			{{> script/player_animation}}
+
+			$(document).ready(function() {
+
+				// Get reference to main content div
+				gameContainer = $('#gameContent');
+
+				if(isMobile) {
+
+					{{#ifnoteq section 'homepage'}}
+						var gameHeight = $(window).height();
+						$('#wrapper').height(gameHeight);
+						$('body, html').css('overflow', 'hidden');
+					{{/ifnoteq}}
+
+				}
+		
+				{{#ifnoteq viewType 'landing'}}
+
+						/**
+						 * Listen for forms that dispatch socket events.
+						 *
+						 * ### Examples:
+						 *
+						 * @class global
+						 */
+						$(document).on('click', '.form .submit', function(evt) {
+						    
+					    var event = $(this).data().event;
+					    var pkg = getFormData($(this));
+
+					    // Emit event to socket
+					    socket.emit(event, emitData(pkg));
+
+					    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom
+					    if($(this).data().autohide) {
+					        new TimelineLite()
+					        .to('#' + $('#submitted').data('hide'), .5, {scale:0, autoAlpha:0, display:'none'})
+					        .from($('#submitted'), .5, {scale:0, autoAlpha:0});
+					    }
+
+					    // Disable form button unless explicitly prevented, and show loading...
+					    if(!$(this).data().keep_enabled) {
+				        $(evt.currentTarget).attr('disabled', 'disabled');
+				        loadToggle(true);
+					    }
+
+						});
+
+				{{/ifnoteq}}
+
+				// PLAYER LOGIC
+				{{> script/player_logic section=section}}
+
+			  $('#decider #btn_submit').click(function(evt) {
+					var data = {};
+
+			    data.deciderName = $('#player-name').val();
+
+			    if(!data.deciderName) {
+		        $('.submission .error').text('Please enter your name!').fadeIn();
+		        return;
+			    }
+
+					data.deckId = $("#decks .glide__slide.active").data('id');
+					data.accessCode = $('.access-code span').text();
+
+					// setupDecider();
+
+				  $.post(
+				  	"/api/create/",
+						data)
+						.done(function(data) {
+
+							if(data.sessionCreated) {
+
+								setupDecider();
+								var gameCodeHtml = '';
+								
+								$('#login').remove();
+
+						    $('#decider .create').hide();
+						    $('#decider .waiting').show();
+
+						    _.each(data.accessCode.split(''), function(char, i) {
+					          gameCodeHtml += '<span>' + char + '</span>';
+					      });
+
+						    // Ensure login is gone and all decide UI shows
+						    $('#name,#join').remove();
+						    $('.access-code').html(gameCodeHtml);
+						    $('#decider .create').hide();
+					      $('#decider').show();
+					      $('#decider .waiting, #decider-debugging').show();
+					      $('#lobby').addClass('wait');
+
+						    $('#player-name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
+							}
+						})
+						.fail(function(xhr, status, error) {
+
+							if(xhr.responseJSON.error)							
+								$('#decider .error').text(xhr.responseJSON.error).fadeIn();
+
+						});
+
+				});
+
+			// WAITING FOR PLAYERS (OLD SESSION)
+			{{#ifeq section 'game-preloaded'}}	
+						
+				setupDecider();
+
+			{{/ifeq}}
+
+					{{> script/decider_logic section=section}}
+
+	    {{#ifeq environment "development"}}
+
+				function templateLoad() {
+
+					var selected = $('#template_selector');
+
+					if(selected.prop('selectedIndex') > 0)
+				    socket.emit('game:load_screen', emitData({ index: selected.prop('selectedIndex') }));
+
+				}
+				$("#template_reload").click(function() {
+
+					templateLoad();
+
+				});
+				$("#template_selector").change(function() {
+
+					templateLoad();
+					screensAnim.stop();
+				
+				});
+				$("#countdowns_pause").click(function(evt) {
+
+					var btn = $(evt.currentTarget);
+					socket.emit('debug:pause', emitData());
+
+					if(!$(btn).data('resume')) {
+						$(btn).text('resume countdowns');
+						$(btn).data('resume', 'true');
+					}
+					else {
+						$(btn).text('pause countdowns');
+						$(btn).data('resume', 'false');
+					}
+
+				});				
+				$("#generate_players").click(function() {
+
+					$("#generate_players").text('loading...');
+
+					$('#gameContent').remove();
+					$('#emulate-players').fadeIn();
+					
+					$('#emulate-players iframe').attr('src', 'http://localhost:3000/play/debug');
+				});
+
+		{{/ifeq}}
+
+			});
+
+		});
+
+	}
 </script>

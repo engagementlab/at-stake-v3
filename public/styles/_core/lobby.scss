@@ -263,9 +263,7 @@
 			margin-top:30px;
 		}
 		#btn_submit_name {
-			background: -moz-linear-gradient(top, $pink-light 90%, $pink-dark 10%); /* FF3.6-15 */
-			background: -webkit-linear-gradient(top, $pink-light 90%, $pink-dark 10%); /* Chrome10-25,Safari5.1-6 */
-			background: linear-gradient(to bottom, $pink-light 90%, $pink-dark 10%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			@include gradient-vertical($pink-light, $pink-dark, 90%, 10%);
 			color: white;
 			border: 0px;
 			border-radius: 0px;
