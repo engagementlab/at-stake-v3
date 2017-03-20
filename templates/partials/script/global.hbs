@@ -127,7 +127,7 @@
 			
 					_.each(absolutes, function(item) {
 
-						let position = {};
+						var position = {};
 
 						// Check current positions
 						if ($(item).css('left') != null)
@@ -433,10 +433,14 @@
 	absoluteLayout();
 
 	$(window).on('resize', function () {
+		
+		if(isMobile)
+			return;
 
 		// Hide content wrapper during resize
 		$('#wrapper').css('visibility' ,'hidden');
 
+		// Adjust absolutely-position elements for desktop only
 		absoluteLayout();
 
 		// TODO: Work out overlay during resize?

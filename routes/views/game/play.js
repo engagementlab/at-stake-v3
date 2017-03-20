@@ -21,7 +21,7 @@ exports = module.exports = function(req, res) {
   var locals = res.locals;
 
   // locals.section is used to set the currently loaded view
-  locals.section = 'login';
+  locals.section = 'play';
 
   // Save host to allow path specification for socket.io
   locals.socketHost = req.headers.host;
