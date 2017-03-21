@@ -32,6 +32,7 @@ Role.add(
 		title: { type: String, required: true, initial: true },
 		bio: { type: Types.Markdown, required: true, initial: true },
 		agendaItems: { type: Types.TextArray },
+		icon: { type: Types.CloudinaryImage, label: 'Unique icon'},
 		dateCreated: { type: Date, noedit: true }
 
 	}

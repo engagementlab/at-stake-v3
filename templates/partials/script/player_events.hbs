@@ -293,6 +293,7 @@ socketEvents = function(eventId, eventData) {
         case 'player:assignrole':
 
             $('#role-card').html(eventData);
+            
             $('#btn-close-role-card').on('click', function(evt) {
                 $('#role-card').removeClass('open').addClass('closed');
             });
@@ -421,11 +422,13 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:countdown_end':
 
+        console.log(eventData);
+
             $('#added-time').hide();
 
             runMods();
 
-            $('#overlay').append($('#more-time-wrapper.ACTIVE'));
+            $('#overlay').append($('#more-time-wrapper.showing.ACTIVE'));
 
             if ($('#overlay').html().length > 0) {
 
@@ -433,16 +436,20 @@ socketEvents = function(eventId, eventData) {
                     $('#more-time-wrapper.player.ACTIVE').fadeIn();
                 });
 
-                 $('#btn-more-time,#btn-cancel').click(function() { 
+                $('#btn-more-time, #btn-cancel').click(function() { 
                     $('#more-time-wrapper.ACTIVE').fadeOut();
                     $('#overlay').empty();
+                    $('#overlay').hide();
                 });
             }
+            if (eventData == "brainstormCountdown" || eventData == "deliberateCountdown") {
+                console.log(eventData + ' is the countdown');
 
-            if(isDecider)
-                $('#btn-next').show();
-            
+                if(isDecider)
+                    $('#btn-next').show();
 
+            }
+           
             break;
 
         case 'game:countdown_player':
@@ -452,8 +459,13 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:player_done':
+
+            console.log(eventData);
             
             $('#btn-next-player').fadeIn();
+
+            if(isDecider)
+                $('#btn-next').show();
 
             break;
 

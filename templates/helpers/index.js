@@ -29,6 +29,15 @@ module.exports = function() {
         
     }
 
+    _helpers.checkEven = function (num) {
+     
+        if ( num % 2 == 0) 
+            return 'even';
+        else 
+            return 'odd';
+        
+    }
+
     _helpers.namePossessive = function (strName) {
         
         return ( strName.charAt(strName.length-1) === 's' ) ? strName + "'" : strName + "'s";
