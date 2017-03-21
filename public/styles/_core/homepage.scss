@@ -19,6 +19,14 @@ h3 {
 h5 {
 	font-family: $header-type;
 }
+a{
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: none;
+}
 
 .container{
 	padding: 0;
@@ -38,7 +46,7 @@ h5 {
 		margin: 0;
 		position: relative;
 		z-index: 2;
-		overflow: auto;
+		overflow: visible;
 
 		@media (min-width: 1350px){
 			padding: 35px 95px;
@@ -96,7 +104,7 @@ h5 {
 			text-align: center;
 			margin: 0 auto;
 			margin-top: 50px;
-			overflow: auto;
+			overflow: visible;
 
 			@media(max-width: 440px){
 				font-size: .8em;
@@ -136,18 +144,19 @@ h5 {
 			position: relative;
 			margin: 0 auto;
 			margin-bottom: 45px;
-			padding-top: 18px;
+			padding: 15px 8px;
 			text-align: center;
 			color: $white;
 			font-family: $sub-header-type;
 			font-size: 1.25em;
 			border: solid white 4px;
 		
-			@media(max-width: 516px){
+			@media(max-width: 595px){
 				height: 95px;
 			}
-			@media(max-width: 290px){
+			@media(max-width: 369px){
 				height: 110px;
+				min-width: 80px;
 			}
 		}
 
@@ -388,15 +397,17 @@ h5 {
 			}
 		}
 		.learn-more-para{
-			text-align: justify;
+			p{
+				text-align: justify;
 			color: white !important;
 			text-align-last: center;
 				text-justify: inter-word;
-	-moz-hyphens: auto;
-	-webkit-hyphens:auto;
-	hyphens: auto;
-	hyphenate-before: 2;
-	hyphenate-after:2;
+			-moz-hyphens: auto;
+			-webkit-hyphens:auto;
+			hyphens: auto;
+			hyphenate-before: 2;
+			hyphenate-after:2;
+			}
 		}
 	}
 	.design-dev-team{

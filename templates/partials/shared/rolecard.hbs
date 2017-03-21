@@ -6,14 +6,16 @@
 <span class="instruction">This is the role you are playing this round. Your proposal should reflect your character’s perspective. What is at stake for this person?</span>
 
 <div class="role-info">
-	<img class="icon"/>
+	<img class="icon" src="{{{cloudinaryUrl icon height=100 width=100}}}"/>
 
 	<h2 class="title">{{title}}</h2>
 	<div class="description">"{{{bio.html}}}"</div>
 
 </div>
-<h1 class="header">Hidden Agenda Items</h1>
-<span class="instruction">At the end of the round, you recieve bonus tokens if the decider believes that  your hidden agenda item is included in the chosen winning proposal.</span>
+<div class="agenda-wrap">
+	<h1 class="header">Hidden Agenda Items</h1>
+	<span class="instruction">At the end of the round, you recieve bonus tokens if the decider believes that  your hidden agenda item is included in the chosen winning proposal.</span>
 
-<div class="agenda-item"><span class="value">100</span><div class="agenda">{{agendaItems.[0]}}</div></div>
-<div class="agenda-item"><span class="value">200</span><div class="agenda">{{agendaItems.[1]}}</div></div>
+	<div class="agenda-item"><span class="value">100</span><div class="agenda">{{agendaItems.[0]}}</div></div>
+	<div class="agenda-item"><span class="value">200</span><div class="agenda">{{agendaItems.[1]}}</div></div>
+</div>

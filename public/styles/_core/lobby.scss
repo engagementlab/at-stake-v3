@@ -363,6 +363,13 @@
 				width: 5px;
 			}
 
+		  .dot {
+		  	height: 10px;
+		  	width: 10px;
+		  	border-radius: 5px;
+		  	background-color: $color-red;
+		  }
+
 			.glide__bullets {
 				bottom: auto;
 				height: auto;
@@ -381,7 +388,7 @@
 			    width: 90%;
 
 					.deck-header {
-						background-color: $color-orange;
+						background-color: $orange-dark;
 						padding: 10px 0px;
 						color: white;
 					}
@@ -404,6 +411,7 @@
 					.stakeholders {
 						width: 100%;
 						padding:0px;
+						margin-bottom: 20px;
 						display: inline-block;
 					}
 
@@ -413,6 +421,10 @@
 				    color: $orange-light;
 				    padding: 5%;
 				    margin: 0px;
+
+				    &.even {
+				    	border-right: 1px solid $color-orange;
+				    }
 
 					}
 
