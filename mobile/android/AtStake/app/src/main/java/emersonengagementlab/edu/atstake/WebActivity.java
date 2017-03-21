@@ -95,11 +95,11 @@ public class WebActivity extends Activity {
         TextView buildTextView = (TextView) findViewById(R.id.buildText);
 
         if(BuildConfig.ENVIRONMENT == "staging") {
-            urlString = "https://qa.atstakegame.com/play/mobile";
+            urlString = "https://qa.atstakegame.org/play/mobile";
             buildTextView.setText("QA Build");
         }
         if(BuildConfig.ENVIRONMENT == "production") {
-            urlString = "https://atstakegame.com/play/mobile";
+            urlString = "https://atstakegame.org/play/mobile";
             buildTextView.setText("Prod Build");
         }
 

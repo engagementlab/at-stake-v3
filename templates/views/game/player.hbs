@@ -33,36 +33,17 @@
 
       <div id="btn_new_game" class="btn btn-default">
         <h2>Start New Game</h2>
+      <div class="btn_cap">Select a deck and receive a 4 digit room code that other players can use to join your game</div>
       </div>
-      <p class="btn_cap">Select a deck and receive a 4 digit room code that other players can use to join your game</p>
 
-      <div id="btn_join_game" class="btn btn-default">
+      <div id="btn_join_game" class="btn btn-default" data-from="choices" data-to="join">
         <h2>Join a Game</h2>
+      <div class="btn_cap">use your 4 digit room code to join a game</div>
       </div>
-      <p class="btn_cap">use your 4 digit room code to join a game</p>
 
     </div>
 
     <button class="back-button" data-from="choices" data-to="name">back</button>
-  </div>
-
-  {{!-- JOIN GAME --}}
-  <div class="lobby form" id="join" style="display:none">
-
-    <div class="login input">
-      <input type="text" id="access_code" placeholder="Type your room code here" maxlength="4"> <br />
-      <p class="light">Type in your game's access code and hit the play button to begin!</p>
-      <div class="error">Error!</div>
-
-      <button class="back-button" data-from="join" data-to="choices">back</button>
-      <input id="btn_submit_code"  data-event="game:entry" data-package='{"code": "#access_code", "name": "#player-name"}' class="btn btn-default game_login" type="submit" name="submit" value="login">
-    </div>
-
-    <div class="row login waiting" style="display:none">
-      <h3>Waiting for players</h3>
-      <div class="row" id="players">
-      </div>
-    </div>
   </div>
 
   {{!-- NEW GAME --}}
@@ -77,7 +58,7 @@
       </section>
       
       <div class="error">Error!</div>
-      <button class="back-button" data-from="new" data-to="choices">back</button>
+      <button class="back-button" data-from="new" data-to="choices-new">back</button>
       <input id="btn_submit" class="button_text game_login" type="submit" name="submit" value="next">
     </div>
 
@@ -102,6 +83,25 @@
       <div class="form row" id="start">
         <input id="btn-start-game" data-event="game:start" class="{{!-- post-button  --}}submit" type="submit" name="submit" value="play!">
         <button class="back-button" data-from="share-code" data-to="deck-choice">back</button>
+      </div>
+    </div>
+  </div>
+
+  {{!-- JOIN GAME --}}
+  <div class="lobby form" id="join" style="display:none">
+
+    <div class="login input">
+      <input type="text" id="access_code" placeholder="Type your room code here" maxlength="4"> <br />
+      <p class="light">Type in your game's access code and hit the play button to begin!</p>
+      <div class="error">Error!</div>
+
+      <button class="back-button" data-from="join" data-to="choices">back</button>
+      <input id="btn_submit_code"  data-event="game:entry" data-package='{"code": "#access_code", "name": "#player-name"}' class="btn btn-default game_login" type="submit" name="submit" value="login">
+    </div>
+
+    <div class="row login waiting" style="display:none">
+      <h3>Waiting for players</h3>
+      <div class="row" id="players">
       </div>
     </div>
   </div>
