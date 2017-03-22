@@ -4,7 +4,13 @@
 		max-width: 425px;
 		height: 100%;
 		margin: 0 auto;
-
 	}
 	
+}
+
+// Shadow for desktop/tablet
+@include tablet-portrait-and-up {
+	#wrapper {
+		@include box-shadow(0px, 0px, 37px, black);
+	}
 }

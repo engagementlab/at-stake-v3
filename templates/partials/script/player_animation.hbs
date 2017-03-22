@@ -14,73 +14,41 @@ var screensAnim,
 		loginAnim,
 		timelineCallback;
 
-function rulesAnim(callback) {
+{{#ifnoteq section 'game-preloaded'}}	
 
-	var screens = $('.row.screen');
+	$(document).ready(function() {
 
-	if(screens.length === 0)
-		return;
+		loginAnim = new TimelineMax({paused:true});
 
-  screensAnim = new TimelineLite({ paused: true, onComplete: 
-																										  	function() { TweenLite.fromTo($('#btn-next'), 1, {scale:0, autoAlpha:0}, {scale:1, autoAlpha:1, display:'block', ease:Elastic.easeOut}); } 
-																		});
-	
-  _.each(screens, function(el, index) {
+		loginAnim.from($('#player-name'), .5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .2)
+	            .from($('#btn_submit_name'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut})
 
-		screensAnim.fromTo(el, .5, {xPercent:-100}, { x:0, xPercent:0, ease:Expo.easeInOut, opacity: 1, display:'block', delay:.5 });
+							.to($('#name'), .5, { autoAlpha:0, display: 'none' }, 'name')
+							.fromTo($('#choices'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' })
+							.staggerFrom($('#choices .btn'), 1, {yPercent:20, autoAlpha:0, ease:Expo.easeOut}, .7).append('choices')
 
-		if ($(el).find('.rules-image')) {
-			$('rules-image').show();
-		}
+							.to($('#choices'), .5, { autoAlpha:0, display: 'none' })
 
-		if(index < screens.length-1)
-			screensAnim.fromTo(el, .5, {xPercent:0}, { x:200, xPercent:200, ease:Expo.easeInOut, opacity:0, display:'none', delay:3 });
+							.fromTo($('#join'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' }).append('join')
+							
+							.to($('#join'), .01, { autoAlpha:0, display: 'none' }).append('choices-new')
+							.fromTo($('#choices'), .5, { autoAlpha:1, display: 'block' }, { autoAlpha:0, display: 'none' })
+							.to($('#login-header'), .5, { autoAlpha:0, height:0, display: 'none' })
+							.fromTo($('#decider'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' })
+							.call(function() {
+								if(timelineCallback)
+									timelineCallback();
+							})
+							.from($('#decks'), .5, { autoAlpha:0, yPercent:10, ease:Expo.easeOut }).append('new');
 
-  });
+	  $('.lobby .btn, .back-button').click(function(evt) {
+	  	if($(evt.currentTarget).data('from'))
+		  	loginFromTo($(evt.currentTarget).data('from'), $(evt.currentTarget).data('to'));
+	  });
 
-  screensAnim.play();
-	
-}
+	});
 
-function loginEnterName() {
-
-	loginAnim = new TimelineMax({paused:true});
-
-	loginAnim.from($('#player-name'), .5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .2)
-            .from($('#btn_submit_name'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut})
-
-						.to($('#name'), .5, { autoAlpha:0, display: 'none' }, 'name')
-						.fromTo($('#choices'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' })
-						.staggerFrom($('#choices .btn'), 1, {yPercent:20, autoAlpha:0, ease:Expo.easeOut}, .7).append('choices')
-
-						.to($('#choices'), .5, { autoAlpha:0, display: 'none' })
-
-						.fromTo($('#join'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' }).append('join')
-						
-						.to($('#join'), .01, { autoAlpha:0, display: 'none' }).append('choices-new')
-						.fromTo($('#choices'), .5, { autoAlpha:1, display: 'block' }, { autoAlpha:0, display: 'none' })
-						.to($('#login-header'), .5, { autoAlpha:0, height:0, display: 'none' })
-						.fromTo($('#decider'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' })
-						.call(function() {
-							if(timelineCallback)
-								timelineCallback();
-						})
-						.from($('#decks'), .5, { autoAlpha:0, yPercent:10, ease:Expo.easeOut }).append('new');
-
-  $('.lobby .btn, .back-button').click(function(evt) {
-  	if($(evt.currentTarget).data('from'))
-	  	loginFromTo($(evt.currentTarget).data('from'), $(evt.currentTarget).data('to'));
-  });
-	
-	TweenLite.fromTo(loginAnim, loginAnim.getLabelTime('name'), {time:0}, {time:loginAnim.getLabelTime('name')});
-
-}
-
-function loginPlayerChoices() {
-
-	TweenLite.fromTo(loginAnim, 1.5, {time:loginAnim.getLabelTime('name')}, {time:loginAnim.getLabelTime('choices')});
-
-}
+{{/ifnoteq}}
 
 function loginNewGame(callback) {
 	
@@ -92,7 +60,17 @@ function loginNewGame(callback) {
 
 function loginFromTo(from, to) {
 
-	TweenLite.fromTo(loginAnim, 1.5, {time:loginAnim.getLabelTime(from)}, {time:loginAnim.getLabelTime(to)});
+	// Failsafe
+	if(!loginAnim)
+		return;
+
+	// Starting from zero or somewhere else
+	var start = (from==='start') ? 0 : loginAnim.getLabelTime(from);
+
+	// Get animation duration
+	var duration = Math.abs( loginAnim.getLabelTime(to) - loginAnim.getLabelTime(from) );
+
+	TweenLite.fromTo(loginAnim, duration, {time:start}, {time:loginAnim.getLabelTime(to)});
 	
 }
 
@@ -105,9 +83,32 @@ function modalOpenClose(modalElement, open) {
 
 }
 
+var screenOpen = function(screenElement) {
+
+	screenElement.show();
+
+	var hidden = { scale:0, opacity:0, display:'none' },
+			shown = { scale:1, opacity:1, ease: Elastic.easeOut.config(1, 0.75), display:'block', transformOrigin:'70% bottom' };
+
+	var speechTimeline = new TimelineLite();
+	speechTimeline.fromTo(screenElement.children('blockquote'), 1.1,  hidden, shown);
+	speechTimeline.fromTo(screenElement.find('section.instruction'), .7,  {yPercent:-50}, {yPercent:0, ease:Expo.easeOut});
+
+}
+
+/*
+	Modal animation handles
+*/
 $('.modal').on('show', function(evt) {
 	modalOpenClose($(evt.currentTarget), true);
 });
 $('.modal').on('hide', function(evt) {
 	modalOpenClose($(evt.currentTarget), false);
+});
+
+/*
+	Screen animation handles
+*/
+$(document).on('show', '.screen', function(evt) {
+	screenOpen($(evt.currentTarget));
 });

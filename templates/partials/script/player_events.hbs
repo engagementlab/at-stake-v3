@@ -100,17 +100,18 @@ var setupTriggers = function() {
 
     $('#gameContent').addClass('in-game');
     $('#stages-bar').show();
-
+    
+    /*
     // This makes duplicate of all speech bubbles and 
     // makes them all child of respective bubble,
     // in order to achieve proper "bottom border" effect
     _.each($('.screen blockquote.speech'), function(el, i) {
         $(el).clone().addClass('under').remove('button').appendTo(el);
-    });
+    });*/
 
-    // Show initial
-    $('.screen.initial').show();
     sessionStorage.setItem('markup', $('#gameContent').html());
+    // Animate initial
+    screenOpen($('.screen.initial'));
 
     currentPhaseIndex = sessionStorage.getItem('phase');
     currentScreenIndex = sessionStorage.getItem('screen');
@@ -192,7 +193,6 @@ socketEvents = function(eventId, eventData) {
             isDecider = eventData.is_decider;
 
             var markup = sessionStorage.getItem('markup');
-            markup = $(markup).not('blockquote.speech.under');
 
             $('#bottom-bar').show();
             $('#gameContent').html(markup).promise().done(function() {
@@ -200,7 +200,8 @@ socketEvents = function(eventId, eventData) {
                 setupTriggers();
 
                 var secondsLeft = eventData.resume_duration; 
-                startTimer(secondsLeft);
+                if(secondsLeft)
+                    startTimer(secondsLeft);
 
             });
 
@@ -336,7 +337,6 @@ socketEvents = function(eventId, eventData) {
 
             updateGameContent(eventData, function() {
 
-                rulesAnim();
                 nextPhase();
                 setupTriggers();
 
@@ -422,8 +422,6 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:countdown_end':
 
-        console.log(eventData);
-
             $('#added-time').hide();
 
             runMods();
@@ -443,7 +441,6 @@ socketEvents = function(eventId, eventData) {
                 });
             }
             if (eventData == "brainstormCountdown" || eventData == "deliberateCountdown") {
-                console.log(eventData + ' is the countdown');
 
                 if(isDecider)
                     $('#btn-next').show();
@@ -459,8 +456,6 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:player_done':
-
-            console.log(eventData);
             
             $('#btn-next-player').fadeIn();
 

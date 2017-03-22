@@ -399,7 +399,7 @@
       });
 
 	    // Ensure login is gone and all decide UI shows
-	    $('#name,#join').remove();
+	    $('#name,#join,#choices').remove();
 	    $('.access-code').html(gameCodeHtml);
 	    $('#decider .create').hide();
       $('#decider').show();
@@ -495,7 +495,7 @@
 			{{/ifeq}}
 
 			// Load animations
-			{{> script/player_animation}}
+			{{> script/player_animation section=section}}
 
 			$(document).ready(function() {
 

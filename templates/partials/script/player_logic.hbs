@@ -114,7 +114,7 @@ var checkIfLoggedIn = function() {
 
         // Login form animation
         if(!isEmulated)
-            loginEnterName();
+            loginFromTo('start', 'name');
         else
             $('#player-name, #btn_submit_name').removeClass('hidden-el');
 
@@ -188,7 +188,10 @@ var nextPhaseScreen = function() {
 
     //TODO: Animate
     $($('.screen')[0]).remove();
-    $($('.screen')[0]).show();
+
+    var newScreen = $('.screen')[0];
+    $(newScreen).show();
+    $(newScreen).trigger('show');
 
     var timerPreview = $($('.screen')[0]).find('.timer.preview');
     var hasTimer = timerPreview.length === 1;
@@ -237,7 +240,8 @@ $(document).on('click', '.btn.submit_name', function(evt) {
     $('#username').text(data.name);
 
     // Show new game/join
-    loginPlayerChoices();
+    loginFromTo('name', 'choices');
+    
 
 });
 
@@ -383,15 +387,6 @@ $('#btn_new_game').click(function() {
 
 });
 
-/* 
- Show join game screen
-*/
-$('#btn_join_game').click(function() {
-
-    {{!-- loginJoinGame(); --}}
-
-});
-
 // Check if this client is logged in on server
 window.onload = checkIfLoggedIn();
 
@@ -405,39 +400,6 @@ window.onload = checkIfLoggedIn();
         $('#player-name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
     {{/ifeq}}
 {{/ifeq}}
-
-
-{{!-- {{#ifeq section 'index'}}
-
-    playerEntry();
-
-    $(document).on('click', '.btn.game_entry', function() {
-        
-        var type = $(this).data().game;
-
-        $.get( 
-            "/game/get/" + type,
-            function( data ) {
-
-                $('#gameContent').html(data);
-
-                $('.form input[type=submit]')
-                .hover(function(evt) {
-
-                    timeline.to(evt.currentTarget, .5, { ease: Elastic.easeOut, scale:1.2 });
-
-                })
-                .mouseleave(function(evt) {
-
-                    timeline.from(evt.currentTarget, .5, { scale:1.2 });
-
-                });
-
-            });
-                
-    });
-
-{{/ifeq}} --}}
 
 {{!-- // /play URL
 {{#ifeq section 'login'}}
