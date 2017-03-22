@@ -19,6 +19,6 @@
 	  {{/if}}
 	  
 	  {{#ifeq decider true}}
-	    <button class="next-step submit" data-event="{{nextEvent this}}">next</button>
+	    <button class="next-step submit" data-event="{{nextEvent this}}">{{#ifeq timer true}}Start Timer{{else}}next{{/ifeq}}</button>
 	  {{/ifeq}}
 	</blockquote>

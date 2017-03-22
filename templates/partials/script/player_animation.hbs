@@ -92,7 +92,7 @@ var screenOpen = function(screenElement) {
 
 	var speechTimeline = new TimelineLite();
 	speechTimeline.fromTo(screenElement.children('blockquote'), 1.1,  hidden, shown);
-	speechTimeline.fromTo(screenElement.find('section.instruction'), .7,  {yPercent:-50}, {yPercent:0, ease:Expo.easeOut});
+	speechTimeline.fromTo(screenElement.find('section.instruction'), .7,  {yPercent:100, opacity:0}, {yPercent:0, opacity:1, ease:Expo.easeOut});
 
 }
 
