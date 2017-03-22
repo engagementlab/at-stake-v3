@@ -46,7 +46,7 @@ a:hover{
 		margin: 0;
 		position: relative;
 		z-index: 2;
-		overflow: visible;
+		overflow-y: visible !important;
 
 		@media (min-width: 1350px){
 			padding: 35px 95px;
@@ -333,8 +333,8 @@ a:hover{
 		}
 		.play-pic{
 			display: block;
-			@media(min-width: 1200px){
-				height: 400px;
+			@media(max-width: 1200px){
+				height: 300px;
 				width: auto;
 			}
 			@media(max-width: 900px){
@@ -359,13 +359,13 @@ a:hover{
 		z-index: 1;
 		opacity: .75;
 	
-		@media(min-width: 1200px){
-			top: 180px;
-			height: 375px;
+		@media(max-width: 1200px){
+			top: 175px;
+			height: 250px;
 		}
 		@media(max-width: 900px){
-			height: 250px;
 			top: 175px;
+			height: 250px;
 		}
 		@media(max-width: 650px){
 			height: 175px;
@@ -397,11 +397,12 @@ a:hover{
 			}
 		}
 		.learn-more-para{
+			color: white;
 			p{
-				text-align: justify;
 			color: white !important;
+			text-align: justify;
 			text-align-last: center;
-				text-justify: inter-word;
+			text-justify: inter-word;
 			-moz-hyphens: auto;
 			-webkit-hyphens:auto;
 			hyphens: auto;
