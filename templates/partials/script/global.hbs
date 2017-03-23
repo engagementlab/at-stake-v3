@@ -99,6 +99,8 @@
 	
 	];
 
+	// setInterval(function() {console.log($('#wrapper').offset().left)}, 100)
+
 	/* 
 		Manually position absolutely-positioned elements on window re-size
 	*/
@@ -108,14 +110,17 @@
 		var absolutes = [],
 				windowsize = $(window).width(),
 				bodysize = $('#wrapper').width(),
+				wrapperLeft = $('#wrapper').offset().left,
 				extraWindow = (windowsize - bodysize)/2;
+
+				console.log('set', $('#wrapper').offset().left)
 
 		// Locally-scoped methods
 		var findAbsolutes = function() {
 
 					// Get all absolutely-positioned elements
 					var outerAbsolutes = 
-					$('#wrapper :not(#gameContent *, #homeContent *, #stages-bar *)')
+					$('#wrapper :not(#gameContent *, #homeContent *, #stages-bar *, .modal)')
 					.filter(function(){
 					  return ($(this).css('position') == 'absolute');
 					});
@@ -130,17 +135,15 @@
 						var position = {};
 
 						// Check current positions
-						if ($(item).css('left') != null)
+						if ($(item).css('left'))
 							position.left = $(item).css('left');
 
-						if ($(item).css('right') != null)
+						if ($(item).css('right'))
 							position.right = $(item).css('right');
 
 						// If left, set it
-						if (position.left) {
-							position.left =+ extraWindow;
-							$(item).css('left', position.left);
-						}
+						if (position.left)
+							$(item).css('left', wrapperLeft);
 
 						// If right, set it
 						if (position.right){
@@ -148,7 +151,7 @@
 							$(item).css('right', position.right);
 						}
 
-						// Call finish function after 300 milaseconds
+						// Call finish function after xxx milaseconds
 						var finish = _.debounce(finishResize, 500);
 						finish();
 
@@ -308,8 +311,6 @@
 		}
 		else {
 
-			console.log("run mods");
-
 				// Defaults
 		 		$('#btn-next').fadeIn();
 
@@ -429,9 +430,6 @@
 		{{> script/mobile}}
 	{{/if}}
 
-	// Initialize layout
-	absoluteLayout();
-
 	$(window).on('resize', function () {
 		
 		if(isMobile)
@@ -450,16 +448,11 @@
 
 	window.onload = function() {
 
-		// Show body only after everything is loaded
-	  // document.body.style.display = "block";
-	  $('body').fadeIn(1000);
-
 	  // Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
 		detectPrivateMode(function(isPrivate) {
 
-			{{#ifeq debug true}}
-				isPrivate = false;
-			{{/ifeq}}
+			// Initialize layout
+			absoluteLayout();
 
 			$("#nav-dropdown").on('click', function() {
 				$('.nav-dropdown').show();
@@ -561,8 +554,6 @@
 
 					data.deckId = $("#decks .glide__slide.active").data('id');
 					data.accessCode = $('.access-code span').text();
-
-					// setupDecider();
 
 				  $.post(
 				  	"/api/create/",

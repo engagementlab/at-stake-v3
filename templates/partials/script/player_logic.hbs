@@ -93,16 +93,8 @@ var checkIfLoggedIn = function() {
 
         $('.form').show();
         $('.form input').hide();
-        $('.form .error').text('You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.');
-        $('#login').css('margin-top', '0');
+        $('#error-private-mode').trigger('show');
 
-        var errorAnim = new TimelineLite();
-        errorAnim
-        .from($('#logo_ec'), .5, {autoAlpha:0, delay:1, ease:Expo.easeOut}, .1)
-        .from($('#logo_ec img'), 1.5, {css:{'margin-top':'10%'}, delay:1, ease:Expo.easeOut}, .6)
-        .from($('#logo_ec'), 1.5, {scale:2, delay:1, ease:Expo.easeOut}, .6)
-        .fromTo($('.form .error'), 1, { scale: 0, opacity:0 }, { scale: 1, opacity: 1, display: 'block', ease:Elastic.easeOut});
-        
         return;
     }
     
@@ -177,7 +169,7 @@ var nextPhase = function() {
     phaseBarProgress();
 
     // Local session update
-    sessionStorage.setItem('markup', $('#gameContent').html());    
+    // sessionStorage.setItem('markup', $('#gameContent').html());    
     sessionStorage.setItem('phase', currentPhaseIndex);    
 
 }
@@ -187,33 +179,36 @@ var nextPhaseScreen = function() {
     currentScreenIndex++;
 
     //TODO: Animate
-    $($('.screen')[0]).remove();
+    $.when($($('.screen')[0]).remove()).then(function() {
 
-    var newScreen = $('.screen')[0];
-    $(newScreen).show();
-    $(newScreen).trigger('show');
+        var newScreen = $('.screen')[0];
+        // $(newScreen).show();
+        
+        // Local session update
+        sessionStorage.setItem('markup', $('#gameContent').html());   
+        sessionStorage.setItem('screen', currentScreenIndex);
 
-    var timerPreview = $($('.screen')[0]).find('.timer.preview');
-    var hasTimer = timerPreview.length === 1;
-    if(hasTimer) {
-        new ProgressBar.Circle(
-          '.screen .timer.preview', 
-          {
-                color: '#fff',
-                strokeWidth: 6,
-                trailColor: 'rbga(235, 235, 235, 0.5)',
-                trailWidth: 0.8,
-                fill: '#20b5e6',
-                text: {
-                    value: $(timerPreview[0]).data('duration')
-                }
-          }
-        );
-    }
+        $(newScreen).trigger('show');
 
-    // Local session update
-    sessionStorage.setItem('markup', $('#gameContent').html());   
-    sessionStorage.setItem('screen', currentScreenIndex);
+        var timerPreview = $($('.screen')[0]).find('.timer.preview');
+        var hasTimer = timerPreview.length === 1;
+        if(hasTimer) {
+            new ProgressBar.Circle(
+              '.screen .timer.preview', 
+              {
+                    color: '#fff',
+                    strokeWidth: 6,
+                    trailColor: 'rbga(235, 235, 235, 0.5)',
+                    trailWidth: 0.8,
+                    fill: '#20b5e6',
+                    text: {
+                        value: $(timerPreview[0]).data('duration')
+                    }
+              }
+            );
+        }
+
+    });
 
 }
 

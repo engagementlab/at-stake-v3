@@ -12,7 +12,8 @@
 
 var screensAnim,
 		loginAnim,
-		timelineCallback;
+		timelineCallback,
+		animationDone = $.Deferred();
 
 {{#ifnoteq section 'game-preloaded'}}	
 
@@ -90,7 +91,9 @@ var screenOpen = function(screenElement) {
 	var hidden = { scale:0, opacity:0, display:'none' },
 			shown = { scale:1, opacity:1, ease: Elastic.easeOut.config(1, 0.75), display:'block', transformOrigin:'70% bottom' };
 
-	var speechTimeline = new TimelineLite();
+	var speechTimeline = new TimelineLite({onComplete: function() {
+		animationDone.resolve();	
+	}});
 	speechTimeline.fromTo(screenElement.children('blockquote'), 1.1,  hidden, shown);
 	speechTimeline.fromTo(screenElement.find('section.instruction'), .7,  {yPercent:100, opacity:0}, {yPercent:0, opacity:1, ease:Expo.easeOut});
 
@@ -110,5 +113,7 @@ $('.modal').on('hide', function(evt) {
 	Screen animation handles
 */
 $(document).on('show', '.screen', function(evt) {
+	animationDone = $.Deferred();
+
 	screenOpen($(evt.currentTarget));
 });

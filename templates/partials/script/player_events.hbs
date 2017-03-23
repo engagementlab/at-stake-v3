@@ -24,9 +24,10 @@ var nextScreenData;
 
 var resetSession = function() {
 
-    // Remove saved game code, uid, and set to not reconnected
+    // Remove saved game code, uid, markup, and set to not reconnected
     sessionStorage.removeItem('gameCode');
     sessionStorage.removeItem('uUID');
+    sessionStorage.removeItem('markup');
     sessionStorage.setItem('reconnected', false);
 
 }
@@ -109,9 +110,9 @@ var setupTriggers = function() {
         $(el).clone().addClass('under').remove('button').appendTo(el);
     });*/
 
-    sessionStorage.setItem('markup', $('#gameContent').html());
+    // sessionStorage.setItem('markup', $('#gameContent').html());
     // Animate initial
-    screenOpen($('.screen.initial'));
+    screenOpen($('.screen')[0]);
 
     currentPhaseIndex = sessionStorage.getItem('phase');
     currentScreenIndex = sessionStorage.getItem('screen');
@@ -186,6 +187,9 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'player:reconnected': 
+
+            if(playerWasReconnected)
+                return;
 
             // Set local player state as reconnected
             playerWasReconnected = true;
