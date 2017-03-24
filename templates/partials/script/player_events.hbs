@@ -82,7 +82,7 @@ var startTimer = function(secondsLeft) {
 
 }
 
-var setupTriggers = function() {
+var setupScreen = function() {
 
     // Add trigger to go to next step on next-step buttons
     $('.next-step').click(function(evt) {
@@ -110,9 +110,9 @@ var setupTriggers = function() {
         $(el).clone().addClass('under').remove('button').appendTo(el);
     });*/
 
-    // sessionStorage.setItem('markup', $('#gameContent').html());
+    sessionStorage.setItem('markup', $('#gameContent').html());
     // Animate initial
-    screenOpen($('.screen')[0]);
+    screenOpen($('.screen:first'));
 
     currentPhaseIndex = sessionStorage.getItem('phase');
     currentScreenIndex = sessionStorage.getItem('screen');
@@ -201,7 +201,7 @@ socketEvents = function(eventId, eventData) {
             $('#bottom-bar').show();
             $('#gameContent').html(markup).promise().done(function() {
                 
-                setupTriggers();
+                setupScreen();
 
                 var secondsLeft = eventData.resume_duration; 
                 if(secondsLeft)
@@ -342,7 +342,7 @@ socketEvents = function(eventId, eventData) {
             updateGameContent(eventData, function() {
 
                 nextPhase();
-                setupTriggers();
+                setupScreen();
 
             });
             
@@ -352,7 +352,7 @@ socketEvents = function(eventId, eventData) {
 
             updateGameContent(eventData, function() {
 
-                setupTriggers();
+                setupScreen();
 
                 // Move immediately to restart point in current phase, by removing screens before it and showing it
                 $('.screen.restart').prevAll().remove();
@@ -432,19 +432,24 @@ socketEvents = function(eventId, eventData) {
 
             $('#overlay').append($('#more-time-wrapper.showing.ACTIVE'));
 
-            if ($('#overlay').html().length > 0) {
+            if($('#overlay').html().length > 0) {
 
                 $('#overlay').fadeIn(function() {
                     $('#more-time-wrapper.player.ACTIVE').fadeIn();
                 });
 
-                $('#btn-more-time, #btn-cancel').click(function() { 
-                    $('#more-time-wrapper.ACTIVE').fadeOut();
-                    $('#overlay').empty();
-                    $('#overlay').hide();
+                $('#btn-more-time, #btn-cancel').click(function() {
+                    var modal = $('#more-time-wrapper.ACTIVE');
+                  
+                    modal.fadeOut(function() {
+                        $('.screen').append(modal);
+                        $('#overlay').empty();
+                        $('#overlay').hide();
+                    });
+                    
                 });
             }
-            if (eventData == "brainstormCountdown" || eventData == "deliberateCountdown") {
+            if(eventData == "brainstormCountdown" || eventData == "deliberateCountdown") {
 
                 if(isDecider)
                     $('#btn-next').show();

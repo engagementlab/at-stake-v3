@@ -380,7 +380,7 @@ input.post-button {
 	}
 
   // Inactive player - hide this bubble
-  &.hidden {
+  &.hiding {
   	display: none;
   }
 }
@@ -404,7 +404,7 @@ blockquote.speech {
     }
 
     // Inactive player - hide this bubble
-    &.hidden {
+    &.hiding {
     	display: none;
     }
 }
