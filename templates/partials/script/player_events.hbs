@@ -335,12 +335,23 @@ socketEvents = function(eventId, eventData) {
                 return;
             }
 
-            updateGameContent(eventData, function() {
+            if (eventData.html) {
+                updateGameContent(eventData.html, function() {
 
-                nextPhase();
-                setupTriggers();
+                    nextPhase();
+                    setupTriggers();
 
-            });
+                });
+
+            } else {
+                updateGameContent(eventData, function() {
+
+                    nextPhase();
+                    setupTriggers();
+
+                });
+            }
+            
             
             break;
 

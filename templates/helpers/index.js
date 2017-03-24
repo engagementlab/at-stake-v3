@@ -88,11 +88,11 @@ module.exports = function() {
         let strEvent = 'game:';
 
         // Is this speech bubble's button...
-        //... advancing to next phase?
+        // ... advancing to next phase?
         if(attr.advance && attr.advance === true)
             strEvent += 'next';
 
-        //... advancing to a timer?
+        // ... advancing to a timer?
         else if(attr.timer && attr.timer === true)
             strEvent += 'start_timer';
 

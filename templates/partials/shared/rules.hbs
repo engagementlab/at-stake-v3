@@ -1,30 +1,17 @@
-<div class="row room-container" id="rules">
-	
-	<div class="row screen col-lg-12 col-sm-12">
-	  As the Decider, {{decider}} begins with {{config.deciderStartCoinCount}} coins.
-	  <div class="rules-image"><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/coin_stroke.png"></div>
-  </div>
-	
-	<div class="row screen col-lg-12 col-sm-12">
-	  Everyone else begins with {{config.deciderStartCoinCount}} coins.
-	  <div class="rules-image"><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/coin_stroke.png"></div>
-  </div>
-
-	<div class="row screen col-lg-12 col-sm-12">
-	  At the end of the round, {{decider}} will choose a winner and they will get the coins in the pot.
-	  <div class="rules-image"><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743648/at-stake/trophy256.png"></div>
-  </div>
-	
-	<div class="row screen col-lg-12 col-sm-12">
-	  {{config.potCoinCount}} coins are up for grabs!
-	  <div class="rules-image"><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743648/at-stake/trophy256.png"></div>
-  </div>
-
-	<div class="row screen col-lg-12 col-sm-12">
-	  The pot could grow if you play boldly...
-  </div>
-
+<div class="row screen initial col-lg-12 col-sm-12">
+	<div class="main-rule">Every round begins with 300 coins in the coin pot</div>
+	<div class="secondary-rule">At the end of the round the decider chooses the best proposal. The winner becomes the next round’s decider.</div>
+  <div class="rules-image"><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743645/at-stake/layout/pot_stroke.png"></div>
+  <div class="form">
+		<button class="next-step submit {{showHide this}}" data-event="{{nextEvent this}}">next</button>
+	</div>
 </div>
 
-{{!-- Div's data tag modifies script behavior --}}
-<span id="modifier" class="hidden-el" data-hide_next="true"></span>
+<div class="row screen col-lg-12 col-sm-12">
+	<div class="main-rule">The total amount of coins in the pot is displayed at the bottom of your screen</div>
+	<div class="secondary-rule">This is how many coins you can win if the decider chooses your proposal!</div>	  
+	<div class="rules-image"><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743645/at-stake/layout/pot_stroke.png"></div>
+	<div class="form">
+		<button class="next-step submit {{showHide this}}" data-event="{{nextEvent this}}">next</button>
+	</div>
+</div>
