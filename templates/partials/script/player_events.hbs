@@ -24,9 +24,10 @@ var nextScreenData;
 
 var resetSession = function() {
 
-    // Remove saved game code, uid, and set to not reconnected
+    // Remove saved game code, uid, markup, and set to not reconnected
     sessionStorage.removeItem('gameCode');
     sessionStorage.removeItem('uUID');
+    sessionStorage.removeItem('markup');
     sessionStorage.setItem('reconnected', false);
 
 }
@@ -81,7 +82,7 @@ var startTimer = function(secondsLeft) {
 
 }
 
-var setupTriggers = function() {
+var setupScreen = function() {
 
     // Add trigger to go to next step on next-step buttons
     $('.next-step').click(function(evt) {
@@ -111,7 +112,7 @@ var setupTriggers = function() {
 
     sessionStorage.setItem('markup', $('#gameContent').html());
     // Animate initial
-    screenOpen($('.screen.initial'));
+    screenOpen($('.screen:first'));
 
     currentPhaseIndex = sessionStorage.getItem('phase');
     currentScreenIndex = sessionStorage.getItem('screen');
@@ -187,6 +188,9 @@ socketEvents = function(eventId, eventData) {
 
         case 'player:reconnected': 
 
+            if(playerWasReconnected)
+                return;
+
             // Set local player state as reconnected
             playerWasReconnected = true;
 
@@ -197,7 +201,7 @@ socketEvents = function(eventId, eventData) {
             $('#bottom-bar').show();
             $('#gameContent').html(markup).promise().done(function() {
                 
-                setupTriggers();
+                setupScreen();
 
                 var secondsLeft = eventData.resume_duration; 
                 if(secondsLeft)
@@ -339,7 +343,7 @@ socketEvents = function(eventId, eventData) {
                 updateGameContent(eventData.html, function() {
 
                     nextPhase();
-                    setupTriggers();
+                    setupScreen();
 
                 });
 
@@ -347,7 +351,7 @@ socketEvents = function(eventId, eventData) {
                 updateGameContent(eventData, function() {
 
                     nextPhase();
-                    setupTriggers();
+                    setupScreen();
 
                 });
             }
@@ -359,7 +363,7 @@ socketEvents = function(eventId, eventData) {
 
             updateGameContent(eventData, function() {
 
-                setupTriggers();
+                setupScreen();
 
                 // Move immediately to restart point in current phase, by removing screens before it and showing it
                 $('.screen.restart').prevAll().remove();
@@ -439,19 +443,24 @@ socketEvents = function(eventId, eventData) {
 
             $('#overlay').append($('#more-time-wrapper.showing.ACTIVE'));
 
-            if ($('#overlay').html().length > 0) {
+            if($('#overlay').html().length > 0) {
 
                 $('#overlay').fadeIn(function() {
                     $('#more-time-wrapper.player.ACTIVE').fadeIn();
                 });
 
-                $('#btn-more-time, #btn-cancel').click(function() { 
-                    $('#more-time-wrapper.ACTIVE').fadeOut();
-                    $('#overlay').empty();
-                    $('#overlay').hide();
+                $('#btn-more-time, #btn-cancel').click(function() {
+                    var modal = $('#more-time-wrapper.ACTIVE');
+                  
+                    modal.fadeOut(function() {
+                        $('.screen').append(modal);
+                        $('#overlay').empty();
+                        $('#overlay').hide();
+                    });
+                    
                 });
             }
-            if (eventData == "brainstormCountdown" || eventData == "deliberateCountdown") {
+            if(eventData == "brainstormCountdown" || eventData == "deliberateCountdown") {
 
                 if(isDecider)
                     $('#btn-next').show();

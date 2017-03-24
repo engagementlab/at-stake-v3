@@ -1,0 +1,149 @@
+{{!-- DECIDE PHASE UI --}}
+<div id="decide">
+
+	{{!-- INITIAL --}}
+	<div class="screen initial">
+
+		{{> component/instructions 
+				decider=true
+				heading="decide phase start"
+				body="Jowl andouille brisket bresaola, bacon frankfurter hamburger turducken kielbasa capicola drumstick."
+		}}
+
+		{{> component/instructions 
+				heading="Listen up and stuff"
+				body="Spicy jalapeno bacon ipsum dolor amet cupim pork loin cow porchetta turducken swine bresaola capicola."
+		}}
+
+		{{> component/speech 
+				decider=true
+				body="Corned beef doner picanha cow meatball tongue turducken tenderloin."
+		}}
+
+		{{> component/speech 
+				body="Bacon alcatra bresaola jerky pig tongue short ribs venison frankfurter fatback boudin pork chop sausage pancetta."
+		}}
+
+	</div>
+
+	{{!-- PITCH SELECTION --}}
+	<div class="screen">
+		
+		{{> component/instructions 
+				decider=true
+				heading="pick a pitch"
+				body=""
+		}}
+
+		{{> component/instructions 
+				heading="decide is picking a pitch!"
+				body=""
+		}}	
+
+		<div class="form decider">
+			{{#each players}}
+		    <button class="post-button submit" data-event="game:proposal_selected" data-package='{{uid}}' data-keep_enabled="true" data-autohide="true" type="submit" name="submit">{{username}}</button>
+			{{/each}}
+		</div>
+
+	</div>
+
+	{{!-- WINNER --}}
+	<div class="screen">
+		
+{{!-- 		{{> component/instructions 
+				decider=true
+				heading="read the text in the blue box outloud"
+				body="Once everyone has had enough time to review their hidden agenda items, press next to continue."
+		}}
+
+		{{> component/instructions 
+				heading="Review your Hidden Agenda items"
+				body="At the bottom of your role card are your hidden agenda items. Secretly review them now."
+		}} --}}
+
+		{{> component/speech 
+				decider=true
+				body=(combine "The winner is " winner.username)
+		}}
+
+		{{> component/speech 
+				body=(combine "The winner is " winner.username)
+		}}
+
+	</div>
+
+	{{!-- AGENDA ITEMS INTRO --}}
+	<div class="screen">
+
+		{{> component/instructions 
+				decider=true
+				heading="read the text in the blue box outloud"
+				body="Once you have finished speaking the instructions to other players, press next to continue."
+		}}
+
+		{{> component/instructions 
+				heading="listen to the decider"
+		}}
+
+		{{> component/speech 
+				decider=true
+				body="Now I'll award bonus points. I'll review each of your secret agenda points and award coins if they were included in the winning proposal."
+		}}
+
+		{{> component/speech 
+				body="Now I'll award bonus points. I'll review each of your secret agenda points and award coins if they were included in the winning proposal."
+		}}
+
+	</div>
+
+	{{!-- AGENDA ITEMS --}}
+	{{!-- this is where phase re-loads with the data of the winning player --}}
+	<div class="screen restart">
+		
+		{{> component/instructions 
+				decider=true
+				heading="pick item"
+
+		}}
+
+		{{!-- active player --}}
+		{{> component/instructions 
+				active_player=player.isActive
+				heading="decider is reviewing your agenda!"
+
+		}}
+
+		{{!-- inactive player --}}
+		{{> component/instructions 
+				inactive_player=player.isInactive
+				heading=(combine "decider is reviewing " activePlayer.username "'s agenda")
+				
+		}}
+
+		{{> component/speech 
+				decider=true
+				decider_next_disabled=true
+				body="Now I'll award bonus points. I'll review each of your secret agenda points and award coins if they were included in the winning proposal."
+		}}
+
+		{{> component/speech 
+				decider_next_disabled=true
+				body="Now I'll award bonus points. I'll review each of your secret agenda points and award coins if they were included in the winning proposal."
+		}}
+
+		{{!-- active player agenda items --}}
+		<section id="agenda-items">
+			{{#each activePlayer.role.agendaItems}}
+				<div class="role form decider"{{#if @first}} style="display:block"{{/if}}>
+					<h3>{{this}}</h3>
+
+				  <button class="post-button submit" data-event="game:agenda_yes" data-package='{{../uid}}' data-keep_enabled="true" data-autohide="true" type="submit" name="submit">yes</button>
+				  <button class="post-button submit" data-event="game:agenda_no" data-package='{{../uid}}' data-keep_enabled="true" data-autohide="true" type="submit" name="submit">no</button>
+				</div>
+			{{/each}}
+		</section>
+
+	</div>
+
+</div>

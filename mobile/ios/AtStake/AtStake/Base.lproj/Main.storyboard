@@ -54,6 +54,8 @@
                         <color key="backgroundColor" red="0.0" green="0.83636349439620972" blue="0.70961481332778931" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.0" green="0.83636349440000002" blue="0.70961481329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="8bC-Xf-vdC" id="7ca-tY-tzB"/>
                         <outlet property="menuView" destination="rgD-sc-aSq" id="wB1-mJ-QMW"/>
