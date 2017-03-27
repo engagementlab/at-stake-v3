@@ -1,8 +1,7 @@
 <section id="lobby">
 
   <div id="login-header">
-    {{{cloudinaryUrl "v1488383913/at-stake/layout/logo_lg.png" width=287 color="#ffd461" effect="colorize:100"}}}
-    <p>Deliberate. Negotiate. Decide. </p>
+    {{{cloudinaryUrl "v1490382079/at-stake/s-t-a-k-e-l-o-g-o_3x.png" width=300 }}}
   </div>
 
   {{!-- NAME ENTRY --}}
@@ -18,7 +17,7 @@
       <section id="description">
         <p>@Stake promotes empathy and creativity among diverse perspectives in a fast-paced role-playing game. We created it to help facilitate productive and fair conversations in classrooms, conferences, strategic planning meetings, and public events. You'll get a change to dream up solutiond to real-world issues facing communities from a variety of stakeholder perspectives!</p>
       </section>
-      <img > 
+      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1490382407/at-stake/e-l-logo_3x.png" height='auto' width='200px'> 
     </div>
   </div>
 
@@ -26,18 +25,18 @@
   <div class="lobby" id="choices" class="col-sm-12" style="display:none">
 
     <div class="username">
-      <h2>HEY <span id="username"></span>!</h2>
-      <p>Welcome to @Stake!</p>
+      <h2>Hey, <span id="username"></span>!</h2>
+      <p>welcome to @Stake!</p>
     </div>
     <div class="form login col-xs-12 col-centered">
 
       <div id="btn_new_game" class="btn btn-default">
-        <h2>Start New Game</h2>
+        <h2>Start new game</h2>
       <div class="btn_cap">Select a deck and receive a 4 digit room code that other players can use to join your game</div>
       </div>
 
       <div id="btn_join_game" class="btn btn-default" data-from="choices" data-to="join">
-        <h2>Join a Game</h2>
+        <h2>Join a game</h2>
       <div class="btn_cap">use your 4 digit room code to join a game</div>
       </div>
 
@@ -92,11 +91,11 @@
 
     <div class="login input">
       <input type="text" id="access_code" placeholder="Type your room code here" maxlength="4"> <br />
-      <p class="light">Type in your game's access code and hit the play button to begin!</p>
+      <p class="light">...then <span>press the join game</span> button to begin!</p>
       <div class="error">Error!</div>
 
       <button class="back-button" data-from="join" data-to="choices">back</button>
-      <input id="btn_submit_code"  data-event="game:entry" data-package='{"code": "#access_code", "name": "#player-name"}' class="btn btn-default game_login" type="submit" name="submit" value="login">
+      <input id="btn_submit_code"  data-event="game:entry" data-package='{"code": "#access_code", "name": "#player-name"}' class="btn btn-default game_login" type="submit" name="submit" value="Join game">
     </div>
 
     <div class="row login waiting" style="display:none">

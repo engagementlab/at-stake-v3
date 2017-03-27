@@ -144,10 +144,10 @@ var checkIfLoggedIn = function() {
     });
     
     // Open socket connection
-    if(!socket) {
+    if(!socket) { 
         socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
         registerEvents();
-    }
+    } 
 
 }
 

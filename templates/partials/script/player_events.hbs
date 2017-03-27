@@ -344,12 +344,23 @@ socketEvents = function(eventId, eventData) {
                 return;
             }
 
-            updateGameContent(eventData, function() {
+            if (eventData.html) {
+                updateGameContent(eventData.html, function() {
 
-                nextPhase();
-                setupScreen();
+                    nextPhase();
+                    setupScreen();
 
-            });
+                });
+
+            } else {
+                updateGameContent(eventData, function() {
+
+                    nextPhase();
+                    setupScreen();
+
+                });
+            }
+            
             
             break;
 
