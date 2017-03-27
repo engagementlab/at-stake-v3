@@ -419,6 +419,11 @@ blockquote.speech {
     border: none;
     right: 11%;
   	font-family: "AvenirNext-Bold";
+	  &.timer {
+	  	&:before {
+			  left: 103px;
+			}
+	  }
   	&:before {
   		position: absolute;
   		content: "";
@@ -430,6 +435,7 @@ blockquote.speech {
 	    border-top: 5px solid transparent;
 	    border-bottom: 5px solid transparent;
 	  }
+
   }
 }
 
