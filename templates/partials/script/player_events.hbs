@@ -312,11 +312,16 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:start':
-
         case 'game:next_item':
 
             $('#agenda-items .role:visible').remove();
             $('#agenda-items .role').first().show();
+
+            break;
+
+        case 'game:advance':
+
+            currentPhaseIndex = -1;
 
             break;
 
@@ -349,13 +354,22 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:refresh_screen':
-
+            
+            // Don't show yet?
+            if(waitForNextScreen) {
+                nextScreenData = eventData;
+                return;
+            }
+            
             updateGameContent(eventData, function() {
 
                 setupScreen();
 
                 // Move immediately to restart point in current phase, by removing screens before it and showing it
                 $('.screen.restart').prevAll().remove();
+
+                // Hide any previously hidden elements
+                $('.screen.restart .hidden-el').css({visibility:'hidden'});
                 $('.screen.restart').show();
 
             });
@@ -482,6 +496,8 @@ socketEvents = function(eventId, eventData) {
         case 'game:decider':
 
             isDecider = eventData;
+
+            $('#bottom-bar').show();
 
             break;
 

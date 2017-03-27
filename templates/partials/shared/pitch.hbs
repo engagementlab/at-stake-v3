@@ -40,11 +40,11 @@
 
 		{{> component/speech 
 				decider=true
-				body="Everyone will have 60 seconds to pitch. If you want more time, you can pay 50 coins and receive another 30 seconds."
+				body=(combine 'Everyone will have ' config.pitchSeconds ' seconds to pitch. If you want more time, you can pay 50 coins and receive another 30 seconds.')
 		}}
 
 		{{> component/speech
-				body="Everyone will have 60 seconds to pitch. If you want more time, you can pay 50 coins and receive another 30 seconds."
+				body=(combine 'Everyone will have ' config.pitchSeconds ' seconds to pitch. If you want more time, you can pay 50 coins and receive another 30 seconds.')
 		}}
 
 	</div>

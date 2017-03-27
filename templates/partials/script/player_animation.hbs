@@ -20,31 +20,39 @@ var screensAnim,
 	$(document).ready(function() {
 
 		loginAnim = new TimelineMax({paused:true});
+		var backBtnFrom = { autoAlpha:0, xPercent:20, display:'none' },
+				backBtnTo = { autoAlpha:1, xPercent:0, display:'block', ease:Expo.easeOut }
 
 		loginAnim.from($('#player-name'), .5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .2)
 	            .from($('#btn_submit_name'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut})
 
-							.to($('#name'), .5, { autoAlpha:0, display: 'none' }, 'name')
-							.fromTo($('#choices'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' })
-							.staggerFrom($('#choices .btn'), 1, {yPercent:20, autoAlpha:0, ease:Expo.easeOut}, .7).append('choices')
+							.to($('#name'), .5, { autoAlpha:0, display:'none' }, 'name')
+							.fromTo($('#choices'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
+							.staggerFrom($('#choices .btn'), 1, {yPercent:20, autoAlpha:0, ease:Expo.easeOut}, .7)
+							.fromTo($('#choices .back-button'), .5, backBtnFrom, backBtnTo)
+							.append('choices')
 
-							.to($('#choices'), .5, { autoAlpha:0, display: 'none' })
+							.to($('#choices'), .5, { autoAlpha:0, display:'none' })
 
-							.fromTo($('#join'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' }).append('join')
+							.fromTo($('#join'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
+							.fromTo($('#join .back-button'), .5, backBtnFrom, backBtnTo)
+							.append('join')
 							
-							.to($('#join'), .01, { autoAlpha:0, display: 'none' }).append('choices-new')
-							.fromTo($('#choices'), .5, { autoAlpha:1, display: 'block' }, { autoAlpha:0, display: 'none' })
-							.to($('#login-header'), .5, { autoAlpha:0, height:0, display: 'none' })
-							.fromTo($('#decider'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' })
+							.to($('#join'), .01, { autoAlpha:0, display:'none' }).append('choices-new')
+							.fromTo($('#choices'), .5, { autoAlpha:1, display:'block' }, { autoAlpha:0, display:'none' })
+							.to($('#login-header'), .5, { autoAlpha:0, height:0, display:'none' })
+							.fromTo($('#decider'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
 							.call(function() {
 								if(timelineCallback)
 									timelineCallback();
 							})
-							.from($('#decks'), .5, { autoAlpha:0, yPercent:10, ease:Expo.easeOut }).append('new');
+							.from($('#decks'), .5, { autoAlpha:0, yPercent:10, ease:Expo.easeOut })
+							.fromTo($('#deck-choice .back-button'), .5, backBtnFrom, backBtnTo)
+							.append('new');
 
 	  $('.lobby .btn, .back-button').click(function(evt) {
 	  	if($(evt.currentTarget).data('from'))
-		  	loginFromTo($(evt.currentTarget).data('from'), $(evt.currentTarget).data('to'));
+		  	loginFromTo($(evt.currentTarget).data('from'), $(evt.currentTarget).data('to'), .7);
 	  });
 
 	});
@@ -59,7 +67,7 @@ function loginNewGame(callback) {
 	
 }
 
-function loginFromTo(from, to) {
+function loginFromTo(from, to, timeScale) {
 
 	// Failsafe
 	if(!loginAnim)
@@ -70,6 +78,8 @@ function loginFromTo(from, to) {
 
 	// Get animation duration
 	var duration = Math.abs( loginAnim.getLabelTime(to) - loginAnim.getLabelTime(from) );
+	if(timeScale)
+		duration *= timeScale;
 
 	TweenLite.fromTo(loginAnim, duration, {time:start}, {time:loginAnim.getLabelTime(to)});
 	
