@@ -93,11 +93,11 @@ var setupScreen = function() {
     currentScreenIndex = 0;
 
     $(isDecider ? '.player' : '.decider').remove();
-
+{{!-- 
     if ($('#gameContent').hasClass('login'))
         $('#gameContent').removeClass('login');
     else if ($('#gameContent').hasClass('player-grid'))
-        $('#gameContent').removeClass('player-grid');
+        $('#gameContent').removeClass('player-grid'); --}}
 
     $('#gameContent').addClass('in-game');
     $('#stages-bar').show();
@@ -146,10 +146,10 @@ socketEvents = function(eventId, eventData) {
                 socket.emit('room', emitData('player'));
             }
 
-            $('#gameContent').addClass('player-grid');
+            {{!-- $('#gameContent').addClass('player-grid'); --}}
 
             $('.login.form').fadeOut(function() { $('.login.waiting').fadeIn(function(){
-                $('.lobby#join').addClass('player-grid');
+                {{!-- $('.lobby#join').addClass('player-grid'); --}}
             }); });
             
             break;
@@ -182,7 +182,13 @@ socketEvents = function(eventId, eventData) {
 
             playerId = eventData.id;
 
-            $('#bottom-bar').show();
+            var gameCodeMarkup = '';
+            
+            _.each(eventData.code.split(''), function(char, i) {
+                gameCodeMarkup += '<span>' + char + '</span>';
+            }); 
+
+            $('#game_code .access-code').html(gameCodeMarkup);
 
             break;
 
@@ -313,6 +319,8 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:start':
         case 'game:next_item':
+
+            $('#bottom-bar').show();
 
             $('#agenda-items .role:visible').remove();
             $('#agenda-items .role').first().show();

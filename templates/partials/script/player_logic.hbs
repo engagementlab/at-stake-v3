@@ -374,7 +374,8 @@ $('#btn_new_game').click(function() {
             _.each(data.code.split(''), function(char, i) {
                 gameCodeMarkup += '<span>' + char + '</span>';
             });
-            $('.access-code').html(gameCodeMarkup);
+            $('#share-code .access-code').html(gameCodeMarkup);
+            console.log(gameCodeMarkup, " markup");
             $('#gameContent').addClass('lobby');
 
         }

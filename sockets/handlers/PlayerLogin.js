@@ -78,14 +78,12 @@ const PlayerLogin = function(nsp, socket, emitter) {
       logger.info(player.username  + ' logged in.');
       
       // Advance player to waiting screen
-      Templates.Load('partials/player/waiting', undefined, function(html) {
         var data = {
-                    id: currentSocket.id,
-                    html: html
+                    code: payload.gameId,
+                    id: currentSocket.id
                    };
 
         currentSocket.emit('player:loggedin', data);
-      });
 
       // Send player's id (debugging)
       // currentSocket.emit('player:id', );

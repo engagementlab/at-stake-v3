@@ -113,8 +113,6 @@
 				wrapperLeft = $('#wrapper').offset().left,
 				extraWindow = (windowsize - bodysize)/2;
 
-				console.log('set', $('#wrapper').offset().left)
-
 		// Locally-scoped methods
 		var findAbsolutes = function() {
 
@@ -401,7 +399,7 @@
 
 	    // Ensure login is gone and all decide UI shows
 	    $('#name,#join,#choices').remove();
-	    $('.access-code').html(gameCodeHtml);
+	    $('#share-code .access-code').html(gameCodeHtml);
 	    $('#decider .create').hide();
       $('#decider').show();
       $('#decider .waiting, #decider-debugging').show();
@@ -551,6 +549,7 @@
 		        $('.submission .error').text('Please enter your name!').fadeIn();
 		        return;
 			    }
+			   	console.log(data.deciderName);
 
 					data.deckId = $("#decks .glide__slide.active").data('id');
 					data.accessCode = $('.access-code span').text();
@@ -582,7 +581,9 @@
 					      $('#decider .waiting, #decider-debugging').show();
 					      $('#lobby').addClass('wait');
 
-						    $('#player-name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
+					      console.log(data.deciderName);
+
+						    $('#player-name').val(data.decider);
 							}
 						})
 						.fail(function(xhr, status, error) {
