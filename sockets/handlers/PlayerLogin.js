@@ -34,10 +34,8 @@ const PlayerLogin = function(nsp, socket, emitter) {
 
     room: (payload) => {
 
-      if(!payload.gameId) {
-        console.warn('gameId missing for socket ID "' + currentSocket.id + '"!');
+      if(!payload.gameId)
         return;
-      }
 
       playerGameId = payload.gameId;
 
@@ -87,25 +85,27 @@ const PlayerLogin = function(nsp, socket, emitter) {
         currentSocket.emit('player:loggedin', data);
       });
 
-      // Send player's id (debugging)
-      // currentSocket.emit('player:id', );
-      
     },
     
     'login:active': (payload) => {
 
-      if(!Session.Get(payload.gameId))
+      let session = Session.Get(payload.gameId);
+
+      if(!session)
         return;
 
-      logger.info('login:active', 'Checking if player "' + payload.uid + '" is active.');
+      if(!session.GameInSession()) {
+        currentSocket.emit('game:notfound');
+        return;
+      }
 
-      // See if this player is still marked as active inside game session
-      if(Session.Get(payload.gameId).PlayerIsActive(payload.uid)) {
+      // See if this player is still marked as active inside game session and isn't decider
+      if(session.PlayerIsActive(payload.uid) && !session.IsDecider(payload.uid)) {
 
         var player = {socket_id: currentSocket.id, username: payload.username, uid: payload.uid};
         
         // Mark player as ready inside game session
-        Session.Get(payload.gameId).PlayerReady(
+        session.PlayerReady(
                                                 player,
                                                 currentSocket,
                                                 payload.decider);

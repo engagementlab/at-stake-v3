@@ -15,30 +15,18 @@ var screensAnim,
 		timelineCallback,
 		animationDone = $.Deferred();
 
-{{#ifnoteq section 'game-preloaded'}}	
-
-	$(document).ready(function() {
+function initTimeline() {
+	
+	{{#ifnoteq section 'game-preloaded'}}	
 
 		loginAnim = new TimelineMax({paused:true});
 		var backBtnFrom = { autoAlpha:0, xPercent:20, display:'none' },
-				backBtnTo = { autoAlpha:1, xPercent:0, display:'block', ease:Expo.easeOut }
+				backBtnTo = { autoAlpha:1, xPercent:0, display:'block', ease:Expo.easeOut };
 
-		loginAnim.from($('#player-name'), .5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .2)
-	            .from($('#btn_submit_name'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut})
+		var newGameAnim = new TimelineLite(),
+				choicesAnim = new TimelineLite();
 
-							.to($('#name'), .5, { autoAlpha:0, display:'none' }, 'name')
-							.fromTo($('#choices'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
-							.staggerFrom($('#choices .btn'), 1, {yPercent:20, autoAlpha:0, ease:Expo.easeOut}, .7)
-							.fromTo($('#choices .back-button'), .5, backBtnFrom, backBtnTo)
-							.append('choices')
-
-							.to($('#choices'), .5, { autoAlpha:0, display:'none' })
-
-							.fromTo($('#join'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
-							.fromTo($('#join .back-button'), .5, backBtnFrom, backBtnTo)
-							.append('join')
-							
-							.to($('#join'), .01, { autoAlpha:0, display:'none' }).append('choices-new')
+		newGameAnim.to($('#join'), .01, { autoAlpha:0, display:'none' })
 							.fromTo($('#choices'), .5, { autoAlpha:1, display:'block' }, { autoAlpha:0, display:'none' })
 							.to($('#login-header'), .5, { autoAlpha:0, height:0, display:'none' })
 							.fromTo($('#decider'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
@@ -50,14 +38,29 @@ var screensAnim,
 							.fromTo($('#deck-choice .back-button'), .5, backBtnFrom, backBtnTo)
 							.append('new');
 
+		loginAnim.from($('#player-name'), .5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .2)
+	            .from($('#btn_submit_name'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut}).append('name')
+
+							.to($('#name'), .5, { autoAlpha:0, display:'none' })
+
+							.fromTo($('#choices'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
+							.staggerFrom($('#choices .btn'), 1, {yPercent:20, autoAlpha:0, ease:Expo.easeOut}, .7)
+							.fromTo($('#choices .back-button'), .5, backBtnFrom, backBtnTo)
+							.append('choices')
+
+							.to($('#choices'), .5, { autoAlpha:0, display:'none' })
+							.fromTo($('#join'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
+							.fromTo($('#join .back-button'), .5, backBtnFrom, backBtnTo)
+							.append('join')
+							.add(newGameAnim, '+=1').append('new');							
+
 	  $('.lobby .btn, .back-button').click(function(evt) {
 	  	if($(evt.currentTarget).data('from'))
 		  	loginFromTo($(evt.currentTarget).data('from'), $(evt.currentTarget).data('to'), .7);
 	  });
 
-	});
-
-{{/ifnoteq}}
+	{{/ifnoteq}}
+}
 
 function loginNewGame(callback) {
 	
@@ -71,7 +74,7 @@ function loginFromTo(from, to, timeScale) {
 
 	// Failsafe
 	if(!loginAnim)
-		return;
+		initTimeline();
 
 	// Starting from zero or somewhere else
 	var start = (from==='start') ? 0 : loginAnim.getLabelTime(from);

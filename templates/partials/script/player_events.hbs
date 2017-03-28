@@ -173,8 +173,6 @@ socketEvents = function(eventId, eventData) {
         case 'player:loggedin':
 
             {{!-- $('#gameContent').html(eventData.html); --}}
-
-            sessionStorage.setItem("gameType", eventData.gameType);
             
             playerWasReconnected = false;
 
@@ -203,9 +201,24 @@ socketEvents = function(eventId, eventData) {
                 
                 setupScreen();
 
+                debugger;
+
                 var secondsLeft = eventData.resume_duration; 
-                if(secondsLeft)
+                if(secondsLeft && secondsLeft > 0)
                     startTimer(secondsLeft);
+                else {
+                    // Check if timer element is left-over; if so, timer is now at 0 and should show next btn
+                    startTimer(0);
+                    if(isDecider)
+                        $('#btn-next').show();
+                }
+
+                $('#name, .login.input').fadeOut(function() {
+
+                    $('#begin').addClass('wait');
+                    $('#join, .login.waiting').fadeIn();
+
+                });
 
             });
 
@@ -414,8 +427,11 @@ socketEvents = function(eventId, eventData) {
 
             if(isDecider) return;
 
-            $('#error-box').text('game not found!');
-            $('#error-box').show();
+            // If game not found, show name entry and clear session
+            loginFromTo('start', 'name');
+            resetSession();
+
+            $('.form.login').show();
 
             break;
             

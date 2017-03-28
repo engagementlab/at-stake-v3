@@ -105,9 +105,11 @@ var checkIfLoggedIn = function() {
         $('.form.login').show();
 
         // Login form animation
-        if(!isEmulated)
+        {{#ifnoteq section 'game-preloaded'}} 
+        if(!isEmulated)  
             loginFromTo('start', 'name');
         else
+        {{/ifnoteq}}
             $('#player-name, #btn_submit_name').removeClass('hidden-el');
 
         // For Android only, move input boxes into view on phones
@@ -131,17 +133,10 @@ var checkIfLoggedIn = function() {
         return;
     }
 
-    $('#resuming').show();
+    // $('#resuming').show();
 
     gameCode = sessionStorage.getItem('gameCode');
     playerName = sessionStorage.getItem('username');
-
-    $('#name, .login.input').fadeOut(function() {
-
-        $('#begin').addClass('wait');
-        $('#join, .login.waiting').fadeIn();
-
-    });
     
     // Open socket connection
     if(!socket) { 
