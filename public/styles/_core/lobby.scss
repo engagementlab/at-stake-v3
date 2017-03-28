@@ -2,9 +2,7 @@
 #lobby {
 	
 	height:100%;
-	// .form {
-	// 	padding: 7px;
-	// }
+
 	// Waiting for players
 	&.wait {
 		#login-header {
@@ -40,7 +38,6 @@
 		&:not(#decider) {
 			width: 100%;
 		  height: 70%;
-		  // position: fixe;
 		  bottom: 0px;		  
 
 		  &.player-grid {
@@ -122,7 +119,6 @@
 		  text-align: center;
 		  color: $color-white;
 		  
-
 			h2 {
 				font-size: 32px;
 				font-weight: 500;
@@ -318,7 +314,7 @@
 
 	#join.lobby {
 
-		p {
+		p.instructions {
 			font-family: AvenirNext;
 		  font-size: 12px;
 		  font-weight: 200;
