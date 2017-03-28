@@ -19,19 +19,19 @@
 	.game_login {
 		display: block;
 		position: absolute;
-			right: 0;
-			bottom: 0;
-			margin-bottom: 10px;
-			color: $turquoise-light;
-			width: 96px;
-			padding: 0px;
-			min-width: 0px;
-		  min-height: 0px;
-		  border-radius: 0px;
-		  background-color: transparent;
-		  border: 0px;
-		  font-weight: 800;
-		  font-size: 20px;
+		right: 0;
+		bottom: 10px;
+		margin-bottom: 10px;
+		color: $turquoise-light;
+		width: 96px;
+		padding: 0px;
+		min-width: 0px;
+	  min-height: 0px;
+	  border-radius: 0px;
+	  background-color: transparent;
+	  border: 0px;
+	  font-weight: 800;
+	  font-size: 20px;
 	}
 
 	// Lobby game screens
@@ -68,7 +68,7 @@
 			display: none;
 			position: absolute;
 			left: 0;
-			bottom: 0;
+			bottom: 10px;
 			margin-bottom: 10px;
 			color: $turquoise-light;
 			width: 96px;
@@ -78,6 +78,7 @@
 		  border-radius: 0px;
 		  background-color: transparent;
 		  border: 0px;
+
 	    &:before {
 		    content: "";
 				position: absolute;
@@ -111,7 +112,7 @@
 		}
 
 		.username {
-			margin-bottom: 40px;
+			margin-bottom: 20px;
 			font-family: AvenirNext;
 		  font-weight: bold;
 		  font-style: normal;
@@ -156,7 +157,7 @@
 				height:48px;
 				padding:0px;
 				margin: 0 auto;
-				margin-bottom: 60px;
+				margin-bottom: 70px;
 
 				h2 {
 					font-size: 20px;
@@ -189,7 +190,7 @@
 				width: 90%;
 				margin: 15% auto;
 				margin-top: 0px;
-				font-size: 10px;
+				font-size: 12px;
 				color: lighten($background-color, 20%);
 			}
 		}
@@ -206,7 +207,6 @@
 			// height: 136px;
 			width: 300px;
 			padding: 10px;
-			margin-top: 16px;
 		}
 
 		p {
@@ -236,7 +236,7 @@
 			height: 60px;
 			width: 95%;
 			margin: 0 auto;
-			font-size: 12px;
+			font-size: 14px;
 			// line-height: 48px;
 		  border-radius: 0px;
 		  background-color: $color-white;
@@ -247,27 +247,27 @@
 		  margin-bottom: 5px;
 
 			&::-webkit-input-placeholder{ 
-			  font-size:14px;
+			  font-size:12px;
 			  height: 48px;
 			  text-align: center;
 			  // line-height: 48px !important;
 			}
 			&::-moz-placeholder{
-				font-size:14px;
+				font-size:12px;
 			  height: 48px;
 			  text-align: center;
 			  line-height: 48px !important;
 
 			}
 			&:-ms-input-placeholder {
-				font-size:14px;
+				font-size:12px;
 			  height: 48px;
 			  text-align: center;
 			  line-height: 48px !important;
 
 			}
 			&:-moz-placeholder {
-				font-size:14px;
+				font-size:12px;
 			  height: 48px;
 			  text-align: center;
 			  line-height: 48px !important;
@@ -293,7 +293,6 @@
 			color: $color-white;
 			margin: 1% auto;
 			text-align: justify;
-			margin-top:30px;
 		}
 		#btn_submit_name {
 			@include gradient-vertical($pink-light, $pink-dark, 90%, 10%);
@@ -328,7 +327,6 @@
 		  line-height: 1.33;
 		  letter-spacing: 0px;
 		  text-align: center;
-		  color: white;
 
 		  span {
 		  	font-weight: 700;
@@ -409,18 +407,37 @@
 	.create {
 		height: 100%;
 
+		.back-button{
+			bottom: 0px;
+		}
+		.game_login{
+			bottom: 0px;
+		}
+
 		.form {
 			color: white;
 		}
 
 		.form-prompt {
 			font-size: 12px;
+			color: lighten($background-color, 10%);
+			margin-bottom: 20px;
+		}
+		.decks-prompt {
+			font-size: 12px;
+			color: lighten($background-color, 15%)
+		}
+
+		h3 {
+			font-weight: 700;
+			color: white;
+			margin:0px;
+		  font-family: AvenirNext-Bold;
 		}
 
 		#decks {
 			width: 100%;
 			visibility: hidden;
-			margin-top: 5%;
 
 			button {
 				color: $color-turquoise;
@@ -431,10 +448,10 @@
 			}
 
 		  .dot {
-		  	height: 10px;
-		  	width: 10px;
-		  	border-radius: 5px;
-		  	background-color: $color-red;
+		  	height: 8px;
+		  	width: 8px;
+		  	border-radius: 4px;
+		  	background-color: $color-orange;
 		  }
 
 			.glide__bullets {
@@ -442,7 +459,23 @@
 				height: auto;
 				position: relative;
 			}
+			.glide__bullets > * {
+				background-color: white;
+			}
+			.glide__bullets > *.active {
+				background-color: lighten($background-color, 10%);
+			}
+			.glide__bullets > *:focus {
+				border: 0px;
+			}
 			.glide__slide {
+
+				&.active {
+					.deck {
+						box-shadow: 0 8px 0 0 rgba(85, 85, 85, 0.2);
+					}
+				}
+
 		  	.deck {
 			    font-size: small;
 			    color: black;
@@ -452,45 +485,66 @@
 			    // box-shadow: 0 2px 4px 0 rgba(85, 85, 85, 0.25);
 			    border-radius: 0px;
 			    height:100%;
-			    width: 90%;
+			    width: 98%;
 
 					.deck-header {
-						background-color: $orange-dark;
-						padding: 10px 0px;
+						background-color: $color-orange;
+						padding: 8px 0px;
 						color: white;
+						box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+						font-weight: 700;
+				  	font-family: AvenirNext-Bold;
+				  	h2 {
+				  		margin:0px;
+				  	}
 					}
 
 					.flag {
-						color:$orange-dark;
-					  margin: 10% 5%;
-					  font-size: 20px;
+						color:$color-orange;
+					  margin: 8px;
 					}
 
 					.question {
 						height: auto;
-						margin: 4px;
+						margin: 10px;
+						color: lighten(black, 10%);
 					  text-align: center;
 					  color: black;
-				  	line-height: 16px;
+				  	line-height: 12px;
+				  	font-size: 12px;
 
 					}
 
 					.stakeholders {
 						width: 100%;
 						padding:0px;
-						margin-bottom: 20px;
+						margin-bottom: 8px;
 						display: inline-block;
 					}
 
 					.deck-role {
 					  display: block;
 					  font-size: 12px;
-				    color: $orange-light;
-				    padding: 5%;
-				    margin: 0px;
+				    color: white;
+				    background-color: $color-orange;
+				    width: 40%;
+					  min-height: 34px;
+					  max-height: 34px;
+				    margin-bottom: 8px;
+				    display: table;
+
+				    p{
+				    	display:table-cell;
+				    	vertical-align: middle;
+				    }
 
 				    &.even {
-				    	border-right: 1px solid $color-orange;
+				    	margin-left:8%;
+				    	margin-right:2%;
+				    }
+				    &.odd {
+				    	margin-right:8%;
+				    	margin-left:2%;
 				    }
 
 					}
@@ -506,7 +560,7 @@
 	}
 
 	// Share code screen
-	#share_code {
+	#share_code, #game_code {
 		text-align: center;
 	  color: #ebebeb;
 	  margin-top: -30px;
@@ -607,6 +661,7 @@
 	    background-size: 40px 40px;
 		}
 	}
+
 	#players {
 		height: auto;
 	}

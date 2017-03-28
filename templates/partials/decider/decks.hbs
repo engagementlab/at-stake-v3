@@ -4,7 +4,6 @@
   <button class="glide__arrow prev" data-glide-dir="<">prev</button>
   <button class="glide__arrow next" data-glide-dir=">">next</button>
 </div> --}}
-
 <div class="glide__wrapper">
   <div class="glide__track">
     
@@ -15,14 +14,14 @@
         <div class="deck">
 
           <div class="deck-header">
-            <h2 class="header white">{{name}}</h2>
+            <h2 class="medium-font white">{{name}}</h2>
 
             <div class="description white subtitle">
               {{description}}
             </div>
           </div>
 
-          <h3 class="flag">Talking Points</h3>
+          <h3 class="flag medium-font ">Talking Points</h3>
             {{#each questions}}
             <div class="question">{{this}}</div>
 
@@ -33,10 +32,10 @@
 
             {{/each}}
 
-          <h3 class="flag sub-header">Sample Stakeholders</h3>
+          <h3 class="flag medium-font">Sample Stakeholders</h3>
           <div class="stakeholders">
             {{#each roles}}
-              <div class="deck-role col-xs-6 {{checkEven @index}}">{{title}}</div>
+            <div class="deck-role col-xs-6 {{checkEven @index}}"><p>{{title}}</p></div>
             {{/each}}
           </div>
 

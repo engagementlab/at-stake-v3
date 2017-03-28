@@ -49,9 +49,10 @@
   <div class="lobby" id="decider" style="display:none">
     <div class="form create col-sm-12 col-lg-12 col-centered" id="deck-choice">
 
-      <h3 class="white header">Select a Deck</h3>
-      <div class="form-prompt white">Your deck will determine what problems you solve and what roles you get to play.</div>
+      <h3 class="white">Select a Deck</h3>
+      <div class="form-prompt">Your deck will determine what problems you solve and what roles you get to play.</div>
       
+      <div class="decks-prompt">Swipe left and right to switch decks</div>
       <section id="decks" class="glide">
 
       </section>
@@ -99,8 +100,14 @@
     </div>
 
     <div class="row login waiting" style="display:none">
-      <h3>Waiting for players</h3>
-      <div class="row" id="players">
+      <div id="game_code"> 
+        <h1>Share Your Room Code</h1>
+        <h1 class="access-code"></h1>
+        <p>Share this 4 digit code with players. Once at least 3 players have joined, press the start button to play</p>
+      </div>
+      <div class="player-grid">
+        <div class="row" id="players">
+        </div>
       </div>
     </div>
   </div>
