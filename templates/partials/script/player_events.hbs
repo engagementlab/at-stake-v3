@@ -202,8 +202,6 @@ socketEvents = function(eventId, eventData) {
                 
                 setupScreen();
 
-                debugger;
-
                 var secondsLeft = eventData.resume_duration; 
                 if(secondsLeft && secondsLeft > 0)
                     startTimer(secondsLeft);
@@ -231,11 +229,16 @@ socketEvents = function(eventId, eventData) {
             var timeLeft = eventData.timeout;
             var modal = $('#error-player-disconnected');
             
-            modal.find('h2 #player').text(eventData.name);
+            modal.find('h2 #player').text(eventData.names.join(', '));
             modal.find('h2 #time').text(timeLeft + 's');
-            modal.trigger('show');
+            
+            if(!modal.is(':visible'))
+                modal.trigger('show');
 
             countdownPaused = true;
+
+            if(timeoutClock)
+                clearInterval(timeoutClock);
 
             var timeoutClock = setInterval(function() {
 
@@ -312,6 +315,7 @@ socketEvents = function(eventId, eventData) {
         case 'player:assignrole':
 
             $('#role-card').html(eventData);
+            $('#bottom-bar').show();
             
             $('#btn-close-role-card').on('click', function(evt) {
                 $('#role-card').removeClass('open').addClass('closed');
