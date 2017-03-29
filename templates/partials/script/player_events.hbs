@@ -11,16 +11,17 @@
  */
 --}}
 
-var clockInterval;
-var countdownAnim;
-var countdownPaused;
-var playerWasReconnected;
-var startAnim = new TimelineLite({paused: true}).fromTo($('#btn-start-game'), 1, {scale:0, autoAlpha:0}, {scale:1, autoAlpha:1, visibility:'visible', ease:Elastic.easeOut});
+var clockInterval,
+    timeoutClock,
+    countdownAnim,
+    countdownPaused,
+    playerWasReconnected,
+    startAnim = new TimelineLite({paused: true}).fromTo($('#btn-start-game'), 1, {scale:0, autoAlpha:0}, {scale:1, autoAlpha:1, visibility:'visible', ease:Elastic.easeOut});
 
 // If true, screen doesn't advance right away via 'game:next',
 // it is saved in nextScreenData and advanced to later
-var waitForNextScreen = false;
-var nextScreenData;
+var waitForNextScreen = false,
+    nextScreenData;
 
 var resetSession = function() {
 
@@ -35,6 +36,9 @@ var resetSession = function() {
 var startTimer = function(secondsLeft) {
     
     var wasPaused = false;
+
+    if($('.screen .timer').length === 0)
+        return;
 
     clockInterval = setInterval(function() {
 
@@ -113,6 +117,43 @@ var setupScreen = function() {
     currentScreenIndex = sessionStorage.getItem('screen');
 
     phaseBarProgress();
+
+}
+
+var playerDisconnected = function(timeoutTime, names) {
+
+    if(!names || names.length === 0)
+        return;
+    
+    var timeLeft = timeoutTime,
+        modal = $('#error-player-disconnected'),
+        singular = modal.find('h2 #singular'),
+        plural = modal.find('h2 #plural');
+
+    modal.find('h2 #player').text(names.join(', '));
+    modal.find('h2 #time').text(timeLeft + 's');
+
+    if(names.length > 1) {
+        plural.show();
+        singular.hide();
+    }
+    else {
+        plural.hide();
+        singular.show();
+    }
+
+    if(!modal.is(':visible'))
+        modal.trigger('show');
+
+    timeoutClock = setInterval(function() {
+
+        timeLeft--;
+        modal.find('h2 #time').text(timeLeft + 's');
+
+        if(timeLeft === 0)
+            clearInterval(timeoutClock);
+
+    }, 1000);
 
 }
 
@@ -219,6 +260,8 @@ socketEvents = function(eventId, eventData) {
 
                 });
 
+                playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);
+
             });
 
             break;
@@ -227,39 +270,17 @@ socketEvents = function(eventId, eventData) {
 
             // A current player lost from session
             var timeLeft = eventData.timeout;
-            var modal = $('#error-player-disconnected');
-            
-            modal.find('h2 #player').text(eventData.names.join(', '));
-            modal.find('h2 #time').text(timeLeft + 's');
-            
-            if(!modal.is(':visible'))
-                modal.trigger('show');
-
-            countdownPaused = true;
 
             if(timeoutClock)
                 clearInterval(timeoutClock);
 
-            var timeoutClock = setInterval(function() {
+            playerDisconnected(timeLeft, eventData.names);
 
-                timeLeft--;
-                modal.find('h2 #time').text(timeLeft + 's');
-
-                if(timeLeft === 0)
-                    clearInterval(timeoutClock);
-
-            }, 1000);
+            countdownPaused = true;
 
             break;
 
         case 'players:update':
-
-            if(eventData.state === 'rejoined') {
-                $('#error-player-disconnected').trigger('hide');
-
-                countdownPaused = false;
-                return;
-            }
 
             var staticPlayers = $('.player-static');
             var currentPlayers = _.map(eventData.players, function(player){
@@ -267,6 +288,20 @@ socketEvents = function(eventId, eventData) {
             });
 
             var playersNeeded = {{#ifeq debug true}}2{{else}}3{{/ifeq}}
+
+            // Are all players connected?
+            if(eventData.all_connected) {
+                $('#error-player-disconnected').trigger('hide');
+
+                if(timeoutClock)
+                    clearInterval(timeoutClock);
+
+                countdownPaused = false;
+            }
+
+            // A player has re-joined
+            if(eventData.state === 'player_rejoined')
+                playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);
 
             // Allow to start?
             if(currentPlayers.length === playersNeeded)
