@@ -185,6 +185,8 @@ var nextPhaseScreen = function() {
 
         $(newScreen).trigger('show');
 
+        runMods();
+
         var timerPreview = $($('.screen')[0]).find('.timer.preview');
         var hasTimer = timerPreview.length === 1;
         if(hasTimer) {

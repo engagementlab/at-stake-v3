@@ -6,22 +6,21 @@
 
 		{{> component/instructions 
 				decider=true
-				heading="decide phase start"
-				body="Jowl andouille brisket bresaola, bacon frankfurter hamburger turducken kielbasa capicola drumstick."
+				heading="Read the text in the blue box outloud"
+				body="Once you have finished speaking the instructions to other players, press next to continue"
 		}}
 
 		{{> component/instructions 
-				heading="Listen up and stuff"
-				body="Spicy jalapeno bacon ipsum dolor amet cupim pork loin cow porchetta turducken swine bresaola capicola."
+				heading="Listen to the decider"
 		}}
 
 		{{> component/speech 
 				decider=true
-				body="Corned beef doner picanha cow meatball tongue turducken tenderloin."
+				body="Now that we have heard everyone's proposals, its time for me to decide a winner!"
 		}}
 
 		{{> component/speech 
-				body="Bacon alcatra bresaola jerky pig tongue short ribs venison frankfurter fatback boudin pork chop sausage pancetta."
+				body="Now that we have heard everyone's proposals, its time for me to decide a winner!"
 		}}
 
 	</div>
@@ -40,11 +39,12 @@
 				body=""
 		}}	
 
-		<div class="form decider">
-			{{#each players}}
-		    <button class="post-button submit" data-event="game:proposal_selected" data-package='{{uid}}' data-keep_enabled="true" data-autohide="true" type="submit" name="submit">{{username}}</button>
-			{{/each}}
-		</div>
+		{{!-- choice box for choosing pitch --}}
+		{{> component/choice 
+				pitches=true
+				decider=true
+		}}
+
 
 	</div>
 

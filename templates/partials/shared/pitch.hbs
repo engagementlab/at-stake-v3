@@ -140,7 +140,6 @@
 				time=config.pitchSeconds
 				decider=true
 				next_player=repeatScreen
-				advance=true
 		}}
 
 		{{> component/timer 
@@ -153,4 +152,30 @@
 		}}
 
 	</div>
+
+	{{!-- PITCH END --}}
+	<div class="screen">
+		
+		{{> component/instructions
+				decider=true 
+				heading="Press next for Deliberate phase"
+				body="Let players know the pitch phase is over, and press next to continue."
+		}}
+
+		{{> component/instructions
+				heading="Get ready for the deliberate phase"
+		}}
+
+		{{> component/speech 
+				decider=true
+				advance=true
+				body="Now that we have heard everyone’s proposals, it’s time to move into the next phase and deliberate!"
+		}}
+
+		{{> component/speech
+				body="Now that we have heard everyone’s proposals, it’s time to move into the next phase and deliberate!"
+		}}
+
+	</div>
+	
 </div>

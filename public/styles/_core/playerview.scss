@@ -1,6 +1,7 @@
 
 #gameContent {
 	@include gradient-vertical($background-color, $turquoise-dark, 55%, 45%);
+  @include linear_transition(filter, 0.5s);
 	
 	height: 100%;
 	text-align: center;
@@ -20,15 +21,68 @@
 
 	}
 
+	// Blur all contents during modal
+	&.blur {
+		@include filter(blur, 2.9px);
+	}
+
+}
+
+// Players
+.player-logo {
+
+	height: 60px;
+	width: 70%;
+	// left: 15%;
+	// position: absolute;
+	display: inline-block;
+	padding: 0px;
+  background-repeat: no-repeat;
+	background-size: contain;
+	color: $grey-dark;
+
+	p {
+		display: inline;
+		color: $grey-dark;
+    text-transform: uppercase;
+    line-height: 60px;
+    padding-left: 60px;
+	}
+
+	&#player-0 {
+		background-image : $player-one-logo;
+    background-position: 40px 10px;
+    background-size: 40px 40px;
+	}
+	&#player-1 {
+		background-image : $player-two-logo;
+		background-position: 40px 10px;
+    background-size: 40px 40px;
+	}
+	&#player-2 {
+		background-image : $player-three-logo;
+		background-position: 40px 10px;
+    background-size: 40px 40px;
+	}
+	&#player-3 {
+		background-image : $player-four-logo;
+		background-position: 40px 10px;
+    background-size: 40px 40px;
+	}
+	&#player-4 {
+		background-image : $player-five-logo;
+		background-position: 40px 10px;
+    background-size: 40px 40px;
+	}
 }
 
 // Default button shadow and margin
 .btn { 
-	box-shadow: 0px 7px 0px 0px darken($background-color, 10%);
+	@include box-shadow(0px, 7px, 0px, darken($background-color, 10%));
 	margin-bottom: 7px;
 
 	&:hover, &:focus, &:visited {
-		box-shadow: 0px 7px 0px 0px darken($background-color, 10%);
+		@include box-shadow(0px, 7px, 0px, darken($background-color, 10%));
 		margin-bottom: 7px;
 	}
 }
@@ -247,46 +301,68 @@ input.post-button {
 	}
 }
 
-// More Time Card
-#more-time-wrapper {
+// More Time Card/Pitch Choice
+.choice-wrapper {
 	position: relative;
 	text-align:center;
 	height: 100%;
 	width: 100%;
 	left: 0px;
 	top: 0px;
-	background-color: transparentize($color-blue, 0.6);
-}
-#more-time {
-	position: relative;
-  height: 60%;
-  width: 90%;
-  top: 60px;
-  left: 5%;
-  background-color: $color-turquoise;
-	border: white 3px solid;
-	color: white;
-
-	button {
-		width: 80%;
-		margin: 10px auto;
-		height: 60px;
-		border-radius: 30px;
+	background-color: $greyish-brown-70;
+	
+	.form {
+		position: relative;
+	  height: 60%;
+	  width: 90%;
+	  top: 60px;
+	  left: 5%;
+	  background-color: $turquoise-dark;
+		border: white 3px solid;
 		color: white;
-		border: 0px;
 
-		&#btn-more-time {
-			background-color: $color-red;
-			background-size: 50px 50px;
-			background-position: 3px center;
-			background-repeat: no-repeat;
-			background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/coin_stroke.png");
+		button {
+			width: 80%;
+			margin: 10px auto;
+			height: 60px;
+			border-radius: 30px;
+			color: white;
+			border: 0px;
+
+			&#btn-more-time {
+				background-color: $color-red;
+				background-size: 50px 50px;
+				background-position: 3px center;
+				background-repeat: no-repeat;
+				background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/coin_stroke.png");
+			}
+			&#btn-cancel {
+				background-color: $orange-dark;
+			}
+
+			&.pitch {
+
+				width: 96%;
+				border-radius: 0px;
+				background-color: $aquamarine;
+				font-family: $header-type;
+
+				h1 {
+					color: white;
+					font-size: 20px;
+					margin: 0;
+				}
+				h2 {
+					color: $tiffany-blue;
+					line-height: 0;
+					font-size: 16px;
+				}
+			
+			}
+
 		}
-		&#btn-cancel {
-			background-color: $orange-dark;
-		}
+
 	}
-
 }
 
 // Player role card
@@ -451,7 +527,6 @@ blockquote.speech {
 
   }
 }
-
 
 // BOTTOM BAR (COINS, NEXT)
 footer#bottom-bar {

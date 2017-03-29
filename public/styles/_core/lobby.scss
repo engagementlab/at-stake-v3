@@ -608,53 +608,10 @@
 			font-size: 16px;
 		}
 	}
-
-
-	// Players
+		
 	.player-logo {
-
-		height: 60px;
-		width: 70%;
-		// left: 15%;
-		// position: absolute;
-		display: inline-block;
-		padding: 0px;
-	  background-repeat: no-repeat;
-		background-size: contain;
-		color: $grey-dark;
-
 		p {
-			display: inline;
 			color: $grey-dark;
-	    text-transform: uppercase;
-	    line-height: 60px;
-	    padding-left: 60px;
-		}
-
-		&#player-0 {
-			background-image : $player-one-logo;
-	    background-position: 40px 10px;
-	    background-size: 40px 40px;
-		}
-		&#player-1 {
-			background-image : $player-two-logo;
-			background-position: 40px 10px;
-	    background-size: 40px 40px;
-		}
-		&#player-2 {
-			background-image : $player-three-logo;
-			background-position: 40px 10px;
-	    background-size: 40px 40px;
-		}
-		&#player-3 {
-			background-image : $player-four-logo;
-			background-position: 40px 10px;
-	    background-size: 40px 40px;
-		}
-		&#player-4 {
-			background-image : $player-five-logo;
-			background-position: 40px 10px;
-	    background-size: 40px 40px;
 		}
 	}
 

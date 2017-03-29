@@ -4,11 +4,36 @@
 * @param {Bool} active_player - Show this choice dialog only for active player?
 
 --}}
-<div id="more-time-wrapper" class="{{showHide this}} modal" style="display:none">
-	<div class="form choice" id="more-time" >
-	  <h3>Pay {{config.extraTimeCost}} to continue pitching?</h3>
-	  <h4>Recieve an additional {{config.extraSeconds}} seconds of uninterrupted talking time.</h4>
-	  <button id="btn-more-time" data-event="game:more_time" data-keep_enabled="true" data-package="{{player.playerUid}}" class="post-button submit" type="submit" name="submit">get more time</button>
-	  <button id="btn-cancel" data-event="game:turn_done" class="post-button submit" type="submit" name="submit">no thanks</button>
+
+{{#ifeq decider true}}
+
+	{{#ifeq pitches true}}
+
+		<div class="choice-wrapper modal">
+			<div class="form decider">
+				<h1>Choose the player who had the best proposal</h1>
+
+				{{#each players}}
+			    <button id="player-{{icon}}" class="post-button submit pitch player-logo btn" data-event="game:proposal_selected" data-package='{{uid}}' data-keep_enabled="true" data-autohide="true" type="submit" name="submit">
+				    <h1>{{username}}<h1>
+				    <h2>{{role.title}}</h2>
+				  </button>
+				{{/each}}
+			</div>
+		</div>
+
+	  <span id="modifier" class="hidden-el" data-choice_modal="true"></span>
+	{{/ifeq}}
+
+{{else}}
+
+	<div id="more-time-wrapper" class="{{showHide this}} choice-wrapper modal" style="display:none">
+		<div class="form choice" id="more-time">
+		  <h3>Pay {{config.extraTimeCost}} to continue pitching?</h3>
+		  <h4>Recieve an additional {{config.extraSeconds}} seconds of uninterrupted talking time.</h4>
+		  <button id="btn-more-time" data-event="game:more_time" data-keep_enabled="true" data-package="{{player.playerUid}}" class="post-button submit" type="submit" name="submit">get more time</button>
+		  <button id="btn-cancel" data-event="game:turn_done" class="post-button submit" type="submit" name="submit">no thanks</button>
+		</div>
 	</div>
-</div>
+
+{{/ifeq}}

@@ -248,8 +248,6 @@
 			gameContainer.html(content)
 									 .promise()
 									 .done(function() {
-
-									 		runMods();
 				
 											if(!pauseAnimate) {
 												// Animate screen back in now and then run callback
@@ -303,9 +301,22 @@
 			if(modifier.data().highlight) 
 				$(modifier.data().highlight).addClass('highlight');
 
-			if(modifier.data().timer) {
+			// Move modal inside partial to top-level overlay and assign button events
+			if(modifier.data().choice_modal)  {
+
+				// $('#gameContent').addClass('blur');
+				$('#overlay').append($('.choice-wrapper'));
+				$('#overlay, .choice-wrapper').show();
+				
+				$('.choice-wrapper .post-button').click(function(evt) {
+
+					// $('#gameContent').removeClass('blur');
+          $('#overlay').empty();
+          $('#overlay').hide();
+
+				})
 			}
-	 	
+
 		}
 		else {
 
