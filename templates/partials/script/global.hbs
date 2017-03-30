@@ -628,7 +628,6 @@
 		        $('.submission .error').text('Please enter your name!').fadeIn();
 		        return;
 			    }
-			   	console.log(data.deciderName);
 
 					data.deckId = $("#decks .glide__slide.active").data('id');
 					data.accessCode = $('.access-code span').text();
@@ -659,8 +658,6 @@
 					      $('#decider').show();
 					      $('#decider .waiting, #decider-debugging').show();
 					      $('#lobby').addClass('wait');
-
-					      console.log(data.deciderName);
 
 						    $('#player-name').val(data.decider);
 							}

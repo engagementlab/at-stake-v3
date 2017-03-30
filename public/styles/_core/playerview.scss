@@ -12,6 +12,7 @@
 	// During the gameplay
 	&.in-game {
 		background-color: white;
+		height: calc(100% - 50px);
 		// padding-top:80px;
 
 		// Show coin and points bar
@@ -383,20 +384,8 @@ input.post-button {
   border: 3px white solid;
   border-bottom: 0px;
   z-index: 1000;
-  @include gradient-vertical($orange-dark, $white, 30%, 30%)
-
-  &.open {
-  	display: block !important;
-  	animation-name: open-role-card;
-  	animation-duration: 1s;
-  	animation-fill-mode: forwards;
-  }
-  &.closed {
-  	display: block !important;
-  	animation-name: close-role-card;
-  	animation-duration: 1s;
-  	animation-fill-mode: forwards;
-  }
+  @include gradient-vertical($orange-dark, $white, 30%, 30%);
+  top:0px;
 
   .swipe {
   	margin-bottom: 20px;
