@@ -105,11 +105,11 @@ module.exports = function() {
     }
 
     // Given agenda item's placement in lineup of all items, decide data-next event
-    _helpers.nextAgendaEvent = function(lastPlayer, lastItem) {
+    _helpers.nextAgendaEvent = function(playerCount, index, lastItem) {
 
         let strEvent = '';
 
-        if(lastPlayer && lastItem)
+        if((playerCount-1 === index) && lastItem)
             strEvent = 'next_screen';
         else
             strEvent = 'next_modal';

@@ -126,7 +126,7 @@
 				  </div>
 				</div>
 
-				<div class="modal inner-modal agenda_item yes" data-duration="4" data-next="{{nextAgendaEvent ../lastPlayer @last}}">
+				<div class="modal inner-modal agenda_item yes" data-duration="4" data-next="{{nextAgendaEvent ../../playerCount @../index @last}}">
 					<div class="inner">
 						<h1>Congratulations, {{../username}}!</h1>
 						<h2>Your agenda item {{this}} is included in the winning proposal. You win xxx coins</h2>
@@ -138,7 +138,7 @@
 				  </div>
 				</div>
 
-				<div class="modal inner-modal agenda_item no" data-duration="4" data-next="{{nextAgendaEvent ../lastPlayer @last}}">
+				<div class="modal inner-modal agenda_item no" data-duration="4" data-next="{{nextAgendaEvent ../../playerCount @../index @last}}">
 					<div class="inner">
 						<h1>Sorry, {{../username}}...</h1>
 						<h2>Your agenda item {{this}} was not included in the winning proposal</h2>
