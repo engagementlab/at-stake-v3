@@ -5,29 +5,46 @@
 
 --}}
 
-{{#ifeq decider true}}
+{{#ifeq pitches true}}
 
-	{{#ifeq pitches true}}
+	{{#ifeq decider true}}
 
-		<div class="choice-wrapper modal">
-			<div class="form decider">
+		<div class="modal inner-modal {{showHide this}}">
+			<div class="form decider inner">
 				<h1>Choose the player who had the best proposal</h1>
 
 				{{#each players}}
 			    <button id="player-{{icon}}" class="post-button submit pitch player-logo btn" data-event="game:proposal_selected" data-package='{{uid}}' data-keep_enabled="true" data-autohide="true" type="submit" name="submit">
-				    <h1>{{username}}<h1>
+				    <h1>{{username}}</h1>
 				    <h2>{{role.title}}</h2>
 				  </button>
 				{{/each}}
 			</div>
 		</div>
 
-	  <span id="modifier" class="hidden-el" data-choice_modal="true"></span>
+	{{else}}
+
+		<div class="modal inner-modal {{showHide this}}">
+			<div class="inner">
+				<h1>The decider is about to choose a winning proposal</h1>
+				<h2>Whoever wins receive all the coins in the coin pot!</h2>
+
+				{{#each players}}
+			    <div id="player-{{icon}}" class="post-button submit pitch player-logo btn">
+				    <h1>{{username}}</h1>
+				    <h2>{{role.title}}</h2>
+				  </div>
+				{{/each}}
+		  </div>
+		</div>
+
 	{{/ifeq}}
+
+  <span id="modifier" class="hidden-el" data-inner_modal="true"></span>
 
 {{else}}
 
-	<div id="more-time-wrapper" class="{{showHide this}} choice-wrapper modal" style="display:none">
+	<div id="more-time-wrapper" class="{{showHide this}} inner-modal modal" style="display:none">
 		<div class="form choice" id="more-time">
 		  <h3>Pay {{config.extraTimeCost}} to continue pitching?</h3>
 		  <h4>Recieve an additional {{config.extraSeconds}} seconds of uninterrupted talking time.</h4>

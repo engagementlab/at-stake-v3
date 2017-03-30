@@ -325,25 +325,25 @@ socketEvents = function(eventId, eventData) {
         case 'player:agenda_item':
 
             // Don't let next screen take over yet
-            waitForNextScreen = true;
+            // waitForNextScreen = true;
 
-            var container = eventData.chosen ? $('#chosen') : $('#not-chosen');
+            // var container = eventData.chosen ? $('#chosen') : $('#not-chosen');
             
             // Edit coin count
-            container.text(container.text().replace('{coins}', eventData.coins));
+            // container.text(container.text().replace('{coins}', eventData.coins));
 
-            var chosenAnim = new TimelineLite({onComplete: function() {
+            // var chosenAnim = new TimelineLite({onComplete: function() {
 
-                setTimeout(function() { updateGameContent(nextScreenData, function() {
+            //     setTimeout(function() { updateGameContent(nextScreenData, function() {
 
-                    waitForNextScreen = false;
-                    nextScreenData = undefined;
+            //         waitForNextScreen = false;
+            //         nextScreenData = undefined;
 
-                }) }, 1400);
+            //     }) }, 1400);
 
-            }});
+            // }});
 
-            chosenAnim.from(container, .6, {scale:0, autoAlpha: 0, ease:Elastic.easeOut});
+            // chosenAnim.from(container, .6, {scale:0, autoAlpha: 0, ease:Elastic.easeOut});
 
             break;
 
@@ -365,12 +365,18 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:start':
-        case 'game:next_item':
 
             $('#bottom-bar').show();
+            
+            break;
 
-            $('#agenda-items .role:visible').remove();
-            $('#agenda-items .role').first().show();
+        case 'game:next_item':
+
+            var modalToOpen = eventData.chosen ? 'yes' : 'no';
+            var modalToRemove = !eventData.chosen ? 'yes' : 'no';
+
+            $('.agenda_item.' + modalToRemove).first().remove();
+            openInnerModal('.' + modalToOpen);
 
             break;
 
@@ -432,11 +438,13 @@ socketEvents = function(eventId, eventData) {
                 setupScreen();
 
                 // Move immediately to restart point in current phase, by removing screens before it and showing it
-                $('.screen.restart').prevAll().remove();
+                $('.screen.restart').first().prevAll().remove();
 
                 // Hide any previously hidden elements
-                $('.screen.restart .hidden-el').css({visibility:'hidden'});
-                $('.screen.restart').show();
+                $('.screen.restart .hidden-el').first().css({visibility:'hidden'});
+                $('.screen.restart').first().show();
+
+                openInnerModal();
 
             });
 
