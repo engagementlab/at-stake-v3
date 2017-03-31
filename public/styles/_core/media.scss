@@ -7,3 +7,23 @@
 	}
 	
 }
+
+@media (max-width: 320px) {
+
+	.glide__slide {
+		min-width: 274px !important;
+	}
+
+	.player-grid{
+		min-height: 45%;
+	}
+	
+}
+
+@media (max-width: 375px) and (min-width: 321px) {
+
+	.glide__slide {
+		min-width: 320px;
+	}
+	
+}
