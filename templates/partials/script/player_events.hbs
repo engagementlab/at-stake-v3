@@ -437,7 +437,9 @@ socketEvents = function(eventId, eventData) {
         case 'game:ending':
 
             $('#error-box').text(eventData);
-            $('#error-box').show();
+            $('#error-box').show(function(){
+                $('.form .error').delay(3000).fadeOut('slow');
+            });
 
             break;
 
@@ -489,13 +491,7 @@ socketEvents = function(eventId, eventData) {
         case 'game:countdown_ending':
 
             $('.form .error').fadeIn().html(eventData);
-
-            break;
-
-
-        case 'game:countdown_ending':
-
-            $('.form .error').fadeIn().html(eventData);
+            $('.form .error').delay(3000).fadeOut('slow');
 
             break;
 
@@ -505,16 +501,16 @@ socketEvents = function(eventId, eventData) {
 
             runMods();
 
-            $('#overlay').append($('#more-time-wrapper.showing.ACTIVE'));
+            $('#overlay').append($('#more-time-wrapper.showing'));
 
             if($('#overlay').html().length > 0) {
 
                 $('#overlay').fadeIn(function() {
-                    $('#more-time-wrapper.player.ACTIVE').fadeIn();
+                    $('#more-time-wrapper.showing').fadeIn();
                 });
 
                 $('#btn-more-time, #btn-cancel').click(function() {
-                    var modal = $('#more-time-wrapper.ACTIVE');
+                    var modal = $('#more-time-wrapper.showing');
                   
                     modal.fadeOut(function() {
                         $('.screen').append(modal);
@@ -524,6 +520,7 @@ socketEvents = function(eventId, eventData) {
                     
                 });
             }
+
             if(eventData == "brainstormCountdown" || eventData == "deliberateCountdown") {
 
                 if(isDecider)
