@@ -118,6 +118,16 @@ module.exports = function() {
 
     }
 
+    // Given agenda item's reward given item's index
+    _helpers.agendaReward = function(rewards, index) {
+
+        if(!rewards)
+            throw new Error("No agenda item rewards defined!");
+
+        return rewards[index];
+
+    }
+
     return _helpers;
 
 

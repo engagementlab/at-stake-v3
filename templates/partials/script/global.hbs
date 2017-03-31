@@ -347,8 +347,10 @@
 	            $('#overlay').empty();
 	            $('#overlay').hide();
 
-	            if(gotoNext === 'next_screen')
+	            if(gotoNext === 'next_screen') {
+	            	// socket.emit('game:next_screen', emitData());
 		            nextPhaseScreen();
+	            }
 
 	            else if(gotoNext === 'next_modal')
 		            openInnerModal();
