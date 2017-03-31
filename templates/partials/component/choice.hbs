@@ -11,12 +11,15 @@
 
 		<div class="modal inner-modal {{showHide this}}">
 			<div class="form decider inner">
-				<h1>Choose the player who had the best proposal</h1>
+				<h1>Choose the player who had the <strong>best</strong> proposal</h1>
 
 				{{#each players}}
-			    <button id="player-{{icon}}" class="post-button submit pitch player-logo btn" data-event="game:proposal_selected" data-package='{{uid}}' data-keep_enabled="true" data-autohide="true" type="submit" name="submit">
-				    <h1>{{username}}</h1>
-				    <h2>{{role.title}}</h2>
+			    <button id="player-{{icon}}" class="post-button submit player-box player-logo btn" data-event="game:proposal_selected" data-package='{{uid}}' data-keep_enabled="true" data-autohide="true" type="submit" name="submit">
+				    <div class="coins">{{coins}}</div>
+					  <div class="info">
+						  <h1>{{username}}</h1>
+					    <h2>{{role.title}}</h2>
+				    </div>
 				  </button>
 				{{/each}}
 			</div>
@@ -30,9 +33,12 @@
 				<h2>Whoever wins receive all the coins in the coin pot!</h2>
 
 				{{#each players}}
-			    <div id="player-{{icon}}" class="post-button submit pitch player-logo btn">
-				    <h1>{{username}}</h1>
-				    <h2>{{role.title}}</h2>
+			    <div id="player-{{icon}}" class="post-button submit player-box player-logo btn">
+				    <div class="coins">{{coins}}</div>
+					  <div class="info">
+						  <h1>{{username}}</h1>
+					    <h2>{{role.title}}</h2>
+				    </div>
 				  </div>
 				{{/each}}
 		  </div>

@@ -323,16 +323,7 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'player:agenda_item':
-
-            $('.screen.restart').prevAll().remove();
-            $('.screen.restart').first().prevAll().remove();
- 
-            // Hide any previously hidden elements            
-            $('.screen.restart .hidden-el').first().css({visibility:'hidden'});
-            $('.screen.restart').first().show();
-            
-            openInnerModal();
-
+        
             break;
 
         case 'player:assignrole':

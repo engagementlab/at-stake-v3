@@ -32,13 +32,19 @@
 		{{#if winner}}
 
 			{{!-- winner modal --}}
-			<div class="modal inner-modal" data-duration="3" data-next="next_screen">
+			<div class="modal inner-modal winner" data-duration="3" data-next="next_screen">
 				<div class="inner">
 
-					<h1>Congratulations, {{winner.username}}!</h1>
+					<h1>Congratulations, <strong>{{winner.username}}</strong>!</h1>
 					<h2>{{pluralize winner.username}} proposal was selected as the winner and recieves all the coins in the pot!</h2>
 
-					<p>(coins here)</p>
+			    <div id="reward-icon" class="player-box">
+				    <div class="coins">{{potAmount}}</div>
+					  <div class="info">
+						  <h1>{{winner.username}}</h1>
+					    <h2>{{winner.role.title}}</h2>
+				    </div>
+				  </div>
 
 				</div>
 			</div>
@@ -91,10 +97,11 @@
 		{{#each players}}
 			{{#each role.agendaItems}}
 
-				<div class="modal inner-modal" {{#unless @first}}style="display:none"{{/unless}}>
+				{{!-- Agenda item choice --}}
+				<div class="modal inner-modal decider" {{#unless @first}}style="display:none"{{/unless}}>
 					<div class="inner">
 
-						<div class="role form decider">
+						<div class="role form">
 							
 							<h1>Does the winning proposal include or address this stakeholder agenda item?</h1>
 							<h2>{{this}}</h2>
@@ -112,40 +119,52 @@
 					</div>
 				</div>
 
+				{{!-- Decider is choosing --}}
 				<div class="modal inner-modal player">
 					<div class="inner">
 						<h1>The decider is reviewing {{../username}} agenda item:</h1>
 						<h2>{{this}}</h2>
 
 						{{#each ../../players}}
-					    <div id="player-{{icon}}" class="post-button submit pitch player-logo btn">
-						    <h1>{{username}}</h1>
-						    <h2>{{role.title}}</h2>
+					    <div id="player-{{icon}}" class="post-button submit pitch player-logo player-box">
+						    <div class="coins">{{coins}}</div>
+							  <div class="info">
+								  <h1>{{username}}</h1>
+							    <h2>{{role.title}}</h2>
+						    </div>
 						  </div>
 						{{/each}}
 				  </div>
 				</div>
 
-				<div class="modal inner-modal agenda_item yes" data-duration="4" data-next="{{nextAgendaEvent ../../playerCount @../index @last}}">
+				{{!-- Congrats modal --}}
+				<div class="modal inner-modal winner agenda_item yes" data-duration="4" data-next="{{nextAgendaEvent ../../playerCount @../index @last}}">
 					<div class="inner">
-						<h1>Congratulations, {{../username}}!</h1>
-						<h2>Your agenda item {{this}} is included in the winning proposal. You win xxx coins</h2>
+						<h1>Congratulations, <strong>{{../username}}</strong>!</h1>
+						<h2>Your agenda item <span class="item">{{this}}</span> is included in the winning proposal. You win {{agendaReward ../../config.rewardAmounts @index}} coins</h2>
 
-					    <div id="reward-icon" class="post-button submit pitch player-logo btn">
-						    <h1>{{../username}}</h1>
-						    <h2>{{../role.title}}</h2>
+					    <div id="reward-icon" class="pitch player-box">
+						    <div class="coins">{{agendaReward ../../config.rewardAmounts @index}}</div>
+							  <div class="info">
+								  <h1>{{../username}}</h1>
+							    <h2>{{../role.title}}</h2>
+						    </div>
 						  </div>
 				  </div>
 				</div>
 
-				<div class="modal inner-modal agenda_item no" data-duration="4" data-next="{{nextAgendaEvent ../../playerCount @../index @last}}">
+				{{!-- "Sorry" modal --}}
+				<div class="modal inner-modal winner agenda_item no" data-duration="4" data-next="{{nextAgendaEvent ../../playerCount @../index @last}}">
 					<div class="inner">
-						<h1>Sorry, {{../username}}...</h1>
-						<h2>Your agenda item {{this}} was not included in the winning proposal</h2>
+						<h1>Sorry, <strong>{{../username}}..</strong>.</h1>
+						<h2>Your agenda item <span class="item">{{this}}</span> was not included in the winning proposal</h2>
 
-					    <div id="player-{{../icon}}" class="post-button submit pitch player-logo btn">
-						    <h1>{{../username}}</h1>
-						    <h2>{{../role.title}}</h2>
+					    <div id="player-{{../icon}}" class="pitch player-logo player-box">
+						    <div class="coins">{{../coins}}</div>
+							  <div class="info">
+								  <h1>{{../username}}</h1>
+							    <h2>{{../role.title}}</h2>
+						    </div>
 						  </div>
 				  </div>
 				</div>
