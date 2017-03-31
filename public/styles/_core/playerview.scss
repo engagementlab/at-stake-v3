@@ -183,7 +183,7 @@ input.post-button {
 	background-color: white;
 }
 
-.role, .agenda_item {
+.agenda_item {
 	display: none;
 }
 
@@ -309,7 +309,7 @@ input.post-button {
 }
 
 // More Time Card/Pitch Choice
-.choice-wrapper {
+.inner-modal {
 	position: relative;
 	text-align:center;
 	height: 100%;
@@ -318,7 +318,7 @@ input.post-button {
 	top: 0px;
 	background-color: $greyish-brown-70;
 	
-	.form {
+	.inner {
 		position: relative;
 	  height: 60%;
 	  width: 90%;
@@ -328,13 +328,14 @@ input.post-button {
 		border: white 3px solid;
 		color: white;
 
-		button {
+		.player-logo {
 			width: 80%;
 			margin: 10px auto;
 			height: 60px;
 			border-radius: 30px;
 			color: white;
 			border: 0px;
+			background-position: 10px 10px
 
 			&#btn-more-time {
 				background-color: $color-red;
