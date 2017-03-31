@@ -628,7 +628,9 @@
 			    data.deciderName = $('#player-name').val();
 
 			    if(!data.deciderName) {
-		        $('.submission .error').text('Please enter your name!').fadeIn();
+		        $('.submission .error').text('Please enter your name!').fadeIn(function(){
+		        	$(this).delay(3000).fadeOut('slow');
+		        });
 		        return;
 			    }
 
@@ -668,7 +670,9 @@
 						.fail(function(xhr, status, error) {
 
 							if(xhr.responseJSON.error)							
-								$('#decider .error').text(xhr.responseJSON.error).fadeIn();
+								$('#decider .error').text(xhr.responseJSON.error).fadeIn(function(){
+									$(this).delay(3000).fadeOut('slow');
+								});
 
 						});
 

@@ -536,7 +536,7 @@ input.post-button {
 
 // Screen instructions
 .instruction {
-	font-size:14px;
+	font-size:16px;
 	height: 72px;
 	font-family: AvenirNext;
 
@@ -544,6 +544,14 @@ input.post-button {
 		font-size: 16px;
 		line-height: 1.5;
 		font-weight: bold;
+		font-family: AvenirNext-Bold;
+	}
+
+	.rules-image {
+		height: 180px;
+		img {
+			height:180px;
+		}
 	}
 
   // Inactive player - hide this bubble
@@ -618,7 +626,6 @@ footer#bottom-bar {
 	left: 0px;
 	position: absolute;
 	padding-top: 5px;
-	padding-bottom: 5px;
 	max-width: 425px;
 
 	#currency {

@@ -172,7 +172,9 @@ $(document).on('click', '.btn.submit_name', function(evt) {
 
     if(!data.name || data.name.length === 0) {
         $('.form #player-name').addClass('invalid');
-        errorBox.text('You need to enter a name!').fadeIn(); 
+        errorBox.text('You need to enter a name!').fadeIn(function() {
+            $(this).delay(3000).fadeOut('slow');
+        }); 
 
         return;
     }
@@ -201,14 +203,18 @@ $(document).on('click', '.btn.game_login', function(evt) {
     // Player entered code?
     if(!data.code || data.code.length === 0) {
         $('.form #access_code').addClass('invalid');
-        errorBox.text('You need to enter a room code!').fadeIn(); 
+        errorBox.text('You need to enter a room code!').fadeIn(function(){
+            $(this).delay(3000).fadeOut('slow');
+        }); 
 
         return;
     }
     // Player entered name?
     else if(!data.name || data.name.length === 0) {
         $('.form #player-name').addClass('invalid');
-        errorBox.text('You need to enter a name!').fadeIn(); 
+        errorBox.text('You need to enter a name!').fadeIn(function(){
+            $(this).delay(3000).fadeOut('slow');
+        }); 
 
         return;
     }
@@ -257,7 +263,9 @@ $(document).on('click', '.btn.game_login', function(evt) {
 
                 }
                 $('.btn.game_login').removeAttr('disabled');
-                errorBox.text(data.msg).fadeIn();
+                errorBox.text(data.msg).fadeIn(function(){
+                    $(this).delay(3000).fadeOut('slow');
+                });
                 loadToggle(false, true);
 
                 return;
@@ -320,7 +328,6 @@ $('#btn_new_game').click(function() {
                 gameCodeMarkup += '<span>' + char + '</span>';
             });
             $('#share-code .access-code').html(gameCodeMarkup);
-            console.log(gameCodeMarkup, " markup");
             $('#gameContent').addClass('lobby');
 
         }
@@ -341,11 +348,3 @@ window.onload = checkIfLoggedIn();
         $('#player-name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
     {{/ifeq}}
 {{/ifeq}}
-
-{{!-- // /play URL
-{{#ifeq section 'login'}}
-
-  $('.body').addClass('game-bg');
-  $('.body').addClass('player');
-
-{{/ifeq}} --}}
