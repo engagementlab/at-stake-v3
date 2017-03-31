@@ -28,11 +28,8 @@
 	{{!-- DEVELOPMENT --}}
 	
 	{{!-- Bootstrap non-responsive for group view --}}
-	{{#ifeq section 'group/monitor'}}
-		<link rel="stylesheet" href="/plugins/groupview/bootstrap.css">
-	{{else}}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	{{/ifeq}}
+
+  <link rel="stylesheet" href="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1490910324/at-stake/bootstrap.min.css" rel="stylesheet">
 
 	{{!-- Core layout --}}
 	<link href="/styles/core.css" rel="stylesheet"/>
@@ -44,7 +41,7 @@
 {{else}}
 
 	{{!-- PRODUCTION/STAGING --}}
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1490910324/at-stake/bootstrap.min.css" >
 	<link href="{{cdnAsset product='at-stake' env=environment type='css' }}" rel="stylesheet">
 
 {{/ifeq}}

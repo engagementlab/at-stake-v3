@@ -22,6 +22,11 @@
 
 	}
 
+	// On Mobile
+	&.isMobile {
+		padding-top: 10px;
+	}
+
 	// Blur all contents during modal
 	&.blur {
 		@include filter(blur, 2.9px);
@@ -83,6 +88,7 @@
 	&:hover, &:focus, &:visited {
 		@include box-shadow(0px, 7px, 0px, darken($background-color, 10%));
 		margin-bottom: 7px;
+		cursor: pointer;
 	}
 }
 
@@ -530,9 +536,14 @@ input.post-button {
 
 // Screen instructions
 .instruction {
-	font-size: .8em;
+	font-size:14px;
+	height: 72px;
+	font-family: AvenirNext;
+
 	h1 {
-		font-size: 1.4em;
+		font-size: 16px;
+		line-height: 1.5;
+		font-weight: bold;
 	}
 
   // Inactive player - hide this bubble
@@ -545,17 +556,20 @@ input.post-button {
 blockquote.speech {
     position: relative;
     text-align: justify;
-    width: 408px;
+    width: 90%;
     height: 287px;
     padding: 50px 30px;
     margin: 1em 0 0;
+    margin-left: 5%;
     color: white;
     border-left: none;
     background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1490215786/at-stake/layout/speech-bg.svg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    background-position:center;
     p {
     	color: white;
+    	line-height: 1.5;
     	font-family: $avenir-reg;
     }
 
@@ -583,7 +597,7 @@ blockquote.speech {
   	&:before {
   		position: absolute;
   		content: "";
-			bottom: 10px;
+			bottom: 6px;
 	    left: 48px;
 	    width: 0;
 	    height: 0;
@@ -621,7 +635,7 @@ footer#bottom-bar {
 			margin: 0px;
 			text-align: center;
 			color: white;
-			padding-bottom: 40px;
+			padding-bottom: 45px;
 			padding-top: 10px;
 		}
 		img {

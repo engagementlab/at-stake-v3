@@ -345,7 +345,9 @@ socketEvents = function(eventId, eventData) {
         case 'game:start':
 
             $('#bottom-bar').show();
-            $('#gameContent').addClass('inGame');
+            
+            $('#agenda-items .role:visible').remove();
+            $('#agenda-items .role').first().show();
 
             break;
 
@@ -375,10 +377,6 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:next_phase':
 
-            if (! $('#gameContent').hasClass('inGame')){
-                $('#gameContent').addClass('inGame');
-            }
-            
             $('#bottom-bar').show();
 
             $('#stages-bar').show();
