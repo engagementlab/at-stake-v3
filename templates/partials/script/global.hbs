@@ -347,10 +347,8 @@
 	            $('#overlay').empty();
 	            $('#overlay').hide();
 
-	            if(gotoNext === 'next_screen') {
-	            	// socket.emit('game:next_screen', emitData());
+	            if(gotoNext === 'next_screen')
 		            nextPhaseScreen();
-	            }
 
 	            else if(gotoNext === 'next_modal')
 		            openInnerModal();
@@ -628,9 +626,7 @@
 			    data.deciderName = $('#player-name').val();
 
 			    if(!data.deciderName) {
-		        $('.submission .error').text('Please enter your name!').fadeIn(function(){
-		        	$(this).delay(3000).fadeOut('slow');
-		        });
+		        $('.submission .error').text('Please enter your name!').fadeIn();
 		        return;
 			    }
 
@@ -670,9 +666,7 @@
 						.fail(function(xhr, status, error) {
 
 							if(xhr.responseJSON.error)							
-								$('#decider .error').text(xhr.responseJSON.error).fadeIn(function(){
-									$(this).delay(3000).fadeOut('slow');
-								});
+								$('#decider .error').text(xhr.responseJSON.error).fadeIn();
 
 						});
 
