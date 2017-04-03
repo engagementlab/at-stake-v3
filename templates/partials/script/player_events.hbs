@@ -501,25 +501,18 @@ socketEvents = function(eventId, eventData) {
 
             runMods();
 
-            $('#overlay').append($('#more-time-wrapper.showing'));
+            openInnerModal(undefined, true);
 
-            if($('#overlay').html().length > 0) {
-
-                $('#overlay').fadeIn(function() {
-                    $('#more-time-wrapper.showing').fadeIn();
+            $('#btn-more-time, #btn-cancel').click(function() {
+                var modal = $('#more-time-wrapper.showing');
+              
+                modal.fadeOut(function() {
+                    $('.screen').append(modal);
+                    $('#overlay').empty();
+                    $('#overlay').hide();
                 });
-
-                $('#btn-more-time, #btn-cancel').click(function() {
-                    var modal = $('#more-time-wrapper.showing');
-                  
-                    modal.fadeOut(function() {
-                        $('.screen').append(modal);
-                        $('#overlay').empty();
-                        $('#overlay').hide();
-                    });
-                    
-                });
-            }
+                
+            });
 
             if(eventData == "brainstormCountdown" || eventData == "deliberateCountdown") {
 

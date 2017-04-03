@@ -42,8 +42,11 @@
 	display: inline-block;
 	padding: 0px;
   background-repeat: no-repeat;
-	background-size: contain;
+	// background-size: contain;
 	color: $grey-dark;
+
+	background-position: 40px 10px;
+  background-size: 40px 40px;
 
 	p {
 		display: inline;
@@ -53,30 +56,26 @@
     padding-left: 60px;
 	}
 
+	&.lg {
+		height: 128px;
+		width: 128px;
+		background-size: 128px 128px;
+	}
+
 	&#player-0 {
 		background-image : $player-one-logo;
-    background-position: 40px 10px;
-    background-size: 40px 40px;
 	}
 	&#player-1 {
 		background-image : $player-two-logo;
-		background-position: 40px 10px;
-    background-size: 40px 40px;
 	}
 	&#player-2 {
 		background-image : $player-three-logo;
-		background-position: 40px 10px;
-    background-size: 40px 40px;
 	}
 	&#player-3 {
 		background-image : $player-four-logo;
-		background-position: 40px 10px;
-    background-size: 40px 40px;
 	}
 	&#player-4 {
 		background-image : $player-five-logo;
-		background-position: 40px 10px;
-    background-size: 40px 40px;
 	}
 }
 
@@ -90,6 +89,30 @@
 		margin-bottom: 7px;
 		cursor: pointer;
 	}
+
+	color: white;
+	border: 0px;
+	border-radius: 0px;
+	height:48px;
+	// width: 160px;
+	padding:0px;
+	font-size: 24px;
+	margin-bottom: 10%;
+	margin-top: 5%;
+	font-family: AvenirNext-Bold;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: 0px;
+  text-align: center;
+
+	width: 80%;
+	// background-position: 10px 10px;
+
+		// background-position: 29px 5px !important;
+		// background-size: 48px 48px !important;
 }
 
 .header {
@@ -328,6 +351,28 @@ input.post-button {
 		color: $light-greenish-blue;
 	}
 
+	&#more-time-wrapper {
+
+		#btn-more-time {
+			background-color: $blue-light;
+			background-size: 50px 50px;
+			background-position: 3px center;
+			background-repeat: no-repeat;
+			background-image: url("http://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin_stroke.png");
+
+			.coins {
+		    position: relative;
+				float: left;   
+				padding-left: 4%;
+				font-size: 16px;
+			}
+		}
+		#btn-cancel {
+			background-color: $sunflower;
+		}
+
+	}
+
 	&.winner {
 
 		h1:not(.coins) {
@@ -360,8 +405,16 @@ input.post-button {
 		}
 
 	}
+
+	.coins {
+    position: relative;
+		float: left;   
+		margin-top: 10%;
+		font-size: 16px;
+	}
 	
 	.inner {
+
 		position: relative;
 	  height: 60%;
 	  width: 90%;
@@ -372,16 +425,10 @@ input.post-button {
 		color: white;
 
 		.player-logo {
-			width: 80%;
+
 			margin: 10px auto;
 			height: 60px;
 			border-radius: 30px;
-			color: white;
-			border: 0px;
-			background-position: 10px 10px;
-
-			background-position: 29px 5px !important;
-			background-size: 48px 48px !important;
 
 			&#btn-more-time {
 				background-color: $color-red;
@@ -437,12 +484,6 @@ input.post-button {
 		    position: relative;
 		    float: right;
 		    left: -13%;
-			}
-			.coins {
-		    position: relative;
-				float: left;   
-				margin-top: 10%;
-				font-size: 16px;
 			}
 		
 		}

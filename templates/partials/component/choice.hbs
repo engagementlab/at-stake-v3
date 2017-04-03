@@ -50,13 +50,31 @@
 
 {{else}}
 
-	<div id="more-time-wrapper" class="{{showHide this}} inner-modal modal" style="display:none">
-		<div class="form choice" id="more-time">
-		  <h3>Pay {{config.extraTimeCost}} to continue pitching?</h3>
-		  <h4>Recieve an additional {{config.extraSeconds}} seconds of uninterrupted talking time.</h4>
-		  <button id="btn-more-time" data-event="game:more_time" data-keep_enabled="true" data-package="{{player.playerUid}}" class="post-button submit" type="submit" name="submit">get more time</button>
-		  <button id="btn-cancel" data-event="game:turn_done" class="post-button submit" type="submit" name="submit">no thanks</button>
+	{{#ifeq active_player true}}
+
+		<div id="more-time-wrapper" class="{{showHide this}} inner-modal modal">
+			<div class="form choice inner pitch-box" id="more-time">
+			  <h1>Pay <strong>{{config.extraTimeCost}} coins</strong> to the pot continue pitching?</h1>
+			  <h2>Recieve an additional {{config.extraSeconds}} seconds to continue pitching your proposal.</h2>
+			  <button id="btn-more-time" data-event="game:more_time" data-keep_enabled="true" data-package="{{player.uid}}" class="post-button submit btn" type="submit" name="submit">
+			    <div class="coins">{{config.extraTimeCost}}</div>
+			    Buy more time
+		    </button>
+			  <button id="btn-cancel" data-event="game:turn_done" class="post-button submit btn" type="submit" name="submit">No thanks!</button>
+			</div>
 		</div>
-	</div>
+
+	{{else}}
+
+		<div id="more-time-wrapper" class="{{showHide this}} modal inner-modal">
+			<div class="inner">
+				<div id="player-{{activePlayer.index}}" class="player-logo lg">
+			  </div>
+				<h1>Waiting for (playername)</h1>
+				<h2>(playername) is deciding if they want to buy more time. Hang tight!</h2>
+		  </div>
+		</div>
+
+	{{/ifeq}}
 
 {{/ifeq}}

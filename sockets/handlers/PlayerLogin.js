@@ -97,7 +97,7 @@ const PlayerLogin = function(nsp, socket, emitter) {
         return;
       }
 
-      // See if this player is still marked as active inside game session and isn't decider
+      // See if this player is still marked as active inside game session
       if(session.PlayerIsActive(payload.uid)) {
 
         var player = {socket_id: currentSocket.id, username: payload.username, uid: payload.uid};

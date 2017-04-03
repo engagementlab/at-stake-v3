@@ -326,14 +326,20 @@
 
 	}
 
-	var openInnerModal = function(selector) {
+	var openInnerModal = function(selector, clone) {
 
 			if(!selector)
 				selector = '';
 
+			var modalSelector = $('.inner-modal' + selector);
+
 	    // $('#gameContent').addClass('blur');
 	    $('#overlay').empty();
-	    $('#overlay').append($('.inner-modal' + selector).first());
+
+	    if(clone === true)
+		    modalSelector.clone().appendTo(modalSelector.parent());
+
+	    $('#overlay').append(modalSelector.first());
 	    $('#overlay, #overlay .inner-modal').show();
 
 	    var modalDuration = $('#overlay .inner-modal').data('duration');
@@ -386,12 +392,12 @@
 	      openInnerModal();
 
 		}
-		else {
+		/*else {
 
 				// Defaults
 		 		$('#btn-next').fadeIn();
 
-		}
+		}*/
 
 	}
 
