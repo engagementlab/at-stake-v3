@@ -67,16 +67,18 @@ module.exports = function() {
 
         // For non-decider
         else {
-            strClasses = 'player';
+
+            if(attr.all_players === undefined || attr.all_players === false)
+                strClasses = 'player';
 
             // Is this component only visible to active players or not?
             if(attr.active_player !== undefined)
-                strClasses += (attr.active_player === true) ? ' showing ACTIVE' : ' hiding ACTIVE';
+                strClasses += (attr.active_player === true) ? ' showing' : ' hiding';
 
             else if(attr.inactive_player !== undefined)
-                strClasses += (attr.inactive_player === true) ? ' showing INACTIVE' : ' hiding INACTIVE';
+                strClasses += (attr.inactive_player === true) ? ' showing' : ' hiding';
+        
         }
-
 
         return strClasses;
 

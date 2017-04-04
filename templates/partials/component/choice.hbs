@@ -5,6 +5,7 @@
 
 --}}
 
+{{!-- Decide phase --}}
 {{#ifeq pitches true}}
 
 	{{#ifeq decider true}} 
@@ -48,7 +49,10 @@
 
   <span id="modifier" class="hidden-el" data-inner_modal="true"></span>
 
+{{!-- Pitch phase --}}
 {{else}}
+
+{{{jsonPrint active_player}}}
 
 	{{#ifeq active_player true}}
 

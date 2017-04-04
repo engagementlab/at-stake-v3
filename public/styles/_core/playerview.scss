@@ -64,9 +64,10 @@
 	}
 
 	&.lg {
-		height: 128px;
-		width: 128px;
+		height: 128px !important;
+		width: 128px !important;
 		background-size: 128px 128px;
+		background-position: 0px 0px;
 	}
 
 	&#player-0 {

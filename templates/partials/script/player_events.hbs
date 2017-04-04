@@ -512,7 +512,7 @@ socketEvents = function(eventId, eventData) {
                 var modal = $('#more-time-wrapper.showing');
               
                 modal.fadeOut(function() {
-                    $('.screen').append(modal);
+                    // $('.screen').append(modal);
                     $('#overlay').empty();
                     $('#overlay').hide();
                 });
@@ -530,16 +530,31 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:countdown_player':
             
-            $('#added-time').text(eventData + " is speaking, since they added more time.").fadeIn();
+            // Close "(playername) is deciding...." modal
+            var modal = $('#more-time-wrapper');
+          
+            modal.fadeOut(function() {
+                $('#overlay').empty();
+                $('#overlay').hide();
+            });
 
             break;
 
         case 'game:player_done':
             
-            $('#btn-next-player').fadeIn();
+            // Close "(playername) is deciding...." modal
+            var modal = $('#more-time-wrapper');
+          
+            modal.fadeOut(function() {
+                $('#overlay').empty();
+                $('#overlay').hide();
 
-            if(isDecider)
-                $('#btn-next').show();
+                
+                $('#btn-next-player').fadeIn();
+
+                if(isDecider)
+                    $('#btn-next').show();
+            });
 
             break;
 
