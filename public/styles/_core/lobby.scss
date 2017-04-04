@@ -234,7 +234,7 @@
 		}
 		#player-name {
 			height: 60px;
-			width: 95%;
+			width: 100%;
 			margin: 0 auto;
 			font-size: 14px;
 			// line-height: 48px;
@@ -282,7 +282,7 @@
 			// background-color: $turquoise-dark;
 			margin-left: -30px;
 			margin-right:-30px;
-			padding:30px;
+			padding:40px;
 			height: 40%;
 		}
 
@@ -291,7 +291,7 @@
 			line-height: 16px;
 			width: 90%;
 			color: $color-white;
-			margin: 1% auto;
+			margin: 0px auto;
 			text-align: justify;
 		}
 		#btn_submit_name {
@@ -327,6 +327,7 @@
 		  line-height: 1.33;
 		  letter-spacing: 0px;
 		  text-align: center;
+		  padding: 5px;
 
 		  span {
 		  	font-weight: 700;
@@ -474,6 +475,10 @@
 
 				min-width: 320px;
 
+				@media(max-width:320px){
+					min-width: 270px;
+				}
+
 				&.active {
 					.deck {
 						box-shadow: 0 8px 0 0 rgba(85, 85, 85, 0.2);
@@ -568,7 +573,7 @@
 	// Share code screen
 	#share_code, #game_code {
 		text-align: center;
-	  color: #ebebeb;
+	  color: #fafafa;
 	  margin-top: -30px;
 
 		h1:not(.access-code) {
@@ -576,7 +581,7 @@
 	    margin: 0px;
 	    margin-bottom: 20px;
 		  width: 100%;
-		  font-family: AvenirNext;
+		  font-family: AvenirNext-Bold;
 		  font-weight: bold;
 		}
 		p {
@@ -595,24 +600,24 @@
 		  height: auto;
 		  font-size: 56px !important;
 		  padding: 5px;
-		  color: #0098d0;
-		  border: 4px solid $turquoise-light;
-		  background-color: lighten($turquoise-dark, 3%);
+		  // color: #0098d0;
+		  border: 3px solid #61f5de;
+		  background-color: transparent;
 		  margin: 10px auto;
 		  font-family: $aileron;
 
 		  span:nth-child(1) {
-		  	color: $aquamarine;
+		  	color: #56f6d6;
 		  }
 		  // TODO: color var
 		  span:nth-child(2) {
-		  	color: #61f5de;
+		  	color: white;
 		  }
 		  span:nth-child(3) {
-			  color: $turquoise-dark;
+			  color: $grey-dark;
 		  }
 		  span:nth-child(4) {
-		  	color: $aquamarine;
+		  	color: #56f6d6;
 		  }
 		}
 		p {

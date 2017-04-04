@@ -292,6 +292,7 @@ input.post-button {
 			display: block;
 	    margin: auto;
 	    height: 100%;
+	    width: 100%;
 		}
 
 		&.disabled {
@@ -368,6 +369,7 @@ input.post-button {
 	&#more-time-wrapper {
 
 		#btn-more-time {
+			line-height: 50px;
 			background-color: $blue-light;
 			background-size: 50px 50px;
 			background-position: 3px center;
@@ -377,7 +379,7 @@ input.post-button {
 			.coins {
 		    position: relative;
 				float: left;   
-				padding-left: 4%;
+				padding-left: 16px;
 				font-size: 16px;
 			}
 		}
@@ -521,7 +523,7 @@ input.post-button {
   border-radius: 0px;
   border: 3px white solid;
   border-bottom: 0px;
-  z-index: 1000;
+  z-index: 3000;
   @include gradient-vertical($orange-dark, $white, 30%, 30%);
   top:0px;
 
@@ -667,6 +669,7 @@ blockquote.speech {
     &.hiding {
     	display: none;
     }
+
 }
 .speech {
 
@@ -678,6 +681,7 @@ blockquote.speech {
     background: none;
     border: none;
     right: 11%;
+    bottom: 75px;
   	font-family: "AvenirNext-Bold";
 	  &.timer {
 	  	&:before {
@@ -734,6 +738,7 @@ footer#bottom-bar {
 
 		span {
 			color: white;
+			font-family: AvenirNext-Medium;
 	  }
 		#player-coins {
 			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/coin_stroke.png');
