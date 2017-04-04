@@ -326,7 +326,7 @@
 
 	}
 
-	var openInnerModal = function(selector, clone) {
+	var openInnerModal = function(selector) {
 
 			if(!selector)
 				selector = '';
@@ -335,11 +335,12 @@
 
 			if(modalSelector.length === 0)
 				return;
-			
+
 	    // $('#gameContent').addClass('blur');
 	    $('#overlay').empty();
 
-	    if(clone === true)
+	    // If modal set to 'clone' mode, keep copy in current parent
+	    if(!_.isEmpty(modalSelector.data()) && modalSelector.data('clone') === true)
 		    modalSelector.clone().appendTo(modalSelector.parent());
 
 	    $('#overlay').append(modalSelector.first());

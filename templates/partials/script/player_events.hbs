@@ -122,6 +122,8 @@ var setupScreen = function() {
 
 var playerDisconnected = function(timeoutTime, names) {
 
+    openInnerModal();
+
     if(!names || names.length === 0)
         return;
     
@@ -506,8 +508,11 @@ socketEvents = function(eventId, eventData) {
 
             runMods();
 
-            openInnerModal(undefined, true);
+            openInnerModal();
 
+            var disableBuy = $('#player-coins span').text() === '0';
+
+            $('#overlay ' + (disableBuy ? '#btn-more-time' : '#btn-empty')).remove();          
             $('#btn-more-time, #btn-cancel').click(function() {
                 var modal = $('#more-time-wrapper.showing');
               

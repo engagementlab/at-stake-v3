@@ -56,7 +56,7 @@
 
 	{{#ifeq active_player true}}
 
-		<div id="more-time-wrapper" class="{{showHide this}} inner-modal modal">
+		<div id="more-time-wrapper" class="{{showHide this}} inner-modal modal" data-clone="true">
 			<div class="form choice inner pitch-box" id="more-time">
 			  <h1>Pay <strong>{{config.extraTimeCost}} coins</strong> to the pot continue pitching?</h1>
 			  <h2>Recieve an additional {{config.extraSeconds}} seconds to continue pitching your proposal.</h2>
@@ -64,13 +64,16 @@
 			    <div class="coins">{{config.extraTimeCost}}</div>
 			    Buy more time
 		    </button>
+			  <button id="btn-empty" class="post-button submit btn" type="submit" name="submit" disabled="disabled">
+			    Out of coins!
+		    </button>
 			  <button id="btn-cancel" data-event="game:turn_done" class="post-button submit btn" type="submit" name="submit">No thanks!</button>
 			</div>
 		</div>
 
 	{{else}}
 
-		<div id="more-time-wrapper" class="{{showHide this}} modal inner-modal">
+		<div id="more-time-wrapper" class="{{showHide this}} modal inner-modal" data-clone="true">
 			<div class="inner">
 				<div id="player-{{activePlayer.index}}" class="player-logo lg">
 			  </div>
