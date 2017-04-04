@@ -343,7 +343,9 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:start':
-
+            if (!$('.rules-screen'))
+                $('#background-logo').show();
+                
             $('#bottom-bar').show();
             
             $('#agenda-items .role:visible').remove();
@@ -376,6 +378,9 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:next_phase':
+
+            if (!$('.rules-screen'))
+                $('#background-logo').show();
 
             $('#bottom-bar').show();
 
