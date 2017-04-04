@@ -193,6 +193,11 @@
 		  height: 24px;
 		}
 
+		#btn-next {
+			background-color: transparent;
+			border: 0px;
+		}
+
 		@at-root .form {
 			min-height: 0px;
 		}
@@ -594,6 +599,32 @@ input.post-button {
 	.screen {
 		// These are hidden by default
 		display: none;
+	}
+}
+
+.rules-screen {
+	min-height: 400px;
+	.main-rule {
+		font-family: AvenirNext;
+	  font-size: 16px;
+	  font-weight: bold;
+	  line-height: 1;
+	  letter-spacing: 0px;
+	  color: #fafafa;
+	}
+	.secondary-rule {
+		font-family: AvenirNext;
+	  font-size: 16px;
+	  letter-spacing: -0.7px;
+	  color: #ebebeb;
+	}
+	.next-step {
+		background: transparent;
+		border: 0px;
+		color: white;
+		position: absolute;
+		right: 20%;
+		bottom: 40%;
 	}
 }
 

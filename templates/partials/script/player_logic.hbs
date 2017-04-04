@@ -129,6 +129,12 @@ var checkIfLoggedIn = function() {
                 $('#btn_submit_name').click();
 
         });
+        $('#access_code').keydown(function(evt) {
+            
+            if(evt.keyCode == 13)
+                $('#btn_submit_code').click();
+
+        });
 
         return;
     }
