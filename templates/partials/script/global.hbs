@@ -331,8 +331,11 @@
 			if(!selector)
 				selector = '';
 
-			var modalSelector = $('.inner-modal' + selector);
+			var modalSelector = $('.screen:visible .inner-modal' + selector).first();
 
+			if(modalSelector.length === 0)
+				return;
+			
 	    // $('#gameContent').addClass('blur');
 	    $('#overlay').empty();
 
