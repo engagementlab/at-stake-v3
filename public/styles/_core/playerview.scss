@@ -583,9 +583,14 @@ input.post-button {
 
 #rules {
 	height: 100%;
-	.rule-screen {
-		min-height: 400px;
+	.screen {
+		// These are hidden by default
+		display: none;
 	}
+}
+
+.rules-screen {
+	min-height: 400px;
 	.main-rule {
 		font-family: AvenirNext;
 	  font-size: 16px;
@@ -607,10 +612,6 @@ input.post-button {
 		position: absolute;
 		right: 20%;
 		bottom: 40%;
-	}
-	.screen {
-		// These are hidden by default
-		display: none;
 	}
 }
 
