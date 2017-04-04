@@ -107,11 +107,11 @@
 							<h2>{{this}}</h2>
 							
 							<button id="btn_yes" class="btn btn-default post-button submit" data-event="game:agenda_yes" data-keep_enabled="true" data-autohide="true" data-package='{{../uid}}'>
-				        <h2>Yes</h2>
+				        <h1>Yes</h1>
 				      </button>
 
 							<button id="btn_no" class="btn btn-default post-button submit" data-event="game:agenda_no" data-keep_enabled="true" data-autohide="true" data-package='{{../uid}}'>
-				        <h2>No</h2>
+				        <h1>No</h1>
 				      </button>
 
 						</div>
@@ -191,6 +191,7 @@
 
 		{{> component/speech 
 				decider=true
+				advance=true
 				body="Congratulations everyone! Now we will see everyone's new score and find out who is in the lead. The player who's proposal was chosen is the next round's decider!"
 		}}
 

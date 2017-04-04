@@ -94,8 +94,9 @@
 
 	&:hover, &:focus, &:visited {
 		@include box-shadow(0px, 7px, 0px, darken($background-color, 10%));
-		margin-bottom: 7px;
+		// margin-bottom: 7px;
 		cursor: pointer;
+		color: white;
 	}
 
 	color: white;
@@ -117,10 +118,16 @@
   text-align: center;
 
 	width: 80%;
-	// background-position: 10px 10px;
 
-		// background-position: 29px 5px !important;
-		// background-size: 48px 48px !important;
+	&#btn_yes {
+		background-color: $blue-light;
+		// border-bottom: 4px solid $dark-sky-blue;
+	}
+	&#btn_no {
+		background-color: $sunflower;
+		// border-bottom: 4px solid $tangerine;
+	}
+
 }
 
 .header {
@@ -273,6 +280,13 @@ input.post-button {
 		z-index: 1;
 		text-align:center;
 
+		img {
+			display: block;
+	    margin: auto;
+			width: 34px;
+			height: 34px;
+		}
+
 		&:nth-child(1) {
 			margin-left: 10px;
 		}
@@ -296,6 +310,7 @@ input.post-button {
 		}
 
 		&.disabled {
+			@include scale(.7);
 			@include filter(grayscale, 100%);
 			animation-name: exit-stage;
 			animation-duration: 1s;
@@ -382,6 +397,10 @@ input.post-button {
 				padding-left: 16px;
 				font-size: 16px;
 			}
+		}
+		#btn-empty {
+			background-color: darken($blue-light, 30%);
+			@include box-shadow(0px, 7px, 0px, darken($background-color, 10%));
 		}
 		#btn-cancel {
 			background-color: $sunflower;
