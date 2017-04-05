@@ -13,8 +13,9 @@
         {{#ifeq section 'play'}}
             {{!-- Mobile Meta --}}
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        {{else}}
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {{/ifeq}}
-
         {{!-- Open Graph --}}
         {{!-- <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1455896685/site/about/logo_color.png" /> --}}
 
@@ -127,7 +128,7 @@
 
             {{else}}
 
-                <div class="col-sm-12 col-lg-12" id="homeContent">
+                <div id="homeContent">
 
                     <!-- BODY CONTENT START -->
                     {{{body}}}
