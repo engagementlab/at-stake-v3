@@ -49,25 +49,12 @@ $(document).ready(function() {
 // Tap away any errors
 $(document).on('click touchstart', 'div.error', function() {
     $(this).hide();
-    console.log("error tap away player logic");
 });
 
-// Do not enable sound for emulated (debug) player
-if(!isEmulated) {
 
-    ion.sound({
-    sounds: [
-        {
-            name: "button_tiny"
-        }
-    ],
-    volume: 0.5,
-    path: sfxPath,
-    preload: true
-    });
 
-}
-else
+// Remove debugging for emulated (debug) player
+if(isEmulated)
     $('#debugging').remove();
 
 /*
@@ -106,16 +93,8 @@ var checkIfLoggedIn = function() {
 
         $('.form').show();
         $('.form input').hide();
-        $('.form .error').text('You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.');
-        $('#login').css('margin-top', '0');
+        $('#error-private-mode').trigger('show');
 
-        var errorAnim = new TimelineLite();
-        errorAnim
-        .from($('#logo_ec'), .5, {autoAlpha:0, delay:1, ease:Expo.easeOut}, .1)
-        .from($('#logo_ec img'), 1.5, {css:{'margin-top':'10%'}, delay:1, ease:Expo.easeOut}, .6)
-        .from($('#logo_ec'), 1.5, {scale:2, delay:1, ease:Expo.easeOut}, .6)
-        .fromTo($('.form .error'), 1, { scale: 0, opacity:0 }, { scale: 1, opacity: 1, display: 'block', ease:Elastic.easeOut});
-        
         return;
     }
     
@@ -126,8 +105,12 @@ var checkIfLoggedIn = function() {
         $('.form.login').show();
 
         // Login form animation
-        if(!isEmulated)
-            loginEnterName();
+        {{#ifnoteq section 'game-preloaded'}} 
+        if(!isEmulated)  
+            loginFromTo('start', 'name');
+        else
+        {{/ifnoteq}}
+            $('#player-name, #btn_submit_name').removeClass('hidden-el');
 
         // For Android only, move input boxes into view on phones
         if(isAndroid) {
@@ -146,27 +129,37 @@ var checkIfLoggedIn = function() {
                 $('#btn_submit_name').click();
 
         });
+        $('#access_code').keydown(function(evt) {
+            
+            if(evt.keyCode == 13)
+                $('#btn_submit_code').click();
+
+        });
 
         return;
     }
 
-    $('#resuming').show();
+    // $('#resuming').show();
 
     gameCode = sessionStorage.getItem('gameCode');
     playerName = sessionStorage.getItem('username');
-
-    $('#name, .login.input').fadeOut(function() {
-
-        $('#begin').addClass('wait');
-        $('#join, .login.waiting').fadeIn();
-
-    });
     
     // Open socket connection
-    if(!socket) {
+    if(!socket) { 
         socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
         registerEvents();
-    }
+    } 
+
+}
+
+phaseBarProgress = function() {
+
+    // Update progress bar
+    $('#stages-bar #progress').css('width', (currentPhaseIndex * 17 ) + '%');
+
+    // Change phase icon status
+    $('#stages-bar .icon:eq('+currentPhaseIndex+')').removeClass('disabled');
+    $('#stages-bar .icon:not(:eq('+currentPhaseIndex+'))').addClass('disabled');
 
 }
 
@@ -185,7 +178,9 @@ $(document).on('click', '.btn.submit_name', function(evt) {
 
     if(!data.name || data.name.length === 0) {
         $('.form #player-name').addClass('invalid');
-        errorBox.text('You need to enter a name!').fadeIn(); 
+        errorBox.text('You need to enter a name!').fadeIn(function() {
+            $(this).delay(3000).fadeOut('slow');
+        }); 
 
         return;
     }
@@ -193,7 +188,8 @@ $(document).on('click', '.btn.submit_name', function(evt) {
     $('#username').text(data.name);
 
     // Show new game/join
-    loginPlayerChoices();
+    loginFromTo('name', 'choices');
+    
 
 });
 
@@ -213,21 +209,29 @@ $(document).on('click', '.btn.game_login', function(evt) {
     // Player entered code?
     if(!data.code || data.code.length === 0) {
         $('.form #access_code').addClass('invalid');
-        errorBox.text('You need to enter a room code!').fadeIn(); 
+        errorBox.text('You need to enter a room code!').fadeIn(function(){
+            $(this).delay(3000).fadeOut('slow');
+        }); 
 
         return;
     }
     // Player entered name?
     else if(!data.name || data.name.length === 0) {
         $('.form #player-name').addClass('invalid');
-        errorBox.text('You need to enter a name!').fadeIn(); 
+        errorBox.text('You need to enter a name!').fadeIn(function(){
+            $(this).delay(3000).fadeOut('slow');
+        }); 
 
         return;
     }
 
     // Create uid for player
-    playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
-    sessionStorage.setItem('uUID', playerUID);
+    if(!sessionStorage.getItem('uUID')) {
+        playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
+        sessionStorage.setItem('uUID', playerUID);
+    }
+    else 
+        playerUID = sessionStorage.getItem('uUID');
 
     // Disable button and show loading modal
     if(!data.disable) {
@@ -265,7 +269,9 @@ $(document).on('click', '.btn.game_login', function(evt) {
 
                 }
                 $('.btn.game_login').removeAttr('disabled');
-                errorBox.text(data.msg).fadeIn();
+                errorBox.text(data.msg).fadeIn(function(){
+                    $(this).delay(3000).fadeOut('slow');
+                });
                 loadToggle(false, true);
 
                 return;
@@ -273,7 +279,7 @@ $(document).on('click', '.btn.game_login', function(evt) {
             }
 
             $('.login.input').fadeOut(function() {
-                $('#begin').addClass('wait');
+                $('#lobby').addClass('wait');
                 $('.login.waiting').fadeIn();
             });
 
@@ -314,29 +320,24 @@ $('#btn_new_game').click(function() {
                     
                     $('#decks').glide({
                         type: 'carousel',
-                        paddings: '10%',
                         autoplay: false,
-                        autoheight: true
+                        autoheight: true, 
+                        paddings: 0
                     });
                     
                 });
 
              });
 
-            $('.access-code').text(data.code);
+             var gameCodeMarkup = '';
+            _.each(data.code.split(''), function(char, i) {
+                gameCodeMarkup += '<span>' + char + '</span>';
+            });
+            $('#share-code .access-code').html(gameCodeMarkup);
             $('#gameContent').addClass('lobby');
 
         }
     );
-
-});
-
-/* 
- Show join game screen
-*/
-$('#btn_join_game').click(function() {
-
-    loginJoinGame();
 
 });
 
@@ -348,49 +349,8 @@ window.onload = checkIfLoggedIn();
 
 {{#ifeq debug true}}
     // Debugging view
-    {{#ifeq section 'login'}}
+    {{#ifeq section 'play'}}
         $('#access_code').val('TEST');
         $('#player-name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
     {{/ifeq}}
 {{/ifeq}}
-
-
-{{!-- {{#ifeq section 'index'}}
-
-    playerEntry();
-
-    $(document).on('click', '.btn.game_entry', function() {
-        
-        var type = $(this).data().game;
-
-        $.get( 
-            "/game/get/" + type,
-            function( data ) {
-
-                $('#gameContent').html(data);
-
-                $('.form input[type=submit]')
-                .hover(function(evt) {
-
-                    timeline.to(evt.currentTarget, .5, { ease: Elastic.easeOut, scale:1.2 });
-
-                })
-                .mouseleave(function(evt) {
-
-                    timeline.from(evt.currentTarget, .5, { scale:1.2 });
-
-                });
-
-            });
-                
-    });
-
-{{/ifeq}} --}}
-
-{{!-- // /play URL
-{{#ifeq section 'login'}}
-
-  $('.body').addClass('game-bg');
-  $('.body').addClass('player');
-
-{{/ifeq}} --}}

@@ -10,88 +10,203 @@
  */
 --}}
 
-var screensAnim;
-var loginAnim;
+var screensAnim,
+		loginAnim,
+		timelineCallback,
+		animationDone = $.Deferred();
 
-function rulesAnim(callback) {
-
-	var screens = $('.row.screen');
-
-	if(screens.length === 0)
-		return;
-  
-  screensAnim = new TimelineLite({ paused: true, onComplete: 
-																										  	function() { TweenLite.fromTo($('#btn-next'), 1, {scale:0, autoAlpha:0}, {scale:1, autoAlpha:1, display:'block', ease:Elastic.easeOut}); } 
-																		});
+function initTimeline() {
 	
-  _.each(screens, function(el, index) {
+	{{#ifnoteq section 'game-preloaded'}}	
 
-		screensAnim.fromTo(el, .5, {xPercent:-100}, { x:0, xPercent:0, ease:Expo.easeInOut, opacity: 1, display:'block', delay:.5 });
+		loginAnim = new TimelineMax({paused:true});
+		var backBtnFrom = { autoAlpha:0, xPercent:20, display:'none' },
+				backBtnTo = { autoAlpha:1, xPercent:0, display:'block', ease:Expo.easeOut };
 
-		if ($(el).find('.rules-image')) {
-			$('rules-image').show();
-		}
+		var newGameAnim = new TimelineLite(),
+				choicesAnim = new TimelineLite();
 
-		if(index < screens.length-1)
-			screensAnim.fromTo(el, .5, {xPercent:0}, { x:200, xPercent:200, ease:Expo.easeInOut, opacity:0, display:'none', delay:3 });
+		newGameAnim.to($('#join'), .01, { autoAlpha:0, display:'none' })
+							.fromTo($('#choices'), .5, { autoAlpha:1, display:'block' }, { autoAlpha:0, display:'none' })
+							.to($('#login-header'), .5, { autoAlpha:0, height:0, display:'none' })
+							.fromTo($('#decider'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
+							.call(function() {
+								if(timelineCallback)
+									timelineCallback();
+							})
+							.from($('#decks'), .5, { autoAlpha:0, yPercent:10, ease:Expo.easeOut })
+							.fromTo($('#deck-choice .back-button'), .5, backBtnFrom, backBtnTo)
+							.append('new');
 
-  });
+		loginAnim.from($('#player-name'), .5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .2)
+	            .from($('#btn_submit_name'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut}).append('name')
 
-  screensAnim.play();
-	
-}
+							.to($('#name'), .5, { autoAlpha:0, display:'none' })
 
-function loginEnterName() {
+							.fromTo($('#choices'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
+							.staggerFrom($('#choices .btn'), 1, {yPercent:20, autoAlpha:0, ease:Expo.easeOut}, .7)
+							.fromTo($('#choices .back-button'), .5, backBtnFrom, backBtnTo)
+							.append('choices')
 
-	loginAnim = new TimelineMax();
+							.to($('#choices'), .5, { autoAlpha:0, display:'none' })
+							.fromTo($('#join'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
+							.fromTo($('#join .back-button'), .5, backBtnFrom, backBtnTo)
+							.append('join')
+							.add(newGameAnim, '+=1').append('new');							
 
-	loginAnim.from($('#player-name'), .5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .2, 'name')
-            .from($('#btn_submit_name'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut}, .5);
+	  $('.lobby .btn, .back-button').click(function(evt) {
+	  	if($(evt.currentTarget).data('from'))
+		  	loginFromTo($(evt.currentTarget).data('from'), $(evt.currentTarget).data('to'), .7);
+	  });
 
-  $('.back-button').click(function(evt) {
-  	loginGoBack($(evt.currentTarget).data('from'), $(evt.currentTarget).data('to'));
-  });
-
-}
-
-function loginPlayerChoices() {
-
-	// loginAnim.clear();
-	loginAnim.to($('#name'), .5, { autoAlpha:0, display: 'none' }, 'choices')
-					 .fromTo($('#choices'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' });
-
-	loginAnim.play();
-
+	{{/ifnoteq}}
 }
 
 function loginNewGame(callback) {
-
-	// loginAnim = new TimelineLite({onComplete:function() {
-	// 	if(callback)
-	// 		callback();
-	// }});
-
-	loginAnim.to($('#choices'), .5, { autoAlpha:0, display: 'none' }, 'new')
-					 .fromTo($('#decider'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' })
 	
-	loginAnim.play();
+	timelineCallback = callback;
+
+	TweenLite.fromTo(loginAnim, 1.5, {time:loginAnim.getLabelTime('choices-new')}, {time:loginAnim.getLabelTime('new')});
+	
+}
+
+function loginFromTo(from, to, timeScale) {
+
+	// Failsafe
+	if(!loginAnim)
+		initTimeline();
+
+	// Starting from zero or somewhere else
+	var start = (from==='start') ? 0 : loginAnim.getLabelTime(from);
+
+	// Get animation duration
+	var duration = Math.abs( loginAnim.getLabelTime(to) - loginAnim.getLabelTime(from) );
+	if(timeScale)
+		duration *= timeScale;
+
+	TweenLite.fromTo(loginAnim, duration, {time:start}, {time:loginAnim.getLabelTime(to)});
+	
+}
+
+function modalOpenClose(modalElement, open) {
+
+	var hidden = { yPercent:100, opacity:0, ease:Expo.easeOut, display:'none' },
+			shown = { yPercent:0, opacity:1, ease:Expo.easeIn, display:'block' };
+
+	TweenLite.fromTo(modalElement, .5, (open ? hidden:shown) , (open ? shown:hidden) );
 
 }
 
-function loginJoinGame() {
+var screenOpen = function(screenElement) {
 
-	// loginAnim.clear();
-	loginAnim.to($('#choices'), .5, { autoAlpha:0, display: 'none' }, 'join')
-					 .fromTo($('#join'), .5, { autoAlpha:0, display: 'none' }, { autoAlpha:1, display: 'block' });
+	screenElement.show();
 
-	loginAnim.play();
+	var hidden = { scale:0, opacity:0, display:'none' },
+			shown = { scale:1, opacity:1, ease: Elastic.easeOut.config(1, 0.75), display:'block', transformOrigin:'70% bottom' };
+
+	var speechTimeline = new TimelineLite({onComplete: function() {
+		animationDone.resolve();	
+	}});
+	speechTimeline.fromTo(screenElement.children('blockquote'), 1.1,  hidden, shown);
+	speechTimeline.fromTo(screenElement.find('section.instruction'), .7,  {yPercent:100, opacity:0}, {yPercent:0, opacity:1, ease:Expo.easeOut});
+
+	if(!_.isEmpty(screenElement.data()) && screenElement.data('animation') === 'scoreboard') {
+
+		new TimelineLite({onComplete: function() {
+			setTimeout(function() {
+		
+				var nodes = $('#ranking .player-logo');
+				var total = nodes.length;
+				var ease  = Power1.easeInOut;
+				var boxes = [];
+
+				for (var i = 0; i < total; i++) {
+				  
+				  var node = nodes[i];
+				  
+				  // Initialize transforms on node
+				  TweenLite.set(node, { x: 0 });
+				   
+				  boxes[i] = {
+				    transform: node._gsTransform,
+				    x: node.offsetLeft,
+				    y: node.offsetTop,
+				    node    
+				  };
+				
+				} 
+				  
+			  // group.classList.toggle("reorder");  
+			  
+			  for (var i = 0; i < total; i++) {
+			    
+			    var box = boxes[i];
+			        
+			    var lastX = box.x;
+			    var lastY = box.y;
+
+				  $(box.node).css('order', $(box.node).data('rank'));
+			    
+			    box.x = box.node.offsetLeft;
+			    box.y = box.node.offsetTop;
+			    
+			    // Continue if box hasn't moved
+			    if (lastX === box.x && lastY === box.y) continue;
+			    
+			    // Reversed delta values taking into account current transforms
+			    var x = box.transform.x + lastX - box.x;
+			    var y = box.transform.y + lastY - box.y;  
+			    
+			    // Tween to 0 to remove the transforms
+			    TweenLite.fromTo(box.node, 0.5, { x, y }, { x: 0, y: 0, ease });    
+			  }
+
+			  $('#decider').show();
+			  TweenLite.fromTo($('.next-step'), .7, {yPercent:100, autoAlpha:0}, {yPercent:0, autoAlpha:1, ease:Expo.easeOut, delay:2});
+			  
+			}, 2000);
+
+		}})
+		.to($('.coins.starting'), 1, { autoAlpha:0, y:'10%', display:'none', delay: 5 })
+		.fromTo($('.coins.delta'), 1, { autoAlpha:0, y:'10%', display:'none' }, { autoAlpha:1, y:'0%', display:'block' })
+
+		.fromTo($('.coins.delta'), 1, { autoAlpha:1, display:'block' }, { autoAlpha:0, y:'10%', display:'none', delay: 5 })
+		.fromTo($('.coins.current'), 1, { autoAlpha:0, y:'10%', display:'none' }, { autoAlpha:1, y:'0%', display:'block' })
+		
+		.fromTo($('.rank.starting'), 1, { autoAlpha:1, display:'block' }, { autoAlpha:0, x:'10%', display:'none' })
+		.fromTo($('.rank.current'), 1, { autoAlpha:0, x:'10%', display:'none' }, { autoAlpha:1, x:'0%', display:'block' });
+
+	}
+
 
 }
 
+/*
+	Modal animation handles
+*/
+$('.modal').on('show', function(evt) {
+	modalOpenClose($(evt.currentTarget), true);
+});
+$('.modal').on('hide', function(evt) {
+	modalOpenClose($(evt.currentTarget), false);
+});
 
-function loginGoBack(from, to) {
+/*
+	Screen animation handles
+*/
+$(document).on('show', '.screen', function(evt) {
+	animationDone = $.Deferred();
 
-	// loginAnim.reverse(0);
-	loginAnim.tweenTo(from, to);
-	
+	screenOpen($(evt.currentTarget));
+});
+
+
+{{!-- Role Card Open/Close --}}
+function roleCardOpenClose(open) {
+
+	var hidden = { yPercent:100, opacity:0, ease:Expo.easeOut, display:'none' },
+			shown = { yPercent:0, opacity:1, ease:Expo.easeIn, display:'block' };
+
+	TweenLite.fromTo($('#role-card'), .5, (open ? hidden:shown) , (open ? shown:hidden) );
+
 }

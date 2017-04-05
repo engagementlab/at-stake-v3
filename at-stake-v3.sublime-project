@@ -10,16 +10,20 @@
 			"path": "lib"
 		},
 		{
+			"name": "Models",
+			"path": "models"
+		},
+		{
 			"name": "Partials",
 			"path": "templates/partials"
 		},
 		{
-			"name": "Views",
-			"path": "templates/views"
+			"name": "Routes",
+			"path": "routes"
 		},
 		{
-			"name": "Models",
-			"path": "models"
+			"name": "Views",
+			"path": "templates/views"
 		},
 		{
 			"file_exclude_patterns":

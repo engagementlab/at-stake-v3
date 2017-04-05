@@ -8,14 +8,14 @@
         <title>@Stake</title>
         <meta name="description" content="@Stake is an online and mobile role-playing game that fosters democracy, empathy, and creative problem solving for civic issues.">
         <meta name="author" content="Engagement Lab at Emerson College">
-        <meta name="viewport" content="width=device-width">
+        <meta name="theme-color" content="#e90048">
         
         {{#ifeq section 'play'}}
             {{!-- Mobile Meta --}}
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name="theme-color" content="#FFAB43">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        {{else}}
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {{/ifeq}}
-
         {{!-- Open Graph --}}
         {{!-- <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1455896685/site/about/logo_color.png" /> --}}
 
@@ -39,10 +39,49 @@
             
         {{/ifeq}}
 
-        <div id="wrapper">
+        <div id="wrapper" class="{{#ifeq section 'homepage'}}home-wrap{{/ifeq}}">
 
-            <div id="overlay" class="modal">
-            </div>
+            <div id="overlay" class="modal"></div>
+
+            {{!-- PRE-FILLED MODALS --}}
+            <section id="error-disconnected" class="modal error-modal">
+                <div id="text" class="col-sm-8 col-centered">
+                  <h1>Yikes! :-(</h1>
+                  <h2>It looks like the game server is not responding for some reason. Try playing later!</h2>
+                </div>
+            </section>
+
+            <section id="error-player-disconnected" class="modal error-modal">
+                <div id="text" class="col-sm-10 col-xs-12 col-centered">
+                  <h1>Ummm...</h1>
+                  <h2>It looks like <span id="player"></span> <span id="singular">is</span><span id="plural">are</span> disconnected from the game! They have <span id="time">60s</span> to reconnect before the game ends!</h2>
+                </div>
+            </section>
+
+            <section id="error-private-mode" class="modal error-modal">
+                <div id="text" class="col-sm-10 col-xs-12 col-centered">
+                  <h1>Sorry!</h1>
+                  <h2>You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.</h2>
+                </div>
+            </section>
+
+            {{!-- STAGES BAR --}}
+            <section class="col-sm-12" id="stages-bar">
+                <span id="fill" class="phase-path"></span>
+                <span id="progress" class="phase-path"></span>
+
+                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/meet.svg' width=23 height=23}}}<span>meet</span></div>
+                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/brainstorm.svg' width=23 height=23}}}<span>brainstorm</span></div>
+                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/pitch.svg' width=23 height=23}}}<span>pitch</span></div>
+                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/deliberate.svg' width=23 height=23}}}<span>deliberate</span></div>
+                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/decide.svg' width=23 height=23}}}<span>decide</span></div>
+                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/score.svg' width=23 height=23}}}<span>score</span></div>
+            </section>
+
+            {{!-- ROLE CARD OVERLAY --}}
+            <section class="col-sm-12" id="role-card">
+
+            </section>
 
             {{#ifeq debug true}}
                 {{!-- DEBUGGING --}}
@@ -54,7 +93,7 @@
                     <div id="decider-debugging">
 
                         <br /><button id="countdowns_pause" data-resume="false" class="submit">pause countdowns</button>
-                        <br /><button id="goto_results" data-event="game:force_results" class="submit"{{!--  style="display:none" --}}>show results</button>
+                        <br /><button id="end_game" data-event="debug:end" class="submit">end game</button>
 
                         <div id="slider-gsap">
                         </div>
@@ -76,11 +115,9 @@
 
             {{#ifnoteq section 'homepage'}}
 
+            <img id="background-logo" style="display:none" src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1491318386/at-stake/layout/logo-bg.svg">
+            
                 <div class="col-sm-12 col-lg-12" id="gameContent">
-
-                    <section id="logo-bar" style="display:none">
-                        <img src="http://res.cloudinary.com/engagement-lab-home/image/upload/e_grayscale/v1454520474/site/listings/odr1jt3rfkda0s1qce9q.png">
-                    </section>
 
                     {{> shared/resuming }}
 
@@ -91,7 +128,7 @@
 
             {{else}}
 
-                <div class="col-sm-12 col-lg-12" id="homeContent">
+                <div id="homeContent">
 
                     <!-- BODY CONTENT START -->
                     {{{body}}}
@@ -101,29 +138,29 @@
             {{/ifnoteq}}
 
                 <footer id="bottom-bar" style="display:none">
-                    
-                    <div id="currency" class="col-sm-6">
-                        <div id="player-coins">[coins] <span></span></div>
-                        <div id="pot-coins">[pot] <span></span></div>
+                
+                    <div class="col-sm-6 col-xs-6">
+                        <button id="btn-role-card">role card</button>
+                        <button id="btn-menu">menu</button>
+                    </div>
+                    <div id="currency" class="col-sm-6 col-xs-6">
+                        <div id="pot-coins"><p>coin pot</p>  <span></span></div>
+                        <div id="player-coins" style="background-image:{{{cloudinaryUrl 'v1486743650/at-stake/layout/coin_stroke.png' width=60}}}"><p>your coins</p>  <span></span></div>
                     </div>
                     
                 </footer>
 
-                <div class="form next decider row" id="decider-controls" style="display:none;">
-                    <input id="btn-next" data-keep_enabled="true" data-event="game:next" class="submit" type="submit" name="submit" value="next">
-                </div>
-
                 {{#ifeq debug true}}
                     {{#ifnoteq viewType 'decider'}}
                       <div id="emulate-players" style="display:none">
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400" sandbox="allow-scripts allow-same-origin"></iframe>
                       </div>
                   {{/ifnoteq}}
                 {{/ifeq}}

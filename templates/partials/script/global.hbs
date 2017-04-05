@@ -32,15 +32,15 @@
 	// Can be set by any event logic waiting for content update
 	var updateContentCallback;
 
+	// Absolute positioning global
+	var maxWidth = 425;
+
 	// For countdown debugging
   var countdownPaused = false;
 
-	{{!-- Group view cleanup --}}
-	{{#ifeq viewType 'group'}}
-	    $('.body').addClass('game-bg group');
-	    $('#wrapper').addClass('group');
-	    $('.navbar.main').attr ('style', 'display:none;');
-	{{/ifeq}}
+  // Tracks current phase index and the screen during each phase
+  var currentPhaseIndex = -1;
+  var currentScreenIndex = 0;
 
   var sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1/at-stake/sfx/';
   {{#ifeq env "development"}}
@@ -53,6 +53,7 @@
 
 		{{#ifnoteq environment "production"}}
 		'debug:pause',
+		'debug:end',
 		{{/ifnoteq}}
 
 		'connect',
@@ -62,14 +63,18 @@
 		'player:loggedin',
 		'player:inactive',
 		'player:reconnected',
+		'player:lost',
 		'players:update',
 		'player:finished',
 		'player:agenda_item',
+		'player:assignrole',
 
 		'game:error',
 		'game:tutorial',
 		'game:start',
 		'game:next',
+		'game:next_phase',
+		'game:next_screen',
 		'game:next_round',
 		'game:next_item',
 		'game:ending',
@@ -87,11 +92,81 @@
 		'game:survey',
 		'game:advance',
 		'game:decider',
+		'game:refresh_screen',
 
 		'coins:add',
 		'coins:remove',
 	
 	];
+
+	// setInterval(function() {console.log($('#wrapper').offset().left)}, 100)
+
+	/* 
+		Manually position absolutely-positioned elements on window re-size
+	*/
+	var absoluteLayout = function() {
+
+		// Setup config for layout
+		var absolutes = [],
+				windowsize = $(window).width(),
+				bodysize = $('#wrapper').width(),
+				wrapperLeft = $('#wrapper').offset().left,
+				extraWindow = (windowsize - bodysize)/2;
+
+		// Locally-scoped methods
+		var findAbsolutes = function() {
+
+					// Get all absolutely-positioned elements
+					var outerAbsolutes = 
+					$('#wrapper :not(#gameContent *, #homeContent *, #stages-bar *, .modal)')
+					.filter(function(){
+					  return ($(this).css('position') == 'absolute');
+					});
+
+					setAbsolutes(outerAbsolutes);
+
+				},
+				setAbsolutes = function(absolutes) {
+			
+					_.each(absolutes, function(item) {
+
+						var position = {};
+
+						// Check current positions
+						if ($(item).css('left'))
+							position.left = $(item).css('left');
+
+						if ($(item).css('right'))
+							position.right = $(item).css('right');
+
+						// If left, set it
+						if (position.left)
+							$(item).css('left', wrapperLeft);
+
+						// If right, set it
+						if (position.right){
+							position.right =+ extraWindow;
+							$(item).css('right', position.right);
+						}
+
+						// Call finish function after xxx milaseconds
+						var finish = _.debounce(finishResize, 500);
+						finish();
+
+					});
+
+				};
+
+		findAbsolutes();
+
+	};
+
+	var finishResize = function() {
+
+		// Show wrapper now that resize is complete
+		$('#wrapper').css('visibility', 'visible');
+
+	}
 
 	/* 
 	 Associate provided data object with current game ID
@@ -166,48 +241,32 @@
   */
 	var updateGameContent = function(content, callback, pauseAnimate) {
 
-		$('#top-header').remove();
+		// Inject markup content and fire callback when done
+		gameContainer.html(content)
+								 .promise()
+								 .done(function() {
+			
+										if(!pauseAnimate) {
+										
+										 		if(callback)
+											 		callback();
 
-		var lobbyAnim = new TimelineLite();
-		lobbyAnim.to(gameContainer, .5, {xPercent:-100, ease:Expo.easeInOut, onComplete:function() {
+											 	if(updateContentCallback)
+												 	updateContentCallback();
 
-			// Inject markup content and fire callback when done
-			gameContainer.html(content)
-									 .promise()
-									 .done(function() {
+										
+										}
+										else {
 
-									 		runMods();
-				
-											if(!pauseAnimate) {
-												// Animate screen back in now and then run callback
-												lobbyAnim.fromTo(gameContainer, .5, {xPercent:100}, {x:0, xPercent:0, ease:Expo.easeInOut, onComplete:function() {
-										 		
-											 		if(callback)
-												 		callback();
+											 	if(updateContentCallback)
+												 	updateContentCallback();
 
-												 	if(updateContentCallback)
-													 	updateContentCallback();
+										}
 
-												}})
-											}
-											else {
-													// Animate screen back in later using function passed to callback													
-											 		if(callback)
-												 		callback(function() {
-												 			lobbyAnim.fromTo(gameContainer, .5, {xPercent:100}, {x:0, xPercent:0, ease:Expo.easeInOut});
-												 		});
-												 	
-												 	if(updateContentCallback)
-													 	updateContentCallback();
+								    // Hide loading
+								    $('#loading-modal').fadeOut(250);
 
-											}
-
-									    // Hide loading
-									    $('#loading-modal').fadeOut(250);
-
-									 });
-
-		}})
+								 });
 
 		if($('#top-header').length > 0) {
 			var topBar = $('#top-header').detach();
@@ -215,23 +274,134 @@
 		}
 	}
 
+	var nextPhase = function() {
+
+	    currentPhaseIndex++; 
+
+	    phaseBarProgress();
+
+	    // Local session update
+	    // sessionStorage.setItem('markup', $('#gameContent').html());    
+	    sessionStorage.setItem('phase', currentPhaseIndex);    
+
+	}
+
+	var nextPhaseScreen = function() {
+	    
+	    currentScreenIndex++;
+
+	    //TODO: Animate
+	    $.when($($('.screen')[0]).remove()).then(function() {
+
+	        var newScreen = $('.screen')[0];
+	        // $(newScreen).show();
+	        
+	        // Local session update
+	        sessionStorage.setItem('markup', $('#gameContent').html());   
+	        sessionStorage.setItem('screen', currentScreenIndex);
+
+	        $(newScreen).trigger('show');
+
+	        runMods();
+
+	        var timerPreview = $($('.screen')[0]).find('.timer.preview');
+	        var hasTimer = timerPreview.length === 1;
+	        if(hasTimer) {
+	            new ProgressBar.Circle(
+	              '.screen .timer.preview', 
+	              {
+	                    color: '#fff',
+	                    strokeWidth: 6,
+	                    trailColor: 'rbga(235, 235, 235, 0.5)',
+	                    trailWidth: 0.8,
+	                    fill: '#ff3d6b',
+	                    text: {
+	                        value: $(timerPreview[0]).data('duration')
+	                    }
+	              }
+	            );
+	        }
+
+	    });
+
+	}
+
+	var openInnerModal = function(selector) {
+
+			if(!selector)
+				selector = '';
+
+			var modalSelector = $('.screen:visible .inner-modal' + selector).first();
+
+			if(modalSelector.length === 0)
+				return;
+
+	    // $('#gameContent').addClass('blur');
+	    $('#overlay').empty();
+
+	    // If modal set to 'clone' mode, keep copy in current parent
+	    if(!_.isEmpty(modalSelector.data()) && modalSelector.data('clone') === true)
+		    modalSelector.clone().appendTo(modalSelector.parent());
+
+	    $('#overlay').append(modalSelector.first());
+	    $('#overlay, #overlay .inner-modal').show();
+
+	    var modalDuration = $('#overlay .inner-modal').data('duration');
+
+	    if(modalDuration) {
+	        var modalTimeout = setTimeout(function() {
+	            var gotoNext = $('#overlay .inner-modal').data('next');
+
+	            clearTimeout(modalTimeout);
+
+	            $('#overlay').empty();
+	            $('#overlay').hide();
+
+	            if(gotoNext === 'next_screen')
+		            nextPhaseScreen();
+
+	            else if(gotoNext === 'next_modal')
+		            openInnerModal();
+
+	        }, modalDuration*1000);
+	    }
+	    
+	    $('#overlay .inner-modal .post-button').click(function(evt) {
+
+	        // $('#gameContent').removeClass('blur');
+	        $('#overlay').empty();
+	        $('#overlay').hide();
+
+	    });
+
+	}
+
 	var runMods = function() {
 
-		// Engage any template script modifiers
-		if($('span#modifier').length > 0) {
+		var modifier = $('.screen:first span#modifier');
 
-			if($('span#modifier').data().hide_next) 
+		// Engage any template script modifiers
+		if(modifier.length > 0) {
+
+			if(modifier.data().hide_next) 
 		 		$('#btn-next').fadeOut();
-		 	else
+		 	else if(!isDecider)
 		 		$('#btn-next').fadeIn();
-	 	
+			
+			if(modifier.data().highlight) 
+				$(modifier.data().highlight).addClass('highlight');
+
+			// Move modal inside partial to top-level overlay and assign button events
+			if(modifier.data().inner_modal)
+	      openInnerModal();
+
 		}
-		else {
+		/*else {
 
 				// Defaults
 		 		$('#btn-next').fadeIn();
 
-		}
+		}*/
 
 	}
 
@@ -303,33 +473,39 @@
 
 	}
 
-	var setupDecider = function(deck) {
+	var setupDecider = function() {
 
     isDecider = true;
 
     // Accesscode may be provided by server when debugging
+    var gameCodeHtml = '';
     if(!gameCode) {
 	    gameCode = '{{accessCode}}';
 
+      _.each(gameCode.split(''), function(char, i) {
+          gameCodeHtml += '<span>' + char + '</span>';
+      });
+
 	    // Ensure login is gone and all decide UI shows
-	    $('#name,#join').remove();
-	    $('.access-code').text(gameCode);
+	    $('#name,#join,#choices').remove();
+	    $('#share-code .access-code').html(gameCodeHtml);
 	    $('#decider .create').hide();
       $('#decider').show();
       $('#decider .waiting, #decider-debugging').show();
-      $('#begin').addClass('wait');
+      $('#lobby').addClass('wait');
 
 	    $('#player-name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
 
 		}
 
-		if(deck)
-			$('.waiting .deck').text(deck);
-
     // Create uid for player
-    playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
-    sessionStorage.setItem('uUID', playerUID);
-
+    if(!sessionStorage.getItem('uUID')) {
+        playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
+        sessionStorage.setItem('uUID', playerUID);
+    }
+    else 
+        playerUID = sessionStorage.getItem('uUID');
+    
     // Open socket connection
     socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
     registerEvents();
@@ -341,199 +517,231 @@
 		{{> script/mobile}}
 	{{/if}}
 
-window.onload = function() {
+	$(window).on('resize', function () {
+		
+		if(isMobile)
+			return;
 
-	// Show body only after everything is loaded
-  // document.body.style.display = "block";
-  $('body').fadeIn(1000);
+		// Hide content wrapper during resize
+		$('#wrapper').css('visibility' ,'hidden');
 
-  // Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
-	detectPrivateMode(function(isPrivate) {
+		// Adjust absolutely-position elements for desktop only
+		absoluteLayout();
 
-		// Landing page class for body
-		{{#ifeq viewType 'landing'}}
-				$('body').addClass('landing');
-		{{/ifeq}}
-
-		$("#nav-dropdown").on('click', function() {
-			$('.nav-dropdown').show();
-			$('#nav-close').show();
-
-			openAnim.play(0);
-
-		});
-		$('#nav-close').on('click', function() {
-
-			closeAnim.play();
-
-		});
-
-		{{#ifeq environment "production"}}
-			
-			// GA include
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-		  ga('create', 'UA-64617433-4', 'auto');
-		  ga('send', 'pageview');
-
-		{{else}}
-
-			if(!isPrivate) {
-				// For socket debugging
-				localStorage.debug = '*';
-			}
-
-		{{/ifeq}}
-
-		// Load animations
-		{{> script/player_animation}}
-
-		$(document).ready(function() {
-
-			// Get reference to main content div
-			gameContainer = $('#gameContent');
-	
-			{{#ifnoteq viewType 'landing'}}
-
-					/**
-					 * Listen for forms that dispatch socket events.
-					 *
-					 * ### Examples:
-					 *
-					 * @class global
-					 */
-					$(document).on('click', '.form .submit', function(evt) {
-					    
-				    var event = $(this).data().event;
-				    var pkg = getFormData($(this));
-
-				    // Emit event to socket
-				    socket.emit(event, emitData(pkg));
-
-				    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom
-				    if($(this).data().autohide) {
-				        new TimelineLite()
-				        .to('#' + $('#submitted').data('hide'), .5, {scale:0, autoAlpha:0, display:'none'})
-				        .from($('#submitted'), .5, {scale:0, autoAlpha:0});
-				    }
-
-				    // Disable form button unless explicitly prevented, and show loading...
-				    if(!$(this).data().keep_enabled) {
-			        $(evt.currentTarget).attr('disabled', 'disabled');
-			        loadToggle(true);
-				    }
-
-					});
-
-			{{/ifnoteq}}
-
-			// PLAYER LOGIC
-			{{> script/player_logic section=section}}
-					
-		  $('#decider #btn_submit').click(function(evt) {
-				var data = {};
-
-		    data.deciderName = $('#player-name').val();
-
-		    if(!data.deciderName) {
-		        $('.submission .error').text('Please enter your name!').fadeIn();
-		        return;
-		    }
-
-				data.deckId = $("#decks button.active").map(function(){
-											    return $(this).val();
-											 }).get()[0];
-				deck = $("#decks button.active").text();
-				data.accessCode = gameCode;
-
-			  $.post(
-			  	"/api/create/",
-					data)
-					.done(function(data) {
-
-						if(data.sessionCreated) {
-
-							setupDecider(deck);
-							
-							$('#login').remove();
-
-					    $('#decider .create').hide();
-					    $('#decider .waiting').show();
-						
-						}
-					})
-					.fail(function(xhr, status, error) {
-
-						if(xhr.responseJSON.error)							
-							$('#decider .error').text(xhr.responseJSON.error).fadeIn();
-
-					});
-
-			});
-
-		// WAITING FOR PLAYERS (OLD SESSION)
-		{{#ifeq section 'game-preloaded'}}	
-					
-			setupDecider();
-
-		{{/ifeq}}
-
-				{{> script/decider_logic section=section}}
-
-    {{#ifeq environment "development"}}
-
-			function templateLoad() {
-
-				var selected = $('#template_selector');
-
-				if(selected.prop('selectedIndex') > 0)
-			    socket.emit('game:load_screen', emitData({ index: selected.prop('selectedIndex') }));
-
-			}
-			$("#template_reload").click(function() {
-
-				templateLoad();
-
-			});
-			$("#template_selector").change(function() {
-
-				templateLoad();
-				screensAnim.stop();
-			
-			});
-			$("#countdowns_pause").click(function(evt) {
-
-				var btn = $(evt.currentTarget);
-				socket.emit('debug:pause', emitData());
-
-				if(!$(btn).data('resume')) {
-					$(btn).text('resume countdowns');
-					$(btn).data('resume', 'true');
-				}
-				else {
-					$(btn).text('pause countdowns');
-					$(btn).data('resume', 'false');
-				}
-
-			});				
-			$("#generate_players").click(function() {
-
-				$("#generate_players").text('loading...');
-
-				$('#gameContent').remove();
-				$('#emulate-players').fadeIn();
-				
-				$('#emulate-players iframe').attr('src', 'http://localhost:3000/play/debug');
-			});
-
-	{{/ifeq}}
-
-		});
+		// TODO: Work out overlay during resize?
+		// $('#overlay').html('<div style="margin-top: 10%" class="col-sm-12 col-centered">looks like you\'re doing some resizing...</div>').show();
 
 	});
 
-}
+	window.onload = function() {
+
+	  // Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
+		detectPrivateMode(function(isPrivate) {
+
+			// Initialize layout
+			absoluteLayout();
+
+			$("#nav-dropdown").on('click', function() {
+				$('.nav-dropdown').show();
+				$('#nav-close').show();
+
+				openAnim.play(0);
+
+			});
+			$('#nav-close').on('click', function() {
+
+				closeAnim.play();
+
+			});
+
+			{{#ifeq environment "production"}}
+				
+				// GA include
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			  ga('create', 'UA-64617433-4', 'auto');
+			  ga('send', 'pageview');
+
+			{{else}}
+
+				if(!isPrivate) {
+					// For socket debugging
+					localStorage.debug = '*';
+				}
+
+			{{/ifeq}}
+
+			// Load animations
+			{{> script/player_animation section=section}}
+
+			$(document).ready(function() {
+
+				// Get reference to main content div
+				gameContainer = $('#gameContent');
+
+				if(isMobile) {
+
+					{{#ifnoteq section 'homepage'}}
+						var gameHeight = $(window).height();
+						$('#wrapper').height(gameHeight);
+						$('body, html').css('overflow', 'hidden');
+						$(gameContainer).addClass('isMobile');
+					{{/ifnoteq}}
+
+				}
+		
+				{{#ifnoteq viewType 'landing'}}
+
+						/**
+						 * Listen for forms that dispatch socket events.
+						 *
+						 * ### Examples:
+						 *
+						 * @class global
+						 */
+						$(document).on('click', '.form .submit', function(evt) {
+						    
+					    var event = $(this).data().event;
+					    var pkg = getFormData($(this));
+
+					    // Emit event to socket
+					    socket.emit(event, emitData(pkg));
+
+					    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom
+					    if($(this).data().autohide) {
+					        new TimelineLite()
+					        .to('#' + $('#submitted').data('hide'), .5, {scale:0, autoAlpha:0, display:'none'})
+					        .from($('#submitted'), .5, {scale:0, autoAlpha:0});
+					    }
+
+					    // Disable form button unless explicitly prevented, and show loading...
+					    if(!$(this).data().keep_enabled) {
+				        $(evt.currentTarget).attr('disabled', 'disabled');
+				        loadToggle(true);
+					    }
+
+						});
+
+				{{/ifnoteq}}
+
+				// PLAYER LOGIC
+				{{> script/player_logic section=section}}
+
+			  $('#decider #btn_submit').click(function(evt) {
+					var data = {};
+
+			    data.deciderName = $('#player-name').val();
+
+			    if(!data.deciderName) {
+		        $('.submission .error').text('Please enter your name!').fadeIn();
+		        return;
+			    }
+
+					data.deckId = $("#decks .glide__slide.active").data('id');
+					data.accessCode = $('.access-code span').text();
+
+				  $.post(
+				  	"/api/create/",
+						data)
+						.done(function(data) {
+
+							if(data.sessionCreated) {
+
+								setupDecider();
+								var gameCodeHtml = '';
+								
+								$('#login').remove();
+
+						    $('#decider .create').hide();
+						    $('#decider .waiting').show();
+
+						    _.each(data.accessCode.split(''), function(char, i) {
+					          gameCodeHtml += '<span>' + char + '</span>';
+					      });
+
+						    // Ensure login is gone and all decide UI shows
+						    $('#name,#join').remove();
+						    $('.access-code').html(gameCodeHtml);
+						    $('#decider .create').hide();
+					      $('#decider').show();
+					      $('#decider .waiting, #decider-debugging').show();
+					      $('#lobby').addClass('wait');
+
+						    $('#player-name').val(data.decider);
+							}
+						})
+						.fail(function(xhr, status, error) {
+
+							if(xhr.responseJSON.error)							
+								$('#decider .error').text(xhr.responseJSON.error).fadeIn();
+
+						});
+
+				});
+
+			// WAITING FOR PLAYERS (OLD SESSION)
+			{{#ifeq section 'game-preloaded'}}	
+						
+				setupDecider();
+
+			{{/ifeq}}
+
+					{{> script/decider_logic section=section}}
+
+	    {{#ifeq environment "development"}}
+
+				function templateLoad() {
+
+					var selected = $('#template_selector');
+
+					if(selected.prop('selectedIndex') > 0)
+				    socket.emit('game:load_screen', emitData({ index: selected.prop('selectedIndex') }));
+
+				}
+				$("#template_reload").click(function() {
+
+					templateLoad();
+
+				});
+				$("#template_selector").change(function() {
+
+					templateLoad();
+					screensAnim.stop();
+				
+				});
+				$("#countdowns_pause").click(function(evt) {
+
+					var btn = $(evt.currentTarget);
+					socket.emit('debug:pause', emitData());
+
+					if(!$(btn).data('resume')) {
+						$(btn).text('resume countdowns');
+						$(btn).data('resume', 'true');
+					}
+					else {
+						$(btn).text('pause countdowns');
+						$(btn).data('resume', 'false');
+					}
+
+				});				
+				$("#generate_players").click(function() {
+
+					$("#generate_players").text('loading...');
+
+					$('#gameContent').remove();
+					$('#emulate-players').fadeIn();
+					
+					$('#emulate-players iframe').attr('src', 'http://localhost:3000/play/debug');
+				});
+
+		{{/ifeq}}
+
+			});
+
+		});
+
+	}
 </script>

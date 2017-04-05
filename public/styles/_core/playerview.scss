@@ -1,14 +1,24 @@
+#background-logo {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	z-index:1;
+}
 #gameContent {
-	background-color: $color-seafoam;
+	@include gradient-vertical($background-color, $turquoise-dark, 55%, 45%);
+  @include linear_transition(filter, 0.5s);
+	
 	height: 100%;
 	text-align: center;
-	padding: 20px 10px;
+	padding: 8px;
+	padding-top: 40px;
 	color: white;
 
 	// During the gameplay
 	&.in-game {
 		background-color: white;
-		padding-top:80px;
+		height: calc(100% - 50px);
+		// padding-top:80px;
 
 		// Show coin and points bar
 		footer#bottom-bar {
@@ -17,231 +27,145 @@
 
 	}
 
-	.light {
-		line-height: normal;
+
+
+	// On Mobile
+	&.isMobile {
+		padding-top: 10px;
 	}
 
-	// Lobby game screens
-	.lobby {
-		&:not(#decider) {
-			width: 100%;
-		  height: 370px;
-		  border-radius: 5px;
-		  background-color: #00dcba;
-		  box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.25);
-		  border: solid 1px #ebebeb;
-		}
-		&#decider {
-			background-color: #00dcba;
-		}
-
-		// Show back button on login screen
-		.back-button {
-			display: block;
-			position: absolute;
-			left: 0;
-			margin: 10px;
-			color: white;
-			width: 96px;
-		  height: 24px;
-		  border-radius: 5px;
-		  background-color: transparent;
-		  box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
-		  border: solid 1px #ebebeb;
-		}
-
-		.username {
-			margin-bottom: 40px;
-			h2 {
-				font-size: 24px;
-			}
-			p {
-				font-size: 12px;
-			}
-
-		}
-
-		&#choices {
-			.btn {
-				width:272px;
-				white-space: normal;
-				color: white;
-				border: 1px #ebebeb solid;
-				box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
-				height:48px;
-				padding:0px;
-				margin-bottom: 10px;
-
-				h2 {
-					font-size: 24px;
-					line-height: 48px;
-					margin:0px;
-				}
-
-				&#btn_new_game {
-					background-color:red;
-				}
-
-				&#btn_join_game {
-					background-color:blue;
-				}
-			}
-			.btn_cap {
-				width: 90%;
-				margin: 5% auto;
-			}
-		}
-
+	// Blur all contents during modal
+	&.blur {
+		@include filter(blur, 2.9px);
 	}
 
-
-	// If not on login screen, hide the back button
-	&:not(.lobby) {
-		button#lobby-back {
-			display: none;
-			
-		}
-	}
-
-	// The lobby player grid
-	&.player-grid {
-		color: black;
-
-		#logo-bar {
-			// display: block !important;
-			position: absolute;
-			top: 0px;
-			left: 0px;
-			width: 100%;
-			height: $nav-height;
-			background-color: $color-pink;
-
-			img {
-				height: $nav-height - 5px;
-				width: auto;
-			}
-
-		}
-		
-	}
-
-}
-
-#name.lobby {
-	.form {
-		padding: 8px;
-	}
-	p {
-		font-size: 12px;
-	}
-	#player-name {
-		height: 48px;
-		// line-height: 48px;
-	  border-radius: 2px;
-	  background-color: #d8d8d8;
-	  box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.2);
-	  border: solid 1px #949494;
-	  margin: 0px;
-	  margin-bottom: 5px;
-		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-		  font-size:14px;
-		  text-align: center;
-		  height: 48px;
-		  line-height: 1.13em;
-		}
-		&::-moz-placeholder { /* Firefox 19+ */
-		  font-size: 14px;
-		  text-align: center;
-		  height: 48px;
-		  line-height: 1.13em;
-		}
-		&:-ms-input-placeholder { /* IE 10+ */
-		  font-size: 14px;
-		  text-align: center;
-		  height: 48px;
-		  line-height: 1.13em;
-		}
-		&:-moz-placeholder { /* Firefox 18- */
-		  font-size: 14px;
-		  text-align: center;
-		  height: 48px;
-		  line-height: 1.13em;
-		}
-	}
-
-	#description p{
-		font-size: 10px;
-		bottom: 0px;
-		width:98%;
-		color: #555555;
-		margin: 1% auto;
-		text-align: justify;
-		
-	}
-	#btn_submit_name {
-		background-color:red;
-		color: white;
-		border: 0px;
-		height:48px;
-		width: 160px;
-		padding:0px;
-		font-size: 24px;
-		margin-bottom: 100px;
-		border: 0.5px solid white;
-	}
 }
 
 // Players
 .player-logo {
 
-	height: 80px;
-	width: 100%;
+	height: 60px;
+	width: 70%;
 	display: inline-block;
-	padding:0px;
-	background-color: grey;
-	color: white;
+	padding: 0px;
+  background-repeat: no-repeat;
+	// background-size: contain;
+	color: $grey-dark;
+
+	background-position: 40px 10px;
+  background-size: 40px 40px;
 
 	p {
 		display: inline;
+		color: $grey-dark;
+    text-transform: uppercase;
+    line-height: 60px;
+    padding-left: 60px;
 	}
 
-	// .logo {
-	// 	height:100%;
-	// 	width:100%;
-	// }
+	&.lg {
+		height: 128px !important;
+		width: 128px !important;
+		background-size: 128px 128px;
+		background-position: 0px 0px;
+	}
 
-	#player-0 {
-		background: $player-one-logo;
-		background-size: contain;
+	&#player-0 {
+		background-image : $player-one-logo;
 	}
-	#player-1 {
-		background: $player-two-logo;
-		background-size: contain;
+	&#player-1 {
+		background-image : $player-two-logo;
 	}
-	#player-2 {
-		background: $player-three-logo;
-		background-size: contain;
+	&#player-2 {
+		background-image : $player-three-logo;
 	}
-	#player-3 {
-		background: $player-four-logo;
-		background-size: contain;
+	&#player-3 {
+		background-image : $player-four-logo;
 	}
-	#player-4 {
-		background: $player-five-logo;
-		background-size: contain;
+	&#player-4 {
+		background-image : $player-five-logo;
+	}
+}
+
+// Default button shadow and margin
+.btn { 
+	@include box-shadow(0px, 7px, 0px, darken($background-color, 10%));
+	margin-bottom: 7px;
+
+	&:hover, &:focus, &:visited {
+		@include box-shadow(0px, 7px, 0px, darken($background-color, 10%));
+		// margin-bottom: 7px;
+		cursor: pointer;
+		color: white;
+	}
+
+	color: white;
+	border: 0px;
+	border-radius: 0px;
+	height:48px;
+	// width: 160px;
+	padding:0px;
+	font-size: 24px;
+	margin-bottom: 10%;
+	margin-top: 5%;
+	font-family: AvenirNext-Bold;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: 0px;
+  text-align: center;
+
+	width: 80%;
+
+	&#btn_yes {
+		background-color: $blue-light;
+		// border-bottom: 4px solid $dark-sky-blue;
+	}
+	&#btn_no {
+		background-color: $sunflower;
+		// border-bottom: 4px solid $tangerine;
 	}
 
 }
 
-#players {
-	height: 344px;
-  border-radius: 5px;
-  box-shadow: 0 0 4px 0 rgba(85, 85, 85, 0.25);
-  border: solid 1px #ebebeb;
+.header {
+	font-size: 24px;
+	font-family: $aileron;
+	text-align: center;
+	margin: 0px;
 }
+.subtitle {
+	font-size: 12px;
+	font-family: $avenir-reg;
+	text-align: center;
+	margin: 0px;
+}
+.caption {
+	font-family: $avenir-reg;
+	font-size: 12px;
+}
+.white {
+	color: white;
+}
+.light {
+	line-height: normal;
+}
+
+// Highlight/glow for any block element
+@include keyframes(highlight-pulse) {
+  0%   {box-shadow: 0 0 15px 10px $color-orange}
+	60%  {box-shadow: 0 0 0px 0px $color-orange}
+	100% {box-shadow: 0 0 15px 10px $color-orange}
+}
+.highlight {
+	@include animation('highlight-pulse 3s infinite');
+}
+
 
 .form {
-	&.decider, &#decider, &#decider-controls {
+	&#decider, &#decider-controls {
 		position: absolute;
 		bottom: 0px;
 		width: 100%;
@@ -256,7 +180,22 @@
 			margin: 0px;
 			position: absolute;
 			bottom: 0px;
-			background-color: $color-seafoam;
+			background-color: $turquoise-dark;
+		}
+
+		.next-step {
+			background-color: $turquoise-dark;
+			color: white;
+			border-radius: 5px;
+		  box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
+		  border: solid 1px #ebebeb;
+		  width: 112px;
+		  height: 24px;
+		}
+
+		#btn-next {
+			background-color: transparent;
+			border: 0px;
 		}
 
 		@at-root .form {
@@ -266,144 +205,14 @@
 	}
 }
 
-// LOGIN
-#begin {
-	height:100%;
-	.form {
-		padding: 7px;
-	}
-	&.wait {
-		#login-header {
-			display: none;
-		}
-	}
-}
-
-#login-header {
-
-	padding-top:0px;
-	margin-top: -30px;
-
-	img {
-		height: 136px;
-		width: 287px;
-		padding: 10px;
-		margin-top: 16px;
-	}
-
-	p {
-		color: white;
-		width: 80%;
-		margin-left: 10%;
-		font-size: 12px;
-	}
-
-}
-	// CONTENT SELECTION
-	.submission {
-
-		.form {
-			color: white;
-		}
-
-		#decks {
-			width: 100%;
-
-			button {
-				// width: 100%;
-				// background-color: white;
-				color: $color-turquoise;
-				margin: 5px 0px;
-				padding: 5px;
-			}
-
-			.glide__bullets {
-
-				bottom: auto;
-				height: auto;
-				position: relative;
-
-			}
-				
-			.glide__slide {
-		    // background: white;
-				.deck {
-			    font-size: small;
-			    background-color: white;
-			    color: black;
-			    margin: 1%;
-			    display: inline-block;
-				}
-			}
-			
-			.glide--horizontal {
-				.glide__arrows {
-			    top: 22%;
-			  }
-			}
-		}
-}
-
-
 input.post-button {
 	position: fixed;
 	bottom: 0px;
 	left: 0px;
 	width: 100%;
 	margin-bottom: 0px;
-	background-color: $color-seafoam;
+	background-color: $turquoise-dark;
 	z-index: 1000;
-}
-
-#share_code {
-	text-align: center;
-  color: #ebebeb;
-  margin-top: -30px;
-
-	h1 {
-	  font-size: 24px;
-	  width: 100%;
-	}
-	p {
-		font-size: 12px;
-	  
-	}
-}
-
-.waiting {
-	width: 100%;
-	padding: 0px;
-
-	.access-code {
-		width: 160px;
-	  height: 56px;
-	  font-size: 56px;
-	  color: #0098d0;
-	  border: 1px #ebebeb dashed;
-	  margin: 10px auto;
-	}
-	p {
-		font-size: 16px;
-	}
-}
-
-#btn_submit {
-	color: white;
-	background-color: $color-seafoam;
-	width: 100%;
-}
-
-#access-code {
-	font-size: 56px; 
-}
-
-// BOTTOM BAR (COINS, NEXT)
-footer#bottom-bar {
-	background-color: $color-seafoam;
-	font-size: large;
-	width: 100%;
-	bottom: 0px;
-	position: absolute;
 }
 
 .ended-container {
@@ -413,10 +222,6 @@ footer#bottom-bar {
 
 .winner {
 	background-color: white;
-}
-
-.role, .agenda_item {
-	display: none;
 }
 
 // HIDE ANY DECIDER-ONLY VIEWS BY DEFAULT
@@ -432,19 +237,369 @@ footer#bottom-bar {
 
 // Add background to any "read out loud" decider instructions
 .read {
-	background: $player-blue;
+	background: $blue-dark;
 	padding: 10px;
 	color: white;
 }
 
-// GAME
-.player-bio {
+// Timer Animation
+.timer_wrap {
+	font-size: 36px;
+
+	svg {
+		width: 60% !important;
+		margin: 20px auto;
+		
+	}
+}
+
+// Upper stages bar
+#stages-bar {
+	z-index: 1000;
+	display: none;
+	background-color: $background-color;
+	text-align: justify;
+  line-height: 0;
+  top: 0px;
+  height: 50px;
+  padding-top:20px;
+  padding-left:5px;
+  padding-right:5px;
+
+  &:after {
+	  content: "";
+	  width: 100%;
+	  display: inline-block;
+	  vertical-align: bottom;
+  }
+
+  .icon {
+    position: relative;
+	  display: inline-table;
+	  vertical-align: middle;
+		z-index: 1;
+		text-align:center;
+
+		img {
+			display: block;
+	    margin: auto;
+			width: 34px;
+			height: 34px;
+		}
+
+		&:nth-child(1) {
+			margin-left: 10px;
+		}
+		&:nth-child(7) {
+			margin-right: 10px;
+		}
+
+		span {
+			display: flex;
+			color: $turquoise-dark;
+	    margin-top: 20%;
+	    font-size: 15px;
+	    font-family: 'AvenirNext-Bold';
+		}
+
+		img {
+			display: block;
+	    margin: auto;
+	    height: 100%;
+	    width: 100%;
+		}
+
+		&.disabled {
+			@include scale(.7);
+			@include filter(grayscale, 100%);
+			animation-name: exit-stage;
+			animation-duration: 1s;
+			animation-fill-mode: forwards;
+			span {
+				display: none;
+			}
+		}
+		&:not(.disabled) {
+			animation-name: enter-stage;
+			animation-duration: 1s;
+			animation-fill-mode: forwards;
+
+			span {
+				font-weight: 800;
+			}
+		}
+
+  }
+  
+	.phase-path {
+    position: absolute;
+    display: block;
+		z-index: 0;
+    height: 5px;
+    width: 95%;
+    top: 68%;
+    left: 10px;
+    &:after {
+    	content: "";
+    }
+
+    &#fill {
+	    background-color: #66F6DE;
+	    @include box-shadow(1px, 3px, 3px, #53CDB2);
+    }
+		&#progress {
+	    width: 0%;
+	    background-color: white;
+	    @include linear_transition(width, 0.5s);
+		}
+	}
+}
+
+// More Time Card/Pitch Choice
+.inner-modal {
+	position: relative;
+	text-align:center;
 	height: 100%;
 	width: 100%;
+	left: 0px;
+	top: 0px;
+	background-color: $greyish-brown-70;
 
-	.room-container {
+	h1 {
+		font-family: $avenir-reg;
+		font-size: 20px;
+
+		strong {
+			font-family: $header-type;
+		}
+	}
+
+	h2 {
+		font-family: $body-type;
+		font-size: 16px;
+
+		color: $light-greenish-blue;
+	}
+
+	&#more-time-wrapper {
+
+		#btn-more-time {
+			line-height: 50px;
+			background-color: $blue-light;
+			background-size: 50px 50px;
+			background-position: 3px center;
+			background-repeat: no-repeat;
+			background-image: url("http://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin_stroke.png");
+
+			.coins {
+		    position: relative;
+				float: left;   
+				padding-left: 16px;
+				font-size: 16px;
+			}
+		}
+		#btn-empty {
+			background-color: darken($blue-light, 30%);
+			@include box-shadow(0px, 7px, 0px, darken($background-color, 10%));
+		}
+		#btn-cancel {
+			background-color: $sunflower;
+		}
 
 	}
+
+	&.winner {
+
+		h1:not(.coins) {
+			font-size: 32px;
+			font-family: $body-type;
+			@include text-shadow(0, 2px, 2px, rgba(0, 0, 0, 0.24));
+		}
+
+		h2 {
+			font-family: $header-type;
+			font-size: 20px;
+
+			color: $tiffany-blue;
+		}
+	
+	}
+
+	&.agenda_item {
+
+		display: none;
+	
+		h2 {
+			font-family: $header-type;
+			font-size: 16px;
+			color: white;
+
+			.item {
+				color: $light-greenish-blue;
+			}
+		}
+
+	}
+
+	.coins {
+    position: relative;
+		float: left;   
+		margin-top: 10%;
+		font-size: 16px;
+	}
+	
+	.inner {
+
+		position: relative;
+	  height: 60%;
+	  width: 90%;
+	  top: 60px;
+	  left: 5%;
+	  background-color: $turquoise-dark;
+		border: white 3px solid;
+		color: white;
+
+		.player-logo {
+
+			margin: 10px auto;
+			height: 60px;
+			border-radius: 30px;
+
+			&#btn-more-time {
+				background-color: $color-red;
+				background-size: 50px 50px;
+				background-position: 3px center;
+				background-repeat: no-repeat;
+				background-image: url("http://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin_stroke.png");
+			}
+			&#btn-cancel {
+				background-color: $orange-dark;
+			}
+
+		}
+		
+		.player-box {
+
+			width: 96%;
+			border-radius: 0px;
+			padding-left: 12%;
+			font-size: 20px;
+			font-family: $header-type;
+			margin: 10px auto;
+			height: 60px;
+
+			background-color: $aquamarine;
+
+			&#reward-icon {
+				.coins {
+					margin-top: -1%;
+					padding-top: 7%;
+					width: 64px;
+					height: 64px;
+					background-repeat: no-repeat;
+					background-image: url("http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,w_64/v1490979430/at-stake/layout/icon-yourcoins.svg");
+				}
+			}
+
+			h1 {
+				color: white;
+				margin: 0;
+				font-size: 20px;
+				font-family: $header-type;
+				text-shadow: none;
+			}
+			h2 {
+				color: $tiffany-blue;
+				line-height: 0;
+				font-size: 16px;
+				font-family: $header-type;
+			}
+
+			.info {
+		    position: relative;
+		    float: right;
+		    left: -13%;
+			}
+		
+		}
+
+	}
+}
+
+// Player role card
+#role-card {
+	position: absolute;
+	color: white !important;
+	text-align: center; 
+	display: none;
+	width: auto;
+	height: -webkit-calc(100% - 8px);
+  height:    -moz-calc(100% - 8px);
+  height:         calc(100% - 8px);
+  margin: 8px;
+  margin-bottom: 0px;
+  background: $color-red;
+  border-radius: 0px;
+  border: 3px white solid;
+  border-bottom: 0px;
+  z-index: 3000;
+  @include gradient-vertical($orange-dark, $white, 30%, 30%);
+  top:0px;
+
+  .swipe {
+  	margin-bottom: 20px;
+  }
+  .instruction {
+  	font-size:12px;
+  	font-family: $avenir-reg;
+  }
+  .icon {
+  	margin: 20px;
+  }
+
+  .role-info {
+  	color:$orange-dark;
+  	margin: 40px -15px;
+  	padding-bottom: 20px;
+
+  	.title {
+  		font-size: 18px;
+  	}
+  	
+  	p {
+  		text-align: left;
+  		color:$orange-dark;
+  		display:inline;
+  	}
+  }
+  .agenda-wrap {
+  	color: $orange-dark;
+  }
+  .agenda-item {
+  	border-radius: 100px;
+  	background-color: $orange-light;
+  	margin: 10px;
+  	color: white;
+
+  	.value {
+	  	height: 60px;
+	  	width: 60px;
+	  	line-height: 60px;
+	  	display: inline-block;
+	  	float: left;
+	    background-size: 54px 54px;
+	    background-position: 3px 3px;
+	  	// background-size: cover;
+	  	background-repeat: no-repeat;
+	  	background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/coin_stroke.png");
+	  }
+	  .agenda {
+	  	height: 60px;
+	  	line-height:60px;
+	  	display:inline-block;
+	  }
+  }
+  
 }
 
 #rules {
@@ -452,5 +607,278 @@ footer#bottom-bar {
 	.screen {
 		// These are hidden by default
 		display: none;
+	}
+}
+
+.rules-screen {
+	min-height: 400px;
+	.main-rule {
+		font-family: AvenirNext;
+	  font-size: 16px;
+	  font-weight: bold;
+	  line-height: 1;
+	  letter-spacing: 0px;
+	  color: #fafafa;
+	}
+	.secondary-rule {
+		font-family: AvenirNext;
+	  font-size: 16px;
+	  letter-spacing: -0.7px;
+	  color: #ebebeb;
+	}
+	.next-step {
+		background: transparent;
+		border: 0px;
+		color: white;
+		position: absolute;
+		right: 20%;
+		bottom: 40%;
+	}
+}
+
+// Screen instructions
+.instruction {
+	font-size:16px;
+	height: 72px;
+	font-family: AvenirNext;
+
+	h1 {
+		font-size: 16px;
+		line-height: 1.5;
+		font-weight: bold;
+		font-family: AvenirNext-Bold;
+	}
+
+	.rules-image {
+		height: 180px;
+		img {
+			height:180px;
+		}
+	}
+
+  // Inactive player - hide this bubble
+  &.hiding {
+  	display: none;
+  }
+}
+
+// Speech bubbles
+blockquote.speech {
+    position: relative;
+    text-align: justify;
+    width: 90%;
+    height: 287px;
+    padding: 50px 30px;
+    margin: 1em 0 0;
+    margin-left: 5%;
+    z-index: 1000;
+    color: white;
+    border-left: none;
+    background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1490215786/at-stake/layout/speech-bg.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position:center;
+    p {
+    	color: white;
+    	line-height: 1.5;
+    	font-family: $avenir-reg;
+    }
+
+    // Inactive player - hide this bubble
+    &.hiding {
+    	display: none;
+    }
+
+}
+.speech {
+
+  // "Next buttons"
+  button {
+    position: absolute;
+    color: $pink-red;
+    display: flex;
+    background: none;
+    border: none;
+    right: 11%;
+    bottom: 75px;
+  	font-family: "AvenirNext-Bold";
+	  &.timer {
+	  	&:before {
+			  left: 103px;
+			}
+	  }
+  	&:before {
+  		position: absolute;
+  		content: "";
+			bottom: 6px;
+	    left: 48px;
+	    width: 0;
+	    height: 0;
+	    border-left: 8px solid $pink-red;
+	    border-top: 5px solid transparent;
+	    border-bottom: 5px solid transparent;
+	  }
+
+  }
+}
+
+// Scoreboard 
+#scoreboard {
+
+	#ranking {
+		background-color: $turquoise-dark;
+		padding: 3%;
+
+    display: -webkit-flex; /* Safari */
+    display: flex;
+
+    flex-direction: column;
+
+	}
+		
+	.player-logo {
+
+		width: 96%;
+		border-radius: 0px;
+		font-size: 20px;
+		font-family: $header-type;
+		margin: 10px auto;
+		height: 60px;
+
+    background-position: 72px 6px;
+    background-size: 48px 48px;
+
+    .rank {
+    	float: left;
+    	margin-top: -1%;
+    	padding-top: 7%;
+    	width: 64px;
+    	height: 64px;
+    	font-family: $body-type;
+			color: $grey-white;
+
+			&.current {
+				display: none;
+			}
+    }
+
+		.coins {
+			float: left;
+			font-size: 24px;
+			margin-top: -1%;
+			padding-top: 12%;
+			width: 64px;
+			height: 64px;
+			color: $color-white;
+
+			&.delta {
+				display: none;
+
+				&.negative {
+					color: $color-pink;
+					@include text-shadow(0, 1px, 0, $pink-light)
+				}
+				&.positive {
+					color: $tiffany-blue;
+					@include text-shadow(0, 1px, 0, $turquoise-dark);
+				}
+			}
+			&.current {
+				display: none;
+			}
+		}
+
+		h1 {
+			color: $color-white;
+			margin: 0;
+			font-size: 20px;
+			font-family: $header-type;
+			text-shadow: none;
+		}
+		h2 {
+			color: $color-white;
+			font-size: 16px;
+			font-family: $body-type;
+		}
+	
+	}
+}
+
+// BOTTOM BAR (COINS, NEXT)
+footer#bottom-bar {
+	font-size: large;
+	width: 100%;
+	bottom: 0px;
+	left: 0px;
+	position: absolute;
+	padding-top: 5px;
+	max-width: 425px;
+	z-index: 1000;
+
+	#currency {
+		text-align:right;
+		height:100%;
+		min-height: 100px;
+		
+		div {
+			display: inline-block;
+			text-align: center;
+		}
+		p {
+			font-size: 12px;
+			margin: 0px;
+			text-align: center;
+			color: white;
+			padding-bottom: 45px;
+			padding-top: 10px;
+		}
+		img {
+			height: 60px;
+			width: 60px;
+		}
+
+		span {
+			color: white;
+			font-family: AvenirNext-Medium;
+	  }
+		#player-coins {
+			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/coin_stroke.png');
+			height: 100px;
+			width: 60px;
+	    background-repeat: no-repeat;
+	    background-size: 50px 50px;
+	    background-position: center;
+		}
+		#pot-coins {
+			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/pot_stroke.png');
+			height: 100px;
+			width: 60px;
+	    background-repeat: no-repeat;
+	    background-size: 50px 50px;
+	    background-position: center;
+		}
+
+	}
+
+	button {
+		margin: 5px;
+		color: white;
+		width: 140px;
+	  height: 36px;
+	  padding-left: 2em;
+	  border-radius: 0px;
+	  text-align: right;
+  	background-repeat: no-repeat;
+	  box-shadow: 0px;
+	  border: 0px;
+
+	  &#btn-role-card {
+	  	background-image: url('/images/layout/rolecard-icon.svg');
+	  	background-color: $orange-dark;
+	  }
+	  &#btn-menu {
+	  	background-image: url('/images/layout/menu-icon.jpg');
+	  	background-color: $orange-light;
+	  }
 	}
 }

@@ -1,0 +1,87 @@
+{{!-- 
+
+* COMPONENT: Choice Box 
+* @param {Bool} active_player - Show this choice dialog only for active player?
+
+--}}
+
+{{!-- Decide phase --}}
+{{#ifeq pitches true}}
+
+	{{#ifeq decider true}} 
+
+		<div class="modal inner-modal {{showHide this}}">
+			<div class="form decider inner">
+				<h1>Choose the player who had the <strong>best</strong> proposal</h1>
+
+				{{#each players}}
+			    <button id="player-{{icon}}" class="post-button submit player-box player-logo btn" data-event="game:proposal_selected" data-package='{{uid}}' data-keep_enabled="true" data-autohide="true" type="submit" name="submit">
+				    <div class="coins">{{coins}}</div>
+					  <div class="info">
+						  <h1>{{username}}</h1>
+					    <h2>{{role.title}}</h2>
+				    </div>
+				  </button>
+				{{/each}}
+			</div>
+		</div>
+
+	{{else}}
+
+		<div class="modal inner-modal {{showHide this}}">
+			<div class="inner">
+				<h1>The decider is about to choose a winning proposal</h1>
+				<h2>Whoever wins receive all the coins in the coin pot!</h2>
+
+				{{#each players}}
+			    <div id="player-{{icon}}" class="post-button submit player-box player-logo btn">
+				    <div class="coins">{{coins}}</div>
+					  <div class="info">
+						  <h1>{{username}}</h1>
+					    <h2>{{role.title}}</h2>
+				    </div>
+				  </div>
+				{{/each}}
+		  </div>
+		</div>
+
+	{{/ifeq}}
+
+  <span id="modifier" class="hidden-el" data-inner_modal="true"></span>
+
+{{!-- Pitch phase --}}
+{{else}}
+
+{{{jsonPrint active_player}}}
+
+	{{#ifeq active_player true}}
+
+		<div id="more-time-wrapper" class="{{showHide this}} inner-modal modal" data-clone="true">
+			<div class="form choice inner pitch-box" id="more-time">
+			  <h1>Pay <strong>{{config.extraTimeCost}} coins</strong> to the pot continue pitching?</h1>
+			  <h2>Recieve an additional {{config.extraSeconds}} seconds to continue pitching your proposal.</h2>
+			  <button id="btn-more-time" data-event="game:more_time" data-keep_enabled="true" data-package="{{player.uid}}" class="post-button submit btn" type="submit" name="submit">
+			    <div class="coins">{{config.extraTimeCost}}</div>
+			    Buy more time
+		    </button>
+			  <button id="btn-empty" class="post-button submit btn" type="submit" name="submit" disabled="disabled">
+			    Out of coins!
+		    </button>
+			  <button id="btn-cancel" data-event="game:turn_done" class="post-button submit btn" type="submit" name="submit">No thanks!</button>
+			</div>
+		</div>
+
+	{{else}}
+
+		<div id="more-time-wrapper" class="{{showHide this}} modal inner-modal" data-clone="true">
+			<div class="inner">
+				<div id="player-{{activePlayer.index}}" class="player-logo lg">
+			  </div>
+				<h1>Waiting for (playername)</h1>
+				<h2>(playername) is deciding if they want to buy more time. Hang tight!</h2>
+		  </div>
+		</div>
+
+	{{/ifeq}}
+
+{{/ifeq}}

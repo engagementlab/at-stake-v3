@@ -1,31 +1,41 @@
-<div class="row room-container">
+<div id="scoreboard">
 
-  	{{!-- END OF GAME --}}
-  	{{#ifeq round 3}}
+	{{!-- INITIAL --}}
+	<div class="screen initial" data-animation="scoreboard">
 
-			<h3>"End of the game! The final scores are:"</h3>
+		<h3>At the end of round {{round}} the scores are:</h3>
 
-			<ul>
+		<section id="ranking">
+
+	  	{{!-- END OF GAME --}}
+	  	{{#ifeq round 3}}
+			{{!-- END OF ROUND --}}
+	  	{{else}}
+					
 				{{#each players}}
-					<li>{{username}}: {{coins.current}}</li>
+
+					<div id="player-{{icon}}" class="player-logo" data-rank="{{rank}}">
+						<div class="rank starting">{{ordinalPosition @index}}</div>
+						<div class="rank current">{{ordinalPosition rank}}</div>
+				    <div class="coins starting">{{coins.starting}}</div>
+				    <div class="coins delta {{numSign coins.delta}}" style="background-image:url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1490979430/at-stake/layout/icon-yourcoins.svg')">{{coins.delta}}</div>
+				    <div class="coins current">{{coins.current}}</div>
+					  <div class="info">
+						  <h1>{{lowerCase username}}</h1>
+					    <h2>{{lowerCase role.title}}</h2>
+				    </div>
+				  </div>
+
 				{{/each}}
-			</ul>
 
-		{{!-- END OF ROUND --}}
-  	{{else}}
+			{{/ifeq}}
 
-			<h3>"At the end of round {{round}} the scores are:"</h3>
+		</section>
 
-			<ul>
-				{{#each players}}
-					<li>{{username}}: Starting - {{coins.starting}}, Ending - {{coins.current}}</li>
-				{{/each}}
-			</ul>
+		<div class="form decider speech">
+	    <button class="next-step submit hidden-el" data-event="game:next_round">next round</button>
+		</div>
 
-		{{/ifeq}}
-
-<div class="form row" id="decider">
-    <input id="btn-next" data-event="game:next_round" class="submit" type="submit" name="submit" value="next round">
 	</div>
 
 </div>

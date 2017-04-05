@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/mobile/rolecard_icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="12" cy="12" r="12"></circle>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Button-/-mobile-/-new-/-Aidan_rolecardbutton" transform="translate(-8.000000, -4.000000)">
+            <g id="Aidan_rolecardbutton">
+                <g id="icon-/-mobile-/-rolecard_icon" transform="translate(8.000000, 4.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="rolecard_icon" fill="#FAFAFA" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <path d="M12.2,14 C16.728,14 20.4,19.113 20.4,25.42 C20.4,31.727 16.729,36.839 12.2,36.839 C7.671,36.839 4,31.727 4,25.42 C4,19.113 7.672,14 12.2,14 Z" id="Shape" fill="#FF9600" fill-rule="evenodd" mask="url(#mask-2)"></path>
+                    <path d="M8.49532332,13.4523278 L16.4453233,12.4593278 L15.9453233,9.48032785 L17.9333233,8.98032785 C17.9333233,8.98032785 16.5823233,1.47432785 11.9703233,2.02932785 C6.07032332,2.73932785 8.49232332,13.4483278 8.49232332,13.4483278" id="Shape" fill="#FF9600" fill-rule="evenodd" mask="url(#mask-2)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

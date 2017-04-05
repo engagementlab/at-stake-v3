@@ -1,16 +1,62 @@
 // Images
 $background-main: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/background_tileable.png);
-$player-one-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743670/at-stake/yellow_avatar.png);
-$player-two-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743596/at-stake/avatar_green.png);
-$player-three-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743592/at-stake/avatar_pink.png);
-$player-four-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743590/at-stake/avatar_red.png);
-$player-five-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743594/at-stake/avatar_orange.png);
+$player-one-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743670/at-stake/playericons/player-1.png);
+$player-two-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743596/at-stake/playericons/avatar_green.png);
+$player-three-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743592/at-stake/playericons/avatar_pink.png);
+$player-four-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743590/at-stake/playericons/avatar_red.png);
+$player-five-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743594/at-stake/playericons/avatar_orange.png);
 
+/* COLORS */
 
-// Colors
-$primary-color: #333;
+// Turquoise
+$color-turquoise: #00dcba; // Background color
+$turquoise-dark: #00c2a9; 
+$turquoise-light: #61f5de;
+$light-greenish-blue: #56f6d6;
+
+// Blue
+$color-blue: #20b5e6;
+$blue-dark: #0098d0;
+$blue-light: #56d5ff;
+$tiffany-blue: #61f5de;
+$dark-sky-blue: #20b5e6;
+
+// Red
+$color-red: #ff4700;
+$red-dark: #ff3000;
+$red-light: #ff8c53;
+
+// Orange
+$color-orange: #ff9600;
+$orange-dark: #ff7800;
+$orange-light: #ffbe0f;
+$sunflower: #ffbe0f;
+$tangerine: #ff9600;
+
+// Pink 
+$color-pink: #ff115a;
+$pink-dark: #e90048;
+$pink-light: #ff3d6b;
+
+// Grey/White
+$grey-white: #d8d8d8;
+$color-grey: #555555;
+$grey-dark: #949494;
+$color-white: #ebebeb; 
+$greyish-brown-70: rgba(85, 85, 85, 0.7);
+
+// Game
 $logo-color: #00c5c2;
-$color-turquoise: #1EB4BB;
+$action-button: #555555;
+$background-color: $color-turquoise;
+
+// Heights
+$nav-height: 50px;
+$nav-height-thin: 25px;
+
+/* HOMEPAGE */
+
+// $color-turquoise: #1EB4BB;
 $color-seafoam: #00D6B4;
 $color-orange: #febb2c;
 $color-pink: #fd2c76;
@@ -23,23 +69,9 @@ $light-blue: #57e2ff;
 $dark-blue: #20b5e6;
 $type-blue: #006f93;
 $white: #ffffff;
-
-// Player One
-$player-blue: #35AFD2;
-$player-blue-tint: #85CFE6;
-// Player Two
-$player-green: #3EB7A1;
-$player-green-tint: #85D3C5;
-// Player Three 
-$player-pink: #B84B88;
-$player-pink-tint: #D493B8;
-// Player Four
-$player-red: #B84D3D;
-$player-red-tint: #D49589;
-// Player Five
-$player-purple: #B048E7;
-$player-purple-tint: #D090EF; 
-
-// Heights
-$nav-height: 50px;
-$nav-height-thin: 25px;
+$light-gold: #ffd461;
+$aquamarine: #00dcba;
+$blue-violet: #5c00d6;
+$pumpkin-orange: #ff7800;
+$pink-red: #e90048;
+$cerulean: #0098d0;

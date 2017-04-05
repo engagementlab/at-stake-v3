@@ -10,57 +10,52 @@
  *
  * ==========
  */
+'use strict';
 
+const appRoot = require('app-root-path'),
+      logger = require('winston'),
+      colors = require('colors'),
 
-var appRoot = require('app-root-path'),
-    logger = require('winston'),
-    colors = require('colors'),
+      TemplateLoader = require(appRoot + '/lib/TemplateLoader'),
+      Session = require('learning-games-core').SessionManager,
+      Common = require(appRoot + '/lib/Common');
 
-    TemplateLoader = require(appRoot + '/lib/TemplateLoader'),
-    Session = require('learning-games-core').SessionManager,
-    Common = require(appRoot + '/lib/Common');
+const PlayerLogin = function(nsp, socket, emitter) {
 
-var PlayerLogin = function (nsp, socket, emitter) {
+  const Templates = new TemplateLoader();
 
-  var Templates = new TemplateLoader();
-
-  var currentSpace;
-  var currentSocket;
+  const currentSpace = nsp;
+  const currentSocket = socket;
 
   var playerGameId;
-
-  currentSpace = nsp;
-  currentSocket = socket;
 
   // Expose handler methods for events
   this.handler = {
 
-    room: function(package) {
+    room: (payload) => {
 
-      if(package.gameId === null) {
-        console.warn('gameId missing for socket ID "' + currentSocket.id + '"!');
+      if(!payload.gameId)
         return;
-      }
 
-      playerGameId = package.gameId;
+      playerGameId = payload.gameId;
 
       if(!Session.Get(playerGameId)) {
         currentSocket.emit('game:notfound');
         return;
       }
   
-      currentSocket.join(package.gameId, function(err) {
+      currentSocket.join(payload.gameId, function(err) {
 
         if(err)
           throw err;
       });
 
       // Decider registration
-      if(package.msgData.type === 'decider' && Session.Get(playerGameId)) {
+      if(payload.msgData.type === 'decider' && Session.Get(playerGameId)) {
 
-        var player = {socket_id: currentSocket.id, username: package.msgData.username, uid: package.msgData.uid};
+        var player = {socket_id: currentSocket.id, username: payload.msgData.username, uid: payload.msgData.uid};
 
-        Session.GroupView(package.gameId, currentSocket.id);
+        Session.GroupView(payload.gameId, currentSocket.id);
         Session.Get(playerGameId).ModeratorJoin(currentSpace, player);
       }
         
@@ -68,12 +63,12 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
     },
     
-    'login:submit': function(package) {
+    'login:submit': (payload) => {
 
-      var player = {socket_id: currentSocket.id, username: package.msgData.username, uid: package.msgData.uid};
+      var player = {socket_id: currentSocket.id, username: payload.msgData.username, uid: payload.msgData.uid};
 
       // Mark player as ready inside game session
-      Session.Get(package.gameId).PlayerReady(
+      Session.Get(payload.gameId).PlayerReady(
                                               player,
                                               currentSpace,
                                               false);
@@ -81,65 +76,59 @@ var PlayerLogin = function (nsp, socket, emitter) {
       logger.info(player.username  + ' logged in.');
       
       // Advance player to waiting screen
-      Templates.Load('partials/player/waiting', undefined, function(html) {
         var data = {
-                    id: currentSocket.id,
-                    html: html
+                    code: payload.gameId,
+                    id: currentSocket.id
                    };
 
         currentSocket.emit('player:loggedin', data);
-      });
 
-      // Send player's id (debugging)
-      // currentSocket.emit('player:id', );
-      
     },
     
-    'login:active': function(package) {
+    'login:active': (payload) => {
 
-      if(!Session.Get(package.gameId))
-        return;
-
-      logger.info('login:active', 'Checking if player "' + package.uid + '" is active.');
-
-      // See if this player is still marked as active inside game session
-      console.log(Session.Get(package.gameId).PlayerIsActive(package.uid) + " okay");
-      if(Session.Get(package.gameId).PlayerIsActive(package.uid)) {
-
-        var player = {socket_id: currentSocket.id, username: package.username, uid: package.uid};
-
-        // Set client to reconnected state
-        currentSocket.emit('player:reconnected', true);
-
-        // Mark player as ready inside game session
-        Session.Get(package.gameId).PlayerReady(
-                                                player,
-                                                currentSocket,
-                                                package.decider);
-
-      }
-      else {
-        logger.info('login:active', 'Player "' + package.uid + '" not active.');
-      }
-      
-    },
-
-
-    disconnect: function(package) {
-
-      var session = Session.Get(playerGameId);
+      let session = Session.Get(payload.gameId);
 
       if(!session)
         return;
 
-      var isGroup = (currentSocket.id === session.groupModerator);
+      if(!session.GameInSession()) {
+        currentSocket.emit('game:notfound');
+        return;
+      }
+
+      // See if this player is still marked as active inside game session
+      if(session.PlayerIsActive(payload.uid)) {
+
+        var player = {socket_id: currentSocket.id, username: payload.username, uid: payload.uid};
+        
+        // Mark player as ready inside game session
+        session.PlayerReady(
+                            player,
+                            currentSocket,
+                            payload.decider);
+
+      }
+      else {
+        logger.info('login:active', 'Player "' + payload.uid + '" not active.');
+      }
+      
+    },
+
+    disconnect: (payload) => {
+
+      let session = Session.Get(playerGameId);
+
+      if(!session)
+        return;
+
+      let isGroup = (currentSocket.id === session.groupModerator);
 
       if(isGroup)
         logger.info(playerGameId + " group view disconnecting. Bu-bye.");
-
       else {
 
-        var player = session.GetPlayerById(currentSocket.id);
+        let player = session.GetPlayerById(currentSocket.id);
 
         if(player)
           logger.info("Player '" + player.username + "' disconnecting. Nooooo!");
@@ -148,10 +137,10 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
       if(playerGameId && session) {
 
-        if(currentSocket.id === session.groupModerator)
-          session.End(currentSpace, true);
-        else
-          session.PlayerLost(currentSocket.id);
+        // if(currentSocket.id === session.groupModerator)
+        //   session.End(currentSpace, false);
+        // else
+          session.PlayerLost(currentSocket.id, currentSocket);
 
       }
     }

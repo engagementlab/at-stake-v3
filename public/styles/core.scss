@@ -1,20 +1,53 @@
+@import "_core/media";
 @import "_core/fonts";
 @import "_core/variables";
 @import "_core/mixins";
 @import "_core/functions";
 @import "_core/forms";
+@import "_core/lobby";
 @import "_core/playerview";
 @import "_core/comingsoon";
 @import "_core/homepage";
-@import "_core/media";
+@import "_core/animations";
 
 html, body {
+	
 	max-height: 100%;
 	height:100%;
+	line-height:1 !important;
+	font-size:100%;
+	
+	// @include gradient-vertical($background-color, $turquoise-dark, 55%, 45%);
+
 }
 
 #wrapper {
+	@include box-shadow(0px, 0px, 37px, black);
 	height:100%;
+	// overflow:hidden;
+}
+	
+.error-modal {
+	background-color: rgba(254, 120, 70, 0.9);
+	color: white;
+}
+
+// remove default button and input states
+button, input {
+	&:hover, &:focus, &:visited, &:active {
+		outline: none;
+		border: 0px;
+		box-shadow: none;
+	}
+}
+
+.regular-font {
+	font-size:12px;
+
+}
+
+.medium-font {
+	font-size: 16px;
 }
 
 .text.centered {
@@ -67,6 +100,7 @@ html, body {
   z-index: 1999;
   top: 0;
 	left: 0;
+	text-align:center;
 
   // Tutorial modal
   .tutorial {

@@ -49,7 +49,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, WKSc
         #if DEVELOPMENT
         let urlString = "http://127.0.0.1:3000/play/mobile"
         #else
-        let urlString = "https://qa.atstakegame.com/play/mobile"
+        let urlString = "https://qa.atstakegame.org/play/mobile"
         #endif
         
         guard let url = NSURL(string: urlString) else {return}
@@ -88,7 +88,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, WKSc
         )
         webView.navigationDelegate = self
         webView.translatesAutoresizingMaskIntoConstraints = false
-        webView.isHidden = true
+//        webView.isHidden = true
         
         view.addSubview(webView)
         

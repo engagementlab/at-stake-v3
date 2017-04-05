@@ -1,3 +1,4 @@
+
 {{!< default}}
 {{!-- 
 /**
@@ -10,33 +11,152 @@
  */
 --}}
 
-var clockInterval;
-var playerWasReconnected;
-var startAnim = new TimelineLite({paused: true}).fromTo($('#btn-start-game'), 1, {scale:0, autoAlpha:0}, {scale:1, autoAlpha:1, visibility:'visible', ease:Elastic.easeOut});
+var clockInterval,
+    timeoutClock,
+    countdownAnim,
+    countdownPaused,
+    playerWasReconnected,
+    startAnim = new TimelineLite({paused: true}).fromTo($('#btn-start-game'), 1, {scale:0, autoAlpha:0}, {scale:1, autoAlpha:1, visibility:'visible', ease:Elastic.easeOut});
 
 // If true, screen doesn't advance right away via 'game:next',
 // it is saved in nextScreenData and advanced to later
-var waitForNextScreen = false;
-var nextScreenData;
+var waitForNextScreen = false,
+    nextScreenData;
 
 var resetSession = function() {
 
-    // Remove saved game code, submission, and set to not reconnected
+    // Remove saved game code, uid, markup, and set to not reconnected
     sessionStorage.removeItem('gameCode');
-    {{!-- sessionStorage.removeItem('playerSubmission'); --}}
-    {{!-- sessionStorage.removeItem('playerVote'); --}}
+    sessionStorage.removeItem('uUID');
+    sessionStorage.removeItem('markup');
     sessionStorage.setItem('reconnected', false);
 
 }
 
-var getScript = function (gameType) {
-    $.getScript( '/js/events/' + gameType + '.js' )
-        .done(function( script, textStatus ) {
-            console.log( textStatus );
-          })
-          .fail(function( jqxhr, settings, exception ) {
-            console.error('Unable to load %s (error: "%s")', gameType + '.js', exception);
-        });
+var startTimer = function(secondsLeft) {
+    
+    var wasPaused = false;
+
+    if($('.screen .timer').length === 0)
+        return;
+
+    clockInterval = setInterval(function() {
+
+        function clockTick() {
+            $('#countdown').text(secondsLeft + ' seconds');
+            secondsLeft--;
+        }
+            
+        // Resume timer UI if timer paused due to player disconnect
+        if(!countdownPaused && wasPaused)
+            countdownAnim.animate(1, {duration: secondsLeft*1000});
+
+        wasPaused = countdownPaused;
+
+        // If timer paused, stop UI animation and bail
+        if(countdownPaused) { 
+            countdownAnim.stop(); 
+            return;
+        }
+
+        clockTick();
+
+        if(secondsLeft === 0)
+            clearInterval(clockInterval);
+
+    }, 1000);
+    
+    countdownAnim = new ProgressBar.Circle(
+      '.screen .timer', 
+      {
+          color: '#fff',
+          duration: secondsLeft*1000,
+          easing: 'easeInOut',
+          strokeWidth: 6,
+          trailColor: 'rbga(235, 235, 235, 0.5)',
+          trailWidth: 0.8,
+          fill: '#ff3d6b',
+          // Set default step function for all animate calls
+          step: function(state, circle) {
+            circle.setText(secondsLeft);
+          }
+      }
+    );
+    countdownAnim.animate(1);
+
+}
+
+var setupScreen = function() {
+
+    // Add trigger to go to next step on next-step buttons
+    $('.next-step').click(function(evt) {
+        nextPhaseScreen();
+    });
+
+    // Reset screen index
+    currentScreenIndex = 0;
+
+    $(isDecider ? '.player' : '.decider').remove();
+
+    $('#gameContent').addClass('in-game');
+    $('#stages-bar').show();
+    
+    /*
+    // This makes duplicate of all speech bubbles and 
+    // makes them all child of respective bubble,
+    // in order to achieve proper "bottom border" effect
+    _.each($('.screen blockquote.speech'), function(el, i) {
+        $(el).clone().addClass('under').remove('button').appendTo(el);
+    });*/
+
+    sessionStorage.setItem('markup', $('#gameContent').html());
+    // Animate initial
+    screenOpen($('.screen:first'));
+
+    currentPhaseIndex = sessionStorage.getItem('phase');
+    currentScreenIndex = sessionStorage.getItem('screen');
+
+    phaseBarProgress();
+
+}
+
+var playerDisconnected = function(timeoutTime, names) {
+
+    openInnerModal();
+
+    if(!names || names.length === 0)
+        return;
+    
+    var timeLeft = timeoutTime,
+        modal = $('#error-player-disconnected'),
+        singular = modal.find('h2 #singular'),
+        plural = modal.find('h2 #plural');
+
+    modal.find('h2 #player').text(names.join(', '));
+    modal.find('h2 #time').text(timeLeft + 's');
+
+    if(names.length > 1) {
+        plural.show();
+        singular.hide();
+    }
+    else {
+        plural.hide();
+        singular.show();
+    }
+
+    if(!modal.is(':visible'))
+        modal.trigger('show');
+
+    timeoutClock = setInterval(function() {
+
+        timeLeft--;
+        modal.find('h2 #time').text(timeLeft + 's');
+
+        if(timeLeft === 0)
+            clearInterval(timeoutClock);
+
+    }, 1000);
+
 }
 
 socketEvents = function(eventId, eventData) {
@@ -64,9 +184,11 @@ socketEvents = function(eventId, eventData) {
                 socket.emit('room', emitData('player'));
             }
 
-            $('#gameContent').addClass('player-grid');
+            {{!-- $('#gameContent').addClass('player-grid'); --}}
 
-            $('.login.form').fadeOut(function() { $('.login.waiting').fadeIn(); });
+            $('.login.form').fadeOut(function() { $('.login.waiting').fadeIn(function(){
+                {{!-- $('.lobby#join').addClass('player-grid'); --}}
+            }); });
             
             break;
 
@@ -81,33 +203,82 @@ socketEvents = function(eventId, eventData) {
             if ($('.modal'))
                 $('.modal').fadeOut();
 
-            $('#error-disconnected').fadeIn(function() {
-                $('#error-disconnected #text').css('top', '0');
-            });
+            $('#error-disconnected').trigger('show');
+            $('#error-disconnected #text').css('top', '0');
 
             break;
 
         case 'player:loggedin':
 
             {{!-- $('#gameContent').html(eventData.html); --}}
-
-            sessionStorage.setItem("gameType", eventData.gameType);
             
             playerWasReconnected = false;
 
             $('#debug-info').text('Player id: ' + eventData.id);
-            
-            console.log (eventData.id + " is the player ID");
 
             playerId = eventData.id;
+
+            var gameCodeMarkup = '';
+            
+            _.each(eventData.code.split(''), function(char, i) {
+                gameCodeMarkup += '<span>' + char + '</span>';
+            }); 
+
+            $('#game_code .access-code').html(gameCodeMarkup);
 
             break;
 
         case 'player:reconnected': 
 
+            if(playerWasReconnected)
+                return;
+
             // Set local player state as reconnected
             playerWasReconnected = true;
-            
+
+            isDecider = eventData.is_decider;
+
+            var markup = sessionStorage.getItem('markup');
+
+            $('#bottom-bar').show();
+            $('#gameContent').html(markup).promise().done(function() {
+                
+                setupScreen();
+
+                var secondsLeft = eventData.resume_duration; 
+                if(secondsLeft && secondsLeft > 0)
+                    startTimer(secondsLeft);
+                else {
+                    // Check if timer element is left-over; if so, timer is now at 0 and should show next btn
+                    startTimer(0);
+                    if(isDecider)
+                        $('#btn-next').show();
+                }
+
+                $('#name, .login.input').fadeOut(function() {
+
+                    $('#begin').addClass('wait');
+                    $('#join, .login.waiting').fadeIn();
+
+                });
+
+                playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);
+
+            });
+
+            break;
+
+        case 'player:lost':
+
+            // A current player lost from session
+            var timeLeft = eventData.timeout;
+
+            if(timeoutClock)
+                clearInterval(timeoutClock);
+
+            playerDisconnected(timeLeft, eventData.names);
+
+            countdownPaused = true;
 
             break;
 
@@ -120,54 +291,102 @@ socketEvents = function(eventId, eventData) {
 
             var playersNeeded = {{#ifeq debug true}}2{{else}}3{{/ifeq}}
 
+            // Are all players connected?
+            if(eventData.all_connected) {
+                $('#error-player-disconnected').trigger('hide');
+
+                if(timeoutClock)
+                    clearInterval(timeoutClock);
+
+                countdownPaused = false;
+            }
+
+            // A player has re-joined
+            if(eventData.state === 'player_rejoined')
+                playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);
+
             // Allow to start?
             if(currentPlayers.length === playersNeeded)
                 startAnim.play();
             else if(currentPlayers.length < playersNeeded)
                 startAnim.reverse();
 
-            $('#players').empty();
+            $('.player-grid .list').empty();
 
             _.each(currentPlayers, function(player, index) {
 
-            console.log(player);
-
                 var nameFormatted = (player.name.length <= 15) ? player.name : player.name.substring(0, 15) + "...";
+                var index = player.icon;
 
-                $('#players').append('<div class="col-sm-12 player-logo"><div class="logo" id="player-' + player.icon + '"></div><p>' + nameFormatted + '</p></div>');
+                $('.player-grid .list').append('<div id="player-' + index + '" class="col-sm-12 player-logo col-centered"><p>' + nameFormatted + '</p></div>');
 
             });
 
             break;
 
         case 'player:agenda_item':
+        
+            break;
 
-            // Don't let next screen take over yet
-            waitForNextScreen = true;
+        case 'player:assignrole':
 
-            var container = eventData.chosen ? $('#chosen') : $('#not-chosen');
+            $('#role-card').html(eventData);
             
-            // Edit coin count
-            container.text(container.text().replace('{coins}', eventData.coins));
-
-            var chosenAnim = new TimelineLite({onComplete: function() {
-
-                setTimeout(function() { updateGameContent(nextScreenData, function() {
-
-                    waitForNextScreen = false;
-                    nextScreenData = undefined;
-
-                }) }, 1400);
-
-            }});
-
-            chosenAnim.from(container, .6, {scale:0, autoAlpha: 0, ease:Elastic.easeOut});
+            $('#btn-close-role-card').on('click', function(evt) {
+                roleCardOpenClose(false);
+            });
+            $('#btn-role-card').on('click', function(evt) {
+                roleCardOpenClose(true);
+            });
+            $('#role-card').on('swipe', function() {
+                $('#role-card').removeClass('open').addClass('closed');
+            });
 
             break;
 
         case 'game:start':
-        case 'game:next':
+            if (!$('.rules-screen').css('display', 'block'))
+                $('#background-logo').show();
 
+            $('#bottom-bar').show();
+            
+            $('#agenda-items .role:visible').remove();
+            $('#agenda-items .role').first().show();
+
+            break;
+
+        case 'game:next_item':
+
+            var modalToOpen = eventData.chosen ? 'yes' : 'no';
+            var modalToRemove = !eventData.chosen ? 'yes' : 'no';
+
+            $('.agenda_item.' + modalToRemove).first().remove();
+            openInnerModal('.' + modalToOpen);
+ 
+            break;
+
+        case 'game:advance':
+
+            currentPhaseIndex = -1;
+
+            break;
+
+        case 'game:next_screen':
+
+            // Only occurs for non-decider, since decider sends this
+            if(!isDecider)
+                nextPhaseScreen();
+
+            break;
+
+        case 'game:next_phase':
+
+            if (!$('.rules-screen').css('display', 'block'))
+                $('#background-logo').show();
+
+            $('#bottom-bar').show();
+
+            $('#stages-bar').show();
             sessionStorage.setItem('gameCode', gameCode);
 
             // Don't show yet?
@@ -176,36 +395,65 @@ socketEvents = function(eventId, eventData) {
                 return;
             }
 
+            if (eventData.html) {
+                updateGameContent(eventData.html, function() {
+
+                    nextPhase();
+                    setupScreen();
+
+                });
+
+            } else {
+                updateGameContent(eventData, function() {
+
+                    nextPhase();
+                    setupScreen();
+
+                });
+            }
+            
+            
+            break;
+
+        case 'game:refresh_screen':
+            
+            // Don't show yet?
+            if(waitForNextScreen) {
+                nextScreenData = eventData;
+                return;
+            }
+            
             updateGameContent(eventData, function() {
 
-                rulesAnim();
+                setupScreen();
 
-                if(isDecider)
-                    $('#decider-controls, #decider').show();
+                // Move immediately to restart point in current phase, by removing screens before it and showing it
+                $('.screen.restart').prevAll().remove();
 
-                $('#gameContent').addClass('in-game');
+                // Hide any previously hidden elements
+                $('.screen.restart .hidden-el').css({visibility:'hidden'});
+                $('.screen.restart').show();
 
-                if ($('#gameContent').hasClass('login')) {
-                    $('#gameContent').removeClass('login');
-                } else if ($('#gameContent').hasClass('player-grid')) {
-                    $('#gameContent').removeClass('player-grid');
-                }
+                openInnerModal();
 
             });
-            
+
             break;
 
         case 'game:ending':
 
             $('#error-box').text(eventData);
-            $('#error-box').show();
+            $('#error-box').show(function(){
+                $('.form .error').delay(3000).fadeOut('slow');
+            });
 
             break;
 
         case 'game:ended':
 
-            // Remove saved game code since game is over
-            sessionStorage.removeItem('gameCode');
+            // Reset game session data and send back to logn
+            resetSession();
+            window.location = window.location;
 
             $('#gameContent').html(eventData);
 
@@ -221,8 +469,11 @@ socketEvents = function(eventId, eventData) {
 
             if(isDecider) return;
 
-            $('#error-box').text('game not found!');
-            $('#error-box').show();
+            // If game not found, show name entry and clear session
+            loginFromTo('start', 'name');
+            resetSession();
+
+            $('.form.login').show();
 
             break;
             
@@ -230,41 +481,23 @@ socketEvents = function(eventId, eventData) {
 
             $('#btn-time').fadeOut();
 
+            countdownPaused = false;
+
             if(clockInterval)
                 clearInterval(clockInterval);
 
-                var secondsLeft = eventData.duration;
-                var timeFactor = 360 / secondsLeft;
-                var clockHand = $('#clock-hand');
-                    
-                clockInterval = setInterval(function() {
-
-                    function clockTick() {
-                        {{!-- clockHand.css({
-                            transform:'rotateZ('+ -(timeFactor*secondsLeft) + 'deg)'
-                        }); --}}
-                        $('#countdown').text(secondsLeft + ' seconds');
-                        secondsLeft--;
-                    }
-
-                    clockTick();
-
-                    if(secondsLeft === 0)
-                        clearInterval(clockInterval);
-                }, 1000);
+            if(countdownAnim)
+                countdownAnim.destroy();
+                   
+            var secondsLeft = eventData.duration; 
+            startTimer(secondsLeft);
 
             break;
 
         case 'game:countdown_ending':
 
             $('.form .error').fadeIn().html(eventData);
-
-            break;
-
-
-        case 'game:countdown_ending':
-
-            $('.form .error').fadeIn().html(eventData);
+            $('.form .error').delay(3000).fadeOut('slow');
 
             break;
 
@@ -273,21 +506,57 @@ socketEvents = function(eventId, eventData) {
             $('#added-time').hide();
 
             runMods();
-            
-            $('#more-time,#btn-next').fadeIn();
-            $('#btn-more-time,#btn-cancel').click(function() { $('#more-time').fadeOut()} );
+
+            openInnerModal();
+
+            var disableBuy = $('#player-coins span').text() === '0';
+
+            $('#overlay ' + (disableBuy ? '#btn-more-time' : '#btn-empty')).remove();          
+            $('#btn-more-time, #btn-cancel').click(function() {
+                var modal = $('#more-time-wrapper.showing');
+              
+                modal.fadeOut(function() {
+                    // $('.screen').append(modal);
+                    $('#overlay').empty();
+                    $('#overlay').hide();
+                });
+                
+            });
+
+            if(eventData == "brainstormCountdown" || eventData == "deliberateCountdown") {
+                // if(isDecider)
+                    nextPhaseScreen();
+            }
 
             break;
 
         case 'game:countdown_player':
             
-            $('#added-time').text(eventData + " is speaking, since they added more time.").fadeIn();
+            // Close "(playername) is deciding...." modal
+            var modal = $('#more-time-wrapper');
+          
+            modal.fadeOut(function() {
+                $('#overlay').empty();
+                $('#overlay').hide();
+            });
 
             break;
 
         case 'game:player_done':
             
-            $('#btn-next-player').fadeIn();
+            // Close "(playername) is deciding...." modal
+            var modal = $('#more-time-wrapper');
+          
+            modal.fadeOut(function() {
+                $('#overlay').empty();
+                $('#overlay').hide();
+
+                
+                $('#btn-next-player').fadeIn();
+
+                if(isDecider)
+                    $('#btn-next').show();
+            });
 
             break;
 
@@ -297,25 +566,15 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
-        case 'game:next_item':
-
-            $('#agenda-items .role:visible').remove();
-            $('#agenda-items .role').first().show();
-
-            break;
-
         case 'game:decider':
 
             isDecider = eventData;
 
-            // Hide decider controls if no longer decdier
-            if(!isDecider)
-                $('#decider-controls').hide();
+            $('#bottom-bar').show();
 
             break;
 
         case 'game:end':
-        case 'players:update':
 
             $('#gameContent').html(eventData);
 
@@ -324,18 +583,14 @@ socketEvents = function(eventId, eventData) {
             nextRoundAnim.play();
             break;
 
+        case 'game:last':
+
+            break;
+
         case 'coins:add':
         case 'coins:remove':
 
             $('#' + eventData.type + '-coins span').text(eventData.amt);
-
-            break;
-
-        case 'game:last':
-
-            {{!-- let markup = sessionStorage.getItem('markup'); --}}
-
-            $('#gameContent').html(markup);
 
             break;
 

@@ -1,0 +1,52 @@
+// Lobby 
+@keyframes player-login {
+    from {
+    	bottom: 20px;
+    }
+    to {
+    	bottom: 100px;
+    }
+}
+
+
+// Stages 
+@keyframes enter-stage {
+	from {
+		height: 20px;
+		width: 20px;
+	}
+	to {
+		height: 34px;
+		width: 34px;
+	}
+}
+
+@keyframes exit-stage {
+	from {
+		height: 34px;
+		width: 34px;
+	}
+	to {
+		height: 20px;
+		width: 20px;
+	}
+}
+
+
+// Role Card 
+@keyframes close-role-card {
+	from {
+		top: 0px;
+	}
+	to {
+		top: 100%;
+	}
+}
+@keyframes open-role-card {
+	from {
+		top: 100%;
+	}
+	to {
+		top: 0px;
+	}
+}

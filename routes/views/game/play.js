@@ -21,10 +21,12 @@ exports = module.exports = function(req, res) {
   var locals = res.locals;
 
   // locals.section is used to set the currently loaded view
-  locals.section = 'login';
+  locals.section = 'play';
 
   // Save host to allow path specification for socket.io
-  locals.socketHost = (process.env.NODE_ENV === 'staging') ? 'qa.atstakegame.org' : req.headers.host;
+  locals.socketHost = req.headers.host;
+  if(process.env.NODE_ENV !== 'development')
+    locals.socketHost = ( (process.env.NODE_ENV === 'staging') ? 'qa.' : '')  +  'atstakegame.org';
 
   // Enable debugging on staging/dev only
   if(req.params.mode === 'debug' && process.env.NODE_ENV !== 'production')
@@ -33,7 +35,7 @@ exports = module.exports = function(req, res) {
     locals.mobile = true;
 
   view.on('init', function(next) {
-        next();
+    next();
   });
 
   // Render the view
