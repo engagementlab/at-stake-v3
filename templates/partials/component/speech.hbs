@@ -10,23 +10,23 @@
 * @param {String} secondary - Speech bubble secondary text, showing under body
 
 --}}
-	<blockquote class="speech {{showHide this}} {{#ifeq decider true}}form{{/ifeq}}">
+<blockquote class="speech {{showHide this}} {{#ifeq decider true}}form{{/ifeq}}">
 
-	  <p>"{{body}}"</p>
+  <p>"{{body}}"</p>
 
-	  {{#if secondary}}
-		  <div>{{secondary}}</div>
-	  {{/if}}
-	  
-	  {{#ifeq decider true}}
-		  {{#ifeq decider_next_disabled undefined}}
-			  
-			  {{#ifeq timer true}}
-			    <button class="next-step timer submit" data-event="{{nextEvent this}}">Start Timer</button>
-			  {{else}}
-			    <button class="next-step submit" data-event="{{nextEvent this}}">next</button>
-			  {{/ifeq}}
-
+  {{#if secondary}}
+	  <div>{{secondary}}</div>
+  {{/if}}
+  
+  {{#ifeq decider true}}
+	  {{#ifeq decider_next_disabled undefined}}
+		  
+		  {{#ifeq timer true}}
+		    <button class="next-step timer submit" data-event="{{nextEvent this}}">Start Timer</button>
+		  {{else}}
+		    <button class="next-step submit" data-event="{{nextEvent this}}">next</button>
 		  {{/ifeq}}
+
 	  {{/ifeq}}
-	</blockquote>
+  {{/ifeq}}
+</blockquote>

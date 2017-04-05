@@ -436,7 +436,6 @@ socketEvents = function(eventId, eventData) {
 
                 openInnerModal();
 
-
             });
 
             break;
@@ -525,12 +524,10 @@ socketEvents = function(eventId, eventData) {
             });
 
             if(eventData == "brainstormCountdown" || eventData == "deliberateCountdown") {
-
-                if(isDecider)
-                    $('#btn-next').show();
-
+                // if(isDecider)
+                    nextPhaseScreen();
             }
-           
+
             break;
 
         case 'game:countdown_player':

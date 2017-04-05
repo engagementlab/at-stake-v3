@@ -35,8 +35,8 @@
 
       {{#ifeq next_player true}}
         <button id="btn-next-player" data-event="game:next_player" class="timer-button submit" style="display:none">next player</button>
-      {{else}}
-        <button id="btn-next" data-event="{{#if advance}}game:next{{else}}game:next_screen{{/if}}" class="timer-button next-step submit" style="display:none">next</button>
+      {{!-- {{else}}
+        <button id="btn-next" data-event="{{#if advance}}game:next{{else}}game:next_screen{{/if}}" class="timer-button next-step submit" style="display:none">next</button> --}}
       {{/ifeq}}
 
       <span id="modifier" class="hidden-el" data-hide_next="false"></span>

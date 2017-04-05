@@ -104,9 +104,9 @@ const PlayerLogin = function(nsp, socket, emitter) {
         
         // Mark player as ready inside game session
         session.PlayerReady(
-                                                player,
-                                                currentSocket,
-                                                payload.decider);
+                            player,
+                            currentSocket,
+                            payload.decider);
 
       }
       else {

@@ -82,7 +82,7 @@
 	</div>
 
 	{{!-- COUNTDOWN --}}
-	<div class="screen no-transition">
+	<div class="screen">
 
 		{{> component/instructions 
 				decider=true
@@ -98,11 +98,36 @@
 		{{> component/timer 
 				time=config.thinkSeconds
 				decider=true
-				advance=true
 		}}
 		
 		{{> component/timer 
 				time=config.thinkSeconds
+		}}
+	
+	</div>
+
+	{{!-- END --}}
+	<div class="screen">
+
+		{{> component/instructions 
+				decider=true
+				heading="Press next to move to the pitch phase"
+				body="Let players know brainstorming time is up and press next to continue to the next phase"
+		}}
+		
+		{{> component/instructions 
+				heading="Get ready to pitch your idea"
+				body="In the next phase everyone will have 60 seconds to pitch their proposal."
+		}}
+
+		{{> component/speech 
+				decider=true
+				advance=true
+				body="Brainstorming is over! Lets go on to the pitch phase."
+		}}
+
+		{{> component/speech 
+				body="Brainstorming is over! Lets go on to the pitch phase."
 		}}
 	
 	</div>

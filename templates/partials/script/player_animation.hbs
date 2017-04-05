@@ -110,6 +110,75 @@ var screenOpen = function(screenElement) {
 	speechTimeline.fromTo(screenElement.children('blockquote'), 1.1,  hidden, shown);
 	speechTimeline.fromTo(screenElement.find('section.instruction'), .7,  {yPercent:100, opacity:0}, {yPercent:0, opacity:1, ease:Expo.easeOut});
 
+	if(!_.isEmpty(screenElement.data()) && screenElement.data('animation') === 'scoreboard') {
+
+		new TimelineLite({onComplete: function() {
+			setTimeout(function() {
+		
+				var nodes = $('#ranking .player-logo');
+				var total = nodes.length;
+				var ease  = Power1.easeInOut;
+				var boxes = [];
+
+				for (var i = 0; i < total; i++) {
+				  
+				  var node = nodes[i];
+				  
+				  // Initialize transforms on node
+				  TweenLite.set(node, { x: 0 });
+				   
+				  boxes[i] = {
+				    transform: node._gsTransform,
+				    x: node.offsetLeft,
+				    y: node.offsetTop,
+				    node    
+				  };
+				
+				} 
+				  
+			  // group.classList.toggle("reorder");  
+			  
+			  for (var i = 0; i < total; i++) {
+			    
+			    var box = boxes[i];
+			        
+			    var lastX = box.x;
+			    var lastY = box.y;
+
+				  $(box.node).css('order', $(box.node).data('rank'));
+			    
+			    box.x = box.node.offsetLeft;
+			    box.y = box.node.offsetTop;
+			    
+			    // Continue if box hasn't moved
+			    if (lastX === box.x && lastY === box.y) continue;
+			    
+			    // Reversed delta values taking into account current transforms
+			    var x = box.transform.x + lastX - box.x;
+			    var y = box.transform.y + lastY - box.y;  
+			    
+			    // Tween to 0 to remove the transforms
+			    TweenLite.fromTo(box.node, 0.5, { x, y }, { x: 0, y: 0, ease });    
+			  }
+
+			  $('#decider').show();
+			  TweenLite.fromTo($('.next-step'), .7, {yPercent:100, autoAlpha:0}, {yPercent:0, autoAlpha:1, ease:Expo.easeOut, delay:2});
+			  
+			}, 2000);
+
+		}})
+		.to($('.coins.starting'), 1, { autoAlpha:0, y:'10%', display:'none', delay: 5 })
+		.fromTo($('.coins.delta'), 1, { autoAlpha:0, y:'10%', display:'none' }, { autoAlpha:1, y:'0%', display:'block' })
+
+		.fromTo($('.coins.delta'), 1, { autoAlpha:1, display:'block' }, { autoAlpha:0, y:'10%', display:'none', delay: 5 })
+		.fromTo($('.coins.current'), 1, { autoAlpha:0, y:'10%', display:'none' }, { autoAlpha:1, y:'0%', display:'block' })
+		
+		.fromTo($('.rank.starting'), 1, { autoAlpha:1, display:'block' }, { autoAlpha:0, x:'10%', display:'none' })
+		.fromTo($('.rank.current'), 1, { autoAlpha:0, x:'10%', display:'none' }, { autoAlpha:1, x:'0%', display:'block' });
+
+	}
+
+
 }
 
 /*
