@@ -24,10 +24,14 @@ a:hover{
 	padding: 0;
 }
 
+// HOME PAGE
+.siteLanding#homepage{
+	background-color: $light-mint;
+	width: 100%;
+
 //p class identifier workaround 
 .text-block {
 	font-family: $body-type;
-	font-size: 14px;
 	text-justify: inter-word;
 	-moz-hyphens: auto;
 	-webkit-hyphens:auto;
@@ -36,10 +40,6 @@ a:hover{
 	hyphenate-before: 2;
 	hyphenate-after:2;
 }
-// HOME PAGE
-.siteLanding#homepage{
-	background-color: $light-mint;
-	width: 100%;
 
 	.row{
 		width: 100%;
