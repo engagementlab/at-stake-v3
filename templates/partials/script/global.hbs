@@ -279,6 +279,8 @@
 	    currentPhaseIndex++; 
 
 	    phaseBarProgress();
+	    
+	    $('#overlay').hide();
 
 	    // Local session update
 	    // sessionStorage.setItem('markup', $('#gameContent').html());    
@@ -345,6 +347,12 @@
 
 	    $('#overlay').append(modalSelector.first());
 	    $('#overlay, #overlay .inner-modal').show();
+
+	    // Enable/disable ability to buy coins
+      var cost = parseInt($('#overlay .inner-modal .coins').text());
+      var coins = parseInt($('#player-coins span').text());
+      var disableBuy = (coins - cost) < 0;
+      $('#overlay ' + (disableBuy ? '#btn-more-time' : '#btn-empty')).remove();    
 
 	    var modalDuration = $('#overlay .inner-modal').data('duration');
 

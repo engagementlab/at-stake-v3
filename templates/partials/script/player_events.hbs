@@ -505,18 +505,24 @@ socketEvents = function(eventId, eventData) {
 
             $('#added-time').hide();
 
+            // Move right to next player if in double-down
+            if(eventData === 'doubledownCountdown') {
+
+                if(isDecider) {
+                    socket.emit('game:next_player', emitData());
+                    return;
+                }
+
+            }
+
             runMods();
 
             openInnerModal();
-
-            var disableBuy = $('#player-coins span').text() === '0';
-
-            $('#overlay ' + (disableBuy ? '#btn-more-time' : '#btn-empty')).remove();          
+    
             $('#btn-more-time, #btn-cancel').click(function() {
                 var modal = $('#more-time-wrapper.showing');
               
                 modal.fadeOut(function() {
-                    // $('.screen').append(modal);
                     $('#overlay').empty();
                     $('#overlay').hide();
                 });
