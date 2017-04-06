@@ -49,25 +49,47 @@
 
   <span id="modifier" class="hidden-el" data-inner_modal="true"></span>
 
-{{!-- Pitch phase --}}
+{{!-- Pitch and Double-down phase choice modals --}}
 {{else}}
 
 	{{#ifeq active_player true}}
 
 		<div id="more-time-wrapper" class="{{showHide this}} inner-modal modal" data-clone="true">
 			<div class="form choice inner pitch-box" id="more-time">
+
+		{{#ifeq doubledown true}}
+
+			  <h1>Haha gimme <strong>{{config.doubledownTimeCost}} coins</strong> to double-down brah?</h1>
+			  <h2>Have fun for {{config.doubledownSeconds}} but then die teehee.</h2>
+
+		{{else}}
+
 			  <h1>Pay <strong>{{config.extraTimeCost}} coins</strong> to the pot continue pitching?</h1>
 			  <h2>Recieve an additional {{config.extraSeconds}} seconds to continue pitching your proposal.</h2>
+
+		{{/ifeq}}
 			  <button id="btn-more-time" data-event="game:more_time" data-keep_enabled="true" data-package="{{player.uid}}" class="post-button submit btn" type="submit" name="submit">
-			    <div class="coins">{{config.extraTimeCost}}</div>
+			    <div class="coins">
+
+						{{#ifeq doubledown true}}
+							{{config.doubledownTimeCost}}
+						{{else}}
+							{{config.extraTimeCost}}
+						{{/ifeq}}
+
+					</div>
 			    Buy more time
 		    </button>
 			  <button id="btn-empty" class="post-button submit btn" type="submit" name="submit" disabled="disabled">
-			    Out of coins!
+			    Not enough coins!
 		    </button>
 			  <button id="btn-cancel" data-event="game:turn_done" class="post-button submit btn" type="submit" name="submit">No thanks!</button>
 			</div>
 		</div>
+
+		{{#ifeq doubledown true}}
+		  <span id="modifier" class="hidden-el" data-inner_modal="true"></span>
+		{{/ifeq}}
 
 	{{else}}
 
@@ -75,10 +97,18 @@
 			<div class="inner">
 				<div id="player-{{activePlayer.index}}" class="player-logo lg">
 			  </div>
-				<h1>Waiting for (playername)</h1>
-				<h2>(playername) is deciding if they want to buy more time. Hang tight!</h2>
+				<h1>Waiting for {{activePlayer.username}}</h1>
+				{{#ifeq doubledown true}}
+					<h2>{{activePlayer.username}}is deciding if they wanna KFC double-down!</h2>
+				{{else}}
+					<h2>{{activePlayer.username}}is deciding if they want to buy more time. Hang tight!</h2>
+				{{/ifeq}}
 		  </div>
 		</div>
+
+		{{#ifeq doubledown true}}
+		  <span id="modifier" class="hidden-el" data-inner_modal="true"></span>
+		{{/ifeq}}
 
 	{{/ifeq}}
 

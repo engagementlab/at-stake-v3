@@ -44,6 +44,7 @@ GameConfig.add(
 		  // deciderRoundStartCoinCount: { type: Number, label: "Decider Round Start Coin Count", note: "Number of coins that the Decider starts with at the beginning of a round (after round 1)", required: true, initial: true },
 		  rewardAmounts: { type: Types.TextArray, label: "Reward Amounts", note: "Number of coins awarded for having a player's agenda point included in plan", required: false, initial: false },
 		  extraTimeCost: { type: Number, label: "Extra Time Cost", note: "Number of coins it costs to get extra time while pitching", required: true, initial: true },
+		  doubledownTimeCost: { type: Number, label: "Double-down Time Cost", note: "Number of coins it costs to get Double-down time", required: true, initial: true }
 		},
 
 	  /*
@@ -53,6 +54,7 @@ GameConfig.add(
 		  thinkSeconds: { type: Number, label: "Think Seconds", note: 'Amount of time in the "think" segment of the round', required: true, initial: true },
 		  pitchSeconds: { type: Number, label: "Pitch Seconds", note: 'Amount of time in the "pitch" segment of the round', required: true, initial: true },
 		  extraSeconds: { type: Number, label: "Extra Seconds", note: 'Amount of time given to a player if they choose to use additional time for their pitch', required: true, initial: true },
+		  doubledownSeconds: { type: Number, label: "Double-down Seconds", note: 'Amount of time given to a player if they buy Double-down time', required: true, initial: true },
 		  deliberateSeconds: { type: Number, label: "Deliberate Seconds", note: 'Amount of time in the "deliberate" segment of the round', required: true, initial: true }
 		}
 
