@@ -283,8 +283,6 @@ input.post-button {
 		img {
 			display: block;
 	    margin: auto;
-			width: 34px;
-			height: 34px;
 		}
 
 		&:nth-child(1) {
@@ -310,11 +308,14 @@ input.post-button {
 		}
 
 		&.disabled {
-			@include scale(.7);
+			height: 23px;
+			width:23px;
+			border-radius: 12px;
 			@include filter(grayscale, 100%);
 			animation-name: exit-stage;
 			animation-duration: 1s;
 			animation-fill-mode: forwards;
+			background-color: $turquoise-light;
 			span {
 				display: none;
 			}
@@ -323,9 +324,17 @@ input.post-button {
 			animation-name: enter-stage;
 			animation-duration: 1s;
 			animation-fill-mode: forwards;
-
+			border-radius: 20px;
+			height: 40px;
+			width: 40px;
+			border: 3px white solid;
+		  background-color: $turquoise-dark;
 			span {
 				font-weight: 800;
+		    position: absolute;
+		    bottom: -10px;
+		    width: 100%;
+		    left: -2px;
 			}
 		}
 
@@ -338,7 +347,7 @@ input.post-button {
     height: 5px;
     width: 95%;
     top: 68%;
-    left: 10px;
+    left: 10px;          
     &:after {
     	content: "";
     }
@@ -613,8 +622,10 @@ input.post-button {
   	border-radius: 100px;
   	background-color: $orange-dark;
   	margin: 16px;
+  	height: 60px;
   	margin-top: 24px;
   	color: white;
+
 
   	.value {
 	  	height: 60px;
@@ -629,10 +640,12 @@ input.post-button {
 	  	background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1490979430/at-stake/layout/icon-yourcoins.svg");
 	  }
 	  .agenda {
-	  	height: 60px;
-	  	line-height:60px;
+	  	height: 32px;
+      margin: 10px auto;
 	  	width: 208px;
 	  	display:inline-block;
+	  	text-align: left;
+	  	line-height:1.2;
 	  }
   }
   
@@ -661,6 +674,14 @@ input.post-button {
 	  font-size: 16px;
 	  letter-spacing: -0.7px;
 	  color: #ebebeb;
+	}
+	.skip {
+		background: transparent;
+		border: 0px;
+		color: white;
+		position: absolute;
+		left: 20%;
+		bottom: 40%;
 	}
 	.next-step {
 		background: transparent;

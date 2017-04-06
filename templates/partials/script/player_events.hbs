@@ -214,6 +214,9 @@ socketEvents = function(eventId, eventData) {
             
             playerWasReconnected = false;
 
+            if (isDecider)
+                $('#btn-role-card').css('visibility', 'hidden');
+
             $('#debug-info').text('Player id: ' + eventData.id);
 
             playerId = eventData.id;
@@ -576,6 +579,8 @@ socketEvents = function(eventId, eventData) {
             isDecider = eventData;
 
             $('#bottom-bar').show();
+
+            $('#btn-role-card').css('visibility', 'hidden');
 
             break;
 

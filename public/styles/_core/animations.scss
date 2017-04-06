@@ -12,23 +12,23 @@
 // Stages 
 @keyframes enter-stage {
 	from {
-		height: 20px;
-		width: 20px;
+		height: 23px;
+		width: 23px;
 	}
 	to {
-		height: 34px;
-		width: 34px;
+		height: 40px;
+		width: 40px;
 	}
 }
 
 @keyframes exit-stage {
 	from {
-		height: 34px;
-		width: 34px;
+		height: 40px;
+		width: 40px;
 	}
 	to {
-		height: 20px;
-		width: 20px;
+		height: 23px;
+		width: 23px;
 	}
 }
 
