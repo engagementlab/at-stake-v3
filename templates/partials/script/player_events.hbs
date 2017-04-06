@@ -374,6 +374,7 @@ socketEvents = function(eventId, eventData) {
         case 'game:next_screen':
 
             // Only occurs for non-decider, since decider sends this
+            // Or if forced, do this for all players
             if(!isDecider)
                 nextPhaseScreen();
 
@@ -529,7 +530,7 @@ socketEvents = function(eventId, eventData) {
                 
             });
 
-            if(eventData == "brainstormCountdown" || eventData == "deliberateCountdown")
+            if(eventData == "brainstormCountdown" || eventData == "deliberateCountdown") 
                 nextPhaseScreen();
 
             break;
@@ -552,15 +553,15 @@ socketEvents = function(eventId, eventData) {
             var modal = $('#more-time-wrapper');
           
             modal.fadeOut(function() {
-                $('#overlay').empty();
-                $('#overlay').hide();
-
-                
+                $('#overlay').empty().hide();
                 $('#btn-next-player').fadeIn();
 
                 if(isDecider)
                     socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData());
             });
+
+            if(eventData.phase === 'pitch' && eventData.end && isDecider)
+                nextPhaseScreen();
 
             break;
 
