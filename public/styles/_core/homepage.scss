@@ -1,18 +1,5 @@
 
 
-
-p {
-	font-family: $body-type;
-	color: $type-black;
-	text-justify: inter-word;
-	-moz-hyphens: auto;
-	-webkit-hyphens:auto;
-	line-height: 1.4em;
-	hyphens: auto;
-	hyphenate-before: 2;
-	hyphenate-after:2;
-}
-
 h3 {
 	font-family: $header-type;
 }
@@ -36,10 +23,23 @@ a:hover{
 #homeContent {
 	padding: 0;
 }
+
 // HOME PAGE
 .siteLanding#homepage{
 	background-color: $light-mint;
 	width: 100%;
+
+//p class identifier workaround 
+.text-block {
+	font-family: $body-type;
+	text-justify: inter-word;
+	-moz-hyphens: auto;
+	-webkit-hyphens:auto;
+	line-height: 1.4em;
+	hyphens: auto;
+	hyphenate-before: 2;
+	hyphenate-after:2;
+}
 
 	.row{
 		width: 100%;
@@ -107,14 +107,17 @@ a:hover{
 			margin-top: 50px;
 			overflow: visible;
 
+			@media(max-width: 535px){
+				
+			}
 			@media(max-width: 440px){
-				font-size: .8em;
+				font-size: .75em;
 			}
 		}
 
 		.whats{
 			font-family: $sub-header-type;
-			font-size: 6em;
+			font-size: 5em;
 			z-index: 2;
 			margin-right: 250px;
 			display: inline-block;
@@ -126,17 +129,29 @@ a:hover{
 			font-size: 7em;
 			z-index: 3;
 			display: inline-block;
-			margin-top: -45px;
+			margin-top: -20px;
 			position: absolute;
+
+			@media(max-width: 440px){
+				margin-top: -5px;
+			}
 		}
 
 		.header-stake{
 			font-family: $sub-header-type;
-			font-size: 7em;
+			font-size: 6em;
 			z-index: 4;
 			display: inline-block;
-			margin-left: 65px;
-			margin-top: -45px;
+			margin-left: 75px;
+			margin-top: -30px;
+			margin-bottom: 20px;
+			@media(max-width: 535px){
+				margin-top: -25px;	
+			}
+			@media(max-width: 440px){
+				margin-top: -5px;
+				margin-left: 55px;
+			}
 		}
 
 		.play-button{
@@ -147,15 +162,19 @@ a:hover{
 			margin-bottom: 45px;
 			padding: 15px 8px;
 			text-align: center;
+			line-height: 1.3em;
 			color: $white;
 			font-family: $sub-header-type;
 			font-size: 1.25em;
 			border: solid white 4px;
 		
+			@media(max-width: 664px){
+				height: 95px;
+			}
 			@media(max-width: 595px){
 				height: 95px;
 			}
-			@media(max-width: 369px){
+			@media(max-width: 406px){
 				height: 110px;
 				min-width: 80px;
 			}

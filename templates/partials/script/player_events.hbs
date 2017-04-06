@@ -436,7 +436,6 @@ socketEvents = function(eventId, eventData) {
 
                 openInnerModal();
 
-
             });
 
             break;
@@ -524,13 +523,9 @@ socketEvents = function(eventId, eventData) {
                 
             });
 
-            if(eventData == "brainstormCountdown" || eventData == "deliberateCountdown") {
+            if(eventData == "brainstormCountdown" || eventData == "deliberateCountdown")
+                nextPhaseScreen();
 
-                if(isDecider)
-                    $('#btn-next').show();
-
-            }
-           
             break;
 
         case 'game:countdown_player':
@@ -558,7 +553,7 @@ socketEvents = function(eventId, eventData) {
                 $('#btn-next-player').fadeIn();
 
                 if(isDecider)
-                    $('#btn-next').show();
+                    socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData());
             });
 
             break;

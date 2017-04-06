@@ -1,9 +1,9 @@
-	#background-logo {
-		position: absolute;
-		bottom: 0px;
-		left: 0px;
-		z-index:1;
-	}
+#background-logo {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	z-index:1;
+}
 #gameContent {
 	@include gradient-vertical($background-color, $turquoise-dark, 55%, 45%);
   @include linear_transition(filter, 0.5s);
@@ -756,6 +756,88 @@ blockquote.speech {
 	  }
 
   }
+}
+
+// Scoreboard 
+#scoreboard {
+
+	#ranking {
+		background-color: $turquoise-dark;
+		padding: 3%;
+
+    display: -webkit-flex; /* Safari */
+    display: flex;
+
+    flex-direction: column;
+
+	}
+		
+	.player-logo {
+
+		width: 96%;
+		border-radius: 0px;
+		font-size: 20px;
+		font-family: $header-type;
+		margin: 10px auto;
+		height: 60px;
+
+    background-position: 72px 6px;
+    background-size: 48px 48px;
+
+    .rank {
+    	float: left;
+    	margin-top: -1%;
+    	padding-top: 7%;
+    	width: 64px;
+    	height: 64px;
+    	font-family: $body-type;
+			color: $grey-white;
+
+			&.current {
+				display: none;
+			}
+    }
+
+		.coins {
+			float: left;
+			font-size: 24px;
+			margin-top: -1%;
+			padding-top: 12%;
+			width: 64px;
+			height: 64px;
+			color: $color-white;
+
+			&.delta {
+				display: none;
+
+				&.negative {
+					color: $color-pink;
+					@include text-shadow(0, 1px, 0, $pink-light)
+				}
+				&.positive {
+					color: $tiffany-blue;
+					@include text-shadow(0, 1px, 0, $turquoise-dark);
+				}
+			}
+			&.current {
+				display: none;
+			}
+		}
+
+		h1 {
+			color: $color-white;
+			margin: 0;
+			font-size: 20px;
+			font-family: $header-type;
+			text-shadow: none;
+		}
+		h2 {
+			color: $color-white;
+			font-size: 16px;
+			font-family: $body-type;
+		}
+	
+	}
 }
 
 // BOTTOM BAR (COINS, NEXT)

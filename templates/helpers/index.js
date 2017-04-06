@@ -130,6 +130,30 @@ module.exports = function() {
 
     }
 
+    // Get ordinal affix for number
+    _helpers.ordinalPosition = function(index) {
+        
+        var affixes = ["th","st","nd","rd"],
+        remainder = (index+1) % 100;
+
+       return (index+1) + (affixes[(remainder - 20) % 10] || affixes[remainder] || affixes[0]);
+    
+    }
+
+    // Get number sign (if number is negative, positive, or zero) as string
+    _helpers.numSign = function(number) {
+        
+        var type = 'positive';
+
+        if(number === 0)
+            type = 'zero';
+        else if(number < 0)
+            type = 'negative';
+
+       return type;
+    
+    }
+
     return _helpers;
 
 
