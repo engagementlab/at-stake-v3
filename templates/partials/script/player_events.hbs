@@ -324,10 +324,6 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
-        case 'player:agenda_item':
-        
-            break;
-
         case 'player:assignrole':
 
             $('#role-card').html(eventData);
@@ -345,6 +341,7 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:start':
+        
             if (!$('.rules-screen').css('display', 'block'))
                 $('#background-logo').show();
 

@@ -1,27 +1,77 @@
 {{!-- DELIBERATE PHASE UI --}}
 <div id="deliberate">
 
+	{{!-- INTRO --}}
 	<div class="screen initial">
 
 		{{> component/instructions 
 				decider=true
-				heading="read the text in the blue box outloud"
+				heading="Read the text in the blue box outloud"
 				body="Once you have finished speaking the instructions to other players, press next to continue."
 		}}
 
 		{{> component/instructions 
 				heading="Read the revealed round question"
-				body="now time to deliberate lallalalala!"
+				body='"We will take 90 seconds to talk about your proposals. This will be an open discussion, with the decider kicking things off"'
 		}}
 
 		{{> component/speech 
 				decider=true
-				body=(combine 'you will get ' config.deliberateSeconds ' seconds to delib, yo.')
-				secondary=question
+				body=(combine 'Now that we heard everyone\'s pitch, we will take ' config.deliberateSeconds ' seconds to talk about your proposals. This will be an open discussion, with the decider (me!) kicking things off.')
 		}}
 
 		{{> component/speech 
-				body=(combine 'you will get ' config.deliberateSeconds ' seconds to delib, yo.')
+				body=(combine 'Now that we heard everyone\'s pitch, we will take ' config.deliberateSeconds ' seconds to talk about your proposals. This will be an open discussion, with the decider kicking things off.')
+		}}
+
+	</div>
+
+	{{!-- INTRO 2 --}}
+	<div class="screen initial">
+
+		{{> component/instructions 
+				decider=true
+				heading="Read the text in the blue box outloud"
+				body="Once you have finished speaking the instructions to other players, press next to continue."
+		}}
+
+		{{> component/instructions 
+				heading="Read the revealed round question"
+				body='"Any player may ask any other player for details about their proposal, offer counter arguments, or ask for changes at any time."'
+		}}
+
+		{{> component/speech 
+				decider=true
+				body="Because this is an open discussion, any player may ask any other player for details about their proposal, offer counter arguments, or ask for changes/additions to any proposal at any time."
+		}}
+
+		{{> component/speech 
+				body="Because this is an open discussion, any player may ask any other player for details about their proposal, offer counter arguments, or ask for changes/additions to any proposal at any time."
+		}}
+
+	</div>
+
+	{{!-- INTRO 3 --}}
+	<div class="screen initial">
+
+		{{> component/instructions 
+				decider=true
+				heading="Read the text in the blue box outloud"
+				body="Once you have finished speaking the instructions to other players, press next to continue."
+		}}
+
+		{{> component/instructions 
+				heading="Read the revealed round question"
+				body='"Your objective is to get your proposal chosen by the decider and/or have your agenda items incorporated into the winning proposal"'
+		}}
+
+		{{> component/speech 
+				decider=true
+				body="Remember! Your objective is to get your proposal chosen by the decider and/or have your agenda items in a winning proposal"
+		}}
+
+		{{> component/speech 
+				body="Remember! Your objective is to get your proposal chosen by the decider and/or have your agenda items in a winning proposal"
 		}}
 
 	</div>
@@ -32,25 +82,26 @@
 		{{> component/instructions 
 				decider=true
 				heading="Press the button to start the timer"
-				body="Make sure everyone is ready and understands the instructions, then press the button to start the timer."
+				body="When everyone understands the instructions and is ready, press the button to start the timer and begin the deliberation phase"
 		}}
 		
 		{{> component/instructions 
-				heading="Get Ready to delib"
-				body="Remember you can open your rolecard blahblah!"
+				heading="Wait for the Decider to start the timer"
+				body="Remember! Your objective is to get your proposal chosen by the decider and/or have your agenda items in a winning proposal"
 		}}
 
 		{{!-- Timer in button mode  --}}
 		{{> component/timer 
+				time=config.deliberateSeconds
 				decider=true
-				button=true
-				body=(combine 'Once I start the timer ' config.deliberateSeconds ' seconds to delib, yo.')
+				preview=true
 		}}
 
-		{{> component/speech 
-				body=(combine 'Once I start the timer ' config.deliberateSeconds ' seconds to delib, yo.')
-				secondary=question
+		{{> component/timer 
+				time=config.deliberateSeconds
+				preview=true
 		}}
+
 	</div>
 
 	{{!-- COUNTDOWN --}}
@@ -58,24 +109,49 @@
 
 		{{> component/instructions 
 				decider=true
-				heading="Wait For timer to reach zero"
-				body="Something here yada"
+				heading="Lead a discussion about the proposals"
+				body="Ask probing questions, encourage discussion among players, and keep track of any changes stakeholder's make to their proposals"
 		}}
 		
 		{{> component/instructions 
-				heading="time to delib"
-				body="Yo hi hello how is ya!"
+				heading="Engage in the open discussion"
+				body="Ask probing questions to counter or promote your own proposal, or attempt to get your  agenda items into other proposals"
 		}}
  
 		{{> component/timer 
 				time=config.deliberateSeconds
 				decider=true
-				advance=true
 		}}
 		{{> component/timer 
 				time=config.deliberateSeconds
 		}}
 	
+	</div>
+
+	{{!-- END --}}
+	<div class="screen">
+
+		{{> component/instructions 
+				decider=true
+				heading="Read the text in the blue box outloud"
+				body="Once you have finished speaking the instructions to other players, press next to continue."
+		}}
+
+		{{> component/instructions 
+				heading="Read the revealed round question"
+				body=(combine 'If you feel like you didn\'t get a word in or have more to say, you can buy ' config.doubledownSeconds ' second blocks of uninterupted talking time in the next phase!')
+		}}
+
+		{{> component/speech 
+				decider=true
+				advance=true
+				body="Times up! Everyone stop talking. If you feel like you didn't get a word in or have more to say, you can buy 30 second blocks of uninterupted talking time in the next phase!"
+		}}
+
+		{{> component/speech 
+				body="Remember! Your objective is to get your proposal chosen by the decider and/or have your agenda items in a winning proposal"
+		}}
+
 	</div>
 
 </div>

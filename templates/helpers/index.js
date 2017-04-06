@@ -141,7 +141,7 @@ module.exports = function() {
     }
 
     // Get number sign (if number is negative, positive, or zero) as string
-    _helpers.numSign = function(number) {
+    _helpers.numSignString = function(number) {
         
         var type = 'positive';
 
@@ -151,6 +151,19 @@ module.exports = function() {
             type = 'negative';
 
        return type;
+    
+    }
+
+    // Get number sign (if number is negative, positive, or zero)
+    _helpers.numSign = function(number) {
+        var type = '';
+
+        if(number > 1)
+            type = '+';
+        else if(number < 0)
+            type = '-';
+
+       return type + number;
     
     }
 
