@@ -764,6 +764,15 @@ blockquote.speech {
 			  left: 103px;
 			}
 	  }
+	  &.scoreboard {
+	  	right: 6%;
+	  	bottom: inherit;
+	  	color: $color-white;
+	  	&:before {
+				border-left: 8px solid $color-white;
+				left: 147px;	
+	  	}
+	  }
   	&:before {
   		position: absolute;
   		content: "";
@@ -790,6 +799,18 @@ blockquote.speech {
 
 // Scoreboard 
 #scoreboard {
+
+	.instruction {
+		&:nth-child(2) {
+  		display: none;
+		}
+		&:nth-child(3) {
+  		display: none;
+		}
+		&:nth-child(4) {
+  		display: none;
+		}
+	}
 
 	#ranking {
 		background-color: $turquoise-dark;

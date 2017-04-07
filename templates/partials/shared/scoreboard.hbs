@@ -3,38 +3,56 @@
 	{{!-- INITIAL --}}
 	<div class="screen initial" data-animation="scoreboard">
 
-		<h3>At the end of round {{round}} the scores are:</h3>
+		{{> component/instructions 
+				all_players=true
+				heading=(combine "Round " round " Results")
+		}}
+
+		{{!-- {{> component/instructions 
+				all_players=true
+				heading=(combine "Round " round " Results")
+				body="Displayed are each player's coins gained or lost in the last round."
+		}}
+
+		{{> component/instructions 
+				all_players=true
+				heading=(combine "Round " round " Results")
+				body="Here are your scores updated to reflect the results from the last round."
+		}}
+
+		{{> component/instructions 
+				all_players=true
+				heading=(combine "Round " round " Results")
+				body="This shows who is in the lead! If this is not the end of the game, you recieved new roles and a new decider for the next round!"
+		}} --}}
 
 		<section id="ranking">
+				
+			{{#each players}}
 
-	  	{{!-- END OF GAME --}}
-	  	{{#ifeq round 3}}
-			{{!-- END OF ROUND --}}
-	  	{{else}}
-					
-				{{#each players}}
+				<div id="player-{{icon}}" class="player-logo" data-rank="{{rank}}">
+					<div class="rank starting">{{ordinalPosition @index}}</div>
+					<div class="rank current">{{ordinalPosition rank}}</div>
+			    <div class="coins starting">{{coins.starting}}</div>
+			    <div class="coins delta {{numSignString coins.delta}}" style="background-image:url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1490979430/at-stake/layout/icon-yourcoins.svg')">{{numSign coins.delta}}</div>
+			    <div class="coins current">{{coins.current}}</div>
+				  <div class="info">
+					  <h1>{{lowerCase username}}</h1>
+				    <h2>{{lowerCase role.title}}</h2>
+			    </div>
+			  </div>
 
-					<div id="player-{{icon}}" class="player-logo" data-rank="{{rank}}">
-						<div class="rank starting">{{ordinalPosition @index}}</div>
-						<div class="rank current">{{ordinalPosition rank}}</div>
-				    <div class="coins starting">{{coins.starting}}</div>
-				    <div class="coins delta {{numSignString coins.delta}}" style="background-image:url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1490979430/at-stake/layout/icon-yourcoins.svg')">{{numSign coins.delta}}</div>
-				    <div class="coins current">{{coins.current}}</div>
-					  <div class="info">
-						  <h1>{{lowerCase username}}</h1>
-					    <h2>{{lowerCase role.title}}</h2>
-				    </div>
-				  </div>
-
-				{{/each}}
-
-			{{/ifeq}}
+			{{/each}}
 
 		</section>
 
-		<div class="form decider speech">
-	    <button class="next-step submit hidden-el" data-event="game:next_round">next round</button>
-		</div>
+  	{{#ifnoteq round 3}}
+		
+			<div class="form decider speech">
+		    <button class="next-step submit scoreboard hidden-el" data-event="game:next_round">Go to Next Round</button>
+			</div>
+
+		{{/ifnoteq}}
 
 	</div>
 
