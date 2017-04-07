@@ -375,7 +375,7 @@ socketEvents = function(eventId, eventData) {
 
             // Only occurs for non-decider, since decider sends this
             // Or if forced, do this for all players
-            if(!isDecider)
+            if(!isDecider || eventData.force)
                 nextPhaseScreen();
 
             break;
@@ -555,13 +555,16 @@ socketEvents = function(eventId, eventData) {
             modal.fadeOut(function() {
                 $('#overlay').empty().hide();
                 $('#btn-next-player').fadeIn();
-
-                if(isDecider)
-                    socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData());
-            });
+            }, 1000);
 
             if(eventData.phase === 'pitch' && eventData.end && isDecider)
                 nextPhaseScreen();
+
+            else if(eventData.phase === 'doubledown' && isDecider) {
+                setTimeout(function() {
+                    socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData());
+                }, 1000);
+            }
 
             break;
 
