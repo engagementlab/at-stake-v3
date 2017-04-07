@@ -44,6 +44,7 @@
             <div id="overlay" class="modal"></div>
 
             {{!-- PRE-FILLED MODALS --}}
+            {{#ifnoteq section 'homepage'}}
             <section id="error-disconnected" class="modal error-modal">
                 <div id="text" class="col-sm-8 col-centered">
                   <h1>Yikes! :-(</h1>
@@ -64,7 +65,7 @@
                   <h2>You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.</h2>
                 </div>
             </section>
-
+            {{/ifnoteq}}
             {{!-- STAGES BAR --}}
             <section class="col-sm-12" id="stages-bar">
                 <span id="fill" class="phase-path"></span>
