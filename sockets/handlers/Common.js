@@ -41,10 +41,19 @@ var Common = function (nsp, socket) {
 
         },
 
-        'game:next_screen': function(package) {
+        'game:skip_rules': function(package) {
+
 
             Session.Get(package.gameId).
-            NextScreen();
+            SkipScreen();
+
+        },
+
+        'game:next_screen': function(package) {
+
+
+            Session.Get(package.gameId).
+            NextScreen(package.msgData);
 
         },
 

@@ -371,6 +371,28 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'game:skip_rules':
+
+            console.log("we ALMOST hid those rules")
+        
+            $.when($('.screen.rules-screen').remove()).then(
+                function() {
+
+                    console.log("we hid those rules")
+                    {{!-- var newScreen = $('.screen .skip-rules'); --}}
+                    
+                    // Local session update
+                    sessionStorage.setItem('markup', $('#gameContent').html());   
+                    {{!-- sessionStorage.setItem('screen', currentScreenIndex); --}}
+
+                    $('.skip-rules').trigger('show');
+
+                    runMods();
+
+            });
+
+            break;
+
         case 'game:next_screen':
 
             // Only occurs for non-decider, since decider sends this
@@ -552,18 +574,15 @@ socketEvents = function(eventId, eventData) {
             // Close "(playername) is deciding...." modal
             var modal = $('#more-time-wrapper');
           
-            modal.fadeOut(function() {
+            modal.fadeOut(500, function() {
                 $('#overlay').empty().hide();
                 $('#btn-next-player').fadeIn();
-            }, 1000);
+            });
 
-            if(eventData.phase === 'pitch' && eventData.end && isDecider)
-                nextPhaseScreen();
-
-            else if(eventData.phase === 'doubledown' && isDecider) {
+            if((eventData.phase === 'pitch' || eventData.phase === 'doubledown') && isDecider) {
                 setTimeout(function() {
-                    socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData());
-                }, 1000);
+                    socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData(true));
+                }, 600);
             }
 
             break;
