@@ -197,9 +197,9 @@ a:hover{
 	.game-pitch{
 		float: right;
 		padding: 0px 40px;
-		@media(max-width: 990px){
-			padding: 0px 25px;
-		}
+		@include tablet-portrait-and-below{
+					padding: 0;
+				}
 		color: $type-black;
 		.tagline{
 
@@ -207,23 +207,29 @@ a:hover{
 		.half-1{
 			min-width: 200px;
 			padding-top: 30px;
+			@include tablet-portrait-and-below{
+					padding: 0;
+				}
 			.cta-para-one{
 				text-align: justify;
-					text-justify: inter-word;
-	-moz-hyphens: auto;
-	-webkit-hyphens:auto;
-	hyphens: auto;
-	hyphenate-before: 2;
-	hyphenate-after:2;
+				text-justify: inter-word;
+				-moz-hyphens: auto;
+				-webkit-hyphens:auto;
+				hyphens: auto;
+				hyphenate-before: 2;
+				hyphenate-after:2;
+				@include tablet-portrait-and-below{
+					padding: 0;
+				}
 			}
 			.cta-para-two{
 				text-align: justify;
-					text-justify: inter-word;
-	-moz-hyphens: auto;
-	-webkit-hyphens:auto;
-	hyphens: auto;
-	hyphenate-before: 2;
-	hyphenate-after:2;
+				text-justify: inter-word;
+				-moz-hyphens: auto;
+				-webkit-hyphens:auto;
+				hyphens: auto;
+				hyphenate-before: 2;
+				hyphenate-after:2;
 			}	
 		}
 		.cta-points{
@@ -343,13 +349,22 @@ a:hover{
 		.flow-play-para{
 			text-align: justify;
 				text-justify: inter-word;
-	-moz-hyphens: auto;
-	-webkit-hyphens:auto;
-	hyphens: auto;
-	hyphenate-before: 2;
-	hyphenate-after:2;
+			-moz-hyphens: auto;
+			-webkit-hyphens:auto;
+			hyphens: auto;
+			hyphenate-before: 2;
+			hyphenate-after:2;
 			text-align-last: center;
 			color: $type-black;
+
+			@media(min-width: 2000px)
+			{
+				padding: 0 20px;
+			}
+			@media(min-width: 2250px)
+			{
+				padding: 0 40px;
+			}
 		}
 		.play-pic{
 			display: block;
@@ -437,6 +452,14 @@ a:hover{
 			hyphens: auto;
 			hyphenate-before: 2;
 			hyphenate-after:2;
+			}
+			@media(min-width: 2000px)
+			{
+				padding: 0 20px;
+			}
+			@media(min-width: 2250px)
+			{
+				padding: 0 60px;
 			}
 		}
 	}

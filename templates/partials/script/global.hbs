@@ -291,6 +291,8 @@
 	var nextPhaseScreen = function() {
 	    
 	    currentScreenIndex++;
+      
+      $('#overlay').empty().hide();
 
 	    //TODO: Animate
 	    $.when($($('.screen')[0]).remove()).then(function() {
