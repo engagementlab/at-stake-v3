@@ -44,7 +44,7 @@ var Common = function (nsp, socket) {
         'game:next_screen': function(package) {
 
             Session.Get(package.gameId).
-            NextScreen();
+            NextScreen(package.msgData);
 
         },
 
