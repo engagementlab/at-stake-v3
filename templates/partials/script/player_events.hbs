@@ -371,6 +371,28 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'game:skip_rules':
+
+            console.log("we ALMOST hid those rules")
+        
+            $.when($('.screen.rules-screen').remove()).then(
+                function() {
+
+                    console.log("we hid those rules")
+                    {{!-- var newScreen = $('.screen .skip-rules'); --}}
+                    
+                    // Local session update
+                    sessionStorage.setItem('markup', $('#gameContent').html());   
+                    {{!-- sessionStorage.setItem('screen', currentScreenIndex); --}}
+
+                    $('.skip-rules').trigger('show');
+
+                    runMods();
+
+            });
+
+            break;
+
         case 'game:next_screen':
 
             // Only occurs for non-decider, since decider sends this
