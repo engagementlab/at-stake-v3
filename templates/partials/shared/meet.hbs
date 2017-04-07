@@ -9,7 +9,7 @@
 	{{/ifeq}}
 
 	{{!-- ROLE CARDS --}}
-	<div class="screen {{#ifnoteq round '1'}}initial{{/ifnoteq}}">
+	<div class="screen {{#ifnoteq round '1'}}initial{{else}}skip-rules{{/ifnoteq}}">
 
 		{{> component/instructions 
 				decider=true
