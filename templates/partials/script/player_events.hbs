@@ -214,6 +214,9 @@ socketEvents = function(eventId, eventData) {
             
             playerWasReconnected = false;
 
+            if (isDecider)
+                $('#btn-role-card').css('visibility', 'hidden');
+
             $('#debug-info').text('Player id: ' + eventData.id);
 
             playerId = eventData.id;
@@ -324,10 +327,6 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
-        case 'player:agenda_item':
-        
-            break;
-
         case 'player:assignrole':
 
             $('#role-card').html(eventData);
@@ -345,6 +344,7 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:start':
+        
             if (!$('.rules-screen').css('display', 'block'))
                 $('#background-logo').show();
 
@@ -374,6 +374,7 @@ socketEvents = function(eventId, eventData) {
         case 'game:next_screen':
 
             // Only occurs for non-decider, since decider sends this
+            // Or if forced, do this for all players
             if(!isDecider)
                 nextPhaseScreen();
 
@@ -505,28 +506,32 @@ socketEvents = function(eventId, eventData) {
 
             $('#added-time').hide();
 
+            // Move right to next player if in double-down
+            if(eventData === 'doubledownCountdown') {
+
+                if(isDecider) {
+                    socket.emit('game:next_player', emitData());
+                    return;
+                }
+
+            }
+
             runMods();
 
             openInnerModal();
-
-            var disableBuy = $('#player-coins span').text() === '0';
-
-            $('#overlay ' + (disableBuy ? '#btn-more-time' : '#btn-empty')).remove();          
+    
             $('#btn-more-time, #btn-cancel').click(function() {
                 var modal = $('#more-time-wrapper.showing');
               
                 modal.fadeOut(function() {
-                    // $('.screen').append(modal);
                     $('#overlay').empty();
                     $('#overlay').hide();
                 });
                 
             });
 
-            if(eventData == "brainstormCountdown" || eventData == "deliberateCountdown") {
-                // if(isDecider)
-                    nextPhaseScreen();
-            }
+            if(eventData == "brainstormCountdown" || eventData == "deliberateCountdown") 
+                nextPhaseScreen();
 
             break;
 
@@ -548,15 +553,15 @@ socketEvents = function(eventId, eventData) {
             var modal = $('#more-time-wrapper');
           
             modal.fadeOut(function() {
-                $('#overlay').empty();
-                $('#overlay').hide();
-
-                
+                $('#overlay').empty().hide();
                 $('#btn-next-player').fadeIn();
 
                 if(isDecider)
-                    $('#btn-next').show();
+                    socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData());
             });
+
+            if(eventData.phase === 'pitch' && eventData.end && isDecider)
+                nextPhaseScreen();
 
             break;
 
@@ -571,6 +576,8 @@ socketEvents = function(eventId, eventData) {
             isDecider = eventData;
 
             $('#bottom-bar').show();
+
+            $('#btn-role-card').css('visibility', 'hidden');
 
             break;
 

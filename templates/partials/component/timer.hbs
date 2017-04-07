@@ -24,23 +24,23 @@
   {{!-- CIRCULAR TIMER --}}
   <div class="timer_wrap {{#ifeq decider true}}decider{{else}}player{{/ifeq}}">
     {{#ifeq preview true}} 
-      {{#ifeq active_player true}}
+      {{!-- {{#ifeq active_player true}} --}}
         <div class="timer preview" data-duration="{{time}}"></div>
-      {{/ifeq}}
+
+        <div class="form decider speech">
+        
+          {{#ifeq next_player true}}
+            <button id="btn-next-player" data-event="game:next_player" class="timer-button submit" style="display:none">next player</button>
+          {{else}}
+            <button id="btn-next" data-event="{{#if advance}}game:start_timer{{else}}game:start_timer{{/if}}" class="timer-button next-step submit">start</button>
+          {{/ifeq}}
+
+          <span id="modifier" class="hidden-el" data-hide_next="false"></span>
+        </div>
+      {{!-- {{/ifeq}} --}}
     {{else}}
         <div class="timer"></div>
     {{/ifeq}}
-
-    <div class="decider form row">
-
-      {{#ifeq next_player true}}
-        <button id="btn-next-player" data-event="game:next_player" class="timer-button submit" style="display:none">next player</button>
-      {{!-- {{else}}
-        <button id="btn-next" data-event="{{#if advance}}game:next{{else}}game:next_screen{{/if}}" class="timer-button next-step submit" style="display:none">next</button> --}}
-      {{/ifeq}}
-
-      <span id="modifier" class="hidden-el" data-hide_next="false"></span>
-    </div>
   </div>
 
 {{/ifeq}}

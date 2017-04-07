@@ -1,15 +1,16 @@
 <div class="row screen rules-screen initial col-lg-12 col-sm-12">
 	<div class="main-rule">@stake is a deliberative democracy role playing game </div>
-	<div class="secondary-rule">...and is driven by a real issues such as education, civic engagement, environmentalism, etc....and is driven by a real issues such as education, civic engagement, environmentalism, etc.</div>
+	<div class="secondary-rule">...and is driven by a real issues such as education, civic engagement, environmentalism, etc.</div>
   <div class="rules-image">{{!-- <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743645/at-stake/layout/pot_stroke.png"> --}}</div>
   <div class="form">
+    <button class="skip submit {{showHide this}}" data-event="game:next">skip rules</button>
 		<button class="next-step submit {{showHide this}}" data-event="{{nextEvent this}}">next</button>
 	</div>
 </div>
 
 <div class="row screen rules-screen col-lg-12 col-sm-12">
 	<div class="main-rule">Each round reveals a specific question related to the game category</div>
-	<div class="secondary-rule"> and asks players to pitch a potential solution or proposal for addressing </div>	  
+	<div class="secondary-rule">and asks players to pitch a potential solution or proposal for addressing </div>	  
 	<div class="rules-image">{{!-- <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743645/at-stake/layout/pot_stroke.png"> --}}</div>
 	<div class="form">
 		<button class="next-step submit {{showHide this}}" data-event="{{nextEvent this}}">next</button>

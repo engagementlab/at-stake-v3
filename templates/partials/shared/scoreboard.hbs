@@ -18,7 +18,7 @@
 						<div class="rank starting">{{ordinalPosition @index}}</div>
 						<div class="rank current">{{ordinalPosition rank}}</div>
 				    <div class="coins starting">{{coins.starting}}</div>
-				    <div class="coins delta {{numSign coins.delta}}" style="background-image:url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1490979430/at-stake/layout/icon-yourcoins.svg')">{{coins.delta}}</div>
+				    <div class="coins delta {{numSignString coins.delta}}" style="background-image:url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1490979430/at-stake/layout/icon-yourcoins.svg')">{{numSign coins.delta}}</div>
 				    <div class="coins current">{{coins.current}}</div>
 					  <div class="info">
 						  <h1>{{lowerCase username}}</h1>

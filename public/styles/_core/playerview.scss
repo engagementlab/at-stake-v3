@@ -283,8 +283,6 @@ input.post-button {
 		img {
 			display: block;
 	    margin: auto;
-			width: 34px;
-			height: 34px;
 		}
 
 		&:nth-child(1) {
@@ -310,11 +308,14 @@ input.post-button {
 		}
 
 		&.disabled {
-			@include scale(.7);
+			height: 23px;
+			width:23px;
+			border-radius: 12px;
 			@include filter(grayscale, 100%);
 			animation-name: exit-stage;
 			animation-duration: 1s;
 			animation-fill-mode: forwards;
+			background-color: $turquoise-light;
 			span {
 				display: none;
 			}
@@ -323,9 +324,17 @@ input.post-button {
 			animation-name: enter-stage;
 			animation-duration: 1s;
 			animation-fill-mode: forwards;
-
+			border-radius: 20px;
+			height: 40px;
+			width: 40px;
+			border: 3px white solid;
+		  background-color: $turquoise-dark;
 			span {
 				font-weight: 800;
+		    position: absolute;
+		    bottom: -10px;
+		    width: 100%;
+		    left: -2px;
 			}
 		}
 
@@ -338,7 +347,7 @@ input.post-button {
     height: 5px;
     width: 95%;
     top: 68%;
-    left: 10px;
+    left: 10px;          
     &:after {
     	content: "";
     }
@@ -444,7 +453,7 @@ input.post-button {
 	.coins {
     position: relative;
 		float: left;   
-		margin-top: 10%;
+		// margin-top: 10%;
 		font-size: 16px;
 	}
 	
@@ -539,22 +548,30 @@ input.post-button {
   margin: 8px;
   margin-bottom: 0px;
   background: $color-red;
-  border-radius: 0px;
+  border-radius: 10px;
   border: 3px white solid;
   border-bottom: 0px;
   z-index: 3000;
-  @include gradient-vertical($orange-dark, $white, 30%, 30%);
+  @include gradient-vertical(#18b898, $white, 20%, 20%);
   top:0px;
 
   .swipe {
-  	margin-bottom: 20px;
+  	margin: 8px;
   }
   .instruction {
-  	font-size:12px;
-  	font-family: $avenir-reg;
+  	font-family: AvenirNext;
+	  font-size: 12px;
+	  span {
+	  	font-family: AvenirNext-Bold;
+	  }
   }
   .icon {
-  	margin: 20px;
+  	margin: 20px auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    border: 4px white solid;
+    background:#00f0cc;
   }
 
   .role-info {
@@ -563,23 +580,52 @@ input.post-button {
   	padding-bottom: 20px;
 
   	.title {
-  		font-size: 18px;
+  		font-family: AvenirNext-Bold;
+		  font-size: 24px;
+		  font-weight: 900;
+		  text-align: center;
+		  color: #18b898;
   	}
   	
   	p {
-  		text-align: left;
-  		color:$orange-dark;
+  		color:#555555;
+  		font-family: AvenirNext;
+		  font-size: 16px;
+		  font-weight: 500;
   		display:inline;
   	}
   }
+  .line {
+  	margin: 0px auto;
+  	width: 176px;
+	  height: 2px;
+	  background-color: #59f6de;
+	  margin: 16px auto;
+  }
   .agenda-wrap {
   	color: $orange-dark;
+
+  	.header {
+  		font-family: AvenirNext-Bold;
+  		color: #18b898;
+  	}
+
+  	.instruction {
+			color:#555555;
+  		font-family: AvenirNext;
+		  font-size: 16px;
+		  font-weight: 500;
+  		display:inline;
+  	}
   }
   .agenda-item {
   	border-radius: 100px;
-  	background-color: $orange-light;
-  	margin: 10px;
+  	background-color: $orange-dark;
+  	margin: 16px;
+  	height: 60px;
+  	margin-top: 24px;
   	color: white;
+
 
   	.value {
 	  	height: 60px;
@@ -591,12 +637,15 @@ input.post-button {
 	    background-position: 3px 3px;
 	  	// background-size: cover;
 	  	background-repeat: no-repeat;
-	  	background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/coin_stroke.png");
+	  	background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1490979430/at-stake/layout/icon-yourcoins.svg");
 	  }
 	  .agenda {
-	  	height: 60px;
-	  	line-height:60px;
+	  	height: 32px;
+      margin: 10px auto;
+	  	width: 208px;
 	  	display:inline-block;
+	  	text-align: left;
+	  	line-height:1.2;
 	  }
   }
   
@@ -613,7 +662,7 @@ input.post-button {
 .rules-screen {
 	min-height: 400px;
 	.main-rule {
-		font-family: AvenirNext;
+		font-family: AvenirNext-Bold;
 	  font-size: 16px;
 	  font-weight: bold;
 	  line-height: 1;
@@ -625,6 +674,14 @@ input.post-button {
 	  font-size: 16px;
 	  letter-spacing: -0.7px;
 	  color: #ebebeb;
+	}
+	.skip {
+		background: transparent;
+		border: 0px;
+		color: white;
+		position: absolute;
+		left: 20%;
+		bottom: 40%;
 	}
 	.next-step {
 		background: transparent;
@@ -720,6 +777,15 @@ blockquote.speech {
 	  }
 
   }
+}
+
+
+.timer_wrap {
+	button {
+		right: 45%;
+		bottom: inherit;
+    font-size: 17px;
+	}
 }
 
 // Scoreboard 
