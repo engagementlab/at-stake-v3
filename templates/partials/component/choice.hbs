@@ -59,8 +59,8 @@
 
 		{{#ifeq doubledown true}}
 
-			  <h1>Haha gimme <strong>{{config.doubledownTimeCost}} coins</strong> to double-down brah?</h1>
-			  <h2>Have fun for {{config.doubledownSeconds}} but then die teehee.</h2>
+			  <h1>Pay <strong>{{config.doubledownTimeCost}} coins</strong> to the pot to double down?</h1>
+			  <h2>For {{config.doubledownTimeCost}} coins, the floor is yours exclusively for {{config.doubledownSeconds}} seconds.</h2>
 
 		{{else}}
 
@@ -98,11 +98,9 @@
 				<div id="player-{{activePlayer.index}}" class="player-logo lg">
 			  </div>
 				<h1>Waiting for {{activePlayer.username}}</h1>
-				{{#ifeq doubledown true}}
-					<h2>{{activePlayer.username}}is deciding if they wanna KFC double-down!</h2>
-				{{else}}
-					<h2>{{activePlayer.username}}is deciding if they want to buy more time. Hang tight!</h2>
-				{{/ifeq}}
+					<h2>
+						{{activePlayer.username}} is deciding if they want to {{#ifeq doubledown true}}double down{{else}}buy more time{{/ifeq}}. Hang tight!
+					</h2>
 		  </div>
 		</div>
 
