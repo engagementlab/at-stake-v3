@@ -139,8 +139,6 @@ var checkIfLoggedIn = function() {
         return;
     }
 
-    // $('#resuming').show();
-
     gameCode = sessionStorage.getItem('gameCode');
     playerName = sessionStorage.getItem('username');
     
@@ -224,6 +222,7 @@ $(document).on('click', '.btn.game_login', function(evt) {
 
         return;
     }
+    var username = data.name;
 
     // Create uid for player
     if(!sessionStorage.getItem('uUID')) {
@@ -282,6 +281,8 @@ $(document).on('click', '.btn.game_login', function(evt) {
                 $('#lobby').addClass('wait');
                 $('.login.waiting').fadeIn();
             });
+
+            ga('send', 'event', 'Login', 'Username', username);
 
             data.uid = playerUID;
             playerLogin(data);                          
