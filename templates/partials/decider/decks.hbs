@@ -1,0 +1,48 @@
+<div class="glide__bullets"></div>
+
+{{!-- <div class="glide__arrows">
+  <button class="glide__arrow prev" data-glide-dir="<">prev</button>
+  <button class="glide__arrow next" data-glide-dir=">">next</button>
+</div> --}}
+<div class="glide__wrapper">
+  <div class="glide__track">
+    
+    {{#each this}}
+
+      <div class="glide__slide" data-id="{{_id}}">
+
+        <div class="deck">
+
+          <div class="deck-header">
+            <h2 class="medium-font white">{{name}}</h2>
+
+            <div class="description white subtitle">
+              {{description}}
+            </div>
+          </div>
+
+          <h3 class="flag medium-font ">Talking Points</h3>
+            {{#each questions}}
+            <div class="question">{{this}}</div>
+
+              {{#if @last}}
+              {{else}}
+                <div class="dot"></div>
+              {{/if}}
+
+            {{/each}}
+
+          <h3 class="flag medium-font">Sample Stakeholders</h3>
+          <div class="stakeholders">
+            {{#each roles}}
+            <div class="deck-role col-xs-6 {{checkEven @index}}"><p>{{title}}</p></div>
+            {{/each}}
+          </div>
+
+        </div>
+      </div>
+
+    {{/each}}
+
+  </div>
+</div>
