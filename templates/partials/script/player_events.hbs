@@ -604,7 +604,7 @@ socketEvents = function(eventId, eventData) {
 
             $('#bottom-bar').show();
 
-            $('#btn-role-card').css('visibility', 'hidden');
+            $('#btn-role-card').css('visibility', isDecider ? 'hidden' : 'visible');
 
             break;
 
