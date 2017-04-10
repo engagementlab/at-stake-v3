@@ -27,33 +27,6 @@
 
 	</div>
 
-	{{!-- GET READY --}}
-	<div class="screen">
-
-		{{> component/instructions 
-				decider=true
-				heading="read the text in the blue box outloud"
-				body="Once you have finished speaking the instructions to other players, press next to continue."
-		}}
-		
-		{{!-- 'combine' merges two strings --}}
-		{{> component/instructions 
-				heading="Get Ready to Brainstorm a solution"
-				body=(combine 'Round question: ' question)
-		}}
-
-		{{> component/speech 
-				decider=true
-				body=(combine 'Once I start the timer, You will have ' config.thinkSeconds ' seconds to brainstorm a solution to this question. Get Ready!')
-		}}
-
-		{{> component/speech 
-				body=(combine 'Once I start the timer, You will have ' config.thinkSeconds ' seconds to brainstorm a solution to this question. Get Ready!')
-				secondary=question
-		}}
-
-	</div>
-
 	{{!-- TIMER START --}}
 	<div class="screen">
 

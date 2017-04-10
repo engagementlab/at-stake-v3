@@ -12,44 +12,44 @@
 
 <script type="text/javascript">
 
-	var socket;
-	var socketEvents;
-  var gameCode;
-  var deck;
-  var gameEnded = false;
-	var gameContainer;
+	var socket,
+	socketEvents,
+  gameCode,
+  deck,
+  gameEnded = false,
+  timerActive = false,
+	gameContainer,
 
-  var playerId;
-  var playerUID;
-  var isDecider;
-	var timeline = new TimelineLite();
-	var mobileDetect = new MobileDetect(window.navigator.userAgent);
+  playerId,
+  playerUID,
+  isDecider,
+	timeline = new TimelineLite(),
+	mobileDetect = new MobileDetect(window.navigator.userAgent),
 
-	var isApple = mobileDetect.is('iOS');
-	var isAndroid = mobileDetect.is('Android') || mobileDetect.match('Android');
-	var isMobile = (isAndroid || isApple);
+	isApple = mobileDetect.is('iOS'),
+	isAndroid = mobileDetect.is('Android') || mobileDetect.match('Android'),
+	isMobile = (isAndroid || isApple),
 
 	// Can be set by any event logic waiting for content update
-	var updateContentCallback;
+	updateContentCallback,
 
 	// Absolute positioning global
-	var maxWidth = 425;
+	maxWidth = 425,
 
 	// For countdown debugging
-  var countdownPaused = false;
+  countdownPaused = false,
 
   // Tracks current phase index and the screen during each phase
-  var currentPhaseIndex = -1;
-  var currentScreenIndex = 0;
+  currentPhaseIndex = -1,
+  currentScreenIndex = 0,
 
-  var sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1/at-stake/sfx/';
+  sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1/at-stake/sfx/',
   {{#ifeq env "development"}}
   	sfxPath = '/sfx/'
   {{/ifeq}}
 
   // All possible socket event IDs
-  // TODO: Change based on game type?
-	var eventIds = [
+	eventIds = [
 
 		{{#ifnoteq environment "production"}}
 		'debug:pause',
@@ -344,9 +344,18 @@
 	    // $('#gameContent').addClass('blur');
 	    $('#overlay').empty();
 
-	    // If modal set to 'clone' mode, keep copy in current parent
-	    if(!_.isEmpty(modalSelector.data()) && modalSelector.data('clone') === true)
-		    modalSelector.clone().appendTo(modalSelector.parent());
+	    if(!_.isEmpty(modalSelector.data())) {
+
+		    // If modal set to 'clone' mode, keep copy in current parent
+	    	if(modalSelector.data('clone') === true)
+			    modalSelector.clone().appendTo(modalSelector.parent());
+
+			  // If modal has 'wait' mode enabled, open only if current countdown is over
+		    if(modalSelector.data('wait') === true) {
+		    	if(timerActive) return;
+		    }
+
+		  }
 
 	    $('#overlay').append(modalSelector.first());
 	    $('#overlay, #overlay .inner-modal').show();

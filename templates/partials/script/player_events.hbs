@@ -29,26 +29,30 @@ var resetSession = function() {
     sessionStorage.removeItem('gameCode');
     sessionStorage.removeItem('uUID');
     sessionStorage.removeItem('markup');
+    sessionStorage.removeItem('lastDuration'); 
     sessionStorage.setItem('reconnected', false);
 
 }
 
-var startTimer = function(secondsLeft) {
+var startTimer = function(secondsLeft, timerAdvance) {
     
     var wasPaused = false;
 
     if($('.screen .timer').length === 0)
         return;
 
+    if(secondsLeft > 0)
+       timerActive = true;
+            
     clockInterval = setInterval(function() {
 
         function clockTick() {
             $('#countdown').text(secondsLeft + ' seconds');
             secondsLeft--;
         }
-            
-        // Resume timer UI if timer paused due to player disconnect
-        if(!countdownPaused && wasPaused)
+
+        // Resume timer UI if timer paused due to player disconnect or 
+        if((!countdownPaused && wasPaused))
             countdownAnim.animate(1, {duration: secondsLeft*1000});
 
         wasPaused = countdownPaused;
@@ -61,8 +65,10 @@ var startTimer = function(secondsLeft) {
 
         clockTick();
 
-        if(secondsLeft === 0)
+        if(secondsLeft === 0) {
             clearInterval(clockInterval);
+            timerActive = false;
+        }
 
     }, 1000);
     
@@ -82,7 +88,17 @@ var startTimer = function(secondsLeft) {
           }
       }
     );
-    countdownAnim.animate(1);
+
+    // If timer is being force-advanced, set progress
+    if(timerAdvance && sessionStorage.getItem('lastDuration')) {
+        var original = parseInt(sessionStorage.getItem('lastDuration'));
+        var progressRatio = (secondsLeft / original);
+    
+        countdownAnim.set(progressRatio);
+        countdownAnim.animate(1, {duration: original*1000});
+    }
+    else
+        countdownAnim.animate(1);
 
 }
 
@@ -100,16 +116,9 @@ var setupScreen = function() {
 
     $('#gameContent').addClass('in-game');
     $('#stages-bar').show();
-    
-    /*
-    // This makes duplicate of all speech bubbles and 
-    // makes them all child of respective bubble,
-    // in order to achieve proper "bottom border" effect
-    _.each($('.screen blockquote.speech'), function(el, i) {
-        $(el).clone().addClass('under').remove('button').appendTo(el);
-    });*/
 
     sessionStorage.setItem('markup', $('#gameContent').html());
+
     // Animate initial
     screenOpen($('.screen:first'));
 
@@ -250,7 +259,7 @@ socketEvents = function(eventId, eventData) {
 
                 var secondsLeft = eventData.resume_duration; 
                 if(secondsLeft && secondsLeft > 0)
-                    startTimer(secondsLeft);
+                    startTimer(secondsLeft, true);
                 else {
                     // Check if timer element is left-over; if so, timer is now at 0 and should show next btn
                     startTimer(0);
@@ -373,13 +382,8 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:skip_rules':
 
-            console.log("we ALMOST hid those rules")
-        
             $.when($('.screen.rules-screen').remove()).then(
                 function() {
-
-                    console.log("we hid those rules")
-                    {{!-- var newScreen = $('.screen .skip-rules'); --}}
                     
                     // Local session update
                     sessionStorage.setItem('markup', $('#gameContent').html());   
@@ -514,6 +518,7 @@ socketEvents = function(eventId, eventData) {
                    
             var secondsLeft = eventData.duration; 
             startTimer(secondsLeft);
+            sessionStorage.setItem('lastDuration', secondsLeft);
 
             break;
 
@@ -527,6 +532,7 @@ socketEvents = function(eventId, eventData) {
         case 'game:countdown_end':
 
             $('#added-time').hide();
+            timerActive = false;
 
             // Move right to next player if in double-down
             if(eventData === 'doubledownCountdown') {
@@ -537,9 +543,8 @@ socketEvents = function(eventId, eventData) {
                 }
 
             }
-
+            
             runMods();
-
             openInnerModal();
     
             $('#btn-more-time, #btn-cancel').click(function() {
