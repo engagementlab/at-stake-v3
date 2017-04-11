@@ -117,7 +117,6 @@ var screenOpen = function(screenElement) {
 		
 				var nodes = $('#ranking .player-logo');
 				var total = nodes.length;
-				var ease  = Power1.easeInOut;
 				var boxes = [];
 
 				for (var i = 0; i < total; i++) {
@@ -134,7 +133,7 @@ var screenOpen = function(screenElement) {
 				    node: node
 				  };
 				
-				} 
+				}
 				  
 			  for (var i = 0; i < total; i++) {
 			    
@@ -152,11 +151,12 @@ var screenOpen = function(screenElement) {
 			    if (lastX === box.x && lastY === box.y) continue;
 			    
 			    // Reversed delta values taking into account current transforms
-			    var x = box.transform.x + lastX - box.x;
-			    var y = box.transform.y + lastY - box.y;  
+			    var xReverse = box.transform.x + lastX - box.x;
+			    var yReverse = box.transform.y + lastY - box.y;  
 			    
 			    // Tween to 0 to remove the transforms
-			    TweenLite.fromTo(box.node, 0.5, { x, y }, { x:0, y:0, ease });    
+			    var dest = { x:0, y:0, ease: Power1.easeInOut };
+			    TweenLite.fromTo(box.node, 0.5, { x: xReverse, y: yReverse }, dest);    
 			  }
 
 			  // $('#decider').show();
@@ -172,17 +172,17 @@ var screenOpen = function(screenElement) {
 		// .to($('.coins.delta'), .01, { autoAlpha:0, display:'none' })
 		// .to($('.instruction:nth(0)'), .5, { autoAlpha:0, yPercent:-100, display:'none', delay: 5 })
 		// .fromTo($('.instruction:nth(1)'), .5, { autoAlpha:0, yPercent:-100, display:'none' }, { autoAlpha:1, yPercent:0, display:'block' })
-		.to($('.coins.starting'), 1, { autoAlpha:0, y:'10%', display:'none', delay: 2 })
+		.to($('.coins.starting'), 1, { autoAlpha:0, y:'10%', display:'none', delay: 5 })
 		.fromTo($('.coins.delta'), 1, { autoAlpha:0, y:'10%', display:'none' }, { autoAlpha:1, y:'0%', display:'block' })
 
 		// .to($('.instruction:nth(1)'), .5, { autoAlpha:0, yPercent:-100, display:'none', delay: 5 })
 		// .fromTo($('.instruction:nth(2)'), .5, { autoAlpha:0, yPercent:-100, display:'none' }, { autoAlpha:1, yPercent:0, display:'block' })
-		.fromTo($('.coins.delta'), 1, { autoAlpha:1, display:'block' }, { autoAlpha:0, y:'10%', display:'none', delay: 2 })
+		.fromTo($('.coins.delta'), 1, { autoAlpha:1, display:'block' }, { autoAlpha:0, y:'10%', display:'none', delay: 5 })
 		.fromTo($('.coins.current'), 1, { autoAlpha:0, y:'10%', display:'none' }, { autoAlpha:1, y:'0%', display:'block' })
 		
 		// .to($('.instruction:nth(2)'), .5, { autoAlpha:0, yPercent:-100, display:'none', delay: 5 })
 		// .fromTo($('.instruction:nth(3)'), .5, { autoAlpha:0, yPercent:-100, display:'none' }, { autoAlpha:1, yPercent:0, display:'block' })
-		.fromTo($('.rank.starting'), 1, { autoAlpha:1, display:'block' }, { autoAlpha:0, x:'10%', display:'none', delay: 2 })
+		.fromTo($('.rank.starting'), 1, { autoAlpha:1, display:'block' }, { autoAlpha:0, x:'10%', display:'none', delay: 5 })
 		.fromTo($('.rank.current'), 1, { autoAlpha:0, x:'10%', display:'none' }, { autoAlpha:1, x:'0%', display:'block' });
 
 	}
