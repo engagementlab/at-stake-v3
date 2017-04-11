@@ -25,6 +25,11 @@
   isDecider,
 	timeline = new TimelineLite(),
 	mobileDetect = new MobileDetect(window.navigator.userAgent),
+	isDevice = false,
+
+	{{#if mobile}}
+		isDevice = true,
+	{{/if}}
 
 	isApple = mobileDetect.is('iOS'),
 	isAndroid = mobileDetect.is('Android') || mobileDetect.match('Android'),

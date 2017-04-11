@@ -584,9 +584,13 @@ socketEvents = function(eventId, eventData) {
                 $('#btn-next-player').fadeIn();
             });
 
-            if((eventData.phase === 'pitch' || eventData.phase === 'doubledown') && isDecider) {
+            if(eventData.phase === 'doubledown' && isDecider) {
                 setTimeout(function() {
                     socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData(true));
+                }, 600);
+            } else if (eventData.phase === 'pitch' && isDecider) {
+                setTimeout(function() {
+                    socket.emit((eventData.end ? 'game:next' : 'game:next_player'), emitData(true));
                 }, 600);
             }
 

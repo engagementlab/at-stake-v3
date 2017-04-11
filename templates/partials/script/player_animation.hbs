@@ -131,7 +131,7 @@ var screenOpen = function(screenElement) {
 				    transform: node._gsTransform,
 				    x: node.offsetLeft,
 				    y: node.offsetTop,
-				    node    
+				    node: node
 				  };
 				
 				} 
@@ -156,7 +156,7 @@ var screenOpen = function(screenElement) {
 			    var y = box.transform.y + lastY - box.y;  
 			    
 			    // Tween to 0 to remove the transforms
-			    TweenLite.fromTo(box.node, 0.5, { x, y }, { x: 0, y: 0, ease });    
+			    TweenLite.fromTo(box.node, 0.5, { x, y }, { x:0, y:0, ease });    
 			  }
 
 			  // $('#decider').show();
@@ -172,17 +172,17 @@ var screenOpen = function(screenElement) {
 		// .to($('.coins.delta'), .01, { autoAlpha:0, display:'none' })
 		// .to($('.instruction:nth(0)'), .5, { autoAlpha:0, yPercent:-100, display:'none', delay: 5 })
 		// .fromTo($('.instruction:nth(1)'), .5, { autoAlpha:0, yPercent:-100, display:'none' }, { autoAlpha:1, yPercent:0, display:'block' })
-		.to($('.coins.starting'), 1, { autoAlpha:0, y:'10%', display:'none', delay: 5 })
+		.to($('.coins.starting'), 1, { autoAlpha:0, y:'10%', display:'none', delay: 2 })
 		.fromTo($('.coins.delta'), 1, { autoAlpha:0, y:'10%', display:'none' }, { autoAlpha:1, y:'0%', display:'block' })
 
 		// .to($('.instruction:nth(1)'), .5, { autoAlpha:0, yPercent:-100, display:'none', delay: 5 })
 		// .fromTo($('.instruction:nth(2)'), .5, { autoAlpha:0, yPercent:-100, display:'none' }, { autoAlpha:1, yPercent:0, display:'block' })
-		.fromTo($('.coins.delta'), 1, { autoAlpha:1, display:'block' }, { autoAlpha:0, y:'10%', display:'none', delay: 5 })
+		.fromTo($('.coins.delta'), 1, { autoAlpha:1, display:'block' }, { autoAlpha:0, y:'10%', display:'none', delay: 2 })
 		.fromTo($('.coins.current'), 1, { autoAlpha:0, y:'10%', display:'none' }, { autoAlpha:1, y:'0%', display:'block' })
 		
 		// .to($('.instruction:nth(2)'), .5, { autoAlpha:0, yPercent:-100, display:'none', delay: 5 })
 		// .fromTo($('.instruction:nth(3)'), .5, { autoAlpha:0, yPercent:-100, display:'none' }, { autoAlpha:1, yPercent:0, display:'block' })
-		.fromTo($('.rank.starting'), 1, { autoAlpha:1, display:'block' }, { autoAlpha:0, x:'10%', display:'none', delay: 5 })
+		.fromTo($('.rank.starting'), 1, { autoAlpha:1, display:'block' }, { autoAlpha:0, x:'10%', display:'none', delay: 2 })
 		.fromTo($('.rank.current'), 1, { autoAlpha:0, x:'10%', display:'none' }, { autoAlpha:1, x:'0%', display:'block' });
 
 	}

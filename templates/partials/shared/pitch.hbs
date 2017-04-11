@@ -87,7 +87,7 @@
 		{{> component/instructions 
 				active_player=player.isActive
 				heading="It’s your turn! Get ready to pitch!"
-				body="Wait for the decider to start the timer. You will have 60 seconds, with the ability to buy another 30."
+				body="Wait for the decider to start the timer. You'll have 60 seconds to pitch your proposal, with the ability to buy more time"
 		}}
 
 		{{!-- inactive player --}}
@@ -124,7 +124,7 @@
 		{{!-- active player --}}
 		{{> component/instructions 
 				active_player=player.isActive
-				heading="It’s your turn! Get ready to pitch!"
+				heading="Pitch your proposal!"
 				body="You’re on! Try to keep within the time limit, and stop speaking when time runs out."
 		}}
 
@@ -154,29 +154,4 @@
 
 	</div>
 
-	{{!-- PITCH END --}}
-	<div class="screen">
-		
-		{{> component/instructions
-				decider=true 
-				heading="Press next for Deliberate phase"
-				body="Let players know the pitch phase is over, and press next to continue."
-		}}
-
-		{{> component/instructions
-				heading="Get ready for the deliberate phase"
-		}}
-
-		{{> component/speech 
-				decider=true
-				advance=true
-				body="Now that we have heard everyone’s proposals, it’s time to move into the next phase and deliberate!"
-		}}
-
-		{{> component/speech
-				body="Now that we have heard everyone’s proposals, it’s time to move into the next phase and deliberate!"
-		}}
-
-	</div>
-	
 </div>
