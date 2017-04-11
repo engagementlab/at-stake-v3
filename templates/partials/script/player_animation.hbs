@@ -117,7 +117,6 @@ var screenOpen = function(screenElement) {
 		
 				var nodes = $('#ranking .player-logo');
 				var total = nodes.length;
-				var ease  = Power1.easeInOut;
 				var boxes = [];
 
 				for (var i = 0; i < total; i++) {
@@ -131,10 +130,10 @@ var screenOpen = function(screenElement) {
 				    transform: node._gsTransform,
 				    x: node.offsetLeft,
 				    y: node.offsetTop,
-				    node    
+				    node: node
 				  };
 				
-				} 
+				}
 				  
 			  for (var i = 0; i < total; i++) {
 			    
@@ -152,11 +151,12 @@ var screenOpen = function(screenElement) {
 			    if (lastX === box.x && lastY === box.y) continue;
 			    
 			    // Reversed delta values taking into account current transforms
-			    var x = box.transform.x + lastX - box.x;
-			    var y = box.transform.y + lastY - box.y;  
+			    var xReverse = box.transform.x + lastX - box.x;
+			    var yReverse = box.transform.y + lastY - box.y;  
 			    
 			    // Tween to 0 to remove the transforms
-			    TweenLite.fromTo(box.node, 0.5, { x, y }, { x: 0, y: 0, ease });    
+			    var dest = { x:0, y:0, ease: Power1.easeInOut };
+			    TweenLite.fromTo(box.node, 0.5, { x: xReverse, y: yReverse }, dest);    
 			  }
 
 			  // $('#decider').show();
