@@ -7,7 +7,7 @@
 <div class="glide__wrapper">
   <div class="glide__track">
     
-    {{#each this}}
+    {{#limit this 2}}
 
       <div class="glide__slide" data-id="{{_id}}">
 
@@ -42,7 +42,7 @@
         </div>
       </div>
 
-    {{/each}}
+    {{/limit}}
 
   </div>
 </div>

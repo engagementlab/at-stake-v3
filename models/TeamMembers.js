@@ -29,6 +29,8 @@ TeamMembers.add({
  	}
 });
 
+
+
 TeamMembers.defaultSort = '-createdAt';
 TeamMembers.defaultColumns = 'name, updatedAt';
 TeamMembers.register();

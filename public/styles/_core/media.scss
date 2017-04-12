@@ -1,3 +1,6 @@
+// WIDTHS
+
+
 @media (min-width: 425px) {
 
 	#wrapper:not(.home-wrap), .modal {
@@ -10,8 +13,28 @@
 
 @media (max-width: 321px) {
 
-	body #gameContent.isMobile {
-		padding-top: 30px;
+
+	body .inner-modal .inner .player-box {
+		.coins {
+			padding-top: 40px;
+			padding-left: 15px;
+		}
+		.info {
+			width: 80%;
+		}
+	}
+	body #gameContent.isMobile:not(.isDevice) {
+		padding-top: 0px;
+
+		&.in-game {
+			padding-top: 25px;
+		}
+		#lobby #name.lobby .login-footer {
+			padding: 0px 35px;
+		}
+		#lobby #name.lobby #btn_submit_name {
+			margin-top:1%;
+		}
 	}
 
 	body #lobby #name.lobby .login-footer {
@@ -50,11 +73,33 @@
 
 	}
 
+	body .inner-modal#more-time-wrapper button {
+		width: 260px;
+	}
+
+	body .inner-modal#more-time-wrapper #btn-more-time {
+
+		.coins {
+			padding-right: 20px;
+		}
+
+	}
+
 	
 }
 
+@media (max-width: 375px) and (min-width: 321px) {
+
+	.glide__slide {
+		min-width: 320px;
+	}
+	
+}
+
+// HEIGHTS
+
 // For teeny tiny screen heights (iPod)
-@media(max-height: 460px) {
+@media(max-height: 461px) {
 
 	// Fix the login!
 	.player-grid {
@@ -62,10 +107,14 @@
 		min-height: 40%;
 	}
 
+	body .instruction h1 {
+		margin: 0px;
+	}
+
 	// Fix that quote!
-	blockquote.speech {
-		padding: 40px 20px;
-		height:237px;
+	body blockquote.speech {
+		padding: 20px !important;
+		height:200px !important;
 		h3 {
 			line-height: 1.3;
 			margin: 5px;
@@ -96,12 +145,5 @@
 			left: 20%;
 		}
 	}
-}
 
-@media (max-width: 375px) and (min-width: 321px) {
-
-	.glide__slide {
-		min-width: 320px;
-	}
-	
 }

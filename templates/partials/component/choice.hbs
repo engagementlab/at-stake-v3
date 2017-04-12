@@ -12,7 +12,7 @@
 	{{#ifeq decider true}} 
 
 		<div class="modal inner-modal {{showHide this}}">
-			<div class="form decider inner">
+			<div class="form decider inner decide-winner">
 				<h1>Choose the player who had the <strong>best</strong> proposal</h1>
 
 				{{#each players}}
@@ -31,7 +31,7 @@
 	{{else}}
 
 		<div class="modal inner-modal {{showHide this}}">
-			<div class="inner">
+			<div class="inner decide-winner">
 				<h1>The decider is about to choose a winning proposal</h1>
 				<h2>Whoever wins receive all the coins in the coin pot!</h2>
 
