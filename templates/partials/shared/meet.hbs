@@ -31,30 +31,32 @@
 
 	</div>
 
-	{{!-- READ ROLES --}}
-	<div class="screen">
-		
-		{{> component/instructions 
-				decider=true
-				heading="read the text in the blue box outloud"
-				body="Once all players have introduced themselves, press next to continue"
-		}}
+	{{!-- READ ROLES (each player) --}}
+	{{#each players}}
+		<div class="screen">
+			
+			{{> component/instructions 
+					decider=true
+					heading="read the text in the blue box outloud"
+					body=(combine 'Once ' username ' has introduced themselves, press next to continue')
+			}}
 
-		{{> component/instructions 
-				heading="Open your Role Card and prepare to share"
-				body="On your turn, read your character role title and bio outloud to the group."
-		}}
+			{{> component/instructions 
+					heading="Open your Role Card and prepare to share"
+					body="On your turn, read your character role title and bio outloud to the group."
+			}}
 
-		{{> component/speech 
-				decider=true
-				body="One at a time, go around the table introducing yourself by reading your character role title and short bio. Do not read your hidden agenda items outloud!"
-		}}
+			{{> component/speech 
+					decider=true
+					body=(combine username ', introduce yourself by reading your character role title and short bio. Do not read your hidden agenda items outloud!')
+			}}
 
-		{{> component/speech 
-				body="One at a time, go around the table introducing yourself by reading your character role title and short bio. Do not read your hidden agenda items outloud!"
-		}}
+			{{> component/speech 
+					body=(combine username ', introduce yourself by reading your character role title and short bio. Do not read your hidden agenda items outloud!')
+			}}
 
-	</div>
+		</div>
+	{{/each}}
 
 	{{!-- AGENDA ITEMS --}}
 	<div class="screen">
