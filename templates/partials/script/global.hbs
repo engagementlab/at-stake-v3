@@ -412,8 +412,9 @@
 
 			if(modifier.data().hide_next) 
 		 		$('#btn-next').fadeOut();
-		 	else if(!isDecider)
-		 		$('#btn-next').fadeIn();
+			
+			else if(modifier.data().hide_bottom_bar) 
+		 		$('#bottom-bar').fadeOut();
 			
 			if(modifier.data().highlight) 
 				$(modifier.data().highlight).addClass('highlight');
@@ -423,12 +424,11 @@
 	      openInnerModal();
 
 		}
-		/*else {
+		else { 
 
-				// Defaults
-		 		$('#btn-next').fadeIn();
+		 		$('#bottom-bar').fadeIn();
 
-		}*/
+		}
 
 	}
 
