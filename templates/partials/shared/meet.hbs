@@ -1,15 +1,13 @@
 {{!-- MEET PHASE UI --}}
 <div id="meet">
 
-	{{!-- RULES - First Round Only --}}
-	{{#ifeq round 1}}
-		{{> shared/rules 
-				decider=true 
-		}}
-	{{/ifeq}}
+	{{!-- RULES - First Round Only and if Tutorial enabled --}}
+	{{#if tutorial}}
+		{{> shared/rules }}
+	{{/if}}
 
 	{{!-- ROLE CARDS --}}
-	<div class="screen {{#ifnoteq round '1'}}initial{{else}}skip-rules{{/ifnoteq}}">
+	<div class="screen {{#unless tutorial}}initial{{/unless}}">
 
 		{{> component/instructions 
 				decider=true

@@ -13,20 +13,27 @@
 var screensAnim,
 		loginAnim,
 		timelineCallback,
-		animationDone = $.Deferred();
+		animationDone = $.Deferred(),
+		newGameAnim = new TimelineLite({paused:true}),
+		tutorialAnim = new TimelineLite({paused:true});		
+
+$('.lobby .btn, .back-button, #btn-start-game').click(function(evt) {
+	if($(evt.currentTarget).data('from'))
+  	loginFromTo($(evt.currentTarget).data('from'), $(evt.currentTarget).data('to'), .7);
+});
 
 function initTimeline() {
-	
-	{{#ifnoteq section 'game-preloaded'}}	
 
-		loginAnim = new TimelineMax({paused:true});
+	loginAnim = new TimelineMax({paused:true});
+	
 		var backBtnFrom = { autoAlpha:0, xPercent:20, display:'none' },
 				backBtnTo = { autoAlpha:1, xPercent:0, display:'block', ease:Expo.easeOut };
 
-		var newGameAnim = new TimelineLite(),
-				choicesAnim = new TimelineLite();
+		var choicesAnim = new TimelineLite(),
+				joinAnim = new TimelineLite(),
+				lobbyAnim = new TimelineLite();
 
-		newGameAnim.to($('#join'), .01, { autoAlpha:0, display:'none' })
+		newGameAnim.to($('#join, #share-code'), .01, { autoAlpha:0, display:'none' })
 							.fromTo($('#choices'), .5, { autoAlpha:1, display:'block' }, { autoAlpha:0, display:'none' })
 							.to($('#login-header'), .5, { autoAlpha:0, height:0, display:'none' })
 							.fromTo($('#decider'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
@@ -35,42 +42,54 @@ function initTimeline() {
 									timelineCallback();
 							})
 							.from($('#decks'), .5, { autoAlpha:0, yPercent:10, ease:Expo.easeOut })
-							.fromTo($('#deck-choice .back-button'), .5, backBtnFrom, backBtnTo)
-							.append('new');
+							.fromTo($('#deck-choice .back-button'), .5, backBtnFrom, backBtnTo);
 
-		loginAnim.from($('#player-name'), .5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .2)
-	            .from($('#btn_submit_name'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut}).append('name')
+		lobbyAnim.to($('#deck-choice'), .5, { autoAlpha:0, display:'none' })
+		         .fromTo($('.waiting'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
+		         .fromTo($('#share_code'), .5, { autoAlpha:0, yPercent: -20, display:'none' }, { autoAlpha:1, yPercent: 0, display:'block' });
 
-							.to($('#name'), .5, { autoAlpha:0, display:'none' })
-
-							.fromTo($('#choices'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
-							.staggerFrom($('#choices .btn'), 1, {yPercent:20, autoAlpha:0, ease:Expo.easeOut}, .7)
-							.fromTo($('#choices .back-button'), .5, backBtnFrom, backBtnTo)
-							.append('choices')
-
-							.to($('#choices'), .5, { autoAlpha:0, display:'none' })
+		joinAnim.to($('#choices'), .5, { autoAlpha:0, display:'none' })
 							.fromTo($('#join'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
 							.fromTo($('#join .back-button'), .5, backBtnFrom, backBtnTo)
-							.append('join')
-							.add(newGameAnim, '+=1').append('new');							
 
-	  $('.lobby .btn, .back-button').click(function(evt) {
-	  	if($(evt.currentTarget).data('from'))
-		  	loginFromTo($(evt.currentTarget).data('from'), $(evt.currentTarget).data('to'), .7);
-	  });
+		loginAnim.from($('#player-name'), .5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .2)
+	           .from($('#btn_submit_name'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut}).append('name')
 
-	{{/ifnoteq}}
+						 .to($('#name'), .5, { autoAlpha:0, display:'none' })
+
+						 .fromTo($('#choices'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
+						 .staggerFrom($('#choices .btn'), 1, {yPercent:20, autoAlpha:0, ease:Expo.easeOut}, .7)
+						 .fromTo($('#choices .back-button'), .5, backBtnFrom, backBtnTo)
+						 .append('choices')
+
+						 .add(joinAnim, '+=1').append('join')
+						 .add(lobbyAnim, '+=1').append('lobby');
+						 
 }
 
 function loginNewGame(callback) {
 	
 	timelineCallback = callback;
 
-	TweenLite.fromTo(loginAnim, 1.5, {time:loginAnim.getLabelTime('choices-new')}, {time:loginAnim.getLabelTime('new')});
+	newGameAnim.play();
 	
 }
 
 function loginFromTo(from, to, timeScale) {
+
+	if(from === 'new' && to === 'choices') {
+		newGameAnim.reverse(newGameAnim.duration());
+		return;
+	}
+	else if(from === 'lobby' && to === 'tutorial') {
+
+		tutorialAnim.to($('.waiting'), .5, { autoAlpha:0, display:'none' })
+						 .fromTo($('#login-header'), .5, { autoAlpha:0, height:0, display:'none' }, { autoAlpha:1, height:138, display:'block' })
+		         .fromTo($('#tutorial'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' });
+
+		tutorialAnim.play();
+		return;
+	}
 
 	// Failsafe
 	if(!loginAnim)

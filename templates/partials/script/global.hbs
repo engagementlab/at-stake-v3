@@ -201,8 +201,10 @@
 		if($.isPlainObject(pkg)) {
 			$.each(Object.keys(pkg), function( key, value ) {
 
-				if(pkg[value] !== undefined)
-				  pkg[value] = $(pkg[value].toString()).val();
+				if(pkg[value] !== undefined) {
+					if(pkg[value].toString().indexOf('#') === 0)
+					  pkg[value] = $(pkg[value].toString()).val();
+				}
 
 			});
 		}
@@ -508,7 +510,7 @@
 
 	    // Ensure login is gone and all decide UI shows
 	    $('#name,#join,#choices').remove();
-	    $('#share-code .access-code').html(gameCodeHtml);
+	    $('#share_code .access-code').html(gameCodeHtml);
 	    $('#decider .create').hide();
       $('#decider').show();
       $('#decider .waiting, #decider-debugging').show();
@@ -670,7 +672,7 @@
 			    }
 
 					data.deckId = $("#decks .glide__slide.active").data('id');
-					data.accessCode = $('.access-code span').text();
+					data.accessCode = $('#share_code .access-code span').text();
 
 				  $.post(
 				  	"/api/create/",
@@ -684,8 +686,10 @@
 								
 								$('#login').remove();
 
-						    $('#decider .create').hide();
-						    $('#decider .waiting').show();
+						    // $('#decider .create').hide();
+						    // $('#decider .waiting').show();
+
+						    loginFromTo('new', 'lobby', .09);
 
 						    _.each(data.accessCode.split(''), function(char, i) {
 					          gameCodeHtml += '<span>' + char + '</span>';
@@ -693,10 +697,10 @@
 
 						    // Ensure login is gone and all decide UI shows
 						    $('#name,#join').remove();
-						    $('.access-code').html(gameCodeHtml);
+						    // $('.access-code').html(gameCodeHtml);
 						    $('#decider .create').hide();
 					      $('#decider').show();
-					      $('#decider .waiting, #decider-debugging').show();
+					      // $('#decider .waiting, #decider-debugging').show();
 					      $('#lobby').addClass('wait');
 
 						    $('#player-name').val(data.decider);

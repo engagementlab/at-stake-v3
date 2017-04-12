@@ -30,7 +30,7 @@ var Common = function (nsp, socket) {
         'game:start': function(package) {
 
             Session.Get(package.gameId).
-            StartGame(currentSpace);
+            StartGame(currentSpace, (package.msgData.tutorial === "true"));
 
         },
 
