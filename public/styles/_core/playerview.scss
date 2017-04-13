@@ -262,7 +262,7 @@ input.post-button {
   line-height: 0;
   top: 0px;
   height: 50px;
-  padding-top:20px;
+  padding-top:17px;
   padding-left:5px;
   padding-right:5px;
 
@@ -285,12 +285,12 @@ input.post-button {
 	    margin: auto;
 		}
 
-		&:nth-child(1) {
-			margin-left: 10px;
-		}
-		&:nth-child(7) {
-			margin-right: 10px;
-		}
+		// &:nth-child(1) {
+		// 	margin-left: 10px;
+		// }
+		// &:nth-child(9) {
+		// 	margin-right: 10px;
+		// }
 
 		span {
 			display: flex;
@@ -334,7 +334,7 @@ input.post-button {
 		    position: absolute;
 		    bottom: -10px;
 		    width: 100%;
-		    left: -2px;
+		    left: -50%;
 			}
 		}
 

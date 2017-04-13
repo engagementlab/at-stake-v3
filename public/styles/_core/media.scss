@@ -64,7 +64,11 @@
 		padding: 60px 20px;
 		
 		button {
-			bottom: 90px;
+			bottom: 60px;
+			&:before {
+				bottom: 6px;
+		    left: 70px;
+			}
 		}
 
 		p {
@@ -92,6 +96,28 @@
 
 	.glide__slide {
 		min-width: 320px;
+	}
+
+	// Fix that quote!
+	body blockquote.speech {
+		p {
+			line-height: 1.4;
+		}
+		button {
+			bottom: 80px;
+			&:before {
+				bottom: 5px;
+		    left: 60px;
+			}
+			&.timer {
+			bottom: 80px;
+				&:before {
+					bottom: 4px;
+					left: 123px;
+				}
+			}
+		}
+		
 	}
 	
 }
@@ -131,7 +157,7 @@
 				bottom: 70px;
 				&:before {
 					bottom: 5px;
-					left: 123px;
+					left: 128px;
 				}
 			}
 		}
