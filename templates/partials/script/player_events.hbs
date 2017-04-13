@@ -276,6 +276,8 @@ socketEvents = function(eventId, eventData) {
 
                 });
 
+                $('#error-disconnected').trigger('hide');
+
                 playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);
 
             });
@@ -464,6 +466,8 @@ socketEvents = function(eventId, eventData) {
                 $('.screen.restart').show();
 
                 openInnerModal();
+            
+                sessionStorage.setItem('markup', $('#gameContent').html());
 
             });
 
