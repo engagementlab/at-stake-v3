@@ -127,6 +127,8 @@ var setupScreen = function() {
 
     phaseBarProgress();
 
+    runMods();
+
 }
 
 var playerDisconnected = function(timeoutTime, names) {
@@ -273,6 +275,8 @@ socketEvents = function(eventId, eventData) {
                     $('#join, .login.waiting').fadeIn();
 
                 });
+
+                $('#error-disconnected').trigger('hide');
 
                 playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);
 
@@ -462,6 +466,8 @@ socketEvents = function(eventId, eventData) {
                 $('.screen.restart').show();
 
                 openInnerModal();
+            
+                sessionStorage.setItem('markup', $('#gameContent').html());
 
             });
 
@@ -513,7 +519,7 @@ socketEvents = function(eventId, eventData) {
             if(clockInterval)
                 clearInterval(clockInterval);
 
-            if(countdownAnim)
+            if(countdownAnim && countdownAnim.path !== undefined)
                 countdownAnim.destroy();
                    
             var secondsLeft = eventData.duration; 

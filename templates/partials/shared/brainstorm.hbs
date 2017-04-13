@@ -11,7 +11,7 @@
 
 		{{> component/instructions 
 				heading="Read the revealed round question"
-				body="From your character's perspective, you will brainstorm a solution to the question below."
+				body="From your character's perspective, you will think of a solution to the question below."
 		}}
 
 		{{> component/speech 
@@ -45,11 +45,11 @@
 		{{> component/timer 
 				decider=true
 				button=true
-				body=(combine 'Once I start the timer, You will have ' config.thinkSeconds ' seconds to brainstorm a solution to this question. Get Ready!')
+				body=(combine 'Once I start the timer, You will have ' config.thinkSeconds ' seconds to think of a solution to this question. Get Ready!')
 		}}
 
 		{{> component/speech 
-				body=(combine 'Once I start the timer, You will have ' config.thinkSeconds ' seconds to brainstorm a solution to this question. Get Ready!')
+				body=(combine 'Once I start the timer, You will have ' config.thinkSeconds ' seconds to think of a solution to this question. Get Ready!')
 				secondary=question
 		}}
 	</div>
@@ -85,7 +85,7 @@
 		{{> component/instructions 
 				decider=true
 				heading="Press next to move to the pitch phase"
-				body="Let players know brainstorming time is up and press next to continue to the next phase"
+				body="Let players know thinking time is up and press next to continue to the next phase"
 		}}
 		
 		{{> component/instructions 
@@ -96,11 +96,11 @@
 		{{> component/speech 
 				decider=true
 				advance=true
-				body="Brainstorming is over! Lets go on to the pitch phase."
+				body="Thinking is over! Lets go on to the pitch phase."
 		}}
 
 		{{> component/speech 
-				body="Brainstorming is over! Lets go on to the pitch phase."
+				body="Thinking is over! Lets go on to the pitch phase."
 		}}
 	
 	</div>

@@ -287,6 +287,9 @@ $(document).on('click', '.btn.game_login', function(evt) {
             data.uid = playerUID;
             playerLogin(data);                          
 
+
+            loginFromTo('join', 'lobby', .7);
+
         }
     );
 
@@ -318,14 +321,17 @@ $('#btn_new_game').click(function() {
 
                     // Tell mobile action has completed
                     $('body').trigger('mobileCallback');
+
+                    if(!$('#decks').hasClass('glide--carousel')) {
                     
-                    $('#decks').glide({
-                        type: 'carousel',
-                        autoplay: false,
-                        autoheight: true, 
-                        paddings: 0
-                    });
+                        $('#decks').glide({
+                            type: 'carousel',
+                            autoplay: false,
+                            autoheight: true, 
+                            paddings: 0
+                        });
                     
+                    }
                 });
 
              });
@@ -334,7 +340,7 @@ $('#btn_new_game').click(function() {
             _.each(data.code.split(''), function(char, i) {
                 gameCodeMarkup += '<span>' + char + '</span>';
             });
-            $('#share-code .access-code').html(gameCodeMarkup);
+            $('.access-code').html(gameCodeMarkup);
             $('#gameContent').addClass('lobby');
 
         }
