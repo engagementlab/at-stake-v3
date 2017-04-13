@@ -119,6 +119,17 @@
 		}
 		
 	}
+
+	body .speech {
+	  // "Next buttons"
+	  button {
+		  &.timer {
+		  	&:before {
+				  left: 103px;
+				}
+		  }
+		}
+	}
 	
 }
 
