@@ -97,6 +97,7 @@
 		// margin-bottom: 7px;
 		cursor: pointer;
 		color: white;
+		outline: none;
 	}
 
 	color: white;
@@ -203,6 +204,10 @@
 		}
 
 	}
+
+	&.role {
+
+	}
 }
 
 input.post-button {
@@ -276,7 +281,7 @@ input.post-button {
   line-height: 0;
   top: 0px;
   height: 50px;
-  padding-top:20px;
+  padding-top:17px;
   padding-left:5px;
   padding-right:5px;
 
@@ -299,12 +304,12 @@ input.post-button {
 	    margin: auto;
 		}
 
-		&:nth-child(1) {
-			margin-left: 10px;
-		}
-		&:nth-child(7) {
-			margin-right: 10px;
-		}
+		// &:nth-child(1) {
+		// 	margin-left: 10px;
+		// }
+		// &:nth-child(9) {
+		// 	margin-right: 10px;
+		// }
 
 		span {
 			display: flex;
@@ -348,7 +353,7 @@ input.post-button {
 		    position: absolute;
 		    bottom: -10px;
 		    width: 100%;
-		    left: -2px;
+		    left: -50%;
 			}
 		}
 
@@ -465,6 +470,22 @@ input.post-button {
 
 	}
 
+	&.decider {
+		.inner {
+			padding: 8px;
+		}
+		.role {
+			#btn_yes, #btn_no {
+				* {
+					margin: 0px;
+					font-size: 20px;
+					font-family: AvenirNext-Bold;
+
+				}
+			}
+		}
+	}
+
 	.coins {
     position: relative;
 		float: left;   
@@ -490,12 +511,14 @@ input.post-button {
 	  background-color: $turquoise-dark;
 		border: white 3px solid;
 		color: white;
+		padding: 8px;
 
 		.player-logo {
 
 			margin: 10px auto;
 			height: 60px;
 			border-radius: 30px;
+
 
 			&#btn-more-time {
 				span {
@@ -524,16 +547,18 @@ input.post-button {
 			font-size: 20px;
 			font-family: $header-type;
 			margin: 10px auto;
-			height: 60px;
-
+			height: 48px;
+			background-repeat: no-repeat;
+			background-position: 40px 0px;
+		  background-size: 48px 48px;
 			background-color: $aquamarine;
 
 			&#reward-icon {
 				.coins {
 					margin-top: -1%;
 					padding-top: 7%;
-					width: 64px;
-					height: 64px;
+					width: 48px;
+					height: 48px;
 					background-repeat: no-repeat;
 					background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,w_64/v1490979430/at-stake/layout/icon-yourcoins.svg");
 				}
@@ -541,7 +566,7 @@ input.post-button {
 			&:not(#reward-icon) {
 				.coins {
 					padding-top: 40px;
-					padding-left: 9px;
+					width: 48px;
 				}
 			}
 
@@ -563,8 +588,9 @@ input.post-button {
 			.info {
 		    position: relative;
 		    float: right;
-		    width: 85%;
-		    margin-top:10px;
+		    width: 80%;
+		    margin-top:4px;
+		    height: 40px;
 		    font-family: AvenirNext-Bold;
 			}
 		
@@ -786,7 +812,6 @@ blockquote.speech {
 
 }
 .speech {
-
   // "Next buttons"
   button {
     position: absolute;
@@ -825,7 +850,6 @@ blockquote.speech {
 
   }
 }
-
 
 .timer_wrap {
 	button {
