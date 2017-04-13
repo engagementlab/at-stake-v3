@@ -44,9 +44,16 @@
 		{{!-- Timer in button mode  --}}
 		{{> component/timer 
 				decider=true
-				button=true
+				preview=true
+				time=config.thinkSeconds
 				body=(combine 'Once I start the timer, You will have ' config.thinkSeconds ' seconds to think of a solution to this question. Get Ready!')
 		}}
+
+{{!-- 		{{> component/speech 
+				body=(combine 'Once I start the timer, You will have ' config.thinkSeconds ' seconds to think of a solution to this question. Get Ready!')
+				decider=true
+				secondary=question
+		}} --}}
 
 		{{> component/speech 
 				body=(combine 'Once I start the timer, You will have ' config.thinkSeconds ' seconds to think of a solution to this question. Get Ready!')

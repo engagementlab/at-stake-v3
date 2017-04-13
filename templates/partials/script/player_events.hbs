@@ -38,7 +38,7 @@ var startTimer = function(secondsLeft, timerAdvance) {
     
     var wasPaused = false;
 
-    if($('.screen .timer').length === 0)
+    if($('.screen:visible .timer').length === 0)
         return;
 
     if(secondsLeft > 0)
@@ -466,7 +466,7 @@ socketEvents = function(eventId, eventData) {
                 $('.screen.restart').show();
 
                 openInnerModal();
-            
+
                 sessionStorage.setItem('markup', $('#gameContent').html());
 
             });
