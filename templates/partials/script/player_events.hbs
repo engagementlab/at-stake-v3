@@ -535,8 +535,8 @@ socketEvents = function(eventId, eventData) {
             if(clockInterval)
                 clearInterval(clockInterval);
 
-            if(countdownAnim && countdownAnim.path !== undefined)
-                countdownAnim.destroy();
+            if(countdownAnim)
+                $('.screen .timer').empty();
                    
             var secondsLeft = eventData.duration; 
             startTimer(secondsLeft);
