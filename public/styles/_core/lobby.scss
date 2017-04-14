@@ -563,11 +563,11 @@
 				    	vertical-align: middle;
 				    }
 
-				    &.even {
+				    &:nth-child(1) {
 				    	margin-left:8%;
 				    	margin-right:2%;
 				    }
-				    &.odd {
+				    &:nth-child(2) {
 				    	margin-right:8%;
 				    	margin-left:2%;
 				    }
