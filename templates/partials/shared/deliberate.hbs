@@ -7,12 +7,12 @@
 		{{> component/instructions 
 				decider=true
 				heading="Read the text in the blue box outloud"
-				body="Once you have finished speaking the instructions to other players, press next to continue."
+				body="Once you finish speaking the instructions to other players, press next to continue."
 		}}
 
 		{{> component/instructions 
 				heading="Listen to the Decider"
-				body='"We will take 90 seconds to talk about your proposals. This will be an open discussion, with the decider kicking things off"'
+				body=(combine '"We will take ' config.deliberateSeconds ' seconds to talk about your proposals. This will be an open discussion, with the decider kicking things off"')
 		}}
 
 		{{> component/speech 
@@ -32,7 +32,7 @@
 		{{> component/instructions 
 				decider=true
 				heading="Read the text in the blue box outloud"
-				body="Once you have finished speaking the instructions to other players, press next to continue."
+				body="Once you finish speaking the instructions to other players, press next to continue."
 		}}
 
 		{{> component/instructions 
@@ -57,7 +57,7 @@
 		{{> component/instructions 
 				decider=true
 				heading="Read the text in the blue box outloud"
-				body="Once you have finished speaking the instructions to other players, press next to continue."
+				body="Once you finish speaking the instructions to other players, press next to continue."
 		}}
 
 		{{> component/instructions 
@@ -92,15 +92,17 @@
 
 		{{!-- Timer in button mode  --}}
 		{{> component/timer 
-				time=config.deliberateSeconds
-				decider=true
+				decider=true				
 				preview=true
+				time=config.deliberateSeconds
+				body="Get Ready to Deliberate!"
+		}}
+		{{> component/timer 
+				preview=true
+				time=config.deliberateSeconds
+				body="Get Ready to Deliberate!"
 		}}
 
-		{{> component/timer 
-				time=config.deliberateSeconds
-				preview=true
-		}}
 
 	</div>
 
@@ -118,12 +120,15 @@
 				body="Ask probing questions to counter or promote your own proposal, or attempt to get your  agenda items into other proposals"
 		}}
  
+		{{!-- Timer in button mode  --}}
 		{{> component/timer 
-				time=config.deliberateSeconds
 				decider=true
-		}}
-		{{> component/timer 
 				time=config.deliberateSeconds
+				body="Go! When the timer reaches zero, stop the discussion!"
+		}}
+		{{> component/timer
+				time=config.deliberateSeconds
+				body="Go! When the timer reaches zero, stop talking!"
 		}}
 	
 	</div>
@@ -134,7 +139,7 @@
 		{{> component/instructions 
 				decider=true
 				heading="Read the text in the blue box outloud"
-				body="Once you have finished speaking the instructions to other players, press next to continue."
+				body="Once you finish speaking the instructions to other players, press next to continue."
 		}}
 
 		{{> component/instructions 

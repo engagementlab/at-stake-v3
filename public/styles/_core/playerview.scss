@@ -249,12 +249,46 @@ input.post-button {
 
 // Timer Animation
 .timer_wrap {
-	font-size: 36px;
-
+	button {
+    background: none;
+    border: none;
+    max-width: 246px;
+	}
 	svg {
-		width: 60% !important;
+		// width: 82% !important;
 		margin: 20px auto;
-		
+    max-width: 246px;
+	}
+	h1 {
+    font-family: $header-type;
+    font-size: 20px;
+    margin-top: 1%;
+	}
+	p {
+    display: inline-block;
+    margin-top: 48%;
+    font-size: 17px;
+    width: 70%;
+    text-align: center;
+	}
+	.progressbar-text {
+		font-size: 72px;
+		letter-spacing: -2.1px;
+    margin-top: -79%;
+    color: white !important;
+	}
+
+	&.running {
+		.speech {
+			position: relative;
+			z-index: 1;
+			h1 {
+				margin-top: -27%;
+			}
+			p {
+				margin-top: 26%;
+			}
+		}
 	}
 }
 
@@ -289,13 +323,6 @@ input.post-button {
 			display: block;
 	    margin: auto;
 		}
-
-		// &:nth-child(1) {
-		// 	margin-left: 10px;
-		// }
-		// &:nth-child(9) {
-		// 	margin-right: 10px;
-		// }
 
 		span {
 			display: flex;
@@ -339,7 +366,7 @@ input.post-button {
 		    position: absolute;
 		    bottom: -10px;
 		    width: 100%;
-		    left: -50%;
+		    left: -25%;
 			}
 		}
 
@@ -801,7 +828,7 @@ blockquote.speech {
   // "Next buttons"
   button {
     position: absolute;
-    color: $pink-red;
+    color: $color-white;
     display: flex;
     background: none;
     border: none;
@@ -829,20 +856,12 @@ blockquote.speech {
 	    left: 48px;
 	    width: 0;
 	    height: 0;
-	    border-left: 8px solid $pink-red;
+	    border-left: 8px solid $color-white;
 	    border-top: 5px solid transparent;
 	    border-bottom: 5px solid transparent;
 	  }
 
   }
-}
-
-.timer_wrap {
-	button {
-		right: 45%;
-		bottom: inherit;
-    font-size: 17px;
-	}
 }
 
 // Scoreboard 

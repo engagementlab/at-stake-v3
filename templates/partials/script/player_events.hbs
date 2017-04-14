@@ -38,7 +38,7 @@ var startTimer = function(secondsLeft, timerAdvance) {
     
     var wasPaused = false;
 
-    if($('.screen .timer').length === 0)
+    if($('.screen:visible .timer').length === 0)
         return;
 
     if(secondsLeft > 0)
@@ -47,7 +47,6 @@ var startTimer = function(secondsLeft, timerAdvance) {
     clockInterval = setInterval(function() {
 
         function clockTick() {
-            $('#countdown').text(secondsLeft + ' seconds');
             secondsLeft--;
         }
 
@@ -75,12 +74,12 @@ var startTimer = function(secondsLeft, timerAdvance) {
     countdownAnim = new ProgressBar.Circle(
       '.screen .timer', 
       {
-          color: '#fff',
+          color: '#56d5ff',
           duration: secondsLeft*1000,
           easing: 'easeInOut',
-          strokeWidth: 6,
-          trailColor: 'rbga(235, 235, 235, 0.5)',
-          trailWidth: 0.8,
+          strokeWidth: 8,
+          trailColor: '#fff',
+          trailWidth: 8,
           fill: '#ff3d6b',
           // Set default step function for all animate calls
           step: function(state, circle) {
@@ -536,8 +535,8 @@ socketEvents = function(eventId, eventData) {
             if(clockInterval)
                 clearInterval(clockInterval);
 
-            if(countdownAnim && countdownAnim.path !== undefined)
-                countdownAnim.destroy();
+            if(countdownAnim)
+                $('.screen .timer').empty();
                    
             var secondsLeft = eventData.duration; 
             startTimer(secondsLeft);
@@ -642,10 +641,7 @@ socketEvents = function(eventId, eventData) {
             var nextRoundAnim = new TimelineLite({ paused:true });
             nextRoundAnim.from($('#nextRound'), 2.5, { scale: 0, opacity:0, ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block'});
             nextRoundAnim.play();
-            break;
-
-        case 'game:last':
-
+            
             break;
 
         case 'coins:add':
