@@ -9,35 +9,38 @@
 * @param {String} body - Speech bubble body text for when 'button' is true
 
 --}}
-    
-{{!-- SPEECH W/ BUTTON TO START --}}
-{{#ifeq preview true}} 
-    
+
+{{#ifeq button true}}
+
+  {{!-- SPEECH W/ BUTTON TO START --}}
+  {{> component/speech
+      body=body
+      decider=true
+      timer=true
+  }}
+
+{{else}}
+
   {{!-- CIRCULAR TIMER --}}
-  <div class="timer_wrap {{#ifeq decider true}}decider form{{else}}player{{/ifeq}}">
+  <div class="timer_wrap {{#ifeq decider true}}decider{{else}}player{{/ifeq}}">
+    {{#ifeq preview true}} 
+      {{!-- {{#ifeq active_player true}} --}}
+        <div class="timer preview" data-duration="{{time}}"></div>
 
-      <button id="btn-next" class="submit" data-event="game:start_timer">
-
-        <svg viewBox="0 0 100 100" style="display: block; width: 100%;"><path d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" stroke="rbga(235, 235, 235, 0.5)" stroke-width="0.8" fill-opacity="0"></path><path d="M 50,50 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" stroke="#fff" stroke-width="6" fill="#ff3d6b" style="stroke-dasharray: 295.416, 301.416;stroke-dashoffset: 0;"></path></svg>
-        <div class="progressbar-text preview">{{time}}</div>
-
-        <div class="decider speech">
+        <div class="form decider speech">
         
-          <h1>Start Timer</h1>
+          {{#ifeq next_player true}}
+            <button id="btn-next-player" data-event="game:next_player" class="timer-button submit" style="display:none">next player</button>
+          {{else}}
+            <button id="btn-next" data-event="{{#if advance}}game:start_timer{{else}}game:start_timer{{/if}}" class="timer-button next-step submit">start</button>
+          {{/ifeq}}
 
           <span id="modifier" class="hidden-el" data-hide_next="false"></span>
         </div>
-
-      </button>
-    </div>
-
-{{else}}
-  
-  {{!-- CIRCULAR TIMER --}}
-  <div class="timer_wrap {{#ifeq decider true}}decider{{else}}player{{/ifeq}}">
-
+      {{!-- {{/ifeq}} --}}
+    {{else}}
         <div class="timer"></div>
-
+    {{/ifeq}}
   </div>
 
 {{/ifeq}}

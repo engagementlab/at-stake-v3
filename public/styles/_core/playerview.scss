@@ -251,24 +251,10 @@ input.post-button {
 .timer_wrap {
 	font-size: 36px;
 
-	button {
-    background: none;
-    border: none;
-	}
 	svg {
 		width: 60% !important;
 		margin: 20px auto;
-	}
-	h1 {
-    font-family: $header-type;
-    font-size: 20px;
-    margin-top: 1%;
-	}
-	.progressbar-text.preview {
-		font-family: $sub-header-type;
-		font-size: 72px;
-		letter-spacing: -2.1px;
-    margin-top: -52%;
+		
 	}
 }
 
