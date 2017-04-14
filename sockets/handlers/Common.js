@@ -120,6 +120,11 @@ var Common = function (nsp, socket) {
 
         },
 
+        'game:exit': function(package) {
+            Session.Get(package.gameId).
+            EndGame(currentSpace);
+        },
+
         /* Pauses all game cooldowns (debugging only) */
         'debug:pause': function(package) {
 

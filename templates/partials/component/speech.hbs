@@ -24,7 +24,11 @@
 		  {{#ifeq timer true}}
 		    <button class="next-step timer submit" data-event="{{nextEvent this}}">Start Timer</button>
 		  {{else}}
-		    <button class="next-step submit" data-event="{{nextEvent this}}">next</button>
+			  {{#ifeq exit true}}
+			    <button class="next-step submit" data-event="game:exit">exit game</button>
+		    {{else}}
+			    <button class="next-step submit" data-event="{{nextEvent this}}">next</button>
+			  {{/ifeq}}
 		  {{/ifeq}}
 
 	  {{/ifeq}}

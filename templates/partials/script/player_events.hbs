@@ -502,9 +502,11 @@ socketEvents = function(eventId, eventData) {
 
             // Reset game session data and send back to logn
             resetSession();
-            window.location = window.location;
 
-            $('#gameContent').html(eventData);
+            updateGameContent(eventData, function() {
+                openInnerModal();
+                window.location = window.location;
+            });
 
             break;
 
