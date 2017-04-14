@@ -48,10 +48,23 @@
   currentPhaseIndex = -1,
   currentScreenIndex = 0,
 
-  sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1/at-stake/sfx/',
+  sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1492187090/at-stake/sfx/',
   {{#ifeq env "development"}}
   	sfxPath = '/sfx/'
   {{/ifeq}}
+
+
+
+	// ion.sound({
+ //    sounds: [
+ //        {
+ //            name: "button_tiny"
+ //        }
+ //    ],
+ //    volume: 0.5,
+ //    path: sfxPath,
+ //    preload: true
+ //  });
 
   // All possible socket event IDs
 	eventIds = [

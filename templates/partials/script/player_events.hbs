@@ -117,6 +117,9 @@ var setupScreen = function() {
     $('#stages-bar').show();
 
     sessionStorage.setItem('markup', $('#gameContent').html());
+    sessionStorage.setItem('role', $('#role-card').html());
+
+    console.log(sessionStorage.getItem('role'));
 
     // Animate initial
     screenOpen($('.screen:first'));
@@ -252,33 +255,47 @@ socketEvents = function(eventId, eventData) {
             isDecider = eventData.is_decider;
 
             var markup = sessionStorage.getItem('markup');
+            var roleCard = sessionStorage.getItem('role')
 
             $('#bottom-bar').show();
-            $('#gameContent').html(markup).promise().done(function() {
+
+            $('#role-card').html(roleCard).promise().done(function() {
+
+                $('#btn-close-role-card').on('click', function(evt) {
+                    roleCardOpenClose(false);
+                    // ion.sound.play("button_tiny");
+                });
+                $('#btn-role-card').on('click', function(evt) {
+                    roleCardOpenClose(true);
+                    // ion.sound.play("button_tiny");
+                });
                 
-                setupScreen();
+                $('#gameContent').html(markup).promise().done(function() {
+                    
+                    setupScreen();
 
-                var secondsLeft = eventData.resume_duration; 
-                if(secondsLeft && secondsLeft > 0)
-                    startTimer(secondsLeft, true);
-                else {
-                    // Check if timer element is left-over; if so, timer is now at 0 and should show next btn
-                    startTimer(0);
-                    if(isDecider)
-                        $('#btn-next').show();
-                }
+                    var secondsLeft = eventData.resume_duration; 
+                    if(secondsLeft && secondsLeft > 0)
+                        startTimer(secondsLeft, true);
+                    else {
+                        // Check if timer element is left-over; if so, timer is now at 0 and should show next btn
+                        startTimer(0);
+                        if(isDecider)
+                            $('#btn-next').show();
+                    }
 
-                $('#name, .login.input').fadeOut(function() {
+                    $('#name, .login.input').fadeOut(function() {
 
-                    $('#begin').addClass('wait');
-                    $('#join, .login.waiting').fadeIn();
+                        $('#begin').addClass('wait');
+                        $('#join, .login.waiting').fadeIn();
+
+                    });
+
+                    $('#error-disconnected').trigger('hide');
+
+                    playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);
 
                 });
-
-                $('#error-disconnected').trigger('hide');
-
-                playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);
-
             });
 
             break;

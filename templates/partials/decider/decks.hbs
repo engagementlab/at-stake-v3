@@ -7,7 +7,7 @@
 <div class="glide__wrapper">
   <div class="glide__track">
     
-    {{#limit this 2}}
+    {{#each this}}
 
       <div class="glide__slide" data-id="{{_id}}">
 
@@ -34,15 +34,15 @@
 
           <h3 class="flag medium-font">Sample Stakeholders</h3>
           <div class="stakeholders">
-            {{#each roles}}
-            <div class="deck-role col-xs-6 {{checkEven @index}}"><p>{{title}}</p></div>
-            {{/each}}
+            {{#limit roles 2}}
+            <div class="deck-role col-xs-6"><p>{{title}}</p></div>
+            {{/limit}}
           </div>
 
         </div>
       </div>
 
-    {{/limit}}
+    {{/each}}
 
   </div>
 </div>

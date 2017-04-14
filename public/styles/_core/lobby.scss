@@ -264,27 +264,23 @@
 			  font-size:12px;
 			  height: 48px;
 			  text-align: center;
-			  // line-height: 48px !important;
 			}
 			&::-moz-placeholder{
 				font-size:12px;
 			  height: 48px;
 			  text-align: center;
-			  line-height: 48px !important;
 
 			}
 			&:-ms-input-placeholder {
 				font-size:12px;
 			  height: 48px;
 			  text-align: center;
-			  line-height: 48px !important;
 
 			}
 			&:-moz-placeholder {
 				font-size:12px;
 			  height: 48px;
 			  text-align: center;
-			  line-height: 48px !important;
 
 			}
 			
@@ -556,18 +552,18 @@
 				    margin-bottom: 8px;
 				    display: table;
 
-				    p{
+				    p {
 				    	display:table-cell;
 				    	padding:0px;
 				    	line-height: 1.33;
 				    	vertical-align: middle;
 				    }
 
-				    &.even {
+				    &:nth-child(1) {
 				    	margin-left:8%;
 				    	margin-right:2%;
 				    }
-				    &.odd {
+				    &:nth-child(2) {
 				    	margin-right:8%;
 				    	margin-left:2%;
 				    }
