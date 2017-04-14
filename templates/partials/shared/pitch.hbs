@@ -7,7 +7,7 @@
 		{{> component/instructions
 				decider=true 
 				heading="Read the text in the blue box outloud"
-				body="Once you have finished speaking the instructions to other players, press next to continue."
+				body="Once you finish speaking the instructions to other players, press next to continue."
 		}}
 
 		{{> component/instructions
@@ -31,7 +31,7 @@
 		{{> component/instructions
 				decider=true 
 				heading="Read the text in the blue box outloud"
-				body="Once you have finished speaking the instructions to other players, press next to continue."
+				body="Once you finish speaking the instructions to other players, press next to continue."
 		}}
 
 		{{> component/instructions
@@ -55,7 +55,7 @@
 		{{> component/instructions
 				decider=true 
 				heading="Read the text in the blue box outloud"
-				body="Once you have finished speaking the instructions to other players, press next to continue."
+				body="Once you finish speaking the instructions to other players, press next to continue."
 		}}
 
 		{{> component/instructions
@@ -64,11 +64,11 @@
 
 		{{> component/speech 
 				decider=true
-				body="Your screen will show who is currently pitching, their stakeholder role, and which player is up next."
+				body="I will let everyone know whose turn it is to pitch, and your screen will show who is currently pitching. When they are finished it will be the next player's turn."
 		}}
 
 		{{> component/speech
-				body="Your screen will show who is currently pitching, their stakeholder role, and which player is up next."
+				body="I will let everyone know whose turn it is to pitch, and your screen will show who is currently pitching. When they are finished it will be the next player's turn."
 		}}
 
 	</div>
@@ -80,14 +80,14 @@
 		{{> component/instructions
 				decider=true 
 				heading="Press the button to start the timer"
-				body="Make sure the player pitching is ready and understands the instructions, then start the timer."
+				body="Make sure the player pitching is ready, then start the timer."
 		}}
 
 		{{!-- active player --}}
 		{{> component/instructions 
 				active_player=player.isActive
 				heading="It’s your turn! Get ready to pitch!"
-				body="Wait for the decider to start the timer. You'll have 60 seconds to pitch your proposal, with the ability to buy more time"
+				body="Wait for the decider to start the timer. You'll have 60 seconds to pitch your proposal."
 		}}
 
 		{{!-- inactive player --}}
@@ -99,15 +99,16 @@
 
 		{{!-- Timer in button mode  --}}
 		{{> component/timer 
-				button=true
-				decider=true
+				decider=true				
+				preview=true
+				time=config.pitchSeconds
 				body=(combine activePlayer.username ', it is your turn to pitch. are you ready?')
 		}}
 
-		{{> component/timer
-				active_player=player.isActive 
+		{{> component/timer 
 				preview=true
 				time=config.pitchSeconds
+				body=(combine activePlayer.username ', you are up! Get ready to pitch!')
 		}}
 
 	</div>
@@ -140,10 +141,14 @@
 				time=config.pitchSeconds
 				decider=true
 				next_player=repeatScreen
+				body=(combine activePlayer.username ' is currently pitching.')
 		}}
 
 		{{> component/timer 
 				time=config.pitchSeconds
+				active_player=player.isActive
+				body=(combine activePlayer.username ' is currently pitching.')
+				body_active=player.question
 		}}
 
 		{{!-- choice box for buying more time --}}

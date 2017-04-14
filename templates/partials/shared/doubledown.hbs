@@ -16,11 +16,11 @@
 
 		{{> component/speech 
 				decider=true
-				body="In the double down phase, Stakeholders can pay 100 coins to speak uninterupted for 30 seconds. The decider and other stakeholders cannot speak without permission."
+				body=(combine "In the double down phase, Stakeholders can pay " config.doubledownTimeCost " coins to speak uninterrupted for " config.doubledownSeconds " seconds. The decider and other stakeholders cannot speak without permission.")
 		}}
 
 		{{> component/speech
-				body="In the double down phase, Stakeholders can pay 100 coins to speak uninterupted for 30 seconds. The decider and other stakeholders cannot speak without permission."
+				body=(combine "In the double down phase, Stakeholders can pay " config.doubledownTimeCost " coins to speak uninterrupted for " config.doubledownSeconds " seconds. The decider and other stakeholders cannot speak without permission.")
 		}}
 
 	</div>
