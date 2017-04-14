@@ -195,9 +195,11 @@
 		}
 
 		#btn-tutorial {
+			margin-bottom: 10px;
 			@include gradient-vertical($orange-light, $orange-dark, 90%, 10%);	
 		}
 		#btn-tutorial-skip {
+			margin-bottom: 40px;
 			cursor: pointer;
 			background: none;
 			box-shadow: none;
@@ -365,25 +367,21 @@
 			  font-size:14px;
 			  height: 48px;
 			  text-align: center;
-			  line-height: 48px !important;
 			}
 			&::-moz-placeholder { /* Firefox 19+ */
 			  font-size:14px;
 			  height: 48px;
 			  text-align: center;
-			  line-height: 48px !important;
 			}
 			&:-ms-input-placeholder { /* IE 10+ */
 			  font-size:14px;
 			  height: 48px;
 			  text-align: center;
-			  line-height: 48px !important;
 			}
 			&:-moz-placeholder { /* Firefox 18- */
 			  font-size:14px;
 			  height: 48px;
 			  text-align: center;
-			  line-height: 48px !important;
 			}
 		}
 

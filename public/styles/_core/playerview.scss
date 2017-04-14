@@ -926,12 +926,14 @@ blockquote.speech {
 		h1 {
 			color: $color-white;
 			margin: 0;
+			margin-top: 10px;
 			font-size: 20px;
 			font-family: $header-type;
 			text-shadow: none;
 		}
 		h2 {
 			color: $color-white;
+			margin: 0px;
 			font-size: 16px;
 			font-family: $body-type;
 		}
