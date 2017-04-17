@@ -303,9 +303,13 @@
 	    
 	    $('#overlay').hide();
 
-	    // Local session update
-	    // sessionStorage.setItem('markup', $('#gameContent').html());    
-	    sessionStorage.setItem('phase', currentPhaseIndex);    
+	    // Local session update 
+	    sessionStorage.setItem('phase', currentPhaseIndex);  
+
+	    // Analytics
+	    var phaseName = $('#stages-bar .icon:eq('+currentPhaseIndex+') span').text(),
+					phaseNameFormatted = phaseName.charAt(0).toUpperCase() + phaseName.slice(1);
+      ga('send', 'event', 'Game', 'Phase', phaseNameFormatted);  
 
 	}
 
@@ -679,6 +683,7 @@
 
 			  $('#decider #btn_submit').click(function(evt) {
 					var data = {};
+					var deckName = $("#decks .glide__slide.active .deck-header h2").text();
 
 			    data.deciderName = $('#player-name').val();
 
@@ -702,9 +707,6 @@
 								
 								$('#login').remove();
 
-						    // $('#decider .create').hide();
-						    // $('#decider .waiting').show();
-
 						    loginFromTo('new', 'lobby', .09);
 
 						    _.each(data.accessCode.split(''), function(char, i) {
@@ -713,15 +715,17 @@
 
 						    // Ensure login is gone and all decide UI shows
 						    $('#name,#join').remove();
-						    // $('.access-code').html(gameCodeHtml);
+
 						    $('#decider .create').hide();
 					      $('#decider').show();
-					      // $('#decider .waiting, #decider-debugging').show();
 					      $('#lobby').addClass('wait');
 
 						    $('#player-name').val(data.decider);
 
+						    // Analytics
 		            ga('send', 'event', 'Login', 'Username', data.decider);
+		            ga('send', 'event', 'Login', 'New Game', data.accessCode);
+		            ga('send', 'event', 'Game', 'Deck Name', deckName);
 		            
 							}
 						})

@@ -353,7 +353,7 @@ $('#btn_new_game').click(function() {
 window.onload = checkIfLoggedIn();
 
 // Load events for players
-{{> script/player_events gameType=gameType}}
+{{> script/player_events }}
 
 {{#ifeq debug true}}
     // Debugging view

@@ -222,8 +222,6 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'player:loggedin':
-
-            {{!-- $('#gameContent').html(eventData.html); --}}
             
             playerWasReconnected = false;
 
@@ -242,12 +240,18 @@ socketEvents = function(eventId, eventData) {
 
             $('#game_code .access-code').html(gameCodeMarkup);
 
+            // Analytics
+            ga('send', 'event', 'Login', 'Success', 'Joined Game "' + eventData.code + '"');  
+
             break;
 
         case 'player:reconnected': 
 
             if(playerWasReconnected)
                 return;
+
+            // Analytics
+            ga('send', 'event', 'Game', 'Event', 'reconnected');
 
             // Set local player state as reconnected
             playerWasReconnected = true;
@@ -382,6 +386,9 @@ socketEvents = function(eventId, eventData) {
             $('#agenda-items .role:visible').remove();
             $('#agenda-items .role').first().show();
 
+            // Analytics
+            ga('send', 'event', 'Game', 'Event', 'Game Started');  
+
             break;
 
         case 'game:next_item':
@@ -406,8 +413,7 @@ socketEvents = function(eventId, eventData) {
                 function() {
                     
                     // Local session update
-                    sessionStorage.setItem('markup', $('#gameContent').html());   
-                    {{!-- sessionStorage.setItem('screen', currentScreenIndex); --}}
+                    sessionStorage.setItem('markup', $('#gameContent').html());
 
                     $('.skip-rules').trigger('show');
 
@@ -457,8 +463,7 @@ socketEvents = function(eventId, eventData) {
                     setupScreen();
 
                 });
-            }
-            
+            }          
             
             break;
 
@@ -502,6 +507,9 @@ socketEvents = function(eventId, eventData) {
 
             // Reset game session data and send back to logn
             resetSession();
+
+            // Analytics
+            ga('send', 'event', 'Game', 'Event', 'Game Ended');  
 
             updateGameContent(eventData, function() {
                 openInnerModal();
@@ -630,6 +638,10 @@ socketEvents = function(eventId, eventData) {
 
             isDecider = eventData;
 
+            // Analytics
+            if(isDecider)
+                ga('send', 'event', 'Game', 'Event', 'Became Decider');  
+
             $('#bottom-bar').show();
 
             $('#btn-role-card').css('visibility', isDecider ? 'hidden' : 'visible');
@@ -639,15 +651,14 @@ socketEvents = function(eventId, eventData) {
         case 'game:end':
 
             $('#gameContent').html(eventData);
-
-            var nextRoundAnim = new TimelineLite({ paused:true });
-            nextRoundAnim.from($('#nextRound'), 2.5, { scale: 0, opacity:0, ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block'});
-            nextRoundAnim.play();
             
             break;
 
         case 'coins:add':
         case 'coins:remove':
+
+            // Analytics
+            ga('send', 'event', 'Game', 'Event', 'Coins - ' + eventData.type);  
 
             $('#' + eventData.type + '-coins span').text(eventData.amt);
 
