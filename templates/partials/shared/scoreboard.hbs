@@ -2,6 +2,7 @@
 
 	{{!-- INITIAL --}}
 	<div class="screen initial" data-animation="scoreboard">
+		<span id="modifier" class="hidden-el" data-hide_bottom_bar="true"></span>
 
 		{{> component/instructions 
 				all_players=true
@@ -50,6 +51,12 @@
 		
 			<div class="form decider speech">
 		    <button class="next-step submit scoreboard hidden-el" data-event="game:next_round">Go to Next Round</button>
+			</div>
+
+		{{else}}
+		
+			<div class="form decider speech">
+		    <button class="next-step submit scoreboard hidden-el" data-event="game:next_phase">Go to Next Round</button>
 			</div>
 
 		{{/ifnoteq}}

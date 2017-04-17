@@ -57,6 +57,7 @@ $(document).on('click touchstart', 'div.error', function() {
 if(isEmulated)
     $('#debugging').remove();
 
+
 /*
     Logs the player in
 */
@@ -139,8 +140,6 @@ var checkIfLoggedIn = function() {
         return;
     }
 
-    // $('#resuming').show();
-
     gameCode = sessionStorage.getItem('gameCode');
     playerName = sessionStorage.getItem('username');
     
@@ -155,7 +154,7 @@ var checkIfLoggedIn = function() {
 phaseBarProgress = function() {
 
     // Update progress bar
-    $('#stages-bar #progress').css('width', (currentPhaseIndex * 17 ) + '%');
+    $('#stages-bar #progress').css('width', (currentPhaseIndex * 14 ) + '%');
 
     // Change phase icon status
     $('#stages-bar .icon:eq('+currentPhaseIndex+')').removeClass('disabled');
@@ -224,6 +223,7 @@ $(document).on('click', '.btn.game_login', function(evt) {
 
         return;
     }
+    var username = data.name;
 
     // Create uid for player
     if(!sessionStorage.getItem('uUID')) {
@@ -283,8 +283,13 @@ $(document).on('click', '.btn.game_login', function(evt) {
                 $('.login.waiting').fadeIn();
             });
 
+            ga('send', 'event', 'Login', 'Username', username);
+
             data.uid = playerUID;
             playerLogin(data);                          
+
+
+            loginFromTo('join', 'lobby', .7);
 
         }
     );
@@ -317,14 +322,17 @@ $('#btn_new_game').click(function() {
 
                     // Tell mobile action has completed
                     $('body').trigger('mobileCallback');
+
+                    if(!$('#decks').hasClass('glide--carousel')) {
                     
-                    $('#decks').glide({
-                        type: 'carousel',
-                        autoplay: false,
-                        autoheight: true, 
-                        paddings: 0
-                    });
+                        $('#decks').glide({
+                            type: 'carousel',
+                            autoplay: false,
+                            autoheight: true, 
+                            paddings: 0
+                        });
                     
+                    }
                 });
 
              });
@@ -333,7 +341,7 @@ $('#btn_new_game').click(function() {
             _.each(data.code.split(''), function(char, i) {
                 gameCodeMarkup += '<span>' + char + '</span>';
             });
-            $('#share-code .access-code').html(gameCodeMarkup);
+            $('.access-code').html(gameCodeMarkup);
             $('#gameContent').addClass('lobby');
 
         }

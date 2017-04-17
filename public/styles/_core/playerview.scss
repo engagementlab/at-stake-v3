@@ -97,6 +97,7 @@
 		// margin-bottom: 7px;
 		cursor: pointer;
 		color: white;
+		outline: none;
 	}
 
 	color: white;
@@ -203,6 +204,10 @@
 		}
 
 	}
+
+	&.role {
+
+	}
 }
 
 input.post-button {
@@ -244,12 +249,46 @@ input.post-button {
 
 // Timer Animation
 .timer_wrap {
-	font-size: 36px;
-
+	button {
+    background: none;
+    border: none;
+    max-width: 246px;
+	}
 	svg {
-		width: 60% !important;
+		// width: 82% !important;
 		margin: 20px auto;
-		
+    max-width: 246px;
+	}
+	h1 {
+    font-family: $header-type;
+    font-size: 20px;
+    margin-top: 1%;
+	}
+	p {
+    display: inline-block;
+    margin-top: 48%;
+    font-size: 17px;
+    width: 70%;
+    text-align: center;
+	}
+	.progressbar-text {
+		font-size: 72px;
+		letter-spacing: -2.1px;
+    margin-top: -79%;
+    color: white !important;
+	}
+
+	&.running {
+		.speech {
+			position: relative;
+			z-index: 1;
+			h1 {
+				margin-top: -27%;
+			}
+			p {
+				margin-top: 26%;
+			}
+		}
 	}
 }
 
@@ -262,7 +301,7 @@ input.post-button {
   line-height: 0;
   top: 0px;
   height: 50px;
-  padding-top:20px;
+  padding-top:17px;
   padding-left:5px;
   padding-right:5px;
 
@@ -283,13 +322,6 @@ input.post-button {
 		img {
 			display: block;
 	    margin: auto;
-		}
-
-		&:nth-child(1) {
-			margin-left: 10px;
-		}
-		&:nth-child(7) {
-			margin-right: 10px;
 		}
 
 		span {
@@ -334,7 +366,7 @@ input.post-button {
 		    position: absolute;
 		    bottom: -10px;
 		    width: 100%;
-		    left: -2px;
+		    left: -25%;
 			}
 		}
 
@@ -393,12 +425,13 @@ input.post-button {
 	&#more-time-wrapper {
 
 		#btn-more-time {
-			line-height: 64x;
+			line-height: 64px;
+			height: 64px;
 			background-color: $blue-light;
 			background-size: 60px 60px;
 			background-position: 3px center;
 			background-repeat: no-repeat;
-			background-image: url("http://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin_stroke.png");
+			background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin_stroke.png");
 
 			.coins {
 		    position: relative;
@@ -450,23 +483,48 @@ input.post-button {
 
 	}
 
+	&.decider {
+		.inner {
+			padding: 8px;
+		}
+		.role {
+			#btn_yes, #btn_no {
+				* {
+					margin: 0px;
+					font-size: 20px;
+					font-family: AvenirNext-Bold;
+
+				}
+			}
+		}
+	}
+
 	.coins {
     position: relative;
 		float: left;   
 		// margin-top: 10%;
 		font-size: 16px;
 	}
+
+	.decide-winner {
+		h1 {
+			font-family: AvenirNext-DemiBold;
+			font-size: 20px;
+
+		}
+	}
 	
 	.inner {
 
 		position: relative;
-	  height: 60%;
+	  height: 70%;
 	  width: 90%;
 	  top: 60px;
 	  left: 5%;
 	  background-color: $turquoise-dark;
 		border: white 3px solid;
 		color: white;
+		padding: 8px;
 
 		.player-logo {
 
@@ -474,12 +532,19 @@ input.post-button {
 			height: 60px;
 			border-radius: 30px;
 
+
 			&#btn-more-time {
+				span {
+					font-size: 12px;
+
+				}
+				height: 64px;
+				font-size: 20px;
 				background-color: $color-red;
 				background-size: 50px 50px;
 				background-position: 3px center;
 				background-repeat: no-repeat;
-				background-image: url("http://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin_stroke.png");
+				background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin_stroke.png");
 			}
 			&#btn-cancel {
 				background-color: $orange-dark;
@@ -495,18 +560,26 @@ input.post-button {
 			font-size: 20px;
 			font-family: $header-type;
 			margin: 10px auto;
-			height: 60px;
-
+			height: 48px;
+			background-repeat: no-repeat;
+			background-position: 40px 0px;
+		  background-size: 48px 48px;
 			background-color: $aquamarine;
 
 			&#reward-icon {
 				.coins {
 					margin-top: -1%;
 					padding-top: 7%;
-					width: 64px;
-					height: 64px;
+					width: 48px;
+					height: 48px;
 					background-repeat: no-repeat;
-					background-image: url("http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,w_64/v1490979430/at-stake/layout/icon-yourcoins.svg");
+					background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,w_64/v1490979430/at-stake/layout/icon-yourcoins.svg");
+				}
+			}
+			&:not(#reward-icon) {
+				.coins {
+					padding-top: 40px;
+					width: 48px;
 				}
 			}
 
@@ -514,20 +587,24 @@ input.post-button {
 				color: white;
 				margin: 0;
 				font-size: 20px;
-				font-family: $header-type;
+				font-family: AvenirNext-DemiBold;
 				text-shadow: none;
 			}
 			h2 {
 				color: $tiffany-blue;
-				line-height: 0;
+				line-height: 1;
+				margin: 0;
 				font-size: 16px;
-				font-family: $header-type;
+				font-family: AvenirNext-Medium;
 			}
 
 			.info {
 		    position: relative;
 		    float: right;
-		    left: -13%;
+		    width: 80%;
+		    margin-top:4px;
+		    height: 40px;
+		    font-family: AvenirNext-Bold;
 			}
 		
 		}
@@ -748,11 +825,10 @@ blockquote.speech {
 
 }
 .speech {
-
   // "Next buttons"
   button {
     position: absolute;
-    color: $pink-red;
+    color: $color-white;
     display: flex;
     background: none;
     border: none;
@@ -780,21 +856,12 @@ blockquote.speech {
 	    left: 48px;
 	    width: 0;
 	    height: 0;
-	    border-left: 8px solid $pink-red;
+	    border-left: 8px solid $color-white;
 	    border-top: 5px solid transparent;
 	    border-bottom: 5px solid transparent;
 	  }
 
   }
-}
-
-
-.timer_wrap {
-	button {
-		right: 45%;
-		bottom: inherit;
-    font-size: 17px;
-	}
 }
 
 // Scoreboard 
@@ -878,12 +945,14 @@ blockquote.speech {
 		h1 {
 			color: $color-white;
 			margin: 0;
+			margin-top: 10px;
 			font-size: 20px;
 			font-family: $header-type;
 			text-shadow: none;
 		}
 		h2 {
 			color: $color-white;
+			margin: 0px;
 			font-size: 16px;
 			font-family: $body-type;
 		}

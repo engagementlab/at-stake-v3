@@ -5,51 +5,46 @@
 
 		{{> component/instructions 
 				decider=true
-				heading="read the text in the blue box outloud"
-				body="Once you have finished speaking the instructions to other players, press next to continue."
+				heading="Read the text in the blue box out loud"
+				body="Once you finish speaking the instructions to other players, press next to continue."
 		}}
 
 		{{> component/instructions 
-				heading="Read the revealed round question"
-				body="From your character's perspective, you will brainstorm a solution to the question below."
+				heading="Get ready to think of a proposal"
+				body="Remember to think from your stakeholder's perspective and include your agenda items!"
 		}}
 
 		{{> component/speech 
 				decider=true
-				body="Here is the question you’ll answer this round."
-				secondary=question
+				body=(combine 'In this phase, you will have ' config.thinkSeconds ' seconds to think of a proposal that addresses this question: ' question)
 		}}
 
 		{{> component/speech 
-				body="Here is the question you’ll answer this round."
-				secondary=question
+				body=(combine 'In this phase, you will have ' config.thinkSeconds ' seconds to think of a proposal that addresses this question: ' question)
 		}}
 
 	</div>
 
-	{{!-- GET READY --}}
 	<div class="screen">
 
 		{{> component/instructions 
 				decider=true
-				heading="read the text in the blue box outloud"
-				body="Once you have finished speaking the instructions to other players, press next to continue."
+				heading="Read the text in the blue box out loud"
+				body="Once you finish speaking the instructions to other players, press next to continue."
 		}}
-		
-		{{!-- 'combine' merges two strings --}}
+
 		{{> component/instructions 
-				heading="Get Ready to Brainstorm a solution"
-				body=(combine 'Round question: ' question)
+				heading="Get ready to think of a proposal"
+				body="Remember you can open and close your role card at anytime during the game!"
 		}}
 
 		{{> component/speech 
 				decider=true
-				body=(combine 'Once I start the timer, You will have ' config.thinkSeconds ' seconds to brainstorm a solution to this question. Get Ready!')
+				body=(combine 'Once I start the timer, you will have ' config.thinkSeconds ' seconds to think of a proposal that addresses this question. Remember to think from your character\'s perspective!')
 		}}
 
 		{{> component/speech 
-				body=(combine 'Once I start the timer, You will have ' config.thinkSeconds ' seconds to brainstorm a solution to this question. Get Ready!')
-				secondary=question
+				body=(combine 'Once I start the timer, you will have ' config.thinkSeconds ' seconds to think of a proposal that addresses this question. Remember to think from your character\'s perspective!')
 		}}
 
 	</div>
@@ -60,24 +55,26 @@
 		{{> component/instructions 
 				decider=true
 				heading="Press the button to start the timer"
-				body="Make sure everyone is ready and understands the instructions, then press the button to start the timer."
+				body="When everyone is ready and understands the instructions, press the button to start the timer."
 		}}
 		
 		{{> component/instructions 
-				heading="Get Ready to Brainstorm a solution"
-				body="Remember you can open your rolecard anytime. Try to include your agenda items in your solution!"
+				heading="Get ready to think of a proposal"
+				body="Remember to incorporate your hidden agenda items and embody your stakeholder role!"
 		}}
 
 		{{!-- Timer in button mode  --}}
 		{{> component/timer 
-				decider=true
-				button=true
-				body=(combine 'Once I start the timer, You will have ' config.thinkSeconds ' seconds to brainstorm a solution to this question. Get Ready!')
+				decider=true				
+				preview=true
+				time=config.thinkSeconds
+				body="Press the red button to start!"
 		}}
 
-		{{> component/speech 
-				body=(combine 'Once I start the timer, You will have ' config.thinkSeconds ' seconds to brainstorm a solution to this question. Get Ready!')
-				secondary=question
+		{{> component/timer				
+				preview=true
+				time=config.thinkSeconds
+				body=question
 		}}
 	</div>
 
@@ -86,22 +83,24 @@
 
 		{{> component/instructions 
 				decider=true
-				heading="Wait For timer to reach zero"
-				body='When the timer reaches zero shout "pencils down!"'
+				heading="Wait for the timer to reach zero"
+				body='When the timer reaches zero announce "Times Up!" The screen will advance autmatically.'
 		}}
 		
 		{{> component/instructions 
-				heading="think of a solution to the question"
-				body="Try to keep your idea concise, clear, and from your character's perspective! Be ready to pitch!"
+				heading="Think of a proposal!"
+				body="Remember to incorporate your hidden agenda items and embody your stakeholder role!"
 		}}
  
 		{{> component/timer 
 				time=config.thinkSeconds
 				decider=true
+				body=question
 		}}
 		
 		{{> component/timer 
 				time=config.thinkSeconds
+				body=question
 		}}
 	
 	</div>
@@ -111,23 +110,23 @@
 
 		{{> component/instructions 
 				decider=true
-				heading="Press next to move to the pitch phase"
-				body="Let players know brainstorming time is up and press next to continue to the next phase"
+				heading="Read the text in the blue box out loud"
+				body="Once you have finished speaking the instruction, press next to continue."
 		}}
 		
 		{{> component/instructions 
-				heading="Get ready to pitch your idea"
-				body="In the next phase everyone will have 60 seconds to pitch their proposal."
+				heading="Get ready to pitch your proposal"
+				body=(combine 'In the next phase everyone will have ' config.pitchSeconds ' to pitch their proposal.')
 		}}
 
 		{{> component/speech 
 				decider=true
 				advance=true
-				body="Brainstorming is over! Lets go on to the pitch phase."
+				body="Get ready to propose your solutions in the Pitch phase!"
 		}}
 
 		{{> component/speech 
-				body="Brainstorming is over! Lets go on to the pitch phase."
+				body="Get ready to propose your solutions in the Pitch phase!"
 		}}
 	
 	</div>

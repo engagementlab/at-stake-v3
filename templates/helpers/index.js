@@ -22,6 +22,17 @@ module.exports = function() {
 
     };
 
+    _helpers.limit = function(ary, max, options) {
+        if(!ary || ary.length == 0)
+            return options.inverse(this);
+
+        var result = [ ];
+        for(var i = 0; i < max && i < ary.length; ++i)
+            result.push(options.fn(ary[i]));
+        
+        return result.join('');
+    };
+
     _helpers.ellipsis = function (limit, currentText) {
      
         if (currentText) 
@@ -166,6 +177,20 @@ module.exports = function() {
        return type + number;
     
     }
+
+    //  ### int addition helper
+    // Used for increasing int by amount
+    //
+    //  @amt: Amount to offset
+    //
+    //  *Usage example:*
+    //  `{{sum @index 3}}
+
+    _helpers.sum = function(ind, amt) {
+ 
+        return parseInt(ind) + amt;
+
+    };
 
     return _helpers;
 

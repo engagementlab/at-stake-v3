@@ -62,13 +62,13 @@
       <input id="btn_submit" class="button_text game_login" type="submit" name="submit" value="next">
     </div>
 
-    <div class="waiting" style="display:none" id="share-code">
+    <div class="waiting" style="display:none">
       <input type="text" id="player-name" class="hidden-el"> <br />
 
       <div id="share_code"> 
         <h1>Share Your Room Code</h1>
         <h1 class="access-code"></h1>
-        <p>Share this 4 digit code with players. Once at least 3 players have joined, press the start button to play</p>
+        <p>Share this 4 digit code with players. Once at least 3 players have joined, press play to begin</p>
       </div>
 
       <div class="col-sm-12 player-grid">
@@ -81,10 +81,30 @@
       </div>
 
       <div class="form row" id="start">
-        <input id="btn-start-game" data-event="game:start" class="{{!-- post-button  --}}submit" type="submit" name="submit" value="play!">
+        {{!-- <input data-event="game:start" class="post-button" type="submit" name="submit" value="play!"> --}}
+        <button id="btn-start-game" data-from="lobby" data-to="tutorial">play!</button>
         <button class="back-button" data-from="share-code" data-to="deck-choice">back</button>
       </div>
     </div>
+
+    {{!-- Tutorial selection --}}
+    <div id="tutorial" class="col-sm-12" style="display:none">
+
+      <div class="col-xs-12 col-centered  form">
+
+        <div id="btn-tutorial" data-event="game:start" data-package='{"tutorial": "true"}' class="btn btn-default submit">
+          <h2>Play Tutorial</h2>
+        </div>
+        <div id="btn-tutorial-skip" data-event="game:start" data-package='{"tutorial": "false"}' class="btn btn-default submit">
+          <h2>Or tap <strong>here</strong> to skip</h2>
+        </div>
+        <div class="btn_cap">The tutorial will show you how @Stake works, how to play, and how to win!  </div>
+
+      </div>
+
+      <button class="back-button" data-from="choices" data-to="name">back</button>
+    </div>
+
   </div>
 
   {{!-- JOIN GAME --}}

@@ -30,7 +30,7 @@ var Common = function (nsp, socket) {
         'game:start': function(package) {
 
             Session.Get(package.gameId).
-            StartGame(currentSpace);
+            StartGame(currentSpace, (package.msgData.tutorial === "true"));
 
         },
 
@@ -118,6 +118,11 @@ var Common = function (nsp, socket) {
             Session.Get(package.gameId).
             AgendaItemAction(false);
 
+        },
+
+        'game:exit': function(package) {
+            Session.Get(package.gameId).
+            EndGame(currentSpace);
         },
 
         /* Pauses all game cooldowns (debugging only) */

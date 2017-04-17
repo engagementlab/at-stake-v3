@@ -59,6 +59,17 @@
 		#start {
 			width: 100%
 		}
+		#tutorial {
+	    padding-top: 65%;
+		}
+
+		.btn_cap {
+			width: 90%;
+			margin: 15% auto;
+			margin-top: 0px;
+			font-size: 12px;
+			color: lighten($background-color, 20%);
+		}
 
 		// Show back button on login screen
 		.back-button {
@@ -143,58 +154,63 @@
 			  letter-spacing: 0px;
 			  text-align: center;
 			}
-
-
 		}
 
 		&#choices {
-			.btn {
-				width: 80%;
-				white-space: normal;
-				color: white;
-				border: 0px;
-				border-radius:0px;
-				height:48px;
-				padding:0px;
-				margin: 0 auto;
-				margin-bottom: 70px;
 
-				h2 {
-					font-size: 20px;
-					line-height: 48px;
-					margin:0px;
-					margin-bottom: 10px;
-					font-family: AvenirNext-Bold;
-				  font-weight: bold;
-				  font-style: normal;
-				  font-stretch: normal;
-				  letter-spacing: 0px;
-				  text-align: center;
-				}
-
-				&#btn_new_game {
-					background: -moz-linear-gradient(top, $orange-light 90%, $orange-dark 10%); /* FF3.6-15 */
-					background: -webkit-linear-gradient(top, $orange-light 90%, $orange-dark 10%); /* Chrome10-25,Safari5.1-6 */
-					background: linear-gradient(to bottom, $orange-light 90%, $orange-dark 10%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-					
-				}
-
-				&#btn_join_game {
-					background: -moz-linear-gradient(top, $blue-light 90%, $blue-dark 10%); /* FF3.6-15 */
-					background: -webkit-linear-gradient(top, $blue-light 90%, $blue-dark 10%); /* Chrome10-25,Safari5.1-6 */
-					background: linear-gradient(to bottom, $blue-light 90%, $blue-dark 10%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-					
-				}
+			#btn_new_game {
+				@include gradient-vertical($orange-light, $orange-dark, 90%, 10%);					
 			}
-			.btn_cap {
-				width: 90%;
-				margin: 15% auto;
-				margin-top: 0px;
-				font-size: 12px;
-				color: lighten($background-color, 20%);
+
+			#btn_join_game {
+				@include gradient-vertical($blue-light, $blue-dark, 90%, 10%);	
+				
+			}
+		
+		}
+
+		.btn {
+			width: 80%;
+			white-space: normal;
+			color: white;
+			border: 0px;
+			border-radius:0px;
+			height:48px;
+			padding:0px;
+			margin: 0 auto;
+			margin-bottom: 70px;
+
+			h2 {
+				font-size: 20px;
+				line-height: 48px;
+				margin:0px;
+				margin-bottom: 10px;
+				font-family: AvenirNext-Bold;
+			  font-weight: bold;
+			  font-style: normal;
+			  font-stretch: normal;
+			  letter-spacing: 0px;
+			  text-align: center;
 			}
 		}
 
+		#btn-tutorial {
+			margin-bottom: 10px;
+			@include gradient-vertical($orange-light, $orange-dark, 90%, 10%);	
+		}
+		#btn-tutorial-skip {
+			margin-bottom: 40px;
+			cursor: pointer;
+			background: none;
+			box-shadow: none;
+			h2 {
+				font-size: 16px;
+				font-family: $avenir-reg;
+				strong {
+					font-family: $avenir-heavy;
+				}
+			}
+		}
 	}
 
 	// Logo
@@ -250,27 +266,23 @@
 			  font-size:12px;
 			  height: 48px;
 			  text-align: center;
-			  // line-height: 48px !important;
 			}
 			&::-moz-placeholder{
 				font-size:12px;
 			  height: 48px;
 			  text-align: center;
-			  line-height: 48px !important;
 
 			}
 			&:-ms-input-placeholder {
 				font-size:12px;
 			  height: 48px;
 			  text-align: center;
-			  line-height: 48px !important;
 
 			}
 			&:-moz-placeholder {
 				font-size:12px;
 			  height: 48px;
 			  text-align: center;
-			  line-height: 48px !important;
 
 			}
 			
@@ -355,25 +367,21 @@
 			  font-size:14px;
 			  height: 48px;
 			  text-align: center;
-			  line-height: 48px !important;
 			}
 			&::-moz-placeholder { /* Firefox 19+ */
 			  font-size:14px;
 			  height: 48px;
 			  text-align: center;
-			  line-height: 48px !important;
 			}
 			&:-ms-input-placeholder { /* IE 10+ */
 			  font-size:14px;
 			  height: 48px;
 			  text-align: center;
-			  line-height: 48px !important;
 			}
 			&:-moz-placeholder { /* Firefox 18- */
 			  font-size:14px;
 			  height: 48px;
 			  text-align: center;
-			  line-height: 48px !important;
 			}
 		}
 
@@ -542,18 +550,18 @@
 				    margin-bottom: 8px;
 				    display: table;
 
-				    p{
+				    p {
 				    	display:table-cell;
 				    	padding:0px;
 				    	line-height: 1.33;
 				    	vertical-align: middle;
 				    }
 
-				    &.even {
+				    &:nth-child(1) {
 				    	margin-left:8%;
 				    	margin-right:2%;
 				    }
-				    &.odd {
+				    &:nth-child(2) {
 				    	margin-right:8%;
 				    	margin-left:2%;
 				    }

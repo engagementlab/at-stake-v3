@@ -42,7 +42,7 @@ GameConfig.add(
 		  deciderStartCoinCount: { type: Number, label: "Decider Start Coin Count", note: "Number of coins that the Decider starts with at the beginning of the game", required: true, initial: true },
 		  // playerRoundStartCoinCount: { type: Number, label: "Player Round Start Coin Count", note: "Number of coins that players start with at the beginning of a round (after round 1)", required: true, initial: true },
 		  // deciderRoundStartCoinCount: { type: Number, label: "Decider Round Start Coin Count", note: "Number of coins that the Decider starts with at the beginning of a round (after round 1)", required: true, initial: true },
-		  rewardAmounts: { type: Types.TextArray, label: "Reward Amounts", note: "Number of coins awarded for having a player's agenda point included in plan", required: false, initial: false },
+		  rewardAmounts: { type: Types.TextArray, label: "Reward Amounts", note: "Number of coins awarded for having a player's agenda point included in plan (*MUST BE TWO AMOUNTS*)", required: false, initial: false },
 		  extraTimeCost: { type: Number, label: "Extra Time Cost", note: "Number of coins it costs to get extra time while pitching", required: true, initial: true },
 		  doubledownTimeCost: { type: Number, label: "Double-down Time Cost", note: "Number of coins it costs to get Double-down time", required: true, initial: true }
 		},
@@ -56,6 +56,20 @@ GameConfig.add(
 		  extraSeconds: { type: Number, label: "Extra Seconds", note: 'Amount of time given to a player if they choose to use additional time for their pitch', required: true, initial: true },
 		  doubledownSeconds: { type: Number, label: "Double-down Seconds", note: 'Amount of time given to a player if they buy Double-down time', required: true, initial: true },
 		  deliberateSeconds: { type: Number, label: "Deliberate Seconds", note: 'Amount of time in the "deliberate" segment of the round', required: true, initial: true }
+		}, 
+
+		/*
+		* Animation settings
+		*/
+		'Animation settings', {
+		  decideDuration: { type: Number, label: "Think Seconds", note: 'Duration of proposal and agenda decide modals', required: true, initial: true }
+		}, 
+
+		/*
+		* Debrief settings
+		*/
+		'Debrief', {
+		  debriefQuestions: { type: Types.TextArray, label: "Debrief Questions", note: "Needs 4 questions." }
 		}
 
 );

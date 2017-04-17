@@ -12,44 +12,62 @@
 
 <script type="text/javascript">
 
-	var socket;
-	var socketEvents;
-  var gameCode;
-  var deck;
-  var gameEnded = false;
-	var gameContainer;
+	var socket,
+	socketEvents,
+  gameCode,
+  deck,
+  gameEnded = false,
+  timerActive = false,
+	gameContainer,
 
-  var playerId;
-  var playerUID;
-  var isDecider;
-	var timeline = new TimelineLite();
-	var mobileDetect = new MobileDetect(window.navigator.userAgent);
+  playerId,
+  playerUID,
+  isDecider,
+	timeline = new TimelineLite(),
+	mobileDetect = new MobileDetect(window.navigator.userAgent),
+	isDevice = false,
 
-	var isApple = mobileDetect.is('iOS');
-	var isAndroid = mobileDetect.is('Android') || mobileDetect.match('Android');
-	var isMobile = (isAndroid || isApple);
+	{{#if mobile}}
+		isDevice = true,
+	{{/if}}
+
+	isApple = mobileDetect.is('iOS'),
+	isAndroid = mobileDetect.is('Android') || mobileDetect.match('Android'),
+	isMobile = (isAndroid || isApple),
 
 	// Can be set by any event logic waiting for content update
-	var updateContentCallback;
+	updateContentCallback,
 
 	// Absolute positioning global
-	var maxWidth = 425;
+	maxWidth = 425,
 
 	// For countdown debugging
-  var countdownPaused = false;
+  countdownPaused = false,
 
   // Tracks current phase index and the screen during each phase
-  var currentPhaseIndex = -1;
-  var currentScreenIndex = 0;
+  currentPhaseIndex = -1,
+  currentScreenIndex = 0,
 
-  var sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1/at-stake/sfx/';
+  sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1492187090/at-stake/sfx/',
   {{#ifeq env "development"}}
   	sfxPath = '/sfx/'
   {{/ifeq}}
 
+
+
+	// ion.sound({
+ //    sounds: [
+ //        {
+ //            name: "button_tiny"
+ //        }
+ //    ],
+ //    volume: 0.5,
+ //    path: sfxPath,
+ //    preload: true
+ //  });
+
   // All possible socket event IDs
-  // TODO: Change based on game type?
-	var eventIds = [
+	eventIds = [
 
 		{{#ifnoteq environment "production"}}
 		'debug:pause',
@@ -201,8 +219,10 @@
 		if($.isPlainObject(pkg)) {
 			$.each(Object.keys(pkg), function( key, value ) {
 
-				if(pkg[value] !== undefined)
-				  pkg[value] = $(pkg[value].toString()).val();
+				if(pkg[value] !== undefined) {
+					if(pkg[value].toString().indexOf('#') === 0)
+					  pkg[value] = $(pkg[value].toString()).val();
+				}
 
 			});
 		}
@@ -299,7 +319,6 @@
 	    $.when($($('.screen')[0]).remove()).then(function() {
 
 	        var newScreen = $('.screen')[0];
-	        // $(newScreen).show();
 	        
 	        // Local session update
 	        sessionStorage.setItem('markup', $('#gameContent').html());   
@@ -344,9 +363,17 @@
 	    // $('#gameContent').addClass('blur');
 	    $('#overlay').empty();
 
-	    // If modal set to 'clone' mode, keep copy in current parent
-	    if(!_.isEmpty(modalSelector.data()) && modalSelector.data('clone') === true)
-		    modalSelector.clone().appendTo(modalSelector.parent());
+	    if(!_.isEmpty(modalSelector.data())) {
+
+		    // If modal set to 'clone' mode, keep copy in current parent
+	    	if(modalSelector.data('clone') === true)
+			    modalSelector.clone().appendTo(modalSelector.parent());
+
+			  // If modal has 'wait' mode enabled, open only if current countdown is over
+		    if(modalSelector.data('wait') === true)
+		    	if(timerActive) return;
+
+		  }
 
 	    $('#overlay').append(modalSelector.first());
 	    $('#overlay, #overlay .inner-modal').show();
@@ -377,7 +404,7 @@
 	        }, modalDuration*1000);
 	    }
 	    
-	    $('#overlay .inner-modal .post-button').click(function(evt) {
+	    $('#overlay .inner-modal:not(.player) .post-button').click(function(evt) {
 
 	        // $('#gameContent').removeClass('blur');
 	        $('#overlay').empty();
@@ -396,8 +423,9 @@
 
 			if(modifier.data().hide_next) 
 		 		$('#btn-next').fadeOut();
-		 	else if(!isDecider)
-		 		$('#btn-next').fadeIn();
+			
+			else if(modifier.data().hide_bottom_bar) 
+		 		$('#bottom-bar').fadeOut();
 			
 			if(modifier.data().highlight) 
 				$(modifier.data().highlight).addClass('highlight');
@@ -407,12 +435,11 @@
 	      openInnerModal();
 
 		}
-		/*else {
+		else { 
 
-				// Defaults
-		 		$('#btn-next').fadeIn();
+		 		$('#bottom-bar').fadeIn();
 
-		}*/
+		}
 
 	}
 
@@ -499,7 +526,7 @@
 
 	    // Ensure login is gone and all decide UI shows
 	    $('#name,#join,#choices').remove();
-	    $('#share-code .access-code').html(gameCodeHtml);
+	    $('#share_code .access-code').html(gameCodeHtml);
 	    $('#decider .create').hide();
       $('#decider').show();
       $('#decider .waiting, #decider-debugging').show();
@@ -564,19 +591,28 @@
 				closeAnim.play();
 
 			});
+				
+			// GA include
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
 			{{#ifeq environment "production"}}
-				
-				// GA include
-				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-			  ga('create', 'UA-64617433-4', 'auto');
+				ga('create', 'UA-64617433-7', 'auto');
 			  ga('send', 'pageview');
 
-			{{else}}
+			{{/ifeq}}
+
+			{{#ifeq environment "staging"}}
+
+			  ga('create', 'UA-64617433-6', 'auto');
+			  ga('send', 'pageview');
+
+			{{/ifeq}}
+
+			{{#ifeq environment "development"}}
 
 				if(!isPrivate) {
 					// For socket debugging
@@ -652,7 +688,7 @@
 			    }
 
 					data.deckId = $("#decks .glide__slide.active").data('id');
-					data.accessCode = $('.access-code span').text();
+					data.accessCode = $('#share_code .access-code span').text();
 
 				  $.post(
 				  	"/api/create/",
@@ -666,8 +702,10 @@
 								
 								$('#login').remove();
 
-						    $('#decider .create').hide();
-						    $('#decider .waiting').show();
+						    // $('#decider .create').hide();
+						    // $('#decider .waiting').show();
+
+						    loginFromTo('new', 'lobby', .09);
 
 						    _.each(data.accessCode.split(''), function(char, i) {
 					          gameCodeHtml += '<span>' + char + '</span>';
@@ -675,13 +713,16 @@
 
 						    // Ensure login is gone and all decide UI shows
 						    $('#name,#join').remove();
-						    $('.access-code').html(gameCodeHtml);
+						    // $('.access-code').html(gameCodeHtml);
 						    $('#decider .create').hide();
 					      $('#decider').show();
-					      $('#decider .waiting, #decider-debugging').show();
+					      // $('#decider .waiting, #decider-debugging').show();
 					      $('#lobby').addClass('wait');
 
 						    $('#player-name').val(data.decider);
+
+		            ga('send', 'event', 'Login', 'Username', data.decider);
+		            
 							}
 						})
 						.fail(function(xhr, status, error) {
