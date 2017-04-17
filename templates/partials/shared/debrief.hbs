@@ -1,0 +1,74 @@
+{{!-- DEBRIEF UI --}}
+<div id="debrief">
+  <div id="login-header" class="hidden-el">
+    {{{cloudinaryUrl "v1490382079/at-stake/s-t-a-k-e-l-o-g-o_3x.png" width=300 }}}
+  </div>
+
+	<div class="screen initial" data-animation="debrief">
+
+		{{> component/instructions 
+				decider=true
+				heading="Read the text in the blue box out loud"
+				body="Once you finish speaking the instructions to other players, press next to continue."
+		}}
+
+		{{> component/instructions 
+				heading="Listen to the decider"
+				body="Get ready to talk about your experience playing @Stake!"
+		}}
+
+		{{> component/speech 
+				decider=true
+				body="Now that we finished the game, lets debrief on our experience. I will read a question and then we will have an informal discussion about what we think. There are four questions total."
+		}}
+
+		{{> component/speech 
+				body="Now that we finished the game, lets debrief on our experience. I will read a question and then we will have an informal discussion about what we think. There are four questions total."
+		}}
+
+	</div>
+
+	{{!-- QUESTIONS --}}
+	{{#each questions}}
+
+		<div class="screen">
+
+			{{> component/instructions 
+					decider=true
+					heading="Read the text in the blue box out loud"
+					body=(combine "Share your responses to the question. Press next to move to question " (sum @index 2) " .")
+			}}
+			
+			{{> component/instructions 
+					heading="Share your responses to the question."
+			}}
+
+			{{> component/speech 
+					decider=true
+					body=(combine 'Question ' (sum @index 1) ': ' this)
+			}}
+
+			{{> component/speech 
+					body=(combine 'Question ' (sum @index 1) ': ' this)
+			}}
+		
+		</div>
+
+	{{/each}}
+
+	{{!-- END --}}
+	<div class="screen">
+
+		{{> component/speech 
+				decider=true
+				exit=true
+				body="Thanks for playing @Stake!"
+		}}
+
+		{{> component/speech 
+				body="Thanks for playing @Stake!"
+		}}
+	
+	</div>
+
+</div>

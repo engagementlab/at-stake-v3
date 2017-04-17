@@ -1,4 +1,3 @@
-
 {{!< default}}
 {{!-- 
 /**
@@ -101,7 +100,7 @@ var startTimer = function(secondsLeft, timerAdvance) {
 
 }
 
-var setupScreen = function() {
+var setupScreen = function(screenName) {
 
     // Add trigger to go to next step on next-step buttons
     $('.next-step').click(function(evt) {
@@ -113,13 +112,17 @@ var setupScreen = function() {
 
     $(isDecider ? '.player' : '.decider').remove();
 
-    $('#gameContent').addClass('in-game');
-    $('#stages-bar').show();
+
+    if(screenName === 'debrief') {
+        $('#gameContent').removeClass('in-game');
+    }
+    else {
+        $('#stages-bar').show();
+        $('#gameContent').addClass('in-game');
+    }
 
     sessionStorage.setItem('markup', $('#gameContent').html());
     sessionStorage.setItem('role', $('#role-card').html());
-
-    console.log(sessionStorage.getItem('role'));
 
     // Animate initial
     screenOpen($('.screen:first'));
@@ -439,7 +442,6 @@ socketEvents = function(eventId, eventData) {
 
             $('#bottom-bar').show();
 
-            $('#stages-bar').show();
             sessionStorage.setItem('gameCode', gameCode);
 
             // Don't show yet?
@@ -452,7 +454,7 @@ socketEvents = function(eventId, eventData) {
                 updateGameContent(eventData.html, function() {
 
                     nextPhase();
-                    setupScreen();
+                    setupScreen(eventData.name);
 
                 });
 
@@ -460,7 +462,7 @@ socketEvents = function(eventId, eventData) {
                 updateGameContent(eventData, function() {
 
                     nextPhase();
-                    setupScreen();
+                    setupScreen(eventData.name);
 
                 });
             }          
@@ -475,7 +477,7 @@ socketEvents = function(eventId, eventData) {
                 return;
             }
             
-            updateGameContent(eventData, function() {
+            updateGameContent(eventData.html, function() {
 
                 setupScreen();
 
@@ -580,12 +582,14 @@ socketEvents = function(eventId, eventData) {
             openInnerModal();
     
             $('#btn-more-time, #btn-cancel').click(function() {
-                var modal = $('#more-time-wrapper.showing');
+                // var modal = $('#more-time-wrapper.showing');
               
-                modal.fadeOut(function() {
-                    $('#overlay').empty();
-                    $('#overlay').hide();
-                });
+                // modal.fadeOut(function() {
+                //     $('#overlay').empty();
+                //     $('#overlay').hide();
+                // });
+                $('#overlay').trigger('hide');            
+
                 
             });
 
@@ -599,10 +603,12 @@ socketEvents = function(eventId, eventData) {
             // Close "(playername) is deciding...." modal
             var modal = $('#more-time-wrapper');
           
-            modal.fadeOut(function() {
-                $('#overlay').empty();
-                $('#overlay').hide();
-            });
+            // modal.fadeOut(function() {
+            //     $('#overlay').empty();
+            //     $('#overlay').hide();
+            // });
+            $('#overlay').trigger('hide');            
+
 
             break;
 
@@ -611,10 +617,11 @@ socketEvents = function(eventId, eventData) {
             // Close "(playername) is deciding...." modal
             var modal = $('#more-time-wrapper');
           
-            modal.fadeOut(500, function() {
-                $('#overlay').empty().hide();
-                $('#btn-next-player').fadeIn();
-            });
+            // modal.fadeOut(500, function() {
+            //     $('#overlay').empty().hide();
+            // });
+            $('#overlay').trigger('hide');            
+            $('#btn-next-player').fadeIn();
 
             if(eventData.phase === 'doubledown' && isDecider) {
                 setTimeout(function() {

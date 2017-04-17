@@ -4,6 +4,11 @@
 	left: 0px;
 	z-index:1;
 }
+
+#overlay {	
+	background-color: $greyish-brown-70;
+}
+
 #gameContent {
 	@include gradient-vertical($background-color, $turquoise-dark, 55%, 45%);
   @include linear_transition(filter, 0.5s);
@@ -16,7 +21,7 @@
 
 	// During the gameplay
 	&.in-game {
-		background-color: white;
+		background-color: $turquoise-dark;
 		height: calc(100% - 50px);
 		// padding-top:80px;
 
@@ -398,13 +403,13 @@ input.post-button {
 
 // More Time Card/Pitch Choice
 .inner-modal {
+	display: none;
 	position: relative;
 	text-align:center;
 	height: 100%;
 	width: 100%;
 	left: 0px;
 	top: 0px;
-	background-color: $greyish-brown-70;
 
 	h1 {
 		font-family: $avenir-reg;

@@ -317,9 +317,9 @@
 	    
 	    currentScreenIndex++;
       
-      $('#overlay').empty().hide();
+      if($('#overlay').is(':visible'))
+	      $('#overlay').trigger('hide');
 
-	    //TODO: Animate
 	    $.when($($('.screen')[0]).remove()).then(function() {
 
 	        var newScreen = $('.screen')[0];
@@ -354,7 +354,7 @@
 
 	}
 
-	var openInnerModal = function(selector) {
+	var openInnerModal = function(selector, force) {
 
 			if(!selector)
 				selector = '';
@@ -377,10 +377,15 @@
 		    if(modalSelector.data('wait') === true)
 		    	if(timerActive) return;
 
+			  // If modal has 'hide' mode enabled, open only if forced
+		    if(modalSelector.data('hide') === true)
+		    	if(!force) return;
+
 		  }
 
-	    $('#overlay').append(modalSelector.first());
-	    $('#overlay, #overlay .inner-modal').show();
+	    $.when($('#overlay').append(modalSelector.first())).then(function() {
+		    $('#overlay').trigger('show');
+	    });
 
 	    // Enable/disable ability to buy coins
       var cost = parseInt($('#overlay .inner-modal .coins').text());
@@ -394,25 +399,31 @@
 	        var modalTimeout = setTimeout(function() {
 	            var gotoNext = $('#overlay .inner-modal').data('next');
 
+							$('#overlay').on('hidden', function(evt) {
+								$(evt.currentTarget).off('hidden');
+		            if(gotoNext === 'next_screen')
+			            nextPhaseScreen();
+
+		            else if(gotoNext === 'next_modal')
+			            openInnerModal();
+							});
+
 	            clearTimeout(modalTimeout);
 
-	            $('#overlay').empty();
-	            $('#overlay').hide();
-
-	            if(gotoNext === 'next_screen')
-		            nextPhaseScreen();
-
-	            else if(gotoNext === 'next_modal')
-		            openInnerModal();
+	            $('#overlay').trigger('hide');
 
 	        }, modalDuration*1000);
 	    }
 	    
 	    $('#overlay .inner-modal:not(.player) .post-button').click(function(evt) {
 
+	    		if($(evt.currentTarget).data('keep_open'))
+	    			return;
+
 	        // $('#gameContent').removeClass('blur');
-	        $('#overlay').empty();
-	        $('#overlay').hide();
+	        // $('#overlay').empty();
+	        // $('#overlay').hide();
+          $('#overlay').trigger('hide');	        
 
 	    });
 

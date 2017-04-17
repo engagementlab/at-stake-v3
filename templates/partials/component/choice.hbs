@@ -11,12 +11,12 @@
 	{{!-- Decider modal --}}
 	{{#ifeq decider true}} 
 
-		<div class="modal inner-modal {{showHide this}}">
+		<div class="inner-modal {{showHide this}}">
 			<div class="form decider inner decide-winner">
 				<h1>Choose the player who had the <strong>best</strong> proposal</h1>
 
 				{{#each players}}
-			    <button id="player-{{icon}}" class="post-button submit player-box player-logo btn" data-event="game:proposal_selected" data-package='{{uid}}' data-keep_enabled="true" data-autohide="true" type="submit" name="submit">
+			    <button id="player-{{icon}}" class="post-button submit player-box player-logo btn" data-event="game:proposal_selected" data-package='{{uid}}' data-keep_open="true" type="submit" name="submit">
 				    <div class="coins"></div>
 					  <div class="info">
 						  <h1>{{username}}</h1>
@@ -30,7 +30,7 @@
 	{{!-- Non-decider modal --}}
 	{{else}}
 
-		<div class="modal inner-modal {{showHide this}}">
+		<div class="inner-modal {{showHide this}}">
 			<div class="inner decide-winner">
 				<h1>The decider is about to choose a winning proposal</h1>
 				<h2>Whoever wins receive all the coins in the coin pot!</h2>
@@ -57,7 +57,7 @@
 	{{!-- Active player's modal --}}
 	{{#ifeq active_player true}}
 
-		<div id="more-time-wrapper" class="{{showHide this}} inner-modal modal" data-clone="true" data-wait="true">
+		<div id="more-time-wrapper" class="{{showHide this}} inner-modal" data-clone="true" data-wait="true">
 			<div class="form choice inner pitch-box" id="more-time">
 
 				{{#ifeq doubledown true}}
@@ -99,7 +99,7 @@
 	{{!-- Waiting for other player --}}
 	{{else}}
 
-		<div id="more-time-wrapper" class="{{showHide this}} modal inner-modal" data-clone="true" data-wait="true">
+		<div id="more-time-wrapper" class="{{showHide this}} inner-modal" data-clone="true" data-wait="true">
 			<div class="inner">
 				<div id="player-{{activePlayer.index}}" class="player-logo lg">
 			  </div>

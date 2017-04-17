@@ -32,7 +32,7 @@
 		{{#if winner}}
 
 			{{!-- winner modal --}}
-			<div class="modal inner-modal winner" data-duration="{{config.decideDuration}}" data-next="next_screen">
+			<div class="modal inner-modal" data-duration="{{config.decideDuration}}" data-next="next_screen">
 				<div class="inner">
 
 					<h1>Congratulations, <strong>{{winner.username}}</strong>!</h1>
@@ -49,7 +49,7 @@
 				</div>
 			</div>
 
-			<span id="modifier" class="hidden-el" data-inner_modal="true"></span>
+			{{!-- <span id="modifier" class="hidden-el" data-inner_modal="true"></span> --}}
 
 		{{else}}
 		
@@ -98,7 +98,7 @@
 			{{#each role.agendaItems}}
 
 				{{!-- Agenda item choice --}}
-				<div class="modal inner-modal decider" {{#unless @first}}style="display:none"{{/unless}}>
+				<div class="inner-modal decider" {{#unless @first}}style="display:none"{{/unless}}>
 					<div class="inner">
 
 						<div class="role form">
@@ -106,11 +106,11 @@
 							<h1>Does the winning proposal include or address this stakeholder agenda item?</h1>
 							<h2>{{this}}</h2>
 							
-							<button id="btn_yes" class="btn btn-default post-button submit" data-event="game:agenda_yes" data-keep_enabled="true" data-autohide="true" data-package='{{../uid}}'>
+							<button id="btn_yes" class="btn btn-default post-button submit" data-event="game:agenda_yes" data-keep_open="true" data-package='{{../uid}}'>
 				        <h1>Yes</h1>
 				      </button>
 
-							<button id="btn_no" class="btn btn-default post-button submit" data-event="game:agenda_no" data-keep_enabled="true" data-autohide="true" data-package='{{../uid}}'>
+							<button id="btn_no" class="btn btn-default post-button submit" data-event="game:agenda_no" data-keep_open="true" data-package='{{../uid}}'>
 				        <h1>No</h1>
 				      </button>
 
@@ -120,7 +120,7 @@
 				</div>
 
 				{{!-- Decider is choosing --}}
-				<div class="modal inner-modal player">
+				<div class="inner-modal player">
 					<div class="inner">
 						<h1>The decider is reviewing {{../username}} agenda item:</h1>
 						<h2>{{this}}</h2>
@@ -138,7 +138,7 @@
 				</div>
 
 				{{!-- Congrats modal --}}
-				<div class="modal inner-modal winner agenda_item yes" data-duration="{{../../config.decideDuration}}" data-next="{{nextAgendaEvent ../../playerCount @../index @last}}">
+				<div class="inner-modal agenda_item yes" data-duration="{{../../config.decideDuration}}" data-next="{{nextAgendaEvent ../../playerCount @../index @last}}">
 					<div class="inner">
 						<h1>Congratulations, <strong>{{../username}}</strong>!</h1>
 						<h2>Your agenda item <span class="item">{{this}}</span> is included in the winning proposal. You win {{agendaReward ../../config.rewardAmounts @index}} coins</h2>
@@ -154,7 +154,7 @@
 				</div>
 
 				{{!-- "Sorry" modal --}}
-				<div class="modal inner-modal winner agenda_item no" data-duration="{{../../config.decideDuration}}" data-next="{{nextAgendaEvent ../../playerCount @../index @last}}">
+				<div class="inner-modal agenda_item no" data-duration="{{../../config.decideDuration}}" data-next="{{nextAgendaEvent ../../playerCount @../index @last}}">
 					<div class="inner">
 						<h1>Sorry, <strong>{{../username}}..</strong>.</h1>
 						<h2>Your agenda item <span class="item">{{this}}</span> was not included in the winning proposal</h2>
