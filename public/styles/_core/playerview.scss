@@ -683,49 +683,79 @@ input.post-button {
 	text-align: center; 
 	display: none;
 	width: auto;
-	height: -webkit-calc(100% - 8px);
-  height:    -moz-calc(100% - 8px);
-  height:         calc(100% - 8px);
-  margin: 8px;
+	height: 458px;
+  margin: 20px 8px;
   margin-bottom: 0px;
-  background: $color-red;
-  border-radius: 10px;
   border: 3px white solid;
-  border-bottom: 0px;
   z-index: 3000;
   @include gradient-vertical(#18b898, $white, 20%, 20%);
-  top:0px;
+  top:60px;
+
+  .caption {
+  	margin-bottom: 15px;
+  }
+  #btn-close-role-card {
+  	p {
+  		margin: 0px;
+  		font-family: AvenirNext;
+  		font-style: italic;
+  		width: 156px;
+  		display: inline-block;
+  	}
+  	.down-btn {
+  		color: $color-white;
+			height: 12px;
+			width: 24px;
+	    text-align: center;
+			font-size: 12px;
+			margin: 0px 8px;
+	    line-height: 1.17;
+	    padding-top: 1%;
+			@include gradient-vertical($sunflower, $tangerine, 97%, 3%);	
+  	}
+  	.arrow {
+  		position: relative;
+	    content: "";
+	    border-top: 7px solid #ff7800;
+	    border-left: 11px solid transparent;
+	    border-right: 11px solid transparent;
+  	}
+  }
 
   .swipe {
-  	margin: 8px;
+  	margin: 4px;
   }
   .instruction {
-  	font-family: AvenirNext;
+  	font-family: AvenirNext-Medium;
 	  font-size: 12px;
 	  span {
 	  	font-family: AvenirNext-Bold;
 	  }
   }
   .icon {
-  	margin: 20px auto;
-    width: 80px;
-    height: 80px;
-    border-radius: 40px;
+  	margin: 8px auto;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
     border: 4px white solid;
     background:#00f0cc;
   }
 
   .role-info {
   	color:$orange-dark;
-  	margin: 40px -15px;
-  	padding-bottom: 20px;
+  	margin: 0px -15px;
+  	padding-bottom: 0px;
 
   	.title {
-  		font-family: AvenirNext-Bold;
+  		font-family: AvenirNext-Heavy;
 		  font-size: 24px;
 		  font-weight: 900;
 		  text-align: center;
 		  color: #18b898;
+		  margin: 0px;
+  	}
+  	.description {
+  		height: 32px;
   	}
   	
   	p {
@@ -737,17 +767,16 @@ input.post-button {
   	}
   }
   .line {
-  	margin: 0px auto;
   	width: 176px;
 	  height: 2px;
 	  background-color: #59f6de;
-	  margin: 16px auto;
+	  margin: 8px auto;
   }
   .agenda-wrap {
   	color: $orange-dark;
 
   	.header {
-  		font-family: AvenirNext-Bold;
+  		font-family: AvenirNext-Heavy;
   		color: #18b898;
   	}
 
@@ -771,9 +800,11 @@ input.post-button {
   	.value {
 	  	height: 60px;
 	  	width: 60px;
-	  	line-height: 60px;
+	  	line-height: 62px;
 	  	display: inline-block;
 	  	float: left;
+	  	font-size: 24px;
+	  	font-family: AvenirNext-Bold;
 	    background-size: 54px 54px;
 	    background-position: 3px 3px;
 	  	// background-size: cover;
