@@ -943,6 +943,11 @@ blockquote.speech {
 				border-left: 8px solid $color-white;
 				left: 147px;	
 	  	}
+	  	&.debrief {
+		  	&:before {
+					left: 115px !important;
+				}
+	  	}
 	  }
   	&:before {
   		position: absolute;
