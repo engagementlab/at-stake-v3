@@ -46,7 +46,11 @@
 
 #main_menu {
 
-	#btn-back {
+	.btn {
+		margin-bottom: 6%;
+	}
+
+	#btn-menu-back {
 
 		color: $color-white;
 
@@ -57,22 +61,24 @@
     float: right;
 		font-size: 12px;
     line-height: 1.17;
-    padding-top: 9%;
-    padding-right: 21%;
 
+    padding-top: 1%;
+    padding-left: 5%;
+		
 		@include gradient-vertical($sunflower, $tangerine, 90%, 10%);	
 
-  	&:before {
-	    position: absolute;
+		#arrow {
+	    position: relative;
 	    content: "";
-	    top: 20px;
-	    left: 86%;
-	    width: 0;
-	    height: 0;
-	    border-left: 28px solid #ff7800;
-	    border-top: 13px solid transparent;
-	    border-bottom: 13px solid transparent;
-	  }
+	    border-left: 34px solid #ff7800;
+	    border-top: 11px solid transparent;
+	    border-bottom: 11px solid transparent;
+		}
+		#label {
+			margin-left: -57%;
+			margin-top: 26%;
+		}
+		
 	}
 
 	#btn-reconnect, #btn-quit-no {

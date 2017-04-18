@@ -399,6 +399,7 @@
 
 	    if(modalDuration) {
 	        var modalTimeout = setTimeout(function() {
+
 	            var gotoNext = $('#overlay .inner-modal').data('next');
 
 							$('#overlay').on('hidden', function(evt) {
@@ -422,9 +423,6 @@
 	    		if($(evt.currentTarget).data('keep_open'))
 	    			return;
 
-	        // $('#gameContent').removeClass('blur');
-	        // $('#overlay').empty();
-	        // $('#overlay').hide();
           $('#overlay').trigger('hide');	        
 
 	    });
@@ -593,26 +591,42 @@
 	  // Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
 		detectPrivateMode(function(isPrivate) {
 
+			var mainMenuHandler = function() {
+
+				$('#btn-menu').click(function(evt) {
+
+					$('#overlay').on('opened', function(evt) {
+						$(evt.currentTarget).off('opened');
+
+						$('#overlay #btn-menu-back').click(function(evt) {
+							$('#overlay').trigger('hide');
+						});
+						$('#overlay #btn-reconnect').click(function(evt) {
+							window.location = window.location;
+						});
+						$('#overlay #btn-quit').click(function(evt) {
+							quitOpenClose(true);
+						});
+						$('#overlay #btn-quit-yes').click(function(evt) {
+							socket.emit('game:exit', emitData());
+							quitOpenClose(true);
+						});
+						$('#overlay #btn-quit-no').click(function(evt) {
+							quitOpenClose(false);
+						});
+					});
+
+					openInnerModal('menu');
+
+				});
+
+			}
+
 			// Initialize layout
 			absoluteLayout();
 
 			// Main menu buttons bind
-			$('#btn-menu').click(function(evt) {
-				openInnerModal('menu');
-			});
-			$('#btn-reconnect').click(function(evt) {
-				window.location = window.location;
-			});
-			$('#btn-quit').click(function(evt) {
-					quitOpenClose(true);
-			});
-			$('#btn-quit-yes').click(function(evt) {
-				socket.emit('game:exit', emitData());
-				quitOpenClose(true);
-			});
-			$('#btn-quit-no').click(function(evt) {
-				quitOpenClose(false);
-			});
+			mainMenuHandler();
 
 			$("#nav-dropdown").on('click', function() {
 				$('.nav-dropdown').show();
