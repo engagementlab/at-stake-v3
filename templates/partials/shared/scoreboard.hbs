@@ -46,7 +46,7 @@
 			{{/each}}
 
 		</section>
-  	{{#ifnoteq round 3}}
+  	{{#ifeq round 3}}
 		
 			<div class="form decider speech">
 		    <button class="next-step submit scoreboard hidden-el" data-event="game:next_round">Go to Next Round</button>
@@ -75,7 +75,7 @@
 		    <button class="next-step submit scoreboard hidden-el" data-event="game:next_phase">Go to Next Round</button>
 			</div>
 
-		{{/ifnoteq}}
+		{{/ifeq}}
 
 	</div>
 
