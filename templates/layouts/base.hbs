@@ -67,20 +67,25 @@
             </section>
 
             {{!-- game menu --}}
-            <div id="main_menu" class="inner-modal">
+            <div id="main_menu" class="inner-modal" data-clone="true">
                 <div class="form choices inner">
 
                     <section id="game-menu">
-                    
-                        <button id="btn-back" class="post-button submit btn" type="submit" name="submit" data-keep_enabled="true">
-                            back to game
-                        </button>
 
-                        <div id="login-header">
-                        {{{cloudinaryUrl "v1490382079/at-stake/s-t-a-k-e-l-o-g-o_3x.png" width=300 }}}
+                        <div id="header" class="row">
+                    
+                            <button id="btn-menu-back" class="btn" type="submit" name="submit" data-keep_enabled="true">
+                                <div id="arrow"></div>
+                                <div id="label">back to game</div>
+                            </button>
+
                         </div>
 
-                        <button id="btn-reconnect" class="post-button submit btn" type="submit" name="submit" data-keep_open="true">
+                        <div id="logo-header" class="desktop-only">
+                            {{{cloudinaryUrl "v1490382079/at-stake/s-t-a-k-e-l-o-g-o_3x.png" width=300 }}}
+                        </div>
+
+                        <button id="btn-reconnect" class="btn" type="submit" name="submit" data-keep_open="true" data-keep_enabled="true">
                             Reconnect
                         </button>
                         <div class="btn_cap">Press this button if you are experiencing technical problems or are prompted to refresh.</div>
@@ -96,7 +101,7 @@
 
                         <h1>Are you <strong>sure</strong>? This will end the game for all players!</h1>
 
-                        <button id="btn-quit-yes" class="post-button submit btn" type="submit" name="submit" data-keep_open="true" data-keep_enabled="true">
+                        <button id="btn-quit-yes" class="post-button submit btn" type="submit" name="submit" data-keep_open="true">
                             Ok
                         </button>
                         <button id="btn-quit-no" class="post-button submit btn" type="submit" name="submit" data-keep_open="true" data-keep_enabled="true">

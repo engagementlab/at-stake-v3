@@ -120,7 +120,7 @@ function innerModalOpenClose(modalElement, open) {
 
 	var overlayStart, overlayEnd, start, end;
 	var timeline = new TimelineLite({onComplete: function() {
-		$('#overlay').trigger('hidden');	
+		$('#overlay').trigger(open ? 'opened' : 'hidden');	
 	}});
  	
  	if(open) {
@@ -143,6 +143,9 @@ function innerModalOpenClose(modalElement, open) {
 		.fromTo($('#overlay .inner-modal'), .4, start, end)
 		.fromTo($('#overlay'), .3, overlayStart, overlayEnd);
 	}
+
+	if(isMobile)
+		return;
 
 	var blurElement = {a:(open ? 3:0)};//start the blur at 0 pixels
 
@@ -297,11 +300,17 @@ $('.modal:not(#overlay)').on('hide', function(evt) {
 	modalOpenClose($(evt.currentTarget), false);
 });
 
-$('#overlay').on('show', function(evt) {
-	evt.preventDefault();
-	evt.stopPropagation();
+$('#overlay').on('show', function(evt, noAnimate) {
 
-	innerModalOpenClose($(evt.currentTarget), true);
+	if(noAnimate)
+		$('#overlay, #overlay .inner-modal').show();
+	else {
+		evt.preventDefault();
+		evt.stopPropagation();
+
+		innerModalOpenClose($(evt.currentTarget), true, noAnimate);
+	}
+	
 });
 $('#overlay').on('hide', function(evt) {
 	innerModalOpenClose($(evt.currentTarget), false);

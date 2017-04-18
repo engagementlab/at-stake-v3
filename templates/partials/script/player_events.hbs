@@ -516,7 +516,7 @@ socketEvents = function(eventId, eventData) {
             ga('send', 'event', 'Game', 'Event', 'Game Ended');  
 
             updateGameContent(eventData, function() {
-                openInnerModal();
+                openInnerModal(null, true, true);
                 window.location = window.location;
             });
 
@@ -584,14 +584,8 @@ socketEvents = function(eventId, eventData) {
             openInnerModal();
     
             $('#btn-more-time, #btn-cancel').click(function() {
-                // var modal = $('#more-time-wrapper.showing');
-              
-                // modal.fadeOut(function() {
-                //     $('#overlay').empty();
-                //     $('#overlay').hide();
-                // });
-                $('#overlay').trigger('hide');            
 
+                $('#overlay').trigger('hide');
                 
             });
 
@@ -605,12 +599,7 @@ socketEvents = function(eventId, eventData) {
             // Close "(playername) is deciding...." modal
             var modal = $('#more-time-wrapper');
           
-            // modal.fadeOut(function() {
-            //     $('#overlay').empty();
-            //     $('#overlay').hide();
-            // });
             $('#overlay').trigger('hide');            
-
 
             break;
 
@@ -619,9 +608,6 @@ socketEvents = function(eventId, eventData) {
             // Close "(playername) is deciding...." modal
             var modal = $('#more-time-wrapper');
           
-            // modal.fadeOut(500, function() {
-            //     $('#overlay').empty().hide();
-            // });
             $('#overlay').trigger('hide');            
             $('#btn-next-player').fadeIn();
 
