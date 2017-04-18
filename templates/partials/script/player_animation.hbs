@@ -156,6 +156,29 @@ function innerModalOpenClose(modalElement, open) {
 
 }
 
+function quitOpenClose(open) {
+
+	var menuStart, menuEnd, quitStart, quitEnd;
+	var timeline = new TimelineLite();
+
+	menuStart = { scale:1, opacity:1, display:'block' };
+	menuEnd = { scale:0, opacity:0, display:'none' };
+	quitStart = { scale:0, opacity:0, display:'none' };
+	quitEnd = { scale:1, opacity:1, display:'block' };
+ 	
+ 	if(open) {
+		timeline
+		.fromTo($('#game-menu'), .3, menuStart, menuEnd)
+		.fromTo($('#game-quit'), .3, quitStart, quitEnd);
+	}
+	else {	
+		timeline
+		.fromTo($('#game-quit'), .3, quitEnd, quitStart)
+		.fromTo($('#game-menu'), .3, menuEnd, menuStart);
+	}
+
+}
+
 var screenOpen = function(screenElement) {
 
 	screenElement.show();

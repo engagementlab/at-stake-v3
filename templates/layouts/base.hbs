@@ -65,6 +65,48 @@
                   <h2>You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.</h2>
                 </div>
             </section>
+
+            {{!-- game menu --}}
+            <div id="main_menu" class="inner-modal">
+                <div class="form choices inner">
+
+                    <section id="game-menu">
+                    
+                        <button id="btn-back" class="post-button submit btn" type="submit" name="submit" data-keep_enabled="true">
+                            back to game
+                        </button>
+
+                        <div id="login-header">
+                        {{{cloudinaryUrl "v1490382079/at-stake/s-t-a-k-e-l-o-g-o_3x.png" width=300 }}}
+                        </div>
+
+                        <button id="btn-reconnect" class="post-button submit btn" type="submit" name="submit" data-keep_open="true">
+                            Reconnect
+                        </button>
+                        <div class="btn_cap">Press this button if you are experiencing technical problems or are prompted to refresh.</div>
+
+                        <button id="btn-quit" class="post-button submit btn" type="submit" name="submit" data-keep_open="true" data-keep_enabled="true">
+                            Quit game
+                        </button>
+                        <div class="btn_cap pink"><strong>Warning:</strong> this will end the current game for everyone! You will be taken back to game login.</div>
+                        
+                    </section>
+
+                    <section id="game-quit" style="display:none">
+
+                        <h1>Are you <strong>sure</strong>? This will end the game for all players!</h1>
+
+                        <button id="btn-quit-yes" class="post-button submit btn" type="submit" name="submit" data-keep_open="true" data-keep_enabled="true">
+                            Ok
+                        </button>
+                        <button id="btn-quit-no" class="post-button submit btn" type="submit" name="submit" data-keep_open="true" data-keep_enabled="true">
+                            Cancel
+                        </button>
+
+                    </section>
+
+                </div>
+            </div>
             {{/ifnoteq}}
             {{!-- STAGES BAR --}}
             <section class="col-sm-12" id="stages-bar">

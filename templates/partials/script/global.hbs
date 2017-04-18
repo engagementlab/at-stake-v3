@@ -359,12 +359,14 @@
 			if(!selector)
 				selector = '';
 
-			var modalSelector = $('.screen:visible .inner-modal' + selector).first();
+			var modalSelector = $('#gameContent .screen:visible .inner-modal' + selector).first();
+
+			if(selector === 'menu')
+				modalSelector = $('#main_menu');
 
 			if(modalSelector.length === 0)
 				return;
 
-	    // $('#gameContent').addClass('blur');
 	    $('#overlay').empty();
 
 	    if(!_.isEmpty(modalSelector.data())) {
@@ -593,6 +595,24 @@
 
 			// Initialize layout
 			absoluteLayout();
+
+			// Main menu buttons bind
+			$('#btn-menu').click(function(evt) {
+				openInnerModal('menu');
+			});
+			$('#btn-reconnect').click(function(evt) {
+				window.location = window.location;
+			});
+			$('#btn-quit').click(function(evt) {
+					quitOpenClose(true);
+			});
+			$('#btn-quit-yes').click(function(evt) {
+				socket.emit('game:exit', emitData());
+				quitOpenClose(true);
+			});
+			$('#btn-quit-no').click(function(evt) {
+				quitOpenClose(false);
+			});
 
 			$("#nav-dropdown").on('click', function() {
 				$('.nav-dropdown').show();
