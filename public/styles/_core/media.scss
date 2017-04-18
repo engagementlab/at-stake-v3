@@ -90,6 +90,23 @@
 
 	}
 
+	// Role Card
+	body #role-card {
+		@include gradient-vertical(#18b898, $white, 30%, 30%);
+
+		.role-info {
+			margin: 0px -15px;
+
+			.icon {
+				margin: 10px auto;
+			}
+		}
+
+		.agenda-item {
+			margin: 16px 16px 16px;
+		}
+	}
+
 	
 }
 

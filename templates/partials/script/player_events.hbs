@@ -180,6 +180,8 @@ socketEvents = function(eventId, eventData) {
     switch (eventId) {
 
         case 'connect':
+
+            // ion.sound.play("button_tiny");
             
             if(sessionStorage.getItem('gameCode')) {
                 // Check if player is active in game
