@@ -17,15 +17,13 @@ html, body {
 	height:100%;
 	line-height:1 !important;
 	font-size:100%;
-	
-	// @include gradient-vertical($background-color, $turquoise-dark, 55%, 45%);
 
 }
 
 #wrapper {
 	@include box-shadow(0px, 0px, 37px, black);
+	background-color: $background-color;
 	height:100%;
-	// overflow:hidden;
 }
 	
 .error-modal {

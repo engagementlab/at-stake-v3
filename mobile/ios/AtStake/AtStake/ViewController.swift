@@ -113,7 +113,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, WKSc
             if(messageBody["status"] as! String == "okeydokey") {
                 
                 switch(messageBody["action"] as! String) {
-                    
+                     veb330d8510ce3a75931802b4b49bfac6fbdb2a6f
                     // New game UI opened
                     case "new":
                         
