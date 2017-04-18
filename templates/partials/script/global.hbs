@@ -354,7 +354,7 @@
 
 	}
 
-	var openInnerModal = function(selector, force) {
+	var openInnerModal = function(selector, force, noAnimate) {
 
 			if(!selector)
 				selector = '';
@@ -386,7 +386,7 @@
 		  }
 
 	    $.when($('#overlay').append(modalSelector.first())).then(function() {
-		    $('#overlay').trigger('show');
+		    $('#overlay').trigger('show', [noAnimate]);
 	    });
 
 	    // Enable/disable ability to buy coins
@@ -609,7 +609,6 @@
 						});
 						$('#overlay #btn-quit-yes').click(function(evt) {
 							socket.emit('game:exit', emitData());
-							quitOpenClose(true);
 						});
 						$('#overlay #btn-quit-no').click(function(evt) {
 							quitOpenClose(false);

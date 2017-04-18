@@ -300,11 +300,17 @@ $('.modal:not(#overlay)').on('hide', function(evt) {
 	modalOpenClose($(evt.currentTarget), false);
 });
 
-$('#overlay').on('show', function(evt) {
-	evt.preventDefault();
-	evt.stopPropagation();
+$('#overlay').on('show', function(evt, noAnimate) {
 
-	innerModalOpenClose($(evt.currentTarget), true);
+	if(noAnimate)
+		$('#overlay, #overlay .inner-modal').show();
+	else {
+		evt.preventDefault();
+		evt.stopPropagation();
+
+		innerModalOpenClose($(evt.currentTarget), true, noAnimate);
+	}
+	
 });
 $('#overlay').on('hide', function(evt) {
 	innerModalOpenClose($(evt.currentTarget), false);
