@@ -303,9 +303,13 @@
 	    
 	    $('#overlay').hide();
 
-	    // Local session update
-	    // sessionStorage.setItem('markup', $('#gameContent').html());    
-	    sessionStorage.setItem('phase', currentPhaseIndex);    
+	    // Local session update 
+	    sessionStorage.setItem('phase', currentPhaseIndex);  
+
+	    // Analytics
+	    var phaseName = $('#stages-bar .icon:eq('+currentPhaseIndex+') span').text(),
+					phaseNameFormatted = phaseName.charAt(0).toUpperCase() + phaseName.slice(1);
+      ga('send', 'event', 'Game', 'Phase', phaseNameFormatted);  
 
 	}
 
@@ -313,9 +317,9 @@
 	    
 	    currentScreenIndex++;
       
-      $('#overlay').empty().hide();
+      if($('#overlay').is(':visible'))
+	      $('#overlay').trigger('hide');
 
-	    //TODO: Animate
 	    $.when($($('.screen')[0]).remove()).then(function() {
 
 	        var newScreen = $('.screen')[0];
@@ -350,17 +354,19 @@
 
 	}
 
-	var openInnerModal = function(selector) {
+	var openInnerModal = function(selector, force) {
 
 			if(!selector)
 				selector = '';
 
-			var modalSelector = $('.screen:visible .inner-modal' + selector).first();
+			var modalSelector = $('#gameContent .screen:visible .inner-modal' + selector).first();
+
+			if(selector === 'menu')
+				modalSelector = $('#main_menu');
 
 			if(modalSelector.length === 0)
 				return;
 
-	    // $('#gameContent').addClass('blur');
 	    $('#overlay').empty();
 
 	    if(!_.isEmpty(modalSelector.data())) {
@@ -373,10 +379,15 @@
 		    if(modalSelector.data('wait') === true)
 		    	if(timerActive) return;
 
+			  // If modal has 'hide' mode enabled, open only if forced
+		    if(modalSelector.data('hide') === true)
+		    	if(!force) return;
+
 		  }
 
-	    $('#overlay').append(modalSelector.first());
-	    $('#overlay, #overlay .inner-modal').show();
+	    $.when($('#overlay').append(modalSelector.first())).then(function() {
+		    $('#overlay').trigger('show');
+	    });
 
 	    // Enable/disable ability to buy coins
       var cost = parseInt($('#overlay .inner-modal .coins').text());
@@ -388,27 +399,31 @@
 
 	    if(modalDuration) {
 	        var modalTimeout = setTimeout(function() {
+
 	            var gotoNext = $('#overlay .inner-modal').data('next');
+
+							$('#overlay').on('hidden', function(evt) {
+								$(evt.currentTarget).off('hidden');
+		            if(gotoNext === 'next_screen')
+			            nextPhaseScreen();
+
+		            else if(gotoNext === 'next_modal')
+			            openInnerModal();
+							});
 
 	            clearTimeout(modalTimeout);
 
-	            $('#overlay').empty();
-	            $('#overlay').hide();
-
-	            if(gotoNext === 'next_screen')
-		            nextPhaseScreen();
-
-	            else if(gotoNext === 'next_modal')
-		            openInnerModal();
+	            $('#overlay').trigger('hide');
 
 	        }, modalDuration*1000);
 	    }
 	    
 	    $('#overlay .inner-modal:not(.player) .post-button').click(function(evt) {
 
-	        // $('#gameContent').removeClass('blur');
-	        $('#overlay').empty();
-	        $('#overlay').hide();
+	    		if($(evt.currentTarget).data('keep_open'))
+	    			return;
+
+          $('#overlay').trigger('hide');	        
 
 	    });
 
@@ -576,8 +591,42 @@
 	  // Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
 		detectPrivateMode(function(isPrivate) {
 
+			var mainMenuHandler = function() {
+
+				$('#btn-menu').click(function(evt) {
+
+					$('#overlay').on('opened', function(evt) {
+						$(evt.currentTarget).off('opened');
+
+						$('#overlay #btn-menu-back').click(function(evt) {
+							$('#overlay').trigger('hide');
+						});
+						$('#overlay #btn-reconnect').click(function(evt) {
+							window.location = window.location;
+						});
+						$('#overlay #btn-quit').click(function(evt) {
+							quitOpenClose(true);
+						});
+						$('#overlay #btn-quit-yes').click(function(evt) {
+							socket.emit('game:exit', emitData());
+							quitOpenClose(true);
+						});
+						$('#overlay #btn-quit-no').click(function(evt) {
+							quitOpenClose(false);
+						});
+					});
+
+					openInnerModal('menu');
+
+				});
+
+			}
+
 			// Initialize layout
 			absoluteLayout();
+
+			// Main menu buttons bind
+			mainMenuHandler();
 
 			$("#nav-dropdown").on('click', function() {
 				$('.nav-dropdown').show();
@@ -679,6 +728,7 @@
 
 			  $('#decider #btn_submit').click(function(evt) {
 					var data = {};
+					var deckName = $("#decks .glide__slide.active .deck-header h2").text();
 
 			    data.deciderName = $('#player-name').val();
 
@@ -702,9 +752,6 @@
 								
 								$('#login').remove();
 
-						    // $('#decider .create').hide();
-						    // $('#decider .waiting').show();
-
 						    loginFromTo('new', 'lobby', .09);
 
 						    _.each(data.accessCode.split(''), function(char, i) {
@@ -713,15 +760,17 @@
 
 						    // Ensure login is gone and all decide UI shows
 						    $('#name,#join').remove();
-						    // $('.access-code').html(gameCodeHtml);
+
 						    $('#decider .create').hide();
 					      $('#decider').show();
-					      // $('#decider .waiting, #decider-debugging').show();
 					      $('#lobby').addClass('wait');
 
 						    $('#player-name').val(data.decider);
 
+						    // Analytics
 		            ga('send', 'event', 'Login', 'Username', data.decider);
+		            ga('send', 'event', 'Login', 'New Game', data.accessCode);
+		            ga('send', 'event', 'Game', 'Deck Name', deckName);
 		            
 							}
 						})

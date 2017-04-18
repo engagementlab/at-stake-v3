@@ -46,7 +46,6 @@
 			{{/each}}
 
 		</section>
-
   	{{#ifnoteq round 3}}
 		
 			<div class="form decider speech">
@@ -55,6 +54,23 @@
 
 		{{else}}
 		
+			{{!-- winner modal --}}
+			<div class="modal inner-modal" data-hide="true" data-duration="{{config.winnerDuration}}">
+				<div class="inner">
+
+					<h1>Congratulations, <strong>{{winner.username}}</strong>!</h1>
+					<h2>You are the winner of the game! You had the most coins after three rounds.</h2>
+
+			    <div id="reward-icon" class="player-box">
+				    <div class="coins">{{winner_coins}}</div>
+					  <div class="info">
+						  <h1>{{winner.username}}</h1>
+				    </div>
+				  </div>
+
+				</div>
+			</div>
+			
 			<div class="form decider speech">
 		    <button class="next-step submit scoreboard hidden-el" data-event="game:next_phase">Go to Next Round</button>
 			</div>

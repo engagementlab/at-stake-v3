@@ -4,6 +4,11 @@
 	left: 0px;
 	z-index:1;
 }
+
+#overlay {	
+	background-color: $greyish-brown-70;
+}
+
 #gameContent {
 	@include gradient-vertical($background-color, $turquoise-dark, 55%, 45%);
   @include linear_transition(filter, 0.5s);
@@ -16,7 +21,7 @@
 
 	// During the gameplay
 	&.in-game {
-		background-color: white;
+		background-color: $turquoise-dark;
 		height: calc(100% - 50px);
 		// padding-top:80px;
 
@@ -27,8 +32,6 @@
 
 	}
 
-
-
 	// On Mobile
 	&.isMobile {
 		padding-top: 10px;
@@ -37,6 +40,57 @@
 	// Blur all contents during modal
 	&.blur {
 		@include filter(blur, 2.9px);
+	}
+
+}
+
+#main_menu {
+
+	.btn {
+		margin-bottom: 6%;
+	}
+
+	#btn-menu-back {
+
+		color: $color-white;
+
+		height: 32px;
+		width: 64px;
+		
+    text-align: center;
+    float: right;
+		font-size: 12px;
+    line-height: 1.17;
+
+    padding-top: 1%;
+    padding-left: 5%;
+		
+		@include gradient-vertical($sunflower, $tangerine, 90%, 10%);	
+
+		#arrow {
+	    position: relative;
+	    content: "";
+	    border-left: 34px solid #ff7800;
+	    border-top: 11px solid transparent;
+	    border-bottom: 11px solid transparent;
+		}
+		#label {
+			margin-left: -57%;
+			margin-top: 26%;
+		}
+		
+	}
+
+	#btn-reconnect, #btn-quit-no {
+		@include gradient-vertical($blue-light, $blue-dark, 90%, 10%);	
+	}
+
+	#btn-quit {
+    margin-top: -10%;
+		@include gradient-vertical($pink-red-two, $pink-dark, 90%, 10%);	
+	}
+	#btn-quit-yes {
+		@include gradient-vertical($pink-red-two, $pink-dark, 90%, 10%);
 	}
 
 }
@@ -129,6 +183,16 @@
 		// border-bottom: 4px solid $tangerine;
 	}
 
+}
+.btn_cap {
+	width: 90%;
+	margin: 15% auto;
+	margin-top: 0px;
+	font-size: 12px;
+	color: lighten($background-color, 20%);
+	&.pink {
+		color: $pink-dark;
+	}
 }
 
 .header {
@@ -398,13 +462,13 @@ input.post-button {
 
 // More Time Card/Pitch Choice
 .inner-modal {
+	display: none;
 	position: relative;
 	text-align:center;
 	height: 100%;
 	width: 100%;
 	left: 0px;
 	top: 0px;
-	background-color: $greyish-brown-70;
 
 	h1 {
 		font-family: $avenir-reg;
