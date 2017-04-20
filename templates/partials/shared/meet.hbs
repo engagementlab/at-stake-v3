@@ -33,6 +33,7 @@
 
 	{{!-- READ ROLES (each player) --}}
 	{{#each players}}
+		{{#ifnoteq decider true}}
 		<div class="screen">
 			
 			{{> component/instructions 
@@ -56,6 +57,7 @@
 			}}
 
 		</div>
+		{{/ifnoteq}}
 	{{/each}}
 
 	{{!-- AGENDA ITEMS --}}

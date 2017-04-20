@@ -164,7 +164,17 @@
 	}
 	
 }
-
+// TO DO: Target ipad screens ONLY (not just ipad sized screens)
+// @media only screen and (max-width: 769px) and (min-width:376px) {
+// 	body blockquote.speech {
+// 		button {
+// 			&:before {
+// 				bottom: 5px;
+// 		    left: 60px;
+// 			}
+// 		}
+// 	}
+// }
 // HEIGHTS
 
 // For teeny tiny screen heights (iPod)
