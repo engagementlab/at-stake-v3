@@ -106,15 +106,15 @@
 	// background-size: contain;
 	color: $grey-dark;
 
-	background-position: 40px 10px;
+	background-position: 20px 0px;
   background-size: 40px 40px;
 
 	p {
-		display: inline;
+		display: inline-block;
 		color: $grey-dark;
     text-transform: uppercase;
     line-height: 60px;
-    padding-left: 60px;
+    padding-left: 80px;
 	}
 
 	&.lg {
@@ -185,13 +185,15 @@
 
 }
 .btn_cap {
-	width: 90%;
-	margin: 15% auto;
-	margin-top: 0px;
+	width: 100%;
+	margin: 0px auto;
+	margin-bottom: 25px;
 	line-height:1.33;
 	font-size: 12px;
+	height:32px;
 	font-family: AvenirNext-Medium;
-	color: lighten($background-color, 20%);
+	color: #fafafa;
+	font-weight: 500;
 	&.pink {
 		color: $pink-dark;
 	}
@@ -318,12 +320,13 @@ input.post-button {
 	button {
     background: none;
     border: none;
-    max-width: 196px;
+    max-width: 250px;
 	}
 	svg {
 		// width: 82% !important;
 		margin: 20px auto;
     max-width: 196px;
+    min-width: 196px;
 	}
 	h1 {
     font-family: $header-type;
@@ -342,7 +345,7 @@ input.post-button {
 	.progressbar-text {
 		font-size: 72px;
 		letter-spacing: -2.1px;
-    margin-top: -79%;
+    margin-top: -89%;
     color: white !important;
     font-family: AvenirNext-DemiBold;
 	}
@@ -351,9 +354,9 @@ input.post-button {
 		.speech {
 			position: relative;
 			z-index: 1;
-			h1 {
-				margin-top: -29%;
-			}
+			// h1 {
+			// 	margin-top: -29%;
+			// }
 			p {
 				margin-top: 26%;
 			}
