@@ -98,12 +98,12 @@
 			margin: 0px -15px;
 
 			.icon {
-				margin: 10px auto;
+				margin: 4px auto;
 			}
 		}
 
 		.agenda-item {
-			margin: 16px 16px 16px;
+			margin: 8px 16px;
 		}
 	}
 
@@ -179,6 +179,13 @@
 
 // For teeny tiny screen heights (iPod)
 @media(max-height: 461px) {
+
+	body #role-card {
+
+		top: 20px;
+
+
+	}
 
 	body .inner-modal .inner .player-box {
 		background-position: 20px 0px;
