@@ -320,13 +320,12 @@ input.post-button {
 	button {
     background: none;
     border: none;
-    max-width: 250px;
+    max-width: 196px;
 	}
 	svg {
 		// width: 82% !important;
 		margin: 20px auto;
     max-width: 196px;
-    min-width: 196px;
 	}
 	h1 {
     font-family: $header-type;
@@ -372,7 +371,7 @@ input.post-button {
 	text-align: justify;
   line-height: 0;
   top: 0px;
-  height: 50px;
+  height: 40px;
   padding-top:17px;
   padding-left:5px;
   padding-right:5px;
@@ -390,6 +389,7 @@ input.post-button {
 	  vertical-align: middle;
 		z-index: 1;
 		text-align:center;
+		margin-bottom: -15px;
 
 		img {
 			display: block;
@@ -415,11 +415,15 @@ input.post-button {
 			height: 23px;
 			width:23px;
 			border-radius: 12px;
-			@include filter(grayscale, 100%);
 			animation-name: exit-stage;
 			animation-duration: 1s;
 			animation-fill-mode: forwards;
 			background-color: $turquoise-light;
+			box-shadow: 0 2px 0 0 $turquoise-dark;
+			margin-bottom: 0px;
+			img {
+				opacity: 0.7;
+			}
 			span {
 				display: none;
 			}
@@ -431,14 +435,12 @@ input.post-button {
 			border-radius: 20px;
 			height: 40px;
 			width: 40px;
-			border: 3px white solid;
-		  background-color: $turquoise-dark;
+			border: 2px white solid;
+		  background-color: $turquoise-light;
+		  box-shadow: 0 2px 0 0 $turquoise-dark;
+
 			span {
-				font-weight: 800;
-		    position: absolute;
-		    bottom: -10px;
-		    width: 100%;
-		    left: -25%;
+				width: 100%;
 			}
 		}
 
@@ -1137,11 +1139,11 @@ footer#bottom-bar {
 	  border: 0px;
 
 	  &#btn-role-card {
-	  	background-image: url('/images/layout/rolecard-icon.svg');
+	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/icon-rolecard.svg');
 	  	background-color: $orange-dark;
 	  }
 	  &#btn-menu {
-	  	background-image: url('/images/layout/menu-icon.jpg');
+	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/menu-icon.svg');
 	  	background-color: $orange-light;
 	  }
 	}
