@@ -390,6 +390,15 @@ input.post-button {
 		z-index: 1;
 		text-align:center;
 		margin-bottom: -15px;
+		border-radius: 50%;
+		top: 0px;
+		left: 0px;
+		position: relative;
+
+		-webkit-transition-duration: 0.5s;
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: ease-in-out;
+    transition: all 0.5s ease-in-out;
 
 		img {
 			display: block;
@@ -399,7 +408,7 @@ input.post-button {
 		span {
 			display: flex;
 			color: $turquoise-dark;
-	    margin-top: 20%;
+	    margin-top: 15px;
 	    font-size: 15px;
 	    font-family: 'AvenirNext-Bold';
 		}
@@ -414,13 +423,14 @@ input.post-button {
 		&.disabled {
 			height: 23px;
 			width:23px;
-			border-radius: 12px;
-			animation-name: exit-stage;
-			animation-duration: 1s;
-			animation-fill-mode: forwards;
+			// animation-name: exit-stage;
+			// animation-duration: 1s;
+			// animation-fill-mode: forwards;
 			background-color: $turquoise-light;
 			box-shadow: 0 2px 0 0 $turquoise-dark;
+			border: 0px transparent;
 			margin-bottom: 0px;
+
 			img {
 				opacity: 0.7;
 			}
@@ -429,10 +439,9 @@ input.post-button {
 			}
 		}
 		&:not(.disabled) {
-			animation-name: enter-stage;
-			animation-duration: 1s;
-			animation-fill-mode: forwards;
-			border-radius: 20px;
+			// animation-name: enter-stage;
+			// animation-duration: 1s;
+			// animation-fill-mode: forwards;
 			height: 40px;
 			width: 40px;
 			border: 2px white solid;
@@ -1081,6 +1090,7 @@ footer#bottom-bar {
 	padding-top: 5px;
 	max-width: 425px;
 	z-index: 1000;
+	background-color: $turquoise-dark;
 
 	#currency {
 		text-align:right;
@@ -1142,10 +1152,12 @@ footer#bottom-bar {
 	  &#btn-role-card {
 	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/icon-rolecard.svg');
 	  	background-color: $orange-dark;
+	  	background-position: 20px center;
 	  }
 	  &#btn-menu {
 	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/menu-icon.svg');
 	  	background-color: $orange-light;
+	  	background-position: 20px center;
 	  }
 	}
 }
