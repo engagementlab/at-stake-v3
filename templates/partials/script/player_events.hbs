@@ -101,6 +101,8 @@ var startTimer = function(secondsLeft, timerAdvance) {
 
 var setupScreen = function(screenName) {
 
+    console.log(screenName);
+
     // Add trigger to go to next step on next-step buttons
     $('.next-step').click(function(evt) {
         nextPhaseScreen();
@@ -606,17 +608,20 @@ socketEvents = function(eventId, eventData) {
                 $('#overlay').trigger('hide');
                 
             });
-                $('#btn-more-time').click(function() {
-                    ion.sound.play("player_yellow");
-                    
-                });
+            $('#btn-more-time').click(function() {
+                ion.sound.play("player_yellow");
+                
+            });
 
-                $('#btn-cancel').click(function() {
-                    ion.sound.play("player_red");
-                });
+            $('#btn-cancel').click(function() {
+                ion.sound.play("player_red");
+            });
 
-            if(eventData == "brainstormCountdown" || eventData == "deliberateCountdown") 
+            if(eventData == "deliberateCountdown") 
                 nextPhaseScreen();
+            else if (eventData == "brainstormCountdown" && isDecider){
+                socket.emit('game:next', emitData(true));
+            }
 
             break;
 
