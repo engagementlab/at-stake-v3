@@ -47,13 +47,13 @@
   // Tracks current phase index and the screen during each phase
   currentPhaseIndex = -1,
   currentScreenIndex = 0,
+	
 
+	//sound declaration
   sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1492187090/at-stake/sfx/';
   {{#ifeq env "development"}}
   	sfxPath = '/sfx/';
   {{/ifeq}}
-
-
 
 	ion.sound({
     sounds: [
@@ -65,6 +65,9 @@
         },
         {
             name: "alarm_single",
+        },
+        {
+            name: "alarm",
         },
         { 
             name: "back",
@@ -387,7 +390,7 @@
 	                    }
 	              }
 	            );
-	        }
+	        } 
 
 	    });
 
@@ -710,6 +713,8 @@
 
 			// Load animations
 			{{> script/player_animation section=section}}
+			//sfx?
+			{{> script/sfx_button_calls}}
 
 			$(document).ready(function() {
 

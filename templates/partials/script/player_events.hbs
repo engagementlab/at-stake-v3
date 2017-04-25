@@ -36,7 +36,6 @@ var resetSession = function() {
 var startTimer = function(secondsLeft, timerAdvance) {
     
     var wasPaused = false;
-
     if($('.screen:visible .timer').length === 0)
         return;
 
@@ -274,11 +273,9 @@ socketEvents = function(eventId, eventData) {
 
                 $('#btn-close-role-card').on('click', function(evt) {
                     roleCardOpenClose(false);
-                    ion.sound.play("click1");
                 });
                 $('#btn-role-card').on('click', function(evt) {
                     roleCardOpenClose(true);
-                    ion.sound.play("back");
                 });
                 
                 $('#gameContent').html(markup).promise().done(function() {
@@ -372,9 +369,11 @@ socketEvents = function(eventId, eventData) {
             $('#role-card').html(eventData);
             
             $('#btn-close-role-card').on('click', function(evt) {
+                ion.sound.play("back");
                 roleCardOpenClose(false);
             });
             $('#btn-role-card').on('click', function(evt) {
+                ion.sound.play("click1");
                 roleCardOpenClose(true);
             });
             $('#role-card').on('swipe', function() {
@@ -402,6 +401,18 @@ socketEvents = function(eventId, eventData) {
 
             var modalToOpen = eventData.chosen ? 'yes' : 'no';
             var modalToRemove = !eventData.chosen ? 'yes' : 'no';
+
+            if (isDecider && eventData.chosen){
+                ion.sound.play("click2");
+            } else if(isDecider && !eventData.chosen){
+                ion.sound.play("click1");
+            }
+
+            if (!isDecider && eventData.chosen){
+                ion.sound.play("player_pink");
+            } else if(!isDecider && !eventData.chosen){
+                ion.sound.play("player_red");
+            }
 
             $('.agenda_item.' + modalToRemove).first().remove();
             openInnerModal('.' + modalToOpen);
@@ -431,16 +442,23 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:next_screen':
+            if(isDecider){
+                ion.sound.play("click3");
+                }
 
             // Only occurs for non-decider, since decider sends this
             // Or if forced, do this for all players
+
             if(!isDecider || eventData.force)
                 nextPhaseScreen();
-
+            
             break;
 
         case 'game:next_phase':
 
+            if(isDecider){
+                    ion.sound.play("click3");
+                }
             if (!$('.rules-screen').css('display', 'block'))
                 $('#background-logo').show();
 
@@ -543,9 +561,9 @@ socketEvents = function(eventId, eventData) {
             break;
             
         case 'game:countdown':
-
+            ion.sound.stop("click3");
             $('#btn-time').fadeOut();
-
+            ion.sound.play("alarm_single");
             countdownPaused = false;
 
             if(clockInterval)
@@ -561,14 +579,13 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:countdown_ending':
-
             $('.form .error').fadeIn().html(eventData);
             $('.form .error').delay(3000).fadeOut('slow');
 
             break;
 
         case 'game:countdown_end':
-
+            ion.sound.play("alarm");
             $('#added-time').hide();
             timerActive = false;
 
@@ -579,7 +596,6 @@ socketEvents = function(eventId, eventData) {
                     socket.emit('game:next_player', emitData());
                     return;
                 }
-
             }
             
             runMods();
@@ -590,6 +606,14 @@ socketEvents = function(eventId, eventData) {
                 $('#overlay').trigger('hide');
                 
             });
+                $('#btn-more-time').click(function() {
+                    ion.sound.play("player_yellow");
+                    
+                });
+
+                $('#btn-cancel').click(function() {
+                    ion.sound.play("player_red");
+                });
 
             if(eventData == "brainstormCountdown" || eventData == "deliberateCountdown") 
                 nextPhaseScreen();
