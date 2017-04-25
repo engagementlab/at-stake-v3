@@ -1,5 +1,5 @@
 {{!-- DOUBLE-DOWN PHASE UI --}}
-<div id="pitch">
+<div id="doubledown">
 
 	{{!-- START --}}
 	<div class="screen initial">
@@ -12,15 +12,16 @@
 
 		{{> component/instructions
 				heading="Listen to the decider"
+				body="Get ready to double down on your proposal!"
 		}}
 
 		{{> component/speech 
 				decider=true
-				body=(combine "In the double down phase, Stakeholders can pay " config.doubledownTimeCost " coins to speak uninterrupted for " config.doubledownSeconds " seconds. The decider and other stakeholders cannot speak without permission.")
+				body=(combine "In the double down phase, Stakeholders can pay " config.doubledownTimeCost " coins to speak uninterrupted for " config.doubledownSeconds " seconds. The decider and other stakeholders cannot speak unless requested!")
 		}}
 
 		{{> component/speech
-				body=(combine "In the double down phase, Stakeholders can pay " config.doubledownTimeCost " coins to speak uninterrupted for " config.doubledownSeconds " seconds. The decider and other stakeholders cannot speak without permission.")
+				body=(combine "In the double down phase, Stakeholders can pay " config.doubledownTimeCost " coins to speak uninterrupted for " config.doubledownSeconds " seconds. The decider and other stakeholders cannot speak unless requested!")
 		}}
 
 	</div>
@@ -36,6 +37,7 @@
 
 		{{> component/instructions
 				heading="Listen to the decider"
+				body="Get ready to double down on your proposal!"
 		}}
 
 		{{> component/speech 
@@ -44,7 +46,7 @@
 		}}
 
 		{{> component/speech
-				body=(combine "Once a stakeholder's " config.doubledownSeconds " seconds are over the next player gets the option to buy time, moving from player to player until all players pass or run out of coins")
+				body=(combine "Once a stakeholder's " config.doubledownSeconds " seconds are over the next player gets the option to buy time, moving from player to player until all players pass or run out of coins.")
 		}}
 
 	</div>
@@ -60,6 +62,7 @@
 
 		{{> component/instructions
 				heading="Listen to the decider"
+				body="Get ready to double down on your proposal!"
 		}}
 
 		{{> component/speech 
@@ -80,30 +83,33 @@
 		{{> component/instructions
 				decider=true 
 				heading="Read the text in the blue box outloud"
-				body="Remind the player whose deciding that they need to choose to buy time or pass."
+				body="Remind the player who is deciding that they need to choose to buy time or pass."
 		}}
 
 		{{!-- active player --}}
 		{{> component/instructions
 				active_player=player.isActive
-				heading="Choose an option below"
-				body="Please select buy time or pass by pressing one of the buttons below."
+				heading="Double down on your proposal"
+				body="Make a case for your proposal, challenge other player's ideas, etc."
 		}}
 
 		{{!-- inactive player --}}
 		{{> component/instructions 
 				inactive_player=player.isInactive
-				heading="Waiting for player to make a decision"
+				heading="Listen to the player speaking"
+				body="You aren't allowed to speak unless requested! Buy time on your turn if you want to respond."
 		}}
 
 		{{> component/speech 
 				decider=true
 				decider_next_disabled=true
-				body=(combine activePlayer.username ", you should see the option to buy time, or pass to the next player, on your screen now. If you do, your time will start immediately. I will remind you when your time is up.")
+				body=(combine activePlayer.username ", on your screen you should see the option to buy time or pass to the next player. If you buy time, you will start immediately. Please make a selection now.")
 		}}
 
 		{{> component/timer
 				active_player=player.isActive 
+				body_active=activePlayer.username
+				role=activePlayer.role.title
 				time=config.doubledownSeconds
 		}}
 

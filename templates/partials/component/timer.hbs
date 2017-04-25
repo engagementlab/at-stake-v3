@@ -53,9 +53,9 @@
         </div>
 
         {{#ifeq active_player true}}
-            {{#if body_active}}<p>{{body_active}}</p>{{/if}}
+            {{#if body_active}}<p>{{body_active}}<br><span>{{role}}</span></p>{{/if}}
         {{else}}
-        {{#if body}}<p>{{body}}<br><span>{{role}}</span></p>{{/if}}
+          {{#if body}}<p>{{body}}<br><span>{{role}}</span></p>{{/if}}
         {{/ifeq}}
 
   </div>

@@ -456,9 +456,6 @@ input.post-button {
 		&.disabled {
 			height: 23px;
 			width:23px;
-			// animation-name: exit-stage;
-			// animation-duration: 1s;
-			// animation-fill-mode: forwards;
 			background-color: $turquoise-light;
 			box-shadow: 0 2px 0 0 $turquoise-dark;
 			border: 0px transparent;
@@ -466,15 +463,14 @@ input.post-button {
 
 			img {
 				opacity: 0.7;
+				height: 23px;
+				width:23px;
 			}
 			span {
 				display: none;
 			}
 		}
 		&:not(.disabled) {
-			// animation-name: enter-stage;
-			// animation-duration: 1s;
-			// animation-fill-mode: forwards;
 			height: 40px;
 			width: 40px;
 			border: 2px white solid;

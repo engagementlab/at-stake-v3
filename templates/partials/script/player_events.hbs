@@ -587,6 +587,7 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:countdown_end':
+
             ion.sound.play("alarm");
             $('#added-time').hide();
             timerActive = false;
@@ -621,7 +622,7 @@ socketEvents = function(eventId, eventData) {
                 nextPhaseScreen();
             else if (eventData == "brainstormCountdown" && isDecider){
                 socket.emit('game:next', emitData(true));
-            }
+            } 
 
             break;
 

@@ -86,7 +86,7 @@
 		{{!-- active player --}}
 		{{> component/instructions 
 				active_player=player.isActive
-				heading="It’s your turn! Get ready to pitch!"
+				heading="Get ready to pitch"
 				body="Wait for the decider to start the timer. You'll have 60 seconds to pitch your proposal."
 		}}
 
@@ -119,13 +119,13 @@
 		{{> component/instructions
 				decider=true 
 				heading="Wait for the timer to reach zero"
-				body="When the timer reaches zero shout 'times up!'. and make sure they don’t keep pitching!"
+				body="When the timer reaches zero shout 'times up!' and make sure they don’t keep pitching!"
 		}}
 
 		{{!-- active player --}}
 		{{> component/instructions 
 				active_player=player.isActive
-				heading="Pitch your proposal!"
+				heading="Pitch your proposal"
 				body="You’re on! Try to keep within the time limit, and stop speaking when time runs out."
 		}}
 
@@ -133,7 +133,7 @@
 		{{> component/instructions 
 				inactive_player=player.isInactive
 				heading="Listen to the other player’s proposal"
-				body="Take notes on other player’s proposals so you can better engage critically during deliberation!"
+				body="Take notes on other player’s proposals so you can chime in during deliberation!"
 		}}
 
 		{{!-- timers, one for decider and one for non-deciders --}}
@@ -141,7 +141,8 @@
 				time=config.pitchSeconds
 				decider=true
 				next_player=repeatScreen
-				body=(combine activePlayer.username ' is currently pitching.')
+				body=activePlayer.username
+				role=activePlayer.role.title
 		}}
 
 		{{> component/timer 

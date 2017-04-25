@@ -12,16 +12,16 @@
 
 		{{> component/instructions 
 				heading="Listen to the Decider"
-				body=(combine '"We will take ' config.deliberateSeconds ' seconds to talk about your proposals. This will be an open discussion, with the decider kicking things off"')
+				body=(combine '"We will take ' config.deliberateSeconds ' seconds to talk about your proposals. This will be an open discussion led by the Decider."')
 		}}
 
 		{{> component/speech 
 				decider=true
-				body=(combine 'Now that we heard everyone\'s pitch, we will take ' config.deliberateSeconds ' seconds to talk about your proposals. This will be an open discussion, with the decider (me!) kicking things off.')
+				body=(combine 'Now that we heard everyone\'s pitch, we will take ' config.deliberateSeconds ' seconds to talk about your proposals. This will be an open discussion led by the Decider.')
 		}}
 
 		{{> component/speech 
-				body=(combine 'Now that we heard everyone\'s pitch, we will take ' config.deliberateSeconds ' seconds to talk about your proposals. This will be an open discussion, with the decider kicking things off.')
+				body=(combine 'Now that we heard everyone\'s pitch, we will take ' config.deliberateSeconds ' seconds to talk about your proposals. This will be an open discussion led by the Decider.')
 		}}
 
 	</div>
@@ -37,7 +37,7 @@
 
 		{{> component/instructions 
 				heading="Listen to the Decider"
-				body='"Any player may ask any other player for details about their proposal, offer counter arguments, or ask for changes at any time."'
+				body='Get ready to deliberate with the group!'
 		}}
 
 		{{> component/speech 
@@ -62,7 +62,7 @@
 
 		{{> component/instructions 
 				heading="Listen to the Decider"
-				body='"Your objective is to get your proposal chosen by the decider and/or have your agenda items incorporated into the winning proposal"'
+				body='Get ready to deliberate with the group!'
 		}}
 
 		{{> component/speech 
@@ -71,7 +71,7 @@
 		}}
 
 		{{> component/speech 
-				body="Remember! Your objective is to get your proposal chosen by the decider and/or have your agenda items in a winning proposal"
+				body="Remember! Your objective is to get your proposal chosen by the decider and/or have your agenda items incorporated into the winning proposal."
 		}}
 
 	</div>
@@ -82,12 +82,12 @@
 		{{> component/instructions 
 				decider=true
 				heading="Press the button to start the timer"
-				body="When everyone understands the instructions and is ready, press the button to start the timer and begin the deliberation phase"
+				body="When everyone is ready, press the button to start the timer and begin deliberation."
 		}}
 		
 		{{> component/instructions 
 				heading="Wait for the Decider to start the timer"
-				body="Remember! Your objective is to get your proposal chosen by the decider and/or have your agenda items in a winning proposal"
+				body="Once the timer begins, you can begin deliberation."
 		}}
 
 		{{!-- Timer in button mode  --}}
@@ -111,13 +111,13 @@
 
 		{{> component/instructions 
 				decider=true
-				heading="Lead a discussion about the proposals"
-				body="Ask probing questions, encourage discussion among players, and keep track of any changes stakeholder's make to their proposals"
+				heading="Lead a discussion"
+				body="Ask probing questions, take notes on changes,  and encourage discussion among players."
 		}}
 		
 		{{> component/instructions 
 				heading="Engage in the open discussion"
-				body="Ask probing questions to counter or promote your own proposal, or attempt to get your  agenda items into other proposals"
+				body="Ask probing questions and chime in to further your agenda items and/or proposal."
 		}}
  
 		{{!-- Timer in button mode  --}}
@@ -126,6 +126,7 @@
 				time=config.deliberateSeconds
 				body="Go! When the timer reaches zero, stop the discussion!"
 		}}
+
 		{{> component/timer
 				time=config.deliberateSeconds
 				body="Go! When the timer reaches zero, stop talking!"
@@ -144,17 +145,17 @@
 
 		{{> component/instructions 
 				heading="Time's up! Stop speaking"
-				body=(combine 'If you feel like you didn\'t get a word in or have more to say, you can buy ' config.doubledownSeconds ' second blocks of uninterupted talking time in the next phase!')
+				body='Listen to the decider and get ready for the Double-Down phase!'
 		}}
 
 		{{> component/speech 
 				decider=true
 				advance=true
-				body="Times up! Everyone stop talking. If you feel like you didn't get a word in or have more to say, you can buy 30 second blocks of uninterupted talking time in the next phase!"
+				body="Times up! Everyone stop talking. Its time to move to the next phase."
 		}}
 
 		{{> component/speech 
-				body="Remember! Your objective is to get your proposal chosen by the decider and/or have your agenda items in a winning proposal"
+				body="Times up! Everyone stop talking. Its time to move to the next phase."
 		}}
 
 	</div>
