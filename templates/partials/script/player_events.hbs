@@ -404,14 +404,9 @@ socketEvents = function(eventId, eventData) {
             var modalToOpen = eventData.chosen ? 'yes' : 'no';
             var modalToRemove = !eventData.chosen ? 'yes' : 'no';
 
-            if (isDecider && eventData.chosen){
-                ion.sound.play("click2");
-            } else if(isDecider && !eventData.chosen){
-                ion.sound.play("click1");
-            }
-
             if (!isDecider && eventData.chosen){
                 ion.sound.play("player_pink");
+                ion.sound.play("coins");
             } else if(!isDecider && !eventData.chosen){
                 ion.sound.play("player_red");
             }
@@ -446,8 +441,22 @@ socketEvents = function(eventId, eventData) {
         case 'game:next_screen':
             if(isDecider){
                 ion.sound.play("click3");
-                }
+            }
 
+            $('#btn-more-time').click(function() {
+                ion.sound.stop("click3");
+                ion.sound.play("player_yellow");
+            });
+
+            $('#btn-cancel').click(function() {
+                ion.sound.stop("click3");
+                ion.sound.play("player_red");
+            });
+
+            $("#winner-btn").click(function(){
+                console.log("data event winner-button pressed");
+                ion.sound.play("player_orange");
+            });
             // Only occurs for non-decider, since decider sends this
             // Or if forced, do this for all players
 
@@ -458,11 +467,17 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:next_phase':
 
+            $('#btn-cancel').click(function() {
+                ion.sound.stop("click3");
+                ion.sound.play("player_red");
+            });
+
             if(isDecider){
                     ion.sound.play("click3");
                 }
             if (!$('.rules-screen').css('display', 'block'))
                 $('#background-logo').show();
+
 
             $('#bottom-bar').show();
 
@@ -500,7 +515,7 @@ socketEvents = function(eventId, eventData) {
                 nextScreenData = eventData;
                 return;
             }
-            
+
             updateGameContent(eventData.html, function() {
 
                 setupScreen();
@@ -610,11 +625,12 @@ socketEvents = function(eventId, eventData) {
                 
             });
             $('#btn-more-time').click(function() {
+                ion.sound.stop("click3");
                 ion.sound.play("player_yellow");
-                
             });
 
             $('#btn-cancel').click(function() {
+                ion.sound.stop("click3");
                 ion.sound.play("player_red");
             });
 
