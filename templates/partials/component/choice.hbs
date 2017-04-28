@@ -14,7 +14,7 @@
 		<div class="inner-modal {{showHide this}}">
 			<div class="form decider inner decide-winner">
 				<h1>Choose the player who had the <strong>best</strong> proposal</h1>
-
+				<div id="winner-btn">
 				{{#each players}}
 			    <button id="player-{{icon}}" class="post-button submit player-box player-logo btn" data-event="game:proposal_selected" data-package='{{uid}}' data-keep_open="true" type="submit" name="submit">
 				    <div class="coins"></div>
@@ -24,6 +24,7 @@
 				    </div>
 				  </button>
 				{{/each}}
+				</div>
 			</div>
 		</div>
 
