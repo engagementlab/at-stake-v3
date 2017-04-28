@@ -39,7 +39,7 @@
             
         {{/ifeq}}
 
-        <div id="wrapper" class="{{#ifeq section 'homepage'}}home-wrap{{/ifeq}}">
+        <div id="wrapper" class="{{#ifeq section 'homepage'}}home-wrap{{else}}game-wrap{{/ifeq}}">
 
             <div id="overlay" class="modal"></div>
 
@@ -81,7 +81,7 @@
 
                         </div>
 
-                        <div id="logo-header" class="desktop-only">
+                        <div id="logo-header">
                             {{{cloudinaryUrl "v1490382079/at-stake/s-t-a-k-e-l-o-g-o_3x.png" width=300 }}}
                         </div>
 

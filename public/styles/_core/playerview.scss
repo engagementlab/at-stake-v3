@@ -1,18 +1,23 @@
 #background-logo {
 	position: absolute;
-	bottom: 0px;
-	left: 0px;
-	z-index:1;
+	bottom: -40px;
+  left: 0px;
+  width: 219px;
+  z-index: 1;
+  opacity: 0.7;
 }
 
 #overlay {	
 	background-color: $greyish-brown-70;
 }
 
+#wrapper.game-wrap {
+		@include gradient-vertical($background-color, $turquoise-dark, 55%, 45%);
+}
+
 #gameContent {
-	@include gradient-vertical($background-color, $turquoise-dark, 55%, 45%);
   @include linear_transition(filter, 0.5s);
-	
+	z-index:100;
 	height: 100%;
 	text-align: center;
 	padding: 8px;
@@ -21,9 +26,7 @@
 
 	// During the gameplay
 	&.in-game {
-		background-color: $turquoise-dark;
 		height: calc(100% - 50px);
-		// padding-top:80px;
 
 		// Show coin and points bar
 		footer#bottom-bar {
@@ -86,7 +89,7 @@
 	}
 
 	#btn-quit {
-    margin-top: -10%;
+    margin-top: -5%;
 		@include gradient-vertical($pink-red-two, $pink-dark, 90%, 10%);	
 	}
 	#btn-quit-yes {
@@ -143,11 +146,11 @@
 
 // Default button shadow and margin
 .btn { 
-	@include box-shadow(0px, 7px, 0px, darken($background-color, 10%));
+	@include box-shadow(0px, 3px, 0px, darken($background-color, 10%));
 	margin-bottom: 7px;
 
 	&:hover, &:focus, &:visited {
-		@include box-shadow(0px, 7px, 0px, darken($background-color, 10%));
+		@include box-shadow(0px, 3px, 0px, darken($background-color, 10%));
 		// margin-bottom: 7px;
 		cursor: pointer;
 		color: white;
@@ -176,11 +179,11 @@
 
 	&#btn_yes {
 		background-color: $blue-light;
-		// border-bottom: 4px solid $dark-sky-blue;
+		border-bottom: 4px solid $dark-sky-blue;
 	}
 	&#btn_no {
 		background-color: $sunflower;
-		// border-bottom: 4px solid $tangerine;
+		border-bottom: 4px solid $tangerine;
 	}
 
 }
@@ -320,8 +323,6 @@ input.post-button {
 	width: 304px;
   height: 216px;
   background-color: $turquoise-dark;
-	box-shadow: 0 4px 0 0 darken($turquoise-dark, 10%);
-	border: solid 2px #fafafa;
 	margin: 0 auto;
 
 	&.player {
@@ -554,10 +555,13 @@ input.post-button {
 		}
 		#btn-empty {
 			background-color: darken($blue-light, 30%);
-			@include box-shadow(0px, 7px, 0px, darken($background-color, 10%));
+			border-bottom: 5px $blue-dark solid;
+			@include box-shadow(0px, 2px, 0px, darken($background-color, 10%));
 		}
 		#btn-cancel {
+			border-bottom: 5px $orange-dark solid;
 			background-color: $sunflower;
+			@include box-shadow(0px, 2px, 0px, darken($background-color, 10%));
 		}
 
 	}
@@ -674,8 +678,8 @@ input.post-button {
 			margin: 10px auto;
 			height: 48px;
 			background-repeat: no-repeat;
-			background-position: 40px 0px;
-		  background-size: 48px 48px;
+			background-position: 40px center;
+		  background-size: 40px 40px;
 			background-color: $aquamarine;
 
 			&#reward-icon {
@@ -945,15 +949,14 @@ input.post-button {
 blockquote.speech {
     position: relative;
     text-align: justify;
-    width: 90%;
+    font-size: 16px;
+    width: 100%;
     height: 287px;
     padding: 40px 20px;
-    margin: 1em 0 0;
-    margin-left: 5%;
     z-index: 1000;
     color: white;
     border-left: none;
-    background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1490215786/at-stake/layout/speech-bg.svg");
+    background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1493403872/at-stake/layout/rectangle-4.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position:center;
@@ -1120,7 +1123,11 @@ footer#bottom-bar {
 	padding-top: 5px;
 	max-width: 425px;
 	z-index: 1000;
-	background-color: $turquoise-dark;
+
+	.col-sm-6, .col-xs-6 {
+		padding-left:8px;
+		padding-right:8px;
+	}	
 
 	#currency {
 		text-align:right;
@@ -1170,24 +1177,28 @@ footer#bottom-bar {
 	button {
 		margin: 5px;
 		color: white;
-		width: 140px;
+		width: 121px;
 	  height: 36px;
-	  padding-left: 2em;
+	  padding-left: 2.4em;
+	  font-size: 16px;
 	  border-radius: 0px;
-	  text-align: right;
+	  text-align: left;
   	background-repeat: no-repeat;
 	  box-shadow: 0px;
 	  border: 0px;
+	  box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
+	  background-size:24px 24px;
+	  background-position: 8px center;
 
 	  &#btn-role-card {
 	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/icon-rolecard.svg');
 	  	background-color: $orange-dark;
-	  	background-position: 20px center;
+	  	border-bottom: 3px darken($orange-dark, 10%) solid;
 	  }
 	  &#btn-menu {
 	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/menu-icon.svg');
 	  	background-color: $orange-light;
-	  	background-position: 20px center;
+	  	border-bottom: 3px $orange-dark solid;
 	  }
 	}
 }
