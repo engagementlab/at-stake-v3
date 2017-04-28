@@ -323,6 +323,7 @@ input.post-button {
 	width: 304px;
   height: 216px;
   background-color: $turquoise-dark;
+  border: solid 1px #fafafa;
 	margin: 0 auto;
 
 	&.player {
@@ -575,7 +576,7 @@ input.post-button {
 		}
 
 		h2 {
-			font-family: $header-type;
+			font-family: AvenirNext-Bold;
 			font-size: 20px;
 
 			color: $tiffany-blue;
@@ -586,14 +587,23 @@ input.post-button {
 	&.agenda_item {
 
 		display: none;
+		h1 {
+			@include text-shadow(0, 2px, 2px, rgba(0, 0, 0, 0.24));
+		}
 	
 		h2 {
-			font-family: $header-type;
+			font-family: AvenirNext-Bold;
 			font-size: 16px;
 			color: white;
 
 			.item {
 				color: $light-greenish-blue;
+			}
+		}
+
+		.player-box {
+			h1 {
+				text-shadow: none;
 			}
 		}
 
@@ -711,7 +721,7 @@ input.post-button {
 				line-height: 1;
 				margin: 0;
 				font-size: 16px;
-				font-family: AvenirNext-Medium;
+				font-family: AvenirNext-DemiBold;
 			}
 
 			.info {
@@ -827,7 +837,7 @@ input.post-button {
 	  margin: 8px auto;
   }
   .agenda-wrap {
-  	color: $orange-dark;
+  	color: $background-color;
 
   	.header {
   		font-family: AvenirNext-Heavy;
@@ -859,8 +869,8 @@ input.post-button {
 	  	float: left;
 	  	font-size: 24px;
 	  	font-family: AvenirNext-Bold;
-	    background-size: 50px 50px;
-	    background-position: 3px 3px;
+	    background-size: 64px 64px;
+	    background-position: -8px -8px;
 	  	// background-size: cover;
 	  	background-repeat: no-repeat;
 	  	background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1490979430/at-stake/layout/icon-yourcoins.svg");
@@ -963,7 +973,7 @@ blockquote.speech {
     p {
     	color: white;
     	line-height: 1.5;
-    	font-family: $avenir-reg;
+    	font-family: AvenirNext-DemiBold;
     }
 
     // Inactive player - hide this bubble
