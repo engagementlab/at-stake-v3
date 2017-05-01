@@ -46,10 +46,6 @@
             {{!-- PRE-FILLED MODALS --}}
             {{#ifnoteq section 'homepage'}}
             <section id="error-disconnected" class="modal error-modal">
-                <div id="text" class="col-sm-8 col-centered">
-                  <h1>Yikes! :-(</h1>
-                  <h2>It looks like the game server is not responding for some reason. Try playing later!</h2>
-                </div>
             </section>
 
             <section id="error-player-disconnected" class="modal error-modal">
@@ -79,6 +75,10 @@
                                 <div id="label">back to game</div>
                             </button>
 
+                        </div>
+                      
+                        <div id="message-disconnected" class="col-sm-8 col-centered error" style="display:none">
+                          It looks like the game is not responding for some reason. Try reconnecting or playing later!
                         </div>
 
                         <div id="logo-header">

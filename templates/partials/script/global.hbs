@@ -356,8 +356,6 @@
 	}
 
 	var nextPhaseScreen = function() {
-
-		console.log("next phase screen")
 	    
 	    currentScreenIndex++;
       
@@ -398,15 +396,23 @@
 
 	}
 
-	var openInnerModal = function(selector, force, noAnimate) {
+	var openInnerModal = function(selector, force, noAnimate, message) {
 
 			if(!selector)
 				selector = '';
 
 			var modalSelector = $('#gameContent .screen:visible .inner-modal' + selector).first();
 
-			if(selector === 'menu')
+			if(selector === 'menu') {
+
+				if(message) {
+					$('#game-menu #header').hide();
+					$('#game-menu #message-'+message).show();
+				}
+
 				modalSelector = $('#main_menu');
+
+			}
 
 			if(modalSelector.length === 0)
 				return;
@@ -637,27 +643,29 @@
 
 			var mainMenuHandler = function() {
 
-				$('#btn-menu').click(function(evt) {
+				$('#overlay').on('opened', function(evt) {
 
-					$('#overlay').on('opened', function(evt) {
-						$(evt.currentTarget).off('opened');
+					$(evt.currentTarget).off('opened');
 
-						$('#overlay #btn-menu-back').click(function(evt) {
-							$('#overlay').trigger('hide');
-						});
-						$('#overlay #btn-reconnect').click(function(evt) {
-							window.location = window.location;
-						});
-						$('#overlay #btn-quit').click(function(evt) {
-							quitOpenClose(true);
-						});
-						$('#overlay #btn-quit-yes').click(function(evt) {
-							socket.emit('game:exit', emitData());
-						});
-						$('#overlay #btn-quit-no').click(function(evt) {
-							quitOpenClose(false);
-						});
+					$('#overlay #btn-menu-back').click(function(evt) {
+						$('#overlay').trigger('hide');
 					});
+					$('#overlay #btn-reconnect').click(function(evt) {
+						window.location = window.location;
+					});
+					$('#overlay #btn-quit').click(function(evt) {
+						quitOpenClose(true);
+					});
+					$('#overlay #btn-quit-yes').click(function(evt) {
+						socket.emit('game:exit', emitData());
+					});
+					$('#overlay #btn-quit-no').click(function(evt) {
+						quitOpenClose(false);
+					});
+
+				});
+
+				$('#btn-menu').click(function(evt) {	
 
 					openInnerModal('menu');
 
