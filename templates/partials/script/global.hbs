@@ -520,7 +520,7 @@
 
 	var registerEvents = function() {
 
-    {{#ifeq environment "development"}}
+    {{#ifnoteq environment "production"}}
         
         socket.on('connect_timeout', function() {
            console.warn('Client timed out when connecting.');
@@ -545,7 +545,7 @@
 
         console.log('Connecting to game "' + gameCode + '".');
 
-    {{/ifeq}}
+    {{/ifnoteq}}
 
     $.each(eventIds, function(index, id) {
       
