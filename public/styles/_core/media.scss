@@ -15,7 +15,7 @@
 
 
 	body .inner-modal .inner .player-box {
-		background-position: 20px 0px;
+		background-position: 20px center;
 		padding-left: 5%;
 		.coins {
 			padding-top: 40px;
@@ -74,7 +74,7 @@
 		}
 
 		p {
-			line-height: 1.1
+			line-height: 20px;
 		}
 
 	}
@@ -204,7 +204,7 @@
 	}
 
 	body .inner-modal .inner .player-box {
-		background-position: 20px 0px;
+		background-position: 20px center;
 		.coins {
 			padding-top: 40px;
 			padding-left: 15px;
@@ -247,7 +247,7 @@
 
 	// Fix that quote!
 	body blockquote.speech {
-		padding: 20px !important;
+		padding: 10px 20px !important;
 		height:210px !important;
 		h3 {
 			line-height: 1.3;
