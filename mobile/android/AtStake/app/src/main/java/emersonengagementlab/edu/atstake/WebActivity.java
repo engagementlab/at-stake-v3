@@ -19,9 +19,6 @@ public class WebActivity extends Activity {
     String urlString = "http://app.local:3000/play/mobile";
     WebView gameWebView;
 
-    Button joinGameBtn;
-    Button newGameBtn;
-
     public class WebAppInterface {
 
         Context mContext;
@@ -34,6 +31,7 @@ public class WebActivity extends Activity {
         @JavascriptInterface
         public void webViewResponse(String response) {
 
+            // Could be used someday for handling web activity natively
             JSONObject jsonResponse = null;
             try {
                 jsonResponse = new JSONObject(response);
@@ -52,16 +50,6 @@ public class WebActivity extends Activity {
                     // game UI opened
                     case "join":
                     case "new":
-
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                gameWebView.setVisibility(View.VISIBLE);
-                                joinGameBtn.setVisibility(View.INVISIBLE);
-                                newGameBtn.setVisibility(View.INVISIBLE);
-                            }
-                        });
-
 
                         break;
 
@@ -100,11 +88,8 @@ public class WebActivity extends Activity {
         }
         if(BuildConfig.ENVIRONMENT == "production") {
             urlString = "https://atstakegame.org/play/mobile";
-            buildTextView.setText("Prod Build");
+            buildTextView.setVisibility(View.GONE);
         }
-
-        joinGameBtn = (Button) findViewById(R.id.joinGame);
-        newGameBtn = (Button) findViewById(R.id.newGame);
 
         gameWebView = (WebView) findViewById(R.id.webView);
 
@@ -115,27 +100,10 @@ public class WebActivity extends Activity {
         gameWebView.setWebViewClient(new WebViewClient() {
 
             public void onPageFinished(WebView view, String url) {
-                joinGameBtn.setVisibility(View.VISIBLE);
-                newGameBtn.setVisibility(View.VISIBLE);
             }
         });
 
         gameWebView.loadUrl(urlString);
 
-        joinGameBtn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                webAction("join");
-            }
-        });
-
-        newGameBtn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                webAction("new");
-            }
-        });
     }
 }
