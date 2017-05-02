@@ -95,12 +95,14 @@
 		{{> component/timer 
 				time=config.thinkSeconds
 				decider=true
+				stage="think"
 				body=question
 		}}
 		
 		{{> component/timer 
 				time=config.thinkSeconds
 				body=question
+				stage="think"
 		}}
 	
 	</div>

@@ -357,7 +357,9 @@ input.post-button {
 		background-color: $background-color;
 		height: 48px;
     text-align: center;
-    font-family: AvenirNext;
+    font-family: AvenirNext-DemiBold;
+
+    
 	}
 	.progressbar-text {
 		font-size: 46px;
@@ -382,18 +384,31 @@ input.post-button {
 			margin-top: -58px;
 		}
 
-		span {
-			width: 100%;
-			color: #61f5de;
-			font-family: AvenirNext-Medium;
-		}
+		// span {
+		// 	width: 100%;
+		// 	color: #61f5de;
+		// 	font-family: AvenirNext-Medium;
+		// }
 
 		p {
-				padding: 8px;
+			font-size: 20px;
+				padding: 4px;
 				margin-top: 35px;
 				width: 100%;
 				background-color: $background-color;
 				height: 48px;
+				font-family: AvenirNext-Bold;
+
+				&.think {
+					font-size: 16px;
+					font-family: AvenirNext-DemiBold;
+					padding: 8px;
+				}
+				span {
+		    	font-size: 16px;
+		    	color: #d8d8d8;
+		    	font-family: AvenirNext-Bold;
+		    }
 			}
 	}
 }
@@ -545,7 +560,7 @@ input.post-button {
 			background-size: 60px 60px;
 			background-position: 3px center;
 			background-repeat: no-repeat;
-			background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin_stroke.png");
+			background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin-icon-mobile.svg");
 
 			.coins {
 		    position: relative;
@@ -670,7 +685,7 @@ input.post-button {
 				background-size: 50px 50px;
 				background-position: 3px center;
 				background-repeat: no-repeat;
-				background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin_stroke.png");
+				background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin-icon-mobile.svg");
 			}
 			&#btn-cancel {
 				background-color: $orange-dark;
@@ -1002,13 +1017,15 @@ blockquote.speech {
 			}
 	  }
 	  &.scoreboard {
-	  	right: 6%;
+	  	height: 32px;
+	  	font-size: 24px;
+	  	right: -10px;
 	  	bottom: inherit;
 	  	color: $color-white;
-	  	&:before {
-				border-left: 8px solid $color-white;
-				left: 147px;	
-	  	}
+	  	// &:before {
+				// border-left: 8px solid $color-white;
+				// left: 147px;	
+	  	// }
 	  	&.debrief {
 		  	&:before {
 					left: 115px !important;
@@ -1046,6 +1063,8 @@ blockquote.speech {
 	}
 
 	#ranking {
+		background-color: $turquoise-dark;
+		border: solid 2px #fafafa;
 		padding: 3%;
 
     display: -webkit-flex; /* Safari */
@@ -1056,22 +1075,22 @@ blockquote.speech {
 	}
 		
 	.player-logo {
-    background-color: #00c2a9;
-		width: 96%;
+    background-color: $background-color;
+		width: 280px;
 		border-radius: 0px;
 		font-size: 20px;
 		font-family: $header-type;
 		margin: 10px auto;
-		height: 60px;
+		height: 48px;
 
-    background-position: 72px 6px;
-    background-size: 48px 48px;
+    background-position: 52px center;
+    background-size: 40px 40px;
 
     .rank {
-    	float: left;
-    	margin-top: -1%;
-    	padding-top: 7%;
-    	width: 64px;
+    	text-align: left;
+			padding-top: 3%;
+			padding-left: 3%;
+    	width: 44px;
     	height: 64px;
     	font-family: $body-type;
 			color: $grey-white;
@@ -1084,8 +1103,7 @@ blockquote.speech {
 		.coins {
 			float: left;
 			font-size: 24px;
-			margin-top: -1%;
-			padding-top: 12%;
+			padding-top: 9%;
 			width: 64px;
 			height: 64px;
 			color: $color-white;
@@ -1116,10 +1134,10 @@ blockquote.speech {
 			text-shadow: none;
 		}
 		h2 {
-			color: $color-white;
+			color: $grey-white;
 			margin: 0px;
 			font-size: 16px;
-			font-family: $body-type;
+			font-family: $header-type;
 		}
 	
 	}
@@ -1147,13 +1165,15 @@ footer#bottom-bar {
 		text-align:right;
 		height:100%;
 		min-height: 100px;
+		font-family: AvenirNext-Bold;
+		color: white;
 		
 		div {
 			display: inline-block;
 			text-align: center;
 		}
 		p {
-			font-size: 12px;
+			font-size: 8px;
 			margin: 0px;
 			text-align: center;
 			color: white;
@@ -1166,11 +1186,10 @@ footer#bottom-bar {
 		}
 
 		span {
-			color: white;
-			font-family: AvenirNext-Medium;
+			font-size: 12px;
 	  }
 		#player-coins {
-			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/coin_stroke.png');
+			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/coin-icon-mobile.svg');
 			height: 100px;
 			width: 60px;
 	    background-repeat: no-repeat;
@@ -1178,7 +1197,7 @@ footer#bottom-bar {
 	    background-position: center;
 		}
 		#pot-coins {
-			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/pot_stroke.png');
+			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/coin-pot-mobile.svg');
 			height: 100px;
 			width: 60px;
 	    background-repeat: no-repeat;
