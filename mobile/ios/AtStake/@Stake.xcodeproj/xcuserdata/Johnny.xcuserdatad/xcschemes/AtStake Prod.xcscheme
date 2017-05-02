@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B290C1021EB8F92F002D6833"
-               BuildableName = "AtStake Prod.app"
-               BlueprintName = "AtStake Prod"
-               ReferencedContainer = "container:AtStake.xcodeproj">
+               BuildableName = "@Stake Prod.app"
+               BlueprintName = "@Stake Prod"
+               ReferencedContainer = "container:@Stake.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B290C1021EB8F92F002D6833"
-            BuildableName = "AtStake Prod.app"
-            BlueprintName = "AtStake Prod"
-            ReferencedContainer = "container:AtStake.xcodeproj">
+            BuildableName = "@Stake Prod.app"
+            BlueprintName = "@Stake Prod"
+            ReferencedContainer = "container:@Stake.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B290C1021EB8F92F002D6833"
-            BuildableName = "AtStake Prod.app"
-            BlueprintName = "AtStake Prod"
-            ReferencedContainer = "container:AtStake.xcodeproj">
+            BuildableName = "@Stake Prod.app"
+            BlueprintName = "@Stake Prod"
+            ReferencedContainer = "container:@Stake.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B290C1021EB8F92F002D6833"
-            BuildableName = "AtStake Prod.app"
-            BlueprintName = "AtStake Prod"
-            ReferencedContainer = "container:AtStake.xcodeproj">
+            BuildableName = "@Stake Prod.app"
+            BlueprintName = "@Stake Prod"
+            ReferencedContainer = "container:@Stake.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
@@ -86,6 +86,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "@Stake"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
