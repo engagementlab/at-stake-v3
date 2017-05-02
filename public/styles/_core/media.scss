@@ -15,7 +15,8 @@
 
 
 	body .inner-modal .inner .player-box {
-		background-position: 20px 0px;
+		background-position: 20px center;
+		padding-left: 5%;
 		.coins {
 			padding-top: 40px;
 			padding-left: 15px;
@@ -28,7 +29,7 @@
 		padding-top: 0px;
 
 		&.in-game {
-			padding-top: 25px;
+			padding-top: 40px;
 		}
 		#lobby #name.lobby .login-footer {
 			padding: 0px 35px;
@@ -73,7 +74,7 @@
 		}
 
 		p {
-			line-height: 1.1
+			line-height: 20px;
 		}
 
 	}
@@ -109,7 +110,6 @@
 
 	body .timer_wrap {
 		p {
-			margin-top: 15%;
 			width: 100%;
 		}
 	}
@@ -187,8 +187,24 @@
 
 	}
 
+	body .inner-modal .inner {
+		height:80%;
+
+		#game-menu {
+			#logo-header {
+				width: 200px;
+			}
+			.btn {
+				margin-bottom: 2%;
+			}
+			.btn_cap {
+				margin-bottom: 15px;
+			}
+		}
+	}
+
 	body .inner-modal .inner .player-box {
-		background-position: 20px 0px;
+		background-position: 20px center;
 		.coins {
 			padding-top: 40px;
 			padding-left: 15px;
@@ -231,7 +247,7 @@
 
 	// Fix that quote!
 	body blockquote.speech {
-		padding: 20px !important;
+		padding: 10px 20px !important;
 		height:210px !important;
 		h3 {
 			line-height: 1.3;

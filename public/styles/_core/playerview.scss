@@ -353,11 +353,11 @@ input.post-button {
     // margin-top: 48%;
     font-size: 16px;
     width: 100%;
-    padding: 8px;
+    padding: 8px 6px;
 		background-color: $background-color;
 		height: 48px;
     text-align: center;
-    font-family: AvenirNext-DemiBold;
+    font-family: AvenirNext;
 	}
 	.progressbar-text {
 		font-size: 46px;
@@ -851,6 +851,9 @@ input.post-button {
 		  font-size: 16px;
 		  font-weight: 500;
   		display:inline;
+  		div {
+  			font-size: 14px;
+  		}
   	}
   }
   .agenda-item {
@@ -933,12 +936,12 @@ input.post-button {
 .instruction {
 	font-size:16px;
 	height: 72px;
+	margin-bottom: 4px;
 	font-family: AvenirNext;
 
 	h1 {
 		font-size: 16px;
 		line-height: 1.5;
-		font-weight: bold;
 		font-family: AvenirNext-Bold;
 	}
 
@@ -958,7 +961,7 @@ input.post-button {
 // Speech bubbles
 blockquote.speech {
     position: relative;
-    text-align: justify;
+    text-align: left;
     font-size: 16px;
     width: 100%;
     height: 287px;
@@ -972,7 +975,7 @@ blockquote.speech {
     background-position:center;
     p {
     	color: white;
-    	line-height: 1.5;
+    	line-height: 24px;
     	font-family: AvenirNext-DemiBold;
     }
 
@@ -1043,7 +1046,6 @@ blockquote.speech {
 	}
 
 	#ranking {
-		background-color: $turquoise-dark;
 		padding: 3%;
 
     display: -webkit-flex; /* Safari */
@@ -1054,7 +1056,7 @@ blockquote.speech {
 	}
 		
 	.player-logo {
-
+    background-color: #00c2a9;
 		width: 96%;
 		border-radius: 0px;
 		font-size: 20px;
@@ -1127,8 +1129,9 @@ blockquote.speech {
 footer#bottom-bar {
 	font-size: large;
 	width: 100%;
-	bottom: 0px;
+	bottom: 8px;
 	left: 0px;
+	height:90px;
 	position: absolute;
 	padding-top: 5px;
 	max-width: 425px;
@@ -1137,6 +1140,7 @@ footer#bottom-bar {
 	.col-sm-6, .col-xs-6 {
 		padding-left:8px;
 		padding-right:8px;
+		height: 100%;
 	}	
 
 	#currency {
