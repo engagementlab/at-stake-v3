@@ -20,9 +20,9 @@ var doc = $('body');
 var mobileAction = function(strAction) {
 
 	// Called upon mobileCallback event and posts response to mobile native app
-	function callback() {
+	function callback(action) {
 
-		var response = {status: "okeydokey", action: strAction};
+		var response = {status: "okeydokey", action: action};
 
 		if(isApple) {
 		
@@ -45,7 +45,7 @@ var mobileAction = function(strAction) {
 	}
 
 	// Listen for 'mobileCallback' event anywhere on document
-	doc.on('mobileCallback', function() { callback() });
+	doc.on('mobileCallback', function() { callback(strAction) });
 
 	switch(strAction) {
 

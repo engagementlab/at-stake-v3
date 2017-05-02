@@ -222,8 +222,8 @@ socketEvents = function(eventId, eventData) {
             if ($('.modal'))
                 $('.modal').fadeOut();
 
-            $('#error-disconnected').trigger('show');
-            $('#error-disconnected #text').css('top', '0');
+            // Show main menu w/ error
+            openInnerModal('menu', false, false, 'disconnected');
 
             break;
 
