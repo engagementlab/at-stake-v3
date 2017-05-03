@@ -272,6 +272,9 @@ socketEvents = function(eventId, eventData) {
 
             $('#bottom-bar').show();
 
+            if (isDecider)
+                $('#btn-role-card').css('visibility', 'hidden');
+
             $('#role-card').html(roleCard).promise().done(function() {
 
                 $('#btn-close-role-card').on('click', function(evt) {
