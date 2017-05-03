@@ -962,7 +962,7 @@ input.post-button {
 .instruction {
 	font-size:16px;
 	height: 72px;
-	margin-bottom: 4px;
+	margin-bottom: 16px;
 	font-family: AvenirNext;
 
 	div {
@@ -1098,7 +1098,7 @@ blockquote.speech {
 		margin: 10px auto;
 		height: 48px;
 
-    background-position: 52px center;
+    background-position: 48px center;
     background-size: 40px 40px;
 
     .rank {
@@ -1106,8 +1106,10 @@ blockquote.speech {
 			padding-top: 3%;
 			padding-left: 3%;
 			float: left;
-    	width: 44px;
+    	width: 31px;
     	height: 48px;
+    	font-size: 16px;
+    	margin-right: 8px;
     	font-family: $body-type;
 			color: $grey-white;
 
@@ -1160,7 +1162,7 @@ blockquote.speech {
 
 		    position: relative;
 		    float: right;
-		    width: 170px;
+		    width: 184px;
 		    margin-top:4px;
 		    height: 40px;
 		    font-family: AvenirNext-Bold;
