@@ -677,7 +677,6 @@ input.post-button {
 			&#btn-more-time {
 				span {
 					font-size: 12px;
-
 				}
 				height: 64px;
 				font-size: 20px;
@@ -689,6 +688,15 @@ input.post-button {
 			}
 			&#btn-cancel {
 				background-color: $orange-dark;
+			}
+
+			.info {
+		    position: relative;
+		    float: right;
+		    width: 80%;
+		    margin-top:4px;
+		    height: 40px;
+		    font-family: AvenirNext-Bold;
 			}
 
 		}
@@ -1097,8 +1105,9 @@ blockquote.speech {
     	text-align: left;
 			padding-top: 3%;
 			padding-left: 3%;
+			float: left;
     	width: 44px;
-    	height: 64px;
+    	height: 48px;
     	font-family: $body-type;
 			color: $grey-white;
 
@@ -1111,8 +1120,8 @@ blockquote.speech {
 			float: left;
 			font-size: 24px;
 			padding-top: 9%;
-			width: 64px;
-			height: 64px;
+			width: 54px;
+			height: 54px;
 			color: $color-white;
 
 			&.delta {
@@ -1146,6 +1155,20 @@ blockquote.speech {
 			font-size: 16px;
 			font-family: $header-type;
 		}
+
+		.info {
+
+		    position: relative;
+		    float: right;
+		    width: 170px;
+		    margin-top:4px;
+		    height: 40px;
+		    font-family: AvenirNext-Bold;
+
+			  h1 {
+				  margin: 0;
+				}
+			}
 	
 	}
 }
