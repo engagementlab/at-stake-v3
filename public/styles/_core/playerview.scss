@@ -885,22 +885,22 @@ input.post-button {
   .agenda-item {
   	border-radius: 100px;
   	background-color: $background-color;
-  	margin: 8px;
+  	margin: 16px 8px;
   	height: 56px;
   	color: white;
 
 
   	.value {
-	  	height: 56px;
-	  	width: 56px;
-	  	line-height: 58px;
+	  	height: 64px;
+	  	width: 64px;
+	  	margin-top: -4px;
+	  	line-height: 64px;
 	  	display: inline-block;
 	  	float: left;
 	  	font-size: 24px;
 	  	font-family: AvenirNext-Bold;
 	    background-size: 64px 64px;
-	    background-position: -8px -8px;
-	  	// background-size: cover;
+	    background-position: center;
 	  	background-repeat: no-repeat;
 	  	background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1490979430/at-stake/layout/icon-yourcoins.svg");
 	  }
