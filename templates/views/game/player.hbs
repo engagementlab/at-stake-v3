@@ -1,7 +1,8 @@
 <section id="lobby">
 
   <div id="login-header">
-    {{{cloudinaryUrl "v1490382079/at-stake/s-t-a-k-e-l-o-g-o_3x.png" width=300 }}}
+    {{{cloudinaryUrl "/v1492725109/at-stake/layout/logo.svg" width=198 }}}
+    <p>Deliberate, Negotiate, Decide</p>
   </div>
 
   {{!-- NAME ENTRY --}}
@@ -15,7 +16,7 @@
     </div>
     <div class="login-footer">
       <section id="description">
-        <p>@Stake promotes empathy and creativity among diverse perspectives in a fast-paced role-playing game. We created it to help facilitate productive and fair conversations in classrooms, conferences, strategic planning meetings, and public events. You'll get a change to dream up solutiond to real-world issues facing communities from a variety of stakeholder perspectives!</p>
+        <p>@Stake is a fast paced role-playing game promoting empathy and creativity among diverse perspectives.</p>
       </section>
       <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1490382407/at-stake/e-l-logo_3x.png" height='auto' width='200px'> 
     </div>
@@ -32,12 +33,12 @@
 
       <div id="btn_new_game" class="btn btn-default">
         <h2>Start new game</h2>
-      <div class="btn_cap">Select a deck and receive a 4 digit room code that other players can use to join your game</div>
+      <div class="btn_cap">Select a stakeholder deck and share a room code with other players</div>
       </div>
 
       <div id="btn_join_game" class="btn btn-default" data-from="choices" data-to="join">
         <h2>Join a game</h2>
-      <div class="btn_cap">use your 4 digit room code to join a game</div>
+      <div class="btn_cap">Use a room code to join a game</div>
       </div>
 
     </div>
@@ -50,16 +51,15 @@
     <div class="form create col-sm-12 col-lg-12 col-centered" id="deck-choice">
 
       <h3 class="white">Select a Deck</h3>
-      <div class="form-prompt">Your deck will determine what problems you solve and what roles you get to play.</div>
+      <div class="form-prompt">Swipe left or right or use the arrow keys to select a Stakeholder deck. When ready, press next.</div>
       
-      <div class="decks-prompt">Use arrow keys or swipe left and right to switch decks</div>
       <section id="decks" class="glide">
 
       </section>
       
       <div class="error">Error!</div>
       <button class="back-button" data-from="new" data-to="choices">back</button>
-      <input id="btn_submit" class="button_text game_login" type="submit" name="submit" value="next">
+      <input id="btn_submit" class="button_text game_login" type="submit" name="submit" value="next!">
     </div>
 
     <div class="waiting" style="display:none">
@@ -67,8 +67,8 @@
 
       <div id="share_code"> 
         <h1>Share Your Room Code</h1>
-        <h1 class="access-code"></h1>
         <p>Share this 4 digit code with players. Once at least 3 players have joined, press play to begin</p>
+        <h1 class="access-code"></h1>
       </div>
 
       <div class="col-sm-12 player-grid">
@@ -95,10 +95,11 @@
         <div id="btn-tutorial" data-event="game:start" data-package='{"tutorial": "true"}' class="btn btn-default submit">
           <h2>Play Tutorial</h2>
         </div>
+        <div class="btn_cap">Learn the rules of the game, how to play, and how to win!</div>
+
         <div id="btn-tutorial-skip" data-event="game:start" data-package='{"tutorial": "false"}' class="btn btn-default submit">
           <h2>Or tap <strong>here</strong> to skip</h2>
         </div>
-        <div class="btn_cap">The tutorial will show you how @Stake works, how to play, and how to win!  </div>
 
       </div>
 
@@ -122,8 +123,8 @@
     <div class="row login waiting" style="display:none">
       <div id="game_code"> 
         <h1>Share Your Room Code</h1>
-        <h1 class="access-code"></h1>
         <p class="instructions">Share the 4 digit code with other players so they can join the game.</p>
+        <h1 class="access-code"></h1>
       </div>
       <div class="player-grid">
         <div class="row list">

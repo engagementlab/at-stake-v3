@@ -1,18 +1,23 @@
 #background-logo {
 	position: absolute;
-	bottom: 0px;
-	left: 0px;
-	z-index:1;
+	bottom: -40px;
+  left: 0px;
+  width: 219px;
+  z-index: 1;
+  opacity: 0.7;
 }
 
 #overlay {	
 	background-color: $greyish-brown-70;
 }
 
+#wrapper.game-wrap {
+		@include gradient-vertical($background-color, $turquoise-dark, 55%, 45%);
+}
+
 #gameContent {
-	@include gradient-vertical($background-color, $turquoise-dark, 55%, 45%);
   @include linear_transition(filter, 0.5s);
-	
+	z-index:100;
 	height: 100%;
 	text-align: center;
 	padding: 8px;
@@ -21,9 +26,7 @@
 
 	// During the gameplay
 	&.in-game {
-		background-color: $turquoise-dark;
 		height: calc(100% - 50px);
-		// padding-top:80px;
 
 		// Show coin and points bar
 		footer#bottom-bar {
@@ -86,7 +89,7 @@
 	}
 
 	#btn-quit {
-    margin-top: -10%;
+    margin-top: -5%;
 		@include gradient-vertical($pink-red-two, $pink-dark, 90%, 10%);	
 	}
 	#btn-quit-yes {
@@ -106,15 +109,15 @@
 	// background-size: contain;
 	color: $grey-dark;
 
-	background-position: 40px 10px;
+	background-position: 20px 0px;
   background-size: 40px 40px;
 
 	p {
-		display: inline;
+		display: inline-block;
 		color: $grey-dark;
     text-transform: uppercase;
     line-height: 60px;
-    padding-left: 60px;
+    padding-left: 80px;
 	}
 
 	&.lg {
@@ -143,11 +146,11 @@
 
 // Default button shadow and margin
 .btn { 
-	@include box-shadow(0px, 7px, 0px, darken($background-color, 10%));
+	@include box-shadow(0px, 3px, 0px, darken($background-color, 10%));
 	margin-bottom: 7px;
 
 	&:hover, &:focus, &:visited {
-		@include box-shadow(0px, 7px, 0px, darken($background-color, 10%));
+		@include box-shadow(0px, 3px, 0px, darken($background-color, 10%));
 		// margin-bottom: 7px;
 		cursor: pointer;
 		color: white;
@@ -176,20 +179,24 @@
 
 	&#btn_yes {
 		background-color: $blue-light;
-		// border-bottom: 4px solid $dark-sky-blue;
+		border-bottom: 4px solid $dark-sky-blue;
 	}
 	&#btn_no {
 		background-color: $sunflower;
-		// border-bottom: 4px solid $tangerine;
+		border-bottom: 4px solid $tangerine;
 	}
 
 }
 .btn_cap {
-	width: 90%;
-	margin: 15% auto;
-	margin-top: 0px;
+	width: 100%;
+	margin: 0px auto;
+	margin-bottom: 25px;
+	line-height:1.33;
 	font-size: 12px;
-	color: lighten($background-color, 20%);
+	height:32px;
+	font-family: AvenirNext-Medium;
+	color: #fafafa;
+	font-weight: 500;
 	&.pink {
 		color: $pink-dark;
 	}
@@ -313,46 +320,96 @@ input.post-button {
 
 // Timer Animation
 .timer_wrap {
+	width: 304px;
+  height: 216px;
+  background-color: $turquoise-dark;
+  border: solid 1px #fafafa;
+	margin: 0 auto;
+
+	&.player {
+		pointer-events: none;
+		cursor: normal;
+	}
+
 	button {
     background: none;
     border: none;
-    max-width: 246px;
+    max-width: 196px;
+    height: 164px;
 	}
 	svg {
-		// width: 82% !important;
-		margin: 20px auto;
-    max-width: 246px;
+		margin: 0px auto;
+		margin-top: -40px;
+    max-width: 152px;
 	}
 	h1 {
     font-family: $header-type;
-    font-size: 20px;
+    font-size: 16px;
     margin-top: 1%;
+    font-family: AvenirNext-Bold;
 	}
 	p {
     display: inline-block;
-    margin-top: 48%;
-    font-size: 17px;
-    width: 70%;
+    // margin-top: 48%;
+    font-size: 16px;
+    width: 100%;
+    padding: 8px 6px;
+		background-color: $background-color;
+		height: 48px;
     text-align: center;
+    font-family: AvenirNext-DemiBold;
+
+    
 	}
 	.progressbar-text {
-		font-size: 72px;
+		font-size: 46px;
 		letter-spacing: -2.1px;
-    margin-top: -79%;
+    margin-top: -76%;
     color: white !important;
+    font-family: AvenirNext-DemiBold;
 	}
 
 	&.running {
+
+		.timer {
+			margin-top: 45px;
+		}
+		.progressbar-text {
+	    top: 44% !important;
+		}
 		.speech {
 			position: relative;
 			z-index: 1;
-			h1 {
-				margin-top: -27%;
-			}
-			p {
-				margin-top: 26%;
-			}
+			font-size: 16px;
+			margin-top: -58px;
 		}
+
+		// span {
+		// 	width: 100%;
+		// 	color: #61f5de;
+		// 	font-family: AvenirNext-Medium;
+		// }
+
+		p {
+			font-size: 20px;
+				padding: 4px;
+				margin-top: 35px;
+				width: 100%;
+				background-color: $background-color;
+				height: 48px;
+				font-family: AvenirNext-Bold;
+
+				&.think {
+					font-size: 16px;
+					font-family: AvenirNext-DemiBold;
+					padding: 8px;
+				}
+				span {
+		    	font-size: 16px;
+		    	color: #d8d8d8;
+		    	font-family: AvenirNext-Bold;
+		    }
+			}
 	}
 }
 
@@ -364,7 +421,7 @@ input.post-button {
 	text-align: justify;
   line-height: 0;
   top: 0px;
-  height: 50px;
+  height: 40px;
   padding-top:17px;
   padding-left:5px;
   padding-right:5px;
@@ -382,6 +439,16 @@ input.post-button {
 	  vertical-align: middle;
 		z-index: 1;
 		text-align:center;
+		margin-bottom: -15px;
+		border-radius: 50%;
+		top: 0px;
+		left: 0px;
+		position: relative;
+
+		-webkit-transition-duration: 0.5s;
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: ease-in-out;
+    transition: all 0.5s ease-in-out;
 
 		img {
 			display: block;
@@ -391,7 +458,7 @@ input.post-button {
 		span {
 			display: flex;
 			color: $turquoise-dark;
-	    margin-top: 20%;
+	    margin-top: 15px;
 	    font-size: 15px;
 	    font-family: 'AvenirNext-Bold';
 		}
@@ -406,31 +473,29 @@ input.post-button {
 		&.disabled {
 			height: 23px;
 			width:23px;
-			border-radius: 12px;
-			@include filter(grayscale, 100%);
-			animation-name: exit-stage;
-			animation-duration: 1s;
-			animation-fill-mode: forwards;
 			background-color: $turquoise-light;
+			box-shadow: 0 2px 0 0 $turquoise-dark;
+			border: 0px transparent;
+			margin-bottom: 0px;
+
+			img {
+				opacity: 0.7;
+				height: 23px;
+				width:23px;
+			}
 			span {
 				display: none;
 			}
 		}
 		&:not(.disabled) {
-			animation-name: enter-stage;
-			animation-duration: 1s;
-			animation-fill-mode: forwards;
-			border-radius: 20px;
 			height: 40px;
 			width: 40px;
-			border: 3px white solid;
-		  background-color: $turquoise-dark;
+			border: 2px white solid;
+		  background-color: $turquoise-light;
+		  box-shadow: 0 2px 0 0 $turquoise-dark;
+
 			span {
-				font-weight: 800;
-		    position: absolute;
-		    bottom: -10px;
-		    width: 100%;
-		    left: -25%;
+				width: 100%;
 			}
 		}
 
@@ -495,7 +560,7 @@ input.post-button {
 			background-size: 60px 60px;
 			background-position: 3px center;
 			background-repeat: no-repeat;
-			background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin_stroke.png");
+			background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin-icon-mobile.svg");
 
 			.coins {
 		    position: relative;
@@ -506,10 +571,13 @@ input.post-button {
 		}
 		#btn-empty {
 			background-color: darken($blue-light, 30%);
-			@include box-shadow(0px, 7px, 0px, darken($background-color, 10%));
+			border-bottom: 5px $blue-dark solid;
+			@include box-shadow(0px, 2px, 0px, darken($background-color, 10%));
 		}
 		#btn-cancel {
+			border-bottom: 5px $orange-dark solid;
 			background-color: $sunflower;
+			@include box-shadow(0px, 2px, 0px, darken($background-color, 10%));
 		}
 
 	}
@@ -523,7 +591,7 @@ input.post-button {
 		}
 
 		h2 {
-			font-family: $header-type;
+			font-family: AvenirNext-Bold;
 			font-size: 20px;
 
 			color: $tiffany-blue;
@@ -534,14 +602,23 @@ input.post-button {
 	&.agenda_item {
 
 		display: none;
+		h1 {
+			@include text-shadow(0, 2px, 2px, rgba(0, 0, 0, 0.24));
+		}
 	
 		h2 {
-			font-family: $header-type;
+			font-family: AvenirNext-Bold;
 			font-size: 16px;
 			color: white;
 
 			.item {
 				color: $light-greenish-blue;
+			}
+		}
+
+		.player-box {
+			h1 {
+				text-shadow: none;
 			}
 		}
 
@@ -608,7 +685,7 @@ input.post-button {
 				background-size: 50px 50px;
 				background-position: 3px center;
 				background-repeat: no-repeat;
-				background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin_stroke.png");
+				background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin-icon-mobile.svg");
 			}
 			&#btn-cancel {
 				background-color: $orange-dark;
@@ -626,8 +703,8 @@ input.post-button {
 			margin: 10px auto;
 			height: 48px;
 			background-repeat: no-repeat;
-			background-position: 40px 0px;
-		  background-size: 48px 48px;
+			background-position: 40px center;
+		  background-size: 40px 40px;
 			background-color: $aquamarine;
 
 			&#reward-icon {
@@ -659,7 +736,7 @@ input.post-button {
 				line-height: 1;
 				margin: 0;
 				font-size: 16px;
-				font-family: AvenirNext-Medium;
+				font-family: AvenirNext-DemiBold;
 			}
 
 			.info {
@@ -695,6 +772,7 @@ input.post-button {
   	margin-bottom: 15px;
   }
   #btn-close-role-card {
+  	cursor: pointer;
   	p {
   		margin: 0px;
   		font-family: AvenirNext;
@@ -711,6 +789,7 @@ input.post-button {
 			margin: 0px 8px;
 	    line-height: 1.17;
 	    padding-top: 1%;
+	    display: inline-block;
 			@include gradient-vertical($sunflower, $tangerine, 97%, 3%);	
   	}
   	.arrow {
@@ -733,7 +812,7 @@ input.post-button {
 	  }
   }
   .icon {
-  	margin: 8px auto;
+  	margin: 4px auto;
     width: 70px;
     height: 70px;
     border-radius: 35px;
@@ -773,11 +852,12 @@ input.post-button {
 	  margin: 8px auto;
   }
   .agenda-wrap {
-  	color: $orange-dark;
+  	color: $background-color;
 
   	.header {
   		font-family: AvenirNext-Heavy;
   		color: #18b898;
+  		font-size: 20px;
   	}
 
   	.instruction {
@@ -786,27 +866,29 @@ input.post-button {
 		  font-size: 16px;
 		  font-weight: 500;
   		display:inline;
+  		div {
+  			font-size: 14px;
+  		}
   	}
   }
   .agenda-item {
   	border-radius: 100px;
   	background-color: $orange-dark;
-  	margin: 16px;
-  	height: 60px;
-  	margin-top: 24px;
+  	margin: 8px;
+  	height: 56px;
   	color: white;
 
 
   	.value {
-	  	height: 60px;
-	  	width: 60px;
-	  	line-height: 62px;
+	  	height: 56px;
+	  	width: 56px;
+	  	line-height: 58px;
 	  	display: inline-block;
 	  	float: left;
 	  	font-size: 24px;
 	  	font-family: AvenirNext-Bold;
-	    background-size: 54px 54px;
-	    background-position: 3px 3px;
+	    background-size: 64px 64px;
+	    background-position: -8px -8px;
 	  	// background-size: cover;
 	  	background-repeat: no-repeat;
 	  	background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1490979430/at-stake/layout/icon-yourcoins.svg");
@@ -814,7 +896,7 @@ input.post-button {
 	  .agenda {
 	  	height: 32px;
       margin: 10px auto;
-	  	width: 208px;
+	  	width: 180px;
 	  	display:inline-block;
 	  	text-align: left;
 	  	line-height:1.2;
@@ -869,12 +951,12 @@ input.post-button {
 .instruction {
 	font-size:16px;
 	height: 72px;
+	margin-bottom: 4px;
 	font-family: AvenirNext;
 
 	h1 {
 		font-size: 16px;
 		line-height: 1.5;
-		font-weight: bold;
 		font-family: AvenirNext-Bold;
 	}
 
@@ -894,23 +976,22 @@ input.post-button {
 // Speech bubbles
 blockquote.speech {
     position: relative;
-    text-align: justify;
-    width: 90%;
+    text-align: left;
+    font-size: 16px;
+    width: 100%;
     height: 287px;
-    padding: 50px 30px;
-    margin: 1em 0 0;
-    margin-left: 5%;
+    padding: 40px 20px;
     z-index: 1000;
     color: white;
     border-left: none;
-    background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1490215786/at-stake/layout/speech-bg.svg");
+    background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1493403872/at-stake/layout/rectangle-4.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position:center;
     p {
     	color: white;
-    	line-height: 1.5;
-    	font-family: $avenir-reg;
+    	line-height: 24px;
+    	font-family: AvenirNext-DemiBold;
     }
 
     // Inactive player - hide this bubble
@@ -936,13 +1017,15 @@ blockquote.speech {
 			}
 	  }
 	  &.scoreboard {
-	  	right: 6%;
+	  	height: 32px;
+	  	font-size: 24px;
+	  	right: -10px;
 	  	bottom: inherit;
 	  	color: $color-white;
-	  	&:before {
-				border-left: 8px solid $color-white;
-				left: 147px;	
-	  	}
+	  	// &:before {
+				// border-left: 8px solid $color-white;
+				// left: 147px;	
+	  	// }
 	  	&.debrief {
 		  	&:before {
 					left: 115px !important;
@@ -981,6 +1064,7 @@ blockquote.speech {
 
 	#ranking {
 		background-color: $turquoise-dark;
+		border: solid 2px #fafafa;
 		padding: 3%;
 
     display: -webkit-flex; /* Safari */
@@ -991,22 +1075,22 @@ blockquote.speech {
 	}
 		
 	.player-logo {
-
-		width: 96%;
+    background-color: $background-color;
+		width: 280px;
 		border-radius: 0px;
 		font-size: 20px;
 		font-family: $header-type;
 		margin: 10px auto;
-		height: 60px;
+		height: 48px;
 
-    background-position: 72px 6px;
-    background-size: 48px 48px;
+    background-position: 52px center;
+    background-size: 40px 40px;
 
     .rank {
-    	float: left;
-    	margin-top: -1%;
-    	padding-top: 7%;
-    	width: 64px;
+    	text-align: left;
+			padding-top: 3%;
+			padding-left: 3%;
+    	width: 44px;
     	height: 64px;
     	font-family: $body-type;
 			color: $grey-white;
@@ -1019,8 +1103,7 @@ blockquote.speech {
 		.coins {
 			float: left;
 			font-size: 24px;
-			margin-top: -1%;
-			padding-top: 12%;
+			padding-top: 9%;
 			width: 64px;
 			height: 64px;
 			color: $color-white;
@@ -1051,10 +1134,10 @@ blockquote.speech {
 			text-shadow: none;
 		}
 		h2 {
-			color: $color-white;
+			color: $grey-white;
 			margin: 0px;
 			font-size: 16px;
-			font-family: $body-type;
+			font-family: $header-type;
 		}
 	
 	}
@@ -1064,24 +1147,33 @@ blockquote.speech {
 footer#bottom-bar {
 	font-size: large;
 	width: 100%;
-	bottom: 0px;
+	bottom: 8px;
 	left: 0px;
+	height:90px;
 	position: absolute;
 	padding-top: 5px;
 	max-width: 425px;
 	z-index: 1000;
 
+	.col-sm-6, .col-xs-6 {
+		padding-left:8px;
+		padding-right:8px;
+		height: 100%;
+	}	
+
 	#currency {
 		text-align:right;
 		height:100%;
 		min-height: 100px;
+		font-family: AvenirNext-Bold;
+		color: white;
 		
 		div {
 			display: inline-block;
 			text-align: center;
 		}
 		p {
-			font-size: 12px;
+			font-size: 8px;
 			margin: 0px;
 			text-align: center;
 			color: white;
@@ -1094,11 +1186,10 @@ footer#bottom-bar {
 		}
 
 		span {
-			color: white;
-			font-family: AvenirNext-Medium;
+			font-size: 12px;
 	  }
 		#player-coins {
-			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/coin_stroke.png');
+			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/coin-icon-mobile.svg');
 			height: 100px;
 			width: 60px;
 	    background-repeat: no-repeat;
@@ -1106,7 +1197,7 @@ footer#bottom-bar {
 	    background-position: center;
 		}
 		#pot-coins {
-			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/pot_stroke.png');
+			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/coin-pot-mobile.svg');
 			height: 100px;
 			width: 60px;
 	    background-repeat: no-repeat;
@@ -1119,22 +1210,28 @@ footer#bottom-bar {
 	button {
 		margin: 5px;
 		color: white;
-		width: 140px;
+		width: 121px;
 	  height: 36px;
-	  padding-left: 2em;
+	  padding-left: 2.4em;
+	  font-size: 16px;
 	  border-radius: 0px;
-	  text-align: right;
+	  text-align: left;
   	background-repeat: no-repeat;
 	  box-shadow: 0px;
 	  border: 0px;
+	  box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
+	  background-size:24px 24px;
+	  background-position: 8px center;
 
 	  &#btn-role-card {
-	  	background-image: url('/images/layout/rolecard-icon.svg');
+	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/icon-rolecard.svg');
 	  	background-color: $orange-dark;
+	  	border-bottom: 3px darken($orange-dark, 10%) solid;
 	  }
 	  &#btn-menu {
-	  	background-image: url('/images/layout/menu-icon.jpg');
+	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/menu-icon.svg');
 	  	background-color: $orange-light;
+	  	border-bottom: 3px $orange-dark solid;
 	  }
 	}
 }

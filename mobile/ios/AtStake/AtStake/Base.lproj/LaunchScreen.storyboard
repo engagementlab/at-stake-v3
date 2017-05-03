@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,14 +17,34 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="clG-U5-ini">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="552" id="1Zr-Xp-yxc"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.35131901500000001" green="0.8110408187" blue="0.87750208380000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="clG-U5-ini" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="DyD-3n-n4Z"/>
+                            <constraint firstItem="clG-U5-ini" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="GUM-xH-quL"/>
+                            <constraint firstItem="clG-U5-ini" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Kdn-2c-Inv"/>
+                            <constraint firstItem="clG-U5-ini" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="QR6-IE-D0C"/>
+                            <constraint firstItem="clG-U5-ini" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="iba-em-egg"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="clG-U5-ini" secondAttribute="bottom" id="nCE-Ka-qkQ"/>
+                            <constraint firstAttribute="trailing" secondItem="clG-U5-ini" secondAttribute="trailing" id="nOe-WZ-RIQ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.1484375" y="374.23133235724742"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LaunchScreen" width="768" height="1024"/>
+    </resources>
 </document>

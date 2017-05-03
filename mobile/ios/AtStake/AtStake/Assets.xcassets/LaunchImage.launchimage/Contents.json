@@ -1,45 +1,59 @@
 {
   "images" : [
     {
-      "orientation" : "portrait",
-      "idiom" : "ipad",
-      "minimum-system-version" : "7.0",
       "extent" : "full-screen",
-      "scale" : "2x"
-    },
-    {
-      "orientation" : "landscape",
-      "idiom" : "ipad",
-      "minimum-system-version" : "7.0",
-      "extent" : "full-screen",
-      "scale" : "1x"
-    },
-    {
-      "orientation" : "landscape",
-      "idiom" : "ipad",
-      "minimum-system-version" : "7.0",
-      "extent" : "full-screen",
-      "scale" : "2x"
-    },
-    {
-      "orientation" : "portrait",
       "idiom" : "iphone",
-      "minimum-system-version" : "7.0",
+      "subtype" : "736h",
+      "filename" : "iPhone-5.5in.png",
+      "minimum-system-version" : "8.0",
+      "orientation" : "portrait",
+      "scale" : "3x"
+    },
+    {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "667h",
+      "filename" : "iPhone-7,-6s-Splash-Screen@2x.png-1.png",
+      "minimum-system-version" : "8.0",
+      "orientation" : "portrait",
       "scale" : "2x"
     },
     {
+      "extent" : "full-screen",
+      "idiom" : "ipad",
+      "subtype" : "1366h",
+      "filename" : "iPad-Pro-Portrait@2x.png-1.png",
+      "minimum-system-version" : "8.0",
       "orientation" : "portrait",
+      "scale" : "2x"
+    },
+    {
+      "extent" : "full-screen",
       "idiom" : "iphone",
+      "filename" : "iPhone-7,-6s-Splash-Screen@2x.png.png",
       "minimum-system-version" : "7.0",
+      "orientation" : "portrait",
+      "unassigned" : true,
+      "scale" : "2x"
+    },
+    {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
       "subtype" : "retina4",
+      "filename" : "iPhone-7,-6s-Plus-Splash.png",
+      "minimum-system-version" : "7.0",
+      "orientation" : "portrait",
+      "unassigned" : true,
       "scale" : "2x"
     },
     {
-      "orientation" : "portrait",
-      "idiom" : "ipad",
-      "minimum-system-version" : "7.0",
       "extent" : "full-screen",
-      "scale" : "1x"
+      "idiom" : "ipad",
+      "filename" : "iPad-Pro-Portrait@2x.png.png",
+      "minimum-system-version" : "7.0",
+      "orientation" : "portrait",
+      "unassigned" : true,
+      "scale" : "2x"
     }
   ],
   "info" : {

@@ -1,27 +1,29 @@
-<div id="btn-close-role-card" class="swipe">
-	<div class="caption">
-			<p>press here to close role card</p>
-			<div class="down-btn">
-		      <div class="arrow"></div>
-		   </div>
+<div class="rolecard-inner">
+	<div id="btn-close-role-card" class="swipe">
+		<div class="caption">
+				<p>press here to close role card</p>
+				<div class="down-btn">
+			      <div class="arrow"></div>
+			   </div>
+		</div>
 	</div>
-</div>
 
-	<span class="instruction">This is the <span>stakeholder role</span> you are playing this round. Your proposal should reflect your character’s perspective.</span>
+		<span class="instruction">This is your <span>stakeholder role</span>. Your proposal should reflect this stakeholder’s perspective.</span>
 
-<div class="role-info">
-	<div class="icon"></div>
-	{{!-- <img class="icon" src="{{{cloudinaryUrl icon height=100 width=100}}}"/> --}}
+	<div class="role-info">
+		<div class="icon"></div>
+		{{!-- <img class="icon" src="{{{cloudinaryUrl icon height=100 width=100}}}"/> --}}
 
-	<h2 class="title">{{title}}</h2>
-	<div class="description">{{{bio.html}}}</div>
+		<h2 class="title">{{title}}</h2>
+		<div class="description">{{{bio.html}}}</div>
 
-</div>
-	<div class="line"></div>
-<div class="agenda-wrap">
-	<h1 class="header">Hidden Agenda Items</h1>
-	<span class="instruction">At the end of the round, you win bonus coins if the decider thinks your agenda item is included in the winning proposal.</span>
+	</div>
+		<div class="line"></div>
+	<div class="agenda-wrap">
+		<h1 class="header">Hidden Agenda Items</h1>
+		<span class="instruction">At the end of the round, you win bonus coins if the decider thinks your agenda item is included in the winning proposal.</span>
 
-	<div class="agenda-item"><span class="value">100</span><div class="agenda">{{agendaItems.[0]}}</div></div>
-	<div class="agenda-item"><span class="value">200</span><div class="agenda">{{agendaItems.[1]}}</div></div>
+		<div class="agenda-item"><span class="value">100</span><div class="agenda">{{agendaItems.[0]}}</div></div>
+		<div class="agenda-item"><span class="value">200</span><div class="agenda">{{agendaItems.[1]}}</div></div>
+	</div>
 </div>

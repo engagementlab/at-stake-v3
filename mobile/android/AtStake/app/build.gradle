@@ -5,14 +5,10 @@ android {
         qa {
             storeFile file('/Users/Johnny/android.jks')
             keyAlias 'Android'
-            keyPassword 'Pontiac93'
-            storePassword 'Pontiac93'
         }
         config {
             keyAlias 'Android'
             storeFile file('/Users/Johnny/android.jks')
-            keyPassword 'Pontiac93'
-            storePassword 'Pontiac93'
         }
     }
     compileSdkVersion 23
@@ -44,7 +40,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "ENVIRONMENT", '"production"'
-            resValue "string", "app_name", "@Stake"
+            resValue "string", "app_name", '"@Stake"'
             debuggable false
             jniDebuggable false
         }

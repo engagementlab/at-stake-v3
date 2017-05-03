@@ -16,7 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Disable auto-screen lock (required for websocket to not disconnect)
+        UIApplication.shared.isIdleTimerDisabled = true
+        
         return true
+    }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        
+        return UIInterfaceOrientationMask.portrait
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

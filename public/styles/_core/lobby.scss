@@ -20,7 +20,9 @@
 		right: 0;
 		bottom: 10px;
 		margin-bottom: 10px;
-		color: $turquoise-light;
+		font-size: 24px;
+		font-family: AvenirNext-Bold;
+		color: white;
 		width: 96px;
 		padding: 0px;
 		min-width: 0px;
@@ -38,7 +40,7 @@
 		&:not(#decider) {
 			width: 100%;
 		  height: 70%;
-		  bottom: 0px;		  
+		  bottom: 0px;
 
 		  &.player-grid {
 		  	width:100% !important;
@@ -50,8 +52,9 @@
 		}
 		
 		&#decider {
+			padding-top:8px;
 			.waiting {
-				width: 90%;
+				width: 100%;
 				margin: 0px auto;
 			}
 		}
@@ -61,6 +64,11 @@
 		}
 		#tutorial {
 	    padding-top: 65%;
+
+	    .btn_cap {
+	    	width: 200px;
+	    	margin: 0 auto;
+	    }
 		}
 
 		// Show back button on login screen
@@ -98,7 +106,7 @@
 		#btn-start-game {
 			width: auto;
 			white-space: normal;
-			color: $turquoise-light;
+			color: white;
 			border: 0px;
 			border-radius:0px;
 			height:auto;
@@ -112,7 +120,7 @@
 			right: 0px;
 			bottom: 0px;
 			font-size: 24px;
-			font-family: AvenirNext;
+			font-family: AvenirNext-Bold;
 		}
 
 		.username {
@@ -150,6 +158,8 @@
 
 		&#choices {
 
+			margin-top:-16px;	
+			height: 80%;  
 			#btn_new_game {
 				@include gradient-vertical($orange-light, $orange-dark, 90%, 10%);					
 			}
@@ -170,7 +180,7 @@
 			height:48px;
 			padding:0px;
 			margin: 0 auto;
-			margin-bottom: 70px;
+			margin-bottom: 60px;
 
 			h2 {
 				font-size: 20px;
@@ -213,15 +223,16 @@
 
 		img {
 			// height: 136px;
-			width: 256px;
+			width: 198px;
 			padding: 10px;
 		}
 
 		p {
 			color: white;
-			width: 80%;
-			margin-left: 10%;
-			font-size: 12px;
+			width: 226px;
+			margin: 0px auto;
+			font-size: 16px;
+			font-family: AvenirNext-Medium;
 		}
 
 	}
@@ -391,7 +402,7 @@
 			background: -webkit-linear-gradient(top, $orange-light 90%, $orange-dark 10%); /* Chrome10-25,Safari5.1-6 */
 			background: linear-gradient(to bottom, $orange-light 90%, $orange-dark 10%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 			position: relative;
-		  font-family: AvenirNext;
+		  font-family: AvenirNext-Bold;
 		  font-size: 20px;
 		  font-weight: bold;
 		  font-style: normal;
@@ -421,8 +432,8 @@
 
 		.form-prompt {
 			font-size: 12px;
-			color: lighten($background-color, 10%);
-			margin-bottom: 20px;
+			color: #fafafa;
+			margin-bottom: 8px;
 		}
 		.decks-prompt {
 			font-size: 12px;
@@ -463,10 +474,10 @@
 				position: relative;
 			}
 			.glide__bullets > * {
-				background-color: white;
+				background-color: #d8d8d8;
 			}
 			.glide__bullets > *.active {
-				background-color: lighten($background-color, 10%);
+				background-color: white;
 			}
 			.glide__bullets > *:focus {
 				border: 0px;
@@ -502,9 +513,14 @@
 						color: white;
 						box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
 						font-weight: 700;
+						font-size: 16px;
 				  	font-family: AvenirNext-Bold;
 				  	h2 {
 				  		margin:0px;
+				  	}
+
+				  	.description {
+				  		font-size: 12px;
 				  	}
 					}
 
@@ -515,8 +531,8 @@
 
 					.question {
 						height: auto;
-						margin: 8px 5%;
-						color: lighten(black, 10%);
+						margin: 8px 16px;
+						color: #949494;
 					  text-align: center;
 				  	line-height: 12px;
 				  	font-size: 12px;
@@ -527,7 +543,6 @@
 					.stakeholders {
 						width: 100%;
 						padding:0px;
-						margin-bottom: 8px;
 						display: inline-block;
 					}
 
@@ -547,6 +562,7 @@
 				    	padding:0px;
 				    	line-height: 1.33;
 				    	vertical-align: middle;
+				    	text-align: center;
 				    }
 
 				    &:nth-child(1) {
@@ -554,6 +570,14 @@
 				    	margin-right:2%;
 				    }
 				    &:nth-child(2) {
+				    	margin-right:8%;
+				    	margin-left:2%;
+				    }
+				    &:nth-child(3) {
+				    	margin-left:8%;
+				    	margin-right:2%;
+				    }
+				    &:nth-child(4) {
 				    	margin-right:8%;
 				    	margin-left:2%;
 				    }
@@ -574,6 +598,7 @@
 	#share_code, #game_code {
 		text-align: center;
 	  color: #fafafa;
+	  width:100%;
 	  margin-top: -30px;
 
 		h1:not(.access-code) {
@@ -596,13 +621,13 @@
 		padding: 0px;
 
 		.access-code {
-			max-width: 70%;
+			max-width: 200px;
 		  height: auto;
 		  font-size: 56px !important;
 		  padding: 5px;
 		  // color: #0098d0;
 		  border: 3px solid #61f5de;
-		  background-color: transparent;
+		  background-color: #00c2a9;
 		  margin: 10px auto;
 		  font-family: $aileron;
 
@@ -611,13 +636,13 @@
 		  }
 		  // TODO: color var
 		  span:nth-child(2) {
-		  	color: white;
+		  	color: #fc2058;
 		  }
 		  span:nth-child(3) {
-			  color: $grey-dark;
+			  color: #fdb211;
 		  }
 		  span:nth-child(4) {
-		  	color: #56f6d6;
+		  	color: #4acbff;
 		  }
 		}
 		p {
@@ -626,8 +651,19 @@
 	}
 		
 	.player-logo {
+		height: 40px;
+		width: 200px;
+		margin:8px;
 		p {
-			color: $grey-dark;
+			text-align: left;
+			color: #949494;
+			font-family: AvenirNext-Bold;
+			font-size: 20px;
+			height:20px;
+			line-height: 40px;
+			float:left;
+			margin: 0px;
+
 		}
 	}
 

@@ -10,7 +10,7 @@
 		}}
 
 		{{> component/instructions 
-				heading="Get ready to think of a proposal"
+				heading="Listen to the Decider"
 				body="Remember to think from your stakeholder's perspective and include your agenda items!"
 		}}
 
@@ -40,11 +40,11 @@
 
 		{{> component/speech 
 				decider=true
-				body=(combine 'Once I start the timer, you will have ' config.thinkSeconds ' seconds to think of a proposal that addresses this question. Remember to think from your character\'s perspective!')
+				body="Remember to think from  your assigned Stakeholder's perspective. When time is up, we will move to the next phase where you will pitch your proposals!"
 		}}
 
 		{{> component/speech 
-				body=(combine 'Once I start the timer, you will have ' config.thinkSeconds ' seconds to think of a proposal that addresses this question. Remember to think from your character\'s perspective!')
+				body="Remember to think from  your assigned Stakeholder's perspective. When time is up, we will move to the next phase where you will pitch your proposals!"
 		}}
 
 	</div>
@@ -55,7 +55,7 @@
 		{{> component/instructions 
 				decider=true
 				heading="Press the button to start the timer"
-				body="When everyone is ready and understands the instructions, press the button to start the timer."
+				body="When everyone is ready, press the button to start the timer."
 		}}
 		
 		{{> component/instructions 
@@ -84,49 +84,25 @@
 		{{> component/instructions 
 				decider=true
 				heading="Wait for the timer to reach zero"
-				body='When the timer reaches zero announce "Times Up!" The screen will advance autmatically.'
+				body='When the timer reaches zero announce "Times Up!" The screen will advance automatically.'
 		}}
 		
 		{{> component/instructions 
-				heading="Think of a proposal!"
+				heading="Think of a proposal"
 				body="Remember to incorporate your hidden agenda items and embody your stakeholder role!"
 		}}
  
 		{{> component/timer 
 				time=config.thinkSeconds
 				decider=true
+				stage="think"
 				body=question
 		}}
 		
 		{{> component/timer 
 				time=config.thinkSeconds
 				body=question
-		}}
-	
-	</div>
-
-	{{!-- END --}}
-	<div class="screen">
-
-		{{> component/instructions 
-				decider=true
-				heading="Read the text in the blue box out loud"
-				body="Once you have finished speaking the instruction, press next to continue."
-		}}
-		
-		{{> component/instructions 
-				heading="Get ready to pitch your proposal"
-				body=(combine 'In the next phase everyone will have ' config.pitchSeconds ' to pitch their proposal.')
-		}}
-
-		{{> component/speech 
-				decider=true
-				advance=true
-				body="Get ready to propose your solutions in the Pitch phase!"
-		}}
-
-		{{> component/speech 
-				body="Get ready to propose your solutions in the Pitch phase!"
+				stage="think"
 		}}
 	
 	</div>

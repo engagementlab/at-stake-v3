@@ -129,6 +129,9 @@ var checkIfLoggedIn = function() {
             if(evt.keyCode == 13)
                 $('#btn_submit_name').click();
 
+            if(evt.keyCode === 32) 
+                return false;
+
         });
         $('#access_code').keydown(function(evt) {
             

@@ -47,18 +47,60 @@
   // Tracks current phase index and the screen during each phase
   currentPhaseIndex = -1,
   currentScreenIndex = 0,
+	
 
+	//sound declaration
   sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1492187090/at-stake/sfx/';
   {{#ifeq env "development"}}
   	sfxPath = '/sfx/';
   {{/ifeq}}
 
-
-
 	ion.sound({
     sounds: [
         {
             name: "button_tiny"
+        },
+        {
+            name: "add_coin"
+        },
+        {
+            name: "alarm_single"
+        },
+        {
+            name: "alarm",
+        },
+        { 
+            name: "back"
+        },
+        {
+            name: "click1"
+        },
+        {
+            name: "click2"
+        },
+        {
+            name: "click3"
+        },
+        {
+            name: "coins"
+        },
+        {
+            name: "confirm"
+        },
+        {
+            name: "player_green"
+        },
+        {
+            name: "player_orange"
+        },
+        {
+            name: "player_pink"
+        },
+        {
+            name: "player_red"
+        },
+        {
+            name: "player_yellow"
         }
     ],
     volume: 0.5,
@@ -114,7 +156,7 @@
 		'game:refresh_screen',
 
 		'coins:add',
-		'coins:remove',
+		'coins:remove'
 	
 	];
 
@@ -348,21 +390,29 @@
 	                    }
 	              }
 	            );
-	        }
+	        } 
 
 	    });
 
 	}
 
-	var openInnerModal = function(selector, force, noAnimate) {
+	var openInnerModal = function(selector, force, noAnimate, message) {
 
 			if(!selector)
 				selector = '';
 
 			var modalSelector = $('#gameContent .screen:visible .inner-modal' + selector).first();
 
-			if(selector === 'menu')
+			if(selector === 'menu') {
+
+				if(message) {
+					$('#game-menu #header').hide();
+					$('#game-menu #message-'+message).show();
+				}
+
 				modalSelector = $('#main_menu');
+
+			}
 
 			if(modalSelector.length === 0)
 				return;
@@ -476,7 +526,7 @@
 
 	var registerEvents = function() {
 
-    {{#ifeq environment "development"}}
+    {{#ifnoteq environment "production"}}
         
         socket.on('connect_timeout', function() {
            console.warn('Client timed out when connecting.');
@@ -501,7 +551,7 @@
 
         console.log('Connecting to game "' + gameCode + '".');
 
-    {{/ifeq}}
+    {{/ifnoteq}}
 
     $.each(eventIds, function(index, id) {
       
@@ -593,27 +643,29 @@
 
 			var mainMenuHandler = function() {
 
-				$('#btn-menu').click(function(evt) {
+				$('#overlay').on('opened', function(evt) {
 
-					$('#overlay').on('opened', function(evt) {
-						$(evt.currentTarget).off('opened');
+					$(evt.currentTarget).off('opened');
 
-						$('#overlay #btn-menu-back').click(function(evt) {
-							$('#overlay').trigger('hide');
-						});
-						$('#overlay #btn-reconnect').click(function(evt) {
-							window.location = window.location;
-						});
-						$('#overlay #btn-quit').click(function(evt) {
-							quitOpenClose(true);
-						});
-						$('#overlay #btn-quit-yes').click(function(evt) {
-							socket.emit('game:exit', emitData());
-						});
-						$('#overlay #btn-quit-no').click(function(evt) {
-							quitOpenClose(false);
-						});
+					$('#overlay #btn-menu-back').click(function(evt) {
+						$('#overlay').trigger('hide');
 					});
+					$('#overlay #btn-reconnect').click(function(evt) {
+						window.location = window.location;
+					});
+					$('#overlay #btn-quit').click(function(evt) {
+						quitOpenClose(true);
+					});
+					$('#overlay #btn-quit-yes').click(function(evt) {
+						socket.emit('game:exit', emitData());
+					});
+					$('#overlay #btn-quit-no').click(function(evt) {
+						quitOpenClose(false);
+					});
+
+				});
+
+				$('#btn-menu').click(function(evt) {	
 
 					openInnerModal('menu');
 
@@ -671,6 +723,8 @@
 
 			// Load animations
 			{{> script/player_animation section=section}}
+			//sfx?
+			{{> script/sfx_button_calls}}
 
 			$(document).ready(function() {
 

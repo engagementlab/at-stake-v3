@@ -47,9 +47,13 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, WKSc
     // Load URL to webview
     func loadURL() {
         #if DEVELOPMENT
-        let urlString = "http://127.0.0.1:3000/play/mobile"
+            let urlString = "http://127.0.0.1:3000/play/mobile"
         #else
-        let urlString = "https://qa.atstakegame.org/play/mobile"
+            #if PRODUCTION
+                let urlString = "https://atstakegame.org/play/mobile"
+            #else
+                let urlString = "https://qa.atstakegame.org/play/mobile"
+            #endif
         #endif
         
         guard let url = NSURL(string: urlString) else {return}
@@ -72,6 +76,11 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, WKSc
         
         super.viewDidLoad()
         
+        // Force portait mode on load
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+        
+        UIViewController.attemptRotationToDeviceOrientation()
+        
         // Create webview and its config
         contentController = WKUserContentController()
         webConfig = WKWebViewConfiguration()
@@ -88,7 +97,6 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, WKSc
         )
         webView.navigationDelegate = self
         webView.translatesAutoresizingMaskIntoConstraints = false
-//        webView.isHidden = true
         
         view.addSubview(webView)
         
@@ -104,6 +112,21 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, WKSc
     
     }
     
+    // Hide status bar
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    // Prevent rotation
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    // Force portrait mode
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    
     // Respond to calls from webview
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         
@@ -113,7 +136,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, WKSc
             if(messageBody["status"] as! String == "okeydokey") {
                 
                 switch(messageBody["action"] as! String) {
-                     veb330d8510ce3a75931802b4b49bfac6fbdb2a6f
+                     
                     // New game UI opened
                     case "new":
                         

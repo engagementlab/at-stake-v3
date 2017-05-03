@@ -33,10 +33,11 @@
             </h1>
 
             <span id="modifier" class="hidden-el" data-hide_next="false"></span>
-            {{#if body}}<p>{{body}}</p>{{/if}}
           </div>
 
         </button>
+
+        {{#if body}}<p>{{body}}</p>{{/if}}
 
     </div>
 
@@ -49,13 +50,17 @@
 
         <div class="speech">
             <h1>Seconds left</h1>
-
-          {{#ifeq active_player true}}
-            {{#if body_active}}<p>{{body_active}}</p>{{/if}}
-          {{else}}
-            {{#if body}}<p>{{body}}</p>{{/if}}
-          {{/ifeq}}
         </div>
+
+        {{#ifeq active_player true}}
+          {{#ifeq stage 'doubledown'}}
+            {{#if body_active}}<p>{{body_active}}<br><span>{{role}}</span></p>{{/if}}
+          {{else}}
+            {{#if body}}<p class="{{stage}}">{{body}}<br><span>{{role}}</span></p>{{/if}}
+          {{/ifeq}}
+        {{else}}
+            {{#if body}}<p class="{{stage}}">{{body}}<br><span>{{role}}</span></p>{{/if}}
+        {{/ifeq}}
 
   </div>
 

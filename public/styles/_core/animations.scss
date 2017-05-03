@@ -23,10 +23,16 @@
 
 @keyframes exit-stage {
 	from {
+		top: 0px;
+		left: 0px;
+		position: relative;
 		height: 40px;
 		width: 40px;
 	}
 	to {
+		top: 0px;
+		left: 0px;
+		position: relative;
 		height: 23px;
 		width: 23px;
 	}

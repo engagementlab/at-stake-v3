@@ -39,17 +39,13 @@
             
         {{/ifeq}}
 
-        <div id="wrapper" class="{{#ifeq section 'homepage'}}home-wrap{{/ifeq}}">
+        <div id="wrapper" class="{{#ifeq section 'homepage'}}home-wrap{{else}}game-wrap{{/ifeq}}">
 
             <div id="overlay" class="modal"></div>
 
             {{!-- PRE-FILLED MODALS --}}
             {{#ifnoteq section 'homepage'}}
             <section id="error-disconnected" class="modal error-modal">
-                <div id="text" class="col-sm-8 col-centered">
-                  <h1>Yikes! :-(</h1>
-                  <h2>It looks like the game server is not responding for some reason. Try playing later!</h2>
-                </div>
             </section>
 
             <section id="error-player-disconnected" class="modal error-modal">
@@ -80,9 +76,13 @@
                             </button>
 
                         </div>
+                      
+                        <div id="message-disconnected" class="col-sm-8 col-centered error" style="display:none">
+                          It looks like the game is not responding for some reason. Try reconnecting or playing later!
+                        </div>
 
-                        <div id="logo-header" class="desktop-only">
-                            {{{cloudinaryUrl "v1490382079/at-stake/s-t-a-k-e-l-o-g-o_3x.png" width=300 }}}
+                        <div id="logo-header">
+                            {{{cloudinaryUrl "v1490382079/at-stake/layout/logo.svg" width=200 }}}
                         </div>
 
                         <button id="btn-reconnect" class="btn" type="submit" name="submit" data-keep_open="true" data-keep_enabled="true">
@@ -118,17 +118,18 @@
                 <span id="fill" class="phase-path"></span>
                 <span id="progress" class="phase-path"></span>
 
-                <div class="disabled icon">{{!-- {{{cloudinaryUrl 'v1492107684/at-stake/phaseactive.svg' width=23 height=23}}} --}}<span>meet</span></div>
-                <div class="disabled icon">{{!-- {{{cloudinaryUrl 'v1491318245/at-stake/phaseactive.svg' width=23 height=23}}} --}}<span>think</span></div>
-                <div class="disabled icon">{{!-- {{{cloudinaryUrl 'v1491318245/at-stake/phaseactive.svg' width=23 height=23}}} --}}<span>pitch</span></div>
-                <div class="disabled icon">{{!-- {{{cloudinaryUrl 'v1491318245/at-stake/phaseactive.svg' width=23 height=23}}} --}}<span>deliberate</span></div>
-                <div class="disabled icon">{{!-- {{{cloudinaryUrl 'v1491318245/at-stake/phaseactive.svg' width=23 height=23}}} --}}<span>double-down</span></div>
-                <div class="disabled icon">{{!-- {{{cloudinaryUrl 'v1491318245/at-stake/phaseactive.svg' width=23 height=23}}} --}}<span>decide</span></div>
-                <div class="disabled icon">{{!-- {{{cloudinaryUrl 'v1491318245/at-stake/phaseactive.svg' width=23 height=23}}} --}}<span>score</span></div>
+                <div class="disabled icon">{{{cloudinaryUrl 'v1492107684/at-stake/layout/meet-phase.svg' width=100 height=100}}}<span>meet</span></div>
+                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/think-phase.svg' width=100 height=100}}}<span>think</span></div>
+                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/pitch-phase.svg' width=100 height=100}}}<span>pitch</span></div>
+                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/delib-phase.svg' width=100 height=100}}}<span>deliberate</span></div>
+                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/dd-phase.svg' width=100 height=100}}}<span>double-down</span></div>
+                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/score-phase.svg' width=100 height=100}}}<span>decide</span></div>
+                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/score-phase.svg' width=100 height=100}}}<span>score</span></div>
             </section>
 
             {{!-- ROLE CARD OVERLAY --}}
             <section class="col-sm-12" id="role-card">
+
 
             </section>
 
@@ -189,8 +190,8 @@
                 <footer id="bottom-bar" style="display:none">
                 
                     <div class="col-sm-6 col-xs-6">
-                        <button id="btn-role-card">role card</button>
-                        <button id="btn-menu">menu</button>
+                        <button id="btn-role-card">Role Card</button>
+                        <button id="btn-menu">Menu</button>
                     </div>
                     <div id="currency" class="col-sm-6 col-xs-6">
                         <div id="pot-coins"><p>coin pot</p>  <span></span></div>

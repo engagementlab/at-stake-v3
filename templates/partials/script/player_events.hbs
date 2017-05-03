@@ -36,7 +36,6 @@ var resetSession = function() {
 var startTimer = function(secondsLeft, timerAdvance) {
     
     var wasPaused = false;
-
     if($('.screen:visible .timer').length === 0)
         return;
 
@@ -101,6 +100,8 @@ var startTimer = function(secondsLeft, timerAdvance) {
 }
 
 var setupScreen = function(screenName) {
+
+    console.log(screenName);
 
     // Add trigger to go to next step on next-step buttons
     $('.next-step').click(function(evt) {
@@ -181,7 +182,7 @@ socketEvents = function(eventId, eventData) {
 
         case 'connect':
 
-            // ion.sound.play("button_tiny");
+            ion.sound.play("player_pink");
             
             if(sessionStorage.getItem('gameCode')) {
                 // Check if player is active in game
@@ -221,13 +222,15 @@ socketEvents = function(eventId, eventData) {
             if ($('.modal'))
                 $('.modal').fadeOut();
 
-            $('#error-disconnected').trigger('show');
-            $('#error-disconnected #text').css('top', '0');
+            // Show main menu w/ error
+            openInnerModal('menu', false, false, 'disconnected');
 
             break;
 
         case 'player:loggedin':
             
+            ion.sound.play("player_pink");
+
             playerWasReconnected = false;
 
             if (isDecider)
@@ -272,11 +275,9 @@ socketEvents = function(eventId, eventData) {
 
                 $('#btn-close-role-card').on('click', function(evt) {
                     roleCardOpenClose(false);
-                    // ion.sound.play("button_tiny");
                 });
                 $('#btn-role-card').on('click', function(evt) {
                     roleCardOpenClose(true);
-                    // ion.sound.play("button_tiny");
                 });
                 
                 $('#gameContent').html(markup).promise().done(function() {
@@ -370,9 +371,11 @@ socketEvents = function(eventId, eventData) {
             $('#role-card').html(eventData);
             
             $('#btn-close-role-card').on('click', function(evt) {
+                ion.sound.play("back");
                 roleCardOpenClose(false);
             });
             $('#btn-role-card').on('click', function(evt) {
+                ion.sound.play("click1");
                 roleCardOpenClose(true);
             });
             $('#role-card').on('swipe', function() {
@@ -382,9 +385,6 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:start':
-        
-            if (!$('.rules-screen').css('display', 'block'))
-                $('#background-logo').show();
 
             $('#bottom-bar').show();
             
@@ -400,6 +400,13 @@ socketEvents = function(eventId, eventData) {
 
             var modalToOpen = eventData.chosen ? 'yes' : 'no';
             var modalToRemove = !eventData.chosen ? 'yes' : 'no';
+
+            if (!isDecider && eventData.chosen){
+                ion.sound.play("player_pink");
+                ion.sound.play("coins");
+            } else if(!isDecider && !eventData.chosen){
+                ion.sound.play("player_red");
+            }
 
             $('.agenda_item.' + modalToRemove).first().remove();
             openInnerModal('.' + modalToOpen);
@@ -429,18 +436,45 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:next_screen':
+            if(isDecider){
+                ion.sound.play("click3");
+            }
 
+            $('#btn-more-time').click(function() {
+                ion.sound.stop("click3");
+                ion.sound.play("player_yellow");
+            });
+
+            $('#btn-cancel').click(function() {
+                ion.sound.stop("click3");
+                ion.sound.play("player_red");
+            });
+
+            $("#winner-btn").click(function(){
+                console.log("data event winner-button pressed");
+                ion.sound.play("player_orange");
+            });
             // Only occurs for non-decider, since decider sends this
             // Or if forced, do this for all players
+
             if(!isDecider || eventData.force)
                 nextPhaseScreen();
-
+            
             break;
 
         case 'game:next_phase':
 
-            if (!$('.rules-screen').css('display', 'block'))
+            $('#btn-cancel').click(function() {
+                ion.sound.stop("click3");
+                ion.sound.play("player_red");
+            });
+
+            if(isDecider){
+                    ion.sound.play("click3");
+                }
+            if ($('#background-logo').css('display', 'none'))
                 $('#background-logo').show();
+
 
             $('#bottom-bar').show();
 
@@ -478,7 +512,7 @@ socketEvents = function(eventId, eventData) {
                 nextScreenData = eventData;
                 return;
             }
-            
+
             updateGameContent(eventData.html, function() {
 
                 setupScreen();
@@ -541,9 +575,9 @@ socketEvents = function(eventId, eventData) {
             break;
             
         case 'game:countdown':
-
+            ion.sound.stop("click3");
             $('#btn-time').fadeOut();
-
+            ion.sound.play("alarm_single");
             countdownPaused = false;
 
             if(clockInterval)
@@ -559,7 +593,6 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:countdown_ending':
-
             $('.form .error').fadeIn().html(eventData);
             $('.form .error').delay(3000).fadeOut('slow');
 
@@ -567,6 +600,7 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:countdown_end':
 
+            ion.sound.play("alarm");
             $('#added-time').hide();
             timerActive = false;
 
@@ -577,7 +611,6 @@ socketEvents = function(eventId, eventData) {
                     socket.emit('game:next_player', emitData());
                     return;
                 }
-
             }
             
             runMods();
@@ -588,9 +621,21 @@ socketEvents = function(eventId, eventData) {
                 $('#overlay').trigger('hide');
                 
             });
+            $('#btn-more-time').click(function() {
+                ion.sound.stop("click3");
+                ion.sound.play("player_yellow");
+            });
 
-            if(eventData == "brainstormCountdown" || eventData == "deliberateCountdown") 
+            $('#btn-cancel').click(function() {
+                ion.sound.stop("click3");
+                ion.sound.play("player_red");
+            });
+
+            if(eventData == "deliberateCountdown") 
                 nextPhaseScreen();
+            else if (eventData == "brainstormCountdown" && isDecider){
+                socket.emit('game:next', emitData(true));
+            } 
 
             break;
 
@@ -656,6 +701,8 @@ socketEvents = function(eventId, eventData) {
             ga('send', 'event', 'Game', 'Event', 'Coins - ' + eventData.type);  
 
             $('#' + eventData.type + '-coins span').text(eventData.amt);
+
+            
 
             break;
 
