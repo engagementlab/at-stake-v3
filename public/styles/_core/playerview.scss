@@ -488,14 +488,21 @@ input.post-button {
 			}
 		}
 		&:not(.disabled) {
+	    display: inline-block;
 			height: 40px;
 			width: 40px;
+			max-width: 40px;
 			border: 2px white solid;
 		  background-color: $turquoise-light;
 		  box-shadow: 0 2px 0 0 $turquoise-dark;
 
 			span {
 				width: 100%;
+
+			  &#doubledown {
+	  	    width: 99px !important;
+			    margin-left: -25px;
+			  }
 			}
 		}
 
