@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B200489E1E4D35C100E05187"
-               BuildableName = "AtStake Dev.app"
-               BlueprintName = "AtStake Dev"
-               ReferencedContainer = "container:AtStake.xcodeproj">
+               BlueprintIdentifier = "B2B8744A1E4B9B1200572938"
+               BuildableName = "@Stake.app"
+               BlueprintName = "@Stake"
+               ReferencedContainer = "container:@Stake.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,14 +28,34 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B2B8745E1E4B9B1300572938"
+               BuildableName = "@StakeTests.xctest"
+               BlueprintName = "@StakeTests"
+               ReferencedContainer = "container:@Stake.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B2B874691E4B9B1300572938"
+               BuildableName = "@StakeUITests.xctest"
+               BlueprintName = "@StakeUITests"
+               ReferencedContainer = "container:@Stake.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B200489E1E4D35C100E05187"
-            BuildableName = "AtStake Dev.app"
-            BlueprintName = "AtStake Dev"
-            ReferencedContainer = "container:AtStake.xcodeproj">
+            BlueprintIdentifier = "B2B8744A1E4B9B1200572938"
+            BuildableName = "@Stake.app"
+            BlueprintName = "@Stake"
+            ReferencedContainer = "container:@Stake.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,12 +75,19 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B200489E1E4D35C100E05187"
-            BuildableName = "AtStake Dev.app"
-            BlueprintName = "AtStake Dev"
-            ReferencedContainer = "container:AtStake.xcodeproj">
+            BlueprintIdentifier = "B2B8744A1E4B9B1200572938"
+            BuildableName = "@Stake.app"
+            BlueprintName = "@Stake"
+            ReferencedContainer = "container:@Stake.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "DEBUG"
+            value = "1"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -74,10 +101,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B200489E1E4D35C100E05187"
-            BuildableName = "AtStake Dev.app"
-            BlueprintName = "AtStake Dev"
-            ReferencedContainer = "container:AtStake.xcodeproj">
+            BlueprintIdentifier = "B2B8744A1E4B9B1200572938"
+            BuildableName = "@Stake.app"
+            BlueprintName = "@Stake"
+            ReferencedContainer = "container:@Stake.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
