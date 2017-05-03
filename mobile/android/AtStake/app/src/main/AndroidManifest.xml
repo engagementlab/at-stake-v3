@@ -12,7 +12,11 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Material.Light.NoActionBar.Fullscreen"
         tools:ignore="NewApi">
-        <activity android:name=".WebActivity" android:theme="@style/SplashTheme" >
+        <activity
+            android:name=".WebActivity"
+            android:theme="@style/SplashTheme"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

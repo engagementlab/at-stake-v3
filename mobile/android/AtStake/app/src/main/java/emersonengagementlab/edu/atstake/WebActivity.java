@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -80,6 +81,9 @@ public class WebActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
 
+        // Keep screen turned on
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         TextView buildTextView = (TextView) findViewById(R.id.buildText);
 
         if(BuildConfig.ENVIRONMENT == "staging") {
@@ -105,5 +109,10 @@ public class WebActivity extends Activity {
 
         gameWebView.loadUrl(urlString);
 
+    }
+
+    // Disable back button
+    @Override
+    public void onBackPressed() {
     }
 }
