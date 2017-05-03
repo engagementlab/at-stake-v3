@@ -807,6 +807,9 @@ input.post-button {
   .instruction {
   	font-family: AvenirNext-Medium;
 	  font-size: 12px;
+	  div {
+			font-size: 14px;
+		}
 	  span {
 	  	font-family: AvenirNext-Bold;
 	  }
@@ -953,6 +956,10 @@ input.post-button {
 	height: 72px;
 	margin-bottom: 4px;
 	font-family: AvenirNext;
+
+	div {
+		font-size: 14px;
+	}
 
 	h1 {
 		font-size: 16px;
@@ -1189,7 +1196,7 @@ footer#bottom-bar {
 			font-size: 12px;
 	  }
 		#player-coins {
-			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/coin-icon-mobile.svg');
+			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_200/v1486743650/at-stake/layout/coin-icon-mobile.svg');
 			height: 100px;
 			width: 60px;
 	    background-repeat: no-repeat;
@@ -1197,7 +1204,7 @@ footer#bottom-bar {
 	    background-position: center;
 		}
 		#pot-coins {
-			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/coin-pot-mobile.svg');
+			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_200/v1486743650/at-stake/layout/coin-pot-mobile.svg');
 			height: 100px;
 			width: 60px;
 	    background-repeat: no-repeat;
@@ -1210,7 +1217,7 @@ footer#bottom-bar {
 	button {
 		margin: 5px;
 		color: white;
-		width: 121px;
+		width: 130px;
 	  height: 36px;
 	  padding-left: 2.4em;
 	  font-size: 16px;
