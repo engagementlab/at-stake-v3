@@ -165,6 +165,69 @@ phaseBarProgress = function() {
 
 }
 
+/* 
+    New game button handling
+*/
+newGameHandler = function() {
+
+    $('#choices .btn').css('opacity', '1');
+    
+    /* 
+     Get info for player when they ask to start new game
+    */
+    $('#btn_new_game').click(function() {
+
+        if( ($.trim( $('#decks').html() ).length > 0) && $('#decks').hasClass('glide--carousel') ) {
+            
+            loginNewGame();
+            return;
+        }
+
+        $.get(
+            "/api/generate",
+            function( data ) {
+
+                gameCode = data.code;
+
+                $('#decks')
+                 .html(data.html)
+                 .promise()
+                 .done(function() {
+
+                    loginNewGame(function() {
+
+                        // Tell mobile action has completed
+                        $('body').trigger('mobileCallback');
+
+                        if(!$('#decks').hasClass('glide--carousel')) {
+                        
+                            $('#decks').glide({
+                                type: 'carousel',
+                                autoplay: false,
+                                autoheight: true, 
+                                paddings: 0
+                            });
+                        
+                        }
+
+                    });
+
+                 });
+
+                 var gameCodeMarkup = '';
+                _.each(data.code.split(''), function(char, i) {
+                    gameCodeMarkup += '<span>' + char + '</span>';
+                });
+                $('.access-code').html(gameCodeMarkup);
+                $('#gameContent').addClass('lobby');
+
+            }
+        );
+
+    });
+
+}
+
 /*
  Save player name and advance to next screen
 */
@@ -190,7 +253,10 @@ $(document).on('click', '.btn.submit_name', function(evt) {
     $('#username').text(data.name);
 
     // Show new game/join
-    loginFromTo('name', 'choices');
+    loginFromTo('name', 'choices', 1, function() {
+        // Setup new game button handler and callbacks
+        newGameHandler();
+    });
     
 
 });
@@ -293,59 +359,6 @@ $(document).on('click', '.btn.game_login', function(evt) {
 
 
             loginFromTo('join', 'lobby', .7);
-
-        }
-    );
-
-});
-
-/* 
- Get info for player when they ask to start new game
-*/
-$('#btn_new_game').click(function() {
-
-    if($.trim( $('#decks').html() ).length > 0) {
-        
-        loginNewGame();
-        return;
-    }
-
-    $.get(
-        "/api/generate",
-        function( data ) {
-
-            gameCode = data.code;
-
-            $('#decks')
-             .html(data.html)
-             .promise()
-             .done(function() {
-
-                loginNewGame(function() {
-
-                    // Tell mobile action has completed
-                    $('body').trigger('mobileCallback');
-
-                    if(!$('#decks').hasClass('glide--carousel')) {
-                    
-                        $('#decks').glide({
-                            type: 'carousel',
-                            autoplay: false,
-                            autoheight: true, 
-                            paddings: 0
-                        });
-                    
-                    }
-                });
-
-             });
-
-             var gameCodeMarkup = '';
-            _.each(data.code.split(''), function(char, i) {
-                gameCodeMarkup += '<span>' + char + '</span>';
-            });
-            $('.access-code').html(gameCodeMarkup);
-            $('#gameContent').addClass('lobby');
 
         }
     );
