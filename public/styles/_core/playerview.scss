@@ -884,7 +884,7 @@ input.post-button {
   }
   .agenda-item {
   	border-radius: 100px;
-  	background-color: $orange-dark;
+  	background-color: $background-color;
   	margin: 8px;
   	height: 56px;
   	color: white;
@@ -967,6 +967,7 @@ input.post-button {
 
 	div {
 		font-size: 14px;
+		font-family: AvenirNext-DemiBold;
 	}
 
 	h1 {
@@ -1034,13 +1035,13 @@ blockquote.speech {
 	  &.scoreboard {
 	  	height: 32px;
 	  	font-size: 24px;
-	  	right: -10px;
+	  	right: 0px;
 	  	bottom: inherit;
 	  	color: $color-white;
-	  	// &:before {
-				// border-left: 8px solid $color-white;
+	  	&:before {
+				border: 0px;
 				// left: 147px;	
-	  	// }
+	  	}
 	  	&.debrief {
 		  	&:before {
 					left: 115px !important;
@@ -1098,7 +1099,7 @@ blockquote.speech {
 		margin: 10px auto;
 		height: 48px;
 
-    background-position: 48px center;
+    background-position: 47px center;
     background-size: 40px 40px;
 
     .rank {
