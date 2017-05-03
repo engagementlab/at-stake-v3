@@ -782,7 +782,7 @@ input.post-button {
   z-index: 3000;
   @include gradient-vertical(#18b898, $white, 20%, 20%);
   top:60px;
-
+  padding: 8px;
   .caption {
   	margin-bottom: 15px;
   }
@@ -822,6 +822,7 @@ input.post-button {
   .instruction {
   	font-family: AvenirNext-Medium;
 	  font-size: 12px;
+	  margin-bottom: 10px
 	  div {
 			font-size: 14px;
 		}
@@ -839,8 +840,9 @@ input.post-button {
   }
 
   .role-info {
+  	width: 288px;
   	color:$orange-dark;
-  	margin: 0px -15px;
+  	margin: 0px;
   	padding-bottom: 0px;
 
   	.title {
@@ -870,6 +872,7 @@ input.post-button {
 	  margin: 8px auto;
   }
   .agenda-wrap {
+  	width: 288px;
   	color: $background-color;
 
   	.header {
@@ -891,30 +894,34 @@ input.post-button {
   }
   .agenda-item {
   	border-radius: 100px;
-  	background-color: $orange-dark;
-  	margin: 8px;
+  	background-color: $background-color;
+  	margin: 16px auto;
   	height: 56px;
   	color: white;
 
+  	&:nth-child(1) {
+  		margin-top: 8px;
+  	}
+
 
   	.value {
-	  	height: 56px;
-	  	width: 56px;
-	  	line-height: 58px;
+	  	height: 64px;
+	  	width: 64px;
+	  	margin-top: -4px;
+	  	line-height: 64px;
 	  	display: inline-block;
 	  	float: left;
 	  	font-size: 24px;
 	  	font-family: AvenirNext-Bold;
 	    background-size: 64px 64px;
-	    background-position: -8px -8px;
-	  	// background-size: cover;
+	    background-position: center;
 	  	background-repeat: no-repeat;
 	  	background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1490979430/at-stake/layout/icon-yourcoins.svg");
 	  }
 	  .agenda {
 	  	height: 32px;
       margin: 10px auto;
-	  	width: 180px;
+	  	width: 200px;
 	  	display:inline-block;
 	  	text-align: left;
 	  	line-height:1.2;
@@ -974,6 +981,7 @@ input.post-button {
 
 	div {
 		font-size: 14px;
+		font-family: AvenirNext-DemiBold;
 	}
 
 	h1 {
@@ -1030,41 +1038,41 @@ blockquote.speech {
     display: flex;
     background: none;
     border: none;
-    right: 11%;
+    right: 10%;
     bottom: 75px;
   	font-family: "AvenirNext-Bold";
 	  &.timer {
-	  	&:before {
-			  left: 103px;
-			}
+	  // 	&:before {
+			//   left: 103px;
+			// }
 	  }
 	  &.scoreboard {
 	  	height: 32px;
 	  	font-size: 24px;
-	  	right: -10px;
+	  	right: 0px;
 	  	bottom: inherit;
 	  	color: $color-white;
 	  	// &:before {
-				// border-left: 8px solid $color-white;
-				// left: 147px;	
+				// border: 0px;
+				// // left: 147px;	
 	  	// }
-	  	&.debrief {
-		  	&:before {
-					left: 115px !important;
-				}
-	  	}
+	  	// &.debrief {
+		  // 	&:before {
+				// 	left: 115px !important;
+				// }
+	  	// }
 	  }
-  	&:before {
-  		position: absolute;
-  		content: "";
-			bottom: 6px;
-	    left: 48px;
-	    width: 0;
-	    height: 0;
-	    border-left: 8px solid $color-white;
-	    border-top: 5px solid transparent;
-	    border-bottom: 5px solid transparent;
-	  }
+  	// &:before {
+  	// 	position: absolute;
+  	// 	content: "";
+			// bottom: 6px;
+	  //   left: 48px;
+	  //   width: 0;
+	  //   height: 0;
+	  //   border-left: 8px solid $color-white;
+	  //   border-top: 5px solid transparent;
+	  //   border-bottom: 5px solid transparent;
+	  // }
 
   }
 }
@@ -1105,7 +1113,7 @@ blockquote.speech {
 		margin: 10px auto;
 		height: 48px;
 
-    background-position: 48px center;
+    background-position: 47px center;
     background-size: 40px 40px;
 
     .rank {
