@@ -775,7 +775,7 @@ input.post-button {
   z-index: 3000;
   @include gradient-vertical(#18b898, $white, 20%, 20%);
   top:60px;
-
+  padding: 8px;
   .caption {
   	margin-bottom: 15px;
   }
@@ -815,6 +815,7 @@ input.post-button {
   .instruction {
   	font-family: AvenirNext-Medium;
 	  font-size: 12px;
+	  margin-bottom: 10px
 	  div {
 			font-size: 14px;
 		}
@@ -832,8 +833,9 @@ input.post-button {
   }
 
   .role-info {
+  	width: 288px;
   	color:$orange-dark;
-  	margin: 0px -15px;
+  	margin: 0px;
   	padding-bottom: 0px;
 
   	.title {
@@ -863,6 +865,7 @@ input.post-button {
 	  margin: 8px auto;
   }
   .agenda-wrap {
+  	width: 288px;
   	color: $background-color;
 
   	.header {
@@ -885,9 +888,13 @@ input.post-button {
   .agenda-item {
   	border-radius: 100px;
   	background-color: $background-color;
-  	margin: 16px 8px;
+  	margin: 16px auto;
   	height: 56px;
   	color: white;
+
+  	&:nth-child(1) {
+  		margin-top: 8px;
+  	}
 
 
   	.value {
@@ -907,7 +914,7 @@ input.post-button {
 	  .agenda {
 	  	height: 32px;
       margin: 10px auto;
-	  	width: 180px;
+	  	width: 200px;
 	  	display:inline-block;
 	  	text-align: left;
 	  	line-height:1.2;
@@ -1028,9 +1035,9 @@ blockquote.speech {
     bottom: 75px;
   	font-family: "AvenirNext-Bold";
 	  &.timer {
-	  	&:before {
-			  left: 103px;
-			}
+	  // 	&:before {
+			//   left: 103px;
+			// }
 	  }
 	  &.scoreboard {
 	  	height: 32px;
@@ -1038,27 +1045,27 @@ blockquote.speech {
 	  	right: 0px;
 	  	bottom: inherit;
 	  	color: $color-white;
-	  	&:before {
-				border: 0px;
-				// left: 147px;	
-	  	}
-	  	&.debrief {
-		  	&:before {
-					left: 115px !important;
-				}
-	  	}
+	  	// &:before {
+				// border: 0px;
+				// // left: 147px;	
+	  	// }
+	  	// &.debrief {
+		  // 	&:before {
+				// 	left: 115px !important;
+				// }
+	  	// }
 	  }
-  	&:before {
-  		position: absolute;
-  		content: "";
-			bottom: 6px;
-	    left: 48px;
-	    width: 0;
-	    height: 0;
-	    border-left: 8px solid $color-white;
-	    border-top: 5px solid transparent;
-	    border-bottom: 5px solid transparent;
-	  }
+  	// &:before {
+  	// 	position: absolute;
+  	// 	content: "";
+			// bottom: 6px;
+	  //   left: 48px;
+	  //   width: 0;
+	  //   height: 0;
+	  //   border-left: 8px solid $color-white;
+	  //   border-top: 5px solid transparent;
+	  //   border-bottom: 5px solid transparent;
+	  // }
 
   }
 }

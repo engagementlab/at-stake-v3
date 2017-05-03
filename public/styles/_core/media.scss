@@ -67,10 +67,10 @@
 		
 		button {
 			bottom: 60px;
-			&:before {
-				bottom: 6px;
-		    left: 70px;
-			}
+			// &:before {
+			// 	bottom: 6px;
+		 //    left: 70px;
+			// }
 		}
 
 		p {
@@ -96,7 +96,7 @@
 		@include gradient-vertical(#18b898, $white, 30%, 30%);
 
 		.role-info {
-			margin: 0px -15px;
+			margin: 0px;
 
 			.icon {
 				margin: 4px auto;
@@ -104,7 +104,7 @@
 		}
 
 		.agenda-item {
-			margin: 8px 16px;
+			margin: 16px auto;
 		}
 	}
 
@@ -130,16 +130,16 @@
 		}
 		button {
 			bottom: 80px;
-			&:before {
-				bottom: 5px;
-		    left: 60px;
-			}
+			// &:before {
+			// 	bottom: 5px;
+		 //    left: 60px;
+			// }
 			&.timer {
 			bottom: 80px;
-				&:before {
-					bottom: 4px;
-					left: 123px;
-				}
+				// &:before {
+				// 	bottom: 4px;
+				// 	left: 123px;
+				// }
 			}
 		}
 		
@@ -149,9 +149,9 @@
 	  // "Next buttons"
 	  button {
 		  &.timer {
-		  	&:before {
-				  left: 103px;
-				}
+		  // 	&:before {
+				//   left: 103px;
+				// }
 		  }
 		}
 	}
@@ -214,10 +214,10 @@
 		}
 	}
 
-	body .speech button.scoreboard:before {
-		left: 157px;
-		bottom: 4px;
-	}
+	// body .speech button.scoreboard:before {
+	// 	left: 157px;
+	// 	bottom: 4px;
+	// }
 
 	body #lobby .lobby #tutorial {
 		padding-top: 45%;
@@ -228,10 +228,10 @@
 		bottom: 23%;
 		font-size: 17px;
 
-		&:before {
-			left: 58px;
-			bottom: 5px;
-		}
+		// &:before {
+		// 	left: 58px;
+		// 	bottom: 5px;
+		// }
 	}
 
 
@@ -257,20 +257,20 @@
 		button {
 			bottom: 45px;
 			left:65%;
-			&:before {
-				bottom: 5px;
-		    left: 60px;
-			}
+			// &:before {
+			// 	bottom: 5px;
+		 //    left: 60px;
+			// }
 
 			&.timer {
 				bottom: 50px;
 				left: 120px;
 				right: 0px;
 
-				&:before {
-					bottom: 5px;
-					left: 120px;
-				}
+				// &:before {
+				// 	bottom: 5px;
+				// 	left: 120px;
+				// }
 			}
 		}
 	}
