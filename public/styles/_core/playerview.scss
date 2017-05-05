@@ -770,50 +770,44 @@ input.post-button {
 
 // Player role card
 #role-card {
-	position: absolute;
-	color: white !important;
-	text-align: center; 
-	display: none;
-	width: auto;
-	height: 458px;
-  margin: 20px 8px;
-  margin-bottom: 0px;
-  border: 3px white solid;
-  z-index: 3000;
-  @include gradient-vertical(#18b898, $white, 20%, 20%);
-  top:60px;
-  padding: 8px;
+  
+  .inner {
+    height: auto;
+  	@include gradient-vertical(#18b898, $white, 20%, 20%);
+  }
   .caption {
   	margin-bottom: 15px;
   }
+
   #btn-close-role-card {
-  	cursor: pointer;
-  	p {
-  		margin: 0px;
-  		font-family: AvenirNext;
-  		font-style: italic;
-  		width: 156px;
-  		display: inline-block;
-  	}
-  	.down-btn {
-  		color: $color-white;
-			height: 12px;
-			width: 24px;
-	    text-align: center;
-			font-size: 12px;
-			margin: 0px 8px;
-	    line-height: 1.17;
-	    padding-top: 1%;
-	    display: inline-block;
-			@include gradient-vertical($sunflower, $tangerine, 97%, 3%);	
-  	}
-  	.arrow {
-  		position: relative;
+
+		color: $grey-white;
+
+		height: 32px;
+		width: 64px;
+		
+    text-align: center;
+    float: right;
+		font-size: 12px;
+    line-height: 1.17;
+
+    padding-top: 1%;
+    padding-left: 5%;
+		
+		@include gradient-vertical($sunflower, $tangerine, 90%, 10%);	
+
+		#arrow {
+	    position: relative;
 	    content: "";
-	    border-top: 7px solid #ff7800;
-	    border-left: 11px solid transparent;
-	    border-right: 11px solid transparent;
-  	}
+	    border-left: 34px solid #ff7800;
+	    border-top: 11px solid transparent;
+	    border-bottom: 11px solid transparent;
+		}
+		#label {
+			margin-left: -57%;
+			margin-top: 26%;
+		}
+		
   }
 
   .swipe {
@@ -832,17 +826,16 @@ input.post-button {
   }
   .icon {
   	margin: 4px auto;
-    width: 70px;
-    height: 70px;
-    border-radius: 35px;
-    border: 4px white solid;
-    background:#00f0cc;
+    width: 88px;
+    height: 93px;
+    background-repeat: no-repeat;
+    background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1494020349/at-stake/layout/role-icon.svg");
   }
 
   .role-info {
-  	width: 288px;
   	color:$orange-dark;
   	margin: 0px;
+  	margin-top: 16%;
   	padding-bottom: 0px;
 
   	.title {
@@ -872,7 +865,6 @@ input.post-button {
 	  margin: 8px auto;
   }
   .agenda-wrap {
-  	width: 288px;
   	color: $background-color;
 
   	.header {
@@ -902,8 +894,6 @@ input.post-button {
   	&:nth-child(1) {
   		margin-top: 8px;
   	}
-
-
   	.value {
 	  	height: 64px;
 	  	width: 64px;

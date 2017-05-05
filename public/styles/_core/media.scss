@@ -105,7 +105,9 @@
 
 	// Role Card
 	body #role-card {
-		@include gradient-vertical(#18b898, $white, 30%, 30%);
+	  .inner {
+	  	@include gradient-vertical(#18b898, $white, 20%, 20%);
+	  }
 
 		.role-info {
 			margin: 0px;

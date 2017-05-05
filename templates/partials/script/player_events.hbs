@@ -177,6 +177,27 @@ var playerDisconnected = function(timeoutTime, names) {
 
 }
 
+var setupRoleCard = function(markup) {
+
+    $('#role-card').html(markup).promise().done(function() {
+
+        $('#overlay').on('opened', function(evt) {
+            
+            $('#btn-close-role-card').on('click', function(evt) {
+                ion.sound.play("back");
+                $('#overlay').trigger('hide');
+            });
+
+        });
+
+        $('#btn-role-card').on('click', function(evt) {
+            ion.sound.play("click1");
+            openInnerModal('role');
+        });
+    });
+
+}
+
 socketEvents = function(eventId, eventData) {
 
     switch (eventId) {
@@ -275,41 +296,33 @@ socketEvents = function(eventId, eventData) {
             if (isDecider)
                 $('#btn-role-card').css('visibility', 'hidden');
 
-            $('#role-card').html(roleCard).promise().done(function() {
-
-                $('#btn-close-role-card').on('click', function(evt) {
-                    roleCardOpenClose(false);
-                });
-                $('#btn-role-card').on('click', function(evt) {
-                    roleCardOpenClose(true);
-                });
+            setupRoleCard(roleCard);
+            
+            $('#gameContent').html(markup).promise().done(function() {
                 
-                $('#gameContent').html(markup).promise().done(function() {
-                    
-                    setupScreen();
+                setupScreen();
 
-                    var secondsLeft = eventData.resume_duration; 
-                    if(secondsLeft && secondsLeft > 0)
-                        startTimer(secondsLeft, true);
-                    else {
-                        // Check if timer element is left-over; if so, timer is now at 0 and should show next btn
-                        startTimer(0);
-                        if(isDecider)
-                            $('#btn-next').show();
-                    }
+                var secondsLeft = eventData.resume_duration; 
+                if(secondsLeft && secondsLeft > 0)
+                    startTimer(secondsLeft, true);
+                else {
+                    // Check if timer element is left-over; if so, timer is now at 0 and should show next btn
+                    startTimer(0);
+                    if(isDecider)
+                        $('#btn-next').show();
+                }
 
-                    $('#name, .login.input').fadeOut(function() {
+                $('#name, .login.input').fadeOut(function() {
 
-                        $('#begin').addClass('wait');
-                        $('#join, .login.waiting').fadeIn();
-
-                    });
-
-                    $('#error-disconnected').trigger('hide');
-
-                    playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);
+                    $('#begin').addClass('wait');
+                    $('#join, .login.waiting').fadeIn();
 
                 });
+
+                $('#error-disconnected').trigger('hide');
+
+                playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);
+
             });
 
             // Refresh coins UI
@@ -376,19 +389,7 @@ socketEvents = function(eventId, eventData) {
 
         case 'player:assignrole':
 
-            $('#role-card').html(eventData);
-            
-            $('#btn-close-role-card').on('click', function(evt) {
-                ion.sound.play("back");
-                roleCardOpenClose(false);
-            });
-            $('#btn-role-card').on('click', function(evt) {
-                ion.sound.play("click1");
-                roleCardOpenClose(true);
-            });
-            $('#role-card').on('swipe', function() {
-                $('#role-card').removeClass('open').addClass('closed');
-            });
+            setupRoleCard(eventData);
 
             break;
 

@@ -14,7 +14,7 @@
             {{!-- Mobile Meta --}}
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         {{else}}
-         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no=">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         {{/ifeq}}
         {{!-- Open Graph --}}
         {{!-- <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1455896685/site/about/logo_color.png" /> --}}
@@ -128,13 +128,12 @@
                     <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/score-phase.svg' width=100 height=100}}}<span>score</span></div>
                 </section>
 
+                {{!-- ROLE CARD OVERLAY --}}
+                <section id="role-card" class="inner-modal">
+
+                </section>
+
             {{/ifnoteq}}
-
-            {{!-- ROLE CARD OVERLAY --}}
-            <section class="col-sm-12" id="role-card">
-
-
-            </section>
 
             {{#ifeq debug true}}
                 {{!-- DEBUGGING --}}
