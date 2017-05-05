@@ -14,7 +14,7 @@
             {{!-- Mobile Meta --}}
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         {{else}}
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no=">
         {{/ifeq}}
         {{!-- Open Graph --}}
         {{!-- <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1455896685/site/about/logo_color.png" /> --}}
@@ -45,87 +45,90 @@
 
             {{!-- PRE-FILLED MODALS --}}
             {{#ifnoteq section 'homepage'}}
-            <section id="error-disconnected" class="modal error-modal">
-            </section>
+    
+                <section id="error-disconnected" class="modal error-modal">
+                </section>
 
-            <section id="error-player-disconnected" class="modal error-modal">
-                <div id="text" class="col-sm-10 col-xs-12 col-centered">
-                  <h1>Ummm...</h1>
-                  <h2>It looks like <span id="player"></span> <span id="singular">is</span><span id="plural">are</span> disconnected from the game! They have <span id="time">60s</span> to reconnect before the game ends!</h2>
-                </div>
-            </section>
+                <section id="error-player-disconnected" class="modal error-modal">
+                    <div id="text" class="col-sm-10 col-xs-12 col-centered">
+                      <h1>Ummm...</h1>
+                      <h2>It looks like <span id="player"></span> <span id="singular">is</span><span id="plural">are</span> disconnected from the game! They have <span id="time">60s</span> to reconnect before the game ends!</h2>
+                    </div>
+                </section>
 
-            <section id="error-private-mode" class="modal error-modal">
-                <div id="text" class="col-sm-10 col-xs-12 col-centered">
-                  <h1>Sorry!</h1>
-                  <h2>You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.</h2>
-                </div>
-            </section>
+                <section id="error-private-mode" class="modal error-modal">
+                    <div id="text" class="col-sm-10 col-xs-12 col-centered">
+                      <h1>Sorry!</h1>
+                      <h2>You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.</h2>
+                    </div>
+                </section>
 
-            {{!-- game menu --}}
-            <div id="main_menu" class="inner-modal" data-clone="true">
-                <div class="form choices inner">
+                {{!-- game menu --}}
+                <div id="main_menu" class="inner-modal" data-clone="true">
+                    <div class="form choices inner">
 
-                    <section id="game-menu">
+                        <section id="game-menu">
 
-                        <div id="header" class="row">
-                    
-                            <button id="btn-menu-back" class="btn" type="submit" name="submit" data-keep_enabled="true">
-                                <div id="arrow"></div>
-                                <div id="label">back to game</div>
+                            <div id="header" class="row">
+                        
+                                <button id="btn-menu-back" class="btn" type="submit" name="submit" data-keep_enabled="true">
+                                    <div id="arrow"></div>
+                                    <div id="label">back to game</div>
+                                </button>
+
+                            </div>
+                          
+                            <div id="message-disconnected" class="col-sm-8 col-centered error menu" style="display:none">
+                              It looks like the game is not responding for some reason. Try reconnecting or playing later!
+                            </div>
+
+                            <div id="logo-header">
+                                {{{cloudinaryUrl "v1490382407/at-stake/layout/logo.svg" }}} 
+                            </div>
+
+                            <button id="btn-reconnect" class="btn" type="submit" name="submit" data-keep_open="true" data-keep_enabled="true">
+                                Reconnect
+                            </button>
+                            <div class="btn_cap">Press this button if you are experiencing technical problems or are prompted to refresh.</div>
+
+                            <button id="btn-quit" class="post-button submit btn" type="submit" name="submit" data-keep_open="true" data-keep_enabled="true">
+                                Quit game
+                            </button>
+                            <div class="btn_cap pink"><strong>Warning:</strong> this will end the current game for everyone! You will be taken back to game login.</div>
+                            
+                        </section>
+
+                        <section id="game-quit" style="display:none">
+
+                            <h1>Are you <strong>sure</strong>? This will end the game for all players!</h1>
+
+                            <button id="btn-quit-yes" class="post-button submit btn" type="submit" name="submit" data-keep_open="true">
+                                Ok
+                            </button>
+                            <button id="btn-quit-no" class="post-button submit btn" type="submit" name="submit" data-keep_open="true" data-keep_enabled="true">
+                                Cancel
                             </button>
 
-                        </div>
-                      
-                        <div id="message-disconnected" class="col-sm-8 col-centered error menu" style="display:none">
-                          It looks like the game is not responding for some reason. Try reconnecting or playing later!
-                        </div>
+                        </section>
 
-                        <div id="logo-header">
-                            {{{cloudinaryUrl "v1490382407/at-stake/layout/logo.svg" }}} 
-                        </div>
-
-                        <button id="btn-reconnect" class="btn" type="submit" name="submit" data-keep_open="true" data-keep_enabled="true">
-                            Reconnect
-                        </button>
-                        <div class="btn_cap">Press this button if you are experiencing technical problems or are prompted to refresh.</div>
-
-                        <button id="btn-quit" class="post-button submit btn" type="submit" name="submit" data-keep_open="true" data-keep_enabled="true">
-                            Quit game
-                        </button>
-                        <div class="btn_cap pink"><strong>Warning:</strong> this will end the current game for everyone! You will be taken back to game login.</div>
-                        
-                    </section>
-
-                    <section id="game-quit" style="display:none">
-
-                        <h1>Are you <strong>sure</strong>? This will end the game for all players!</h1>
-
-                        <button id="btn-quit-yes" class="post-button submit btn" type="submit" name="submit" data-keep_open="true">
-                            Ok
-                        </button>
-                        <button id="btn-quit-no" class="post-button submit btn" type="submit" name="submit" data-keep_open="true" data-keep_enabled="true">
-                            Cancel
-                        </button>
-
-                    </section>
-
+                    </div>
                 </div>
-            </div>
-            {{/ifnoteq}}
-            {{!-- STAGES BAR --}}
-            <section class="col-sm-12" id="stages-bar">
-                <span id="fill" class="phase-path"></span>
-                <span id="progress" class="phase-path"></span>
 
-                <div class="disabled icon">{{{cloudinaryUrl 'v1492107684/at-stake/layout/meet-phase.svg' width=100 height=100}}}<span>meet</span></div>
-                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/think-phase.svg' width=100 height=100}}}<span>think</span></div>
-                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/pitch-phase.svg' width=100 height=100}}}<span>pitch</span></div>
-                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/delib-phase.svg' width=100 height=100}}}<span style="margin-left:-15px;">deliberate</span></div>
-                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/dd-phase.svg' width=100 height=100}}}<span id="doubledown">double-down</span></div>
-                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/score-phase.svg' width=100 height=100}}}<span>decide</span></div>
-                <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/score-phase.svg' width=100 height=100}}}<span>score</span></div>
-            </section>
+                {{!-- STAGES BAR --}}
+                <section class="col-sm-12" id="stages-bar">
+                    <span id="fill" class="phase-path"></span>
+                    <span id="progress" class="phase-path"></span>
+
+                    <div class="disabled icon">{{{cloudinaryUrl 'v1492107684/at-stake/layout/meet-phase.svg' width=100 height=100}}}<span>meet</span></div>
+                    <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/think-phase.svg' width=100 height=100}}}<span>think</span></div>
+                    <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/pitch-phase.svg' width=100 height=100}}}<span>pitch</span></div>
+                    <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/delib-phase.svg' width=100 height=100}}}<span style="margin-left:-15px;">deliberate</span></div>
+                    <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/dd-phase.svg' width=100 height=100}}}<span id="doubledown">double-down</span></div>
+                    <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/score-phase.svg' width=100 height=100}}}<span>decide</span></div>
+                    <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/score-phase.svg' width=100 height=100}}}<span>score</span></div>
+                </section>
+
+            {{/ifnoteq}}
 
             {{!-- ROLE CARD OVERLAY --}}
             <section class="col-sm-12" id="role-card">
@@ -176,17 +179,6 @@
 
                 </div>
 
-            {{else}}
-
-                <div id="homeContent">
-
-                    <!-- BODY CONTENT START -->
-                    {{{body}}}
-
-                </div>
-
-            {{/ifnoteq}}
-
                 <footer id="bottom-bar" style="display:none">
                 
                     <div class="col-sm-6 col-xs-6">
@@ -199,6 +191,17 @@
                     </div>
                     
                 </footer>
+
+            {{else}}
+
+                <div id="homeContent">
+
+                    <!-- BODY CONTENT START -->
+                    {{{body}}}
+
+                </div>
+
+            {{/ifnoteq}}
 
                 {{#ifeq debug true}}
                     {{#ifnoteq viewType 'decider'}}

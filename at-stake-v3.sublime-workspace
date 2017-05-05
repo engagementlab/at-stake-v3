@@ -4,8 +4,308 @@
 		"selected_items":
 		[
 			[
+				"pot",
+				"currentPot"
+			],
+			[
+				"playeri",
+				"playerUid"
+			],
+			[
+				"pl",
+				"player"
+			],
+			[
+				"reconn",
+				"reconnectInfo"
+			],
+			[
+				"im",
+				"important"
+			],
+			[
+				"on",
+				"onComplete"
+			],
+			[
+				"game",
+				"game-menu"
+			],
+			[
+				"in",
+				"inner-modal"
+			],
+			[
+				"fr",
+				"fromTo"
+			],
+			[
+				"quti",
+				"quitEnd"
+			],
+			[
+				"quit",
+				"quitStart"
+			],
+			[
+				"men",
+				"menuStart"
+			],
+			[
+				"colo",
+				"color-white"
+			],
+			[
+				"etv",
+				"evt"
+			],
+			[
+				"main",
+				"main-menu"
+			],
+			[
+				"modl",
+				"modalSelector"
+			],
+			[
+				"cur",
+				"currentTarget"
+			],
+			[
+				"timel",
+				"timeline"
+			],
+			[
+				"ove",
+				"overlayStart"
+			],
+			[
+				"ov",
+				"overlayEnd"
+			],
+			[
+				"eas",
+				"ease"
+			],
+			[
+				"inn",
+				"innerModalOpenClose"
+			],
+			[
+				"scorebo",
+				"scoreboardOpen"
+			],
+			[
+				"pla",
+				"playerCoins"
+			],
+			[
+				"cu",
+				"curr"
+			],
+			[
+				"sta",
+				"start"
+			],
+			[
+				"star",
+				"startingPlayerCoins"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"even",
+				"eventId"
+			],
+			[
+				"acc",
+				"accessCode"
+			],
+			[
+				"gameco",
+				"gameCode"
+			],
+			[
+				"def",
+				"debriefQuestions"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"playerr",
+				"playerRejoining"
+			],
+			[
+				"un",
+				"unless"
+			],
+			[
+				"tut",
+				"tutorialEnabled"
+			],
+			[
+				"lobb",
+				"lobby"
+			],
+			[
+				"join",
+				"joinAnim"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"lobby",
+				"lobby"
+			],
+			[
+				"choi",
+				"choices-new"
+			],
+			[
+				"fro",
+				"from"
+			],
+			[
+				"lob",
+				"lobbyAnim"
+			],
+			[
+				"visi",
+				"visible"
+			],
+			[
+				"progr",
+				"progressRatio"
+			],
+			[
+				"contdown",
+				"countdownAnim"
+			],
+			[
+				"timera",
+				"timerAdvance"
+			],
+			[
+				"for",
+				"force"
+			],
+			[
+				"event",
+				"eventData"
+			],
+			[
+				"force",
+				"forceScreen"
+			],
+			[
+				"eve",
+				"eventData"
+			],
+			[
+				"gro",
+				"group_id"
+			],
+			[
+				"nextpha",
+				"nextPhaseScreen"
+			],
+			[
+				"from",
+				"fromTo"
+			],
+			[
+				"Tw",
+				"TweenLite"
+			],
+			[
+				"rank",
+				"rankSort"
+			],
+			[
+				"del",
+				"delay"
+			],
+			[
+				"scree",
+				"screenElement"
+			],
+			[
+				"score",
+				"scoreboard"
+			],
+			[
 				"curr",
-				"_current_players"
+				"current"
+			],
+			[
+				"type",
+				"body-type"
+			],
+			[
+				"backgor",
+				"background-color"
+			],
+			[
+				"remov",
+				"remove"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"moda",
+				"modalSelector"
+			],
+			[
+				"back",
+				"background-position"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"sock",
+				"socket_id"
+			],
+			[
+				"socket",
+				"socket_id"
+			],
+			[
+				"grup",
+				"groupSocket"
+			],
+			[
+				"tem",
+				"Templates"
+			],
+			[
+				"agend",
+				"agendaReward"
+			],
+			[
+				"ligt",
+				"light-greenish-blue"
+			],
+			[
+				"fon-",
+				"font-size"
+			],
+			[
+				"pad",
+				"padding-top"
 			],
 			[
 				"las",
@@ -16,24 +316,12 @@
 				"modalToRemove"
 			],
 			[
-				"agend",
-				"agenda_item"
-			],
-			[
 				"goto",
 				"gotoNext"
 			],
 			[
 				"nextp",
 				"nextPhaseScreen"
-			],
-			[
-				"back",
-				"background-color"
-			],
-			[
-				"game",
-				"gameContent"
 			],
 			[
 				"disco",
@@ -58,10 +346,6 @@
 			[
 				"timeline",
 				"TimelineMax"
-			],
-			[
-				"visi",
-				"visibility"
 			],
 			[
 				"b",
@@ -96,10 +380,6 @@
 				"background-image"
 			],
 			[
-				"eas",
-				"easeOut"
-			],
-			[
 				"show",
 				"shown"
 			],
@@ -108,20 +388,12 @@
 				"screenElement"
 			],
 			[
-				"scree",
-				"screenOpen"
-			],
-			[
 				"time",
 				"timelineCallback"
 			],
 			[
 				"wid",
 				"width"
-			],
-			[
-				"modl",
-				"modalOpenClose"
 			],
 			[
 				"mod",
@@ -184,10 +456,6 @@
 				"refreshCurrent"
 			],
 			[
-				"event",
-				"eventId"
-			],
-			[
 				"phase",
 				"currentPhaseIndex"
 			],
@@ -208,20 +476,12 @@
 				"gameCodeHtml"
 			],
 			[
-				"gameco",
-				"gameCodeHtml"
-			],
-			[
 				"coo",
 				"color"
 			],
 			[
 				"co",
 				"color-seafoam"
-			],
-			[
-				"bac",
-				"background"
 			],
 			[
 				"next",
@@ -248,310 +508,59 @@
 				"remove"
 			],
 			[
-				"sock",
-				"socket"
-			],
-			[
 				"remove",
 				"removeClass"
 			],
 			[
 				"logi",
 				"loginAnim"
-			],
-			[
-				"max",
-				"maxlength\tAttr"
-			],
-			[
-				"logine",
-				"loginNewGame"
-			],
-			[
-				"log",
-				"loginAnim"
-			],
-			[
-				"col",
-				"col-sm-3"
-			],
-			[
-				"fade",
-				"fadeOut"
-			],
-			[
-				"player",
-				"player-name"
-			],
-			[
-				"btn",
-				"btn_new_game"
-			],
-			[
-				"whi",
-				"white"
-			],
-			[
-				"AvenirN",
-				"AvenirNext-Bold"
-			],
-			[
-				"AvenirNe",
-				"AvenirNext-UltraLight"
-			],
-			[
-				"app",
-				"appRoot"
-			],
-			[
-				"root",
-				"rootDirectory"
-			],
-			[
-				"keys",
-				"keystone"
-			],
-			[
-				"ini",
-				"initialPath"
-			],
-			[
-				"fs",
-				"fsPath"
-			],
-			[
-				"model",
-				"modelPrefix"
-			],
-			[
-				"ats",
-				"atstake"
-			],
-			[
-				"key",
-				"keystoneInst"
-			],
-			[
-				"at-",
-				"at-stake-v3"
-			],
-			[
-				"mobi",
-				"mobileCallback"
-			],
-			[
-				"pla",
-				"play"
-			],
-			[
-				"star",
-				"startAnim"
-			],
-			[
-				"decid",
-				"decider-controls"
-			],
-			[
-				"cure",
-				"currentScreenIndex"
-			],
-			[
-				"sort",
-				"sortedPlayers"
-			],
-			[
-				"pl",
-				"playerCoins"
-			],
-			[
-				"debugg",
-				"debugging"
-			],
-			[
-				"acce",
-				"accessCode"
-			],
-			[
-				"crete",
-				"create"
-			],
-			[
-				"accc",
-				"access-code"
-			],
-			[
-				"deid",
-				"decider"
-			],
-			[
-				"deck",
-				"deckInfo"
-			],
-			[
-				"con",
-				"console"
-			],
-			[
-				"cli",
-				"click"
-			],
-			[
-				"rewa",
-				"rewardAmt"
-			],
-			[
-				"activepl",
-				"activePlayer"
-			],
-			[
-				"appr",
-				"approve"
-			],
-			[
-				"coins",
-				"Coins"
-			],
-			[
-				"ii",
-				"initialPotAmount"
-			],
-			[
-				"count",
-				"countdownName"
-			],
-			[
-				"res",
-				"Reset"
-			],
-			[
-				"ext",
-				"extraSeconds"
-			],
-			[
-				"dele",
-				"deliberateTimeQueue"
-			],
-			[
-				"delib",
-				"deliberateTimeQueue"
-			],
-			[
-				"countd",
-				"countdownName"
-			],
-			[
-				"deli",
-				"deliberateTimeQueue"
-			],
-			[
-				"playe",
-				"playersId"
-			],
-			[
-				"this",
-				"thisPlayer"
-			],
-			[
-				"a",
-				"add"
-			],
-			[
-				"_curr",
-				"_current_players"
-			],
-			[
-				"_dec",
-				"_current_decider"
-			],
-			[
-				"play",
-				"players_id"
-			],
-			[
-				"Coin",
-				"CoinsLib"
-			],
-			[
-				"even",
-				"eventData"
-			],
-			[
-				"soc",
-				"socket"
-			],
-			[
-				"group",
-				"groupSocket"
-			],
-			[
-				"current",
-				"_current_winner"
-			],
-			[
-				"un",
-				"unavaiable"
-			],
-			[
-				"ass",
-				"assignedRoleIndicdes"
-			],
-			[
-				"prior",
-				"prior_roles"
-			],
-			[
-				"_ac",
-				"_active_deck_roles"
-			],
-			[
-				"activepla",
-				"activePlayerInfo"
-			],
-			[
-				"acti",
-				"activeAgendaItem"
-			],
-			[
-				"min",
-				"min-width"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "lib/GameLogic.js",
+			"file": "templates/partials/script/player_animation.hbs",
 			"settings":
 			{
-				"buffer_size": 14393,
+				"buffer_size": 11424,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Searching 198 files for \"this.players_id =\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-workspace:\n 1089  \t\t\t\"no-transition\",\n 1090  \t\t\t\"debugging\",\n 1091: \t\t\t\"this.players_id =\",\n 1092  \t\t\t\"this.players_id\",\n 1093  \t\t\t\"this.groupSocket.to\",\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n   90  \n   91              // Identify targets for socket events\n   92:             this.players_id = gameSession.accessCode;\n   93              // Override: players_id and group are same for @Stake (decider-only filtered by client)\n   94              this.group_id = this.players_id;\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n   87  \n   88          // Identify targets for socket events\n   89:         this.players_id = gameSession.accessCode,\n   90          this.group_id = gameSession.accessCode + '-group';\n   91  \n\n3 matches across 3 files\n\n\nSearching 198 files for \"inner_modal\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/choice.hbs:\n   41  \t{{/ifeq}}\n   42  \n   43:   <span id=\"modifier\" class=\"hidden-el\" data-inner_modal=\"true\"></span>\n   44  \n   45  {{else}}\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/inner_modal.hbs:\n   12  </div>\n   13  \n   14: <span id=\"modifier\" class=\"hidden-el\" data-inner_modal=\"true\"></span>\n   15  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  383  \n  384  \t\t\t// Move modal inside partial to top-level overlay and assign button events\n  385: \t\t\tif(modifier.data().inner_modal)\n  386  \t      openInnerModal();\n  387  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/decide.hbs:\n   44  \t\t\t</div>\n   45  \n   46: \t\t\t<span id=\"modifier\" class=\"hidden-el\" data-inner_modal=\"true\"></span>\n   47  \n   48  \t\t{{else}}\n   ..\n  154  \t\t{{/each}}\n  155  \n  156: \t\t<span id=\"modifier\" class=\"hidden-el\" data-inner_modal=\"true\"></span>\n  157  \n  158  \t</div>\n\n5 matches across 4 files\n",
+			"file": "templates/layouts/base.hbs",
 			"settings":
 			{
-				"buffer_size": 2019,
+				"buffer_size": 10782,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 235 files for \"You are the winner of the game!\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/scoreboard.hbs:\n   60  \n   61  \t\t\t\t\t<h1>Congratulations, <strong>{{winner.username}}</strong>!</h1>\n   62: \t\t\t\t\t<h2>You are the winner of the game! You had the most coins after three rounds.</h2>\n   63  \n   64  \t\t\t    <div id=\"reward-icon\" class=\"player-box\">\n\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 426,
 				"line_ending": "Unix",
 				"name": "Find Results",
 				"scratch": true
 			}
 		},
 		{
-			"file": "templates/partials/shared/decide.hbs",
+			"file": "templates/partials/shared/scoreboard.hbs",
 			"settings":
 			{
-				"buffer_size": 5274,
+				"buffer_size": 2463,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "templates/helpers/index.js",
+			"file": "templates/partials/script/player_events.hbs",
 			"settings":
 			{
-				"buffer_size": 3122,
+				"buffer_size": 20114,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -560,54 +569,7 @@
 			"file": "lib/Common.js",
 			"settings":
 			{
-				"buffer_size": 11250,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/partials/script/global.hbs",
-			"settings":
-			{
-				"buffer_size": 17581,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "\n{{!< default}}\n{{!-- \n/**\n * @Stake v3\n * Developed by Engagement Lab, 2016-2017\n * ==============\n * \n * Script includes partial for PLAYERS socket.io events\n * ==========\n */\n--}}\n\nvar clockInterval,\n    timeoutClock,\n    countdownAnim,\n    countdownPaused,\n    playerWasReconnected,\n    startAnim = new TimelineLite({paused: true}).fromTo($('#btn-start-game'), 1, {scale:0, autoAlpha:0}, {scale:1, autoAlpha:1, visibility:'visible', ease:Elastic.easeOut});\n\n// If true, screen doesn't advance right away via 'game:next',\n// it is saved in nextScreenData and advanced to later\nvar waitForNextScreen = false,\n    nextScreenData;\n\nvar resetSession = function() {\n\n    // Remove saved game code, uid, markup, and set to not reconnected\n    sessionStorage.removeItem('gameCode');\n    sessionStorage.removeItem('uUID');\n    sessionStorage.removeItem('markup');\n    sessionStorage.setItem('reconnected', false);\n\n}\n\nvar startTimer = function(secondsLeft) {\n    \n    var wasPaused = false;\n\n    if($('.screen .timer').length === 0)\n        return;\n\n    clockInterval = setInterval(function() {\n\n        function clockTick() {\n            $('#countdown').text(secondsLeft + ' seconds');\n            secondsLeft--;\n        }\n            \n        // Resume timer UI if timer paused due to player disconnect\n        if(!countdownPaused && wasPaused)\n            countdownAnim.animate(1, {duration: secondsLeft*1000});\n\n        wasPaused = countdownPaused;\n\n        // If timer paused, stop UI animation and bail\n        if(countdownPaused) { \n            countdownAnim.stop(); \n            return;\n        }\n\n        clockTick();\n\n        if(secondsLeft === 0)\n            clearInterval(clockInterval);\n\n    }, 1000);\n    \n    countdownAnim = new ProgressBar.Circle(\n      '.screen .timer', \n      {\n          color: '#fff',\n          duration: secondsLeft*1000,\n          easing: 'easeInOut',\n          strokeWidth: 6,\n          trailColor: 'rbga(235, 235, 235, 0.5)',\n          trailWidth: 0.8,\n          fill: '#20b5e6',\n          // Set default step function for all animate calls\n          step: function(state, circle) {\n            circle.setText(secondsLeft);\n          }\n      }\n    );\n    countdownAnim.animate(1);\n\n}\n\nvar setupScreen = function() {\n\n    // Add trigger to go to next step on next-step buttons\n    $('.next-step').click(function(evt) {\n        nextPhaseScreen();\n    });\n\n    // Reset screen index\n    currentScreenIndex = 0;\n\n    $(isDecider ? '.player' : '.decider').remove();\n\n    $('#gameContent').addClass('in-game');\n    $('#stages-bar').show();\n    \n    /*\n    // This makes duplicate of all speech bubbles and \n    // makes them all child of respective bubble,\n    // in order to achieve proper \"bottom border\" effect\n    _.each($('.screen blockquote.speech'), function(el, i) {\n        $(el).clone().addClass('under').remove('button').appendTo(el);\n    });*/\n\n    sessionStorage.setItem('markup', $('#gameContent').html());\n    // Animate initial\n    screenOpen($('.screen:first'));\n\n    currentPhaseIndex = sessionStorage.getItem('phase');\n    currentScreenIndex = sessionStorage.getItem('screen');\n\n    phaseBarProgress();\n\n}\n\nvar playerDisconnected = function(timeoutTime, names) {\n\n    if(!names || names.length === 0)\n        return;\n    \n    var timeLeft = timeoutTime,\n        modal = $('#error-player-disconnected'),\n        singular = modal.find('h2 #singular'),\n        plural = modal.find('h2 #plural');\n\n    modal.find('h2 #player').text(names.join(', '));\n    modal.find('h2 #time').text(timeLeft + 's');\n\n    if(names.length > 1) {\n        plural.show();\n        singular.hide();\n    }\n    else {\n        plural.hide();\n        singular.show();\n    }\n\n    if(!modal.is(':visible'))\n        modal.trigger('show');\n\n    timeoutClock = setInterval(function() {\n\n        timeLeft--;\n        modal.find('h2 #time').text(timeLeft + 's');\n\n        if(timeLeft === 0)\n            clearInterval(timeoutClock);\n\n    }, 1000);\n\n}\n\nsocketEvents = function(eventId, eventData) {\n\n    switch (eventId) {\n\n        case 'connect':\n            \n            if(sessionStorage.getItem('gameCode')) {\n                // Check if player is active in game\n                socket.emit('login:active', {\n                  gameId: sessionStorage.getItem('gameCode'), \n                  username: sessionStorage.getItem('username'),\n                  uid: sessionStorage.getItem('uUID'),\n                  decider: isDecider\n                });\n            }\n\n            if(isDecider) {\n                // Session started, let's sign-up the decider for this room\n                socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\n            }\n            else {\n                // Connected, let's sign-up for to receive messages for this room\n                socket.emit('room', emitData('player'));\n            }\n\n            {{!-- $('#gameContent').addClass('player-grid'); --}}\n\n            $('.login.form').fadeOut(function() { $('.login.waiting').fadeIn(function(){\n                {{!-- $('.lobby#join').addClass('player-grid'); --}}\n            }); });\n            \n            break;\n\n        case 'disconnect':\n\n            if(gameEnded)\n                return;\n\n            // Remove saved sesh\n            resetSession();\n\n            if ($('.modal'))\n                $('.modal').fadeOut();\n\n            $('#error-disconnected').trigger('show');\n            $('#error-disconnected #text').css('top', '0');\n\n            break;\n\n        case 'player:loggedin':\n\n            {{!-- $('#gameContent').html(eventData.html); --}}\n            \n            playerWasReconnected = false;\n\n            $('#debug-info').text('Player id: ' + eventData.id);\n\n            playerId = eventData.id;\n\n            var gameCodeMarkup = '';\n            \n            _.each(eventData.code.split(''), function(char, i) {\n                gameCodeMarkup += '<span>' + char + '</span>';\n            }); \n\n            $('#game_code .access-code').html(gameCodeMarkup);\n\n            break;\n\n        case 'player:reconnected': \n\n            if(playerWasReconnected)\n                return;\n\n            // Set local player state as reconnected\n            playerWasReconnected = true;\n\n            isDecider = eventData.is_decider;\n\n            var markup = sessionStorage.getItem('markup');\n\n            $('#bottom-bar').show();\n            $('#gameContent').html(markup).promise().done(function() {\n                \n                setupScreen();\n\n                var secondsLeft = eventData.resume_duration; \n                if(secondsLeft && secondsLeft > 0)\n                    startTimer(secondsLeft);\n                else {\n                    // Check if timer element is left-over; if so, timer is now at 0 and should show next btn\n                    startTimer(0);\n                    if(isDecider)\n                        $('#btn-next').show();\n                }\n\n                $('#name, .login.input').fadeOut(function() {\n\n                    $('#begin').addClass('wait');\n                    $('#join, .login.waiting').fadeIn();\n\n                });\n\n                playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);\n\n            });\n\n            break;\n\n        case 'player:lost':\n\n            // A current player lost from session\n            var timeLeft = eventData.timeout;\n\n            if(timeoutClock)\n                clearInterval(timeoutClock);\n\n            playerDisconnected(timeLeft, eventData.names);\n\n            countdownPaused = true;\n\n            break;\n\n        case 'players:update':\n\n            var staticPlayers = $('.player-static');\n            var currentPlayers = _.map(eventData.players, function(player){\n                return {name: player.username, icon: player.index};\n            });\n\n            var playersNeeded = {{#ifeq debug true}}2{{else}}3{{/ifeq}}\n\n            // Are all players connected?\n            if(eventData.all_connected) {\n                $('#error-player-disconnected').trigger('hide');\n\n                if(timeoutClock)\n                    clearInterval(timeoutClock);\n\n                countdownPaused = false;\n            }\n\n            // A player has re-joined\n            if(eventData.state === 'player_rejoined')\n                playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);\n\n            // Allow to start?\n            if(currentPlayers.length === playersNeeded)\n                startAnim.play();\n            else if(currentPlayers.length < playersNeeded)\n                startAnim.reverse();\n\n            $('.player-grid .list').empty();\n\n            _.each(currentPlayers, function(player, index) {\n\n                var nameFormatted = (player.name.length <= 15) ? player.name : player.name.substring(0, 15) + \"...\";\n                var index = player.icon;\n\n                $('.player-grid .list').append('<div id=\"player-' + index + '\" class=\"col-sm-12 player-logo col-centered\"><p>' + nameFormatted + '</p></div>');\n\n            });\n\n            break;\n\n        case 'player:agenda_item':\n\n            // Don't let next screen take over yet\n            waitForNextScreen = true;\n\n            var container = eventData.chosen ? $('#chosen') : $('#not-chosen');\n            \n            // Edit coin count\n            container.text(container.text().replace('{coins}', eventData.coins));\n\n            var chosenAnim = new TimelineLite({onComplete: function() {\n\n                setTimeout(function() { updateGameContent(nextScreenData, function() {\n\n                    waitForNextScreen = false;\n                    nextScreenData = undefined;\n\n                }) }, 1400);\n\n            }});\n\n            chosenAnim.from(container, .6, {scale:0, autoAlpha: 0, ease:Elastic.easeOut});\n\n            break;\n\n        case 'player:assignrole':\n\n            $('#role-card').html(eventData);\n            \n            $('#btn-close-role-card').on('click', function(evt) {\n                roleCardOpenClose(false);\n            });\n            $('#btn-role-card').on('click', function(evt) {\n                roleCardOpenClose(true);\n            });\n            $('#role-card').on('swipe', function() {\n                $('#role-card').removeClass('open').addClass('closed');\n            });\n\n            break;\n\n        case 'game:start':\n        case 'game:next_item':\n\n            $('#bottom-bar').show();\n            $('#gameContent').addClass('inGame');\n\n            $('#agenda-items .role:visible').remove();\n            $('#agenda-items .role').first().show();\n\n                     case 'game:start':\n \n        case 'game:next_item':\n \n             $('#bottom-bar').show();\n            \n            break;\n \n            $('#agenda-items .role:visible').remove();\n            $('#agenda-items .role').first().show();\n        case 'game:next_item':\n\n            var modalToOpen = eventData.chosen ? 'yes' : 'no';\n            var modalToRemove = !eventData.chosen ? 'yes' : 'no';\n\n            $('.agenda_item.' + modalToRemove).first().remove();\n            openInnerModal('.' + modalToOpen);\n \n             break;\n\n\n            break;\n\n        case 'game:advance':\n\n            currentPhaseIndex = -1;\n\n            break;\n\n        case 'game:next_screen':\n\n            // Only occurs for non-decider, since decider sends this\n            if(!isDecider)\n                nextPhaseScreen();\n\n            break;\n\n        case 'game:next_phase':\n\n            if (! $('#gameContent').hasClass('inGame')){\n                $('#gameContent').addClass('inGame');\n            }\n            \n            $('#bottom-bar').show();\n\n            $('#stages-bar').show();\n            sessionStorage.setItem('gameCode', gameCode);\n\n            // Don't show yet?\n            if(waitForNextScreen) {\n                nextScreenData = eventData;\n                return;\n            }\n\n            if (eventData.html) {\n                updateGameContent(eventData.html, function() {\n\n                    nextPhase();\n                    setupScreen();\n\n                });\n\n            } else {\n                updateGameContent(eventData, function() {\n\n                    nextPhase();\n                    setupScreen();\n\n                });\n            }\n            \n            \n            break;\n\n        case 'game:refresh_screen':\n            \n            // Don't show yet?\n            if(waitForNextScreen) {\n                nextScreenData = eventData;\n                return;\n            }\n            \n            updateGameContent(eventData, function() {\n\n                setupScreen();\n\n                // Move immediately to restart point in current phase, by removing screens before it and showing it\n                $('.screen.restart').prevAll().remove();\n\n                // Hide any previously hidden elements\n                $('.screen.restart .hidden-el').css({visibility:'hidden'});\n                $('.screen.restart').show();\n\n                openInnerModal();\n\n\n            });\n\n            break;\n\n        case 'game:ending':\n\n            $('#error-box').text(eventData);\n            $('#error-box').show();\n\n            break;\n\n        case 'game:ended':\n\n            // Reset game session data and send back to logn\n            resetSession();\n            window.location = window.location;\n\n            $('#gameContent').html(eventData);\n\n            break;\n\n        case 'game:resumed':\n\n            $('#error-box').hide();\n\n            break;\n\n        case 'game:notfound':\n\n            if(isDecider) return;\n\n            // If game not found, show name entry and clear session\n            loginFromTo('start', 'name');\n            resetSession();\n\n            $('.form.login').show();\n\n            break;\n            \n        case 'game:countdown':\n\n            $('#btn-time').fadeOut();\n\n            countdownPaused = false;\n\n            if(clockInterval)\n                clearInterval(clockInterval);\n\n            if(countdownAnim)\n                countdownAnim.destroy();\n                   \n            var secondsLeft = eventData.duration; \n            startTimer(secondsLeft);\n\n            break;\n\n        case 'game:countdown_ending':\n\n            $('.form .error').fadeIn().html(eventData);\n\n            break;\n\n\n        case 'game:countdown_ending':\n\n            $('.form .error').fadeIn().html(eventData);\n\n            break;\n\n        case 'game:countdown_end':\n\n            $('#added-time').hide();\n\n            runMods();\n\n            $('#overlay').append($('#more-time-wrapper.showing.ACTIVE'));\n\n            if($('#overlay').html().length > 0) {\n\n                $('#overlay').fadeIn(function() {\n                    $('#more-time-wrapper.player.ACTIVE').fadeIn();\n                });\n\n                $('#btn-more-time, #btn-cancel').click(function() {\n                    var modal = $('#more-time-wrapper.ACTIVE');\n                  \n                    modal.fadeOut(function() {\n                        $('.screen').append(modal);\n                        $('#overlay').empty();\n                        $('#overlay').hide();\n                    });\n                    \n                });\n            }\n            if(eventData == \"brainstormCountdown\" || eventData == \"deliberateCountdown\") {\n\n                if(isDecider)\n                    $('#btn-next').show();\n\n            }\n           \n            break;\n\n        case 'game:countdown_player':\n            \n            $('#added-time').text(eventData + \" is speaking, since they added more time.\").fadeIn();\n\n            break;\n\n        case 'game:player_done':\n            \n            $('#btn-next-player').fadeIn();\n\n            if(isDecider)\n                $('#btn-next').show();\n\n            break;\n\n        case 'game:phase_over':\n            \n            $('#btn-next-stage').fadeIn();\n\n            break;\n\n        case 'game:decider':\n\n            isDecider = eventData;\n\n            $('#bottom-bar').show();\n\n            break;\n\n        case 'game:end':\n\n            $('#gameContent').html(eventData);\n\n            var nextRoundAnim = new TimelineLite({ paused:true });\n            nextRoundAnim.from($('#nextRound'), 2.5, { scale: 0, opacity:0, ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block'});\n            nextRoundAnim.play();\n            break;\n\n        case 'game:last':\n\n            break;\n\n        case 'coins:add':\n        case 'coins:remove':\n\n            $('#' + eventData.type + '-coins span').text(eventData.amt);\n\n            break;\n\n        default:\n\n            console.warn('No handler found for event \"' + eventId + '\" in socketEvents.');\n\n            break;\n\n    }\n\n};",
-			"file": "templates/partials/script/player_events.hbs",
-			"file_size": 16041,
-			"file_write_time": 131353870160000000,
-			"settings":
-			{
-				"buffer_size": 16594,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/partials/script/player_logic.hbs",
-			"settings":
-			{
-				"buffer_size": 9188,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/styles/_core/playerview.scss",
-			"settings":
-			{
-				"buffer_size": 10621,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/Johnny/Documents/Projects/el-web-sdk/.env",
-			"settings":
-			{
-				"buffer_size": 902,
+				"buffer_size": 11949,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -620,10 +582,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 292.0,
-		"last_filter": "beauti",
+		"height": 354.0,
+		"last_filter": "pack",
 		"selected_items":
 		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"colors",
+				"Colorsublime: Install Theme"
+			],
 			[
 				"beauti",
 				"HTMLBeautify"
@@ -631,10 +601,6 @@
 			[
 				"color",
 				"Colorsublime: Install Theme"
-			],
-			[
-				"pack",
-				"Package Control: Install Package"
 			],
 			[
 				"reso",
@@ -746,76 +712,87 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core",
 		"/Users/Johnny/Documents/Projects/at-stake-v3",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers",
-		"/Users/Johnny/Documents/Projects/learning-games-core/lib",
-		"/Users/Johnny/Documents/Projects/el-web-sdk/templates",
-		"/Users/Johnny/Documents/Projects/el-web-sdk/templates/helpers"
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts"
 	],
 	"file_history":
 	[
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers/index.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/inner_modal.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Coins.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/scoreboard.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/playerview.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/media.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs",
+		"/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js",
+		"/Users/Johnny/Documents/Projects/learning-games-core/lib/SessionManager.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/mobile.hbs",
+		"/Users/Johnny/Documents/Projects/el-web-sdk/.env",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_animation.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/variables.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/lobby.scss",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/playerview.scss",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/choice.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_animation.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/mixins.scss",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/decide.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/doubledown.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/debrief.hbs",
+		"/Users/Johnny/Library/Application Support/Sublime Text 3/Packages/User/ZenTabs.sublime-settings",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/index.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/models/GameConfig.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/speech.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/gameended.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers/index.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/timer.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/meet.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/deliberate.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/pitch.hbs",
-		"/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/brainstorm.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/bower_components/flipclock/src/flipclock/js/vendor/base.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/fonts.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/rules.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/player.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/tutorial_rule.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/game.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/deliberate.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/homepage.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/development.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/js/jquery.swapsies.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/rolecard.hbs",
+		"/Users/Johnny/Library/Application Support/Sublime Text 3/Packages/Zen Tabs/ZenTabs.sublime-settings",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/mixins.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/instructions.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/TemplateLoader.js",
+		"/Users/Johnny/Documents/Projects/el-web-sdk/app.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/inner_modal.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_logic.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_events.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/speech.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/decide.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/scoreboard.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/instructions.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/brainstorm.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/agenda_item.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/fonts.scss",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/timer.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/media.scss",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/play.js",
-		"/Users/Johnny/Documents/Projects/el-web-sdk/.env",
 		"/Users/Johnny/Documents/Projects/starter-module/starter-module.sublime-project",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/game.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/deploy.json",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/pitch.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/meet.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/hi.txt",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/models/GameConfig.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/forms.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/css.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-project",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/development.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/decks.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/rolecard.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/models/Role.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/agenda_item.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/think.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/production.hbs",
-		"/Users/Johnny/Documents/Projects/el-web-sdk/app.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/app.js",
 		"/Users/Johnny/Documents/Projects/website-template/templates/helpers/index.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/index.js",
@@ -824,8 +801,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api/gamesession.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/models/Deck.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/game.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/player.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/homepage.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/config.json",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/app-root-path/lib/resolve.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/package.json",
@@ -835,7 +810,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/models/User.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/keystone/index.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/app-root-path/index.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/mobile.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/.bowerrc",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/index.js",
 		"/Users/Johnny/Documents/Projects/el-web-sdk/node_modules/grunt-execute/tasks/execute.js",
@@ -843,20 +817,14 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameType.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/SessionManager.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/ShuffleUtil.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/TemplateLoader.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/js/events/group/wikigeeks.js.orig",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/errors/404.hbs",
-		"/Users/Johnny/Documents/Projects/learning-games-core/lib/SessionManager.js",
 		"/Users/Johnny/Documents/Projects/learning-games-core/lib/ShuffleUtil.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Coins.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/think.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/game.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/waiting.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/waiting.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/index.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/decider/index.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/rules.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/deliberate.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/decide.hbs",
 		"/Users/Johnny/Documents/Projects/ansible-nginx/roles/nginx/tasks/main.yml",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/bio.hbs",
@@ -881,16 +849,7 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global-new.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/comingsoon.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/middleware.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/models/MemeTopic.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/routes/api/gamesession.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/views/index.hbs",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/lib/GameManager.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/grunt/uglify.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/lib/games/Wiki.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/public/js/events/group/wikigeeks.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/lib/games/Common.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/public/js/events/wikigeeks.js",
-		"/Users/Johnny/Documents/Projects/emerging-citizens/templates/partials/script/global.hbs"
+		"/Users/Johnny/Documents/Projects/emerging-citizens/models/MemeTopic.js"
 	],
 	"find":
 	{
@@ -901,6 +860,7 @@
 		"height": 187.0,
 		"where_history":
 		[
+			"/Users/Johnny/Documents/Projects/at-stake-v3, /Users/Johnny/Documents/Projects/learning-games-core, -*/Users/Johnny/Documents/Projects/at-stake-v3/mobile/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/bower_components/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/release/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/Static/*,  -*.sublime-workspace",
 			"/Users/Johnny/Documents/Projects/at-stake-v3, /Users/Johnny/Documents/Projects/learning-games-core, -*/Users/Johnny/Documents/Projects/at-stake-v3/mobile/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/bower_components/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/release/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/Static/*",
 			"/Users/Johnny/Documents/Projects/at-stake-v3, /Users/Johnny/Documents/Projects/learning-games-core, -*/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/bower_components/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/release/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/Static/*",
 			"/Users/Johnny/Documents/Projects/at-stake-v3, -*/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/bower_components/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/release/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/Static/*",
@@ -991,134 +951,134 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"inner_modal",
-			"this.players_id =",
-			".inner-modal",
-			"possessive",
+			"You are the winner of the game!",
+			"cloudinaryUrl",
+			"-coins",
+			"GetCoinsForPlayer",
+			"startingPlayerCoins",
+			"Coins.",
+			"is_decider",
+			"click touchstart",
 			"openInnerModal",
-			".inner-modal",
-			"$('.screen.restart')",
-			".role",
-			"activeAgendaItem",
-			"openInnerModal",
-			".toLowerCase(",
-			".to",
-			"choice_modal",
-			"inner_modal",
-			"update",
-			"this._current_winner",
-			"choice-wrapper",
-			"box-shadow",
-			".btn {",
-			".btn",
-			"btn_submit_name",
-			"player-logo",
-			"#gameContent {",
-			"choice-wrapper",
-			"runMods",
-			"more-time-wrapper",
-			"singular",
-			"_player_timeout_duration",
-			"_player_timeout",
-			"playerDisconnected",
-			"startTimer",
-			"bottom-bar",
-			"player:lost",
-			"font-size: 12",
-			"#lobby {",
-			".lobby {",
-			"player-grid",
-			"decider_events",
-			"case 'players:update':",
-			"ModeratorJoin",
-			"login:active",
-			"timerCallback",
-			"StartTimer",
-			"StopCou",
-			"PauseResumeCooldown",
-			"this._countdown_paused =",
-			"_countdown_duration",
-			"socket.emit",
-			"/create",
-			".PlayerReady",
-			"PlayerReady",
-			"player:reconnected",
-			"gameType",
-			"loginfrom",
-			"checkifloggedin",
-			"loginfromto",
-			"_game_in_session",
-			"Session.Get(playerGameId)",
+			"disconnect",
+			"message-disconnected",
+			"'opened'",
+			"btn-reconnect",
+			"dialog",
+			".icon",
+			"loginFromTo",
+			"btn_new_game",
+			"#decks",
+			"loginNewGame",
+			"btn-role-card",
 			"game:notfound",
-			"_game_in_session =",
-			"GameInSession(",
-			"login:active",
-			"checkifloggedin",
-			"nosleep",
-			"!isEmulated",
-			"setupdecider",
-			"checkifloggedin",
-			"setupdeci",
-			"setupDecider",
-			"game-preloaded",
-			"share-code",
-			"game-preloaded",
-			"loginFromTo",
-			"newGameAnim",
-			"loginFromTo",
-			"FindScreen",
-			"pick item",
-			".speech",
-			".next-step",
-			"currentPhaseIndex",
-			"currentPhaseIndex =",
-			"'game:advance'",
-			"nextPhase",
-			"nextScreenData",
-			"waitForNextScreen",
-			"NextPhase",
-			"game:advance",
-			"AssignRoleToPlayer",
-			"player:assignrole",
-			"AdvanceRound",
-			"game:next_round",
-			"back-button",
-			".back-button",
-			"bottom-bar",
-			"player:agenda_item",
-			"ShowSharedScreen",
-			"ShowScreen",
-			"_active_player_index",
-			"isActive",
-			".role",
-			"FindScreen",
-			"(combine",
-			"loginFromTo",
-			"agenda-items",
-			"next_item",
-			"next_phase_item",
-			"allAgendaI",
-			"setupTriggers",
-			".decider",
-			"#decider",
-			"&.hidden",
-			".hidden",
-			".instruction",
-			"modifier",
-			"none!important",
-			".hidden",
-			"#more-time-wrapper",
-			"agendaItems",
-			"allAgendaItems",
-			"FindScreen",
+			"opened",
+			"#overlay",
+			"display: flex",
+			"main_menu",
+			"#game-menu",
+			"display: none;",
+			"openInnerModal",
+			"openInnerModal(",
+			"openInnerModal",
+			"game-quit",
+			"quitOpenClose",
+			"error-disconnected",
+			"quitOpenClose",
+			"game-menu",
+			"error-disconnected",
+			"strAction",
+			"PlayerRemove",
+			"groupModerator",
+			"could",
+			"socket.on",
+			"could not find",
+			"#wrapper",
+			"noSleep",
+			"NoSleep",
+			"EndGame(socket)",
+			"115px",
+			".scoreboard",
+			"RestorePot",
+			"AddTime",
+			"game:more_time",
+			"REWARD AMOUNT",
+			"e-v3/source/templates/partials/player/timerunningout.hbs\n\n[PM2] Streaming realtime logs for [6] process",
+			"$('#overlay').trigger('show'",
+			"game:ended",
+			"gameended",
+			"game:ending",
+			"game:end",
+			"EndGame",
+			"$('#overlay #btn-quit-yes')",
+			".post-button",
+			"btn-reconnect",
+			"isMobile",
+			"desktop-only",
+			"height",
+			"login-header",
+			"socket.emit",
+			"game:end",
+			"keep",
+			"openInnerModal",
+			".next",
+			"after",
+			".btn",
+			".btn_cap",
+			"btn_join_game",
+			"blue",
+			"robin",
+			"btn-menu",
+			"tutorial_",
+			"html",
 			"ProposalSelected",
 			"game:proposal_selected",
-			"refresh_screen",
-			"screenOpen",
-			"resetSession",
-			"sessionStorage.setItem('markup'",
+			"autohide",
+			"hidden",
+			"visible",
+			"isVisible",
 			"nextPhaseScreen",
-			"player:reconnected"
+			"PlayerTurnDone",
+			"PlayerTurnDone\n",
+			"game:turn_done",
+			"#btn-cancel",
+			"#overlay",
+			":not",
+			".not",
+			".inner-modal {",
+			"#overlay",
+			".inner-modal",
+			"#overlay",
+			"stages-bar",
+			"PlayerReady(",
+			"player:reconnected",
+			"timerActive",
+			"wait",
+			"inner-modal",
+			"in-game",
+			".in-game",
+			"#bottom-bar",
+			"inner_modal",
+			"runMods",
+			"setupScreen",
+			"openInnerModal",
+			"_.sort",
+			"phaseBarProgress",
+			"nextPhase",
+			"game:next_phase",
+			"eventIds",
+			"player_",
+			"player_events",
+			"ga(",
+			"game:end",
+			"openInnerModal",
+			"inner-modal",
+			"openInnerModal",
+			"gameended",
+			"game was",
+			")\n",
+			"sum",
+			"debriefQuestions"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1126,6 +1086,16 @@
 		"regex": false,
 		"replace_history":
 		[
+			"currentPhaseIndex",
+			"Once you finish speaking the instructions",
+			"Read the text in the blue box out loud",
+			"url(\"https://res.cloudinary.com",
+			"screen",
+			"",
+			",",
+			"",
+			",",
+			"",
 			"inner_modal",
 			"inner-modal",
 			"setupScreen",
@@ -1243,17 +1213,7 @@
 			"Device",
 			"console.log('",
 			"\"",
-			"mountSiteModule",
-			"virtual",
-			"\"",
-			"/static/uh",
-			"--}}",
-			"{{!--",
-			"src=\"static/uh/js/",
-			"src=\"static/uh/images/",
-			"href=\"static/uh/fonts/",
-			"href=\"static/uh/css/",
-			"custom_name"
+			"mountSiteModule"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1264,45 +1224,74 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "lib/GameLogic.js",
+					"file": "templates/partials/script/player_animation.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14393,
+						"buffer_size": 11424,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4565,
-								4588
+								4302,
+								4302
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1723.0,
+						"translation.y": 1847.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "templates/layouts/base.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2019,
+						"buffer_size": 10782,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3690,
+								3690
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1129.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 426,
 						"regions":
 						{
 							"match":
@@ -1311,36 +1300,8 @@
 								"regions":
 								[
 									[
-										199,
-										216
-									],
-									[
-										426,
-										443
-									],
-									[
-										770,
-										787
-									],
-									[
-										1134,
-										1145
-									],
-									[
-										1349,
-										1360
-									],
-									[
-										1590,
-										1601
-									],
-									[
-										1805,
-										1816
-									],
-									[
-										1943,
-										1954
+										263,
+										294
 									]
 								],
 								"scope": ""
@@ -1349,15 +1310,15 @@
 						"selection":
 						[
 							[
-								1593,
-								1593
+								279,
+								279
 							]
 						],
 						"settings":
 						{
 							"detect_indentation": false,
 							"line_numbers": false,
-							"output_tag": 2,
+							"output_tag": 1,
 							"result_base_dir": "",
 							"result_file_regex": "^([^ \t].*):$",
 							"result_line_regex": "^ +([0-9]+):",
@@ -1365,116 +1326,27 @@
 							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 395.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "templates/partials/shared/decide.hbs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5274,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3525,
-								3525
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 408.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
 					"buffer": 3,
-					"file": "templates/helpers/index.js",
+					"file": "templates/partials/shared/scoreboard.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3122,
+						"buffer_size": 2463,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2950,
-								2950
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1256.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "lib/Common.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11250,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7219,
-								7219
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4106.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "templates/partials/script/global.hbs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 17581,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8861,
-								8861
+								2264,
+								1862
 							]
 						],
 						"settings":
@@ -1483,57 +1355,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6112.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "templates/partials/script/player_events.hbs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 16594,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10355,
-								10324
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5900.0,
+						"translation.y": 107.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "templates/partials/script/player_logic.hbs",
+					"buffer": 4,
+					"file": "templates/partials/script/player_events.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9188,
+						"buffer_size": 20114,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3835,
-								3835
+								8798,
+								8798
 							]
 						],
 						"settings":
@@ -1543,66 +1385,40 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 774.0,
+						"translation.y": 4322.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "public/styles/_core/playerview.scss",
+					"buffer": 5,
+					"file": "lib/Common.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10621,
+						"buffer_size": 11949,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3118,
-								3129
+								8458,
+								8458
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2623.0,
+						"translation.y": 4958.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "/Users/Johnny/Documents/Projects/el-web-sdk/.env",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 902,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								42,
-								33
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1669,28 +1485,116 @@
 		"selected_items":
 		[
 			[
-				"player_logi",
-				"Partials/script/player_logic.hbs"
-			],
-			[
-				"glob",
-				"Partials/script/global.hbs"
-			],
-			[
-				"vari",
-				"Styles/_core/variables.scss"
-			],
-			[
-				"mixin",
-				"Styles/_core/mixins.scss"
+				"player",
+				"Partials/script/player_events.hbs"
 			],
 			[
 				"base",
 				"All/templates/layouts/base.hbs"
 			],
 			[
+				"pla",
+				"Styles/_core/playerview.scss"
+			],
+			[
+				"player_",
+				"Partials/script/player_events.hbs"
+			],
+			[
+				"playervi",
+				"Styles/_core/playerview.scss"
+			],
+			[
+				"events",
+				"Partials/script/player_events.hbs"
+			],
+			[
+				"playerv",
+				"Styles/_core/playerview.scss"
+			],
+			[
+				"glob",
+				"Partials/script/global.hbs"
+			],
+			[
 				"bas",
 				"All/templates/layouts/base.hbs"
+			],
+			[
+				"playerev",
+				"Partials/script/player_events.hbs"
+			],
+			[
+				".env",
+				"../Web SDK/.env"
+			],
+			[
+				"player_e",
+				"Partials/script/player_events.hbs"
+			],
+			[
+				"vbas",
+				"All/public/bower_components/flipclock/src/flipclock/js/vendor/base.js"
+			],
+			[
+				"font",
+				"Styles/_core/fonts.scss"
+			],
+			[
+				"score",
+				"Partials/shared/scoreboard.hbs"
+			],
+			[
+				"gamel",
+				"Library/GameLogic.js"
+			],
+			[
+				"mixin",
+				"Styles/_core/mixins.scss"
+			],
+			[
+				"play",
+				"Partials/script/player_animation.hbs"
+			],
+			[
+				"playe",
+				"Views/game/player.hbs"
+			],
+			[
+				"layer",
+				"Partials/script/player_animation.hbs"
+			],
+			[
+				"pitch",
+				"Partials/shared/pitch.hbs"
+			],
+			[
+				"vari",
+				"Styles/_core/variables.scss"
+			],
+			[
+				"helpers/inde",
+				"All/templates/helpers/index.js"
+			],
+			[
+				"dev",
+				"Partials/script/development.hbs"
+			],
+			[
+				"va",
+				"Styles/_core/variables.scss"
+			],
+			[
+				"varai",
+				"Styles/_core/variables.scss"
+			],
+			[
+				"mixi",
+				"Styles/_core/mixins.scss"
+			],
+			[
+				"player_logi",
+				"Partials/script/player_logic.hbs"
 			],
 			[
 				"base.",
@@ -1701,28 +1605,12 @@
 				"All/sockets/handlers/PlayerLogin.js"
 			],
 			[
-				"font",
-				"Styles/_core/fonts.scss"
-			],
-			[
-				"player_",
-				"Partials/script/player_events.hbs"
-			],
-			[
 				"var",
 				"Styles/_core/variables.scss"
 			],
 			[
 				"index.js",
 				"All/templates/helpers/index.js"
-			],
-			[
-				"playervi",
-				"Styles/_core/playerview.scss"
-			],
-			[
-				"gamel",
-				"Library/GameLogic.js"
 			],
 			[
 				"playereven",
@@ -1749,14 +1637,6 @@
 				"Partials/component/timer.hbs"
 			],
 			[
-				"dev",
-				"Partials/script/development.hbs"
-			],
-			[
-				"player",
-				"Views/game/player.hbs"
-			],
-			[
 				"mixins",
 				"Styles/_core/mixins.scss"
 			],
@@ -1771,14 +1651,6 @@
 			[
 				"gl",
 				"Partials/script/global.hbs"
-			],
-			[
-				"player_e",
-				"Partials/script/player_events.hbs"
-			],
-			[
-				"va",
-				"Styles/_core/variables.scss"
 			],
 			[
 				"players.",
@@ -1853,10 +1725,6 @@
 				"Partials/script/player_logic.hbs"
 			],
 			[
-				"playe",
-				"Partials/script/player_logic.hbs"
-			],
-			[
 				"coin",
 				"at-stake-v3/lib/Coins.js"
 			],
@@ -1867,10 +1735,6 @@
 			[
 				"core",
 				"learning-games-core/lib/Core.js"
-			],
-			[
-				"pitch",
-				"at-stake-v3/templates/partials/player/pitch.hbs"
 			],
 			[
 				"player_even",
@@ -2131,54 +1995,6 @@
 			[
 				"monitor",
 				"routes/views/group/monitor.js"
-			],
-			[
-				"voting.",
-				"templates/partials/player/voting.hbs"
-			],
-			[
-				"voti",
-				"templates/partials/group/voting.hbs"
-			],
-			[
-				"gameended",
-				"templates/partials/player/gameended.hbs"
-			],
-			[
-				"voting",
-				"templates/partials/player/voting.hbs"
-			],
-			[
-				"tutor",
-				"templates/partials/group/tutorial.hbs"
-			],
-			[
-				"core.s",
-				"public/styles/core.scss"
-			],
-			[
-				"round",
-				"public/styles/round-about.css"
-			],
-			[
-				"gamemana",
-				"lib/GameManager.js"
-			],
-			[
-				"tutora",
-				"templates/partials/group/tutorial.hbs"
-			],
-			[
-				"core.",
-				"public/styles/core.scss"
-			],
-			[
-				"resul",
-				"templates/partials/group/results.hbs"
-			],
-			[
-				"hashtag.",
-				"lib/Hashtag.js"
 			]
 		],
 		"width": 0.0
@@ -2186,9 +2002,13 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "",
+		"last_filter": "city",
 		"selected_items":
 		[
+			[
+				"city",
+				"~/Documents/Projects/city-accelerator-website/city-accelerator-website.sublime-project"
+			],
 			[
 				"",
 				"~/Documents/Projects/boston-civic-media/boston-civic-media.sublime-project"

@@ -12,17 +12,6 @@
 
 <!-- DOCS START -->
 
-<!-- Favicons -->
-<link rel="shortcut icon" href="/images/favicons/favicon.ico">
-<!-- For third-generation iPad with high-resolution Retina display: -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicons/apple-icon-114x114.png">
-<!-- For iPhone with high-resolution Retina display: -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicons/apple-icon-114x114.png">
-<!-- For first- and second-generation iPad: -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicons/apple-icon-72x72.png">
-<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-<link rel="apple-touch-icon-precomposed" href="/images/favicons/apple-icon-57x57.png">
-
 {{#ifeq environment "development"}}
 	
 	{{!-- DEVELOPMENT --}}
@@ -45,3 +34,13 @@
 	<link href="{{cdnAsset product='at-stake' env=environment type='css' }}" rel="stylesheet">
 
 {{/ifeq}}
+
+<link class="favicon" rel="icon" type="image/png" href="{{cdnAsset product='at-stake' path='images/favicons/favicon_32' type='ico' fetch='image'}}" sizes="32x32">
+<link class="favicon" rel="icon" type="image/png" href="{{cdnAsset product='at-stake' path='images/favicons/favicon_16' type='ico' fetch='image'}}" sizes="16x16">
+
+<link class="favicon" rel="shortcut icon" href="{{cdnAsset product='at-stake' path='images/favicons/favicon_32' type='ico' fetch='image'}}">
+<link class="favicon" rel="apple-touch-icon-precomposed" sizes="144x144" href="{{cdnAsset product='at-stake' path='images/favicons/favicon_144' type='png' fetch='image'}}">
+<link class="favicon" rel="apple-touch-icon-precomposed" sizes="114x114" href="{{cdnAsset product='at-stake' path='images/favicons/favicon_114' type='png' fetch='image'}}">
+<link class="favicon" rel="apple-touch-icon-precomposed" sizes="72x72" href="{{cdnAsset product='at-stake' path='images/favicons/favicon_72' type='png' fetch='image'}}">
+{{!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: --}}
+<link class="favicon" rel="apple-touch-icon-precomposed" href="{{cdnAsset product='at-stake' path='images/favicons/favicon_57' type='png' fetch='image'}}">
