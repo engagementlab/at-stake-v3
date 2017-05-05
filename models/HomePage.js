@@ -237,54 +237,44 @@ var Types = keystone.Field.Types;
 },
 
 'Design and Development Team', {
-	principalInvestigator : { 
-		type: Types.Relationship, 
-		ref: 'TeamMembers',
+	principalInvestigator: { 
+		type: String, 
 		label: "Principal Investigator"
 	},
-	productManager : { 
-		type: Types.Relationship, 
-		ref: 'TeamMembers',
+	productManager: { 
+		type: String, 
 		label: "Product Manager"
 	},
-	projectManager : { 
-		type: Types.Relationship, 
-		ref: 'TeamMembers',
+	projectManager: { 
+		type: String, 
 		label: "Project Manager"
 	},
-	leadDeveloper : { 
-		type: Types.Relationship, 
-		ref: 'TeamMembers',
+	leadDeveloper: { 
+		type: String, 
 		label: "Lead Developer"
 	},
-	artDirector : { 
-		type: Types.Relationship, 
-		ref: 'TeamMembers',
+	artDirector: { 
+		type: String, 
 		label: "Art Director"
 	},
-	gameDesigner : { 
-		type: Types.Relationship, 
-		ref: 'TeamMembers',
+	gameDesigner: { 
+		type: String, 
 		label: "Game Designer"
 	},
-	otherGameDesigner : { 
-		type: Types.Relationship, 
-		ref: 'TeamMembers',
+	otherGameDesigner: { 
+		type: String, 
 		label: "Game Designer"
 	},
-	juniorDeveloper : { 
-		type: Types.Relationship, 
-		ref: 'TeamMembers',
+	juniorDeveloper: { 
+		type: String, 
 		label: "Junior Developer"
 	},
-	productionAssistant : { 
-		type: Types.Relationship, 
-		ref: 'TeamMembers',
+	productionAssistant: { 
+		type: String, 
 		label: "Production Assistant"
 	},
-	otherProductionAssistant : { 
-		type: Types.Relationship, 
-		ref: 'TeamMembers',
+	otherProductionAssistant: { 
+		type: String, 
 		label: "Production Assistant"
 	}
 });

@@ -11,6 +11,17 @@
 	
 }
 
+@media (max-width: 425px) {
+	.siteLanding#homepage .row {
+		padding: 30px 25px;
+	}
+	.siteLanding#homepage {
+		.game-learn, .game-flow  {
+			padding: 0px;
+		}
+	}
+}
+
 @media (max-width: 321px) {
 
 

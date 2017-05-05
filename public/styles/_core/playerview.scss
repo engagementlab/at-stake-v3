@@ -35,11 +35,6 @@
 
 	}
 
-	// On Mobile
-	&.isMobile {
-		padding-top: 10px;
-	}
-
 	// Blur all contents during modal
 	&.blur {
 		@include filter(blur, 2.9px);
