@@ -1093,6 +1093,7 @@ blockquote.speech {
 	}
 
 	#ranking {
+		margin-top: 16px;
 		background-color: $turquoise-dark;
 		border: solid 2px #fafafa;
 		padding: 3%;
@@ -1106,7 +1107,7 @@ blockquote.speech {
 		
 	.player-logo {
     background-color: $background-color;
-		width: 280px;
+		width: 287px;
 		border-radius: 0px;
 		font-size: 20px;
 		font-family: $header-type;
