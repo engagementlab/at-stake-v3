@@ -22,6 +22,13 @@
 		B20157091EBA2B1100A2697A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B20157081EBA2B1100A2697A /* Default-568h@2x.png */; };
 		B201570B1EBA2C5800A2697A /* iphone - 640-960 .png in Resources */ = {isa = PBXBuildFile; fileRef = B201570A1EBA2C5800A2697A /* iphone - 640-960 .png */; };
 		B201570D1EBA2C7700A2697A /* iPad Portrait - 1x 768-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = B201570C1EBA2C7700A2697A /* iPad Portrait - 1x 768-1024.png */; };
+		B20157131EBB7CB700A2697A /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = B20157121EBB7CB700A2697A /* Cartfile */; };
+		B218A2B41EBBB9CC00085F30 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B218A2B31EBBB9CC00085F30 /* Reachability.framework */; };
+		B218A2B81EBBB9D600085F30 /* Reachability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B218A2B31EBBB9CC00085F30 /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B218A2B91EBBB9E000085F30 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B218A2B31EBBB9CC00085F30 /* Reachability.framework */; };
+		B218A2BA1EBBB9E000085F30 /* Reachability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B218A2B31EBBB9CC00085F30 /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B218A2BC1EBBB9E800085F30 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B218A2B31EBBB9CC00085F30 /* Reachability.framework */; };
+		B218A2BD1EBBB9E800085F30 /* Reachability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B218A2B31EBBB9CC00085F30 /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B290C1041EB8F92F002D6833 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B874501E4B9B1300572938 /* ViewController.swift */; };
 		B290C1051EB8F92F002D6833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8744E1E4B9B1300572938 /* AppDelegate.swift */; };
 		B290C10D1EB8F92F002D6833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2B874571E4B9B1300572938 /* LaunchScreen.storyboard */; };
@@ -62,6 +69,42 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B201571D1EBB927D00A2697A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B218A2BD1EBBB9E800085F30 /* Reachability.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B20157201EBB993C00A2697A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B218A2B81EBBB9D600085F30 /* Reachability.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B218A2BB1EBBB9E100085F30 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B218A2BA1EBBB9E000085F30 /* Reachability.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		B20048B91E4D35C100E05187 /* @StakeDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "@StakeDev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20048BA1E4D35C100E05187 /* @Stake copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "@Stake copy-Info.plist"; sourceTree = "<group>"; };
@@ -74,6 +117,8 @@
 		B20157081EBA2B1100A2697A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../shared/splash/Default-568h@2x.png"; sourceTree = "<group>"; };
 		B201570A1EBA2C5800A2697A /* iphone - 640-960 .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone - 640-960 .png"; path = "../../shared/splash/iphone - 640-960 .png"; sourceTree = "<group>"; };
 		B201570C1EBA2C7700A2697A /* iPad Portrait - 1x 768-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad Portrait - 1x 768-1024.png"; path = "../../shared/splash/iPad Portrait - 1x 768-1024.png"; sourceTree = "<group>"; };
+		B20157121EBB7CB700A2697A /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		B218A2B31EBBB9CC00085F30 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		B290C11E1EB8F92F002D6833 /* @Stake Prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "@Stake Prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B290C11F1EB8F92F002D6833 /* @Stake Dev copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "@Stake Dev copy-Info.plist"; sourceTree = "<group>"; };
 		B290C1201EB8FD9A002D6833 /* logo_lg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_lg.png; path = ../../../shared/logo_lg.png; sourceTree = "<group>"; };
@@ -105,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B218A2B91EBBB9E000085F30 /* Reachability.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B218A2BC1EBBB9E800085F30 /* Reachability.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B218A2B41EBBB9CC00085F30 /* Reachability.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,9 +202,18 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
+		B20157141EBB8EBF00A2697A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B218A2B31EBBB9CC00085F30 /* Reachability.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B2B874421E4B9B1200572938 = {
 			isa = PBXGroup;
 			children = (
+				B20157121EBB7CB700A2697A /* Cartfile */,
 				B201570C1EBA2C7700A2697A /* iPad Portrait - 1x 768-1024.png */,
 				B201570A1EBA2C5800A2697A /* iphone - 640-960 .png */,
 				B20157081EBA2B1100A2697A /* Default-568h@2x.png */,
@@ -172,6 +229,7 @@
 				B2B8744C1E4B9B1300572938 /* Products */,
 				B20048BA1E4D35C100E05187 /* @Stake copy-Info.plist */,
 				B290C11F1EB8F92F002D6833 /* @Stake Dev copy-Info.plist */,
+				B20157141EBB8EBF00A2697A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -230,6 +288,7 @@
 				B200489F1E4D35C100E05187 /* Sources */,
 				B20048A21E4D35C100E05187 /* Frameworks */,
 				B20048A31E4D35C100E05187 /* Resources */,
+				B218A2BB1EBBB9E100085F30 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -247,6 +306,8 @@
 				B290C1031EB8F92F002D6833 /* Sources */,
 				B290C1061EB8F92F002D6833 /* Frameworks */,
 				B290C1071EB8F92F002D6833 /* Resources */,
+				B201571D1EBB927D00A2697A /* Embed Frameworks */,
+				B218A2BE1EBBBDE000085F30 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -264,6 +325,7 @@
 				B2B874471E4B9B1200572938 /* Sources */,
 				B2B874481E4B9B1200572938 /* Frameworks */,
 				B2B874491E4B9B1200572938 /* Resources */,
+				B20157201EBB993C00A2697A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -403,6 +465,7 @@
 				B290C15B1EB9336F002D6833 /* ios-76.png in Resources */,
 				B20157021EBA2A1800A2697A /* iPhone-5.5in.png in Resources */,
 				B290C15A1EB9336F002D6833 /* ios-58.png in Resources */,
+				B20157131EBB7CB700A2697A /* Cartfile in Resources */,
 				B290C15E1EB9336F002D6833 /* ios-120.png in Resources */,
 				B2B874561E4B9B1300572938 /* Assets.xcassets in Resources */,
 				B20157091EBA2B1100A2697A /* Default-568h@2x.png in Resources */,
@@ -432,6 +495,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B218A2BE1EBBBDE000085F30 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B200489F1E4D35C100E05187 /* Sources */ = {
@@ -519,6 +598,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 82GEVPBTXM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "@Stake copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -538,6 +621,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 82GEVPBTXM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
 				INFOPLIST_FILE = "@Stake copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -557,6 +644,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 82GEVPBTXM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=0";
 				INFOPLIST_FILE = "@Stake Dev copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -578,6 +669,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 82GEVPBTXM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
 				INFOPLIST_FILE = "@Stake Dev copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -692,6 +787,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 82GEVPBTXM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AtStake/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -710,6 +809,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 82GEVPBTXM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
 				INFOPLIST_FILE = AtStake/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
