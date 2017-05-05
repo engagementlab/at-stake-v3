@@ -202,11 +202,12 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, WKSc
         // If web not reachable, tell user to go to settings and enable wifi
         if !reachability.isReachable {
             
-            var settingsUrlStr:String = "App-Prefs:root=WIFI"
-            let iosVersion = Double(systemVersion) ?? 0
+            var settingsUrlStr:String!
             
-            
-            if(iosVersion < 10.0) {
+            if #available(iOS 10.0, *) {
+                settingsUrlStr = "App-Prefs:root=WIFI"
+            }
+            else {
                 settingsUrlStr = "prefs:root=WIFI"
             }
             
