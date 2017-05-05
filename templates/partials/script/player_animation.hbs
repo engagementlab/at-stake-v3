@@ -29,8 +29,7 @@ function initTimeline() {
 		var backBtnFrom = { autoAlpha:0, xPercent:20, display:'none' },
 				backBtnTo = { autoAlpha:1, xPercent:0, display:'block', ease:Expo.easeOut };
 
-		var choicesAnim = new TimelineLite(),
-				joinAnim = new TimelineLite(),
+		var joinAnim = new TimelineLite(),
 				lobbyAnim = new TimelineLite();
 
 		newGameAnim.to($('#join, #share-code'), .01, { autoAlpha:0, display:'none' })
@@ -58,8 +57,8 @@ function initTimeline() {
 						 .to($('#name'), .5, { autoAlpha:0, display:'none' })
 
 						 .fromTo($('#choices'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
-						 .staggerFrom($('#choices .btn'), 1, {yPercent:20, autoAlpha:0, ease:Expo.easeOut}, .7)
 						 .fromTo($('#choices .back-button'), .5, backBtnFrom, backBtnTo)
+						 .staggerFromTo($('#choices .btn'), .8, {yPercent:20, autoAlpha:0}, {yPercent:0, autoAlpha:0.8, ease:Expo.easeOut}, .7)
 						 .append('choices')
 
 						 .add(joinAnim, '+=1').append('join')
@@ -75,7 +74,10 @@ function loginNewGame(callback) {
 	
 }
 
-function loginFromTo(from, to, timeScale) {
+function loginFromTo(from, to, timeScale, callback) {
+
+	if(!timeScale)
+		timeScale = 1;
 
 	if(from === 'new' && to === 'choices') {
 		newGameAnim.reverse(newGameAnim.duration());
@@ -103,14 +105,19 @@ function loginFromTo(from, to, timeScale) {
 	if(timeScale)
 		duration *= timeScale;
 
-	TweenLite.fromTo(loginAnim, duration, {time:start}, {time:loginAnim.getLabelTime(to)});
+	TweenLite.fromTo(loginAnim, duration, {time:start}, {time:loginAnim.getLabelTime(to), onComplete: function() {
+		
+		if(callback)
+			callback();
+
+	}});
 	
 }
 
 function modalOpenClose(modalElement, open) {
 
 	var hidden = { yPercent:100, opacity:0, ease:Expo.easeOut, display:'none' },
-			shown = { yPercent:0, opacity:1, ease:Expo.easeIn, display:'block' };
+			shown = { yPercent:0, opacity:1, ease:Expo.easeIn, display:'block'};
 
 	TweenLite.fromTo(modalElement, .5, (open ? hidden:shown) , (open ? shown:hidden) );
 

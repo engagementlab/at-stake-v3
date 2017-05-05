@@ -37,22 +37,3 @@
 		width: 23px;
 	}
 }
-
-
-// Role Card 
-@keyframes close-role-card {
-	from {
-		top: 0px;
-	}
-	to {
-		top: 100%;
-	}
-}
-@keyframes open-role-card {
-	from {
-		top: 100%;
-	}
-	to {
-		top: 0px;
-	}
-}

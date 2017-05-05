@@ -35,11 +35,6 @@
 
 	}
 
-	// On Mobile
-	&.isMobile {
-		padding-top: 10px;
-	}
-
 	// Blur all contents during modal
 	&.blur {
 		@include filter(blur, 2.9px);
@@ -488,14 +483,21 @@ input.post-button {
 			}
 		}
 		&:not(.disabled) {
+	    display: inline-block;
 			height: 40px;
 			width: 40px;
+			max-width: 40px;
 			border: 2px white solid;
 		  background-color: $turquoise-light;
 		  box-shadow: 0 2px 0 0 $turquoise-dark;
 
 			span {
 				width: 100%;
+
+			  &#doubledown {
+	  	    width: 99px !important;
+			    margin-left: -25px;
+			  }
 			}
 		}
 
@@ -677,7 +679,6 @@ input.post-button {
 			&#btn-more-time {
 				span {
 					font-size: 12px;
-
 				}
 				height: 64px;
 				font-size: 20px;
@@ -689,6 +690,15 @@ input.post-button {
 			}
 			&#btn-cancel {
 				background-color: $orange-dark;
+			}
+
+			.info {
+		    position: relative;
+		    float: right;
+		    width: 80%;
+		    margin-top:4px;
+		    height: 40px;
+		    font-family: AvenirNext-Bold;
 			}
 
 		}
@@ -755,50 +765,44 @@ input.post-button {
 
 // Player role card
 #role-card {
-	position: absolute;
-	color: white !important;
-	text-align: center; 
-	display: none;
-	width: auto;
-	height: 458px;
-  margin: 20px 8px;
-  margin-bottom: 0px;
-  border: 3px white solid;
-  z-index: 3000;
-  @include gradient-vertical(#18b898, $white, 20%, 20%);
-  top:60px;
-
+  
+  .inner {
+    height: auto;
+  	@include gradient-vertical(#18b898, $white, 20%, 20%);
+  }
   .caption {
   	margin-bottom: 15px;
   }
+
   #btn-close-role-card {
-  	cursor: pointer;
-  	p {
-  		margin: 0px;
-  		font-family: AvenirNext;
-  		font-style: italic;
-  		width: 156px;
-  		display: inline-block;
-  	}
-  	.down-btn {
-  		color: $color-white;
-			height: 12px;
-			width: 24px;
-	    text-align: center;
-			font-size: 12px;
-			margin: 0px 8px;
-	    line-height: 1.17;
-	    padding-top: 1%;
-	    display: inline-block;
-			@include gradient-vertical($sunflower, $tangerine, 97%, 3%);	
-  	}
-  	.arrow {
-  		position: relative;
+
+		color: $grey-white;
+
+		height: 32px;
+		width: 64px;
+		
+    text-align: center;
+    float: right;
+		font-size: 12px;
+    line-height: 1.17;
+
+    padding-top: 1%;
+    padding-left: 5%;
+		
+		@include gradient-vertical($sunflower, $tangerine, 90%, 10%);	
+
+		#arrow {
+	    position: relative;
 	    content: "";
-	    border-top: 7px solid #ff7800;
-	    border-left: 11px solid transparent;
-	    border-right: 11px solid transparent;
-  	}
+	    border-left: 34px solid #ff7800;
+	    border-top: 11px solid transparent;
+	    border-bottom: 11px solid transparent;
+		}
+		#label {
+			margin-left: -57%;
+			margin-top: 26%;
+		}
+		
   }
 
   .swipe {
@@ -807,22 +811,26 @@ input.post-button {
   .instruction {
   	font-family: AvenirNext-Medium;
 	  font-size: 12px;
+	  margin-bottom: 10px
+	  div {
+			font-size: 14px;
+		}
 	  span {
 	  	font-family: AvenirNext-Bold;
 	  }
   }
   .icon {
   	margin: 4px auto;
-    width: 70px;
-    height: 70px;
-    border-radius: 35px;
-    border: 4px white solid;
-    background:#00f0cc;
+    width: 88px;
+    height: 93px;
+    background-repeat: no-repeat;
+    background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1494020349/at-stake/layout/role-icon.svg");
   }
 
   .role-info {
   	color:$orange-dark;
-  	margin: 0px -15px;
+  	margin: 0px;
+  	margin-top: 16%;
   	padding-bottom: 0px;
 
   	.title {
@@ -873,30 +881,32 @@ input.post-button {
   }
   .agenda-item {
   	border-radius: 100px;
-  	background-color: $orange-dark;
-  	margin: 8px;
+  	background-color: $background-color;
+  	margin: 16px auto;
   	height: 56px;
   	color: white;
 
-
+  	&:nth-child(1) {
+  		margin-top: 8px;
+  	}
   	.value {
-	  	height: 56px;
-	  	width: 56px;
-	  	line-height: 58px;
+	  	height: 64px;
+	  	width: 64px;
+	  	margin-top: -4px;
+	  	line-height: 64px;
 	  	display: inline-block;
 	  	float: left;
 	  	font-size: 24px;
 	  	font-family: AvenirNext-Bold;
 	    background-size: 64px 64px;
-	    background-position: -8px -8px;
-	  	// background-size: cover;
+	    background-position: center;
 	  	background-repeat: no-repeat;
 	  	background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1490979430/at-stake/layout/icon-yourcoins.svg");
 	  }
 	  .agenda {
 	  	height: 32px;
       margin: 10px auto;
-	  	width: 180px;
+	  	width: 200px;
 	  	display:inline-block;
 	  	text-align: left;
 	  	line-height:1.2;
@@ -951,8 +961,13 @@ input.post-button {
 .instruction {
 	font-size:16px;
 	height: 72px;
-	margin-bottom: 4px;
+	margin-bottom: 16px;
 	font-family: AvenirNext;
+
+	div {
+		font-size: 14px;
+		font-family: AvenirNext-DemiBold;
+	}
 
 	h1 {
 		font-size: 16px;
@@ -1008,41 +1023,41 @@ blockquote.speech {
     display: flex;
     background: none;
     border: none;
-    right: 11%;
+    right: 10%;
     bottom: 75px;
   	font-family: "AvenirNext-Bold";
 	  &.timer {
-	  	&:before {
-			  left: 103px;
-			}
+	  // 	&:before {
+			//   left: 103px;
+			// }
 	  }
 	  &.scoreboard {
 	  	height: 32px;
 	  	font-size: 24px;
-	  	right: -10px;
+	  	right: 0px;
 	  	bottom: inherit;
 	  	color: $color-white;
 	  	// &:before {
-				// border-left: 8px solid $color-white;
-				// left: 147px;	
+				// border: 0px;
+				// // left: 147px;	
 	  	// }
-	  	&.debrief {
-		  	&:before {
-					left: 115px !important;
-				}
-	  	}
+	  	// &.debrief {
+		  // 	&:before {
+				// 	left: 115px !important;
+				// }
+	  	// }
 	  }
-  	&:before {
-  		position: absolute;
-  		content: "";
-			bottom: 6px;
-	    left: 48px;
-	    width: 0;
-	    height: 0;
-	    border-left: 8px solid $color-white;
-	    border-top: 5px solid transparent;
-	    border-bottom: 5px solid transparent;
-	  }
+  	// &:before {
+  	// 	position: absolute;
+  	// 	content: "";
+			// bottom: 6px;
+	  //   left: 48px;
+	  //   width: 0;
+	  //   height: 0;
+	  //   border-left: 8px solid $color-white;
+	  //   border-top: 5px solid transparent;
+	  //   border-bottom: 5px solid transparent;
+	  // }
 
   }
 }
@@ -1063,6 +1078,7 @@ blockquote.speech {
 	}
 
 	#ranking {
+		margin-top: 16px;
 		background-color: $turquoise-dark;
 		border: solid 2px #fafafa;
 		padding: 3%;
@@ -1076,22 +1092,25 @@ blockquote.speech {
 		
 	.player-logo {
     background-color: $background-color;
-		width: 280px;
+		width: 287px;
 		border-radius: 0px;
 		font-size: 20px;
 		font-family: $header-type;
 		margin: 10px auto;
 		height: 48px;
 
-    background-position: 52px center;
+    background-position: 47px center;
     background-size: 40px 40px;
 
     .rank {
     	text-align: left;
 			padding-top: 3%;
 			padding-left: 3%;
-    	width: 44px;
-    	height: 64px;
+			float: left;
+    	width: 31px;
+    	height: 48px;
+    	font-size: 16px;
+    	margin-right: 8px;
     	font-family: $body-type;
 			color: $grey-white;
 
@@ -1104,8 +1123,8 @@ blockquote.speech {
 			float: left;
 			font-size: 24px;
 			padding-top: 9%;
-			width: 64px;
-			height: 64px;
+			width: 54px;
+			height: 54px;
 			color: $color-white;
 
 			&.delta {
@@ -1139,6 +1158,20 @@ blockquote.speech {
 			font-size: 16px;
 			font-family: $header-type;
 		}
+
+		.info {
+
+		    position: relative;
+		    float: right;
+		    width: 184px;
+		    margin-top:4px;
+		    height: 40px;
+		    font-family: AvenirNext-Bold;
+
+			  h1 {
+				  margin: 0;
+				}
+			}
 	
 	}
 }
@@ -1189,7 +1222,7 @@ footer#bottom-bar {
 			font-size: 12px;
 	  }
 		#player-coins {
-			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/coin-icon-mobile.svg');
+			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_200/v1486743650/at-stake/layout/coin-icon-mobile.svg');
 			height: 100px;
 			width: 60px;
 	    background-repeat: no-repeat;
@@ -1197,7 +1230,7 @@ footer#bottom-bar {
 	    background-position: center;
 		}
 		#pot-coins {
-			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_60/v1486743650/at-stake/layout/coin-pot-mobile.svg');
+			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_200/v1486743650/at-stake/layout/coin-pot-mobile.svg');
 			height: 100px;
 			width: 60px;
 	    background-repeat: no-repeat;
@@ -1210,7 +1243,7 @@ footer#bottom-bar {
 	button {
 		margin: 5px;
 		color: white;
-		width: 121px;
+		width: 130px;
 	  height: 36px;
 	  padding-left: 2.4em;
 	  font-size: 16px;

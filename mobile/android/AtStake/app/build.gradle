@@ -17,14 +17,14 @@ android {
         applicationId "emersonengagementlab.edu.atstake"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "3.0"
     }
     buildTypes {
         debug {
             buildConfigField "boolean", "REPORT_CRASHES", "true"
             buildConfigField "String", "ENVIRONMENT", '"debug"'
-            resValue "string", "app_name", "@Stake Dev"
+            resValue "string", "app_name", '"@Stake Dev"'
             signingConfig signingConfigs.config
             debuggable true
         }

@@ -7,94 +7,118 @@
 * ==========
 */
 --}}
-<div class="siteLanding container" id="homepage" lang="en">
-  <div class="row top">
-    {{!-- TOP SECTION/LANDING --}}
-    <div class="top-section col-xs-12">
-      <div class="top-header col-xs-12 col-centered">
-        <div class="landing-header"><span class="whats">what's</span></br><span class="at-sign">@</span><span class="header-stake">stake?</span></div>
-      </div>
-      <a class="buttonLink" href="/play"><div class="play-button">Play the game!</div></a>
-    </div>
-    <img class="landing-image" src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1487958967/at-stake-site/stakewhitecropped.png">
-  </div>
-  
-  {{!-- GAME PITCH --}}
-  <div class="row pitch">
-  <div class="phone-pic col-md-5 col-xs-12"><img class="showcaseImage" src="{{{cloudinaryUrl content.showcaseImage width=auto height=450 crop='scale' quality=100}}}"></div>
-    <div class="game-pitch col-md-7 col-xs-12">
-      <div class="half-1 col-xs-10 col-centered">
-        <h4 class="tagline col-xs-12">{{{content.tagline.html}}}</h4>
-        <div class="text-block cta-para-one col-xs-12">{{{content.ctaParagraphOne.html}}}</div>
-        <div class="text-block cta-para-two col-xs-12">{{{content.ctaParagraphTwo.html}}}</div>
-        </div>
-        <ul class="cta-points row">
-          <li class="col-xs-12"><strong><div class="point-content col-xs-12">{{{content.pointOneText.html}}}</div></strong></li>
-          <li class="col-xs-12"><strong><div class="point-content col-xs-12">{{{content.pointTwoText.html}}}</div></strong></li>
-          <li class="col-xs-12"><strong><div class="point-content col-xs-12">{{{content.pointThreeText.html}}}</div></strong></li>
-        </ul>
-    </div>
-  </div>
+<div class="siteLanding" id="homepage" lang="en">
+	<div class="row top">
+		{{!-- TOP SECTION/LANDING --}}
+		<div class="top-section">
+			<div class="top-header col-centered">
+				<div class="landing-header"><span>what's</span></br><span>@</span><span>stake?</span></div>
+			</div>
+			<a class="buttonLink" href="/play"><div class="play-button">Play the game!</div></a>
+		</div>
+		<img class="landing-image" src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1487958967/at-stake-site/stakewhitecropped.png">
+	</div>
+	
+	{{!-- GAME PITCH --}}
+	<div class="row pitch">
+		<div class="phone-pic col-md-5 col-xs-12">
+		  <img class="showcaseImage" src="{{{cloudinaryUrl content.showcaseImage width=auto height=450 crop='scale' quality=100}}}">
+		</div>
 
-  {{!-- FEATURES --}}
-  <div class="row feature col-lg-9 col-xs-9 col-centered">
-    <div class="game-features">
-      <div class="feature-one col-lg-4 col-xs-12">
-      	<div class="feature-image feature-one-image"><img src="{{{cloudinaryUrl content.featureOneIcon width=auto height=100 crop='scale' quality=100}}}"></div>
-        <div class="feature-header-one"><h3>{{{content.featureOneTitle.html}}}</h3></div>
-      	<div class="text-block feature-text feature-one-text">{{{content.featureOneParagraph.html}}}</div>
-      </div>
-      <div class="feature-two col-lg-4 col-xs-12">
-      	<div class="feature-image feature-two-image"><img src="{{{cloudinaryUrl content.featureTwoIcon width=auto height=100 crop='scale' quality=100}}}"></div>
-        <div class="feature-header-two"><h3>{{{content.featureTwoTitle.html}}}</h3></div>
-      	<div class="text-block feature-text feature-two-text">{{{content.featureTwoParagraph.html}}}</div>
-      </div>
-      <div class="feature-three col-lg-4 col-xs-12">
-        <div class="feature-image feature-three-image"><img src="{{{cloudinaryUrl content.featureThreeIcon width=auto height=100 crop='scale' quality=100}}}"></div>
-        <div class="feature-header-three"><h3>{{{content.featureThreeTitle.html}}}</h3></div>  
-      	<div class="text-block feature-text feature-three-text">{{{content.featureThreeParagraph.html}}}</div>
-      </div>
-    </div>
-  </div>
 
-  {{!-- FLOW OF PLAY --}}
-  <div class="row flow-play col-lg-10 col-xs-12 col-centered">
-    <div class="game-flow">
-      <h3 class="flow-play-header">{{{content.flowOfGameHeader.html}}}</h3>
-    	<div class="text-block flow-play-para">{{{content.flowOfGameParagraph.html}}}</div>
-    	<div class="flow-play-pic"><img class="play-pic col-centered" src="{{{cloudinaryUrl content.flowOfGamePicture width=auto height=350 crop='scale' quality=100}}}"></div>
-    </div>
-    <img class="game-flow-graphic left" src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1488559363/at-stake-site/trophyCrop.png">
-    <img class="game-flow-graphic right" src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1488559363/at-stake-site/stake_cropped.png">
-  </div>
+		<div class="game-pitch col-md-7 col-xs-12">
+			<div class="half-1">
+				<h4 class="tagline">{{{content.tagline.html}}}</h4>
+				<div class="text-block cta-para">{{{content.ctaParagraphOne.html}}}</div>
+				<div class="text-block cta-para">{{{content.ctaParagraphTwo.html}}}</div>
+			</div>
 
-    {{!-- LEARN MORE --}}
-  <div class="row learn-more col-lg-8 col-xs-12 col-centered">
-    <div class="game-learn">
-    	<h3 class="learn-more-header">{{{content.learnMoreHeader.html}}}</h3>
-    	<div class="text-block learn-more-para">{{{content.learnMoreParagraph.html}}}</div>
-    </div>
-  </div>
+			<ul class="cta-points row">
+				<li class="col-xs-12"><strong><div class="point-content col-xs-12">{{{content.pointOneText.html}}}</div></strong></li>
+				<li class="col-xs-12"><strong><div class="point-content col-xs-12">{{{content.pointTwoText.html}}}</div></strong></li>
+				<li class="col-xs-12"><strong><div class="point-content col-xs-12">{{{content.pointThreeText.html}}}</div></strong></li>
+			</ul>
+		</div>
 
-  {{!-- CREDITS --}}
-  <div class="credits row col-xs-12 col-centered">
-    <div class="text-block design-dev-team">
-      <h3>Design and Development Team</h3>
-        <div class="people">
-          <div class="team row pi"><h5 class="team-title">Principal Investigator </h5>{{content.principalInvestigator.name}}</div>
-          <div class="team-col col-md-6" style="padding:0px">
-            <div class="team"><h5 class="team-title">Product Manager </h5>{{content.productManager.name}}</div>
-            <div class="team"><h5 class="team-title">Lead Developer </h5>{{content.leadDeveloper.name}}</div>
-            <div class="team"><h5 class="team-title">Game Designer </h5>{{content.otherGameDesigner.name}}</div>
-            <div class="team"><h5 class="team-title">Game Designer </h5>{{content.gameDesigner.name}}</div>
-          </div>
-          <div class="team-col col-md-6" style="padding:0px">
-            <div class="team"><h5 class="team-title">Project Manager </h5>{{content.projectManager.name}}</div>
-            <div class="team"><h5 class="team-title">Art Director </h5>{{content.artDirector.name}}</div>
-            <div class="team"><h5 class="team-title">Junior Developer </h5>{{content.juniorDeveloper.name}}</div>
-            <div class="team"><h5 class="team-title">Junior Developer </h5>{{content.otherProductionAssistant.name}}</div>
-          </div>
-        </div>
-    </div>
-    <div class="logo"><img class="el-logo" src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1488406912/at-stake-site/el_logo_square_white_720.png"></div>
+	</div>
+
+	{{!-- FEATURES --}}
+	<div class="row feature">
+		<div class="game-features">
+			<div class="feature-one col-lg-4 col-xs-12">
+				<div class="feature-image">
+					<img src="{{{cloudinaryUrl content.featureOneIcon width=auto height=100 crop='scale' quality=100}}}">
+				</div>
+				<div class="feature-header">
+					<h3>{{{content.featureOneTitle.html}}}</h3>
+				</div>
+				<div class="text-block feature-text">
+					{{{content.featureOneParagraph.html}}}
+				</div>
+			</div>
+			<div class="feature-two col-lg-4 col-xs-12">
+				<div class="feature-image">
+					<img src="{{{cloudinaryUrl content.featureTwoIcon width=auto height=100 crop='scale' quality=100}}}">
+				</div>
+				<div class="feature-header">
+					<h3>{{{content.featureTwoTitle.html}}}</h3>
+				</div>
+				<div class="text-block feature-text">
+					{{{content.featureTwoParagraph.html}}}
+				</div>
+			</div>
+			<div class="feature-three col-lg-4 col-xs-12">
+				<div class="feature-image">
+					<img src="{{{cloudinaryUrl content.featureThreeIcon width=auto height=100 crop='scale' quality=100}}}">
+				</div>
+				<div class="feature-header">
+					<h3>{{{content.featureThreeTitle.html}}}</h3>
+				</div>  
+				<div class="text-block feature-text">
+					{{{content.featureThreeParagraph.html}}}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{{!-- FLOW OF PLAY --}}
+	<div class="row flow-play">
+		<div class="game-flow">
+			<h3 class="flow-play-header">{{{content.flowOfGameHeader.html}}}</h3>
+			<div class="text-block flow-play-para">{{{content.flowOfGameParagraph.html}}}</div>
+			<img class="play-pic col-centered" src="{{{cloudinaryUrl content.flowOfGamePicture width=auto height=350 crop='scale' quality=100}}}">
+		</div>
+		<img class="game-flow-graphic left" src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1488559363/at-stake-site/trophyCrop.png">
+		<img class="game-flow-graphic right" src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1488559363/at-stake-site/stake_cropped.png">
+	</div>
+
+		{{!-- LEARN MORE --}}
+	<div class="row learn-more">
+		<div class="game-learn">
+			<h3 class="learn-more-header">{{{content.learnMoreHeader.html}}}</h3>
+			<div class="text-block learn-more-para">{{{content.learnMoreParagraph.html}}}</div>
+		</div>
+	</div>
+
+	{{!-- CREDITS --}}
+	<div class="credits row">
+		<div class="text-block design-dev-team">
+			<h3>Design and Development Team</h3>
+				<div class="people">
+					<div class="team pi"><h5 class="team-title">Principal Investigator </h5>{{content.principalInvestigator}}</div>
+					<div class="team-col col-md-6" style="padding:0px">
+						<div class="team"><h5 class="team-title">Product Manager </h5>{{content.productManager}}</div>
+						<div class="team"><h5 class="team-title">Lead Developer </h5>{{content.leadDeveloper}}</div>
+						<div class="team"><h5 class="team-title">Game Designer </h5>{{content.otherGameDesigner}}</div>
+						<div class="team"><h5 class="team-title">Game Designer </h5>{{content.gameDesigner}}</div>
+					</div>
+					<div class="team-col col-md-6" style="padding:0px">
+						<div class="team"><h5 class="team-title">Project Manager </h5>{{content.projectManager}}</div>
+						<div class="team"><h5 class="team-title">Art Director </h5>{{content.artDirector}}</div>
+						<div class="team"><h5 class="team-title">Junior Developer </h5>{{content.juniorDeveloper}}</div>
+						<div class="team"><h5 class="team-title">Junior Developer </h5>{{content.otherProductionAssistant}}</div>
+					</div>
+				</div>
+		</div>
+		<div class="logo"><img class="el-logo" src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1488406912/at-stake-site/el_logo_square_white_720.png"></div>
 </div>

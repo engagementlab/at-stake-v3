@@ -1,19 +1,16 @@
-<div class="rolecard-inner">
-	<div id="btn-close-role-card" class="swipe">
-		<div class="caption">
-				<p>press here to close role card</p>
-				<div class="down-btn">
-			      <div class="arrow"></div>
-			   </div>
-		</div>
+<div class="rolecard-inner inner">
+   
+ 	<div>       
+	  
+	  <button id="btn-close-role-card" class="btn" type="submit" name="submit" data-keep_enabled="true">
+	      <div id="arrow"></div>
+	      <div id="label">back to game</div>
+	  </button>
+
 	</div>
-
-		<span class="instruction">This is your <span>stakeholder role</span>. Your proposal should reflect this stakeholder’s perspective.</span>
-
+	
 	<div class="role-info">
 		<div class="icon"></div>
-		{{!-- <img class="icon" src="{{{cloudinaryUrl icon height=100 width=100}}}"/> --}}
-
 		<h2 class="title">{{title}}</h2>
 		<div class="description">{{{bio.html}}}</div>
 
@@ -26,4 +23,5 @@
 		<div class="agenda-item"><span class="value">100</span><div class="agenda">{{agendaItems.[0]}}</div></div>
 		<div class="agenda-item"><span class="value">200</span><div class="agenda">{{agendaItems.[1]}}</div></div>
 	</div>
+
 </div>
