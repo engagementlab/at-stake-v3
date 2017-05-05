@@ -21,6 +21,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, WKSc
     var webViewLoaded:Bool = false
     
     var connectionAlert: UIAlertController!
+    var systemVersion = UIDevice.current.systemVersion
     
     #if DEVELOPMENT
         let urlString = "http://127.0.0.1:3000/play/mobile"
@@ -201,13 +202,21 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, WKSc
         // If web not reachable, tell user to go to settings and enable wifi
         if !reachability.isReachable {
             
+            var settingsUrlStr:String = "App-Prefs:root=WIFI"
+            let iosVersion = Double(systemVersion) ?? 0
+            
+            
+            if(iosVersion < 10.0) {
+                settingsUrlStr = "prefs:root=WIFI"
+            }
+            
             connectionAlert = UIAlertController(title: "No connection",
                                           message: "@Stake requires an active internet connection. Please connect over wi-fi or mobile network and re-open the app.",
                                           preferredStyle: UIAlertControllerStyle.alert)
             connectionAlert.addAction(UIAlertAction(title: "Go to Settings", style: UIAlertActionStyle.default, handler: {
                 (action:UIAlertAction!) -> Void in
                 
-                guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+                guard let settingsUrl = URL(string:settingsUrlStr) else {
                     return
                 }
                 
