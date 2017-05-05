@@ -20,6 +20,12 @@ html, body {
 
 }
 
+html, body {
+	overflow-x: hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+
 #wrapper {
 	@include box-shadow(0px, 0px, 37px, black);
 	background-color: $background-color;
