@@ -1,14 +1,14 @@
 {{!-- DEBRIEF UI --}}
 <div id="debrief">
   <div id="login-header" class="hidden-el">
-    {{{cloudinaryUrl "v1490382079/at-stake/s-t-a-k-e-l-o-g-o_3x.png" width=300 }}}
+    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1490382407/at-stake/layout/logo.svg" height='auto' width='200px'/>
   </div>
 
 	<div class="screen initial" data-animation="debrief">
 
 		{{> component/instructions 
 				decider=true
-				heading="Read the text in the blue box out loud"
+				heading="Read the text in the blue box aloud"
 				body="Once you finish speaking the instructions to other players, press next to continue."
 		}}
 
@@ -35,7 +35,7 @@
 
 			{{> component/instructions 
 					decider=true
-					heading="Read the text in the blue box out loud"
+					heading="Read the text in the blue box aloud"
 					body=(combine "Share your responses to the question. Press next to move to question " (sum @index 2) " .")
 			}}
 			
