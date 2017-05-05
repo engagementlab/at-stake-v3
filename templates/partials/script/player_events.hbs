@@ -312,6 +312,10 @@ socketEvents = function(eventId, eventData) {
                 });
             });
 
+            // Refresh coins UI
+            $('#pot-coins span').text(eventData.pot);
+            $('#player-coins span').text(eventData.coins);
+
             break;
 
         case 'player:lost':
