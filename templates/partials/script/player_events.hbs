@@ -460,12 +460,11 @@ socketEvents = function(eventId, eventData) {
             });
 
             $("#winner-btn").click(function(){
-                console.log("data event winner-button pressed");
                 ion.sound.play("player_orange");
             });
+
             // Only occurs for non-decider, since decider sends this
             // Or if forced, do this for all players
-
             if(!isDecider || eventData.force)
                 nextPhaseScreen();
             
@@ -478,9 +477,9 @@ socketEvents = function(eventId, eventData) {
                 ion.sound.play("player_red");
             });
 
-            if(isDecider){
-                    ion.sound.play("click3");
-                }
+            if(isDecider)
+                ion.sound.play("click3");
+
             if ($('#background-logo').css('display', 'none'))
                 $('#background-logo').show();
 
@@ -503,7 +502,8 @@ socketEvents = function(eventId, eventData) {
 
                 });
 
-            } else {
+            }
+            else {
                 updateGameContent(eventData, function() {
 
                     nextPhase();

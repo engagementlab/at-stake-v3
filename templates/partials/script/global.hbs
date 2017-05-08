@@ -359,7 +359,8 @@
 	    
 	    currentScreenIndex++;
       
-      if($('#overlay').is(':visible'))
+      // Hide any overlay if visible and its modal does not have 'keep_open' attribute
+      if($('#overlay').is(':visible') && $('#overlay .inner-modal').data('keep_open') === undefined)
 	      $('#overlay').trigger('hide');
 
 	    $.when($($('.screen')[0]).remove()).then(function() {
