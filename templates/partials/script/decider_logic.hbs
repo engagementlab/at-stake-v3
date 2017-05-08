@@ -47,13 +47,10 @@
       );
 
       // If screen too small, show error saying so
-{{!--       if($(window).outerWidth() < 1024)
-          showErrorModal(true, 'size');
-      else {
-          showErrorModal(false, 'size');
-          // Apply zoom
-          $('body').css('zoom', scale);
-      } --}}
+      if($(window).outerHeight() < 600)
+          $('#error-size').trigger('show');
+      else
+          $('#error-size').trigger('hide');
 
 
   }

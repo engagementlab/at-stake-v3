@@ -33,10 +33,12 @@
 
 	isApple = mobileDetect.is('iOS'),
 	isAndroid = mobileDetect.is('Android') || mobileDetect.match('Android'),
-	isMobile = (isAndroid || isApple),
+	isMobile = (isAndroid || isApple);
+
+  {{#ifnoteq section 'homepage'}}
 
 	// Can be set by any event logic waiting for content update
-	updateContentCallback,
+	var updateContentCallback,
 
 	// Absolute positioning global
 	maxWidth = 425,
@@ -47,9 +49,8 @@
   // Tracks current phase index and the screen during each phase
   currentPhaseIndex = -1,
   currentScreenIndex = 0,
-	
 
-	//sound declaration
+	// Sound declaration
   sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1492187090/at-stake/sfx/';
   {{#ifeq env "development"}}
   	sfxPath = '/sfx/';
@@ -634,9 +635,6 @@
 		// Adjust absolutely-position elements for desktop only
 		absoluteLayout();
 
-		// TODO: Work out overlay during resize?
-		// $('#overlay').html('<div style="margin-top: 10%" class="col-sm-12 col-centered">looks like you\'re doing some resizing...</div>').show();
-
 	});
 
 	window.onload = function() {
@@ -741,6 +739,15 @@
 						$(gameContainer).addClass('isMobile');
 					{{/ifnoteq}}
 
+					{{#unless mobile}}
+						// Configure app badge to show if mobile browser on /play
+						if(isMobile) {
+							var mobileRemoved = isAndroid ? 'ios' : 'android';
+							$('.buttonLink.desktop, .buttonLink.' + mobileRemoved).remove();
+							$('#lobby .form').remove();
+							$('#lobby .mobile').show();
+						}
+					{{/unless}}
 				}
 		
 				{{#ifnoteq viewType 'landing'}}
@@ -837,6 +844,8 @@
 
 				});
 
+
+
 			// WAITING FOR PLAYERS (OLD SESSION)
 			{{#ifeq section 'game-preloaded'}}	
 						
@@ -899,4 +908,21 @@
 		});
 
 	}
+
+	{{else}}
+	
+	window.onload = function() {
+	// Configure 'play links'
+	if(isMobile) {
+		var mobileRemoved = isAndroid ? 'ios' : 'android';
+		$('.buttonLink.desktop, .buttonLink.' + mobileRemoved).remove();
+	}
+	else {
+		$('.buttonLink.ios, .buttonLink.android').remove();
+	}
+	$('.buttonLink').show();
+
+	};
+
+	{{/ifnoteq}}
 </script>

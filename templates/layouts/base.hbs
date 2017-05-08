@@ -9,6 +9,8 @@
         <meta name="description" content="@Stake is an online and mobile role-playing game that fosters democracy, empathy, and creative problem solving for civic issues.">
         <meta name="author" content="Engagement Lab at Emerson College">
         <meta name="theme-color" content="#00dcba">
+
+        <meta name="apple-itunes-app" content="app-id=1115782392">
         
         {{#ifeq section 'play'}}
             {{!-- Mobile Meta --}}
@@ -60,6 +62,13 @@
                     <div id="text" class="col-sm-10 col-xs-12 col-centered">
                       <h1>Sorry!</h1>
                       <h2>You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.</h2>
+                    </div>
+                </section>
+
+                <section id="error-size" class="modal error-modal">
+                    <div id="text" class="col-sm-10 col-xs-12 col-centered">
+                      <h1>Sorry!</h1>
+                      <h2>Your screen size is too small to play.</h2>
                     </div>
                 </section>
 

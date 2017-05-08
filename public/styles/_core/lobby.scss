@@ -36,6 +36,12 @@
 
 	// Lobby game screens
 	.lobby {
+
+		// Mobile badges
+		.mobile {
+			display: none;
+		}
+
 		height: 100%;
 		&:not(#decider) {
 			width: 100%;
