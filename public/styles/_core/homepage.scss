@@ -152,8 +152,11 @@
 		}
 	}
 
-	.play-button{
-		width: 25%;
+	.buttonLink {
+		display: none;
+	}
+
+	.play-button {
 		height: 75px;
 		position: relative;
 		margin: 0 auto;
@@ -164,7 +167,6 @@
 		color: $white;
 		font-family: $sub-header-type;
 		font-size: 1.25em;
-		border: solid white 4px;
 		z-index: 2000;
 	
 		@media(max-width: 664px){
@@ -176,6 +178,11 @@
 		@media(max-width: 406px){
 			height: 110px;
 			min-width: 80px;
+		}
+
+		&.desktop {
+			width: 25%;
+			border: solid white 4px;
 		}
 	}
 
