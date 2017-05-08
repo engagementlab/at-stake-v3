@@ -35,6 +35,10 @@ html, body {
 .error-modal {
 	background-color: rgba(254, 120, 70, 0.9);
 	color: white;
+
+	h3 {
+		font-size: 18px;
+	}
 }
 
 // remove default button and input states
