@@ -1088,6 +1088,10 @@ blockquote.speech {
 
     flex-direction: column;
 
+    .rank.starting {
+    	visibility: hidden;
+    }
+
 	}
 		
 	.player-logo {
