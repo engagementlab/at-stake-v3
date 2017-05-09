@@ -266,33 +266,20 @@ var scoreboardOpen = function() {
 		    TweenLite.fromTo(box.node, 0.5, { x: xReverse, y: yReverse }, dest);    
 		  }
 
-		  // $('#decider').show();
-
 			new TimelineLite({onComplete: function() {
-
 				openInnerModal(undefined, true);
-
 			}})
-			// .to($('.instruction:nth(3)'), .5, { autoAlpha:0, yPercent:-100, display:'none', delay:2 })
-			// .fromTo($('.instruction:nth(4)'), .5, { autoAlpha:0, yPercent:-100, display:'none' }, { autoAlpha:1, yPercent:0, display:'block' })
 		  .fromTo($('.next-step'), .7, {yPercent:100, autoAlpha:0}, {yPercent:0, autoAlpha:1, ease:Expo.easeOut});
 		  
 		}, 2000);
 
 	}})
-	// .to($('.coins.delta'), .01, { autoAlpha:0, display:'none' })
-	// .to($('.instruction:nth(0)'), .5, { autoAlpha:0, yPercent:-100, display:'none', delay: 5 })
-	// .fromTo($('.instruction:nth(1)'), .5, { autoAlpha:0, yPercent:-100, display:'none' }, { autoAlpha:1, yPercent:0, display:'block' })
 	.to($('.coins.starting'), 1, { autoAlpha:0, y:'10%', display:'none', delay: 5 })
 	.fromTo($('.coins.delta'), 1, { autoAlpha:0, y:'10%', display:'none' }, { autoAlpha:1, y:'0%', display:'block' })
 
-	// .to($('.instruction:nth(1)'), .5, { autoAlpha:0, yPercent:-100, display:'none', delay: 5 })
-	// .fromTo($('.instruction:nth(2)'), .5, { autoAlpha:0, yPercent:-100, display:'none' }, { autoAlpha:1, yPercent:0, display:'block' })
 	.fromTo($('.coins.delta'), 1, { autoAlpha:1, display:'block' }, { autoAlpha:0, y:'10%', display:'none', delay: 5 })
 	.fromTo($('.coins.current'), 1, { autoAlpha:0, y:'10%', display:'none' }, { autoAlpha:1, y:'0%', display:'block' })
 	
-	// .to($('.instruction:nth(2)'), .5, { autoAlpha:0, yPercent:-100, display:'none', delay: 5 })
-	// .fromTo($('.instruction:nth(3)'), .5, { autoAlpha:0, yPercent:-100, display:'none' }, { autoAlpha:1, yPercent:0, display:'block' })
 	.fromTo($('.rank.starting'), 1, { display:'block' }, { display:'none', delay: 5 })
 	.fromTo($('.rank.current'), 1, { autoAlpha:0, x:'10%', display:'none' }, { autoAlpha:1, x:'0%', display:'block' });
 }
