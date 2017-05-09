@@ -553,6 +553,25 @@ input.post-button {
 		color: $light-greenish-blue;
 	}
 
+	&#new-decider {
+		.coins {
+			margin-left: -3%;
+			margin-top: -2%;
+			color: $color-white;
+		}
+		h1#round {
+			@include text-shadow(0, 2px, 0px, rgba(85, 85, 85, 0.24));
+			font-family: $avenir-reg;
+			font-size: 40px;			
+		}
+		h2 {
+			span {
+				color: $color-white;
+			}
+
+		}
+	}
+
 	&#more-time-wrapper {
 
 		#btn-more-time {
@@ -675,7 +694,6 @@ input.post-button {
 			height: 60px;
 			border-radius: 30px;
 
-
 			&#btn-more-time {
 				span {
 					font-size: 12px;
@@ -735,14 +753,14 @@ input.post-button {
 			}
 
 			h1 {
-				color: white;
+				color: $color-white;
 				margin: 0;
 				font-size: 20px;
 				font-family: AvenirNext-DemiBold;
-				text-shadow: none;
+				@include text-shadow(0, 2px, 0, $color-teal);
 			}
 			h2 {
-				color: $tiffany-blue;
+				color: $color-white;
 				line-height: 1;
 				margin: 0;
 				font-size: 16px;
@@ -1157,7 +1175,7 @@ blockquote.speech {
 			text-shadow: none;
 		}
 		h2 {
-			color: $grey-white;
+			color: $color-white;
 			margin: 0px;
 			font-size: 16px;
 			font-family: $header-type;
