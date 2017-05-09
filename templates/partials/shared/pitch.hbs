@@ -16,11 +16,11 @@
 
 		{{> component/speech 
 				decider=true
-				body="Now that everyone has thought of their proposal, you will all take turns pitching your ideas to the group. Each player will have 60 seconds to pitch"
+				body=(combine 'Now that everyone has thought of their proposal, you will all take turns pitching your ideas to the group. Each player will have ' config.pitchSeconds ' seconds to pitch.')
 		}}
 
 		{{> component/speech
-				body="Now that everyone has thought of their proposal, you will all take turns pitching your ideas to the group. Each player will have 60 seconds to pitch"
+				body=(combine 'Now that everyone has thought of their proposal, you will all take turns pitching your ideas to the group. Each player will have ' config.pitchSeconds ' seconds to pitch.')
 		}}
 
 	</div>
@@ -40,11 +40,11 @@
 
 		{{> component/speech 
 				decider=true
-				body="Once your 60 seconds are up, you will see the option on your screen to pay 50 coins and receive another 30 seconds."
+				body=(combine 'Once your ' config.pitchSeconds ' seconds are up, you will see the option on your screen to pay ' config.extraTimeCost ' coins and receive another ' config.extraSeconds ' seconds.')
 		}}
 
 		{{> component/speech
-				body="Once your 60 seconds are up, you will see the option on your screen to pay 50 coins and receive another 30 seconds."
+				body=(combine 'Once your ' config.pitchSeconds ' seconds are up, you will see the option on your screen to pay ' config.extraTimeCost ' coins and receive another ' config.extraSeconds ' seconds.')
 		}}
 
 	</div>
@@ -87,7 +87,7 @@
 		{{> component/instructions 
 				active_player=player.isActive
 				heading="Get ready to pitch"
-				body="Wait for the decider to start the timer. You'll have 60 seconds to pitch your proposal."
+				body=(combine 'Wait for the decider to start the timer. You\'ll have ' config.pitchSeconds 'seconds to pitch your proposal.')
 		}}
 
 		{{!-- inactive player --}}

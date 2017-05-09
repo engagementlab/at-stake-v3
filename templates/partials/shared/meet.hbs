@@ -7,7 +7,31 @@
 	{{/if}}
 
 	{{!-- ROLE CARDS --}}
-	<div class="screen {{#unless tutorial}}initial{{/unless}}">
+	<div class="screen {{#ifeq round 1}}skip{{else}}initial{{/ifeq}}">
+
+		{{> component/instructions 
+				decider=true
+				heading="Read the text in the blue box aloud"
+				body="Once you finish speaking the instructions to other players, press next to continue."
+		}}
+
+		{{> component/instructions 
+				heading="Skip"
+				body="Skip"
+		}}
+
+		{{> component/speech 
+				decider=true
+				body="I'm the brand new decider!"
+		}}
+
+		{{> component/speech 
+				body="There's a new decider."
+		}}
+
+	</div>
+
+	<div class="screen {{#unless tutorial}}{{#ifeq round 1r}}initial{{/ifeq}}{{/unless}}">
 
 		{{> component/instructions 
 				decider=true
