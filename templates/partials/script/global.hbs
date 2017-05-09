@@ -364,9 +364,9 @@
       if($('#overlay').is(':visible') && $('#overlay .inner-modal').data('keep_open') === undefined)
 	      $('#overlay').trigger('hide');
 
-	    $.when($($('.screen')[0]).remove()).then(function() {
+	    $.when($($('.screen:not(.skip)')[0]).remove()).then(function() {
 
-	        var newScreen = $('.screen')[0];
+	        var newScreen = $('.screen:not(.skip)')[0];
 	        
 	        // Local session update
 	        sessionStorage.setItem('markup', $('#gameContent').html());   
@@ -376,7 +376,7 @@
 
 	        runMods();
 
-	        var timerPreview = $($('.screen')[0]).find('.timer.preview');
+	        var timerPreview = $($('.screen:not(.skip)')[0]).find('.timer.preview');
 	        var hasTimer = timerPreview.length === 1;
 	        if(hasTimer) {
 	            new ProgressBar.Circle(

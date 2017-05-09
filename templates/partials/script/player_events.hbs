@@ -127,7 +127,7 @@ var setupScreen = function(screenName) {
     sessionStorage.setItem('role', $('#role-card').html());
 
     // Animate initial
-    screenOpen($('.screen:first'));
+    screenOpen($('.screen:not(.skip):first'));
 
     currentPhaseIndex = sessionStorage.getItem('phase');
     currentScreenIndex = sessionStorage.getItem('screen');
