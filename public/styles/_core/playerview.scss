@@ -316,10 +316,52 @@ input.post-button {
 // Timer Animation
 .timer_wrap {
 	width: 304px;
-  height: 216px;
+  height: 278px;
   background-color: $turquoise-dark;
   border: solid 1px #fafafa;
 	margin: 0 auto;
+
+	&.think, &.deliberate {
+		height: 216px;
+
+		&.running {
+			.body {
+				margin-top: 35px;
+				background-color: $background-color;
+			}
+		}
+	}
+
+	.body.pitch {
+		color: white;
+    display: inline-block;
+    // margin-top: 48%;
+    font-size: 16px;
+    width: 100%;
+    padding: 8px 6px;
+		background-color: transparent;
+		height: 48px;
+    text-align: center;
+    font-family: AvenirNext-DemiBold;
+	}
+
+	.active_player {
+		font-size: 20px;
+		padding: 4px;
+		margin-top: 0px;
+		width: 100%;
+		background-color: $background-color;
+		height: 48px;
+		font-family: AvenirNext-Bold;
+		text-shadow: 0 2px 0 $turquoise-dark;
+
+		span {
+			text-shadow:none;
+			font-size: 16px;
+    	color: white;
+    	font-family: AvenirNext-Bold;
+		}
+	}
 
 	&.player {
 		pointer-events: none;
@@ -344,6 +386,7 @@ input.post-button {
     font-family: AvenirNext-Bold;
 	}
 	p {
+		color: white;
     display: inline-block;
     // margin-top: 48%;
     font-size: 16px;
@@ -353,9 +396,9 @@ input.post-button {
 		height: 48px;
     text-align: center;
     font-family: AvenirNext-DemiBold;
-
     
 	}
+
 	.progressbar-text {
 		font-size: 46px;
 		letter-spacing: -2.1px;
@@ -379,32 +422,46 @@ input.post-button {
 			margin-top: -58px;
 		}
 
-		// span {
-		// 	width: 100%;
-		// 	color: #61f5de;
-		// 	font-family: AvenirNext-Medium;
-		// }
-
 		p {
-			font-size: 20px;
-				padding: 4px;
-				margin-top: 35px;
-				width: 100%;
-				background-color: $background-color;
-				height: 48px;
-				font-family: AvenirNext-Bold;
+		  font-size: 20px;
+			padding: 4px;
+			margin-top: 21px;
+			width: 100%;
+			background-color: $background-color;
+			height: 48px;
+			font-family: AvenirNext-Bold;
 
-				&.think {
-					font-size: 16px;
-					font-family: AvenirNext-DemiBold;
-					padding: 8px;
-				}
+			&.pitch, &.doubledown {
+	    	margin-top: 35px;
+	    }
+
+			&.think {
+				font-size: 16px;
+				font-family: AvenirNext-DemiBold;
+				padding: 8px;
+			} 
+
+			&.active_player {
+				text-shadow: 0 2px 0 $turquoise-dark;
+
 				span {
-		    	font-size: 16px;
-		    	color: #d8d8d8;
+					text-shadow:none;
+					font-size: 16px;
+		    	color: white;
 		    	font-family: AvenirNext-Bold;
-		    }
+				}
 			}
+
+			&.body {
+				margin: 0px;
+				background-color: transparent;
+				color: white;
+				font-size: 16px;
+				font-family: AvenirNext-DemiBold;
+				padding: 8px;
+			}
+
+		}
 	}
 }
 
@@ -618,8 +675,23 @@ input.post-button {
 			}
 		}
 
-		.player-box {
+		.choice {
 			h1 {
+				font-family: AvenirNext-Bold;
+				line-height: 1.13;
+			  letter-spacing: -1.4px;
+			  font-size: 32px;
+			}
+		
+			h2 {
+				font-family: AvenirNext-DemiBold;
+				font-size: 20px;
+				color: $light-greenish-blue;
+			}
+		}
+
+		.player-box {
+			h2 {
 				text-shadow: none;
 			}
 		}

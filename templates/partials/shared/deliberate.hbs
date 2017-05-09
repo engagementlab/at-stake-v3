@@ -95,11 +95,13 @@
 				decider=true				
 				preview=true
 				time=config.deliberateSeconds
+				stage="deliberate"
 				body="Get Ready to Deliberate!"
 		}}
 		{{> component/timer 
 				preview=true
 				time=config.deliberateSeconds
+				stage="deliberate"
 				body="Get Ready to Deliberate!"
 		}}
 
@@ -124,11 +126,13 @@
 		{{> component/timer 
 				decider=true
 				time=config.deliberateSeconds
+				stage="deliberate"
 				body="Go! When the timer reaches zero, stop the discussion!"
 		}}
 
 		{{> component/timer
 				time=config.deliberateSeconds
+				stage="deliberate"
 				body="Go! When the timer reaches zero, stop talking!"
 		}}
 	

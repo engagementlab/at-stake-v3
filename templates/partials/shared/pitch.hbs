@@ -102,13 +102,19 @@
 				decider=true				
 				preview=true
 				time=config.pitchSeconds
+				stage='pitch'
 				body=(combine activePlayer.username ', it is your turn to pitch. are you ready?')
+				user=activePlayer.username
+				role=activePlayer.role.title
 		}}
 
 		{{> component/timer 
 				preview=true
 				time=config.pitchSeconds
+				stage='pitch'
 				body=(combine activePlayer.username ', you are up! Get ready to pitch!')
+				user=activePlayer.username
+				role=activePlayer.role.title
 		}}
 
 	</div>
@@ -141,14 +147,18 @@
 				time=config.pitchSeconds
 				decider=true
 				next_player=repeatScreen
-				body=activePlayer.username
+				stage='pitch'
+				body=question
+				user=activePlayer.username
 				role=activePlayer.role.title
 		}}
 
 		{{> component/timer 
 				time=config.pitchSeconds
 				active_player=player.isActive
-				body=activePlayer.username
+				stage='pitch'
+				body=question
+				user=activePlayer.username
 				role=activePlayer.role.title
 		}}
 
