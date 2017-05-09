@@ -99,21 +99,21 @@
 			{{#each role.agendaItems}}
 
 				{{!-- Agenda item choice --}}
-				<div class="inner-modal decider" {{#unless @first}}style="display:none"{{/unless}}>
-					<div class="inner">
+				<div class="inner-modal decider agenda_item" {{#unless @first}}style="display:none"{{/unless}}>
+					<div class="inner choice">
 
 						<div class="role form">
 							
-							<h1>Does the winning proposal include or address this stakeholder agenda item?</h1>
-							<h2>{{this}}</h2>
+							<h1>{{this}}</h1>
+							<h2>The decider is reviewing this agenda item to determine if it is in the winning proposal.</h2>
 							
-							<button id="btn_yes" class="btn btn-default post-button submit" data-event="game:agenda_yes" data-keep_open="true" data-package='{{../uid}}'>
-				        <h1>Yes</h1>
-				      </button>
+								<button id="btn_yes" class="btn btn-default post-button submit" data-event="game:agenda_yes" data-keep_open="true" data-package='{{../uid}}'>
+					        Yes
+					      </button>
 
-							<button id="btn_no" class="btn btn-default post-button submit" data-event="game:agenda_no" data-keep_open="true" data-package='{{../uid}}'>
-				        <h1>No</h1>
-				      </button>
+								<button id="btn_no" class="btn btn-default post-button submit" data-event="game:agenda_no" data-keep_open="true" data-package='{{../uid}}'>
+					        No
+					      </button>
 
 						</div>
 
@@ -121,20 +121,10 @@
 				</div>
 
 				{{!-- Decider is choosing --}}
-				<div class="inner-modal player">
-					<div class="inner">
-						<h1>The decider is reviewing an agenda item:</h1>
-						<h2>{{this}}</h2>
-
-						{{#each ../../players}}
-					    <div id="player-{{icon}}" class="post-button submit pitch player-logo player-box" style="cursor:default;">
-						    <div class="coins"></div>
-							  <div class="info">
-								  <h1>{{username}}</h1>
-							    <h2>{{role.title}}</h2>
-						    </div>
-						  </div>
-						{{/each}}
+				<div class="inner-modal player agenda_item">
+					<div class="inner choice">
+						<h1>{{this}}</h1>
+						<h2>The decider is reviewing this agenda item to determine if it is in the winning proposal.</h2>
 				  </div>
 				</div>
 
