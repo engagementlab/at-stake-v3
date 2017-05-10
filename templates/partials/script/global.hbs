@@ -178,7 +178,7 @@
 
 			// Get all absolutely-positioned elements
 			var outerAbsolutes = 
-			$('#wrapper, #wrapper :not(#gameContent *, #homeContent *, #stages-bar *, .modal)')
+			$('#wrapper, #wrapper :not(#gameContent *, #homeContent *, #stages-bar *, .modal, #bottom-bar)')
 			.filter(function(){
 			  return ($(this).css('position') == 'absolute' || $(this).css('position') == 'fixed');
 			});
@@ -186,7 +186,7 @@
 			setAbsolutes(outerAbsolutes);
 
 		};
-				
+
 		var setAbsolutes = function(absolutes) {
 	
 			_.each(absolutes, function(item) {
