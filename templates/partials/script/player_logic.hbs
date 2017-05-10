@@ -159,12 +159,13 @@ var checkIfLoggedIn = function() {
 
 phaseBarProgress = function() {
 
-    // Update progress bar
-    $('#stages-bar #progress').css('width', (currentPhaseIndex * 14 ) + '%');
-
     // Change phase icon status
     $('#stages-bar .icon:eq('+currentPhaseIndex+')').removeClass('disabled');
     $('#stages-bar .icon:not(:eq('+currentPhaseIndex+'))').addClass('disabled');
+
+    // Update progress bar
+    var progressLength = $('#stages-bar .icon:not(.disabled)').position().left;
+    $('#stages-bar #progress').css('width', progressLength+'px');
 
 }
 
