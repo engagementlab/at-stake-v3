@@ -56,6 +56,12 @@
   	sfxPath = '/sfx/';
   {{/ifeq}}
 
+  var absolutes = [],
+		windowsize = $(window).width(),
+		bodysize = $('#wrapper').width(),
+		wrapperLeft = $('#wrapper').offset().left,
+		extraWindow = (windowsize - bodysize)/2;
+
 	ion.sound({
     sounds: [
         {
@@ -166,62 +172,54 @@
 	/* 
 		Manually position absolutely-positioned elements on window re-size
 	*/
-	var absoluteLayout = function() {
-
-		// Setup config for layout
-		var absolutes = [],
-				windowsize = $(window).width(),
-				bodysize = $('#wrapper').width(),
-				wrapperLeft = $('#wrapper').offset().left,
-				extraWindow = (windowsize - bodysize)/2;
-
+	
 		// Locally-scoped methods
 		var findAbsolutes = function() {
 
-					// Get all absolutely-positioned elements
-					var outerAbsolutes = 
-					$('#wrapper :not(#gameContent *, #homeContent *, #stages-bar *, .modal)')
-					.filter(function(){
-					  return ($(this).css('position') == 'absolute');
-					});
+			// Get all absolutely-positioned elements
+			var outerAbsolutes = 
+			$('#wrapper, #wrapper :not(#gameContent *, #homeContent *, #stages-bar *, .modal)')
+			.filter(function(){
+			  return ($(this).css('position') == 'absolute' || $(this).css('position') == 'fixed');
+			});
 
-					setAbsolutes(outerAbsolutes);
+			setAbsolutes(outerAbsolutes);
 
-				},
-				setAbsolutes = function(absolutes) {
-			
-					_.each(absolutes, function(item) {
+		};
+				
+		var setAbsolutes = function(absolutes) {
+	
+			_.each(absolutes, function(item) {
 
-						var position = {};
+				var position = {};
 
-						// Check current positions
-						if ($(item).css('left'))
-							position.left = $(item).css('left');
+				// Check current positions
+				if ($(item).css('left'))
+					position.left = $(item).css('left');
 
-						if ($(item).css('right'))
-							position.right = $(item).css('right');
+				if ($(item).css('right'))
+					position.right = $(item).css('right');
 
-						// If left, set it
-						if (position.left)
-							$(item).css('left', wrapperLeft);
+				// If left, set it
+				if (position.left)
+					$(item).css('left', wrapperLeft);
 
-						// If right, set it
-						if (position.right){
-							position.right =+ extraWindow;
-							$(item).css('right', position.right);
-						}
+				// If right, set it
+				if (position.right){
+					position.right =+ extraWindow;
+					$(item).css('right', position.right);
+				}
 
-						// Call finish function after xxx milaseconds
-						var finish = _.debounce(finishResize, 500);
-						finish();
+				// Call finish function after xxx milaseconds
+				var finish = _.debounce(finishResize, 500);
+				finish();
 
-					});
+			});
 
-				};
+		};
 
-		findAbsolutes();
+	findAbsolutes();
 
-	};
 
 	var finishResize = function() {
 
@@ -633,7 +631,7 @@
 		$('#wrapper').css('visibility' ,'hidden');
 
 		// Adjust absolutely-position elements for desktop only
-		absoluteLayout();
+		findAbsolutes();
 
 	});
 
@@ -673,7 +671,7 @@
 			}
 
 			// Initialize layout
-			absoluteLayout();
+			findAbsolutes();
 
 			// Main menu buttons bind
 			mainMenuHandler();

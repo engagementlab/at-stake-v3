@@ -205,7 +205,8 @@ socketEvents = function(eventId, eventData) {
         case 'connect':
 
             // prevent scrolling on connect
-            $('html').css('overflow-y', 'hidden').css('position', 'fixed');
+            $('#wrapper').css('overflow-y', 'hidden').css('position', 'fixed');
+            findAbsolutes();
 
             ion.sound.play("player_pink");
             
@@ -251,7 +252,7 @@ socketEvents = function(eventId, eventData) {
             openInnerModal('menu', false, false, 'disconnected');
 
             // remove the css added on connect
-            $('html').css('overflow-y', 'scroll').css('position', 'relative');
+            $('#wrapper').css('overflow-y', 'scroll').css('position', 'relative');
 
             break;
 
