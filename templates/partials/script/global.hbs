@@ -57,10 +57,10 @@
   {{/ifeq}}
 
   var absolutes = [],
-		windowsize = $(window).width(),
-		bodysize = $('#wrapper').width(),
-		wrapperLeft = $('#wrapper').offset().left,
-		extraWindow = (windowsize - bodysize)/2;
+			windowsize = $(window).width(),
+			bodysize = $('#wrapper').width(),
+			wrapperLeft = $('#wrapper').offset().left,
+			extraWindow = (windowsize - bodysize)/2;
 
 	ion.sound({
     sounds: [
@@ -213,9 +213,14 @@
 	// Locally-scoped methods
 	var findAbsolutes = function() {
 
+		windowsize = $(window).width(),
+		bodysize = $('#wrapper').width(),
+		wrapperLeft = $('#wrapper').offset().left,
+		extraWindow = (windowsize - bodysize)/2;
+
 		// Get all absolutely-positioned elements
 		var outerAbsolutes = 
-		$('#wrapper, #wrapper :not(#gameContent *, #homeContent *, #stages-bar *, .modal *, #bottom-bar *, #background-logo *)')
+		$('#wrapper, #wrapper :not(#gameContent *, #homeContent *, #stages-bar *, .modal, #bottom-bar, #background-logo *)')
 		.filter(function(){
 		  return ($(this).css('position') == 'absolute' || $(this).css('position') == 'fixed');
 		});
@@ -225,9 +230,6 @@
 	};
 
 	findAbsolutes();
-
-
-	
 
 	/* 
 	 Associate provided data object with current game ID
