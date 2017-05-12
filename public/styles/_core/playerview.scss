@@ -744,8 +744,8 @@ input.post-button {
 		h1 {
 			font-family: AvenirNext-DemiBold;
 			font-size: 20px;
-
 		}
+
 	}
 	
 	.inner {
@@ -881,16 +881,9 @@ input.post-button {
 		
 		@include gradient-vertical($sunflower, $tangerine, 90%, 10%);	
 
-		#arrow {
+		#x-shape {
 	    position: relative;
-	    content: "";
-	    border-left: 34px solid #ff7800;
-	    border-top: 11px solid transparent;
-	    border-bottom: 11px solid transparent;
-		}
-		#label {
-			margin-left: -57%;
-			margin-top: 26%;
+	    background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1494604113/at-stake/layout/shape.svg")
 		}
 		
   }
@@ -1351,7 +1344,7 @@ footer#bottom-bar {
 	  background-position: 8px center;
 
 	  &#btn-role-card {
-	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/icon-rolecard.svg');
+	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/rolecard-icon.svg');
 	  	background-color: $orange-dark;
 	  	border-bottom: 3px darken($orange-dark, 10%) solid;
 	  }
