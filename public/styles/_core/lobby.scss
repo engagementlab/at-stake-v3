@@ -314,7 +314,7 @@
 			width: 90%;
 			color: $color-white;
 			margin: 0px auto;
-			text-align: justify;
+			text-align: center;
 		}
 		#btn_submit_name {
 			@include gradient-vertical($pink-light, $pink-dark, 90%, 10%);
