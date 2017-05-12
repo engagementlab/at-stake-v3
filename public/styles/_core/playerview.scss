@@ -70,7 +70,7 @@
 		}
 
 		&:hover, &:focus {
-			
+
 		}
 		
 	}
@@ -618,10 +618,18 @@ input.post-button {
 			font-size: 40px;			
 		}
 		h2 {
+			margin: 4px 8px;
+			width: 100%;
 			span {
 				color: $color-white;
 			}
+		}
+		.player-box {
+			margin: 4px auto;
 
+			h2 {
+				margin: 0px;
+			}
 		}
 	}
 
