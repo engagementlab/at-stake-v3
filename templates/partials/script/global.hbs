@@ -197,7 +197,7 @@
 			if (position.left)
 				$(item).css('left', wrapperLeft);
 			//If right, set it.
-			if (position.right){
+			if (position.right) {
 				position.right =+ extraWindow;
 				$(item).css('right', position.right);
 			}
@@ -215,14 +215,13 @@
 
 		windowsize = $(window).width(),
 		bodysize = $('#wrapper').width(),
-		wrapperLeft = $('#wrapper').offset().left,
 		extraWindow = (windowsize - bodysize)/2;
 
 		// Get all absolutely-positioned elements
 		var outerAbsolutes = 
-		$('#wrapper, #wrapper :not(#gameContent *, #homeContent *, #stages-bar *, .modal, #bottom-bar, #background-logo *)')
+		$('#wrapper :not(#gameContent *, #homeContent *, #stages-bar *, .modal, #bottom-bar, #background-logo *)')
 		.filter(function(){
-		  return ($(this).css('position') == 'absolute' || $(this).css('position') == 'fixed');
+		  return ($(this).css('position') == 'absolute');
 		});
 
 		setAbsolutes(outerAbsolutes);
