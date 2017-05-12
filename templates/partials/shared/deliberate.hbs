@@ -12,7 +12,7 @@
 
 		{{> component/instructions 
 				heading="Listen to the Decider"
-				body=(combine '"We will take ' config.deliberateSeconds ' seconds to talk about your proposals. This will be an open discussion led by the Decider."')
+				body="Get ready to deliberate with the group!"
 		}}
 
 		{{> component/speech 
@@ -42,11 +42,11 @@
 
 		{{> component/speech 
 				decider=true
-				body="Because this is an open discussion, any player may ask any other player for details about their proposal, offer counter arguments, or ask for changes/additions to any proposal at any time."
+				body="Because this is an open discussion, Stakeholders can chime in at any time to ask questions, offer counterpoints, or ask for changes to any proposal on the table."
 		}}
 
 		{{> component/speech 
-				body="Because this is an open discussion, any player may ask any other player for details about their proposal, offer counter arguments, or ask for changes/additions to any proposal at any time."
+				body="Because this is an open discussion, Stakeholders can chime in at any time to ask questions, offer counterpoints, or ask for changes to any proposal on the table."
 		}}
 
 	</div>
@@ -67,11 +67,11 @@
 
 		{{> component/speech 
 				decider=true
-				body="Remember! Your objective is to get your proposal chosen by the decider and/or have your agenda items in a winning proposal"
+				body="Remember! Your objective is to get your proposal chosen by the Decider and/or have your agenda items in a winning proposal"
 		}}
 
 		{{> component/speech 
-				body="Remember! Your objective is to get your proposal chosen by the decider and/or have your agenda items incorporated into the winning proposal."
+				body="Remember! Your objective is to get your proposal chosen by the Decider and/or have your agenda items incorporated into the winning proposal."
 		}}
 
 	</div>
@@ -114,12 +114,12 @@
 		{{> component/instructions 
 				decider=true
 				heading="Lead a discussion"
-				body="Ask probing questions, take notes on changes,  and encourage discussion among players."
+				body="Ask probing questions, take notes on changes, and encourage discussion among players."
 		}}
 		
 		{{> component/instructions 
-				heading="Engage in the open discussion"
-				body="Ask probing questions and chime in to further your agenda items and/or proposal."
+				heading="Participate in the open discussion"
+				body="Ask questions, incorporate your agenda in others' plans, or advance your own proposal."
 		}}
  
 		{{!-- Timer in button mode  --}}
@@ -149,17 +149,17 @@
 
 		{{> component/instructions 
 				heading="Time's up! Stop speaking"
-				body='Listen to the decider and get ready for the Double-Down phase!'
+				body='Listen to the Decider and get ready for the Double-Down phase!'
 		}}
 
 		{{> component/speech 
 				decider=true
 				advance=true
-				body="Times up! Everyone stop talking. Its time to move to the next phase."
+				body="Time is up! Everyone stop talking. It's time to move to the next phase."
 		}}
 
 		{{> component/speech 
-				body="Times up! Everyone stop talking. Its time to move to the next phase."
+				body="Time is up! Everyone stop talking. It's time to move to the next phase."
 		}}
 
 	</div>
