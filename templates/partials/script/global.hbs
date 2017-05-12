@@ -172,54 +172,6 @@
 	/* 
 		Manually position absolutely-positioned elements on window re-size
 	*/
-	
-		// Locally-scoped methods
-		var findAbsolutes = function() {
-
-			// Get all absolutely-positioned elements
-			var outerAbsolutes = 
-			$('#wrapper, #wrapper :not(#gameContent *, #homeContent *, #stages-bar *, .modal, #bottom-bar, #background-logo)')
-			.filter(function(){
-			  return ($(this).css('position') == 'absolute' || $(this).css('position') == 'fixed');
-			});
-
-			setAbsolutes(outerAbsolutes);
-
-		};
-
-		var setAbsolutes = function(absolutes) {
-	
-			_.each(absolutes, function(item) {
-
-				var position = {};
-
-				// Check current positions
-				if ($(item).css('left'))
-					position.left = $(item).css('left');
-
-				if ($(item).css('right'))
-					position.right = $(item).css('right');
-
-				// If left, set it
-				if (position.left)
-					$(item).css('left', wrapperLeft);
-
-				// If right, set it
-				if (position.right){
-					position.right =+ extraWindow;
-					$(item).css('right', position.right);
-				}
-
-				// Call finish function after xxx milaseconds
-				var finish = _.debounce(finishResize, 500);
-				finish();
-
-			});
-
-		};
-
-	findAbsolutes();
-
 
 	var finishResize = function() {
 
@@ -227,6 +179,55 @@
 		$('#wrapper').css('visibility', 'visible');
 
 	}
+	
+	var setAbsolutes = function(absolutes) {
+
+		_.each(absolutes, function(item) {
+
+			var position = {};
+
+			// Check current positions
+			if ($(item).css('left'))
+				position.left = $(item).css('left');
+
+			if ($(item).css('right'))
+				position.right = $(item).css('right');
+
+			// If left, set it. 
+			if (position.left)
+				$(item).css('left', wrapperLeft);
+			//If right, set it.
+			if (position.right){
+				position.right =+ extraWindow;
+				$(item).css('right', position.right);
+			}
+
+			// Call finish function after xxx milaseconds
+			var finish = _.debounce(finishResize, 500);
+			finish();
+
+		});
+
+	};
+
+	// Locally-scoped methods
+	var findAbsolutes = function() {
+
+		// Get all absolutely-positioned elements
+		var outerAbsolutes = 
+		$('#wrapper, #wrapper :not(#gameContent *, #homeContent *, #stages-bar *, .modal *, #bottom-bar *, #background-logo *)')
+		.filter(function(){
+		  return ($(this).css('position') == 'absolute' || $(this).css('position') == 'fixed');
+		});
+
+		setAbsolutes(outerAbsolutes);
+
+	};
+
+	findAbsolutes();
+
+
+	
 
 	/* 
 	 Associate provided data object with current game ID
