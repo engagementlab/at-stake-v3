@@ -50,7 +50,8 @@
 
 	#btn-menu-back {
 
-		color: $color-white;
+		background: none;
+		box-shadow:none;
 
 		height: 32px;
 		width: 64px;
@@ -63,18 +64,13 @@
     padding-top: 1%;
     padding-left: 5%;
 		
-		@include gradient-vertical($sunflower, $tangerine, 90%, 10%);	
 
-		#arrow {
-	    position: relative;
-	    content: "";
-	    border-left: 34px solid #ff7800;
-	    border-top: 11px solid transparent;
-	    border-bottom: 11px solid transparent;
+		img {
+			height: 25px;
 		}
-		#label {
-			margin-left: -57%;
-			margin-top: 26%;
+
+		&:hover, &:focus {
+			
 		}
 		
 	}
@@ -865,9 +861,8 @@ input.post-button {
   }
 
   #btn-close-role-card {
-
-		color: $grey-white;
-
+  	background: none;
+  	box-shadow:none;
 		height: 32px;
 		width: 64px;
 		
@@ -878,13 +873,10 @@ input.post-button {
 
     padding-top: 1%;
     padding-left: 5%;
-		
-		@include gradient-vertical($sunflower, $tangerine, 90%, 10%);	
 
-		#x-shape {
-	    position: relative;
-	    background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1494604113/at-stake/layout/shape.svg")
-		}
+    img {
+    	height:25px;
+    }
 		
   }
 
