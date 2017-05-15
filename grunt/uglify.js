@@ -3,8 +3,6 @@
 // Site-wide JS
 module.exports = function(grunt, options) {
 
-  var fs = require('fs');
-
   // Obtain env to generate filename
   var env = grunt.option('env');
 

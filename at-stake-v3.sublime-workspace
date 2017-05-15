@@ -523,7 +523,58 @@
 			"file": "templates/views/index.hbs",
 			"settings":
 			{
-				"buffer_size": 5766,
+				"buffer_size": 5694,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/helpers/index.js",
+			"settings":
+			{
+				"buffer_size": 4843,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grunt/uglify.js",
+			"settings":
+			{
+				"buffer_size": 1318,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "deploy.json",
+			"settings":
+			{
+				"buffer_size": 1740,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grunt/cssmin.js",
+			"settings":
+			{
+				"buffer_size": 921,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 248 files for \"col-centered\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css:\n 2238    text-align: center; }\n 2239  \n 2240: .col-centered {\n 2241    float: none;\n 2242    margin: 0 auto; }\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss:\n   65  \n   66  // Center any column, yay!\n   67: .col-centered {\n   68    float: none;\n   69    margin: 0 auto;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs:\n   53  \n   54                  <section id=\"error-player-disconnected\" class=\"modal error-modal\">\n   55:                     <div id=\"text\" class=\"col-sm-10 col-xs-12 col-centered\">\n   56                        <h1>Ummm...</h1>\n   57                        <h2>It looks like <span id=\"player\"></span> <span id=\"singular\">is</span><span id=\"plural\">are</span> disconnected from the game! They have <span id=\"time\">60s</span> to reconnect before the game ends!</h2>\n   ..\n   60  \n   61                  <section id=\"error-private-mode\" class=\"modal error-modal\">\n   62:                     <div id=\"text\" class=\"col-sm-10 col-xs-12 col-centered\">\n   63                        <h1>Sorry!</h1>\n   64                        <h2>You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.</h2>\n   ..\n   67  \n   68                  <section id=\"error-size\" class=\"modal error-modal\">\n   69:                     <div id=\"text\" class=\"col-sm-10 col-xs-12 col-centered\">\n   70                        <h1>Sorry!</h1>\n   71                        <h2>Your screen size is too small to play.</h2>\n   ..\n   89                              </div>\n   90                            \n   91:                             <div id=\"message-disconnected\" class=\"col-sm-8 col-centered error menu\" style=\"display:none\">\n   92                                It looks like the game is not responding for some reason. Try reconnecting or playing later!\n   93                              </div>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  384                  var index = player.icon;\n  385  \n  386:                 $('.player-grid .list').append('<div id=\"player-' + index + '\" class=\"col-sm-12 player-logo col-centered\"><p>' + nameFormatted + '</p></div>');\n  387  \n  388              });\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs:\n    9    <div class=\"lobby\" id=\"name\" class=\"col-sm-12\">\n   10      \n   11:     <div class=\"mobile col-xs-12 col-centered\">\n   12        <a class=\"buttonLink ios\" href=\"https://itunes.apple.com/us/app/atstake/id1115782392\"><div class=\"play-button mobile\">{{{cloudinaryUrl 'v1494263828/at-stake/layout/app_store.svg' width=270 height=80}}}</div></a>\n   13        <a class=\"buttonLink android\" href=\"https://play.google.com/store/apps/details?id=emersonengagementlab.edu.atstake\"><div class=\"play-button mobile\">{{{cloudinaryUrl 'v1494265155/at-stake/layout/google-play.png' width=135 height=52}}}</div></a>\n   14      </div>\n   15  \n   16:     <div class=\"form col-xs-12 col-centered\">\n   17  \n   18        <input autocomplete=\"off\" autofill='off' autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" type=\"text\" id=\"player-name\" maxlength=\"10\" placeholder=\"Type your name and hit next to begin\" class=\"hidden-el\"> <br />\n   ..\n   36        <p>welcome to @Stake!</p>\n   37      </div>\n   38:     <div class=\"form login col-xs-12 col-centered\">\n   39  \n   40        <div id=\"btn_new_game\" class=\"btn btn-default\">\n   ..\n   55    {{!-- NEW GAME --}}\n   56    <div class=\"lobby\" id=\"decider\" style=\"display:none\">\n   57:     <div class=\"form create col-sm-12 col-lg-12 col-centered\" id=\"deck-choice\">\n   58  \n   59        <h3 class=\"white\">Select a Deck</h3>\n   ..\n   97      <div id=\"tutorial\" class=\"col-sm-12\" style=\"display:none\">\n   98  \n   99:       <div class=\"col-xs-12 col-centered  form\">\n  100  \n  101          <div id=\"btn-tutorial\" data-event=\"game:start\" data-package='{\"tutorial\": \"true\"}' class=\"btn btn-default submit\">\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/index.hbs:\n   12  \t\t{{!-- TOP SECTION/LANDING --}}\n   13  \t\t<div class=\"top-section\">\n   14: \t\t\t<div class=\"top-header col-centered\">\n   15  \t\t\t\t<div class=\"landing-header\"><span>what's</span></br><span>@</span><span>stake?</span></div>\n   16  \t\t\t</div>\n   ..\n   89  \t\t\t<h3 class=\"flow-play-header\">{{{content.flowOfGameHeader.html}}}</h3>\n   90  \t\t\t<div class=\"text-block flow-play-para\">{{{content.flowOfGameParagraph.html}}}</div>\n   91: \t\t\t<img class=\"play-pic col-centered\" src=\"{{{cloudinaryUrl content.flowOfGamePicture width=auto height=350 crop='scale' quality=100}}}\">\n   92  \t\t</div>\n   93  \t\t<img class=\"game-flow-graphic left\" src=\"https://res.cloudinary.com/engagement-lab-home/image/upload/v1488559363/at-stake-site/trophyCrop.png\">\n\n14 matches across 6 files\n\n\nSearching 248 files for \"cdnAsset\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/css.hbs:\n   32  \t{{!-- PRODUCTION/STAGING --}}\n   33    <link rel=\"stylesheet\" href=\"https://res.cloudinary.com/engagement-lab-home/raw/upload/v1490910324/at-stake/bootstrap.min.css\" >\n   34: \t<link href=\"{{cdnAsset product='at-stake' env=environment type='css' }}\" rel=\"stylesheet\">\n   35  \n   36  {{/ifeq}}\n   37  \n   38: <link class=\"favicon\" rel=\"icon\" type=\"image/png\" href=\"{{cdnAsset product='at-stake' path='images/favicons/favicon_32' type='ico' fetch='image'}}\" sizes=\"32x32\">\n   39: <link class=\"favicon\" rel=\"icon\" type=\"image/png\" href=\"{{cdnAsset product='at-stake' path='images/favicons/favicon_16' type='ico' fetch='image'}}\" sizes=\"16x16\">\n   40  \n   41: <link class=\"favicon\" rel=\"shortcut icon\" href=\"{{cdnAsset product='at-stake' path='images/favicons/favicon_32' type='ico' fetch='image'}}\">\n   42: <link class=\"favicon\" rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"{{cdnAsset product='at-stake' path='images/favicons/favicon_144' type='png' fetch='image'}}\">\n   43: <link class=\"favicon\" rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"{{cdnAsset product='at-stake' path='images/favicons/favicon_114' type='png' fetch='image'}}\">\n   44: <link class=\"favicon\" rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"{{cdnAsset product='at-stake' path='images/favicons/favicon_72' type='png' fetch='image'}}\">\n   45  {{!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: --}}\n   46: <link class=\"favicon\" rel=\"apple-touch-icon-precomposed\" href=\"{{cdnAsset product='at-stake' path='images/favicons/favicon_57' type='png' fetch='image'}}\">\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/production.hbs:\n   16  \n   17  {{!-- Site JS --}}\n   18: <script type=\"text/javascript\" src=\"{{cdnAsset product='at-stake' env=environment type='js' }}\"></script>\n   19  \n   20  {{!-- NoSleep --}}\n\n9 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 6906,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "public/styles/core.scss",
+			"settings":
+			{
+				"buffer_size": 3529,
 				"line_ending": "Unix"
 			}
 		}
@@ -665,16 +716,9 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core",
 		"/Users/Johnny/Documents/Projects/at-stake-v3",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers"
+		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt"
 	],
 	"file_history":
 	[
@@ -907,6 +951,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"cdnAsset",
+			"col-centered",
 			"#progress",
 			"GetData",
 			".player-logo",
@@ -1032,9 +1078,7 @@
 			"$('#overlay').trigger('show'",
 			"game:ended",
 			"gameended",
-			"game:ending",
-			"game:end",
-			"EndGame"
+			"game:ending"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1189,15 +1233,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5766,
+						"buffer_size": 5694,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3686,
-								3699
+								2736,
+								2648
 							]
 						],
 						"settings":
@@ -1206,10 +1250,293 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1144.0,
+						"translation.y": 710.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "templates/helpers/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4843,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4730,
+								4560
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "grunt/uglify.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1318,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								61,
+								70
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "deploy.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1740,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								107,
+								73
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "grunt/cssmin.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 921,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								921,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6906,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										173,
+										185
+									],
+									[
+										358,
+										370
+									],
+									[
+										661,
+										673
+									],
+									[
+										1124,
+										1136
+									],
+									[
+										1481,
+										1493
+									],
+									[
+										1782,
+										1794
+									],
+									[
+										2263,
+										2275
+									],
+									[
+										2534,
+										2546
+									],
+									[
+										3095,
+										3107
+									],
+									[
+										3458,
+										3470
+									],
+									[
+										3695,
+										3707
+									],
+									[
+										3904,
+										3916
+									],
+									[
+										4244,
+										4256
+									],
+									[
+										4590,
+										4602
+									],
+									[
+										5226,
+										5234
+									],
+									[
+										5401,
+										5409
+									],
+									[
+										5571,
+										5579
+									],
+									[
+										5741,
+										5749
+									],
+									[
+										5920,
+										5928
+									],
+									[
+										6100,
+										6108
+									],
+									[
+										6278,
+										6286
+									],
+									[
+										6520,
+										6528
+									],
+									[
+										6778,
+										6786
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								6805,
+								6821
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1666.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "public/styles/core.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3529,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								958,
+								1037
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -1275,6 +1602,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"help",
+				"All/templates/helpers/index.js"
+			],
 			[
 				"varia",
 				"Styles/_core/variables.scss"
@@ -1782,10 +2113,6 @@
 			[
 				"production",
 				"templates/partials/script/production.hbs"
-			],
-			[
-				"result",
-				"templates/partials/group/results.hbs"
 			]
 		],
 		"width": 0.0
