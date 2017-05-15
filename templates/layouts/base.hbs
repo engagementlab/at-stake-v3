@@ -5,8 +5,8 @@
     <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>@Stake</title>
-        <meta name="description" content="@Stake is an online and mobile role-playing game that fosters democracy, empathy, and creative problem solving for civic issues.">
+        <title>@stake</title>
+        <meta name="description" content="@stake is a role playing game that fosters creativity and empathy in small group deliberation.">
         <meta name="author" content="Engagement Lab at Emerson College">
         <meta name="theme-color" content="#00dcba">
 
@@ -19,7 +19,7 @@
          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         {{/ifeq}}
         {{!-- Open Graph --}}
-        {{!-- <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1455896685/site/about/logo_color.png" /> --}}
+        <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1494604113/at-stake/layout/logo_3x.png" />
 
         {{!-- Load web SDK's core script/docs --}}
         {{> core environment=env}}
@@ -82,8 +82,7 @@
                             <div id="header" class="row">
                         
                                 <button id="btn-menu-back" class="btn" type="submit" name="submit" data-keep_enabled="true">
-                                    <div id="arrow"></div>
-                                    <div id="label">back to game</div>
+                                    {{{cloudinaryUrl '/v1494604113/at-stake/layout/shape.svg' height=auto}}}
                                 </button>
 
                             </div>

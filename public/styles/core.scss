@@ -30,6 +30,9 @@ html, body {
 	@include box-shadow(0px, 0px, 37px, black);
 	background-color: $background-color;
 	height:100%;
+	right: 0;
+	left: 0;
+	
 }
 	
 .error-modal {

@@ -50,7 +50,8 @@
 
 	#btn-menu-back {
 
-		color: $color-white;
+		background: none;
+		box-shadow:none;
 
 		height: 32px;
 		width: 64px;
@@ -63,18 +64,13 @@
     padding-top: 1%;
     padding-left: 5%;
 		
-		@include gradient-vertical($sunflower, $tangerine, 90%, 10%);	
 
-		#arrow {
-	    position: relative;
-	    content: "";
-	    border-left: 34px solid #ff7800;
-	    border-top: 11px solid transparent;
-	    border-bottom: 11px solid transparent;
+		img {
+			height: 25px;
 		}
-		#label {
-			margin-left: -57%;
-			margin-top: 26%;
+
+		&:hover, &:focus {
+
 		}
 		
 	}
@@ -622,10 +618,18 @@ input.post-button {
 			font-size: 40px;			
 		}
 		h2 {
+			margin: 4px 8px;
+			width: 100%;
 			span {
 				color: $color-white;
 			}
+		}
+		.player-box {
+			margin: 4px auto;
 
+			h2 {
+				margin: 0px;
+			}
 		}
 	}
 
@@ -744,8 +748,8 @@ input.post-button {
 		h1 {
 			font-family: AvenirNext-DemiBold;
 			font-size: 20px;
-
 		}
+
 	}
 	
 	.inner {
@@ -865,9 +869,8 @@ input.post-button {
   }
 
   #btn-close-role-card {
-
-		color: $grey-white;
-
+  	background: none;
+  	box-shadow:none;
 		height: 32px;
 		width: 64px;
 		
@@ -878,20 +881,10 @@ input.post-button {
 
     padding-top: 1%;
     padding-left: 5%;
-		
-		@include gradient-vertical($sunflower, $tangerine, 90%, 10%);	
 
-		#arrow {
-	    position: relative;
-	    content: "";
-	    border-left: 34px solid #ff7800;
-	    border-top: 11px solid transparent;
-	    border-bottom: 11px solid transparent;
-		}
-		#label {
-			margin-left: -57%;
-			margin-top: 26%;
-		}
+    img {
+    	height:25px;
+    }
 		
   }
 
@@ -1351,12 +1344,12 @@ footer#bottom-bar {
 	  background-position: 8px center;
 
 	  &#btn-role-card {
-	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/icon-rolecard.svg');
+	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/rolecard.svg');
 	  	background-color: $orange-dark;
 	  	border-bottom: 3px darken($orange-dark, 10%) solid;
 	  }
 	  &#btn-menu {
-	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/menu-icon.svg');
+	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/menu.svg');
 	  	background-color: $orange-light;
 	  	border-bottom: 3px $orange-dark solid;
 	  }
