@@ -615,7 +615,8 @@ input.post-button {
 		h1#round {
 			@include text-shadow(0, 2px, 0px, rgba(85, 85, 85, 0.24));
 			font-family: $avenir-reg;
-			font-size: 40px;			
+			font-size: 40px;	
+			margin-top: 0px;		
 		}
 		h2 {
 			margin: 4px 8px;
@@ -625,6 +626,7 @@ input.post-button {
 			}
 		}
 		.player-box {
+			width:100%;
 			margin: 4px auto;
 
 			h2 {
@@ -727,10 +729,13 @@ input.post-button {
 		}
 		.role {
 			#btn_yes, #btn_no {
+
+				margin-bottom: 20px;
 				* {
 					margin: 0px;
 					font-size: 20px;
 					font-family: AvenirNext-Bold;
+
 
 				}
 			}
@@ -804,7 +809,7 @@ input.post-button {
 			padding-left: 12%;
 			font-size: 20px;
 			font-family: $header-type;
-			margin: 10px auto;
+			margin: 4px auto;
 			height: 48px;
 			background-repeat: no-repeat;
 			background-position: 40px center;
