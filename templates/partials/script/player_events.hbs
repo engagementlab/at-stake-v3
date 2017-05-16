@@ -114,7 +114,7 @@ var setupScreen = function(screenName) {
     $(isDecider ? '.player' : '.decider').remove();
 
 
-    if(screenName === 'debrief') {
+    if(screenName == 'debrief') {
         $('#gameContent').removeClass('in-game');
         $('#bottom-bar').hide();
     }

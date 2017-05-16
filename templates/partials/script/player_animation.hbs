@@ -208,6 +208,7 @@ var screenOpen = function(screenElement) {
 			scoreboardOpen();
 
 		else if(screenElement.data('animation') === 'debrief') {
+			$('#bottom-bar').hide();
 			new TimelineLite()
 			.fromTo($('#stages-bar'), 1, { yPercent:0, autoAlpha:1, height:50, display:'block' }, { yPercent:-100, autoAlpha:0, height:0, display:'none', ease:Expo.easeOut } )
 			.fromTo($('#login-header'), .7, { yPercent:-100, autoAlpha:0 }, { yPercent:0, autoAlpha:1, ease:Expo.easeOut } );

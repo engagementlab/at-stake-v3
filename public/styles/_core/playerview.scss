@@ -755,7 +755,14 @@ input.post-button {
 		h1 {
 			font-family: AvenirNext-DemiBold;
 			font-size: 20px;
-			margin:0px;
+		}
+
+		#winner-btn {
+
+			.info {
+				width: 188px !important;
+			}
+
 		}
 
 	}
@@ -1277,6 +1284,13 @@ blockquote.speech {
 				}
 			}
 	
+	}
+}
+
+// DEBRIEF
+#debrief {
+	.instruction {
+		margin-top: 120px;
 	}
 }
 
