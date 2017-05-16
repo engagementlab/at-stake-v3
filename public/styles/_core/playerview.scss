@@ -616,7 +616,7 @@ input.post-button {
 			@include text-shadow(0, 2px, 0px, rgba(85, 85, 85, 0.24));
 			font-family: $avenir-reg;
 			font-size: 40px;	
-			margin-top: 0px;		
+			margin: 0px;		
 		}
 		h2 {
 			margin: 4px 8px;
@@ -706,6 +706,7 @@ input.post-button {
 				line-height: 1.13;
 			  letter-spacing: -1.4px;
 			  font-size: 32px;
+			  margin: 0px;
 			}
 		
 			h2 {
@@ -730,7 +731,7 @@ input.post-button {
 		.role {
 			#btn_yes, #btn_no {
 
-				margin-bottom: 20px;
+				margin-bottom: 0px;
 				* {
 					margin: 0px;
 					font-size: 20px;
@@ -750,9 +751,11 @@ input.post-button {
 	}
 
 	.decide-winner {
+		height: 432px;
 		h1 {
 			font-family: AvenirNext-DemiBold;
 			font-size: 20px;
+			margin:0px;
 		}
 
 	}
@@ -828,6 +831,7 @@ input.post-button {
 			    line-height: 64px;
 			    width: 64px;
 			    height: 64px;
+			    padding: 0px !important;
 					background-repeat: no-repeat;
 					background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,w_64/v1490979430/at-stake/layout/icon-yourcoins.svg");
 				}
