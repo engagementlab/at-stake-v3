@@ -384,7 +384,7 @@ input.post-button {
 	p {
 		color: white;
     display: inline-block;
-    // margin-top: 48%;
+		letter-spacing: -0.8px;
     font-size: 16px;
     width: 100%;
     padding: 8px 6px;
@@ -811,12 +811,17 @@ input.post-button {
 		  background-size: 40px 40px;
 			background-color: $aquamarine;
 
+			&.decided {
+				padding-left: 2%;
+				margin-top:20px;
+			}
+
 			&#reward-icon {
 				.coins {
-					margin-top: -1%;
-					padding-top: 7%;
-					width: 48px;
-					height: 48px;
+			    margin-top: -8px;
+			    line-height: 64px;
+			    width: 64px;
+			    height: 64px;
 					background-repeat: no-repeat;
 					background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,w_64/v1490979430/at-stake/layout/icon-yourcoins.svg");
 				}
@@ -846,7 +851,7 @@ input.post-button {
 			.info {
 		    position: relative;
 		    float: right;
-		    width: 80%;
+		    width: 78%;
 		    margin-top:4px;
 		    height: 40px;
 		    font-family: AvenirNext-Bold;
@@ -1044,6 +1049,8 @@ input.post-button {
 .instruction {
 	font-size:16px;
 	height: 72px;
+  margin: 0 auto;
+  width: 304px;
 	margin-bottom: 16px;
 	font-family: AvenirNext;
 
