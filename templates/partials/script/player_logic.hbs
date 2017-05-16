@@ -164,8 +164,12 @@ phaseBarProgress = function() {
     $('#stages-bar .icon:not(:eq('+currentPhaseIndex+'))').addClass('disabled');
 
     // Update progress bar
-    var progressLength = $('#stages-bar .icon:not(.disabled)').position().left;
-    $('#stages-bar #progress').css('width', progressLength+'px');
+    var currentIcon = $('#stages-bar .icon:not(.disabled)');
+
+    if(currentIcon) {
+        var progressLength = currentIcon.position().left;
+        $('#stages-bar #progress').css('width', progressLength+'px');
+    }
 
 }
 
