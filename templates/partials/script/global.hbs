@@ -186,16 +186,21 @@
 
 			var position = {};
 
+			console.log($(item).css('left'), $(item).css('right'))
+
 			// Check current positions
-			if ($(item).css('left'))
+			if ($(item).css('left') && $(item).css('left') !== null && $(item).css('left') !== undefined && $(item).css('left') !== 'auto')
 				position.left = $(item).css('left');
 
-			if ($(item).css('right'))
+			if ($(item).css('right') && $(item).css('right') !== null && $(item).css('right') !== undefined && $(item).css('right') !== 'auto')
 				position.right = $(item).css('right');
 
+			console.log(item, position);
+
 			// If left, set it. 
-			if (position.left)
-				$(item).css('left', wrapperLeft);
+			if (position.left){
+				position.left =+ wrapperLeft;
+			}
 			//If right, set it.
 			if (position.right) {
 				position.right =+ extraWindow;
