@@ -817,7 +817,8 @@ input.post-button {
 			background-color: $aquamarine;
 
 			&.decided {
-				padding-left: 2%;
+				padding-left: 0px;
+				width:100%;
 				margin-top:20px;
 			}
 
@@ -856,7 +857,7 @@ input.post-button {
 			.info {
 		    position: relative;
 		    float: right;
-		    width: 78%;
+		    width: 204px;
 		    margin-top:4px;
 		    height: 40px;
 		    font-family: AvenirNext-Bold;
