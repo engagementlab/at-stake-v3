@@ -101,8 +101,6 @@ var startTimer = function(secondsLeft, timerAdvance) {
 
 var setupScreen = function(screenName) {
 
-    console.log(screenName);
-
     // Add trigger to go to next step on next-step buttons
     $('.next-step').click(function(evt) {
         nextPhaseScreen();
@@ -113,21 +111,22 @@ var setupScreen = function(screenName) {
 
     $(isDecider ? '.player' : '.decider').remove();
 
-
-    if(screenName === 'debrief') {
+    if(screenName == 'debrief') {
         $('#gameContent').removeClass('in-game');
         $('#bottom-bar').hide();
     }
     else {
         $('#stages-bar').show();
+        $('#bottom-bar').show();
         $('#gameContent').addClass('in-game');
     }
 
     sessionStorage.setItem('markup', $('#gameContent').html());
     sessionStorage.setItem('role', $('#role-card').html());
+    sessionStorage.setItem('screenName', screenName);
 
     // Animate initial
-    screenOpen($('.screen:first'));
+    screenOpen($('.screen:not(.skip):first'));
 
     currentPhaseIndex = sessionStorage.getItem('phase');
     currentScreenIndex = sessionStorage.getItem('screen');
@@ -204,6 +203,9 @@ socketEvents = function(eventId, eventData) {
 
         case 'connect':
 
+            // prevent scrolling on connect
+            $('#wrapper').css('overflow-y', 'hidden').css('position', 'fixed');
+
             ion.sound.play("player_pink");
             
             if(sessionStorage.getItem('gameCode')) {
@@ -247,6 +249,9 @@ socketEvents = function(eventId, eventData) {
             // Show main menu w/ error
             openInnerModal('menu', false, false, 'disconnected');
 
+            // remove the css added on connect
+            $('#wrapper').css('overflow-y', 'scroll').css('position', 'relative');
+
             break;
 
         case 'player:loggedin':
@@ -289,9 +294,10 @@ socketEvents = function(eventId, eventData) {
             isDecider = eventData.is_decider;
 
             var markup = sessionStorage.getItem('markup');
-            var roleCard = sessionStorage.getItem('role')
+            var roleCard = sessionStorage.getItem('role');
 
-            $('#bottom-bar').show();
+            if (sessionStorage.getItem('screenName') !== 'debrief')
+                $('#bottom-bar').show();
 
             if (isDecider)
                 $('#btn-role-card').css('visibility', 'hidden');
@@ -395,7 +401,7 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:start':
 
-            $('#bottom-bar').show();
+            // $('#bottom-bar').show();
             
             $('#agenda-items .role:visible').remove();
             $('#agenda-items .role').first().show();
@@ -482,9 +488,6 @@ socketEvents = function(eventId, eventData) {
 
             if ($('#background-logo').css('display', 'none'))
                 $('#background-logo').show();
-
-
-            $('#bottom-bar').show();
 
             sessionStorage.setItem('gameCode', gameCode);
 
@@ -691,7 +694,8 @@ socketEvents = function(eventId, eventData) {
             if(isDecider)
                 ga('send', 'event', 'Game', 'Event', 'Became Decider');  
 
-            $('#bottom-bar').show();
+            if (sessionStorage.getItem('screenName') !== 'debrief')
+                $('#bottom-bar').show();
 
             $('#btn-role-card').css('visibility', isDecider ? 'hidden' : 'visible');
 

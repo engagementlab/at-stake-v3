@@ -30,11 +30,18 @@ html, body {
 	@include box-shadow(0px, 0px, 37px, black);
 	background-color: $background-color;
 	height:100%;
+	right: 0;
+	left: 0;
+	
 }
 	
 .error-modal {
 	background-color: rgba(254, 120, 70, 0.9);
 	color: white;
+
+	h3 {
+		font-size: 18px;
+	}
 }
 
 // remove default button and input states

@@ -5,8 +5,8 @@
     <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>@Stake</title>
-        <meta name="description" content="@Stake is an online and mobile role-playing game that fosters democracy, empathy, and creative problem solving for civic issues.">
+        <title>@stake</title>
+        <meta name="description" content="@stake is a role playing game that fosters creativity and empathy in small group deliberation.">
         <meta name="author" content="Engagement Lab at Emerson College">
         <meta name="theme-color" content="#00dcba">
 
@@ -19,7 +19,7 @@
          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         {{/ifeq}}
         {{!-- Open Graph --}}
-        {{!-- <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1455896685/site/about/logo_color.png" /> --}}
+        <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1494604113/at-stake/layout/logo_3x.png" />
 
         {{!-- Load web SDK's core script/docs --}}
         {{> core environment=env}}
@@ -69,6 +69,7 @@
                     <div id="text" class="col-sm-10 col-xs-12 col-centered">
                       <h1>Sorry!</h1>
                       <h2>Your screen size is too small to play.</h2>
+                      <h3>If you are on mobile, download the @Stake App in the App Store or Google Play. You can also try resizing your browser window, use the browser zoom function to make your window smaller, or changing your computer resolution to make your window bigger. If none of these options work, we might not support your device. Please email us at info@elab.emerson.edu for more information or assistance!</h3>
                     </div>
                 </section>
 
@@ -81,8 +82,7 @@
                             <div id="header" class="row">
                         
                                 <button id="btn-menu-back" class="btn" type="submit" name="submit" data-keep_enabled="true">
-                                    <div id="arrow"></div>
-                                    <div id="label">back to game</div>
+                                    {{{cloudinaryUrl '/v1494604113/at-stake/layout/shape.svg' height=auto}}}
                                 </button>
 
                             </div>
@@ -133,8 +133,8 @@
                     <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/pitch-phase.svg' width=100 height=100}}}<span>pitch</span></div>
                     <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/delib-phase.svg' width=100 height=100}}}<span style="margin-left:-15px;">deliberate</span></div>
                     <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/dd-phase.svg' width=100 height=100}}}<span id="doubledown">double-down</span></div>
-                    <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/score-phase.svg' width=100 height=100}}}<span>decide</span></div>
-                    <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/score-phase.svg' width=100 height=100}}}<span>score</span></div>
+                    <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/decide-phase.svg' width=100 height=100}}}<span>decide</span></div>
+                    <div class="disabled icon">{{{cloudinaryUrl 'v1491318245/at-stake/layout/score-trophy.svg' width=100 height=100}}}<span>score</span></div>
                 </section>
 
                 {{!-- ROLE CARD OVERLAY --}}

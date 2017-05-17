@@ -50,7 +50,8 @@
 
 	#btn-menu-back {
 
-		color: $color-white;
+		background: none;
+		box-shadow:none;
 
 		height: 32px;
 		width: 64px;
@@ -63,18 +64,13 @@
     padding-top: 1%;
     padding-left: 5%;
 		
-		@include gradient-vertical($sunflower, $tangerine, 90%, 10%);	
 
-		#arrow {
-	    position: relative;
-	    content: "";
-	    border-left: 34px solid #ff7800;
-	    border-top: 11px solid transparent;
-	    border-bottom: 11px solid transparent;
+		img {
+			height: 25px;
 		}
-		#label {
-			margin-left: -57%;
-			margin-top: 26%;
+
+		&:hover, &:focus {
+
 		}
 		
 	}
@@ -316,10 +312,52 @@ input.post-button {
 // Timer Animation
 .timer_wrap {
 	width: 304px;
-  height: 216px;
+  height: 278px;
   background-color: $turquoise-dark;
   border: solid 1px #fafafa;
 	margin: 0 auto;
+
+	&.think, &.deliberate {
+		height: 216px;
+
+		&.running {
+			.body {
+				margin-top: 35px;
+				background-color: $background-color;
+			}
+		}
+	}
+
+	.body.pitch {
+		color: white;
+    display: inline-block;
+    // margin-top: 48%;
+    font-size: 16px;
+    width: 100%;
+    padding: 8px 6px;
+		background-color: transparent;
+		height: 48px;
+    text-align: center;
+    font-family: AvenirNext-DemiBold;
+	}
+
+	.active_player {
+		font-size: 20px;
+		padding: 4px;
+		margin-top: 0px;
+		width: 100%;
+		background-color: $background-color;
+		height: 48px;
+		font-family: AvenirNext-Bold;
+		text-shadow: 0 2px 0 $turquoise-dark;
+
+		span {
+			text-shadow:none;
+			font-size: 16px;
+    	color: white;
+    	font-family: AvenirNext-Bold;
+		}
+	}
 
 	&.player {
 		pointer-events: none;
@@ -344,8 +382,9 @@ input.post-button {
     font-family: AvenirNext-Bold;
 	}
 	p {
+		color: white;
     display: inline-block;
-    // margin-top: 48%;
+		letter-spacing: -0.8px;
     font-size: 16px;
     width: 100%;
     padding: 8px 6px;
@@ -353,9 +392,9 @@ input.post-button {
 		height: 48px;
     text-align: center;
     font-family: AvenirNext-DemiBold;
-
     
 	}
+
 	.progressbar-text {
 		font-size: 46px;
 		letter-spacing: -2.1px;
@@ -379,32 +418,46 @@ input.post-button {
 			margin-top: -58px;
 		}
 
-		// span {
-		// 	width: 100%;
-		// 	color: #61f5de;
-		// 	font-family: AvenirNext-Medium;
-		// }
-
 		p {
-			font-size: 20px;
-				padding: 4px;
-				margin-top: 35px;
-				width: 100%;
-				background-color: $background-color;
-				height: 48px;
-				font-family: AvenirNext-Bold;
+		  font-size: 20px;
+			padding: 4px;
+			margin-top: 21px;
+			width: 100%;
+			background-color: $background-color;
+			height: 48px;
+			font-family: AvenirNext-Bold;
 
-				&.think {
-					font-size: 16px;
-					font-family: AvenirNext-DemiBold;
-					padding: 8px;
-				}
+			&.pitch, &.doubledown {
+	    	margin-top: 35px;
+	    }
+
+			&.think {
+				font-size: 16px;
+				font-family: AvenirNext-DemiBold;
+				padding: 8px;
+			} 
+
+			&.active_player {
+				text-shadow: 0 2px 0 $turquoise-dark;
+
 				span {
-		    	font-size: 16px;
-		    	color: #d8d8d8;
+					text-shadow:none;
+					font-size: 16px;
+		    	color: white;
 		    	font-family: AvenirNext-Bold;
-		    }
+				}
 			}
+
+			&.body {
+				margin: 0px;
+				background-color: transparent;
+				color: white;
+				font-size: 16px;
+				font-family: AvenirNext-DemiBold;
+				padding: 8px;
+			}
+
+		}
 	}
 }
 
@@ -553,6 +606,35 @@ input.post-button {
 		color: $light-greenish-blue;
 	}
 
+	&#new-decider {
+		.coins {
+			margin-left: -3%;
+			margin-top: -2%;
+			color: $color-white;
+		}
+		h1#round {
+			@include text-shadow(0, 2px, 0px, rgba(85, 85, 85, 0.24));
+			font-family: $avenir-reg;
+			font-size: 40px;	
+			margin: 0px;		
+		}
+		h2 {
+			margin: 4px 8px;
+			width: 100%;
+			span {
+				color: $color-white;
+			}
+		}
+		.player-box {
+			width:100%;
+			margin: 4px auto;
+
+			h2 {
+				margin: 0px;
+			}
+		}
+	}
+
 	&#more-time-wrapper {
 
 		#btn-more-time {
@@ -618,8 +700,24 @@ input.post-button {
 			}
 		}
 
-		.player-box {
+		.choice {
 			h1 {
+				font-family: AvenirNext-Bold;
+				line-height: 1.13;
+			  letter-spacing: -1.4px;
+			  font-size: 32px;
+			  margin: 0px;
+			}
+		
+			h2 {
+				font-family: AvenirNext-DemiBold;
+				font-size: 20px;
+				color: $light-greenish-blue;
+			}
+		}
+
+		.player-box {
+			h2 {
 				text-shadow: none;
 			}
 		}
@@ -632,10 +730,13 @@ input.post-button {
 		}
 		.role {
 			#btn_yes, #btn_no {
+
+				margin-bottom: 0px;
 				* {
 					margin: 0px;
 					font-size: 20px;
 					font-family: AvenirNext-Bold;
+
 
 				}
 			}
@@ -650,11 +751,20 @@ input.post-button {
 	}
 
 	.decide-winner {
+		height: 432px !important;
 		h1 {
 			font-family: AvenirNext-DemiBold;
 			font-size: 20px;
+		}
+
+		#winner-btn {
+
+			.info {
+				width: 188px !important;
+			}
 
 		}
+
 	}
 	
 	.inner {
@@ -674,7 +784,6 @@ input.post-button {
 			margin: 10px auto;
 			height: 60px;
 			border-radius: 30px;
-
 
 			&#btn-more-time {
 				span {
@@ -710,19 +819,26 @@ input.post-button {
 			padding-left: 12%;
 			font-size: 20px;
 			font-family: $header-type;
-			margin: 10px auto;
+			margin: 4px auto;
 			height: 48px;
 			background-repeat: no-repeat;
 			background-position: 40px center;
 		  background-size: 40px 40px;
 			background-color: $aquamarine;
 
+			&.decided {
+				padding-left: 0px;
+				width:100%;
+				margin-top:20px;
+			}
+
 			&#reward-icon {
 				.coins {
-					margin-top: -1%;
-					padding-top: 7%;
-					width: 48px;
-					height: 48px;
+			    margin-top: -8px;
+			    line-height: 64px;
+			    width: 64px;
+			    height: 64px;
+			    padding: 0px !important;
 					background-repeat: no-repeat;
 					background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,w_64/v1490979430/at-stake/layout/icon-yourcoins.svg");
 				}
@@ -735,14 +851,14 @@ input.post-button {
 			}
 
 			h1 {
-				color: white;
+				color: $color-white;
 				margin: 0;
 				font-size: 20px;
 				font-family: AvenirNext-DemiBold;
-				text-shadow: none;
+				@include text-shadow(0, 2px, 0, $color-teal);
 			}
 			h2 {
-				color: $tiffany-blue;
+				color: $color-white;
 				line-height: 1;
 				margin: 0;
 				font-size: 16px;
@@ -752,7 +868,7 @@ input.post-button {
 			.info {
 		    position: relative;
 		    float: right;
-		    width: 80%;
+		    width: 204px;
 		    margin-top:4px;
 		    height: 40px;
 		    font-family: AvenirNext-Bold;
@@ -775,9 +891,8 @@ input.post-button {
   }
 
   #btn-close-role-card {
-
-		color: $grey-white;
-
+  	background: none;
+  	box-shadow:none;
 		height: 32px;
 		width: 64px;
 		
@@ -788,20 +903,10 @@ input.post-button {
 
     padding-top: 1%;
     padding-left: 5%;
-		
-		@include gradient-vertical($sunflower, $tangerine, 90%, 10%);	
 
-		#arrow {
-	    position: relative;
-	    content: "";
-	    border-left: 34px solid #ff7800;
-	    border-top: 11px solid transparent;
-	    border-bottom: 11px solid transparent;
-		}
-		#label {
-			margin-left: -57%;
-			margin-top: 26%;
-		}
+    img {
+    	height:25px;
+    }
 		
   }
 
@@ -961,6 +1066,8 @@ input.post-button {
 .instruction {
 	font-size:16px;
 	height: 72px;
+  margin: 0 auto;
+  width: 304px;
 	margin-bottom: 16px;
 	font-family: AvenirNext;
 
@@ -1088,6 +1195,10 @@ blockquote.speech {
 
     flex-direction: column;
 
+    .rank.starting {
+    	visibility: hidden;
+    }
+
 	}
 		
 	.player-logo {
@@ -1153,7 +1264,7 @@ blockquote.speech {
 			text-shadow: none;
 		}
 		h2 {
-			color: $grey-white;
+			color: $color-white;
 			margin: 0px;
 			font-size: 16px;
 			font-family: $header-type;
@@ -1173,6 +1284,13 @@ blockquote.speech {
 				}
 			}
 	
+	}
+}
+
+// DEBRIEF
+#debrief {
+	.instruction {
+		margin-top: 120px;
 	}
 }
 
@@ -1257,12 +1375,12 @@ footer#bottom-bar {
 	  background-position: 8px center;
 
 	  &#btn-role-card {
-	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/icon-rolecard.svg');
+	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/rolecard.svg');
 	  	background-color: $orange-dark;
 	  	border-bottom: 3px darken($orange-dark, 10%) solid;
 	  }
 	  &#btn-menu {
-	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/menu-icon.svg');
+	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/menu.svg');
 	  	background-color: $orange-light;
 	  	border-bottom: 3px $orange-dark solid;
 	  }

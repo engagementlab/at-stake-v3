@@ -7,7 +7,28 @@
 	{{/if}}
 
 	{{!-- ROLE CARDS --}}
-	<div class="screen {{#unless tutorial}}initial{{/unless}}">
+	<div class="screen {{#unless tutorial}}{{#ifeq round 1}}initial{{/ifeq}}{{/unless}}">
+
+		{{#ifnoteq round 1}}
+			<div id="new-decider" class="inner-modal" data-duration="6">
+				<div class="inner decide-winner">
+					<h1 id="round">Round {{round}}</h1>
+					<h2><span>{{decider}}</span> is the new Decider this round, and everyone else has been assigned new roles. Let's get started!</h2>
+
+					{{#each players}}
+				    <div id="player-{{icon}}" class="player-box player-logo" style="cursor:default;">
+					    <div class="coins">{{coins}}</div>
+						  <div class="info">
+							  <h1>{{username}}</h1>
+						    <h2>{{title}}</h2>
+					    </div>
+					  </div>
+					{{/each}}
+			  </div>
+			</div>
+
+		  <span id="modifier" class="hidden-el" data-inner_modal="true"></span>
+		{{/ifnoteq}}
 
 		{{> component/instructions 
 				decider=true
@@ -94,7 +115,7 @@
 
 			{{> component/instructions 
 					heading="Listen to the Decider"
-					body="If its your turn, open your rolecard and read you stakeholder title and bio."
+					body="If it is your turn, open your rolecard and read you stakeholder title and bio."
 			}}
 
 			{{> component/speech 
@@ -121,17 +142,17 @@
 
 		{{> component/instructions 
 				heading="Listen to the Decider"
-				body="Remember you can open and close your role card at anytime during the game! "
+				body="Remember, you can open and close your role card at anytime during the game! "
 		}}
 
 		{{> component/speech 
 				decider=true
 				advance=true
-				body="Now that everyone has introduced themselves, we will move into the think phase. Remember you can open and close your rolecard at any time during the game. "
+				body="Now that everyone has introduced themselves, we will move into the think phase. Remember, you can open and close your role card at any time during the game. "
 		}}
 
 		{{> component/speech 
-				body="Now that everyone has introduced themselves, we will move into the think phase. Remember you can open and close your rolecard at any time during the game. "
+				body="Now that everyone has introduced themselves, we will move into the think phase. Remember, you can open and close your role card at any time during the game. "
 		}}
 
 	</div>

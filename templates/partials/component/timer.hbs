@@ -11,7 +11,7 @@
 {{#ifeq preview true}} 
     
   {{!-- CIRCULAR TIMER --}}
-  <div class="timer_wrap {{#ifeq decider true}}decider form{{else}}player{{/ifeq}}">
+  <div class="timer_wrap {{stage}} {{#ifeq decider true}}decider form{{else}}player{{/ifeq}}">
       
         <button 
         {{#ifeq decider true}}
@@ -37,14 +37,19 @@
 
         </button>
 
-        {{#if body}}<p>{{body}}</p>{{/if}}
+        {{#ifeq stage 'pitch'}}
+          {{#if user}}<p class="active_player {{stage}}">{{user}}<br><span>{{role}}</span></p>{{/if}}
+          {{#if body}}<p class="body {{stage}}">{{body}}</p>{{/if}}
+        {{else}}
+          {{#if body}}<p class="body {{stage}}">{{body}}</p>{{/if}}
+        {{/ifeq}}
 
     </div>
 
 {{else}}
   
   {{!-- CIRCULAR TIMER --}}
-  <div class="timer_wrap running {{#ifeq decider true}}decider{{else}}player{{/ifeq}}">
+  <div class="timer_wrap running {{stage}} {{#ifeq decider true}}decider{{else}}player{{/ifeq}}">
 
         <div class="timer"></div>
 
@@ -53,13 +58,13 @@
         </div>
 
         {{#ifeq active_player true}}
-          {{#ifeq stage 'doubledown'}}
-            {{#if body_active}}<p>{{body_active}}<br><span>{{role}}</span></p>{{/if}}
-          {{else}}
-            {{#if body}}<p class="{{stage}}">{{body}}<br><span>{{role}}</span></p>{{/if}}
-          {{/ifeq}}
+          
+          {{#if user}}<p class="active active_player {{stage}}">{{user}}<br><span>{{role}}</span></p>{{/if}}
+          {{#if body}}<p class="body {{stage}}">{{body}}</p>{{/if}}
+
         {{else}}
-            {{#if body}}<p class="{{stage}}">{{body}}<br><span>{{role}}</span></p>{{/if}}
+            {{#if user}}<p class="active_player {{stage}}">{{user}}<br><span>{{role}}</span></p>{{/if}}
+            {{#if body}}<p class="body {{stage}}">{{body}}</p>{{/if}}
         {{/ifeq}}
 
   </div>

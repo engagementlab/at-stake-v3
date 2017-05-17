@@ -245,6 +245,7 @@
 
 	// Name entry
 	#name.lobby {
+		position:relative;
 
 		.form {
 			padding: 8px;
@@ -313,7 +314,7 @@
 			width: 90%;
 			color: $color-white;
 			margin: 0px auto;
-			text-align: justify;
+			text-align: center;
 		}
 		#btn_submit_name {
 			@include gradient-vertical($pink-light, $pink-dark, 90%, 10%);
@@ -362,7 +363,7 @@
 		}
 
 		#access_code {
-			height: 60px;
+			height: 48px;
 			width: 95%;
 			margin: 0 auto;
 			font-size: 12px;
@@ -648,7 +649,7 @@
 			  color: #fdb211;
 		  }
 		  span:nth-child(4) {
-		  	color: #4acbff;
+		  	color: #6b00fb;
 		  }
 		}
 		p {

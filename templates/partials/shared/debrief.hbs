@@ -1,29 +1,26 @@
 {{!-- DEBRIEF UI --}}
 <div id="debrief">
-  <div id="login-header" class="hidden-el">
-    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1490382407/at-stake/layout/logo.svg" height='auto' width='200px'/>
-  </div>
 
 	<div class="screen initial" data-animation="debrief">
 
 		{{> component/instructions 
 				decider=true
 				heading="Read the text in the blue box aloud"
-				body="Once you finish speaking the instructions to other players, press next to continue."
+				body="Once you finish speaking the instructions, press next to continue."
 		}}
 
 		{{> component/instructions 
-				heading="Listen to the decider"
+				heading="Listen to the Decider"
 				body="Get ready to talk about your experience playing @Stake!"
 		}}
 
 		{{> component/speech 
 				decider=true
-				body="Now that we finished the game, lets debrief on our experience. I will read a question and then we will have an informal discussion about what we think. There are four questions total."
+				body="Let's debrief on our experience. I will read a question, and then we will have an informal conversation about what we think. There are four questions to discuss."
 		}}
 
 		{{> component/speech 
-				body="Now that we finished the game, lets debrief on our experience. I will read a question and then we will have an informal discussion about what we think. There are four questions total."
+				body="Let's debrief on our experience. I will read a question, and then we will have an informal conversation about what we think. There are four questions to discuss."
 		}}
 
 	</div>

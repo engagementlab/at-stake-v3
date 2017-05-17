@@ -11,16 +11,17 @@
 		}}
 
 		{{> component/instructions
-				heading="Listen to the decider"
+				heading="Listen to the Decider"
+				body="Get ready to pitch your proposal to the group!"
 		}}
 
 		{{> component/speech 
 				decider=true
-				body="Now that everyone has thought of their proposal, you will all take turns pitching your ideas to the group. Each player will have 60 seconds to pitch"
+				body=(combine 'Now that everyone has come up with a proposal, you will all take turns pitching your ideas to the group. Each player will have ' config.pitchSeconds ' seconds to pitch')
 		}}
 
 		{{> component/speech
-				body="Now that everyone has thought of their proposal, you will all take turns pitching your ideas to the group. Each player will have 60 seconds to pitch"
+				body=(combine 'Now that everyone has come up with a proposal, you will all take turns pitching your ideas to the group. Each player will have ' config.pitchSeconds ' seconds to pitch')
 		}}
 
 	</div>
@@ -35,16 +36,17 @@
 		}}
 
 		{{> component/instructions
-				heading="Listen to the decider"
+				heading="Listen to the Decider"
+				body="Get ready to pitch your proposal to the group!"
 		}}
 
 		{{> component/speech 
 				decider=true
-				body="Once your 60 seconds are up, you will see the option on your screen to pay 50 coins and receive another 30 seconds."
+				body=(combine 'Once your ' config.pitchSeconds ' seconds are up, you will see the option on your screen to pay ' config.extraTimeCost ' coins and receive another ' config.extraSeconds ' seconds.')
 		}}
 
 		{{> component/speech
-				body="Once your 60 seconds are up, you will see the option on your screen to pay 50 coins and receive another 30 seconds."
+				body=(combine 'Once your ' config.pitchSeconds ' seconds are up, you will see the option on your screen to pay ' config.extraTimeCost ' coins and receive another ' config.extraSeconds ' seconds.')
 		}}
 
 	</div>
@@ -59,7 +61,8 @@
 		}}
 
 		{{> component/instructions
-				heading="Listen to the decider"
+				heading="Listen to the Decider"
+				body="Get ready to pitch your proposal to the group!"
 		}}
 
 		{{> component/speech 
@@ -80,21 +83,21 @@
 		{{> component/instructions
 				decider=true 
 				heading="Announce whose turn it is"
-				body="Make sure the player pitching is ready, then press the button to start the timer. "
+				body="Make sure the player pitching is ready, then press the button to start the timer."
 		}}
 
 		{{!-- active player --}}
 		{{> component/instructions 
 				active_player=player.isActive
 				heading="Get ready to pitch"
-				body="Wait for the decider to start the timer. You'll have 60 seconds to pitch your proposal."
+				body=(combine 'Wait for the Decider to start the timer. You\'ll have ' config.pitchSeconds 'seconds to pitch your proposal.')
 		}}
 
 		{{!-- inactive player --}}
 		{{> component/instructions 
 				inactive_player=player.isInactive
-				heading="Listen to the other player’s proposal"
-				body="Take notes on other player’s proposals so you can chime in during deliberation!"
+				heading="Listen to the pitching player’s proposal"
+				body="Take notes on the pitching player’s proposal so you can chime in during deliberation!"
 		}}
 
 		{{!-- Timer in button mode  --}}
@@ -102,13 +105,19 @@
 				decider=true				
 				preview=true
 				time=config.pitchSeconds
+				stage='pitch'
 				body=(combine activePlayer.username ', it is your turn to pitch. are you ready?')
+				user=activePlayer.username
+				role=activePlayer.role.title
 		}}
 
 		{{> component/timer 
 				preview=true
 				time=config.pitchSeconds
+				stage='pitch'
 				body=(combine activePlayer.username ', you are up! Get ready to pitch!')
+				user=activePlayer.username
+				role=activePlayer.role.title
 		}}
 
 	</div>
@@ -119,7 +128,7 @@
 		{{> component/instructions
 				decider=true 
 				heading="Wait for the timer to reach zero"
-				body="When the timer reaches zero shout 'times up!' and make sure they don’t keep pitching!"
+				body="When the timer reaches zero say, “Time's up!” and make sure they don’t keep pitching!"
 		}}
 
 		{{!-- active player --}}
@@ -132,8 +141,8 @@
 		{{!-- inactive player --}}
 		{{> component/instructions 
 				inactive_player=player.isInactive
-				heading="Listen to the other player’s proposal"
-				body="Take notes on other player’s proposals so you can chime in during deliberation!"
+				heading="Listen to the pitching player’s proposal"
+				body="Take notes on the pitching player’s proposal so you can chime in during deliberation!"
 		}}
 
 		{{!-- timers, one for decider and one for non-deciders --}}
@@ -141,14 +150,18 @@
 				time=config.pitchSeconds
 				decider=true
 				next_player=repeatScreen
-				body=activePlayer.username
+				stage='pitch'
+				body=question
+				user=activePlayer.username
 				role=activePlayer.role.title
 		}}
 
 		{{> component/timer 
 				time=config.pitchSeconds
 				active_player=player.isActive
-				body=activePlayer.username
+				stage='pitch'
+				body=question
+				user=activePlayer.username
 				role=activePlayer.role.title
 		}}
 
