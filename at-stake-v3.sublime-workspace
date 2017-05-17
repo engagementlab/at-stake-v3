@@ -520,27 +520,19 @@
 	"buffers":
 	[
 		{
-			"file": "templates/views/index.hbs",
-			"settings":
-			{
-				"buffer_size": 5694,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/helpers/index.js",
-			"settings":
-			{
-				"buffer_size": 4843,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "grunt/uglify.js",
 			"settings":
 			{
 				"buffer_size": 1318,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/layouts/base.hbs",
+			"settings":
+			{
+				"buffer_size": 11876,
 				"line_ending": "Unix"
 			}
 		},
@@ -553,28 +545,54 @@
 			}
 		},
 		{
-			"file": "grunt/cssmin.js",
+			"contents": "Searching 249 files for \"ga(\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/@StakeMockups_Jordan_V1_1.9.16.sketch:\n    <binary>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/@StakeMockups_Jordan_V1_1.9.16_Erica_v1.sketch:\n    <binary>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  353  \t    var phaseName = $('#stages-bar .icon:eq('+currentPhaseIndex+') span').text(),\n  354  \t\t\t\t\tphaseNameFormatted = phaseName.charAt(0).toUpperCase() + phaseName.slice(1);\n  355:       ga('send', 'event', 'Game', 'Phase', phaseNameFormatted);  \n  356  \n  357  \t}\n  ...\n  385  \t                    color: '#fff',\n  386  \t                    strokeWidth: 6,\n  387: \t                    trailColor: 'rbga(235, 235, 235, 0.5)',\n  388  \t                    trailWidth: 0.8,\n  389  \t                    fill: '#ff3d6b',\n  ...\n  700  \t\t\t{{#ifeq environment \"production\"}}\n  701  \n  702: \t\t\t\tga('create', 'UA-64617433-7', 'auto');\n  703: \t\t\t  ga('send', 'pageview');\n  704  \n  705  \t\t\t{{/ifeq}}\n  ...\n  707  \t\t\t{{#ifeq environment \"staging\"}}\n  708  \n  709: \t\t\t  ga('create', 'UA-64617433-6', 'auto');\n  710: \t\t\t  ga('send', 'pageview');\n  711  \n  712  \t\t\t{{/ifeq}}\n  ...\n  830  \n  831  \t\t\t\t\t\t    // Analytics\n  832: \t\t            ga('send', 'event', 'Login', 'Username', data.decider);\n  833: \t\t            ga('send', 'event', 'Login', 'New Game', data.accessCode);\n  834: \t\t            ga('send', 'event', 'Game', 'Deck Name', deckName);\n  835  \t\t            \n  836  \t\t\t\t\t\t\t}\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  278  \n  279              // Analytics\n  280:             ga('send', 'event', 'Login', 'Success', 'Joined Game \"' + eventData.code + '\"');  \n  281  \n  282              break;\n  ...\n  288  \n  289              // Analytics\n  290:             ga('send', 'event', 'Game', 'Event', 'reconnected');\n  291  \n  292              // Set local player state as reconnected\n  ...\n  408  \n  409              // Analytics\n  410:             ga('send', 'event', 'Game', 'Event', 'Game Started');  \n  411  \n  412              break;\n  ...\n  563  \n  564              // Analytics\n  565:             ga('send', 'event', 'Game', 'Event', 'Game Ended');  \n  566  \n  567              updateGameContent(eventData, function() {\n  ...\n  696              // Analytics\n  697              if(isDecider)\n  698:                 ga('send', 'event', 'Game', 'Event', 'Became Decider');  \n  699  \n  700              $('#bottom-bar').show();\n  ...\n  714  \n  715              // Analytics\n  716:             ga('send', 'event', 'Game', 'Event', 'Coins - ' + eventData.type);  \n  717  \n  718              $('#' + eventData.type + '-coins span').text(eventData.amt);\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n  366              });\n  367  \n  368:             ga('send', 'event', 'Login', 'Username', username);\n  369  \n  370              data.uid = playerUID;\n\n18 matches across 5 files\n\n\nSearching 249 files for \"mobile-only\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/mixins.scss:\n    7  \n    8  // Both portrait and landscape\n    9: @mixin mobile-only {\n   10  \t@media (max-width : $mq-mobile-landscape) {\n   11  \t\t@content;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css:\n 2292  \n 2293  @media only screen and (min-width: 1025px) {\n 2294:   .mobile-only {\n 2295      display: none; } }\n 2296  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss:\n  150  .desktop-only {\n  151  \t// Hide for mobile\n  152: \t@include mobile-only {\n  153  \t\tdisplay: none;\n  154  \t}\n  155  }\n  156: .mobile-only {\n  157  \t// Hide for desktop\n  158  \t@include desktop-and-up {\n  ...\n  174  \n  175  \t// Hide for mobile\n  176: \t@include mobile-only {\n  177  \t\tdisplay: none;\n  178  \t}\n  ...\n  226  \n  227  \t// Hide for mobile\n  228: \t@include mobile-only {\n  229  \t\tdisplay: none;\n  230  \t}\n  ...\n  250  \t}\n  251  \n  252: \t@include mobile-only {\n  253  \t\t#desktop {\n  254  \t\t\tdisplay: none;\n\n7 matches across 3 files\n\n\nSearching 249 files for \".el-logo\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/homepage.scss:\n  438  \t} // Team\n  439  \n  440: \t.el-logo {\n  441  \t\twidth: 150px;\n  442  \t\tmargin: 0 auto;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css:\n 2024        color: #178f79;\n 2025        display: inline; }\n 2026:   .siteLanding#homepage .el-logo {\n 2027      width: 150px;\n 2028      margin: 0 auto;\n\n2 matches across 2 files\n",
 			"settings":
 			{
-				"buffer_size": 921,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 248 files for \"col-centered\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css:\n 2238    text-align: center; }\n 2239  \n 2240: .col-centered {\n 2241    float: none;\n 2242    margin: 0 auto; }\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss:\n   65  \n   66  // Center any column, yay!\n   67: .col-centered {\n   68    float: none;\n   69    margin: 0 auto;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs:\n   53  \n   54                  <section id=\"error-player-disconnected\" class=\"modal error-modal\">\n   55:                     <div id=\"text\" class=\"col-sm-10 col-xs-12 col-centered\">\n   56                        <h1>Ummm...</h1>\n   57                        <h2>It looks like <span id=\"player\"></span> <span id=\"singular\">is</span><span id=\"plural\">are</span> disconnected from the game! They have <span id=\"time\">60s</span> to reconnect before the game ends!</h2>\n   ..\n   60  \n   61                  <section id=\"error-private-mode\" class=\"modal error-modal\">\n   62:                     <div id=\"text\" class=\"col-sm-10 col-xs-12 col-centered\">\n   63                        <h1>Sorry!</h1>\n   64                        <h2>You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.</h2>\n   ..\n   67  \n   68                  <section id=\"error-size\" class=\"modal error-modal\">\n   69:                     <div id=\"text\" class=\"col-sm-10 col-xs-12 col-centered\">\n   70                        <h1>Sorry!</h1>\n   71                        <h2>Your screen size is too small to play.</h2>\n   ..\n   89                              </div>\n   90                            \n   91:                             <div id=\"message-disconnected\" class=\"col-sm-8 col-centered error menu\" style=\"display:none\">\n   92                                It looks like the game is not responding for some reason. Try reconnecting or playing later!\n   93                              </div>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  384                  var index = player.icon;\n  385  \n  386:                 $('.player-grid .list').append('<div id=\"player-' + index + '\" class=\"col-sm-12 player-logo col-centered\"><p>' + nameFormatted + '</p></div>');\n  387  \n  388              });\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs:\n    9    <div class=\"lobby\" id=\"name\" class=\"col-sm-12\">\n   10      \n   11:     <div class=\"mobile col-xs-12 col-centered\">\n   12        <a class=\"buttonLink ios\" href=\"https://itunes.apple.com/us/app/atstake/id1115782392\"><div class=\"play-button mobile\">{{{cloudinaryUrl 'v1494263828/at-stake/layout/app_store.svg' width=270 height=80}}}</div></a>\n   13        <a class=\"buttonLink android\" href=\"https://play.google.com/store/apps/details?id=emersonengagementlab.edu.atstake\"><div class=\"play-button mobile\">{{{cloudinaryUrl 'v1494265155/at-stake/layout/google-play.png' width=135 height=52}}}</div></a>\n   14      </div>\n   15  \n   16:     <div class=\"form col-xs-12 col-centered\">\n   17  \n   18        <input autocomplete=\"off\" autofill='off' autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" type=\"text\" id=\"player-name\" maxlength=\"10\" placeholder=\"Type your name and hit next to begin\" class=\"hidden-el\"> <br />\n   ..\n   36        <p>welcome to @Stake!</p>\n   37      </div>\n   38:     <div class=\"form login col-xs-12 col-centered\">\n   39  \n   40        <div id=\"btn_new_game\" class=\"btn btn-default\">\n   ..\n   55    {{!-- NEW GAME --}}\n   56    <div class=\"lobby\" id=\"decider\" style=\"display:none\">\n   57:     <div class=\"form create col-sm-12 col-lg-12 col-centered\" id=\"deck-choice\">\n   58  \n   59        <h3 class=\"white\">Select a Deck</h3>\n   ..\n   97      <div id=\"tutorial\" class=\"col-sm-12\" style=\"display:none\">\n   98  \n   99:       <div class=\"col-xs-12 col-centered  form\">\n  100  \n  101          <div id=\"btn-tutorial\" data-event=\"game:start\" data-package='{\"tutorial\": \"true\"}' class=\"btn btn-default submit\">\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/index.hbs:\n   12  \t\t{{!-- TOP SECTION/LANDING --}}\n   13  \t\t<div class=\"top-section\">\n   14: \t\t\t<div class=\"top-header col-centered\">\n   15  \t\t\t\t<div class=\"landing-header\"><span>what's</span></br><span>@</span><span>stake?</span></div>\n   16  \t\t\t</div>\n   ..\n   89  \t\t\t<h3 class=\"flow-play-header\">{{{content.flowOfGameHeader.html}}}</h3>\n   90  \t\t\t<div class=\"text-block flow-play-para\">{{{content.flowOfGameParagraph.html}}}</div>\n   91: \t\t\t<img class=\"play-pic col-centered\" src=\"{{{cloudinaryUrl content.flowOfGamePicture width=auto height=350 crop='scale' quality=100}}}\">\n   92  \t\t</div>\n   93  \t\t<img class=\"game-flow-graphic left\" src=\"https://res.cloudinary.com/engagement-lab-home/image/upload/v1488559363/at-stake-site/trophyCrop.png\">\n\n14 matches across 6 files\n\n\nSearching 248 files for \"cdnAsset\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/css.hbs:\n   32  \t{{!-- PRODUCTION/STAGING --}}\n   33    <link rel=\"stylesheet\" href=\"https://res.cloudinary.com/engagement-lab-home/raw/upload/v1490910324/at-stake/bootstrap.min.css\" >\n   34: \t<link href=\"{{cdnAsset product='at-stake' env=environment type='css' }}\" rel=\"stylesheet\">\n   35  \n   36  {{/ifeq}}\n   37  \n   38: <link class=\"favicon\" rel=\"icon\" type=\"image/png\" href=\"{{cdnAsset product='at-stake' path='images/favicons/favicon_32' type='ico' fetch='image'}}\" sizes=\"32x32\">\n   39: <link class=\"favicon\" rel=\"icon\" type=\"image/png\" href=\"{{cdnAsset product='at-stake' path='images/favicons/favicon_16' type='ico' fetch='image'}}\" sizes=\"16x16\">\n   40  \n   41: <link class=\"favicon\" rel=\"shortcut icon\" href=\"{{cdnAsset product='at-stake' path='images/favicons/favicon_32' type='ico' fetch='image'}}\">\n   42: <link class=\"favicon\" rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"{{cdnAsset product='at-stake' path='images/favicons/favicon_144' type='png' fetch='image'}}\">\n   43: <link class=\"favicon\" rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"{{cdnAsset product='at-stake' path='images/favicons/favicon_114' type='png' fetch='image'}}\">\n   44: <link class=\"favicon\" rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"{{cdnAsset product='at-stake' path='images/favicons/favicon_72' type='png' fetch='image'}}\">\n   45  {{!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: --}}\n   46: <link class=\"favicon\" rel=\"apple-touch-icon-precomposed\" href=\"{{cdnAsset product='at-stake' path='images/favicons/favicon_57' type='png' fetch='image'}}\">\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/production.hbs:\n   16  \n   17  {{!-- Site JS --}}\n   18: <script type=\"text/javascript\" src=\"{{cdnAsset product='at-stake' env=environment type='js' }}\"></script>\n   19  \n   20  {{!-- NoSleep --}}\n\n9 matches across 2 files\n",
-			"settings":
-			{
-				"buffer_size": 6906,
+				"buffer_size": 4572,
 				"line_ending": "Unix",
 				"name": "Find Results",
 				"scratch": true
 			}
 		},
 		{
+			"file": "public/styles/_core/homepage.scss",
+			"settings":
+			{
+				"buffer_size": 6807,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/styles/_core/mixins.scss",
+			"settings":
+			{
+				"buffer_size": 9027,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/styles/_core/playerview.scss",
+			"settings":
+			{
+				"buffer_size": 23204,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/partials/script/player_logic.hbs",
+			"settings":
+			{
+				"buffer_size": 10490,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "public/styles/core.scss",
 			"settings":
 			{
-				"buffer_size": 3529,
+				"buffer_size": 3552,
 				"line_ending": "Unix"
 			}
 		}
@@ -716,16 +734,19 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core",
 		"/Users/Johnny/Documents/Projects/at-stake-v3",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt"
 	],
 	"file_history":
 	[
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/playerview.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers/index.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/index.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/meet.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/playerview.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/variables.scss",
@@ -734,7 +755,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_animation.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/scoreboard.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/index.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_logic.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs",
 		"/Users/Johnny/Documents/Projects/el-web-sdk/.env",
@@ -759,7 +779,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/models/GameConfig.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/speech.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/gameended.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers/index.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/timer.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/deliberate.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/pitch.hbs",
@@ -951,6 +970,16 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			".el-logo",
+			"mobile-only",
+			"ga(",
+			"env",
+			"shadow",
+			"next",
+			"after {",
+			":before",
+			":after",
+			"#progress",
 			"cdnAsset",
 			"col-centered",
 			"#progress",
@@ -1068,17 +1097,7 @@
 			"noSleep",
 			"NoSleep",
 			"EndGame(socket)",
-			"115px",
-			".scoreboard",
-			"RestorePot",
-			"AddTime",
-			"game:more_time",
-			"REWARD AMOUNT",
-			"e-v3/source/templates/partials/player/timerunningout.hbs\n\n[PM2] Streaming realtime logs for [6] process",
-			"$('#overlay').trigger('show'",
-			"game:ended",
-			"gameended",
-			"game:ending"
+			"115px"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1224,70 +1243,11 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "templates/views/index.hbs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5694,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2736,
-								2648
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 710.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "templates/helpers/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4843,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4730,
-								4560
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "grunt/uglify.js",
 					"semi_transient": false,
 					"settings":
@@ -1313,11 +1273,41 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 1,
+					"file": "templates/layouts/base.hbs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11876,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1145,
+								1058
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "deploy.json",
 					"semi_transient": false,
 					"settings":
@@ -1343,45 +1333,15 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "grunt/cssmin.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 921,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								921,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
+					"buffer": 3,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6906,
+						"buffer_size": 4572,
 						"regions":
 						{
 							"match":
@@ -1390,96 +1350,104 @@
 								"regions":
 								[
 									[
-										173,
-										185
+										528,
+										531
 									],
 									[
-										358,
-										370
+										742,
+										745
 									],
 									[
-										661,
-										673
+										927,
+										930
 									],
 									[
-										1124,
-										1136
+										978,
+										981
 									],
 									[
-										1481,
-										1493
+										1098,
+										1101
 									],
 									[
-										1782,
-										1794
+										1149,
+										1152
 									],
 									[
-										2263,
-										2275
+										1266,
+										1269
 									],
 									[
-										2534,
-										2546
+										1343,
+										1346
 									],
 									[
-										3095,
-										3107
+										1423,
+										1426
 									],
 									[
-										3458,
-										3470
+										1663,
+										1666
 									],
 									[
-										3695,
-										3707
+										1845,
+										1848
 									],
 									[
-										3904,
-										3916
+										2031,
+										2034
 									],
 									[
-										4244,
-										4256
+										2186,
+										2189
 									],
 									[
-										4590,
-										4602
+										2403,
+										2406
 									],
 									[
-										5226,
-										5234
+										2578,
+										2581
 									],
 									[
-										5401,
-										5409
+										2875,
+										2878
 									],
 									[
-										5571,
-										5579
+										3199,
+										3210
 									],
 									[
-										5741,
-										5749
+										3424,
+										3435
 									],
 									[
-										5920,
-										5928
+										3614,
+										3625
 									],
 									[
-										6100,
-										6108
+										3679,
+										3690
 									],
 									[
-										6278,
-										6286
+										3813,
+										3824
 									],
 									[
-										6520,
-										6528
+										3919,
+										3930
 									],
 									[
-										6778,
-										6786
+										4008,
+										4019
+									],
+									[
+										4262,
+										4270
+									],
+									[
+										4483,
+										4491
 									]
 								],
 								"scope": ""
@@ -1488,15 +1456,15 @@
 						"selection":
 						[
 							[
-								6805,
-								6821
+								4267,
+								4267
 							]
 						],
 						"settings":
 						{
 							"detect_indentation": false,
 							"line_numbers": false,
-							"output_tag": 2,
+							"output_tag": 3,
 							"result_base_dir": "",
 							"result_file_regex": "^([^ \t].*):$",
 							"result_line_regex": "^ +([0-9]+):",
@@ -1504,27 +1472,27 @@
 							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1666.0,
+						"translation.y": 2346.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "public/styles/core.scss",
+					"buffer": 4,
+					"file": "public/styles/_core/homepage.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3529,
+						"buffer_size": 6807,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								958,
-								1037
+								6807,
+								6807
 							]
 						],
 						"settings":
@@ -1533,10 +1501,127 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 6670.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/styles/_core/mixins.scss",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 9027,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4253,
+								3869
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2246.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "public/styles/_core/playerview.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 23204,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4049,
+								4053
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 21580.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "templates/partials/script/player_logic.hbs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10490,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3738,
+								3738
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2400.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "public/styles/core.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3552,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2284,
+								2118
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2196.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1603,6 +1688,14 @@
 		"selected_items":
 		[
 			[
+				"base",
+				"All/templates/layouts/base.hbs"
+			],
+			[
+				"bas",
+				"All/templates/layouts/base.hbs"
+			],
+			[
 				"help",
 				"All/templates/helpers/index.js"
 			],
@@ -1639,10 +1732,6 @@
 				"Partials/css.hbs"
 			],
 			[
-				"base",
-				"All/templates/layouts/base.hbs"
-			],
-			[
 				"pla",
 				"Styles/_core/playerview.scss"
 			],
@@ -1661,10 +1750,6 @@
 			[
 				"playerv",
 				"Styles/_core/playerview.scss"
-			],
-			[
-				"bas",
-				"All/templates/layouts/base.hbs"
 			],
 			[
 				"playerev",
