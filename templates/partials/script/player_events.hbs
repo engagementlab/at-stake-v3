@@ -113,18 +113,22 @@ var setupScreen = function(screenName) {
 
     $(isDecider ? '.player' : '.decider').remove();
 
-
     if(screenName == 'debrief') {
+        console.log("this is the debrief");
         $('#gameContent').removeClass('in-game');
-        $('#bottom-bar').hide();
+        $('#bottom-bar').hide(function() {
+            console.log('hiding the extra')
+        });
     }
     else {
         $('#stages-bar').show();
+        $('#bottom-bar').show();
         $('#gameContent').addClass('in-game');
     }
 
     sessionStorage.setItem('markup', $('#gameContent').html());
     sessionStorage.setItem('role', $('#role-card').html());
+    sessionStorage.setItem('screenName', screenName);
 
     // Animate initial
     screenOpen($('.screen:not(.skip):first'));
@@ -295,9 +299,12 @@ socketEvents = function(eventId, eventData) {
             isDecider = eventData.is_decider;
 
             var markup = sessionStorage.getItem('markup');
-            var roleCard = sessionStorage.getItem('role')
+            var roleCard = sessionStorage.getItem('role');
 
-            $('#bottom-bar').show();
+            console.log(sessionStorage.getItem('screenName'), ' - reconnect')
+
+            if (sessionStorage.getItem('screenName') !== 'debrief')
+                $('#bottom-bar').show();
 
             if (isDecider)
                 $('#btn-role-card').css('visibility', 'hidden');
@@ -401,7 +408,7 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:start':
 
-            $('#bottom-bar').show();
+            // $('#bottom-bar').show();
             
             $('#agenda-items .role:visible').remove();
             $('#agenda-items .role').first().show();
@@ -488,9 +495,6 @@ socketEvents = function(eventId, eventData) {
 
             if ($('#background-logo').css('display', 'none'))
                 $('#background-logo').show();
-
-
-            $('#bottom-bar').show();
 
             sessionStorage.setItem('gameCode', gameCode);
 
@@ -697,7 +701,10 @@ socketEvents = function(eventId, eventData) {
             if(isDecider)
                 ga('send', 'event', 'Game', 'Event', 'Became Decider');  
 
-            $('#bottom-bar').show();
+            console.log('decider', sessionStorage.getItem('screenName'))
+
+            if (sessionStorage.getItem('screenName') !== 'debrief')
+                $('#bottom-bar').show();
 
             $('#btn-role-card').css('visibility', isDecider ? 'hidden' : 'visible');
 
