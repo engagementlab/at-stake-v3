@@ -166,7 +166,7 @@ phaseBarProgress = function() {
     // Update progress bar
     var currentIcon = $('#stages-bar .icon:not(.disabled)');
 
-    if(currentIcon) {
+    if(currentIcon && currentIcon.length > 0) {
         var progressLength = currentIcon.position().left;
         $('#stages-bar #progress').css('width', progressLength+'px');
     }

@@ -384,7 +384,7 @@ input.post-button {
 	p {
 		color: white;
     display: inline-block;
-    // margin-top: 48%;
+		letter-spacing: -0.8px;
     font-size: 16px;
     width: 100%;
     padding: 8px 6px;
@@ -615,7 +615,8 @@ input.post-button {
 		h1#round {
 			@include text-shadow(0, 2px, 0px, rgba(85, 85, 85, 0.24));
 			font-family: $avenir-reg;
-			font-size: 40px;			
+			font-size: 40px;	
+			margin: 0px;		
 		}
 		h2 {
 			margin: 4px 8px;
@@ -625,6 +626,7 @@ input.post-button {
 			}
 		}
 		.player-box {
+			width:100%;
 			margin: 4px auto;
 
 			h2 {
@@ -704,6 +706,7 @@ input.post-button {
 				line-height: 1.13;
 			  letter-spacing: -1.4px;
 			  font-size: 32px;
+			  margin: 0px;
 			}
 		
 			h2 {
@@ -727,10 +730,13 @@ input.post-button {
 		}
 		.role {
 			#btn_yes, #btn_no {
+
+				margin-bottom: 0px;
 				* {
 					margin: 0px;
 					font-size: 20px;
 					font-family: AvenirNext-Bold;
+
 
 				}
 			}
@@ -745,9 +751,18 @@ input.post-button {
 	}
 
 	.decide-winner {
+		height: 432px !important;
 		h1 {
 			font-family: AvenirNext-DemiBold;
 			font-size: 20px;
+		}
+
+		#winner-btn {
+
+			.info {
+				width: 188px !important;
+			}
+
 		}
 
 	}
@@ -804,19 +819,26 @@ input.post-button {
 			padding-left: 12%;
 			font-size: 20px;
 			font-family: $header-type;
-			margin: 10px auto;
+			margin: 4px auto;
 			height: 48px;
 			background-repeat: no-repeat;
 			background-position: 40px center;
 		  background-size: 40px 40px;
 			background-color: $aquamarine;
 
+			&.decided {
+				padding-left: 0px;
+				width:100%;
+				margin-top:20px;
+			}
+
 			&#reward-icon {
 				.coins {
-					margin-top: -1%;
-					padding-top: 7%;
-					width: 48px;
-					height: 48px;
+			    margin-top: -8px;
+			    line-height: 64px;
+			    width: 64px;
+			    height: 64px;
+			    padding: 0px !important;
 					background-repeat: no-repeat;
 					background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,w_64/v1490979430/at-stake/layout/icon-yourcoins.svg");
 				}
@@ -846,7 +868,7 @@ input.post-button {
 			.info {
 		    position: relative;
 		    float: right;
-		    width: 80%;
+		    width: 204px;
 		    margin-top:4px;
 		    height: 40px;
 		    font-family: AvenirNext-Bold;
@@ -1044,6 +1066,8 @@ input.post-button {
 .instruction {
 	font-size:16px;
 	height: 72px;
+  margin: 0 auto;
+  width: 304px;
 	margin-bottom: 16px;
 	font-family: AvenirNext;
 
@@ -1238,6 +1262,13 @@ blockquote.speech {
 				}
 			}
 	
+	}
+}
+
+// DEBRIEF
+#debrief {
+	.instruction {
+		margin-top: 120px;
 	}
 }
 
