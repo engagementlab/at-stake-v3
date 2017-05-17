@@ -101,8 +101,6 @@ var startTimer = function(secondsLeft, timerAdvance) {
 
 var setupScreen = function(screenName) {
 
-    console.log(screenName);
-
     // Add trigger to go to next step on next-step buttons
     $('.next-step').click(function(evt) {
         nextPhaseScreen();
@@ -114,11 +112,8 @@ var setupScreen = function(screenName) {
     $(isDecider ? '.player' : '.decider').remove();
 
     if(screenName == 'debrief') {
-        console.log("this is the debrief");
         $('#gameContent').removeClass('in-game');
-        $('#bottom-bar').hide(function() {
-            console.log('hiding the extra')
-        });
+        $('#bottom-bar').hide();
     }
     else {
         $('#stages-bar').show();
@@ -300,8 +295,6 @@ socketEvents = function(eventId, eventData) {
 
             var markup = sessionStorage.getItem('markup');
             var roleCard = sessionStorage.getItem('role');
-
-            console.log(sessionStorage.getItem('screenName'), ' - reconnect')
 
             if (sessionStorage.getItem('screenName') !== 'debrief')
                 $('#bottom-bar').show();
@@ -700,8 +693,6 @@ socketEvents = function(eventId, eventData) {
             // Analytics
             if(isDecider)
                 ga('send', 'event', 'Game', 'Event', 'Became Decider');  
-
-            console.log('decider', sessionStorage.getItem('screenName'))
 
             if (sessionStorage.getItem('screenName') !== 'debrief')
                 $('#bottom-bar').show();
