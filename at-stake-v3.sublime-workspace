@@ -545,13 +545,22 @@
 			}
 		},
 		{
-			"contents": "Searching 249 files for \"ga(\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/@StakeMockups_Jordan_V1_1.9.16.sketch:\n    <binary>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/@StakeMockups_Jordan_V1_1.9.16_Erica_v1.sketch:\n    <binary>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  353  \t    var phaseName = $('#stages-bar .icon:eq('+currentPhaseIndex+') span').text(),\n  354  \t\t\t\t\tphaseNameFormatted = phaseName.charAt(0).toUpperCase() + phaseName.slice(1);\n  355:       ga('send', 'event', 'Game', 'Phase', phaseNameFormatted);  \n  356  \n  357  \t}\n  ...\n  385  \t                    color: '#fff',\n  386  \t                    strokeWidth: 6,\n  387: \t                    trailColor: 'rbga(235, 235, 235, 0.5)',\n  388  \t                    trailWidth: 0.8,\n  389  \t                    fill: '#ff3d6b',\n  ...\n  700  \t\t\t{{#ifeq environment \"production\"}}\n  701  \n  702: \t\t\t\tga('create', 'UA-64617433-7', 'auto');\n  703: \t\t\t  ga('send', 'pageview');\n  704  \n  705  \t\t\t{{/ifeq}}\n  ...\n  707  \t\t\t{{#ifeq environment \"staging\"}}\n  708  \n  709: \t\t\t  ga('create', 'UA-64617433-6', 'auto');\n  710: \t\t\t  ga('send', 'pageview');\n  711  \n  712  \t\t\t{{/ifeq}}\n  ...\n  830  \n  831  \t\t\t\t\t\t    // Analytics\n  832: \t\t            ga('send', 'event', 'Login', 'Username', data.decider);\n  833: \t\t            ga('send', 'event', 'Login', 'New Game', data.accessCode);\n  834: \t\t            ga('send', 'event', 'Game', 'Deck Name', deckName);\n  835  \t\t            \n  836  \t\t\t\t\t\t\t}\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  278  \n  279              // Analytics\n  280:             ga('send', 'event', 'Login', 'Success', 'Joined Game \"' + eventData.code + '\"');  \n  281  \n  282              break;\n  ...\n  288  \n  289              // Analytics\n  290:             ga('send', 'event', 'Game', 'Event', 'reconnected');\n  291  \n  292              // Set local player state as reconnected\n  ...\n  408  \n  409              // Analytics\n  410:             ga('send', 'event', 'Game', 'Event', 'Game Started');  \n  411  \n  412              break;\n  ...\n  563  \n  564              // Analytics\n  565:             ga('send', 'event', 'Game', 'Event', 'Game Ended');  \n  566  \n  567              updateGameContent(eventData, function() {\n  ...\n  696              // Analytics\n  697              if(isDecider)\n  698:                 ga('send', 'event', 'Game', 'Event', 'Became Decider');  \n  699  \n  700              $('#bottom-bar').show();\n  ...\n  714  \n  715              // Analytics\n  716:             ga('send', 'event', 'Game', 'Event', 'Coins - ' + eventData.type);  \n  717  \n  718              $('#' + eventData.type + '-coins span').text(eventData.amt);\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n  366              });\n  367  \n  368:             ga('send', 'event', 'Login', 'Username', username);\n  369  \n  370              data.uid = playerUID;\n\n18 matches across 5 files\n\n\nSearching 249 files for \"mobile-only\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/mixins.scss:\n    7  \n    8  // Both portrait and landscape\n    9: @mixin mobile-only {\n   10  \t@media (max-width : $mq-mobile-landscape) {\n   11  \t\t@content;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css:\n 2292  \n 2293  @media only screen and (min-width: 1025px) {\n 2294:   .mobile-only {\n 2295      display: none; } }\n 2296  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss:\n  150  .desktop-only {\n  151  \t// Hide for mobile\n  152: \t@include mobile-only {\n  153  \t\tdisplay: none;\n  154  \t}\n  155  }\n  156: .mobile-only {\n  157  \t// Hide for desktop\n  158  \t@include desktop-and-up {\n  ...\n  174  \n  175  \t// Hide for mobile\n  176: \t@include mobile-only {\n  177  \t\tdisplay: none;\n  178  \t}\n  ...\n  226  \n  227  \t// Hide for mobile\n  228: \t@include mobile-only {\n  229  \t\tdisplay: none;\n  230  \t}\n  ...\n  250  \t}\n  251  \n  252: \t@include mobile-only {\n  253  \t\t#desktop {\n  254  \t\t\tdisplay: none;\n\n7 matches across 3 files\n",
+			"contents": "Searching 249 files for \"ga(\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/@StakeMockups_Jordan_V1_1.9.16.sketch:\n    <binary>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/@StakeMockups_Jordan_V1_1.9.16_Erica_v1.sketch:\n    <binary>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  353  \t    var phaseName = $('#stages-bar .icon:eq('+currentPhaseIndex+') span').text(),\n  354  \t\t\t\t\tphaseNameFormatted = phaseName.charAt(0).toUpperCase() + phaseName.slice(1);\n  355:       ga('send', 'event', 'Game', 'Phase', phaseNameFormatted);  \n  356  \n  357  \t}\n  ...\n  385  \t                    color: '#fff',\n  386  \t                    strokeWidth: 6,\n  387: \t                    trailColor: 'rbga(235, 235, 235, 0.5)',\n  388  \t                    trailWidth: 0.8,\n  389  \t                    fill: '#ff3d6b',\n  ...\n  700  \t\t\t{{#ifeq environment \"production\"}}\n  701  \n  702: \t\t\t\tga('create', 'UA-64617433-7', 'auto');\n  703: \t\t\t  ga('send', 'pageview');\n  704  \n  705  \t\t\t{{/ifeq}}\n  ...\n  707  \t\t\t{{#ifeq environment \"staging\"}}\n  708  \n  709: \t\t\t  ga('create', 'UA-64617433-6', 'auto');\n  710: \t\t\t  ga('send', 'pageview');\n  711  \n  712  \t\t\t{{/ifeq}}\n  ...\n  830  \n  831  \t\t\t\t\t\t    // Analytics\n  832: \t\t            ga('send', 'event', 'Login', 'Username', data.decider);\n  833: \t\t            ga('send', 'event', 'Login', 'New Game', data.accessCode);\n  834: \t\t            ga('send', 'event', 'Game', 'Deck Name', deckName);\n  835  \t\t            \n  836  \t\t\t\t\t\t\t}\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  278  \n  279              // Analytics\n  280:             ga('send', 'event', 'Login', 'Success', 'Joined Game \"' + eventData.code + '\"');  \n  281  \n  282              break;\n  ...\n  288  \n  289              // Analytics\n  290:             ga('send', 'event', 'Game', 'Event', 'reconnected');\n  291  \n  292              // Set local player state as reconnected\n  ...\n  408  \n  409              // Analytics\n  410:             ga('send', 'event', 'Game', 'Event', 'Game Started');  \n  411  \n  412              break;\n  ...\n  563  \n  564              // Analytics\n  565:             ga('send', 'event', 'Game', 'Event', 'Game Ended');  \n  566  \n  567              updateGameContent(eventData, function() {\n  ...\n  696              // Analytics\n  697              if(isDecider)\n  698:                 ga('send', 'event', 'Game', 'Event', 'Became Decider');  \n  699  \n  700              $('#bottom-bar').show();\n  ...\n  714  \n  715              // Analytics\n  716:             ga('send', 'event', 'Game', 'Event', 'Coins - ' + eventData.type);  \n  717  \n  718              $('#' + eventData.type + '-coins span').text(eventData.amt);\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n  366              });\n  367  \n  368:             ga('send', 'event', 'Login', 'Username', username);\n  369  \n  370              data.uid = playerUID;\n\n18 matches across 5 files\n\n\nSearching 249 files for \"mobile-only\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/mixins.scss:\n    7  \n    8  // Both portrait and landscape\n    9: @mixin mobile-only {\n   10  \t@media (max-width : $mq-mobile-landscape) {\n   11  \t\t@content;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css:\n 2292  \n 2293  @media only screen and (min-width: 1025px) {\n 2294:   .mobile-only {\n 2295      display: none; } }\n 2296  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss:\n  150  .desktop-only {\n  151  \t// Hide for mobile\n  152: \t@include mobile-only {\n  153  \t\tdisplay: none;\n  154  \t}\n  155  }\n  156: .mobile-only {\n  157  \t// Hide for desktop\n  158  \t@include desktop-and-up {\n  ...\n  174  \n  175  \t// Hide for mobile\n  176: \t@include mobile-only {\n  177  \t\tdisplay: none;\n  178  \t}\n  ...\n  226  \n  227  \t// Hide for mobile\n  228: \t@include mobile-only {\n  229  \t\tdisplay: none;\n  230  \t}\n  ...\n  250  \t}\n  251  \n  252: \t@include mobile-only {\n  253  \t\t#desktop {\n  254  \t\t\tdisplay: none;\n\n7 matches across 3 files\n\n\nSearching 249 files for \".el-logo\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/homepage.scss:\n  438  \t} // Team\n  439  \n  440: \t.el-logo {\n  441  \t\twidth: 150px;\n  442  \t\tmargin: 0 auto;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css:\n 2024        color: #178f79;\n 2025        display: inline; }\n 2026:   .siteLanding#homepage .el-logo {\n 2027      width: 150px;\n 2028      margin: 0 auto;\n\n2 matches across 2 files\n",
 			"settings":
 			{
-				"buffer_size": 4093,
+				"buffer_size": 4572,
 				"line_ending": "Unix",
 				"name": "Find Results",
 				"scratch": true
+			}
+		},
+		{
+			"file": "public/styles/_core/homepage.scss",
+			"settings":
+			{
+				"buffer_size": 6807,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -566,7 +575,7 @@
 			"file": "public/styles/_core/playerview.scss",
 			"settings":
 			{
-				"buffer_size": 22807,
+				"buffer_size": 23204,
 				"line_ending": "Unix"
 			}
 		},
@@ -574,7 +583,7 @@
 			"file": "templates/partials/script/player_logic.hbs",
 			"settings":
 			{
-				"buffer_size": 10464,
+				"buffer_size": 10490,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -961,6 +970,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			".el-logo",
 			"mobile-only",
 			"ga(",
 			"env",
@@ -1087,8 +1097,7 @@
 			"noSleep",
 			"NoSleep",
 			"EndGame(socket)",
-			"115px",
-			".scoreboard"
+			"115px"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1234,7 +1243,7 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -1264,7 +1273,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -1294,7 +1303,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1324,7 +1333,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1332,7 +1341,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4093,
+						"buffer_size": 4572,
 						"regions":
 						{
 							"match":
@@ -1431,6 +1440,14 @@
 									[
 										4008,
 										4019
+									],
+									[
+										4262,
+										4270
+									],
+									[
+										4483,
+										4491
 									]
 								],
 								"scope": ""
@@ -1439,15 +1456,15 @@
 						"selection":
 						[
 							[
-								3686,
-								3686
+								4267,
+								4267
 							]
 						],
 						"settings":
 						{
 							"detect_indentation": false,
 							"line_numbers": false,
-							"output_tag": 2,
+							"output_tag": 3,
 							"result_base_dir": "",
 							"result_file_regex": "^([^ \t].*):$",
 							"result_line_regex": "^ +([0-9]+):",
@@ -1455,7 +1472,7 @@
 							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1513.0,
+						"translation.y": 2346.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1463,6 +1480,35 @@
 				},
 				{
 					"buffer": 4,
+					"file": "public/styles/_core/homepage.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6807,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6807,
+								6807
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 6670.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
 					"file": "public/styles/_core/mixins.scss",
 					"semi_transient": true,
 					"settings":
@@ -1488,16 +1534,16 @@
 						"translation.y": 2246.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "public/styles/_core/playerview.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 22807,
+						"buffer_size": 23204,
 						"regions":
 						{
 						},
@@ -1516,16 +1562,16 @@
 						"translation.y": 21580.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "templates/partials/script/player_logic.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10464,
+						"buffer_size": 10490,
 						"regions":
 						{
 						},
@@ -1546,11 +1592,11 @@
 						"translation.y": 2400.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "public/styles/core.scss",
 					"semi_transient": false,
 					"settings":
@@ -1575,7 +1621,7 @@
 						"translation.y": 2196.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
