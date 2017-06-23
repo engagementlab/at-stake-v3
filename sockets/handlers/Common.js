@@ -10,6 +10,7 @@
  *
  * ==========
  */
+'use strict';
 
 var Common = function (nsp, socket) {
     var currentSpace = nsp,
@@ -20,123 +21,159 @@ var Common = function (nsp, socket) {
     // Expose handler methods for events
     this.handler = {
 
-        'game:tutorial': function(package) {
+        'game:tutorial': function(pkg) {
 
-            Session.Get(package.gameId).
-            StartTutorial(currentSpace);
-            
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.StartTutorial(currentSpace);
+                        
         },
 
-        'game:start': function(package) {
+        'game:start': function(pkg) {
 
-            Session.Get(package.gameId).
-            StartGame(currentSpace, (package.msgData.tutorial === "true"));
+            let session = Session.Get(pkg.gameId);
 
-        },
-
-        'game:next': function(package) {
-
-            Session.Get(package.gameId).
-            NextPhase();
+            if(!session) return;
+            session.StartGame(currentSpace, (pkg.msgData.tutorial === "true"));
 
         },
 
-        'game:skip_rules': function(package) {
+        'game:next': function(pkg) {
 
+            let session = Session.Get(pkg.gameId);
 
-            Session.Get(package.gameId).
-            SkipScreen();
-
-        },
-
-        'game:next_screen': function(package) {
-
-
-            Session.Get(package.gameId).
-            NextScreen(package.msgData);
+            if(!session) return;
+            session.NextPhase();
 
         },
 
-        'game:next_player': function(package) {
+        'game:skip_rules': function(pkg) {
 
-            Session.Get(package.gameId).
-            NextPlayer();
+            let session = Session.Get(pkg.gameId);
 
-        },
-
-        'game:load_screen': function(package) {
-
-            Session.Get(package.gameId).
-            LoadScreenAtIndex(package.msgData.index);
+            if(!session) return;
+            session.SkipScreen();
 
         },
 
-        'game:next_round': function(package) {
+        'game:next_screen': function(pkg) {
 
-            Session.Get(package.gameId).
-            AdvanceRound(currentSpace);
+            let session = Session.Get(pkg.gameId);
 
-        },
-
-        'game:start_timer': function(package) {
-
-            Session.Get(package.gameId).
-            StartTimer(currentSpace);
+            if(!session) return;
+            session.NextScreen(pkg.msgData);
 
         },
 
-        'game:more_time': function(package) {
+        'game:next_player': function(pkg) {
 
-            Session.Get(package.gameId).
-            AddTime(currentSpace, package.msgData);
+            let session = Session.Get(pkg.gameId);
 
-        },
-
-        'game:turn_done': function(package) {
-
-            Session.Get(package.gameId).
-            PlayerTurnDone(currentSpace);
+            if(!session) return;
+            session.NextPlayer();
 
         },
 
-        'game:proposal_selected': function(package) {
+        'game:load_screen': function(pkg) {
 
-            Session.Get(package.gameId).
-            ProposalSelected(package.msgData);
+            let session = Session.Get(pkg.gameId);
 
-        },
-
-        'game:agenda_yes': function(package) {
-
-            Session.Get(package.gameId).
-            AgendaItemAction(true);
+            if(!session) return;
+            session.LoadScreenAtIndex(pkg.msgData.index);
 
         },
 
-        'game:agenda_no': function(package) {
+        'game:next_round': function(pkg) {
 
-            Session.Get(package.gameId).
-            AgendaItemAction(false);
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.AdvanceRound(currentSpace);
 
         },
 
-        'game:exit': function(package) {
-            Session.Get(package.gameId).
-            EndGame(currentSpace);
+        'game:start_timer': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.StartTimer(currentSpace);
+
+        },
+
+        'game:more_time': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.AddTime(currentSpace, pkg.msgData);
+
+        },
+
+        'game:turn_done': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.PlayerTurnDone(currentSpace);
+
+        },
+
+        'game:proposal_selected': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.ProposalSelected(pkg.msgData);
+
+        },
+
+        'game:agenda_yes': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.AgendaItemAction(true);
+
+        },
+
+        'game:agenda_no': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.AgendaItemAction(false);
+
+        },
+
+        'game:exit': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.EndGame(currentSpace);
+
         },
 
         /* Pauses all game cooldowns (debugging only) */
-        'debug:pause': function(package) {
+        'debug:pause': function(pkg) {
 
-            Session.Get(package.gameId).
-            PauseResumeCooldown(currentSpace);
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.PauseResumeCooldown(currentSpace);
 
         },
 
         /* End game now (debugging only) */
-        'debug:end': function(package) {
-            Session.Get(package.gameId).
-            EndGame(currentSpace);
+        'debug:end': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.EndGame(currentSpace);
+        
         }
     
     };
