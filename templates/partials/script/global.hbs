@@ -834,6 +834,12 @@
 		            ga('send', 'event', 'Login', 'Username', data.decider);
 		            ga('send', 'event', 'Login', 'New Game', data.accessCode);
 		            ga('send', 'event', 'Game', 'Deck Name', deckName);
+
+		            {{#ifeq environment "production"}}                   
+	                smartlook('tag', 'created_game', 'yes');
+	                smartlook('tag', 'username', username);
+	                smartlook('tag', 'code', data.accessCode);
+		            {{/ifeq}}
 		            
 							}
 						})
