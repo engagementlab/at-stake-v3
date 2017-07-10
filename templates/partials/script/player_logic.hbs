@@ -341,13 +341,13 @@ $(document).on('click', '.btn.game_login', function(evt) {
 
             ga('send', 'event', 'Login', 'Username', username);
 
+            data.uid = playerUID;
+            playerLogin(data);                          
+
             {{#ifeq environment "production"}}                   
                 smartlook('tag', 'username', username);
                 smartlook('tag', 'code', gameCode);
             {{/ifeq}}
-
-            data.uid = playerUID;
-            playerLogin(data);                          
 
             loginFromTo('join', 'lobby', .7);
 
