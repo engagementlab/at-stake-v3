@@ -99,7 +99,7 @@ var startTimer = function(secondsLeft, timerAdvance) {
 
 }
 
-var setupScreen = function(screenName) {
+var setupScreen = function(screenName, screenIndex) {
 
     // Add trigger to go to next step on next-step buttons
     $('.next-step').click(function(evt) {
@@ -129,7 +129,10 @@ var setupScreen = function(screenName) {
     screenOpen($('.screen:not(.skip):first'));
 
     currentPhaseIndex = sessionStorage.getItem('phase');
-    currentScreenIndex = sessionStorage.getItem('screen');
+    currentScreenIndex = !screenIndex ? sessionStorage.getItem('screen') : screenIndex;
+
+    if(screenIndex)
+        sessionStorage.setItem('screen', screenIndex);
 
     phaseBarProgress();
 
@@ -306,7 +309,7 @@ socketEvents = function(eventId, eventData) {
             
             $('#gameContent').html(markup).promise().done(function() {
                 
-                setupScreen();
+                setupScreen(undefined, eventData.screen_index);
 
                 var secondsLeft = eventData.resume_duration; 
                 if(secondsLeft && secondsLeft > 0)
@@ -327,6 +330,7 @@ socketEvents = function(eventId, eventData) {
 
                 $('#error-disconnected').trigger('hide');
 
+                nextPhaseScreen(eventData.screen_index);
                 playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);
 
             });
@@ -451,6 +455,7 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:next_screen':
+
             if(isDecider){
                 ion.sound.play("click3");
             }

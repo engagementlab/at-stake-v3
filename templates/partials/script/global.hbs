@@ -357,15 +357,20 @@
 
 	}
 
-	var nextPhaseScreen = function() {
+	var nextPhaseScreen = function(index) {
 	    
-	    currentScreenIndex++;
+	    if(index)
+	    	currentScreenIndex = index;
+	    else
+		    currentScreenIndex++;
       
       // Hide any overlay if visible and its modal does not have 'keep_open' attribute
       if($('#overlay').is(':visible') && $('#overlay .inner-modal').data('keep_open') === undefined)
 	      $('#overlay').trigger('hide');
+			
+			var selector = index ? $('.screen:not(.skip):lt(' + index + ')') : $($('.screen:not(.skip)')[0]);
 
-	    $.when($($('.screen:not(.skip)')[0]).remove()).then(function() {
+	    $.when(selector.remove()).then(function() {
 
 	        var newScreen = $('.screen:not(.skip)')[0];
 	        
