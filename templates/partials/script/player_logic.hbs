@@ -59,6 +59,12 @@ var playerLogin = function(data) {
     sessionStorage.setItem('username', playerName);
     // sessionStorage.setItem('gameCode', gameCode);
 
+    // Open socket connection
+    if(!socket) { 
+        socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
+        registerEvents();
+    } 
+
     // Log player in
     socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));
 
@@ -122,15 +128,18 @@ var checkIfLoggedIn = function() {
 
         return;
     }
+    else {
+
+        // Open socket connection
+        if(!socket) { 
+            socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
+            registerEvents();
+        } 
+
+    }
 
     gameCode = sessionStorage.getItem('gameCode');
     playerName = sessionStorage.getItem('username');
-    
-    // Open socket connection
-    if(!socket) { 
-        socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
-        registerEvents();
-    } 
 
 }
 
