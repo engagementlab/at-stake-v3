@@ -381,7 +381,7 @@
 				var player = _.findWhere(currentPlayers, {uid: $(newScreen).data('player')});
 				
 				// If not connected, skip screen
-				if(!player.connected) {
+				if(player && !player.connected) {
 					//currentScreenIndex++;
 					// Remove skipped one
 					$(newScreen).remove();

@@ -75,15 +75,6 @@ var Common = function (nsp, socket) {
 
         },
 
-        'game:load_screen': function(pkg) {
-
-            let session = Session.Get(pkg.gameId);
-
-            if(!session) return;
-            session.LoadScreenAtIndex(pkg.msgData.index);
-
-        },
-
         'game:next_round': function(pkg) {
 
             let session = Session.Get(pkg.gameId);

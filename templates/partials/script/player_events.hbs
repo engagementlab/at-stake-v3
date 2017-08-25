@@ -99,7 +99,7 @@ var startTimer = function(secondsLeft, timerAdvance) {
 
 }
 
-var setupScreen = function(screenName, screenIndex) {
+var setupScreen = function(screenName, screenIndex, phaseIndex) {
 
     // Add trigger to go to next step on next-step buttons
     $('.next-step').click(function(evt) {
@@ -128,7 +128,7 @@ var setupScreen = function(screenName, screenIndex) {
     // Animate initial
     screenOpen($('.screen:not(.skip):first'));
 
-    currentPhaseIndex = sessionStorage.getItem('phase');
+    currentPhaseIndex = !phaseIndex ? sessionStorage.getItem('phase') : phaseIndex;
     currentScreenIndex = !screenIndex ? sessionStorage.getItem('screen') : screenIndex;
 
     if(screenIndex)
@@ -305,11 +305,14 @@ socketEvents = function(eventId, eventData) {
             if (isDecider)
                 $('#btn-role-card').css('visibility', 'hidden');
 
+            // Set current phase and setup role card
+            currentPhaseIndex = eventData.phase_index;
+            sessionStorage.setItem('phase', currentPhaseIndex);
             setupRoleCard(roleCard);
             
             $('#gameContent').html(markup).promise().done(function() {
                 
-                setupScreen(undefined, eventData.screen_index);
+                sessionStorage.setItem('screen', eventData.screen_index);
 
                 var secondsLeft = eventData.resume_duration; 
                 if(secondsLeft && secondsLeft > 0)
