@@ -358,8 +358,8 @@ socketEvents = function(eventId, eventData) {
         case 'players:update':
 
             var staticPlayers = $('.player-static');
-            var currentPlayers = _.map(eventData.players, function(player){
-                return {name: player.username, icon: player.index};
+            currentPlayers = _.map(eventData.players, function(player){
+                return {name: player.username, uid: player.uid, connected: player.connected, icon: player.index};
             });
 
             var playersNeeded = {{#ifeq debug true}}2{{else}}3{{/ifeq}}

@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"curr",
+				"currentScreenIndex"
+			],
+			[
+				"cur",
+				"currentScreenIndex"
+			],
+			[
+				"dele",
+				"deletePlayer"
+			],
+			[
 				"prog",
 				"progressLength"
 			],
@@ -110,10 +122,6 @@
 			[
 				"modl",
 				"modalSelector"
-			],
-			[
-				"cur",
-				"currentTarget"
 			],
 			[
 				"timel",
@@ -274,10 +282,6 @@
 			[
 				"score",
 				"scoreboard"
-			],
-			[
-				"curr",
-				"current"
 			],
 			[
 				"type",
@@ -510,10 +514,6 @@
 			[
 				"coo",
 				"color"
-			],
-			[
-				"co",
-				"color-seafoam"
 			]
 		]
 	},
@@ -523,26 +523,16 @@
 			"file": "templates/partials/script/player_logic.hbs",
 			"settings":
 			{
-				"buffer_size": 9898,
+				"buffer_size": 10160,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Searching 249 files for \"PlayerLost\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n  350      * @override\n  351      */\n  352:     PlayerLost(playerSocketId, socket) {\n  353  \n  354          let thisPlayer = this.GetPlayerById(playerSocketId);\n\n/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js:\n  141          //   session.End(currentSpace, false);\n  142          // else\n  143:           session.PlayerLost(currentSocket.id, currentSocket);\n  144  \n  145        }\n\n/Users/Johnny/Documents/Projects/learning-games-core/DOCS.md:\n  150  * **Object** *The* player's socket\n  151  \n  152: ## PlayerLost\n  153  \n  154  Deactivate player for now and start cooldown for them to re-join within, after which they're removed from session.\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n  547      * @param {String} The player's socket ID\n  548      * @class Core\n  549:     * @name PlayerLost\n  550      */\n  551:     PlayerLost(playerSocketId) {\n  552  \n  553          let thisPlayer = this.GetPlayerById(playerSocketId)\n\n5 matches across 4 files\n\n\nSearching 249 files for \"error-player-disconnected\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs:\n   66                  </section>\n   67  \n   68:                 <section id=\"error-player-disconnected\" class=\"modal error-modal\">\n   69                      <div id=\"text\" class=\"col-sm-10 col-xs-12 col-centered\">\n   70                        <h1>Ummm...</h1>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  146      \n  147      var timeLeft = timeoutTime,\n  148:         modal = $('#error-player-disconnected'),\n  149          singular = modal.find('h2 #singular'),\n  150          plural = modal.find('h2 #plural');\n  ...\n  363              // Are all players connected?\n  364              if(eventData.all_connected) {\n  365:                 $('#error-player-disconnected').trigger('hide');\n  366  \n  367                  if(timeoutClock)\n\n3 matches across 2 files\n\n\nSearching 249 files for \"error-modal\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css:\n 2224    left: 0; }\n 2225  \n 2226: .error-modal {\n 2227    background-color: rgba(254, 120, 70, 0.9);\n 2228    color: white; }\n 2229:   .error-modal h3 {\n 2230      font-size: 18px; }\n 2231  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss:\n   36  }\n   37  \t\n   38: .error-modal {\n   39  \tbackground-color: rgba(254, 120, 70, 0.9);\n   40  \tcolor: white;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs:\n   63              {{#ifnoteq section 'homepage'}}\n   64      \n   65:                 <section id=\"error-disconnected\" class=\"modal error-modal\">\n   66                  </section>\n   67  \n   68:                 <section id=\"error-player-disconnected\" class=\"modal error-modal\">\n   69                      <div id=\"text\" class=\"col-sm-10 col-xs-12 col-centered\">\n   70                        <h1>Ummm...</h1>\n   ..\n   73                  </section>\n   74  \n   75:                 <section id=\"error-private-mode\" class=\"modal error-modal\">\n   76                      <div id=\"text\" class=\"col-sm-10 col-xs-12 col-centered\">\n   77                        <h1>Sorry!</h1>\n   ..\n   80                  </section>\n   81  \n   82:                 <section id=\"error-size\" class=\"modal error-modal\">\n   83                      <div id=\"text\" class=\"col-sm-10 col-xs-12 col-centered\">\n   84                        <h1>Sorry!</h1>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_logic.hbs:\n   20            }\n   21  \n   22:           $('#error-modal').fadeTo(\"fast\", (show ? 1 : 0), function() {\n   23                \n   24:               $('#error-modal #text h2').hide();\n   25  \n   26                // Show correct msg\n   27:               $('#error-modal #text #' + textType).show();\n   28:               $('#error-modal #text').css('top', (show ? 0 : '-100%'));\n   29                \n   30                // Hide/show error    \n\n11 matches across 4 files\n\n\nSearching 249 files for \"all_connected\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n  335                              disconnected_players: _.pluck(disconnectedPlayers, 'username'),\n  336                              state: (playerRejoining ? 'player_rejoined' : 'gained_player'),\n  337:                             all_connected: allPlayersActive,\n  338                              timeout_remaining: this._player_timeout_time_left\n  339                         };\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  362  \n  363              // Are all players connected?\n  364:             if(eventData.all_connected) {\n  365                  $('#error-player-disconnected').trigger('hide');\n  366  \n\n2 matches across 2 files\n\n\nSearching 249 files for \"GetDisconnectedPlayers\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n  151  \n  152      // Get disconnected players\n  153:     GetDisconnectedPlayers() {\n  154  \n  155          let players = _.pick(this._current_players, \n  ...\n  298   \n  299          // Get any disconnected players and then if all players are active\n  300:         let disconnectedPlayers = this.GetDisconnectedPlayers();\n  301          let allPlayersActive = _.isEmpty(disconnectedPlayers);\n  302  \n  ...\n  366  \n  367              // Get all currently disconnected players\n  368:             let missingPlayers = _.pluck(this.GetDisconnectedPlayers(), 'username');\n  369  \n  370              // Don't remove, just tell everyone they left\n\n3 matches in 1 file\n",
+			"file": "templates/partials/script/mobile.hbs",
 			"settings":
 			{
-				"buffer_size": 5733,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "templates/layouts/base.hbs",
-			"settings":
-			{
-				"buffer_size": 12524,
+				"buffer_size": 1120,
 				"line_ending": "Unix"
 			}
 		},
@@ -550,7 +540,42 @@
 			"file": "templates/partials/script/player_events.hbs",
 			"settings":
 			{
-				"buffer_size": 20093,
+				"buffer_size": 20302,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 249 files for \"PlayerLost\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n  350      * @override\n  351      */\n  352:     PlayerLost(playerSocketId, socket) {\n  353  \n  354          let thisPlayer = this.GetPlayerById(playerSocketId);\n\n/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js:\n  141          //   session.End(currentSpace, false);\n  142          // else\n  143:           session.PlayerLost(currentSocket.id, currentSocket);\n  144  \n  145        }\n\n/Users/Johnny/Documents/Projects/learning-games-core/DOCS.md:\n  150  * **Object** *The* player's socket\n  151  \n  152: ## PlayerLost\n  153  \n  154  Deactivate player for now and start cooldown for them to re-join within, after which they're removed from session.\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n  547      * @param {String} The player's socket ID\n  548      * @class Core\n  549:     * @name PlayerLost\n  550      */\n  551:     PlayerLost(playerSocketId) {\n  552  \n  553          let thisPlayer = this.GetPlayerById(playerSocketId)\n\n5 matches across 4 files\n\n\nSearching 249 files for \"error-player-disconnected\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs:\n   66                  </section>\n   67  \n   68:                 <section id=\"error-player-disconnected\" class=\"modal error-modal\">\n   69                      <div id=\"text\" class=\"col-sm-10 col-xs-12 col-centered\">\n   70                        <h1>Ummm...</h1>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  146      \n  147      var timeLeft = timeoutTime,\n  148:         modal = $('#error-player-disconnected'),\n  149          singular = modal.find('h2 #singular'),\n  150          plural = modal.find('h2 #plural');\n  ...\n  363              // Are all players connected?\n  364              if(eventData.all_connected) {\n  365:                 $('#error-player-disconnected').trigger('hide');\n  366  \n  367                  if(timeoutClock)\n\n3 matches across 2 files\n\n\nSearching 249 files for \"error-modal\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css:\n 2224    left: 0; }\n 2225  \n 2226: .error-modal {\n 2227    background-color: rgba(254, 120, 70, 0.9);\n 2228    color: white; }\n 2229:   .error-modal h3 {\n 2230      font-size: 18px; }\n 2231  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss:\n   36  }\n   37  \t\n   38: .error-modal {\n   39  \tbackground-color: rgba(254, 120, 70, 0.9);\n   40  \tcolor: white;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs:\n   63              {{#ifnoteq section 'homepage'}}\n   64      \n   65:                 <section id=\"error-disconnected\" class=\"modal error-modal\">\n   66                  </section>\n   67  \n   68:                 <section id=\"error-player-disconnected\" class=\"modal error-modal\">\n   69                      <div id=\"text\" class=\"col-sm-10 col-xs-12 col-centered\">\n   70                        <h1>Ummm...</h1>\n   ..\n   73                  </section>\n   74  \n   75:                 <section id=\"error-private-mode\" class=\"modal error-modal\">\n   76                      <div id=\"text\" class=\"col-sm-10 col-xs-12 col-centered\">\n   77                        <h1>Sorry!</h1>\n   ..\n   80                  </section>\n   81  \n   82:                 <section id=\"error-size\" class=\"modal error-modal\">\n   83                      <div id=\"text\" class=\"col-sm-10 col-xs-12 col-centered\">\n   84                        <h1>Sorry!</h1>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_logic.hbs:\n   20            }\n   21  \n   22:           $('#error-modal').fadeTo(\"fast\", (show ? 1 : 0), function() {\n   23                \n   24:               $('#error-modal #text h2').hide();\n   25  \n   26                // Show correct msg\n   27:               $('#error-modal #text #' + textType).show();\n   28:               $('#error-modal #text').css('top', (show ? 0 : '-100%'));\n   29                \n   30                // Hide/show error    \n\n11 matches across 4 files\n\n\nSearching 249 files for \"all_connected\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n  335                              disconnected_players: _.pluck(disconnectedPlayers, 'username'),\n  336                              state: (playerRejoining ? 'player_rejoined' : 'gained_player'),\n  337:                             all_connected: allPlayersActive,\n  338                              timeout_remaining: this._player_timeout_time_left\n  339                         };\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  362  \n  363              // Are all players connected?\n  364:             if(eventData.all_connected) {\n  365                  $('#error-player-disconnected').trigger('hide');\n  366  \n\n2 matches across 2 files\n\n\nSearching 249 files for \"GetDisconnectedPlayers\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n  151  \n  152      // Get disconnected players\n  153:     GetDisconnectedPlayers() {\n  154  \n  155          let players = _.pick(this._current_players, \n  ...\n  298   \n  299          // Get any disconnected players and then if all players are active\n  300:         let disconnectedPlayers = this.GetDisconnectedPlayers();\n  301          let allPlayersActive = _.isEmpty(disconnectedPlayers);\n  302  \n  ...\n  366  \n  367              // Get all currently disconnected players\n  368:             let missingPlayers = _.pluck(this.GetDisconnectedPlayers(), 'username');\n  369  \n  370              // Don't remove, just tell everyone they left\n\n3 matches in 1 file\n\n\nSearching 249 files for \"sessionStorage.getItem('gameCode')\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  209              ion.sound.play(\"player_pink\");\n  210              \n  211:             if(sessionStorage.getItem('gameCode')) {\n  212                  // Check if player is active in game\n  213                  socket.emit('login:active', {\n  214:                   gameId: sessionStorage.getItem('gameCode'), \n  215                    username: sessionStorage.getItem('username'),\n  216                    uid: sessionStorage.getItem('uUID'),\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n   81      \n   82      // Check if game code saved to session (player is already logged in)\n   83:     // if(!sessionStorage.getItem('gameCode')) {\n   84          var isAndroid = /Android/ig.test(navigator.userAgent);\n   85  \n   ..\n  124      // }\n  125  \n  126:     gameCode = sessionStorage.getItem('gameCode');\n  127      playerName = sessionStorage.getItem('username');\n  128      \n\n4 matches across 2 files\n\n\nSearching 249 files for \"sessionStorage.getItem('gameCode')\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  209              ion.sound.play(\"player_pink\");\n  210              \n  211:             if(sessionStorage.getItem('gameCode')) {\n  212                  // Check if player is active in game\n  213                  socket.emit('login:active', {\n  214:                   gameId: sessionStorage.getItem('gameCode'), \n  215                    username: sessionStorage.getItem('username'),\n  216                    uid: sessionStorage.getItem('uUID'),\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n   81      \n   82      // Check if game code saved to session (player is already logged in)\n   83:     // if(!sessionStorage.getItem('gameCode')) {\n   84          var isAndroid = /Android/ig.test(navigator.userAgent);\n   85  \n   ..\n  124      // }\n  125  \n  126:     gameCode = sessionStorage.getItem('gameCode');\n  127      playerName = sessionStorage.getItem('username');\n  128      \n\n4 matches across 2 files\n\n\nSearching 249 files for \"login:active\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js:\n   86      },\n   87      \n   88:     'login:active': (payload) => {\n   89  \n   90        let session = Session.Get(payload.gameId);\n   ..\n  111        }\n  112        else {\n  113:         logger.info('login:active', 'Player \"' + payload.uid + '\" not active.');\n  114        }\n  115        \n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  211              if(sessionStorage.getItem('gameCode')) {\n  212                  // Check if player is active in game\n  213:                 socket.emit('login:active', {\n  214                    gameId: sessionStorage.getItem('gameCode'), \n  215                    username: sessionStorage.getItem('username'),\n\n3 matches across 2 files\n\n\nSearching 249 files for \"btn_submit_name\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/lobby.scss:\n  317  \t\t\ttext-align: center;\n  318  \t\t}\n  319: \t\t#btn_submit_name {\n  320  \t\t\t@include gradient-vertical($pink-light, $pink-dark, 90%, 10%);\n  321  \t\t\tcolor: white;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/media.scss:\n   46  \t\t\tpadding: 0px 35px;\n   47  \t\t}\n   48: \t\t#lobby #name.lobby #btn_submit_name {\n   49  \t\t\tmargin-top:1%;\n   50  \t\t}\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css:\n  396        margin: 0px auto;\n  397        text-align: center; }\n  398:     #lobby #name.lobby #btn_submit_name {\n  399        background-image: -webkit-linear-gradient(top, #ff3d6b 90%, #e90048 10%);\n  400        background-image: -o-linear-gradient(top, #ff3d6b 90%, #e90048 10%);\n  ...\n 2103      body #gameContent.isMobile:not(.isDevice) #lobby #name.lobby .login-footer {\n 2104        padding: 0px 35px; }\n 2105:     body #gameContent.isMobile:not(.isDevice) #lobby #name.lobby #btn_submit_name {\n 2106        margin-top: 1%; }\n 2107    body #lobby #name.lobby .login-footer {\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_animation.hbs:\n   53  \n   54  \t\tloginAnim.from($('#player-name'), .5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .2)\n   55: \t           .from($('#btn_submit_name'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut}).append('name')\n   56  \n   57  \t\t\t\t\t\t .to($('#name'), .5, { autoAlpha:0, display:'none' })\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n   92          else\n   93          {{/ifnoteq}}\n   94:             $('#player-name, #btn_submit_name').removeClass('hidden-el');\n   95  \n   96          // For Android only, move input boxes into view on phones\n   ..\n  108              \n  109              if(evt.keyCode == 13)\n  110:                 $('#btn_submit_name').click();\n  111  \n  112              if(evt.keyCode === 32) \n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs:\n   19        \n   20        <div class=\"error\">Error!</div>\n   21:       <input id=\"btn_submit_name\" data-package='{\"name\": \"#player-name\"}' maxlength=\"10\" class=\"btn btn-default submit_name hidden-el\" type=\"submit\" name=\"submit\" value=\"Next!\">\n   22      </div>\n   23      <div class=\"login-footer\">\n\n8 matches across 6 files\n\n\nSearching 249 files for \"'name'\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/models/GameConfig.js:\n   80   */\n   81  \n   82: GameConfig.defaultColumns = 'name';\n   83  GameConfig.register();\n   84  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/models/Role.js:\n   49  });\n   50  \n   51: Role.defaultColumns = 'name';\n   52  \n   53  /**\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_animation.hbs:\n   53  \n   54  \t\tloginAnim.from($('#player-name'), .5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .2)\n   55: \t           .from($('#btn_submit_name'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut}).append('name')\n   56  \n   57  \t\t\t\t\t\t .to($('#name'), .5, { autoAlpha:0, display:'none' })\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  580  \n  581              // If game not found, show name entry and clear session\n  582:             loginFromTo('start', 'name');\n  583              resetSession();\n  584  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n   89          {{#ifnoteq section 'game-preloaded'}} \n   90          if(!isEmulated)  \n   91:             loginFromTo('start', 'name');\n   92          else\n   93          {{/ifnoteq}}\n   ..\n  241  \n  242      // Show new game/join\n  243:     loginFromTo('name', 'choices', 1, function() {\n  244          // Setup new game button handler and callbacks\n  245          newGameHandler();\n\n6 matches across 5 files\n\n\nSearching 249 files for \".login\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/forms.scss:\n   47  \t}\n   48  \n   49: \t&.login, &.create {\n   50  \t\tinput {\n   51  \t\t\twidth: 100%;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/lobby.scss:\n  299  \t\t}\n  300  \n  301: \t\t.login-footer {\n  302  \t\t\tposition: absolute;\n  303  \t\t\tbottom: 0px;\n  ...\n  359  \t\t}\n  360  \n  361: \t\t.login {\n  362  \t\t\tpadding-top: 10%;\n  363  \t\t}\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/media.scss:\n   43  \t\t\tpadding-top: 40px;\n   44  \t\t}\n   45: \t\t#lobby #name.lobby .login-footer {\n   46  \t\t\tpadding: 0px 35px;\n   47  \t\t}\n   ..\n   51  \t}\n   52  \n   53: \tbody #lobby #name.lobby .login-footer {\n   54  \t\tpadding: 20px 35px;\n   55  \t}\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css:\n  113      .form input:focus {\n  114        outline: none !important; }\n  115:   .form.login input, .form.create input {\n  116      width: 100%; }\n  117    .form input[type=submit].default, .form button.default {\n  ...\n  382          height: 48px;\n  383          text-align: center; }\n  384:     #lobby #name.lobby .login-footer {\n  385        position: absolute;\n  386        bottom: 0px;\n  ...\n  433        font-family: AvenirNext-Bold;\n  434        color: white; }\n  435:   #lobby #join.lobby .login {\n  436      padding-top: 10%; }\n  437    #lobby #join.lobby #access_code {\n  ...\n 2101      body #gameContent.isMobile:not(.isDevice).in-game {\n 2102        padding-top: 40px; }\n 2103:     body #gameContent.isMobile:not(.isDevice) #lobby #name.lobby .login-footer {\n 2104        padding: 0px 35px; }\n 2105      body #gameContent.isMobile:not(.isDevice) #lobby #name.lobby #btn_submit_name {\n 2106        margin-top: 1%; }\n 2107:   body #lobby #name.lobby .login-footer {\n 2108      padding: 20px 35px; }\n 2109    body #lobby #name.lobby .form {\n ....\n 2266    transition: background 0.5s linear; }\n 2267  \n 2268: .body.login {\n 2269    -webkit-transition: background 0.5s linear;\n 2270    -moz-transition: background 0.5s linear;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss:\n   97  }\n   98  \n   99: .body.login {\n  100  \n  101    @include linear_transition(background, 0.5s);\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  230              {{!-- $('#gameContent').addClass('player-grid'); --}}\n  231  \n  232:             $('.login.form').fadeOut(function() { $('.login.waiting').fadeIn(function(){\n  233                  {{!-- $('.lobby#join').addClass('player-grid'); --}}\n  234              }); });\n  ...\n  319                  }\n  320  \n  321:                 $('#name, .login.input').fadeOut(function() {\n  322  \n  323                      $('#begin').addClass('wait');\n  324:                     $('#join, .login.waiting').fadeIn();\n  325  \n  326                  });\n  ...\n  583              resetSession();\n  584  \n  585:             $('.form.login').show();\n  586  \n  587              break;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n   84          var isAndroid = /Android/ig.test(navigator.userAgent);\n   85  \n   86:         $('.form.login').show();\n   87  \n   88          // Login form animation\n   ..\n  335              }\n  336  \n  337:             $('.login.input').fadeOut(function() {\n  338                  $('#lobby').addClass('wait');\n  339:                 $('.login.waiting').fadeIn();\n  340              });\n  341  \n\n20 matches across 7 files\n\n\nSearching 249 files for \"playerLogin(\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n  337  \n  338              data.uid = playerUID;\n  339:             playerLogin(data);                          \n  340  \n  341              {{#ifeq environment \"production\"}}                   \n\n1 match in 1 file\n\n\nSearching 249 files for \"playerLogin\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n   40      Logs the player in\n   41  */\n   42: var playerLogin = function(data) {\n   43  \n   44      gameCode = data.code;\n   ..\n  337  \n  338              data.uid = playerUID;\n  339:             playerLogin(data);                          \n  340  \n  341              {{#ifeq environment \"production\"}}                   \n\n2 matches in 1 file\n\n\nSearching 249 files for \"game:countdown\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n  343          if(timeAdded) {\n  344              let name = _.first(this._deliberate_time_queue).username;\n  345:             this.groupSocket.to(this.players_id).emit('game:countdown_player', name);\n  346          }\n  347          \n  ...\n  383              this.playersDoubledownDone = 0;\n  384  \n  385:         this.groupSocket.to(this.players_id).emit('game:countdown_player', player.username);\n  386  \n  387          // Add to countdown and assign countdown end event\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  151  \t\t'game:resumed',\n  152  \t\t'game:notfound',\n  153: \t\t'game:countdown',\n  154: \t\t'game:countdown_ending',\n  155: \t\t'game:countdown_end',\n  156: \t\t'game:countdown_player',\n  157  \t\t'game:phase_over',\n  158  \t\t'game:round_over',\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  587              break;\n  588              \n  589:         case 'game:countdown':\n  590              ion.sound.stop(\"click3\");\n  591              $('#btn-time').fadeOut();\n  ...\n  605              break;\n  606  \n  607:         case 'game:countdown_ending':\n  608              $('.form .error').fadeIn().html(eventData);\n  609              $('.form .error').delay(3000).fadeOut('slow');\n  ...\n  611              break;\n  612  \n  613:         case 'game:countdown_end':\n  614  \n  615              ion.sound.play(\"alarm\");\n  ...\n  652              break;\n  653  \n  654:         case 'game:countdown_player':\n  655              \n  656              // Close \"(playername) is deciding....\" modal\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n  318          \n  319          if(forPlayers)\n  320:             socket.to(this.players_id).emit('game:countdown', socketInfo);\n  321          else\n  322:             socket.to(this.group_id).emit('game:countdown', socketInfo);\n  323  \n  324          // Start countdown\n  ...\n  334                  // Tell the players time is up\n  335                  if(forPlayers)\n  336:                     this._group_socket.to(this.players_id).emit('game:countdown_end', data.countdownName);\n  337                  else\n  338:                     this._group_socket.to(this.group_id).emit('game:countdown_end', data.countdownName);\n  339  \n  340                  // Send the countdownEnded event to the game script\n  ...\n  350                  // Dispatch countdown when running out of time for player\n  351                  this.Templates.Load('partials/player/timerunningout', undefined, (html) => {\n  352:                     socket.to(this.players_id).emit('game:countdown_ending', {html: html, socket: this.players_id});\n  353                  });\n  354  \n\n15 matches across 4 files\n\n\nSearching 249 files for \"game:countdown_end\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  152  \t\t'game:notfound',\n  153  \t\t'game:countdown',\n  154: \t\t'game:countdown_ending',\n  155: \t\t'game:countdown_end',\n  156  \t\t'game:countdown_player',\n  157  \t\t'game:phase_over',\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  605              break;\n  606  \n  607:         case 'game:countdown_ending':\n  608              $('.form .error').fadeIn().html(eventData);\n  609              $('.form .error').delay(3000).fadeOut('slow');\n  ...\n  611              break;\n  612  \n  613:         case 'game:countdown_end':\n  614  \n  615              ion.sound.play(\"alarm\");\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n  334                  // Tell the players time is up\n  335                  if(forPlayers)\n  336:                     this._group_socket.to(this.players_id).emit('game:countdown_end', data.countdownName);\n  337                  else\n  338:                     this._group_socket.to(this.group_id).emit('game:countdown_end', data.countdownName);\n  339  \n  340                  // Send the countdownEnded event to the game script\n  ...\n  350                  // Dispatch countdown when running out of time for player\n  351                  this.Templates.Load('partials/player/timerunningout', undefined, (html) => {\n  352:                     socket.to(this.players_id).emit('game:countdown_ending', {html: html, socket: this.players_id});\n  353                  });\n  354  \n\n7 matches across 3 files\n\n\nSearching 249 files for \"_countdown_paused\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n   44          this._countdown,\n   45          this._countdown_duration = 0,\n   46:         this._countdown_paused,\n   47          this._event_countdown_done,\n   48          this._current_round,\n   ..\n   79              this.assignedRoleIndices = [];\n   80  \n   81:             this._countdown_paused = false;\n   82              this._player_timeout_duration = 60000;\n   83  \n   ..\n  304  \n  305              let reconnectInfo = {};\n  306:             if(this._countdown_paused) {\n  307  \n  308                  // Resume any current timers\n  309:                 this._countdown_paused = false;\n  310  \n  311                  // Tell player where to resume current timer\n  ...\n  363  \n  364              // Pause any current timers\n  365:             this._countdown_paused = true;\n  366  \n  367              // Get all currently disconnected players\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n   35          this._countdown,\n   36          this._countdown_duration,\n   37:         this._countdown_paused,\n   38          this._event_countdown_done,\n   39          this._current_round,\n   ..\n   76          var GameConfig = this.keystone.list('GameConfig').model;\n   77  \n   78:         this._countdown_paused = false;\n   79          this._session_restarting = false;\n   80  \n   ..\n  253          clearInterval(this._countdown);\n  254          this._countdown = undefined;\n  255:         this._countdown_paused = false;\n  256  \n  257          this._current_players = {};\n  ...\n  325          this._countdown = setInterval(() => { \n  326  \n  327:             if(this._countdown_paused)\n  328                  return;\n  329   \n  ...\n  370              return;\n  371  \n  372:         this._countdown_paused = !this._countdown_paused;\n  373          this._group_socket.to(this.group_id).emit('debug:pause');\n  374  \n\n11 matches across 2 files\n\n\nSearching 249 files for \"PlayerReady\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n  277          super.ModeratorJoin(socket);\n  278  \n  279:         this.PlayerReady(player, socket, true);\n  280  \n  281      }\n  ...\n  284      * @override\n  285      */\n  286:     PlayerReady(player, socket, assignDecider) {\n  287  \n  288          let uids = Object.keys(this._current_players);\n  ...\n  295  \n  296          // Invoke common method\n  297:         super.PlayerReady(player, socket, false);\n  298   \n  299          // Get any disconnected players and then if all players are active\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameType.js:\n   18      var _PLAYERS = [];\n   19  \n   20:     this.PlayerReady = function(player) {\n   21  \n   22          _PLAYERS.push(player);\n\n/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js:\n   69  \n   70        // Mark player as ready inside game session\n   71:       Session.Get(payload.gameId).PlayerReady(\n   72                                                player,\n   73                                                currentSpace,\n   ..\n  104          \n  105          // Mark player as ready inside game session\n  106:         session.PlayerReady(\n  107                              player,\n  108                              currentSocket,\n\n/Users/Johnny/Documents/Projects/learning-games-core/DOCS.md:\n  141  * **Boolean** *Wait* xx seconds before ending game?\n  142  \n  143: ## PlayerReady\n  144  \n  145  Join player to session, or re-connect them and sync s/he to session.\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n  500      * @param {Object} The player's socket\n  501      * @class Core\n  502:     * @name PlayerReady\n  503      */\n  504:     PlayerReady(player, socket) {\n  505  \n  506          if (this._current_player_cap >= 8) {\n\n9 matches across 5 files\n\n\nSearching 249 files for \"_strLastEventId\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n   59          // Stores last event sent and its data\n   60          this._objLastTemplate,\n   61:         this._strLastEventId,\n   62  \n   63          this.currentPlayerCap,\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n   44          // Stores last event sent and its data\n   45          this._objLastTemplate,\n   46:         this._strLastEventId,\n   47  \n   48          this._current_player_cap,\n   ..\n  443            \n  444                          this._objLastTemplate = html;\n  445:                         this._strLastEventId = 'game:ended';\n  446          \n  447                          // Force all players to disconnect\n  ...\n  460            \n  461                          this._objLastTemplate = html;\n  462:                         this._strLastEventId = 'game:ending';\n  463                      });\n  464  \n  ...\n  482            \n  483                  this._objLastTemplate = html;\n  484:                 this._strLastEventId = 'game:ended';\n  485  \n  486                  // Force all players to disconnect\n  ...\n  517              console.info(player.username + ' has re-joined the game and has uid ' + player.uid);\n  518  \n  519:             socket.emit(this._strLastEventId, {waitForLoad: true, html: this._objLastTemplate});\n  520  \n  521          }\n  ...\n  696      SaveState(strEventId, objTemplate) {\n  697  \n  698:         this._strLastEventId = strEventId;\n  699          this._objLastTemplate = objTemplate;\n  700  \n\n7 matches across 2 files\n\n\nSearching 249 files for \"SaveState(\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n  694      * @name SaveState\n  695      */\n  696:     SaveState(strEventId, objTemplate) {\n  697  \n  698          this._strLastEventId = strEventId;\n\n1 match in 1 file\n\n\nSearching 249 files for \"setupScreen\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  100  }\n  101  \n  102: var setupScreen = function(screenName) {\n  103  \n  104      // Add trigger to go to next step on next-step buttons\n  ...\n  307              $('#gameContent').html(markup).promise().done(function() {\n  308                  \n  309:                 setupScreen();\n  310  \n  311                  var secondsLeft = eventData.resume_duration; \n  ...\n  502  \n  503                      nextPhase();\n  504:                     setupScreen(eventData.name);\n  505  \n  506                  });\n  ...\n  511  \n  512                      nextPhase();\n  513:                     setupScreen(eventData.name);\n  514  \n  515                  });\n  ...\n  528              updateGameContent(eventData.html, function() {\n  529  \n  530:                 setupScreen();\n  531  \n  532                  // Move immediately to restart point in current phase, by removing screens before it and showing it\n\n5 matches in 1 file\n\n\nSearching 249 files for \"player:reconnected\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n  326                  this._current_decider = player;\n  327              \n  328:             socket.emit('player:reconnected', reconnectInfo);\n  329  \n  330              if(allPlayersActive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  130  \t\t'player:loggedin',\n  131  \t\t'player:inactive',\n  132: \t\t'player:reconnected',\n  133  \t\t'player:lost',\n  134  \t\t'players:update',\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  281              break;\n  282  \n  283:         case 'player:reconnected': \n  284  \n  285              if(playerWasReconnected)\n\n3 matches across 3 files\n\n\nSearching 249 files for \"_current_players\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n   32          // this._all_agenda_items = {},\n   33  \n   34:         this._current_players = {},\n   35          this._currentPlayerIndex = 0,\n   36          this._game_session,\n   ..\n  141      GetActivePlayers() {\n  142  \n  143:         let players = _.pick(this._current_players, \n  144                          function(val, key, obj) { \n  145                              return (val.decider === false) || (val.decider === undefined);\n  ...\n  153      GetDisconnectedPlayers() {\n  154  \n  155:         let players = _.pick(this._current_players, \n  156                          function(val, key, obj) { \n  157                              return (val.connected === false);\n  ...\n  175      IsDecider(uid) {\n  176  \n  177:         if(!this._current_players[uid])\n  178              return false;\n  179  \n  180:         return this._current_players[uid].decider;\n  181  \n  182      }\n  ...\n  184      AssignRoleToPlayer(player, socket, isDecider) {\n  185  \n  186:         let playerObj = this._current_players[player.uid];\n  187  \n  188          // Is decider (ensure falsey is false)?\n  ...\n  242  \n  243          // Replace cached object\n  244:         this._current_players[player.uid] = playerObj;\n  245  \n  246      }\n  ...\n  266      IsFull() {\n  267  \n  268:         return (Object.keys(this._current_players).length === this.GetConfig().playerCountRangeMax);\n  269  \n  270      }\n  ...\n  286      PlayerReady(player, socket, assignDecider) {\n  287  \n  288:         let uids = Object.keys(this._current_players);\n  289          let playerRejoining = _.contains(uids, player.uid+\"\");\n  290          let isDecider = this.IsDecider(player.uid) || (assignDecider === true);\n  291  \n  292          // If player is flagged as trying to re-connect but is already connected, bail\n  293:         if(playerRejoining && this._current_players[player.uid].connected)\n  294              return;\n  295  \n  ...\n  332              \n  333              let data = {\n  334:                             players: _.sortBy(this._current_players, function(player) {return player.index}),\n  335                              disconnected_players: _.pluck(disconnectedPlayers, 'username'),\n  336                              state: (playerRejoining ? 'player_rejoined' : 'gained_player'),\n  ...\n  388                      this.PlayerRemove(thisPlayer);\n  389                      let data = {\n  390:                                     players: _.sortBy(this._current_players, function(player) {return player.index}),\n  391                                      all_connected: true,\n  392                                      timeout_remaining: this._player_timeout_time_left\n  ...\n  438          this.groupSocket.to(this._current_decider.socket_id).emit('game:decider', false);\n  439  \n  440:         _.each(this._current_players, (player, index) => {\n  441  \n  442              let isDecider = (this._current_winner.uid === player.uid);\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n   90          this._game_in_session = true;\n   91  \n   92:         this.Coins.FirstRound(this._current_players, this.GetConfig(), socket);\n   93  \n   94          this.NextPhase();\n   ..\n  130              case 'meet':\n  131  \n  132:                 let playerMap = _.map(this._current_players, \n  133                                  (player) => { \n  134                                      return { \n  ...\n  204              case 'scoreboard':\n  205  \n  206:                 let rankSort = _.values(_.sortBy(_.pluck(this._current_players,'uid'), (uid) => {return this.Coins.GetCoinsForPlayer(uid).current})).reverse();\n  207                  let topPlayerUid = this.Coins.GetTopPlayerId();\n  208  \n  209:                 let players = _.map(this._current_players, \n  210                                  (player) => { \n  211                                      return { \n  ...\n  299              }\n  300  \n  301:             _.each(this._current_players, function(player, id) {\n  302  \n  303                  if(player.decider)\n  ...\n  479      ProposalSelected(winnerUid) {\n  480  \n  481:         let winner = this._current_players[winnerUid];\n  482          this._current_winner = winner;\n  483  \n  ...\n  485          this.Coins.GiveWinnerPot(winner, this.groupSocket);\n  486  \n  487:         let roles = _.pluck(_.filter(this._current_players, {decider:false}), 'role');\n  488          let agendaItems = _.map(roles, \n  489                                   (role) => { \n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n   23          this.eventEmitter = new this.events.EventEmitter(),\n   24  \n   25:         this._current_players = {},\n   26          this._current_player_index = 0,\n   27          this._game_session,\n   ..\n  114      GetPlayerById(id) {\n  115          \n  116:         let player = _.findWhere(this._current_players, {socket_id: id});\n  117  \n  118          if(!player) {\n  ...\n  135      GetPlayerByUserId(id) {\n  136          \n  137:         let player = _.findWhere(this._current_players, {uid: id});\n  138  \n  139          if(!player) {\n  ...\n  181      IsFull() {\n  182  \n  183:         return (Object.keys(this._current_players).length === 8);\n  184  \n  185      }\n  ...\n  195      UsernameAvailable(name) {\n  196  \n  197:         return (_.where(this._current_players, {username: name}).length === 0);\n  198  \n  199      }\n  ...\n  213          //     return false;\n  214  \n  215:         return this._current_players[uid] !== undefined;\n  216  \n  217      }\n  ...\n  255          this._countdown_paused = false;\n  256  \n  257:         this._current_players = {};\n  258          this._current_submissions = {};\n  259          this._players_submitted = [];\n  ...\n  276  \n  277          // If there are (somehow) more than 8 players when START button is pressed, kick them out!\n  278:         if (this._current_players.length >= 8) {\n  279              // TO DO: Kick out extra players\n  280          }\n  ...\n  446          \n  447                          // Force all players to disconnect\n  448:                         for(let player in this._current_players)\n  449                              socket.sockets.sockets[player.socket_id].disconnect(true);\n  450  \n  ...\n  485  \n  486                  // Force all players to disconnect\n  487:                 for(let player in this._current_players)\n  488                      socket.sockets.sockets[player.socket_id].disconnect(true);\n  489  \n  ...\n  510  \n  511          // If player is re-connecting, set them back to connected, and re-broadcast the last update\n  512:         if(this._current_players[player.uid]) {\n  513  \n  514:             this._current_players[player.uid].connected = true;\n  515:             this._current_players[player.uid].socket_id = player.socket_id;\n  516  \n  517              console.info(player.username + ' has re-joined the game and has uid ' + player.uid);\n  ...\n  521          }\n  522          else {\n  523:             this._current_players[player.uid] = {\n  524                                          username: player.username, \n  525                                          socket_id: player.socket_id, \n  ...\n  534              this._current_player_index++;\n  535  \n  536:             socket.to(this.group_id).emit('players:update', {players: _.sortBy(this._current_players, function(player) {return player.index}), state: 'gained_player'});\n  537  \n  538          }\n  539  \n  540          // Get current # of players\n  541:         this._current_player_cap = Object.keys(this._current_players).length;\n  542      }\n  543  \n  ...\n  589          if (!player.connected) {\n  590  \n  591:             delete this._current_players[player.uid];\n  592  \n  593              this._group_socket.to(this.group_id).emit(\n  594                                                          'players:update', \n  595:                                                         { players: _.sortBy(this._current_players, function(player) {return player.index}),\n  596                                                            state: 'lost_player'\n  597                                                          }\n  ...\n  599  \n  600              // If only one player left, end the game now\n  601:             if(Object.keys(this._current_players).length <= 1 && this._game_in_session) {\n  602                  if (this._showing_results && (this._current_round === this._config.roundNumber -1)){\n  603                      return;\n  ...\n  624          \n  625          // Reset players state for next round\n  626:         _.each(this._current_players, (playerId, index) => {\n  627  \n  628:             this._current_players[index] = _.omit(this._current_players[index], 'score');\n  629:             this._current_players[index].submitted = false;\n  630          \n  631          });\n\n43 matches across 3 files\n\n\nSearching 249 files for \"currentScreenIndex\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n   49    // Tracks current phase index and the screen during each phase\n   50    currentPhaseIndex = -1,\n   51:   currentScreenIndex = 0,\n   52  \n   53  \t// Sound declaration\n   ..\n  360  \tvar nextPhaseScreen = function() {\n  361  \t    \n  362: \t    currentScreenIndex++;\n  363        \n  364        // Hide any overlay if visible and its modal does not have 'keep_open' attribute\n  ...\n  372  \t        // Local session update\n  373  \t        sessionStorage.setItem('markup', $('#gameContent').html());   \n  374: \t        sessionStorage.setItem('screen', currentScreenIndex);\n  375  \n  376  \t        $(newScreen).trigger('show');\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  108  \n  109      // Reset screen index\n  110:     currentScreenIndex = 0;\n  111  \n  112      $(isDecider ? '.player' : '.decider').remove();\n  ...\n  130  \n  131      currentPhaseIndex = sessionStorage.getItem('phase');\n  132:     currentScreenIndex = !screenIndex ? sessionStorage.getItem('screen') : screenIndex;\n  133  \n  134      if(screenIndex)\n\n5 matches across 2 files\n\n\nSearching 249 files for \"phaseBarProgress\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  344  \t    currentPhaseIndex++; \n  345  \n  346: \t    phaseBarProgress();\n  347  \t    \n  348  \t    $('#overlay').hide();\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  135          sessionStorage.setItem('screen', screenIndex);\n  136  \n  137:     phaseBarProgress();\n  138  \n  139      runMods();\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n  144  }\n  145  \n  146: phaseBarProgress = function() {\n  147  \n  148      // Change phase icon status\n\n3 matches across 3 files\n\n\nSearching 249 files for \"$('.screen\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  366  \t      $('#overlay').trigger('hide');\n  367  \n  368: \t    $.when($($('.screen:not(.skip)')[0]).remove()).then(function() {\n  369  \n  370: \t        var newScreen = $('.screen:not(.skip)')[0];\n  371  \t        \n  372  \t        // Local session update\n  ...\n  378  \t        runMods();\n  379  \n  380: \t        var timerPreview = $($('.screen:not(.skip)')[0]).find('.timer.preview');\n  381  \t        var hasTimer = timerPreview.length === 1;\n  382  \t        if(hasTimer) {\n  ...\n  487  \tvar runMods = function() {\n  488  \n  489: \t\tvar modifier = $('.screen:first span#modifier');\n  490  \n  491  \t\t// Engage any template script modifiers\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n   37      \n   38      var wasPaused = false;\n   39:     if($('.screen:visible .timer').length === 0)\n   40          return;\n   41  \n   ..\n  127  \n  128      // Animate initial\n  129:     screenOpen($('.screen:not(.skip):first'));\n  130  \n  131      currentPhaseIndex = sessionStorage.getItem('phase');\n  ...\n  440          case 'game:skip_rules':\n  441  \n  442:             $.when($('.screen.rules-screen').remove()).then(\n  443                  function() {\n  444                      \n  ...\n  534  \n  535                  // Move immediately to restart point in current phase, by removing screens before it and showing it\n  536:                 $('.screen.restart').prevAll().remove();\n  537  \n  538                  // Hide any previously hidden elements\n  539:                 $('.screen.restart .hidden-el').css({visibility:'hidden'});\n  540:                 $('.screen.restart').show();\n  541  \n  542                  openInnerModal();\n  ...\n  600  \n  601              if(countdownAnim)\n  602:                 $('.screen .timer').empty();\n  603                     \n  604              var secondsLeft = eventData.duration; \n\n11 matches across 2 files\n\n\nSearching 249 files for \"nextPhaseScreen\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  358  \t}\n  359  \n  360: \tvar nextPhaseScreen = function() {\n  361  \t    \n  362  \t    currentScreenIndex++;\n  ...\n  461  \t\t\t\t\t\t\t\t$(evt.currentTarget).off('hidden');\n  462  \t\t            if(gotoNext === 'next_screen')\n  463: \t\t\t            nextPhaseScreen();\n  464  \n  465  \t\t            else if(gotoNext === 'next_modal')\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  104      // Add trigger to go to next step on next-step buttons\n  105      $('.next-step').click(function(evt) {\n  106:         nextPhaseScreen();\n  107      });\n  108  \n  ...\n  477              // Or if forced, do this for all players\n  478              if(!isDecider || eventData.force)\n  479:                 nextPhaseScreen();\n  480              \n  481              break;\n  ...\n  649  \n  650              if(eventData == \"deliberateCountdown\") \n  651:                 nextPhaseScreen();\n  652              else if (eventData == \"brainstormCountdown\" && isDecider){\n  653                  socket.emit('game:next', emitData(true));\n\n5 matches across 2 files\n\n\nSearching 249 files for \"nextPhaseScreen\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  358  \t}\n  359  \n  360: \tvar nextPhaseScreen = function() {\n  361  \t    \n  362  \t    currentScreenIndex++;\n  ...\n  463  \t\t\t\t\t\t\t\t$(evt.currentTarget).off('hidden');\n  464  \t\t            if(gotoNext === 'next_screen')\n  465: \t\t\t            nextPhaseScreen();\n  466  \n  467  \t\t            else if(gotoNext === 'next_modal')\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  104      // Add trigger to go to next step on next-step buttons\n  105      $('.next-step').click(function(evt) {\n  106:         nextPhaseScreen();\n  107      });\n  108  \n  ...\n  477              // Or if forced, do this for all players\n  478              if(!isDecider || eventData.force)\n  479:                 nextPhaseScreen();\n  480              \n  481              break;\n  ...\n  649  \n  650              if(eventData == \"deliberateCountdown\") \n  651:                 nextPhaseScreen();\n  652              else if (eventData == \"brainstormCountdown\" && isDecider){\n  653                  socket.emit('game:next', emitData(true));\n\n5 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 44686,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "templates/partials/script/global.hbs",
+			"settings":
+			{
+				"buffer_size": 22625,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/views/game/player.hbs",
+			"settings":
+			{
+				"buffer_size": 5845,
 				"line_ending": "Unix"
 			}
 		},
@@ -558,7 +583,7 @@
 			"file": "lib/Common.js",
 			"settings":
 			{
-				"buffer_size": 12406,
+				"buffer_size": 12843,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -567,7 +592,19 @@
 			"file": "/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
 			"settings":
 			{
-				"buffer_size": 19954,
+				"buffer_size": 19998,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "'use strict';\n\nconst _folder = '/Volumes/GhanaSorted/Test',\n\t\t\t_sort = process.argv.indexOf('--sort') > 0;\n\nconst fs = require('fs'),\n\t\t\tpath = require('path'),\n\t\t\tmoment = require('moment'),\n\t\t\t_ = require('underscore'),\n\t\t\tdateFormat = require('dateformat'), \n\t\t\tmkdir = require('mkdirp');\n\nconst getDirectories = (srcpath) => {\n\n  return fs.readdirSync(srcpath)\n    .filter(file => fs.lstatSync(path.join(srcpath, file)).isDirectory())\n}\n\nlet dirs = getDirectories(_folder);\nlet schoolsMap = new Map();\n\nfor(let ind in dirs) {\n\n\tlet school = dirs[ind];\n\tlet fileArr = [];\n\tlet schoolDirs = getDirectories(_folder + '/' + school);\n\t\n\tlet schoolMap = {};\n\n\tfor(let dirInd in schoolDirs) {\n\n\t\tif(schoolDirs[dirInd].indexOf('Not Using') !== -1)\n\t\t\tcontinue;\n\n\t\tlet rootDir = _folder + '/' + school + '/';\n\t\tlet videoDir = _folder + '/' + school + '/' + schoolDirs[dirInd] + '/';\t\t\n\n\t\tfs.readdir(videoDir, (err, files) => {\n\t  \n\t    if (err)\n\t      throw err;\n\n\t    files.forEach(file => {\n\n\t\t\t\tif (file.indexOf('.avi')>=0 || file.indexOf('.AVI')>=0) {\n\n\t\t\t\t  let month = dateFormat(new Date(fs.statSync(videoDir + file).mtime), 'mmm');\n\t\t\t\t  let minute = dateFormat(new Date(fs.statSync(videoDir + file).mtime), 'MM');\n\t\t\t\t  let seconds = dateFormat(new Date(fs.statSync(videoDir + file).mtime), 'ss');\n\t\t\t\t  let day = dateFormat(new Date(fs.statSync(videoDir + file).mtime), 'dd');\n\t\t\t\t  let yr = dateFormat(new Date(fs.statSync(videoDir + file).mtime), 'yyyy');\n\t\t\t\t  let hr = dateFormat(new Date(fs.statSync(videoDir + file).mtime), 'HH');\n\n\t\t\t\t  let datePath = rootDir + month + '/' + day;\n\t\t\t\t\tlet newFilePath = hr + '-' + minute + '-' + seconds + '_' + [month, day, yr].join('_') + '--' + school.split(' ').join('_') + '.avi';\n\n\t\t\t\t\tif(_sort) {\n\n\t\t\t\t\t\tif(!fs.existsSync(datePath)) {\n\n\t\t\t\t\t\t  mkdir(datePath, function() {\n\t\t\t\t\t\t\t\tfs.renameSync(videoDir + file, datePath + '/' + newFilePath);\n\t\t\t\t\t\t  });\n\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse {\n\n\t\t\t\t\t\t\t\tfs.renameSync(videoDir + file, datePath + '/' + newFilePath);\n\n\t\t\t\t\t\t}\n\n\t\t\t\t\t}\n\t\t\t\t\telse {\n\t\t\t\t\t\tif(!fs.existsSync(rootDir + 'All'))\n\t\t\t\t\t\t  mkdir(rootDir + 'All');\n\n\t\t\t\t\t\tconsole.log(rootDir + '/All/' + newFilePath)\n\n\t\t\t\t\t\t// let newName = newFilePath;\n\t\t\t\t\t\t// if(fs.existsSync(rootDir + '/All/ ' + newFilePath))\n\t\t\t\t\t\t// \tnewName = \n\n\t\t\t\t\t\tfs.rename(videoDir + file, rootDir + '/All/' + newFilePath, (err) => { \n\t\t\t\t\t\t\tif(err)\n\t\t\t\t\t\t\t\tconsole.error(err)\n\t\t\t\t\t\t});\n\t\t\t\t\t}\n\t      }\n\t\t\t  \n\t\t\t});\n\n\t  });\n\n\t\t// fs.rmdirSync(videoDir);\n\n\tschoolsMap.set(school, schoolMap);\n\n\t}\n\n}",
+			"file": "/Users/Johnny/Documents/Projects/ghana-data/app.js",
+			"file_size": 2516,
+			"file_write_time": 131414111790000000,
+			"settings":
+			{
+				"buffer_size": 2516,
 				"line_ending": "Unix"
 			}
 		}
@@ -710,7 +747,11 @@
 	"expanded_folders":
 	[
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib",
-		"/Users/Johnny/Documents/Projects/at-stake-v3",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates",
@@ -719,11 +760,13 @@
 	],
 	"file_history":
 	[
-		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt/uglify.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt/uglify.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/deploy.json",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs",
@@ -732,7 +775,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/homepage.scss",
 		"/Users/Johnny/Documents/Projects/learning-games-core/lib/SessionManager.js",
 		"/Users/Johnny/Documents/Projects/learning-games-core/lib/ShuffleUtil.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/speech.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers/index.js",
@@ -744,7 +786,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_animation.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/scoreboard.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_logic.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs",
 		"/Users/Johnny/Documents/Projects/el-web-sdk/.env",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/lobby.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/index.js",
@@ -948,6 +989,26 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"nextPhaseScreen",
+			"$('.screen",
+			"phaseBarProgress",
+			"currentScreenIndex",
+			"_current_players",
+			"player:reconnected",
+			"setupScreen",
+			"SaveState(",
+			"_strLastEventId",
+			"PlayerReady",
+			"_countdown_paused",
+			"game:countdown_end",
+			"game:countdown",
+			"playerLogin",
+			"playerLogin(",
+			".login",
+			"'name'",
+			"btn_submit_name",
+			"login:active",
+			"sessionStorage.getItem('gameCode')",
 			"GetDisconnectedPlayers",
 			"all_connected",
 			"error-modal",
@@ -1055,27 +1116,7 @@
 			"agenda-wrap",
 			"city-accel",
 			"stages-bar",
-			"city-accelerator-website",
-			"You are the winner of the game!",
-			"cloudinaryUrl",
-			"-coins",
-			"GetCoinsForPlayer",
-			"startingPlayerCoins",
-			"Coins.",
-			"is_decider",
-			"click touchstart",
-			"openInnerModal",
-			"disconnect",
-			"message-disconnected",
-			"'opened'",
-			"btn-reconnect",
-			"dialog",
-			".icon",
-			"loginFromTo",
-			"btn_new_game",
-			"#decks",
-			"loginNewGame",
-			"btn-role-card"
+			"city-accelerator-website"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1221,7 +1262,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -1230,15 +1271,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9898,
+						"buffer_size": 10160,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9464,
-								9464
+								3619,
+								3619
 							]
 						],
 						"settings":
@@ -1248,18 +1289,77 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1481.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "templates/partials/script/mobile.hbs",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1120,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "templates/partials/script/player_events.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5733,
+						"buffer_size": 20302,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9248,
+								9248
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1642.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 44686,
 						"regions":
 						{
 							"match":
@@ -1362,6 +1462,718 @@
 									[
 										5600,
 										5622
+									],
+									[
+										5996,
+										6030
+									],
+									[
+										6180,
+										6214
+									],
+									[
+										6550,
+										6584
+									],
+									[
+										6718,
+										6752
+									],
+									[
+										7115,
+										7149
+									],
+									[
+										7299,
+										7333
+									],
+									[
+										7669,
+										7703
+									],
+									[
+										7837,
+										7871
+									],
+									[
+										8146,
+										8158
+									],
+									[
+										8309,
+										8321
+									],
+									[
+										8645,
+										8657
+									],
+									[
+										9019,
+										9034
+									],
+									[
+										9281,
+										9296
+									],
+									[
+										9502,
+										9517
+									],
+									[
+										9890,
+										9905
+									],
+									[
+										10229,
+										10244
+									],
+									[
+										10576,
+										10591
+									],
+									[
+										10795,
+										10810
+									],
+									[
+										11035,
+										11050
+									],
+									[
+										11452,
+										11458
+									],
+									[
+										11608,
+										11614
+									],
+									[
+										11965,
+										11971
+									],
+									[
+										12262,
+										12268
+									],
+									[
+										12531,
+										12537
+									],
+									[
+										12658,
+										12664
+									],
+									[
+										12971,
+										12977
+									],
+									[
+										13136,
+										13142
+									],
+									[
+										13239,
+										13245
+									],
+									[
+										13433,
+										13439
+									],
+									[
+										13545,
+										13551
+									],
+									[
+										13756,
+										13762
+									],
+									[
+										13985,
+										13991
+									],
+									[
+										14166,
+										14172
+									],
+									[
+										14424,
+										14430
+									],
+									[
+										14629,
+										14635
+									],
+									[
+										14792,
+										14798
+									],
+									[
+										15004,
+										15010
+									],
+									[
+										15270,
+										15276
+									],
+									[
+										15308,
+										15314
+									],
+									[
+										15519,
+										15525
+									],
+									[
+										15657,
+										15663
+									],
+									[
+										15795,
+										15801
+									],
+									[
+										16037,
+										16043
+									],
+									[
+										16158,
+										16164
+									],
+									[
+										16273,
+										16279
+									],
+									[
+										16574,
+										16586
+									],
+									[
+										16917,
+										16928
+									],
+									[
+										17063,
+										17074
+									],
+									[
+										17504,
+										17518
+									],
+									[
+										17691,
+										17705
+									],
+									[
+										17952,
+										17966
+									],
+									[
+										17979,
+										17993
+									],
+									[
+										18013,
+										18027
+									],
+									[
+										18044,
+										18058
+									],
+									[
+										18282,
+										18296
+									],
+									[
+										18450,
+										18464
+									],
+									[
+										18664,
+										18678
+									],
+									[
+										18798,
+										18812
+									],
+									[
+										19072,
+										19086
+									],
+									[
+										19172,
+										19186
+									],
+									[
+										19414,
+										19428
+									],
+									[
+										19554,
+										19568
+									],
+									[
+										19926,
+										19940
+									],
+									[
+										20263,
+										20281
+									],
+									[
+										20297,
+										20315
+									],
+									[
+										20526,
+										20544
+									],
+									[
+										20740,
+										20758
+									],
+									[
+										21044,
+										21062
+									],
+									[
+										21184,
+										21202
+									],
+									[
+										21556,
+										21574
+									],
+									[
+										21902,
+										21919
+									],
+									[
+										22088,
+										22105
+									],
+									[
+										22265,
+										22282
+									],
+									[
+										22374,
+										22391
+									],
+									[
+										22562,
+										22579
+									],
+									[
+										22817,
+										22834
+									],
+									[
+										23021,
+										23038
+									],
+									[
+										23222,
+										23239
+									],
+									[
+										23395,
+										23412
+									],
+									[
+										23515,
+										23532
+									],
+									[
+										23541,
+										23558
+									],
+									[
+										23858,
+										23869
+									],
+									[
+										23968,
+										23979
+									],
+									[
+										24157,
+										24168
+									],
+									[
+										24401,
+										24412
+									],
+									[
+										24665,
+										24676
+									],
+									[
+										24910,
+										24921
+									],
+									[
+										25156,
+										25167
+									],
+									[
+										25412,
+										25423
+									],
+									[
+										25449,
+										25460
+									],
+									[
+										25799,
+										25814
+									],
+									[
+										26041,
+										26056
+									],
+									[
+										26228,
+										26243
+									],
+									[
+										26463,
+										26478
+									],
+									[
+										26640,
+										26655
+									],
+									[
+										26892,
+										26907
+									],
+									[
+										27067,
+										27082
+									],
+									[
+										27360,
+										27370
+									],
+									[
+										27650,
+										27661
+									],
+									[
+										27892,
+										27903
+									],
+									[
+										28065,
+										28076
+									],
+									[
+										28210,
+										28221
+									],
+									[
+										28377,
+										28388
+									],
+									[
+										28776,
+										28794
+									],
+									[
+										29011,
+										29029
+									],
+									[
+										29229,
+										29247
+									],
+									[
+										29527,
+										29543
+									],
+									[
+										29717,
+										29733
+									],
+									[
+										29985,
+										30001
+									],
+									[
+										30197,
+										30213
+									],
+									[
+										30288,
+										30304
+									],
+									[
+										30449,
+										30465
+									],
+									[
+										30616,
+										30632
+									],
+									[
+										30755,
+										30771
+									],
+									[
+										30957,
+										30973
+									],
+									[
+										31277,
+										31293
+									],
+									[
+										31468,
+										31484
+									],
+									[
+										31895,
+										31911
+									],
+									[
+										32249,
+										32265
+									],
+									[
+										32533,
+										32549
+									],
+									[
+										32715,
+										32731
+									],
+									[
+										32962,
+										32978
+									],
+									[
+										33187,
+										33203
+									],
+									[
+										33379,
+										33395
+									],
+									[
+										33558,
+										33574
+									],
+									[
+										33771,
+										33787
+									],
+									[
+										34078,
+										34094
+									],
+									[
+										34281,
+										34297
+									],
+									[
+										34456,
+										34472
+									],
+									[
+										34599,
+										34615
+									],
+									[
+										34740,
+										34756
+									],
+									[
+										34889,
+										34905
+									],
+									[
+										35028,
+										35044
+									],
+									[
+										35287,
+										35303
+									],
+									[
+										35530,
+										35546
+									],
+									[
+										35768,
+										35784
+									],
+									[
+										36024,
+										36040
+									],
+									[
+										36088,
+										36104
+									],
+									[
+										36159,
+										36175
+									],
+									[
+										36399,
+										36415
+									],
+									[
+										36738,
+										36754
+									],
+									[
+										36958,
+										36974
+									],
+									[
+										37090,
+										37106
+									],
+									[
+										37360,
+										37376
+									],
+									[
+										37687,
+										37703
+									],
+									[
+										37990,
+										38006
+									],
+									[
+										38063,
+										38079
+									],
+									[
+										38101,
+										38117
+									],
+									[
+										38160,
+										38176
+									],
+									[
+										38527,
+										38545
+									],
+									[
+										38662,
+										38680
+									],
+									[
+										38966,
+										38984
+									],
+									[
+										39184,
+										39202
+									],
+									[
+										39364,
+										39382
+									],
+									[
+										39709,
+										39725
+									],
+									[
+										39948,
+										39964
+									],
+									[
+										40112,
+										40128
+									],
+									[
+										40431,
+										40441
+									],
+									[
+										40527,
+										40537
+									],
+									[
+										40690,
+										40700
+									],
+									[
+										40904,
+										40914
+									],
+									[
+										41146,
+										41156
+									],
+									[
+										41285,
+										41295
+									],
+									[
+										41468,
+										41478
+									],
+									[
+										41734,
+										41744
+									],
+									[
+										41868,
+										41878
+									],
+									[
+										41951,
+										41961
+									],
+									[
+										42103,
+										42113
+									],
+									[
+										42419,
+										42434
+									],
+									[
+										42628,
+										42643
+									],
+									[
+										42932,
+										42947
+									],
+									[
+										43116,
+										43131
+									],
+									[
+										43277,
+										43292
+									],
+									[
+										43640,
+										43655
+									],
+									[
+										43849,
+										43864
+									],
+									[
+										44153,
+										44168
+									],
+									[
+										44337,
+										44352
+									],
+									[
+										44498,
+										44513
 									]
 								],
 								"scope": ""
@@ -1370,15 +2182,15 @@
 						"selection":
 						[
 							[
-								5145,
-								5145
+								43467,
+								43467
 							]
 						],
 						"settings":
 						{
 							"detect_indentation": false,
 							"line_numbers": false,
-							"output_tag": 5,
+							"output_tag": 27,
 							"result_base_dir": "",
 							"result_file_regex": "^([^ \t].*):$",
 							"result_line_regex": "^ +([0-9]+):",
@@ -1386,109 +2198,46 @@
 							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2295.0,
+						"translation.y": 21229.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "templates/layouts/base.hbs",
+					"buffer": 4,
+					"file": "templates/partials/script/global.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12524,
+						"buffer_size": 22625,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3504,
-								3515
+								8132,
+								8132
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 700.0,
+						"translation.y": 5892.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "templates/partials/script/player_events.hbs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 20093,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10028,
-								10041
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5749.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "lib/Common.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12406,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10968,
-								10968
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Unity3D/UnityJavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 6174.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
 					"buffer": 5,
-					"file": "/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 19954,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -1501,15 +2250,132 @@
 						],
 						"settings":
 						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "templates/views/game/player.hbs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5845,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1956,
+								1950
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 48.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "lib/Common.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12843,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8596,
+								8596
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/Unity3D/UnityJavaScript.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 9593.0,
+						"translation.y": 4333.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19998,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								19998
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Unity3D/UnityJavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 9560.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/Users/Johnny/Documents/Projects/ghana-data/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2516,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1602,
+								1613
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Unity3D/UnityJavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 62.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
 					"type": "text"
 				}
 			]

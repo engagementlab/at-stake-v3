@@ -14,15 +14,16 @@
 
 	var socket,
 	socketEvents,
-  gameCode,
-  deck,
-  gameEnded = false,
-  timerActive = false,
+	gameCode,
+	deck,
+	gameEnded = false,
+	timerActive = false,
 	gameContainer,
 
-  playerId,
-  playerUID,
-  isDecider,
+	playerId,
+	playerUID,
+	currentPlayers,
+	isDecider,
 	timeline = new TimelineLite(),
 	mobileDetect = new MobileDetect(window.navigator.userAgent),
 	isDevice = false,
@@ -368,11 +369,26 @@
       if($('#overlay').is(':visible') && $('#overlay .inner-modal').data('keep_open') === undefined)
 	      $('#overlay').trigger('hide');
 			
-			var selector = index ? $('.screen:not(.skip):lt(' + index + ')') : $($('.screen:not(.skip)')[0]);
+		var selector = index ? $('.screen:not(.skip):lt(' + index + ')') : $($('.screen:not(.skip)')[0]);
 
 	    $.when(selector.remove()).then(function() {
 
-	        var newScreen = $('.screen:not(.skip)')[0];
+			var newScreen = $('.screen:not(.skip)')[0];
+
+			// If screen is dependent on specific player, check if player is connected...
+			if($(newScreen).data('player')) {
+				
+				var player = _.findWhere(currentPlayers, {uid: $(newScreen).data('player')});
+				
+				// If not connected, skip screen
+				if(!player.connected) {
+					//currentScreenIndex++;
+					// Remove skipped one
+					$(newScreen).remove();
+					newScreen = $('.screen:not(.skip)')[0];
+				}
+
+			}
 	        
 	        // Local session update
 	        sessionStorage.setItem('markup', $('#gameContent').html());   

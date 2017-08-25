@@ -10,7 +10,7 @@
 * @param {String} secondary - Speech bubble secondary text, showing under body
 
 --}}
-<blockquote class="speech {{showHide this}} {{#ifeq decider true}}form{{/ifeq}}">
+<blockquote class="speech {{showHide this}} {{#ifeq decider true}}form{{/ifeq}}"{{#if player}} data-player="{{player}}"{{/if}}>
 
   <p>{{body}}</p>
 
@@ -27,7 +27,7 @@
 			  {{#ifeq exit true}}
 			    <button class="next-step submit" data-event="game:exit">exit game</button>
 		    {{else}}
-			    <button class="next-step submit" data-event="{{nextEvent this}}">next</button>
+			    <button class="next-step submit" data-event="{{nextEvent this}}"{{!--{{#if player_local}} data-check-player="true"{{/if}}--}}>next</button>
 			  {{/ifeq}}
 		  {{/ifeq}}
 

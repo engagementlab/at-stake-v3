@@ -105,8 +105,8 @@
 	{{!-- READ ROLES (each player) --}}
 	{{#each players}}
 		{{#ifnoteq decider true}}
-		<div class="screen">
-			
+		<div class="screen" data-player="{{this.uid}}">
+
 			{{> component/instructions 
 					decider=true
 					heading="Read the text in the blue box aloud"
