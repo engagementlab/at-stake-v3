@@ -144,35 +144,32 @@ var playerDisconnected = function(timeoutTime, names) {
     if(!names || names.length === 0)
         return;
     
-    var timeLeft = timeoutTime,
-        modal = $('#error-player-disconnected'),
-        singular = modal.find('h2 #singular'),
-        plural = modal.find('h2 #plural');
+    var modal = $('#error-player-disconnected');
 
-    modal.find('h2 #player').text(names.join(', '));
-    modal.find('h2 #time').text(timeLeft + 's');
+    modal.find('#player').text(names.join(', '));
+    // modal.find('h2 #time').text(timeLeft + 's');
 
-    if(names.length > 1) {
-        plural.show();
-        singular.hide();
-    }
-    else {
-        plural.hide();
-        singular.show();
-    }
+    // if(names.length > 1) {
+    //     plural.show();
+    //     singular.hide();
+    // }
+    // else {
+    //     plural.hide();
+    //     singular.show();
+    // }
 
     if(!modal.is(':visible'))
         modal.trigger('show');
 
-    timeoutClock = setInterval(function() {
+    // timeoutClock = setInterval(function() {
 
-        timeLeft--;
-        modal.find('h2 #time').text(timeLeft + 's');
+    //     timeLeft--;
+    //     modal.find('h2 #time').text(timeLeft + 's');
 
-        if(timeLeft === 0)
-            clearInterval(timeoutClock);
+    //     if(timeLeft === 0)
+    //         clearInterval(timeoutClock);
 
-    }, 1000);
+    // }, 1000);
 
 }
 

@@ -294,6 +294,12 @@ $('.modal:not(#overlay)').on('show', function(evt) {
 $('.modal:not(#overlay)').on('hide', function(evt) {
 	modalOpenClose($(evt.currentTarget), false);
 });
+$('.notification').on('show', function(evt) {
+	new TimelineLite()
+	.fromTo($('.notification'), 1, { yPercent:100, autoAlpha:0 }, { yPercent:0, autoAlpha:1, display:'block', ease:Back.easeOut } )
+	.to($('.notification'), 1, { yPercent:100, autoAlpha:0, delay:3, display:'none', ease:Back.easeIn } );
+
+});
 
 $('#overlay').on('show', function(evt, noAnimate) {
 

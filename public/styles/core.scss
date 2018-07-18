@@ -46,6 +46,7 @@ html, body {
 
 .notification {
 	position: absolute;
+	display: none;
 	bottom: 0;
 	width: 100%;
 	background-color: $orange-trans;
