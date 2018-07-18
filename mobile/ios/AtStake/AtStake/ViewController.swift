@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import WebKit
-import Reachability
+import ReachabilitySwift
 
 class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler {
     
@@ -24,12 +24,12 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate, WKSc
     var systemVersion = UIDevice.current.systemVersion
     
     #if DEVELOPMENT
-        let urlString = "http://127.0.0.1:3000/play/mobile"
+    let urlString = "http://127.0.0.1:3000/play/mobile"
     #else
     #if PRODUCTION
-        let urlString = "https://atstakegame.org/play/mobile"
+    let urlString = "https://atstakegame.org/play/mobile"
     #else
-        let urlString = "https://qa.atstakegame.org/play/mobile"
+    let urlString = "https://qa.atstakegame.org/play/mobile"
     #endif
     #endif
    
