@@ -312,3 +312,9 @@ $mq-desktop				: 1382px !default;
   transition: $prop $duration linear;
 
 }
+
+@mixin game-width($offset: 0) {
+  
+  max-width: (425 + $offset) + px;
+
+}

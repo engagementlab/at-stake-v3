@@ -4,7 +4,7 @@
 @media (min-width: 425px) {
 
 	#wrapper:not(.home-wrap), .modal {
-		max-width: 425px;
+		@include game-width();
 		height: 100%;
 		margin: 0 auto;
 	}

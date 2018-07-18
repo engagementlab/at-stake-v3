@@ -36,12 +36,22 @@ html, body {
 }
 	
 .error-modal {
-	background-color: rgba(254, 120, 70, 0.9);
+	background-color: $orange-trans;
 	color: white;
 
 	h3 {
 		font-size: 18px;
 	}
+}
+
+.notification {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: $orange-trans;
+	color: white;
+	@include game-width();
+
 }
 
 // remove default button and input states
