@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"ea",
+				"easeIn"
+			],
+			[
+				"no",
+				"none"
+			],
+			[
 				"prog",
 				"progressLength"
 			],
@@ -506,95 +514,53 @@
 			[
 				"gamecode",
 				"gameCodeHtml"
-			],
-			[
-				"coo",
-				"color"
-			],
-			[
-				"co",
-				"color-seafoam"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "templates/partials/script/player_logic.hbs",
+			"file": "templates/partials/script/player_animation.hbs",
 			"settings":
 			{
-				"buffer_size": 10160,
+				"buffer_size": 10693,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/Johnny/Documents/Projects/learning-games-core/app.js",
+			"file": "lib/GameLogic.js",
 			"settings":
 			{
-				"buffer_size": 39,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "@import \"_core/fonts\";\n@import \"_core/variables\";\n@import \"_core/mixins\";\n@import \"_core/functions\";\n@import \"_core/forms\";\n@import \"_core/lobby\";\n@import \"_core/playerview\";\n@import \"_core/comingsoon\";\n@import \"_core/homepage\";\n@import \"_core/animations\";\n@import \"_core/media\";\n\n\nhtml, body {\n\t\n\tmax-height: 100%;\n\theight:100%;\n\tline-height:1 !important;\n\tfont-size:100%;\n\n}\n\nhtml, body {\n\toverflow-x: hidden;\n\toverflow-y: scroll;\n\t-webkit-overflow-scrolling: touch;\n}\n\n#wrapper {\n\t@include box-shadow(0px, 0px, 37px, black);\n\tbackground-color: $background-color;\n\theight:100%;\n\tright: 0;\n\tleft: 0;\n\t\n}\n\t\n.error-modal {\n\tbackground-color: rgba(254, 120, 70, 0.9);\n\tcolor: white;\n\n\th3 {\n\t\tfont-size: 18px;\n\t}\n}\n\n// remove default button and input states\nbutton, input {\n\t&:hover, &:focus, &:visited, &:active {\n\t\toutline: none;\n\t\tborder: 0px;\n\t\tbox-shadow: none;\n\t}\n}\n\n.regular-font {\n\tfont-size:12px;\n\n}\n\n.medium-font {\n\tfont-size: 16px;\n}\n\n.text.centered {\n\ttext-align:center;\n}\n\n// Center any column, yay!\n.col-centered {\n  float: none;\n  margin: 0 auto;\n}\n\n// Use for any elements hidden initially\n.hidden-el {\n\tvisibility: hidden;\n}\n\n.screen-title {\n\tfont-size: 4em;\n\tcolor: white;\n}\n\n// Body\n.body {\n\n  font-family: \"AvenirNext\";\n  color: black;\n\t\n}\n\n.body.game-bg {\n\n  @include linear_transition(background, 0.5s);\n\n}\n\n.body.login {\n\n  @include linear_transition(background, 0.5s);\n  background-color: #00BBB5;\n\n}\n\n// Modal container\n.modal {\n\tdisplay: none;\n\tposition: absolute;\n\twidth: 100%; \n\theight: 100%; \n  z-index: 1999;\n  top: 0;\n\tleft: 0;\n\ttext-align:center;\n\n  // Tutorial modal\n  .tutorial {\n\t\tbackground-color: rgba(254, 120, 70, .7);\n\t\twidth: 100%; \n\t\theight: 100%; \n\t\t\n\t\t#countdown, #continue {\n\t    position: fixed !important; \n\t    bottom: 10%;\n\t    right: 4%;\n\t    width: 150px;\n\t    cursor: pointer;\n\t    .icon {\n\t\t\t\tdisplay: inline-block;\n\t\t\t\twidth: 1em;\n\t\t\t\theight: 1em;\n\t\t\t\tfill: currentColor;\n\t\t\t\tmargin-top: 22%;\n\t\t\t}\n\t\t\t.icon-arrow-right {\n\t\t\t\twidth: 0.8212890625em;\n\t\t\t}\n\n\t    .text {\n\t    \tfont-size: 8em;\n\t    \ttop: 58% !important;\n\t    \tcolor: #fff !important;\n\t    }\n\t\t}\n\t\t\n  }\n}\n\n.desktop-only {\n\t// Hide for mobile\n\t@include mobile-only {\n\t\tdisplay: none;\n\t}\n}\n.mobile-only {\n\t// Hide for desktop\n\t@include desktop-and-up {\n\t\tdisplay: none;\n\t}\n}\n\n// Navbar START\n\n#logo_img {\n\theight: 50px;\n\twidth: 50px;\n\tmargin: 0 auto;\n}\n\n// Top Nav\nnav.header.navbar-fixed-top{\n  position: static;\n\n\t// Hide for mobile\n\t@include mobile-only {\n\t\tdisplay: none;\n\t}\n}\nnav.navbar.main {\n\n\tbackground-color: #FFF;\n\tpadding-bottom: 2%;\n\n\t#nav-logo {\n\t\tpadding-top: 1%;\n\t}\n\n\t#login{\n    color: #FD7D4B;\n  }\n  #help {\n    color:#FECD40;\n  }\n  #about {\n    color:#20C5C1;\n  }\n\n}\n\nnav.notfixed {\n\tposition: absolute!important;\n}\n\n// Group view header\nnav.header {\n\tbackground-color: white;\n  padding-bottom: 1%;\n}\n\nfooter {\n  position: absolute;\n  width: 100%;\n  left: 0;\n  bottom: 1;\n}\n\n.footer {\n\t// position: static;\n\t// bottom: 0;\n\t// right: 0;\n\t// height: 100px;\n\tcolor: #FFF;\n\tfont-size: medium; \n\tbackground-color: #ff9971;\n\n\t// Hide for mobile\n\t@include mobile-only {\n\t\tdisplay: none;\n\t}\n}\n\n// START Main Content\n#debugging {\n\tz-index: 1000;\n}\n\n.gameLanding {\n\t\n\tmargin-top: 10%;\n  margin-bottom: 3%;\n  \n\t@include tablet-landscape-and-up {\n\t\t#desktop {\n\t\t\tdisplay: block;\n\t\t}\n\t\t#mobile {\n\t\t\tdisplay: none;\n\t\t}\n\t}\n\n\t@include mobile-only {\n\t\t#desktop {\n\t\t\tdisplay: none;\n\t\t}\n\t\t#mobile {\n\t\t\tdisplay: block;\n\t\t}\n\t}\n\n}\n// #gameContent {\n\n// \tpadding: 40px 15px;\n// \tpadding-top: 3%;\n//   text-align: center;\n\n// }\n// END Main Content",
-			"file": "public/styles/core.scss",
-			"file_size": 3552,
-			"file_write_time": 131393355280000000,
-			"settings":
-			{
-				"buffer_size": 3552,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/partials/script/global.hbs",
-			"settings":
-			{
-				"buffer_size": 22476,
+				"buffer_size": 18301,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "templates/partials/script/sfx_button_calls.hbs",
+			"contents": "Searching 254 files for \"GetActivePlayers\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n  139  \n  140      // Get active players (all non-deciders)\n  141:     GetActivePlayers() {\n  142  \n  143          let players = _.pick(this._current_players, \n  ...\n  165      GetActivePlayerData() {\n  166  \n  167:         let players = this.GetActivePlayers();\n  168          let uids = Object.keys(players);\n  169  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n  166                  screenData = {\n  167                      question: this._deck_data.questions[this._current_round],\n  168:                     players: this.Shuffler(_.mapObject(this.GetActivePlayers(), \n  169                                   (player) => { \n  170                                      return { \n  ...\n  184  \n  185                  screenData = {\n  186:                                 players: _.mapObject(this.GetActivePlayers(), (player) => { \n  187                                      return { \n  188                                          username: player.username,\n  ...\n  197                                  winner: this._current_winner,\n  198                                  potAmount: this.Coins.GetLastPotAmount(),\n  199:                                 playerCount: _.keys(this.GetActivePlayers()).length\n  200                               };\n  201  \n  ...\n  243          screenData.round = this._current_round+1;\n  244          screenData.activePlayer = activePlayerInfo;\n  245:         screenData.repeatScreen = (this._active_player_index < Object.keys(this.GetActivePlayers()).length-1);\n  246          return screenData;\n  247  \n  ...\n  394      PlayerTurnDone(socket) {\n  395  \n  396:         let resetActive = (this._active_player_index === _.keys(this.GetActivePlayers()).length-1);\n  397  \n  398          if(resetActive)\n  ...\n  406              this.playersDoubledownDone++;\n  407  \n  408:             if(this.playersDoubledownDone === _.keys(this.GetActivePlayers()).length) {\n  409                  this.NextScreen(true);\n  410                  return;\n  ...\n  460  \n  461              // At last player?\n  462:             let resetActive = (this._active_player_index === _.keys(this.GetActivePlayers()).length-1);\n  463  \n  464              if(resetActive) {\n  ...\n  519  \n  520              // Move to next phase (no more players)?\n  521:             let advance = (this._active_player_index == Object.keys(this.GetActivePlayers()).length-1);\n  522              if(advance)\n  523                  this._active_player_index = 0;\n  ...\n  557  \n  558          // Restore pot amount\n  559:         this.Coins.RestorePot(this.GetActivePlayers(), socket);\n  560  \n  561          // Invoke common method\n\n11 matches across 2 files\n\n\nSearching 254 files for \"PlayerReady\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n  277          super.ModeratorJoin(socket);\n  278  \n  279:         this.PlayerReady(player, socket, true);\n  280  \n  281      }\n  ...\n  284      * @override\n  285      */\n  286:     PlayerReady(player, socket, assignDecider) {\n  287  \n  288          let uids = Object.keys(this._current_players);\n  ...\n  295  \n  296          // Invoke common method\n  297:         super.PlayerReady(player, socket, false);\n  298   \n  299          // Get any disconnected players and then if all players are active\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameType.js:\n   18      var _PLAYERS = [];\n   19  \n   20:     this.PlayerReady = function(player) {\n   21  \n   22          _PLAYERS.push(player);\n\n/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js:\n   69  \n   70        // Mark player as ready inside game session\n   71:       Session.Get(payload.gameId).PlayerReady(\n   72                                                player,\n   73                                                currentSpace,\n   ..\n  104          \n  105          // Mark player as ready inside game session\n  106:         session.PlayerReady(\n  107                              player,\n  108                              currentSocket,\n\n/Users/Johnny/Documents/Projects/learning-games-core/DOCS.md:\n  141  * **Boolean** *Wait* xx seconds before ending game?\n  142  \n  143: ## PlayerReady\n  144  \n  145  Join player to session, or re-connect them and sync s/he to session.\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n  500      * @param {Object} The player's socket\n  501      * @class Core\n  502:     * @name PlayerReady\n  503      */\n  504:     PlayerReady(player, socket) {\n  505  \n  506          if (this._current_player_cap >= 8) {\n\n9 matches across 5 files\n\n\nSearching 254 files for \"Could not find player with uid\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n  138  \n  139          if(!player) {\n  140:             console.log('Could not find player with uid %s', id);\n  141              return null;\n  142          }\n\n1 match in 1 file\n\n\nSearching 254 files for \"GetPlayerByUserId\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n  222                  screenData.players = sortedPlayers;\n  223  \n  224:                 screenData.winner = this.GetPlayerByUserId(topPlayerUid);\n  225                  screenData.winner_coins = this.Coins.GetCoinsForPlayer(topPlayerUid).current;\n  226  \n  ...\n  359      AddTime(socket, playerUid) {\n  360  \n  361:         let player = this.GetPlayerByUserId(playerUid);\n  362  \n  363          if(!player) return;\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n  130      * @param {String} Player unique user ID\n  131      * @class Core\n  132:     * @name GetPlayerByUserId\n  133      * @return {Boolean} Player object, if found\n  134      */\n  135:     GetPlayerByUserId(id) {\n  136          \n  137          let player = _.findWhere(this._current_players, {uid: id});\n\n4 matches across 2 files\n\n\nSearching 254 files for \"AddTime\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n  357      }\n  358  \n  359:     AddTime(socket, playerUid) {\n  360  \n  361          let player = this.GetPlayerByUserId(playerUid);\n\n/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js:\n  108  \n  109              if(!session) return;\n  110:             session.AddTime(currentSpace, pkg.msgData);\n  111  \n  112          },\n\n2 matches across 2 files\n",
 			"settings":
 			{
-				"buffer_size": 728,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 250 files for \"ion.sound(\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n   63  \t\t\textraWindow = (windowsize - bodysize)/2;\n   64  \n   65: \tion.sound({\n   66      sounds: [\n   67          {\n\n1 match in 1 file\n",
-			"settings":
-			{
-				"buffer_size": 274,
+				"buffer_size": 6432,
 				"line_ending": "Unix",
 				"name": "Find Results",
 				"scratch": true
 			}
 		},
 		{
-			"file": "public/styles/_core/media.scss",
+			"file": "sockets/handlers/Common.js",
 			"settings":
 			{
-				"buffer_size": 4076,
+				"buffer_size": 3863,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "templates/layouts/base.hbs",
+			"file": "/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
 			"settings":
 			{
-				"buffer_size": 12524,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "templates/partials/script/player_events.hbs",
-			"settings":
-			{
-				"buffer_size": 20093,
+				"buffer_size": 20020,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -602,7 +568,16 @@
 			"file": "lib/Common.js",
 			"settings":
 			{
-				"buffer_size": 12913,
+				"buffer_size": 12940,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Johnny/Documents/Projects/el-web-sdk/package.json",
+			"settings":
+			{
+				"buffer_size": 2945,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -746,37 +721,38 @@
 	"expanded_folders":
 	[
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles",
 		"/Users/Johnny/Documents/Projects/at-stake-v3",
-		"/Users/Johnny/Documents/Projects/learning-games-core"
+		"/Users/Johnny/Documents/Projects/el-web-sdk"
 	],
 	"file_history":
 	[
-		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt/uglify.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/package.json",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/media.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/mixins.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/variables.scss",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css",
+		"/Users/Johnny/Documents/Projects/learning-games-core/app.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt/uglify.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/deploy.json",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/playerview.scss",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/mixins.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/homepage.scss",
 		"/Users/Johnny/Documents/Projects/learning-games-core/lib/SessionManager.js",
 		"/Users/Johnny/Documents/Projects/learning-games-core/lib/ShuffleUtil.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/speech.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers/index.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/index.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/meet.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/variables.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/choice.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_animation.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/scoreboard.hbs",
@@ -786,7 +762,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/lobby.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/index.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/rolecard.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/media.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/animations.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/css.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Coins.js",
@@ -805,7 +780,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/bower_components/flipclock/src/flipclock/js/vendor/base.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/fonts.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/rules.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game/player.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/tutorial_rule.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/game.hbs",
@@ -840,10 +814,8 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/game.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/config.json",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/app-root-path/lib/resolve.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/package.json",
 		"/Users/Johnny/Documents/Projects/learning-games-core/lib/TemplateLoader.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api/templates.js",
-		"/Users/Johnny/Documents/Projects/learning-games-core/app.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/models/User.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/keystone/index.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/app-root-path/index.js",
@@ -887,7 +859,7 @@
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 70.0
 	},
 	"find_in_files":
 	{
@@ -985,6 +957,24 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"AddTime",
+			"GetPlayerByUserId",
+			"Could not find player with uid",
+			";\n",
+			"PlayerReady",
+			"GetActivePlayers",
+			"display: none",
+			"setAbsolutes",
+			"right",
+			"500",
+			"'show",
+			"openInnerModal",
+			"max-width: 425px;",
+			"#wrapper",
+			"error-modal",
+			"error-player-disconnected",
+			"playerDisconnected",
+			"player:lost",
 			"ion.sound(",
 			"ion.",
 			"sfxPath",
@@ -1094,25 +1084,7 @@
 			"btn-close-role-card",
 			"btn-close-role",
 			"btn-menu-back",
-			"#role-card",
-			"#btn-role-card",
-			"openInnerModal",
-			"btn-menu",
-			"openInner",
-			"role-card",
-			"btn-close-role-card",
-			"roleCardOpenClose",
-			"btn-role-card",
-			"agenda-wrap",
-			"city-accel",
-			"stages-bar",
-			"city-accelerator-website",
-			"You are the winner of the game!",
-			"cloudinaryUrl",
-			"-coins",
-			"GetCoinsForPlayer",
-			"startingPlayerCoins",
-			"Coins."
+			"#role-card"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1258,210 +1230,97 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "templates/partials/script/player_logic.hbs",
+					"file": "templates/partials/script/player_animation.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10160,
+						"buffer_size": 10693,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								9628,
+								9879
 							]
 						],
 						"settings":
 						{
-							"SL.62.region_keys":
+							"SL.130.region_keys":
 							[
 							],
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/Users/Johnny/Documents/Projects/learning-games-core/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 39,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"SL.212.region_keys":
-							[
-								"SL.gjslint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32",
-								"sublime_linter.protected_regions",
-								"SL.gjslint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot"
-							],
-							"SL.228.region_keys":
-							[
-								"SL.gjslint.Highlights.|region.redish markup.deleted.sublime_linter markup.error.sublime_linter|32",
-								"sublime_linter.protected_regions",
-								"SL.gjslint.Gutter.region.redish markup.deleted.sublime_linter markup.error.sublime_linter.dot"
-							],
-							"syntax": "Packages/Unity3D/UnityJavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "public/styles/core.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3552,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								600,
-								579
-							]
-						],
-						"settings":
-						{
-							"SL.106.region_keys":
-							[
-							],
-							"SL.126.region_keys":
-							[
-							],
-							"SL.151.region_keys":
-							[
-							],
-							"SL.182.region_keys":
-							[
-							],
-							"SL.205.region_keys":
-							[
-							],
-							"SL.44.region_keys":
-							[
-							],
-							"SL.64.region_keys":
-							[
-							],
-							"color_scheme": "Packages/User/Color Highlighter/themes/deep_blue_see (SL).tmTheme",
-							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 381.0,
+						"translation.y": 3720.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "templates/partials/script/global.hbs",
+					"buffer": 1,
+					"file": "lib/GameLogic.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 22476,
+						"buffer_size": 18301,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1371,
-								1371
+								11809,
+								11816
 							]
 						],
 						"settings":
 						{
-							"SL.107.region_keys":
+							"SL.135.region_keys":
 							[
+								"SL.gjslint.Highlights.|2a1a51dea87fc5c489fa15823f86d6d96b00ea531c0d0ac5248187998fb644fc|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|abde62eeaeea28d0ab53306125f659960f5c5c438e8f79d34e41721004719247|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|cff0162d0cedce77e57d8f1afc18e7eaac295a05eb9ec2e7963d1b60d288900c|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|37db2e74c6ca5d2f1a1d8f00881ca852e090885adb1aaeeac40ef23fa38229c2|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|3654c752ae30cecf54c32452f731bb69131f2f66c54d8625c37fac25b496187e|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|0930d22377e6eb9d187ede520430d2c1ecba9782d132e86c43155c502728da01|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|475f5038aa226144f35dd7dd3d00937be750029421d710d627a5d00cdac86057|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|1b1fc281a749c46e826ba6aeebc36a57dac07a66076e2b5f26f52629a776dbc7|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|0cb5316c4237f1e1bb15fb6156932e8a65990b6ed6e8f95e25dbed3c356c9e16|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|c77dec3cc91d98a8f3477de737dc44f95546c0a80cf9c1e3fc0ad3cc0c94de83|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|12d9bd41dcd97899a305fefe643fcc97b0961240ca374e97d26bc0fff8d08272|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.gjslint.Highlights.|69e98ae0eb73d8b34ec705d4d6ed015f5b9ff500bf5f17184da3d7e141c7a926|region.redish markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.gjslint.Highlights.|5a374f8c4a709abf1e31c4e6220e63eb694ca4d5311d0c68d69deed357ae8c1b|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|a60b563ea033fb4638431a14431bc4eb3476500d35b2cc7e569bacad473d6cfc|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|d21c0adbe15a4d08bb8da176a9f61f87a247109bf7348922b5f64fd12648dd46|region.redish markup.error.sublime_linter|32"
 							],
-							"SL.134.region_keys":
-							[
-							],
-							"SL.154.region_keys":
-							[
-							],
-							"SL.185.region_keys":
-							[
-							],
-							"SL.208.region_keys":
-							[
-							],
-							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 717.0,
+						"translation.y": 5785.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "templates/partials/script/sfx_button_calls.hbs",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 728,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								183,
-								212
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
+					"buffer": 2,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 274,
+						"buffer_size": 6432,
 						"regions":
 						{
 							"match":
@@ -1470,8 +1329,112 @@
 								"regions":
 								[
 									[
-										205,
-										215
+										192,
+										208
+									],
+									[
+										364,
+										380
+									],
+									[
+										694,
+										710
+									],
+									[
+										940,
+										956
+									],
+									[
+										1322,
+										1338
+									],
+									[
+										1605,
+										1621
+									],
+									[
+										1804,
+										1820
+									],
+									[
+										2002,
+										2018
+									],
+									[
+										2241,
+										2257
+									],
+									[
+										2471,
+										2487
+									],
+									[
+										2680,
+										2696
+									],
+									[
+										2973,
+										2984
+									],
+									[
+										3083,
+										3094
+									],
+									[
+										3272,
+										3283
+									],
+									[
+										3516,
+										3527
+									],
+									[
+										3780,
+										3791
+									],
+									[
+										4025,
+										4036
+									],
+									[
+										4271,
+										4282
+									],
+									[
+										4527,
+										4538
+									],
+									[
+										4564,
+										4575
+									],
+									[
+										4892,
+										4922
+									],
+									[
+										5243,
+										5260
+									],
+									[
+										5472,
+										5489
+									],
+									[
+										5707,
+										5724
+									],
+									[
+										5805,
+										5822
+									],
+									[
+										6095,
+										6102
+									],
+									[
+										6344,
+										6351
 									]
 								],
 								"scope": ""
@@ -1480,15 +1443,15 @@
 						"selection":
 						[
 							[
-								211,
-								211
+								5809,
+								5809
 							]
 						],
 						"settings":
 						{
 							"detect_indentation": false,
 							"line_numbers": false,
-							"output_tag": 1,
+							"output_tag": 5,
 							"result_base_dir": "",
 							"result_file_regex": "^([^ \t].*):$",
 							"result_line_regex": "^ +([0-9]+):",
@@ -1496,139 +1459,190 @@
 							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "public/styles/_core/media.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4076,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								331,
-								331
-							]
-						],
-						"settings":
-						{
-							"SL.45.region_keys":
-							[
-							],
-							"SL.66.region_keys":
-							[
-							],
-							"color_scheme": "Packages/User/Color Highlighter/themes/deep_blue_see (SL).tmTheme",
-							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2618.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "templates/layouts/base.hbs",
+					"buffer": 3,
+					"file": "sockets/handlers/Common.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12524,
+						"buffer_size": 3863,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12377,
-								12377
+								2334,
+								2334
 							]
 						],
 						"settings":
 						{
-							"SL.67.region_keys":
+							"SL.143.region_keys":
 							[
+								"SL.gjslint.Highlights.|45a9ab2eeb549d40e4dede9480e0951bf4cc0474ba8429847e82baf84fcd1168|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|35c36f625822a283534daeabe4a84393bbd16047036557ce6b6c9930644d4bea|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|c2a793288b66723e9e26509915c1874487a113e890b6f455fc5d07b2b781e131|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|6c616dbb5579dec06b7dde83e7029d83df15c26a34ca0a399a046d51c0c145c5|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|7944fac45f68d911588b9d44cb67c1f65cff8d774d61bd5f7eaf5d20d945a83d|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|78e55ef573fb206ea72dea557e8856942ef0ff348ae5ce3e00a932eef5192597|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|e56214a9cea2b442cc044d35b34471411b04207394af647343ebabfd895140b9|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|e2100eb6061a7b285c7c3e0be758b0df276f3b71cd628afe01dcb158050510f4|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|202d29c76ee79d2b80762f2a56f0d4a037fb8b7fb164121662c68ad27c7c807f|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|66ad3a3ba4615649765fe757d0cc6ec0183a7902d7c6136e79aff6a276dccd85|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|8d8a407c46bb5f2b74fb28c1566fa77685a5aeda3ec5df2965eb4a1a2af70405|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|74d3a5068cf708e1233de21a40f3bab3e4589024e1ca7a20f0baf1221a751897|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|6f7486a2d4cff08168281d014cd52219ab1004c73b8921d21378ff70d8b8b575|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|a3732ff10cbdf7d27e60a5ecad5a706d468a00e24eb582f1ec97af1d0650c587|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|a77669c4470ad40bd241df1dc42e94f34a796a4fe4ed7151ed087b7fb0cb4d3f|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.gjslint.Highlights.|9131abc2f1946df8a37e00745a87084764d03206d32e271b115383494cbc80a5|region.redish markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.gjslint.Highlights.|8bd888b6c6995a6704f257deb4dbbe162e729f20926a2cb7ffd5e8a6c4454661|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|b792b71e2662e5fcc617e25273a8e01eaaa1f3e9bf3ad397dc6d4390f9a3262d|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|997f7280de52a5f0b425defb91f0178ec4371f996d41cff426ad0204983004b1|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|2b38d6659189dbe38d686038dbedf4a6074e3bb5a23b526d5643051295e8f30b|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|d8811deff722f96b8bae0d753def3062a637b938b3bc9159f6fc604767b41371|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|2b84e0b668acf64f54960da0907fdb97acdd1b072b647e8339f8e07863165c8f|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|e9a5cb76cab21a26b027f6f408fd12dadae9e535d40b6b064d93959ab220e0bf|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|c06b68c4ae2f621edb9c55e4c1710d66a34327c4a5ddc12fd1f837f0f26c1d5e|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|a5af12c05bdaf67a3670234ec91d0696bbd449da55219b47148bfbc183c7af21|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|e7b940d280d97e9d8a66b79ae486e06a9279c41237ed14fcd21eb79f96e6f1e5|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|fd1c08d5d96b6f78c924772b2024605b56e9500a7b6a9f24eb31ae2f907baade|region.redish markup.error.sublime_linter|32"
 							],
-							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 621.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "templates/partials/script/player_events.hbs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 20093,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10028,
-								10041
-							]
-						],
-						"settings":
-						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5749.0,
+						"translation.y": 235.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "lib/Common.js",
+					"buffer": 4,
+					"file": "/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12913,
+						"buffer_size": 20020,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7083,
-								7090
+								3844,
+								3844
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Unity3D/UnityJavaScript.tmLanguage",
+							"SL.138.region_keys":
+							[
+								"SL.gjslint.Highlights.|abde62eeaeea28d0ab53306125f659960f5c5c438e8f79d34e41721004719247|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|4daa0780cbd12caa1de28b39094154469d6bd671be8b6b5234eab2633caceefd|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|f6a4e5cc3cb991f2474da1a05d624c9dad8c6f9a811f9278d13b8ebdbc9cc393|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|a2f8460176c99b8db4236da60cc4d03e9b431a0044acfaa4db77a2d4ceed8d4c|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|3182d512078c40ad02efaad3ac960b34e2092c44ddc5e1c0e4a4938bcd432869|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|8864757d5fc386a361f2b33a098c8382bd737244238deb1d1c61c05534986baf|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|fe5debc4d4abb079a1d72776b8ef7e210db86eea7c32f114ab8f1affe37bf031|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|75e7b3beab99c19488d41005d78fab12b434fc1c9ef3368446870ea80720831c|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|192cd87fa625c92a1717f318925801fa927f7e0b59e4beca56345bfb739b0c5a|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|0930d22377e6eb9d187ede520430d2c1ecba9782d132e86c43155c502728da01|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"sublime_linter.protected_regions",
+								"SL.gjslint.Highlights.|e43406e9ca1191091d15ae2bad2dbff12612681c8371d39a22f27830cd6cb01f|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|c8dcf7f4362efc1617c497f5754363643098e0562723279cfa5d91c697d9bf06|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|52863cbed718a2f3fdafd8c4413c5693a2463bf8e858dd60690bda9b63f2ca4b|region.redish markup.error.sublime_linter|32"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2464.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "lib/Common.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12940,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3330,
+								3330
+							]
+						],
+						"settings":
+						{
+							"SL.137.region_keys":
+							[
+								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.gjslint.Highlights.|37db2e74c6ca5d2f1a1d8f00881ca852e090885adb1aaeeac40ef23fa38229c2|region.redish markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.gjslint.Highlights.|413dd74ed5159adf41a0691aba0a3329d05ed7d16b8f273c87caac10f105899c|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|5a374f8c4a709abf1e31c4e6220e63eb694ca4d5311d0c68d69deed357ae8c1b|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|d455f655e3a369bde4b381a4f574d51ae253368ec5363dc7c4cf65ad95406776|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|db300cabcafea28ee53e99fa65ff750c340059cfdf785712b50133d9a849335f|region.redish markup.error.sublime_linter|32"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2017.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/Johnny/Documents/Projects/el-web-sdk/package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2945,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2127,
+								2127
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Theme - Coffee/icons/Langs/npm JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 741.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1671,7 +1685,7 @@
 	},
 	"output.exec":
 	{
-		"height": 47.0
+		"height": 48.0
 	},
 	"output.find_results":
 	{
@@ -1689,7 +1703,7 @@
 	"project": "at-stake-v3.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 114.0
 	},
 	"save_all_on_build": true,
 	"select_file":
