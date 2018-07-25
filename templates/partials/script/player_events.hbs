@@ -221,7 +221,7 @@ socketEvents = function(eventId, eventData) {
             }
             else {
                 // Connected, let's sign-up for to receive messages for this room
-                socket.emit('room', emitData('player'));
+                socket.emit('room', ('player'));
             }
 
             {{!-- $('#gameContent').addClass('player-grid'); --}}

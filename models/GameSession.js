@@ -19,9 +19,7 @@ var Types = keystone.Field.Types;
  */
 var GameSession = new keystone.List('GameSession', {
 		editable: false,
-		cancreate: false,
-		// hidden: true,
-    track: true
+		cancreate: false
 });
 /**
  * Model Fields

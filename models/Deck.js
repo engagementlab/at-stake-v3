@@ -17,9 +17,7 @@ var Types = keystone.Field.Types;
  * Deck Model
  * ==========
  */
-var Deck = new keystone.List('Deck', {
-    track: true
-});
+var Deck = new keystone.List('Deck');
 
 /**
  * Model Fields

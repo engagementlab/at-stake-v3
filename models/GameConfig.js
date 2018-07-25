@@ -20,7 +20,6 @@ var Types = keystone.Field.Types;
 
 var GameConfig = new keystone.List('GameConfig', {
 		label: 'Games Config',
-    track: true,
     candelete: false
 });
 

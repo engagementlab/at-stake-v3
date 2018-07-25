@@ -25,7 +25,6 @@ var Types = keystone.Field.Types;
 	{
 		label: 'Home Page',
 		singular: 'Home Page',
-		track: true,
 		sortable: true
 	});
 

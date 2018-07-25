@@ -18,7 +18,6 @@ var Types = keystone.Field.Types;
  * ==========
  */
 var Role = new keystone.List('Role', {
-    track: true,
     map: { name: 'title' }
 });
 
