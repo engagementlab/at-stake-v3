@@ -99,7 +99,7 @@ var startTimer = function(secondsLeft, timerAdvance) {
 
 }
 
-var setupScreen = function(screenName) {
+var setupScreen = function(screenName, index) {
 
     // Add trigger to go to next step on next-step buttons
     $('.next-step').click(function(evt) {
@@ -107,7 +107,7 @@ var setupScreen = function(screenName) {
     });
 
     // Reset screen index
-    currentScreenIndex = 0;
+    currentScreenIndex = (index === undefined) ? 0 : index;
 
     $(isDecider ? '.player' : '.decider').remove();
 
@@ -127,9 +127,6 @@ var setupScreen = function(screenName) {
 
     // Animate initial
     screenOpen($('.screen:not(.skip):first'));
-
-    currentPhaseIndex = sessionStorage.getItem('phase');
-    currentScreenIndex = sessionStorage.getItem('screen');
 
     phaseBarProgress();
 
@@ -215,13 +212,15 @@ socketEvents = function(eventId, eventData) {
                 });
             }
 
+
+
             if(isDecider) {
                 // Session started, let's sign-up the decider for this room
                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));
             }
             else {
                 // Connected, let's sign-up for to receive messages for this room
-                socket.emit('room', ('player'));
+                socket.emit('room', emitData({type:'player'}));
             }
 
             {{!-- $('#gameContent').addClass('player-grid'); --}}
@@ -396,6 +395,10 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'player:updatedata':
+
+            break;
+
         case 'game:start':
 
             // $('#bottom-bar').show();
@@ -524,7 +527,8 @@ socketEvents = function(eventId, eventData) {
 
             updateGameContent(eventData.html, function() {
 
-                setupScreen();
+                currentPhaseIndex = eventData.phase;
+                setupScreen(undefined, eventData.screen);
 
                 // Move immediately to restart point in current phase, by removing screens before it and showing it
                 $('.screen.restart').prevAll().remove();
@@ -535,7 +539,7 @@ socketEvents = function(eventId, eventData) {
 
                 openInnerModal();
             
-                sessionStorage.setItem('markup', $('#gameContent').html());
+                // sessionStorage.setItem('markup', $('#gameContent').html());
 
             });
 
