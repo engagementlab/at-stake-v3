@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"ro",
+				"router"
+			],
+			[
+				"use",
+				"username"
+			],
+			[
 				"ea",
 				"easeIn"
 			],
@@ -506,70 +514,43 @@
 			[
 				"pos",
 				"position"
-			],
-			[
-				"font",
-				"font-family"
-			],
-			[
-				"gamecode",
-				"gameCodeHtml"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "templates/partials/script/player_animation.hbs",
-			"settings":
-			{
-				"buffer_size": 10693,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "lib/GameLogic.js",
 			"settings":
 			{
-				"buffer_size": 18301,
+				"buffer_size": 18906,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Searching 254 files for \"GetActivePlayers\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n  139  \n  140      // Get active players (all non-deciders)\n  141:     GetActivePlayers() {\n  142  \n  143          let players = _.pick(this._current_players, \n  ...\n  165      GetActivePlayerData() {\n  166  \n  167:         let players = this.GetActivePlayers();\n  168          let uids = Object.keys(players);\n  169  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n  166                  screenData = {\n  167                      question: this._deck_data.questions[this._current_round],\n  168:                     players: this.Shuffler(_.mapObject(this.GetActivePlayers(), \n  169                                   (player) => { \n  170                                      return { \n  ...\n  184  \n  185                  screenData = {\n  186:                                 players: _.mapObject(this.GetActivePlayers(), (player) => { \n  187                                      return { \n  188                                          username: player.username,\n  ...\n  197                                  winner: this._current_winner,\n  198                                  potAmount: this.Coins.GetLastPotAmount(),\n  199:                                 playerCount: _.keys(this.GetActivePlayers()).length\n  200                               };\n  201  \n  ...\n  243          screenData.round = this._current_round+1;\n  244          screenData.activePlayer = activePlayerInfo;\n  245:         screenData.repeatScreen = (this._active_player_index < Object.keys(this.GetActivePlayers()).length-1);\n  246          return screenData;\n  247  \n  ...\n  394      PlayerTurnDone(socket) {\n  395  \n  396:         let resetActive = (this._active_player_index === _.keys(this.GetActivePlayers()).length-1);\n  397  \n  398          if(resetActive)\n  ...\n  406              this.playersDoubledownDone++;\n  407  \n  408:             if(this.playersDoubledownDone === _.keys(this.GetActivePlayers()).length) {\n  409                  this.NextScreen(true);\n  410                  return;\n  ...\n  460  \n  461              // At last player?\n  462:             let resetActive = (this._active_player_index === _.keys(this.GetActivePlayers()).length-1);\n  463  \n  464              if(resetActive) {\n  ...\n  519  \n  520              // Move to next phase (no more players)?\n  521:             let advance = (this._active_player_index == Object.keys(this.GetActivePlayers()).length-1);\n  522              if(advance)\n  523                  this._active_player_index = 0;\n  ...\n  557  \n  558          // Restore pot amount\n  559:         this.Coins.RestorePot(this.GetActivePlayers(), socket);\n  560  \n  561          // Invoke common method\n\n11 matches across 2 files\n\n\nSearching 254 files for \"PlayerReady\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n  277          super.ModeratorJoin(socket);\n  278  \n  279:         this.PlayerReady(player, socket, true);\n  280  \n  281      }\n  ...\n  284      * @override\n  285      */\n  286:     PlayerReady(player, socket, assignDecider) {\n  287  \n  288          let uids = Object.keys(this._current_players);\n  ...\n  295  \n  296          // Invoke common method\n  297:         super.PlayerReady(player, socket, false);\n  298   \n  299          // Get any disconnected players and then if all players are active\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameType.js:\n   18      var _PLAYERS = [];\n   19  \n   20:     this.PlayerReady = function(player) {\n   21  \n   22          _PLAYERS.push(player);\n\n/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js:\n   69  \n   70        // Mark player as ready inside game session\n   71:       Session.Get(payload.gameId).PlayerReady(\n   72                                                player,\n   73                                                currentSpace,\n   ..\n  104          \n  105          // Mark player as ready inside game session\n  106:         session.PlayerReady(\n  107                              player,\n  108                              currentSocket,\n\n/Users/Johnny/Documents/Projects/learning-games-core/DOCS.md:\n  141  * **Boolean** *Wait* xx seconds before ending game?\n  142  \n  143: ## PlayerReady\n  144  \n  145  Join player to session, or re-connect them and sync s/he to session.\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n  500      * @param {Object} The player's socket\n  501      * @class Core\n  502:     * @name PlayerReady\n  503      */\n  504:     PlayerReady(player, socket) {\n  505  \n  506          if (this._current_player_cap >= 8) {\n\n9 matches across 5 files\n\n\nSearching 254 files for \"Could not find player with uid\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n  138  \n  139          if(!player) {\n  140:             console.log('Could not find player with uid %s', id);\n  141              return null;\n  142          }\n\n1 match in 1 file\n\n\nSearching 254 files for \"GetPlayerByUserId\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n  222                  screenData.players = sortedPlayers;\n  223  \n  224:                 screenData.winner = this.GetPlayerByUserId(topPlayerUid);\n  225                  screenData.winner_coins = this.Coins.GetCoinsForPlayer(topPlayerUid).current;\n  226  \n  ...\n  359      AddTime(socket, playerUid) {\n  360  \n  361:         let player = this.GetPlayerByUserId(playerUid);\n  362  \n  363          if(!player) return;\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n  130      * @param {String} Player unique user ID\n  131      * @class Core\n  132:     * @name GetPlayerByUserId\n  133      * @return {Boolean} Player object, if found\n  134      */\n  135:     GetPlayerByUserId(id) {\n  136          \n  137          let player = _.findWhere(this._current_players, {uid: id});\n\n4 matches across 2 files\n\n\nSearching 254 files for \"AddTime\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n  357      }\n  358  \n  359:     AddTime(socket, playerUid) {\n  360  \n  361          let player = this.GetPlayerByUserId(playerUid);\n\n/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js:\n  108  \n  109              if(!session) return;\n  110:             session.AddTime(currentSpace, pkg.msgData);\n  111  \n  112          },\n\n2 matches across 2 files\n",
+			"contents": "Searching 254 files for \"ShowScreen\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n  254        \n  255          let data = this.GetData(screenName);\n  256:         this.ShowScreen(screenName, data, isUnique, refreshCurrent);\n  257       \n  258      }\n  ...\n  266      * @param {Boolean} Don't send next phase, just refresh current screen(s) with new data?\n  267      * @class GameLogic\n  268:     * @name ShowScreen\n  269      */\n  270:     ShowScreen(screenName, data, uniqueData, refreshCurrent) {\n  271  \n  272          let path = 'partials/shared/' + screenName;\n\n3 matches in 1 file\n\n\nSearching 254 files for \"FindScreen\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n  248      }\n  249  \n  250:     FindScreen(screenName, refreshCurrent) {\n  251  \n  252          let screenInfo = _.where(this.currentScreens, {id: screenName})[0];\n  ...\n  429          let id = this.currentScreens[this.currentPhaseIndex].id;\n  430  \n  431:         this.FindScreen(id);\n  432  \n  433      }\n  ...\n  474              this._active_player_index++;\n  475  \n  476:         this.FindScreen(id, true);\n  477  \n  478      }\n  ...\n  495  \n  496          let id = this.currentScreens[this.currentPhaseIndex].id;\n  497:         this.FindScreen(id, true);\n  498  \n  499      }\n  ...\n  529              }\n  530  \n  531:             // this.FindScreen(id, false, true);\n  532          \n  533          }\n  ...\n  573  \n  574          let id = this.currentScreens[this.currentPhaseIndex].id;\n  575:         this.FindScreen(id);\n  576  \n  577      }\n\n6 matches in 1 file\n\n\nSearching 254 files for \"uUID\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  609  \n  610      // Create uid for player\n  611:     if(!sessionStorage.getItem('uUID')) {\n  612          playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\n  613:         sessionStorage.setItem('uUID', playerUID);\n  614      }\n  615      else \n  616:         playerUID = sessionStorage.getItem('uUID');\n  617      \n  618      // Open socket connection\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n   27      // Remove saved game code, uid, markup, and set to not reconnected\n   28      sessionStorage.removeItem('gameCode');\n   29:     sessionStorage.removeItem('uUID');\n   30      sessionStorage.removeItem('markup');\n   31      sessionStorage.removeItem('lastDuration'); \n   ..\n  211                    gameId: sessionStorage.getItem('gameCode'), \n  212                    username: sessionStorage.getItem('username'),\n  213:                   uid: sessionStorage.getItem('uUID'),\n  214                    decider: isDecider\n  215                  });\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n  292  \n  293      // Create uid for player\n  294:     if(!sessionStorage.getItem('uUID')) {\n  295          playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\n  296:         sessionStorage.setItem('uUID', playerUID);\n  297      }\n  298      else \n  299:         playerUID = sessionStorage.getItem('uUID');\n  300  \n  301      // Disable button and show loading modal\n\n8 matches across 3 files\n\n\nSearching 254 files for \"playerUID\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n   22  \n   23    playerId,\n   24:   playerUID,\n   25    isDecider,\n   26  \ttimeline = new TimelineLite(),\n   ..\n  610      // Create uid for player\n  611      if(!sessionStorage.getItem('uUID')) {\n  612:         playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\n  613:         sessionStorage.setItem('uUID', playerUID);\n  614      }\n  615      else \n  616:         playerUID = sessionStorage.getItem('uUID');\n  617      \n  618      // Open socket connection\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  218              if(isDecider) {\n  219                  // Session started, let's sign-up the decider for this room\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\n  221              }\n  222              else {\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n  293      // Create uid for player\n  294      if(!sessionStorage.getItem('uUID')) {\n  295:         playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\n  296:         sessionStorage.setItem('uUID', playerUID);\n  297      }\n  298      else \n  299:         playerUID = sessionStorage.getItem('uUID');\n  300  \n  301      // Disable button and show loading modal\n  ...\n  351              ga('send', 'event', 'Login', 'Username', username);\n  352  \n  353:             data.uid = playerUID;\n  354              playerLogin(data);                          \n  355  \n\n9 matches across 3 files\n\n\nSearching 254 files for \"emitData\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  235  \t Associate provided data object with current game ID\n  236  \t*/\n  237: \tvar emitData = function(data) {\n  238  \n  239  \t\tif(gameCode === undefined && typeof(data.code) !== 'undefined')\n  ...\n  659  \t\t\t\t\t});\n  660  \t\t\t\t\t$('#overlay #btn-quit-yes').click(function(evt) {\n  661: \t\t\t\t\t\tsocket.emit('game:exit', emitData());\n  662  \t\t\t\t\t});\n  663  \t\t\t\t\t$('#overlay #btn-quit-no').click(function(evt) {\n  ...\n  768  \n  769  \t\t\t\t\t    // Emit event to socket\n  770: \t\t\t\t\t    socket.emit(event, emitData(pkg));\n  771  \n  772  \t\t\t\t\t    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom\n  ...\n  871  \n  872  \t\t\t\t\tif(selected.prop('selectedIndex') > 0)\n  873: \t\t\t\t    socket.emit('game:load_screen', emitData({ index: selected.prop('selectedIndex') }));\n  874  \n  875  \t\t\t\t}\n  ...\n  888  \n  889  \t\t\t\t\tvar btn = $(evt.currentTarget);\n  890: \t\t\t\t\tsocket.emit('debug:pause', emitData());\n  891  \n  892  \t\t\t\t\tif(!$(btn).data('resume')) {\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  218              if(isDecider) {\n  219                  // Session started, let's sign-up the decider for this room\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\n  221              }\n  222              else {\n  223                  // Connected, let's sign-up for to receive messages for this room\n  224:                 socket.emit('room', emitData('player'));\n  225              }\n  226  \n  ...\n  618  \n  619                  if(isDecider) {\n  620:                     socket.emit('game:next_player', emitData());\n  621                      return;\n  622                  }\n  ...\n  644                  nextPhaseScreen();\n  645              else if (eventData == \"brainstormCountdown\" && isDecider){\n  646:                 socket.emit('game:next', emitData(true));\n  647              } \n  648  \n  ...\n  668              if(eventData.phase === 'doubledown' && isDecider) {\n  669                  setTimeout(function() {\n  670:                     socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData(true));\n  671                  }, 600);\n  672              } else if (eventData.phase === 'pitch' && isDecider) {\n  673                  setTimeout(function() {\n  674:                     socket.emit((eventData.end ? 'game:next' : 'game:next_player'), emitData(true));\n  675                  }, 600);\n  676              }\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\n   67  \n   68      // Log player in\n   69:     socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));\n   70  \n   71  }\n\n12 matches across 3 files\n\n\nSearching 255 files for \"'room\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  218              if(isDecider) {\n  219                  // Session started, let's sign-up the decider for this room\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\n  221              }\n  222              else {\n  223                  // Connected, let's sign-up for to receive messages for this room\n  224:                 socket.emit('room', ('player'));\n  225              }\n  226  \n\n2 matches in 1 file\n\n\nSearching 256 files for \"grunt-nodemon\" (case sensitive)\n\n0 matches\n\nSearching 256 files for \"nodemon\" (case sensitive)\n\n0 matches\n\nSearching 1514 files for \"nodemon\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/el-web-sdk/config.codekit:\n   47  \t\t\"syntaxCheckerStyle\": 1\n   48  \t\t},\n   49: \t\"\\/grunt\\/nodemon.js\": {\n   50  \t\t\"fileType\": 64,\n   51  \t\t\"ignore\": 0,\n   52  \t\t\"ignoreWasSetByUser\": 0,\n   53: \t\t\"inputAbbreviatedPath\": \"\\/grunt\\/nodemon.js\",\n   54: \t\t\"outputAbbreviatedPath\": \"\\/grunt\\/min\\/nodemon-min.js\",\n   55  \t\t\"outputPathIsOutsideProject\": 0,\n   56  \t\t\"outputPathIsSetByUser\": 0,\n\n/Users/Johnny/Documents/Projects/el-web-sdk/docs/INSTALLING.md:\n   69  ```\n   70  \n   71: Install [nodemon](http://nodemon.io/) globally if not installed:\n   72  ```\n   73: npm install -g nodemon\n   74  ```\n   75  \n   ..\n  104  ```\n  105  \n  106: This command will lint our code, initialize the development server via nodemon, and start node-inspector.\n  107  By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.\n  108  ```\n\n/Users/Johnny/Documents/Projects/el-web-sdk/el-web-sdk.sublime-workspace:\n  664  \t\t\"/Users/Johnny/Documents/Projects/el-web-sdk/app.js\",\n  665  \t\t\"/Users/Johnny/Documents/Projects/el-web-sdk/templates/helpers/index.js\",\n  666: \t\t\"/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js\",\n  667  \t\t\"/Users/Johnny/Documents/Projects/el-web-sdk/sites/factory.js\",\n  668  \t\t\"/Users/Johnny/Documents/Projects/el-web-sdk/Gruntfile.js\",\n  ...\n  741  \t\t\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/footer.hbs\",\n  742  \t\t\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/models/Person.js\",\n  743: \t\t\"/Users/Johnny/Documents/Projects/EL-Website/grunt/nodemon.js\",\n  744  \t\t\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/script/sections.hbs\",\n  745  \t\t\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/views/index.hbs\",\n\n/Users/Johnny/Documents/Projects/el-web-sdk/grunt/concurrent.js:\n    7  \n    8  \tvar devTasks = [\n    9: \t\t'nodemon:serve', \n   10  \t\t'watch'\n   11  \t];\n\n/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js:\n   47  \t\t\t\tignore: ignoreFilter,\n   48  \t\t\t\twatch: watchFilter,\n   49: \t\t    callback: function (nodemon) {\n   50: \t        nodemon.on('log', function (event) {\n   51  \t          console.log(event.colour);\n   52  \t        });\n   53: \t        nodemon.on('restart', function (event) {\n   54  \t          console.log('node restarted');\n   55  \t        });\n\n/Users/Johnny/Documents/Projects/el-web-sdk/out.txt:\n    <binary>\n\n/Users/Johnny/Documents/Projects/el-web-sdk/package-lock.json:\n 6666        \"integrity\": \"sha1-baWhdmjEs91ZYjvaEc9/pMH2Cm8=\"\n 6667      },\n 6668:     \"nodemon\": {\n 6669        \"version\": \"1.18.3\",\n 6670:       \"resolved\": \"https://registry.npmjs.org/nodemon/-/nodemon-1.18.3.tgz\",\n 6671        \"integrity\": \"sha512-XdVfAjGlDKU2nqoGgycxTndkJ5fdwvWJ/tlMGk2vHxMZBrSPVh86OM6z7viAv8BBJWjMgeuYQBofzr6LUoi+7g==\",\n 6672        \"requires\": {\n\n/Users/Johnny/Documents/Projects/el-web-sdk/package.json:\n   38      \"node-sass\": \"^4.9.2\",\n   39      \"node-sass-middleware\": \"^0.11.0\",\n   40:     \"nodemon\": \"^1.9.2\",\n   41      \"pluralize\": \"^1.2.1\",\n   42      \"random-number\": \"0.0.7\",\n   ..\n   72      \"grunt-mongo-bin\": \"^0.1.0\",\n   73      \"grunt-node-inspector\": \"^0.4.2\",\n   74:     \"grunt-nodemon\": \"^0.2.1\",\n   75      \"grunt-notify\": \"^0.4.5\",\n   76      \"grunt-periodic\": \"^1.0.0\",\n\n/Users/Johnny/Documents/Projects/el-web-sdk/README.md:\n   69  ```\n   70  \n   71: Install [nodemon](http://nodemon.io/) globally if not installed:\n   72  ```\n   73: npm install -g nodemon\n   74  ```\n   75  \n   ..\n  104  ```\n  105  \n  106: This command will lint our code, initialize the development server via nodemon, and start node-inspector.\n  107  By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.\n  108  ```\n\n36 matches across 9 files\n\n\nSearching 1524 files for \"this.eventEmitter\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n   21          this.Session = require('./SessionManager'),\n   22          this.events = require('events'),\n   23:         this.eventEmitter = new this.events.EventEmitter(),\n   24  \n   25          this._current_players = {},\n   ..\n  340  \n  341                  // Send the countdownEnded event to the game script\n  342:                 this.eventEmitter.emit('countdownEnded', data, socket);\n  343  \n  344                  // Clear the countdown\n  ...\n  386          clearInterval(this._countdown);\n  387                  \n  388:         this.eventEmitter.removeAllListeners('countdownEnded');\n  389      \n  390      }\n\n3 matches in 1 file\n",
 			"settings":
 			{
-				"buffer_size": 6432,
+				"buffer_size": 13506,
 				"line_ending": "Unix",
 				"name": "Find Results",
 				"scratch": true
 			}
 		},
 		{
-			"file": "sockets/handlers/Common.js",
+			"file": "templates/partials/script/player_events.hbs",
 			"settings":
 			{
-				"buffer_size": 3863,
+				"buffer_size": 20085,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
+			"file": "/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js",
 			"settings":
 			{
-				"buffer_size": 20020,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/Common.js",
-			"settings":
-			{
-				"buffer_size": 12940,
-				"encoding": "UTF-8",
+				"buffer_size": 1310,
 				"line_ending": "Unix"
 			}
 		},
@@ -577,9 +558,36 @@
 			"file": "/Users/Johnny/Documents/Projects/el-web-sdk/package.json",
 			"settings":
 			{
-				"buffer_size": 2945,
+				"buffer_size": 2941,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sockets/handlers/PlayerLogin.js",
+			"settings":
+			{
+				"buffer_size": 3835,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "routes/index.js",
+			"settings":
+			{
+				"buffer_size": 950,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "stack:\"Error: ENOENT: no such file or directory, open '.env'\\n    at Object.fs.openSync (fs.js:663:18)\\n    at Object.fs.readFileSync (fs.js:568:33)\\n    at Object.config (/Users/Johnny/Documents/Projects/el-web-sdk/node_modules/dotenv/lib/main.js:30:37)\\n    at Object.<anonymous> (/Users/Johnny/Documents/Projects/el-web-sdk/app.js:15:20)\\n    at Module._compile (module.js:660:30)\\n    at Object.Module._extensions..js (module.js:671:10)\\n    at Module.load (module.js:573:32)\\n    at tryModuleLoad (module.js:513:12)\\n    at Function.Module._load (module.js:505:3)\\n    at Module.require (module.js:604:17)\"\n",
+			"settings":
+			{
+				"buffer_size": 612,
+				"line_ending": "Unix",
+				"name": "stack:\"Error: ENOENT: no such file or directory, o"
 			}
 		}
 	],
@@ -721,20 +729,36 @@
 	"expanded_folders":
 	[
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes",
 		"/Users/Johnny/Documents/Projects/at-stake-v3",
-		"/Users/Johnny/Documents/Projects/el-web-sdk"
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers",
+		"/Users/Johnny/Documents/Projects/learning-games-core",
+		"/Users/Johnny/Documents/Projects/learning-games-core/lib",
+		"/Users/Johnny/Documents/Projects/el-web-sdk",
+		"/Users/Johnny/Documents/Projects/el-web-sdk/grunt"
 	],
 	"file_history":
 	[
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js",
+		"/Users/Johnny/Documents/Projects/el-web-sdk/package.json",
+		"/Users/Johnny/Documents/Projects/el-web-sdk/grunt/concurrent.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/models/Role.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/models/HomePage.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/models/Deck.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/models/GameSession.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/models/GameConfig.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/package.json",
+		"/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_animation.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameType.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/layouts/base.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/media.scss",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/mixins.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/variables.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/core.css",
@@ -743,18 +767,15 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt/uglify.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/deploy.json",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/playerview.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/homepage.scss",
 		"/Users/Johnny/Documents/Projects/learning-games-core/lib/SessionManager.js",
 		"/Users/Johnny/Documents/Projects/learning-games-core/lib/ShuffleUtil.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/speech.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers/index.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/index.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/meet.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/choice.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_animation.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/scoreboard.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/decider_logic.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs",
@@ -765,13 +786,11 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/animations.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/css.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/Coins.js",
-		"/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/mobile.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/decide.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/doubledown.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/debrief.hbs",
 		"/Users/Johnny/Library/Application Support/Sublime Text 3/Packages/User/ZenTabs.sublime-settings",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/models/GameConfig.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/gameended.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/timer.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/deliberate.hbs",
@@ -801,7 +820,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/forms.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-project",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/decks.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/models/Role.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/agenda_item.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/think.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/production.hbs",
@@ -810,7 +828,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/index.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt/cssmin.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api/gamesession.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/models/Deck.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/game.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/config.json",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/app-root-path/lib/resolve.js",
@@ -823,7 +840,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/index.js",
 		"/Users/Johnny/Documents/Projects/el-web-sdk/node_modules/grunt-execute/tasks/execute.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameManager.js",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameType.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/SessionManager.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/ShuffleUtil.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/js/events/group/wikigeeks.js.orig",
@@ -851,11 +867,7 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/agenda.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/agenda_item_instructions.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/deliberate_instructions.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/round_instructions.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/player/round_instructions.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/pot.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global-new.hbs",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/comingsoon.scss"
+		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/decider/round_instructions.hbs"
 	],
 	"find":
 	{
@@ -866,6 +878,8 @@
 		"height": 187.0,
 		"where_history":
 		[
+			"/Users/Johnny/Documents/Projects/el-web-sdk, /Users/Johnny/Documents/Projects/learning-games-core",
+			"/Users/Johnny/Documents/Projects/el-web-sdk",
 			"/Users/Johnny/Documents/Projects/at-stake-v3, /Users/Johnny/Documents/Projects/learning-games-core, -*/Users/Johnny/Documents/Projects/at-stake-v3/mobile/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/bower_components/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/release/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/Static/*,  -*.sublime-workspace",
 			"/Users/Johnny/Documents/Projects/at-stake-v3, /Users/Johnny/Documents/Projects/learning-games-core, -*/Users/Johnny/Documents/Projects/at-stake-v3/mobile/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/bower_components/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/release/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/Static/*",
 			"/Users/Johnny/Documents/Projects/at-stake-v3, /Users/Johnny/Documents/Projects/learning-games-core, -*/Users/Johnny/Documents/Projects/at-stake-v3/node_modules/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/bower_components/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/public/release/*, -*/Users/Johnny/Documents/Projects/at-stake-v3/Static/*",
@@ -957,6 +971,22 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"this.eventEmitter",
+			"nodemon",
+			"grunt-nodemon",
+			"'room",
+			"app",
+			"emitData",
+			"playerUID",
+			"uUID",
+			"arrPlayerUnique",
+			"FindScreen",
+			"ShowScreen",
+			"GetData",
+			"player:reconnected",
+			"players:update",
+			"this._current_players",
+			"PlayerReady",
 			"AddTime",
 			"GetPlayerByUserId",
 			"Could not find player with uid",
@@ -1068,23 +1098,7 @@
 			"login:active",
 			"'game:decider'",
 			"isDecider =",
-			"login:active",
-			"#overlay",
-			"nextPhaseScreen",
-			"setupRoleCard",
-			"openInner",
-			"#role-card",
-			"btn-role-card",
-			".name",
-			".inner",
-			".rolecard",
-			"d8d8",
-			".role-info",
-			"openInnerModal('",
-			"btn-close-role-card",
-			"btn-close-role",
-			"btn-menu-back",
-			"#role-card"
+			"login:active"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1092,6 +1106,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"router",
 			"pkg",
 			"session.",
 			"let session = Session.Get(package.gameId);\n\nif(!session) return;\n\nsession.",
@@ -1218,68 +1233,35 @@
 			"_ALL_HASHTAGS",
 			"HashtagGame",
 			"Templates",
-			"_HASHTAGS",
-			"CPIRegistration"
+			"_HASHTAGS"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
-		"wrap": false
+		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "templates/partials/script/player_animation.hbs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10693,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9628,
-								9879
-							]
-						],
-						"settings":
-						{
-							"SL.130.region_keys":
-							[
-							],
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3720.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "lib/GameLogic.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18301,
+						"buffer_size": 18906,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11809,
-								11816
+								9584,
+								9599
 							]
 						],
 						"settings":
@@ -1304,23 +1286,26 @@
 								"SL.gjslint.Highlights.|a60b563ea033fb4638431a14431bc4eb3476500d35b2cc7e569bacad473d6cfc|region.redish markup.error.sublime_linter|32",
 								"SL.gjslint.Highlights.|d21c0adbe15a4d08bb8da176a9f61f87a247109bf7348922b5f64fd12648dd46|region.redish markup.error.sublime_linter|32"
 							],
+							"SL.53.region_keys":
+							[
+							],
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5785.0,
+						"translation.y": 3501.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 1,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6432,
+						"buffer_size": 13506,
 						"regions":
 						{
 							"match":
@@ -1329,112 +1314,264 @@
 								"regions":
 								[
 									[
-										192,
-										208
+										204,
+										214
 									],
 									[
-										364,
-										380
+										440,
+										450
 									],
 									[
-										694,
-										710
+										476,
+										486
 									],
 									[
-										940,
-										956
+										775,
+										785
 									],
 									[
-										1322,
-										1338
+										1013,
+										1023
 									],
 									[
-										1605,
-										1621
+										1132,
+										1142
 									],
 									[
-										1804,
-										1820
+										1281,
+										1291
 									],
 									[
-										2002,
-										2018
+										1386,
+										1396
 									],
 									[
-										2241,
-										2257
+										1554,
+										1564
 									],
 									[
-										2471,
-										2487
+										1829,
+										1833
 									],
 									[
-										2680,
-										2696
+										1999,
+										2003
 									],
 									[
-										2973,
-										2984
+										2099,
+										2103
 									],
 									[
-										3083,
-										3094
+										2413,
+										2417
 									],
 									[
-										3272,
-										3283
+										2725,
+										2729
+									],
+									[
+										2977,
+										2981
+									],
+									[
+										3147,
+										3151
+									],
+									[
+										3247,
+										3251
 									],
 									[
 										3516,
-										3527
+										3525
 									],
 									[
-										3780,
-										3791
+										3692,
+										3701
 									],
 									[
-										4025,
-										4036
+										3844,
+										3853
 									],
 									[
-										4271,
-										4282
+										3901,
+										3910
 									],
 									[
-										4527,
-										4538
+										4313,
+										4322
 									],
 									[
 										4564,
-										4575
+										4573
 									],
 									[
-										4892,
-										4922
+										4716,
+										4725
 									],
 									[
-										5243,
-										5260
+										4773,
+										4782
 									],
 									[
-										5472,
-										5489
+										4992,
+										5001
 									],
 									[
-										5707,
-										5724
+										5323,
+										5331
 									],
 									[
-										5805,
-										5822
+										5554,
+										5562
 									],
 									[
-										6095,
-										6102
+										5733,
+										5741
 									],
 									[
-										6344,
-										6351
+										5989,
+										5997
+									],
+									[
+										6161,
+										6169
+									],
+									[
+										6475,
+										6483
+									],
+									[
+										6735,
+										6743
+									],
+									[
+										6897,
+										6905
+									],
+									[
+										7144,
+										7152
+									],
+									[
+										7413,
+										7421
+									],
+									[
+										7674,
+										7682
+									],
+									[
+										7909,
+										7917
+									],
+									[
+										8298,
+										8303
+									],
+									[
+										8558,
+										8563
+									],
+									[
+										8939,
+										8946
+									],
+									[
+										9078,
+										9085
+									],
+									[
+										9140,
+										9147
+									],
+									[
+										9336,
+										9343
+									],
+									[
+										9352,
+										9359
+									],
+									[
+										9425,
+										9432
+									],
+									[
+										9555,
+										9562
+									],
+									[
+										10051,
+										10058
+									],
+									[
+										10453,
+										10460
+									],
+									[
+										10774,
+										10781
+									],
+									[
+										10979,
+										10986
+									],
+									[
+										11006,
+										11013
+									],
+									[
+										11124,
+										11131
+									],
+									[
+										11453,
+										11460
+									],
+									[
+										11552,
+										11559
+									],
+									[
+										11562,
+										11569
+									],
+									[
+										11886,
+										11893
+									],
+									[
+										12086,
+										12093
+									],
+									[
+										12273,
+										12280
+									],
+									[
+										12289,
+										12296
+									],
+									[
+										12362,
+										12369
+									],
+									[
+										12492,
+										12499
+									],
+									[
+										12987,
+										13004
+									],
+									[
+										13202,
+										13219
+									],
+									[
+										13404,
+										13421
 									]
 								],
 								"scope": ""
@@ -1443,15 +1580,15 @@
 						"selection":
 						[
 							[
-								5809,
-								5809
+								13202,
+								13241
 							]
 						],
 						"settings":
 						{
 							"detect_indentation": false,
 							"line_numbers": false,
-							"output_tag": 5,
+							"output_tag": 10,
 							"result_base_dir": "",
 							"result_file_regex": "^([^ \t].*):$",
 							"result_line_regex": "^ +([0-9]+):",
@@ -1459,177 +1596,89 @@
 							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2618.0,
+						"translation.y": 5984.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "sockets/handlers/Common.js",
+					"buffer": 2,
+					"file": "templates/partials/script/player_events.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3863,
+						"buffer_size": 20085,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2334,
-								2334
+								5680,
+								5680
 							]
 						],
 						"settings":
 						{
-							"SL.143.region_keys":
-							[
-								"SL.gjslint.Highlights.|45a9ab2eeb549d40e4dede9480e0951bf4cc0474ba8429847e82baf84fcd1168|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|35c36f625822a283534daeabe4a84393bbd16047036557ce6b6c9930644d4bea|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|c2a793288b66723e9e26509915c1874487a113e890b6f455fc5d07b2b781e131|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|6c616dbb5579dec06b7dde83e7029d83df15c26a34ca0a399a046d51c0c145c5|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|7944fac45f68d911588b9d44cb67c1f65cff8d774d61bd5f7eaf5d20d945a83d|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|78e55ef573fb206ea72dea557e8856942ef0ff348ae5ce3e00a932eef5192597|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|e56214a9cea2b442cc044d35b34471411b04207394af647343ebabfd895140b9|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|e2100eb6061a7b285c7c3e0be758b0df276f3b71cd628afe01dcb158050510f4|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|202d29c76ee79d2b80762f2a56f0d4a037fb8b7fb164121662c68ad27c7c807f|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|66ad3a3ba4615649765fe757d0cc6ec0183a7902d7c6136e79aff6a276dccd85|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|8d8a407c46bb5f2b74fb28c1566fa77685a5aeda3ec5df2965eb4a1a2af70405|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|74d3a5068cf708e1233de21a40f3bab3e4589024e1ca7a20f0baf1221a751897|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|6f7486a2d4cff08168281d014cd52219ab1004c73b8921d21378ff70d8b8b575|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|a3732ff10cbdf7d27e60a5ecad5a706d468a00e24eb582f1ec97af1d0650c587|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|a77669c4470ad40bd241df1dc42e94f34a796a4fe4ed7151ed087b7fb0cb4d3f|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
-								"SL.gjslint.Highlights.|9131abc2f1946df8a37e00745a87084764d03206d32e271b115383494cbc80a5|region.redish markup.error.sublime_linter|32",
-								"sublime_linter.protected_regions",
-								"SL.gjslint.Highlights.|8bd888b6c6995a6704f257deb4dbbe162e729f20926a2cb7ffd5e8a6c4454661|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|b792b71e2662e5fcc617e25273a8e01eaaa1f3e9bf3ad397dc6d4390f9a3262d|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|997f7280de52a5f0b425defb91f0178ec4371f996d41cff426ad0204983004b1|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|2b38d6659189dbe38d686038dbedf4a6074e3bb5a23b526d5643051295e8f30b|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|d8811deff722f96b8bae0d753def3062a637b938b3bc9159f6fc604767b41371|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|2b84e0b668acf64f54960da0907fdb97acdd1b072b647e8339f8e07863165c8f|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|e9a5cb76cab21a26b027f6f408fd12dadae9e535d40b6b064d93959ab220e0bf|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|c06b68c4ae2f621edb9c55e4c1710d66a34327c4a5ddc12fd1f837f0f26c1d5e|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|a5af12c05bdaf67a3670234ec91d0696bbd449da55219b47148bfbc183c7af21|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|e7b940d280d97e9d8a66b79ae486e06a9279c41237ed14fcd21eb79f96e6f1e5|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|fd1c08d5d96b6f78c924772b2024605b56e9500a7b6a9f24eb31ae2f907baade|region.redish markup.error.sublime_linter|32"
-							],
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 235.0,
+						"translation.y": 3272.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
+					"buffer": 3,
+					"file": "/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 20020,
+						"buffer_size": 1310,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3844,
-								3844
+								654,
+								654
 							]
 						],
 						"settings":
 						{
-							"SL.138.region_keys":
+							"SL.175.region_keys":
 							[
-								"SL.gjslint.Highlights.|abde62eeaeea28d0ab53306125f659960f5c5c438e8f79d34e41721004719247|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|4daa0780cbd12caa1de28b39094154469d6bd671be8b6b5234eab2633caceefd|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|f6a4e5cc3cb991f2474da1a05d624c9dad8c6f9a811f9278d13b8ebdbc9cc393|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|a2f8460176c99b8db4236da60cc4d03e9b431a0044acfaa4db77a2d4ceed8d4c|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|3182d512078c40ad02efaad3ac960b34e2092c44ddc5e1c0e4a4938bcd432869|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|8864757d5fc386a361f2b33a098c8382bd737244238deb1d1c61c05534986baf|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|fe5debc4d4abb079a1d72776b8ef7e210db86eea7c32f114ab8f1affe37bf031|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|75e7b3beab99c19488d41005d78fab12b434fc1c9ef3368446870ea80720831c|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|192cd87fa625c92a1717f318925801fa927f7e0b59e4beca56345bfb739b0c5a|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|0930d22377e6eb9d187ede520430d2c1ecba9782d132e86c43155c502728da01|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
-								"sublime_linter.protected_regions",
-								"SL.gjslint.Highlights.|e43406e9ca1191091d15ae2bad2dbff12612681c8371d39a22f27830cd6cb01f|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|c8dcf7f4362efc1617c497f5754363643098e0562723279cfa5d91c697d9bf06|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|52863cbed718a2f3fdafd8c4413c5693a2463bf8e858dd60690bda9b63f2ca4b|region.redish markup.error.sublime_linter|32"
 							],
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2464.0,
+						"translation.y": 67.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "lib/Common.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12940,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3330,
-								3330
-							]
-						],
-						"settings":
-						{
-							"SL.137.region_keys":
-							[
-								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
-								"SL.gjslint.Highlights.|37db2e74c6ca5d2f1a1d8f00881ca852e090885adb1aaeeac40ef23fa38229c2|region.redish markup.error.sublime_linter|32",
-								"sublime_linter.protected_regions",
-								"SL.gjslint.Highlights.|413dd74ed5159adf41a0691aba0a3329d05ed7d16b8f273c87caac10f105899c|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|5a374f8c4a709abf1e31c4e6220e63eb694ca4d5311d0c68d69deed357ae8c1b|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|d455f655e3a369bde4b381a4f574d51ae253368ec5363dc7c4cf65ad95406776|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|db300cabcafea28ee53e99fa65ff750c340059cfdf785712b50133d9a849335f|region.redish markup.error.sublime_linter|32"
-							],
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2017.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
+					"buffer": 4,
 					"file": "/Users/Johnny/Documents/Projects/el-web-sdk/package.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2945,
+						"buffer_size": 2941,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2127,
-								2127
+								1193,
+								1193
 							]
 						],
 						"settings":
@@ -1639,7 +1688,101 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 741.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "sockets/handlers/PlayerLogin.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3835,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1664,
+								1667
+							]
+						],
+						"settings":
+						{
+							"SL.72.region_keys":
+							[
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 720.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "routes/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 950,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								950,
+								950
+							]
+						],
+						"settings":
+						{
+							"SL.81.region_keys":
+							[
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 612,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								612,
+								612
+							]
+						],
+						"settings":
+						{
+							"auto_name": "stack:\"Error: ENOENT: no such file or directory, o",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,

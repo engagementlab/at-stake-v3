@@ -3,3 +3,4 @@ node_modules
 public/styles/core.css
 
 public/styles/core.css
+*.map

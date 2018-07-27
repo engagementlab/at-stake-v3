@@ -126,7 +126,7 @@ var setupScreen = function(screenName, index) {
     sessionStorage.setItem('screenName', screenName);
 
     // Animate initial
-    screenOpen($('.screen:not(.skip):first'));
+    screenOpen($('.screen:not(.skip):eq(' + currentScreenIndex + ')'));
 
     phaseBarProgress();
 

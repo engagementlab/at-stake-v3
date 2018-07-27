@@ -58,7 +58,7 @@ function initTimeline() {
 
 						 .fromTo($('#choices'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
 						 .fromTo($('#choices .back-button'), .5, backBtnFrom, backBtnTo)
-						 .staggerFromTo($('#choices .btn'), .8, {yPercent:20, autoAlpha:0}, {yPercent:0, autoAlpha:0.8, ease:Expo.easeOut}, .7)
+						 .staggerFromTo($('#choices .btn'), .8, {yPercent:20, autoAlpha:0}, {yPercent:0, autoAlpha:1, ease:Expo.easeOut}, .7)
 						 .append('choices')
 
 						 .add(joinAnim, '+=1').append('join')
