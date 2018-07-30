@@ -338,7 +338,7 @@
 		}
 	}
 
-	#join.lobby {
+	.lobby {
 
 		p.instructions {
 			font-family: AvenirNext;
@@ -395,7 +395,7 @@
 			}
 		}
 
-		#btn_submit_code {
+		.game_login {
 			width: 80%;
 			white-space: normal;
 			color: white;
@@ -409,14 +409,14 @@
 			background: -webkit-linear-gradient(top, $orange-light 90%, $orange-dark 10%); /* Chrome10-25,Safari5.1-6 */
 			background: linear-gradient(to bottom, $orange-light 90%, $orange-dark 10%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 			position: relative;
-		  font-family: AvenirNext-Bold;
-		  font-size: 20px;
-		  font-weight: bold;
-		  font-style: normal;
-		  font-stretch: normal;
-		  line-height: 1;
-		  letter-spacing: 0px;
-		  text-align: center;
+			font-family: AvenirNext-Bold;
+			font-size: 20px;
+			font-weight: bold;
+			font-style: normal;
+			font-stretch: normal;
+			line-height: 1;
+			letter-spacing: 0px;
+			text-align: center;
 		}
 
 

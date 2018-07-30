@@ -85,8 +85,8 @@ var checkIfLoggedIn = function() {
         return;
     }
     
-    // Check if game code saved to session (player is already logged in)
-    if(!sessionStorage.getItem('gameCode')) {
+    // Check if game code and uid saved to session (player is already logged in)
+    if(!sessionStorage.getItem('gameCode') && !sessionStorage.getItem('uUID')) {
         var isAndroid = /Android/ig.test(navigator.userAgent);
 
         $('.form.login').show();
@@ -132,8 +132,17 @@ var checkIfLoggedIn = function() {
 
         // Open socket connection
         if(!socket) { 
-            socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
-            registerEvents();
+            $('#rejoin').show();
+            $('#name').hide();
+            $('#rejoin #code').text(sessionStorage.getItem('gameCode'));
+            $('#rejoin #access_code_hidden').val(sessionStorage.getItem('gameCode'));
+
+            $('#btn_submit_rejoin').click(function() {
+                
+                socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true, 'reconnectionDelay': 500, 'maxReconnectionAttempts': Infinity});
+                registerEvents();
+
+            });
         } 
 
     }
@@ -280,7 +289,7 @@ $(document).on('click', '.btn.game_login', function(evt) {
         return;
     }
     // Player entered name?
-    else if(!data.name || data.name.length === 0) {
+    else if(data.reconnect === undefined && (!data.name || data.name.length === 0)) {
         $('.form #player-name').addClass('invalid');
         errorBox.text('You need to enter a name!').fadeIn(function(){
             $(this).delay(3000).fadeOut('slow');

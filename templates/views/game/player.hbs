@@ -123,7 +123,7 @@
       <div class="error">Error!</div>
 
       <button class="back-button" data-from="join" data-to="choices">back</button>
-      <input id="btn_submit_code"  data-event="game:entry" data-package='{"code": "#access_code", "name": "#player-name"}' class="btn btn-default game_login" type="submit" name="submit" value="Join game">
+      <input id="btn_submit_code" data-event="game:entry" data-package='{"code": "#access_code", "name": "#player-name"}' class="btn btn-default game_login" type="submit" name="submit" value="Join game">
     </div>
 
     <div class="row login waiting" style="display:none">
@@ -138,5 +138,16 @@
       </div>
     </div>
   </div>
+
+  {{!-- RE-JOIN GAME --}}
+  <div class="lobby form" id="rejoin" style="display:none">
+
+    <div class="login input">
+      <p class="light instructions">You were playing the active session w/ code "<span id="code">CODE</span>". Resume?</p>
+      <input type="text" id="access_code_hidden" maxlength="4" style="display: none">
+      <input id="btn_submit_rejoin" class="btn-default game_login" type="submit" name="submit" value="Yes">
+    </div>
+  </div>
+
 
 </section>
