@@ -15,7 +15,7 @@
 
     <div class="form col-xs-12 col-centered">
 
-      <input autocomplete="off" autofill='off' autocorrect="off" autocapitalize="off" spellcheck="false" type="text" id="player-name" maxlength="10" placeholder="Type your name and hit next to begin" class="hidden-el"> <br />
+      <input autocomplete="off" autofill='off' autocorrect="off" autocapitalize="off" spellcheck="false" type="text" id="player-name" maxlength="10" placeholder="Type your name and hit next to begin" class="hidden-el" {{#if username}}value="{{username}}"{{/if}}> <br />
       
       <div class="error">Error!</div>
       <input id="btn_submit_name" data-package='{"name": "#player-name"}' maxlength="10" class="btn btn-default submit_name hidden-el" type="submit" name="submit" value="Next!">
@@ -118,7 +118,7 @@
   <div class="lobby form" id="join" style="display:none">
 
     <div class="login input">
-      <input type="text" id="access_code" placeholder="Type your room code here" maxlength="4"> <br />
+      <input type="text" id="access_code" placeholder="Type your room code here" maxlength="4" {{#if accesscode}}value="{{accesscode}}"{{/if}}> <br />
       <p class="light instructions">...then <span>press the join game</span> button to begin!</p>
       <div class="error">Error!</div>
 

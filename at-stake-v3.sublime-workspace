@@ -523,7 +523,7 @@
 			"file": "lib/GameLogic.js",
 			"settings":
 			{
-				"buffer_size": 18906,
+				"buffer_size": 18941,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -542,7 +542,7 @@
 			"file": "templates/partials/script/player_events.hbs",
 			"settings":
 			{
-				"buffer_size": 20085,
+				"buffer_size": 20110,
 				"line_ending": "Unix"
 			}
 		},
@@ -578,6 +578,14 @@
 			{
 				"buffer_size": 950,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "routes/views/game/play.js",
+			"settings":
+			{
+				"buffer_size": 1066,
 				"line_ending": "Unix"
 			}
 		},
@@ -730,6 +738,9 @@
 	[
 		"/Users/Johnny/Documents/Projects/at-stake-v3/lib",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/routes",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/api",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views",
+		"/Users/Johnny/Documents/Projects/at-stake-v3/routes/views/game",
 		"/Users/Johnny/Documents/Projects/at-stake-v3",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers",
@@ -871,7 +882,7 @@
 	],
 	"find":
 	{
-		"height": 70.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
@@ -1244,7 +1255,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -1253,15 +1264,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18906,
+						"buffer_size": 18941,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9584,
-								9599
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1297,7 +1308,7 @@
 						"translation.y": 3501.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1599,7 +1610,7 @@
 						"translation.y": 5984.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1608,15 +1619,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 20085,
+						"buffer_size": 20110,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5680,
-								5680
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1629,7 +1640,7 @@
 						"translation.y": 3272.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1661,7 +1672,7 @@
 						"translation.y": 67.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1691,7 +1702,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1724,7 +1735,7 @@
 						"translation.y": 720.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1746,6 +1757,15 @@
 						],
 						"settings":
 						{
+							"SL.389.region_keys":
+							[
+								"SL.gjslint.Highlights.|df1896e996101e42673fd7283de5d9e7075f13f423f03afcddd7b61dc316288d|region.redish markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.gjslint.Highlights.|5e531de8f68ef0edb9219bcee600e6a8592ee6625a5e2793a8a276e2b153fef3|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|cb0388e24a168ff63e5095089d56d3b11c40598eec3b60601d6b6da6c39676d0|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.gjslint.Highlights.|5f02d2d574d48dbd918ad8d1edbb39c2a373888d0cb19175d228f97372d18a8f|region.redish markup.error.sublime_linter|32"
+							],
 							"SL.81.region_keys":
 							[
 							],
@@ -1757,11 +1777,57 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 7,
+					"file": "routes/views/game/play.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1066,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								811,
+								811
+							]
+						],
+						"settings":
+						{
+							"SL.395.region_keys":
+							[
+								"SL.gjslint.Highlights.|a5af12c05bdaf67a3670234ec91d0696bbd449da55219b47148bfbc183c7af21|region.redish markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.gjslint.Highlights.|37db2e74c6ca5d2f1a1d8f00881ca852e090885adb1aaeeac40ef23fa38229c2|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|0c85c206cc18c3b8751837e9fac6dac6003b8aa807d79aff45bea278934b03eb|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|4efaf8fd41d179acd6fc153485fb7abcc0277e32d7c14845d64019b32630ab84|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|fad53a092073f6609c6c8e0a522262176367cfe0bdbb148f74010097afd1547a|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|a423d834fc1c2d11c1a55271912d7c339bb0e6f7e3263fac6659e57e887dae64|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|ffb8e5739d1d977baa4f654791062d935a59d41d18e402594b8e0148f81c7443|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.gjslint.Highlights.|85e4cde182a386dd7d7e36477a117d31355894270b83272aa52c2fea1508b42a|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|c78fe754f7a9e31e6c164c1672822a54b2b9bb3f416fff75ff4c9f802c5a593c|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|655931a42180be7b6bd07a238f6398d38f864b728595085b75d1ddc29b3eef5f|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|cd4a2ab83aad36cf5bb5cca29dbae71363e64e0e03ba6ed42a0475ca98691be0|region.redish markup.error.sublime_linter|32"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1785,7 +1851,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -1846,7 +1912,7 @@
 	"project": "at-stake-v3.sublime-project",
 	"replace":
 	{
-		"height": 114.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":

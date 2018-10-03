@@ -29,10 +29,19 @@ exports = module.exports = function(req, res) {
     locals.socketHost = ( (process.env.NODE_ENV === 'staging') ? 'qa.' : '')  +  'atstakegame.org';
 
   // Enable debugging on staging/dev only
-  if(req.params.mode === 'debug' && process.env.NODE_ENV !== 'production')
-	  locals.debug = true;
+  if(process.env.NODE_ENV !== 'production') {
+    if(req.params.mode === 'debug')
+      locals.debug = true;
+
+    // Has access code/username in URL? (testing)
+    if(req.params.accesscode) 
+      locals.accesscode = req.params.accesscode;
+    if(req.params.username) 
+      locals.username = req.params.username;
+  }
   else if(req.params.mode === 'mobile')
     locals.mobile = true;
+
 
   view.on('init', function(next) {
     next();

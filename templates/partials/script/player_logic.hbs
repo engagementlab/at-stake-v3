@@ -57,7 +57,7 @@ var playerLogin = function(data) {
     playerName = playerName.replace(' ','');
 
     sessionStorage.setItem('username', playerName);
-    // sessionStorage.setItem('gameCode', gameCode);
+    sessionStorage.setItem('gameCode', gameCode);
 
     // Open socket connection
     if(!socket) { 

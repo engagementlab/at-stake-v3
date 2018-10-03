@@ -527,20 +527,19 @@ socketEvents = function(eventId, eventData) {
 
             updateGameContent(eventData.html, function() {
 
-                currentPhaseIndex = eventData.phase;
+                if(eventData.phase)
+                    currentPhaseIndex = eventData.phase;
+
                 setupScreen(undefined, eventData.screen);
 
                 // Move immediately to restart point in current phase, by removing screens before it and showing it
-                $('.screen.restart').prevAll().remove();
+                // $('.screen.restart').prevAll().remove();
 
                 // Hide any previously hidden elements
-                $('.screen.restart .hidden-el').css({visibility:'hidden'});
-                $('.screen.restart').show();
+                // $('.screen.restart .hidden-el').css({visibility:'hidden'});
+                // $('.screen.restart').show();
 
                 openInnerModal();
-            
-                // sessionStorage.setItem('markup', $('#gameContent').html());
-
             });
 
             break;
