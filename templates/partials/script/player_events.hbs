@@ -234,6 +234,9 @@ socketEvents = function(eventId, eventData) {
             if(gameEnded)
                 return;
 
+            // Remove saved sesh
+            {{!-- resetSession(); --}}
+
             // if ($('.modal'))
             //     $('.modal').fadeOut();
 
@@ -451,7 +454,7 @@ socketEvents = function(eventId, eventData) {
             }
 
             $('#btn-more-time').click(function() {
-                ion.sound.stop("click3");
+                ion.sound.stop("clic /k3");
                 ion.sound.play("player_yellow");
             });
 
@@ -526,7 +529,7 @@ socketEvents = function(eventId, eventData) {
                 setupScreen(undefined, eventData.screen);
 
                 // Move immediately to restart point in current phase, by removing screens before it and showing it
-                // $('.screen.restart').prevAll().remove();
+                $($('.screen')[currentScreenIndex]).prevAll().remove();
 
                 // Hide any previously hidden elements
                 // $('.screen.restart .hidden-el').css({visibility:'hidden'});

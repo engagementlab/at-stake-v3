@@ -135,14 +135,9 @@ const PlayerLogin = function(nsp, socket, emitter) {
 
       }
 
-      if(playerGameId && session) {
-
-        // if(currentSocket.id === session.groupModerator)
-        //   session.End(currentSpace, false);
-        // else
+      if(playerGameId && session)
           session.PlayerLost(currentSocket.id, currentSocket);
 
-      }
     }
   
   };
