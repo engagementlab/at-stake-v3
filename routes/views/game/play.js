@@ -30,7 +30,7 @@ exports = module.exports = function(req, res) {
 
   // Enable debugging on staging/dev only
   if(process.env.NODE_ENV !== 'production') {
-    if(req.params.mode === 'debug')
+    if(req.query.debug !== undefined)
       locals.debug = true;
 
     // Has access code/username in URL? (testing)

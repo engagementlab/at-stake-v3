@@ -348,9 +348,6 @@
 	    
 	    $('#overlay').hide();
 
-	    // Local session update 
-	    // {{!-- sessionStorage.setItem('phase', currentPhaseIndex);   --}}
-
 	    // Analytics
 	    var phaseName = $('#stages-bar .icon:eq('+currentPhaseIndex+') span').text(),
 					phaseNameFormatted = phaseName.charAt(0).toUpperCase() + phaseName.slice(1);
@@ -369,11 +366,6 @@
 	    $.when($($('.screen:not(.skip)')[0]).remove()).then(function() {
 
 	        var newScreen = $('.screen:not(.skip)')[0];
-	        
-	        // Local session update
-	        // sessionStorage.setItem('markup', $('#gameContent').html());   
-	        // sessionStorage.setItem('screen', currentScreenIndex);
-
 	        $(newScreen).trigger('show');
 
 	        runMods();
@@ -586,6 +578,7 @@
 	var setupDecider = function() {
 
     isDecider = true;
+	sessionStorage.setItem('isModerator', true);
 
     // Accesscode may be provided by server when debugging
     var gameCodeHtml = '';

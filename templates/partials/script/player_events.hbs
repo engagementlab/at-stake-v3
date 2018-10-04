@@ -212,8 +212,6 @@ socketEvents = function(eventId, eventData) {
                 });
             }
 
-
-
             if(isDecider) {
                 // Session started, let's sign-up the decider for this room
                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));
@@ -223,7 +221,7 @@ socketEvents = function(eventId, eventData) {
                 socket.emit('room', emitData({type:'player'}));
             }
 
-            {{!-- $('#gameContent').addClass('player-grid'); --}}
+            $('#gameContent').addClass('player-grid');
 
             $('.login.form').fadeOut(function() { $('.login.waiting').fadeIn(function(){
                 {{!-- $('.lobby#join').addClass('player-grid'); --}}
@@ -236,14 +234,11 @@ socketEvents = function(eventId, eventData) {
             if(gameEnded)
                 return;
 
-            // Remove saved sesh
-            resetSession();
-
-            if ($('.modal'))
-                $('.modal').fadeOut();
+            // if ($('.modal'))
+            //     $('.modal').fadeOut();
 
             // Show main menu w/ error
-            openInnerModal('menu', false, false, 'disconnected');
+            // openInnerModal('menu', false, false, 'disconnected');
 
             // remove the css added on connect
             $('#wrapper').css('overflow-y', 'scroll').css('position', 'relative');
@@ -489,8 +484,6 @@ socketEvents = function(eventId, eventData) {
             if ($('#background-logo').css('display', 'none'))
                 $('#background-logo').show();
 
-            sessionStorage.setItem('gameCode', gameCode);
-
             // Don't show yet?
             if(waitForNextScreen) {
                 nextScreenData = eventData;
@@ -527,7 +520,7 @@ socketEvents = function(eventId, eventData) {
 
             updateGameContent(eventData.html, function() {
 
-                if(eventData.phase)
+                if(eventData.phase !== undefined)
                     currentPhaseIndex = eventData.phase;
 
                 setupScreen(undefined, eventData.screen);

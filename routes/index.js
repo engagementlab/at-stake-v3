@@ -21,8 +21,8 @@ router.all('/*', keystone.middleware.cors);
 
 // Views
 router.get('/', routes.views.index);
-router.get('/play/host/:accesscode/:debug?', routes.views.decider.game);
-router.get('/play/:accesscode?/:username?/:mode?', routes.views.game.play);
+router.get('/play/host/:accesscode', routes.views.decider.game);
+router.get('/play/:accesscode?/:username?', routes.views.game.play);
 
 router.post('/login', routes.views.game.player);
 // API Endpoints
