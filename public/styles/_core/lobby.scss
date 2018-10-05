@@ -475,6 +475,9 @@
 		  	background-color: $color-orange;
 		  }
 
+		  	&.glide, .glide__track {
+				height: auto!important;
+			}
 			.glide__bullets {
 				bottom: auto;
 				height: auto;
