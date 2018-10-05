@@ -2,7 +2,7 @@
   "apps" : [{
     "name": "Learning Games",
     "script": "server.js",
-    "interpreter" : "node@4.4.2",
+    "interpreter" : "node@10.11.0",
     "env_production": {
       "NODE_ENV": "production"
     },
@@ -16,7 +16,7 @@
       "user": "node",
       "host": "159.203.174.12",
       "repo": "git@github.com:engagementgamelab/el-web-sdk.git",
-      "ref": "origin/master",
+      "ref": "origin/keystone-4.0",
       "path": "/srv/framework",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.';",
       "post-deploy" : "cd /srv/framework/current/ ; npm i ; npm update ; grunt compile --sites=at-stake --env staging ; nvm use ; pm2 restart 0",
@@ -29,7 +29,7 @@
       "user": "node",
       "host": "159.203.174.12",
       "repo": "git@github.com:engagementgamelab/at-stake-v3.git",
-      "ref": "origin/master",
+      "ref": "origin/v3.1",
       "path": "/srv/at-stake-v3",
       "pre-deploy-local" : "echo 'NPM linking at-stake-v3 and restarting app.'; git pull git@github.com:engagementgamelab/el-web-sdk.git master;",
       "post-deploy" : "npm i ; npm update ; cd /srv/framework/current/ ; npm i ; grunt compile --sites=at-stake --env staging ; nvm use ; NODE_ENV=staging pm2 restart 0"
