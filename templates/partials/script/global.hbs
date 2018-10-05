@@ -736,6 +736,8 @@
 					{{/ifnoteq}}
 
 					{{#unless mobile}}
+
+						{{#ifeq environment "production"}}
 						// Configure app badge to show if mobile browser on /play
 						if(isMobile) {
 							var mobileRemoved = isAndroid ? 'ios' : 'android';
@@ -743,6 +745,7 @@
 							$('#lobby .form').remove();
 							$('#lobby .mobile').show();
 						}
+						{{/ifeq}}
 					{{/unless}}
 				}
 		
