@@ -129,8 +129,9 @@ var setupScreen = function(screenName, index) {
     screenOpen($('.screen:not(.skip):eq(' + currentScreenIndex + ')'));
 
     phaseBarProgress();
-
     runMods();
+
+    $('#overlay').trigger('hide');  
 
 }
 
@@ -399,8 +400,8 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:start':
 
-            // $('#bottom-bar').show();
-            
+            sessionStorage.setItem('gameCode', gameCode);
+
             $('#agenda-items .role:visible').remove();
             $('#agenda-items .role').first().show();
 
@@ -500,7 +501,6 @@ socketEvents = function(eventId, eventData) {
                     setupScreen(eventData.name);
 
                 });
-
             }
             else {
                 updateGameContent(eventData, function() {
