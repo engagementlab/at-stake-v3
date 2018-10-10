@@ -89,12 +89,12 @@
 
       <div class="form row" id="start">
         {{!-- <input data-event="game:start" class="post-button" type="submit" name="submit" value="play!"> --}}
-        <button id="btn-start-game" data-from="lobby" data-to="tutorial">play!</button>
+        <button id="btn-start-game" data-event="game:start" data-package='{"tutorial": "false"}' class="btn submit">play!</button>
         <button class="back-button" data-from="share-code" data-to="deck-choice">back</button>
       </div>
     </div>
 
-    {{!-- Tutorial selection --}}
+    {{!-- Tutorial selection
     <div id="tutorial" class="col-sm-12" style="display:none">
 
       <div class="col-xs-12 col-centered  form">
@@ -111,7 +111,7 @@
       </div>
 
       <button class="back-button" data-from="choices" data-to="name">back</button>
-    </div>
+    </div> --}}
 
   </div>
 
