@@ -36,7 +36,7 @@ var resetSession = function() {
 var startTimer = function(secondsLeft, timerAdvance) {
     
     var wasPaused = false;
-    if($('.screen:visible .timer').length === 0)
+    if($('.screen:visible .timer_wrap.running').length === 0)
         return;
 
     if(secondsLeft > 0)
@@ -68,9 +68,14 @@ var startTimer = function(secondsLeft, timerAdvance) {
         }
 
     }, 1000);
+
+    // Hide preview timer/btn
+    $('.screen:visible .timer_wrap.preview').fadeOut(500, function() {
+        $('.screen:visible .timer_wrap.running').fadeIn();
+    });
     
     countdownAnim = new ProgressBar.Circle(
-      '.screen .timer', 
+      '.screen .timer_wrap.running .timer', 
       {
           color: '#56d5ff',
           duration: secondsLeft*1000,
@@ -611,6 +616,11 @@ socketEvents = function(eventId, eventData) {
             ion.sound.play("alarm");
             $('#added-time').hide();
             timerActive = false;
+
+            if(eventData === 'meetCountdown') {
+                nextPhaseScreen();
+                return;
+            }
 
             // Move right to next player if in double-down
             if(eventData === 'doubledownCountdown') {

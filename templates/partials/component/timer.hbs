@@ -8,10 +8,10 @@
 --}}
     
 {{!-- SPEECH W/ BUTTON TO START --}}
-{{#ifeq preview true}} 
+{{!-- {{#ifeq preview true}}  --}}
     
   {{!-- CIRCULAR TIMER --}}
-  <div class="timer_wrap {{stage}} {{#ifeq decider true}}decider form{{else}}player{{/ifeq}}">
+  <div class="timer_wrap preview {{stage}} {{#ifeq decider true}}decider form{{else}}player{{/ifeq}}">
       
         <button 
         {{#ifeq decider true}}
@@ -46,7 +46,7 @@
 
     </div>
 
-{{else}}
+{{!-- {{else}} --}}
   
   {{!-- CIRCULAR TIMER --}}
   <div class="timer_wrap running {{stage}} {{#ifeq decider true}}decider{{else}}player{{/ifeq}}">
@@ -69,4 +69,4 @@
 
   </div>
 
-{{/ifeq}}
+{{!-- {{/ifeq}} --}}

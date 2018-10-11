@@ -327,6 +327,14 @@ input.post-button {
 			}
 		}
 	}
+	&.running {
+		display: none;
+	}
+
+	&.player {
+		pointer-events: none;
+		cursor: normal;
+	}
 
 	.body.pitch {
 		color: white;
@@ -357,11 +365,6 @@ input.post-button {
     	color: white;
     	font-family: AvenirNext-Bold;
 		}
-	}
-
-	&.player {
-		pointer-events: none;
-		cursor: normal;
 	}
 
 	button {

@@ -520,24 +520,6 @@
 	"buffers":
 	[
 		{
-			"file": "lib/GameLogic.js",
-			"settings":
-			{
-				"buffer_size": 19299,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js",
-			"settings":
-			{
-				"buffer_size": 1316,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "/Users/Johnny/Documents/Projects/el-web-sdk/grunt/concurrent.js",
 			"settings":
 			{
@@ -550,7 +532,7 @@
 			"file": "templates/partials/script/player_events.hbs",
 			"settings":
 			{
-				"buffer_size": 20004,
+				"buffer_size": 20085,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -559,18 +541,43 @@
 			"file": "templates/partials/script/player_logic.hbs",
 			"settings":
 			{
-				"buffer_size": 10691,
+				"buffer_size": 10611,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Searching 1425 files for \"currentPhaseIndex =\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n   39                                ],\n   40          \n   41:         this.currentPhaseIndex = -1,\n   42          this.currentScreenIndex = 0,\n   43          this.allAgendaItems,\n   ..\n   93          this.groupSocket.to(this._current_decider.socket_id).emit('game:decider', true);\n   94  \n   95:         this.currentPhaseIndex = -1;\n   96          this._current_round = 0;\n   97  \n   ..\n  562  \n  563          // Reset defaults\n  564:         this.currentPhaseIndex = -1;\n  565          this._deliberate_time_queue = [];\n  566          this.playersDoubledownDone = 0;\n  ...\n  579      LoadScreenAtIndex(index) {\n  580  \n  581:         this.currentPhaseIndex = index-1;\n  582  \n  583          let id = this.currentScreens[this.currentPhaseIndex].id;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n   48  \n   49    // Tracks current phase index and the screen during each phase\n   50:   currentPhaseIndex = -1,\n   51    currentScreenIndex = 0,\n   52  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  431          case 'game:advance':\n  432  \n  433:             currentPhaseIndex = -1;\n  434  \n  435              break;\n  ...\n  528              updateGameContent(eventData.html, function() {\n  529  \n  530:                 currentPhaseIndex = eventData.phase;\n  531                  setupScreen(undefined, eventData.screen);\n  532  \n\n7 matches across 3 files\n\n\nSearching 1425 files for \"refresh_screen\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n  279  \n  280          let path = 'partials/shared/' + screenName;\n  281:         let eventId = refreshCurrent ? 'game:refresh_screen' : 'game:next_phase';\n  282          let round = this._current_round;\n  283          let template = this.Templates;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  162  \t\t'game:advance',\n  163  \t\t'game:decider',\n  164: \t\t'game:refresh_screen',\n  165  \n  166  \t\t'coins:add',\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  518              break;\n  519  \n  520:         case 'game:refresh_screen':\n  521              \n  522              // Don't show yet?\n\n3 matches across 3 files\n\n\nSearching 1425 files for \"updateGameContent\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  304    * @param {Boolean} pauseAnimate Don't animate screen back in; instead pass animate function to callback to use later\n  305    * @class global\n  306:   * @name updateGameContent\n  307    */\n  308: \tvar updateGameContent = function(content, callback, pauseAnimate) {\n  309  \n  310  \t\t// Inject markup content and fire callback when done\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  499  \n  500              if (eventData.html) {\n  501:                 updateGameContent(eventData.html, function() {\n  502  \n  503                      nextPhase();\n  ...\n  508              }\n  509              else {\n  510:                 updateGameContent(eventData, function() {\n  511  \n  512                      nextPhase();\n  ...\n  526              }\n  527  \n  528:             updateGameContent(eventData.html, function() {\n  529  \n  530                  currentPhaseIndex = eventData.phase+1;\n  ...\n  563              ga('send', 'event', 'Game', 'Event', 'Game Ended');  \n  564  \n  565:             updateGameContent(eventData, function() {\n  566                  openInnerModal(null, true, true);\n  567                  window.location = window.location;\n\n6 matches across 2 files\n\n\nSearching 1425 files for \"ShowScreen\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-workspace:\n  530  \t\t},\n  531  \t\t{\n  532: \t\t\t\"contents\": \"Searching 254 files for \\\"ShowScreen\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\n  254        \\n  255          let data = this.GetData(screenName);\\n  256:         this.ShowScreen(screenName, data, isUnique, refreshCurrent);\\n  257       \\n  258      }\\n  ...\\n  266      * @param {Boolean} Don't send next phase, just refresh current screen(s) with new data?\\n  267      * @class GameLogic\\n  268:     * @name ShowScreen\\n  269      */\\n  270:     ShowScreen(screenName, data, uniqueData, refreshCurrent) {\\n  271  \\n  272          let path = 'partials/shared/' + screenName;\\n\\n3 matches in 1 file\\n\\n\\nSearching 254 files for \\\"FindScreen\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\n  248      }\\n  249  \\n  250:     FindScreen(screenName, refreshCurrent) {\\n  251  \\n  252          let screenInfo = _.where(this.currentScreens, {id: screenName})[0];\\n  ...\\n  429          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  430  \\n  431:         this.FindScreen(id);\\n  432  \\n  433      }\\n  ...\\n  474              this._active_player_index++;\\n  475  \\n  476:         this.FindScreen(id, true);\\n  477  \\n  478      }\\n  ...\\n  495  \\n  496          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  497:         this.FindScreen(id, true);\\n  498  \\n  499      }\\n  ...\\n  529              }\\n  530  \\n  531:             // this.FindScreen(id, false, true);\\n  532          \\n  533          }\\n  ...\\n  573  \\n  574          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  575:         this.FindScreen(id);\\n  576  \\n  577      }\\n\\n6 matches in 1 file\\n\\n\\nSearching 254 files for \\\"uUID\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\n  609  \\n  610      // Create uid for player\\n  611:     if(!sessionStorage.getItem('uUID')) {\\n  612          playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  613:         sessionStorage.setItem('uUID', playerUID);\\n  614      }\\n  615      else \\n  616:         playerUID = sessionStorage.getItem('uUID');\\n  617      \\n  618      // Open socket connection\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n   27      // Remove saved game code, uid, markup, and set to not reconnected\\n   28      sessionStorage.removeItem('gameCode');\\n   29:     sessionStorage.removeItem('uUID');\\n   30      sessionStorage.removeItem('markup');\\n   31      sessionStorage.removeItem('lastDuration'); \\n   ..\\n  211                    gameId: sessionStorage.getItem('gameCode'), \\n  212                    username: sessionStorage.getItem('username'),\\n  213:                   uid: sessionStorage.getItem('uUID'),\\n  214                    decider: isDecider\\n  215                  });\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\n  292  \\n  293      // Create uid for player\\n  294:     if(!sessionStorage.getItem('uUID')) {\\n  295          playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  296:         sessionStorage.setItem('uUID', playerUID);\\n  297      }\\n  298      else \\n  299:         playerUID = sessionStorage.getItem('uUID');\\n  300  \\n  301      // Disable button and show loading modal\\n\\n8 matches across 3 files\\n\\n\\nSearching 254 files for \\\"playerUID\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\n   22  \\n   23    playerId,\\n   24:   playerUID,\\n   25    isDecider,\\n   26  \\ttimeline = new TimelineLite(),\\n   ..\\n  610      // Create uid for player\\n  611      if(!sessionStorage.getItem('uUID')) {\\n  612:         playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  613:         sessionStorage.setItem('uUID', playerUID);\\n  614      }\\n  615      else \\n  616:         playerUID = sessionStorage.getItem('uUID');\\n  617      \\n  618      // Open socket connection\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  218              if(isDecider) {\\n  219                  // Session started, let's sign-up the decider for this room\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\n  221              }\\n  222              else {\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\n  293      // Create uid for player\\n  294      if(!sessionStorage.getItem('uUID')) {\\n  295:         playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  296:         sessionStorage.setItem('uUID', playerUID);\\n  297      }\\n  298      else \\n  299:         playerUID = sessionStorage.getItem('uUID');\\n  300  \\n  301      // Disable button and show loading modal\\n  ...\\n  351              ga('send', 'event', 'Login', 'Username', username);\\n  352  \\n  353:             data.uid = playerUID;\\n  354              playerLogin(data);                          \\n  355  \\n\\n9 matches across 3 files\\n\\n\\nSearching 254 files for \\\"emitData\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\n  235  \\t Associate provided data object with current game ID\\n  236  \\t*/\\n  237: \\tvar emitData = function(data) {\\n  238  \\n  239  \\t\\tif(gameCode === undefined && typeof(data.code) !== 'undefined')\\n  ...\\n  659  \\t\\t\\t\\t\\t});\\n  660  \\t\\t\\t\\t\\t$('#overlay #btn-quit-yes').click(function(evt) {\\n  661: \\t\\t\\t\\t\\t\\tsocket.emit('game:exit', emitData());\\n  662  \\t\\t\\t\\t\\t});\\n  663  \\t\\t\\t\\t\\t$('#overlay #btn-quit-no').click(function(evt) {\\n  ...\\n  768  \\n  769  \\t\\t\\t\\t\\t    // Emit event to socket\\n  770: \\t\\t\\t\\t\\t    socket.emit(event, emitData(pkg));\\n  771  \\n  772  \\t\\t\\t\\t\\t    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom\\n  ...\\n  871  \\n  872  \\t\\t\\t\\t\\tif(selected.prop('selectedIndex') > 0)\\n  873: \\t\\t\\t\\t    socket.emit('game:load_screen', emitData({ index: selected.prop('selectedIndex') }));\\n  874  \\n  875  \\t\\t\\t\\t}\\n  ...\\n  888  \\n  889  \\t\\t\\t\\t\\tvar btn = $(evt.currentTarget);\\n  890: \\t\\t\\t\\t\\tsocket.emit('debug:pause', emitData());\\n  891  \\n  892  \\t\\t\\t\\t\\tif(!$(btn).data('resume')) {\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  218              if(isDecider) {\\n  219                  // Session started, let's sign-up the decider for this room\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\n  221              }\\n  222              else {\\n  223                  // Connected, let's sign-up for to receive messages for this room\\n  224:                 socket.emit('room', emitData('player'));\\n  225              }\\n  226  \\n  ...\\n  618  \\n  619                  if(isDecider) {\\n  620:                     socket.emit('game:next_player', emitData());\\n  621                      return;\\n  622                  }\\n  ...\\n  644                  nextPhaseScreen();\\n  645              else if (eventData == \\\"brainstormCountdown\\\" && isDecider){\\n  646:                 socket.emit('game:next', emitData(true));\\n  647              } \\n  648  \\n  ...\\n  668              if(eventData.phase === 'doubledown' && isDecider) {\\n  669                  setTimeout(function() {\\n  670:                     socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData(true));\\n  671                  }, 600);\\n  672              } else if (eventData.phase === 'pitch' && isDecider) {\\n  673                  setTimeout(function() {\\n  674:                     socket.emit((eventData.end ? 'game:next' : 'game:next_player'), emitData(true));\\n  675                  }, 600);\\n  676              }\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\n   67  \\n   68      // Log player in\\n   69:     socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));\\n   70  \\n   71  }\\n\\n12 matches across 3 files\\n\\n\\nSearching 255 files for \\\"'room\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  218              if(isDecider) {\\n  219                  // Session started, let's sign-up the decider for this room\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\n  221              }\\n  222              else {\\n  223                  // Connected, let's sign-up for to receive messages for this room\\n  224:                 socket.emit('room', ('player'));\\n  225              }\\n  226  \\n\\n2 matches in 1 file\\n\\n\\nSearching 256 files for \\\"grunt-nodemon\\\" (case sensitive)\\n\\n0 matches\\n\\nSearching 256 files for \\\"nodemon\\\" (case sensitive)\\n\\n0 matches\\n\\nSearching 1514 files for \\\"nodemon\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/config.codekit:\\n   47  \\t\\t\\\"syntaxCheckerStyle\\\": 1\\n   48  \\t\\t},\\n   49: \\t\\\"\\\\/grunt\\\\/nodemon.js\\\": {\\n   50  \\t\\t\\\"fileType\\\": 64,\\n   51  \\t\\t\\\"ignore\\\": 0,\\n   52  \\t\\t\\\"ignoreWasSetByUser\\\": 0,\\n   53: \\t\\t\\\"inputAbbreviatedPath\\\": \\\"\\\\/grunt\\\\/nodemon.js\\\",\\n   54: \\t\\t\\\"outputAbbreviatedPath\\\": \\\"\\\\/grunt\\\\/min\\\\/nodemon-min.js\\\",\\n   55  \\t\\t\\\"outputPathIsOutsideProject\\\": 0,\\n   56  \\t\\t\\\"outputPathIsSetByUser\\\": 0,\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/docs/INSTALLING.md:\\n   69  ```\\n   70  \\n   71: Install [nodemon](http://nodemon.io/) globally if not installed:\\n   72  ```\\n   73: npm install -g nodemon\\n   74  ```\\n   75  \\n   ..\\n  104  ```\\n  105  \\n  106: This command will lint our code, initialize the development server via nodemon, and start node-inspector.\\n  107  By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.\\n  108  ```\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/el-web-sdk.sublime-workspace:\\n  664  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/app.js\\\",\\n  665  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/templates/helpers/index.js\\\",\\n  666: \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js\\\",\\n  667  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/sites/factory.js\\\",\\n  668  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/Gruntfile.js\\\",\\n  ...\\n  741  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/footer.hbs\\\",\\n  742  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/models/Person.js\\\",\\n  743: \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/grunt/nodemon.js\\\",\\n  744  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/script/sections.hbs\\\",\\n  745  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/views/index.hbs\\\",\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/grunt/concurrent.js:\\n    7  \\n    8  \\tvar devTasks = [\\n    9: \\t\\t'nodemon:serve', \\n   10  \\t\\t'watch'\\n   11  \\t];\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js:\\n   47  \\t\\t\\t\\tignore: ignoreFilter,\\n   48  \\t\\t\\t\\twatch: watchFilter,\\n   49: \\t\\t    callback: function (nodemon) {\\n   50: \\t        nodemon.on('log', function (event) {\\n   51  \\t          console.log(event.colour);\\n   52  \\t        });\\n   53: \\t        nodemon.on('restart', function (event) {\\n   54  \\t          console.log('node restarted');\\n   55  \\t        });\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/out.txt:\\n    <binary>\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/package-lock.json:\\n 6666        \\\"integrity\\\": \\\"sha1-baWhdmjEs91ZYjvaEc9/pMH2Cm8=\\\"\\n 6667      },\\n 6668:     \\\"nodemon\\\": {\\n 6669        \\\"version\\\": \\\"1.18.3\\\",\\n 6670:       \\\"resolved\\\": \\\"https://registry.npmjs.org/nodemon/-/nodemon-1.18.3.tgz\\\",\\n 6671        \\\"integrity\\\": \\\"sha512-XdVfAjGlDKU2nqoGgycxTndkJ5fdwvWJ/tlMGk2vHxMZBrSPVh86OM6z7viAv8BBJWjMgeuYQBofzr6LUoi+7g==\\\",\\n 6672        \\\"requires\\\": {\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/package.json:\\n   38      \\\"node-sass\\\": \\\"^4.9.2\\\",\\n   39      \\\"node-sass-middleware\\\": \\\"^0.11.0\\\",\\n   40:     \\\"nodemon\\\": \\\"^1.9.2\\\",\\n   41      \\\"pluralize\\\": \\\"^1.2.1\\\",\\n   42      \\\"random-number\\\": \\\"0.0.7\\\",\\n   ..\\n   72      \\\"grunt-mongo-bin\\\": \\\"^0.1.0\\\",\\n   73      \\\"grunt-node-inspector\\\": \\\"^0.4.2\\\",\\n   74:     \\\"grunt-nodemon\\\": \\\"^0.2.1\\\",\\n   75      \\\"grunt-notify\\\": \\\"^0.4.5\\\",\\n   76      \\\"grunt-periodic\\\": \\\"^1.0.0\\\",\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/README.md:\\n   69  ```\\n   70  \\n   71: Install [nodemon](http://nodemon.io/) globally if not installed:\\n   72  ```\\n   73: npm install -g nodemon\\n   74  ```\\n   75  \\n   ..\\n  104  ```\\n  105  \\n  106: This command will lint our code, initialize the development server via nodemon, and start node-inspector.\\n  107  By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.\\n  108  ```\\n\\n36 matches across 9 files\\n\\n\\nSearching 1524 files for \\\"this.eventEmitter\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\\n   21          this.Session = require('./SessionManager'),\\n   22          this.events = require('events'),\\n   23:         this.eventEmitter = new this.events.EventEmitter(),\\n   24  \\n   25          this._current_players = {},\\n   ..\\n  340  \\n  341                  // Send the countdownEnded event to the game script\\n  342:                 this.eventEmitter.emit('countdownEnded', data, socket);\\n  343  \\n  344                  // Clear the countdown\\n  ...\\n  386          clearInterval(this._countdown);\\n  387                  \\n  388:         this.eventEmitter.removeAllListeners('countdownEnded');\\n  389      \\n  390      }\\n\\n3 matches in 1 file\\n\",\n  533  \t\t\t\"settings\":\n  534  \t\t\t{\n  ...\n  993  \t\t\t\"arrPlayerUnique\",\n  994  \t\t\t\"FindScreen\",\n  995: \t\t\t\"ShowScreen\",\n  996  \t\t\t\"GetData\",\n  997  \t\t\t\"player:reconnected\",\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n  262        \n  263          let data = this.GetData(screenName);\n  264:         this.ShowScreen(screenName, data, isUnique, refreshCurrent, socket);\n  265       \n  266      }\n  ...\n  274      * @param {Boolean} Don't send next phase, just refresh current screen(s) with new data?\n  275      * @class GameLogic\n  276:     * @name ShowScreen\n  277      */\n  278:     ShowScreen(screenName, data, uniqueData, refreshCurrent, socket) {\n  279  \n  280          let path = 'partials/shared/' + screenName;\n\n8 matches across 2 files\n\n\nSearching 1425 files for \"FindScreen\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-workspace:\n  530  \t\t},\n  531  \t\t{\n  532: \t\t\t\"contents\": \"Searching 254 files for \\\"ShowScreen\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\n  254        \\n  255          let data = this.GetData(screenName);\\n  256:         this.ShowScreen(screenName, data, isUnique, refreshCurrent);\\n  257       \\n  258      }\\n  ...\\n  266      * @param {Boolean} Don't send next phase, just refresh current screen(s) with new data?\\n  267      * @class GameLogic\\n  268:     * @name ShowScreen\\n  269      */\\n  270:     ShowScreen(screenName, data, uniqueData, refreshCurrent) {\\n  271  \\n  272          let path = 'partials/shared/' + screenName;\\n\\n3 matches in 1 file\\n\\n\\nSearching 254 files for \\\"FindScreen\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\n  248      }\\n  249  \\n  250:     FindScreen(screenName, refreshCurrent) {\\n  251  \\n  252          let screenInfo = _.where(this.currentScreens, {id: screenName})[0];\\n  ...\\n  429          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  430  \\n  431:         this.FindScreen(id);\\n  432  \\n  433      }\\n  ...\\n  474              this._active_player_index++;\\n  475  \\n  476:         this.FindScreen(id, true);\\n  477  \\n  478      }\\n  ...\\n  495  \\n  496          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  497:         this.FindScreen(id, true);\\n  498  \\n  499      }\\n  ...\\n  529              }\\n  530  \\n  531:             // this.FindScreen(id, false, true);\\n  532          \\n  533          }\\n  ...\\n  573  \\n  574          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  575:         this.FindScreen(id);\\n  576  \\n  577      }\\n\\n6 matches in 1 file\\n\\n\\nSearching 254 files for \\\"uUID\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\n  609  \\n  610      // Create uid for player\\n  611:     if(!sessionStorage.getItem('uUID')) {\\n  612          playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  613:         sessionStorage.setItem('uUID', playerUID);\\n  614      }\\n  615      else \\n  616:         playerUID = sessionStorage.getItem('uUID');\\n  617      \\n  618      // Open socket connection\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n   27      // Remove saved game code, uid, markup, and set to not reconnected\\n   28      sessionStorage.removeItem('gameCode');\\n   29:     sessionStorage.removeItem('uUID');\\n   30      sessionStorage.removeItem('markup');\\n   31      sessionStorage.removeItem('lastDuration'); \\n   ..\\n  211                    gameId: sessionStorage.getItem('gameCode'), \\n  212                    username: sessionStorage.getItem('username'),\\n  213:                   uid: sessionStorage.getItem('uUID'),\\n  214                    decider: isDecider\\n  215                  });\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\n  292  \\n  293      // Create uid for player\\n  294:     if(!sessionStorage.getItem('uUID')) {\\n  295          playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  296:         sessionStorage.setItem('uUID', playerUID);\\n  297      }\\n  298      else \\n  299:         playerUID = sessionStorage.getItem('uUID');\\n  300  \\n  301      // Disable button and show loading modal\\n\\n8 matches across 3 files\\n\\n\\nSearching 254 files for \\\"playerUID\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\n   22  \\n   23    playerId,\\n   24:   playerUID,\\n   25    isDecider,\\n   26  \\ttimeline = new TimelineLite(),\\n   ..\\n  610      // Create uid for player\\n  611      if(!sessionStorage.getItem('uUID')) {\\n  612:         playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  613:         sessionStorage.setItem('uUID', playerUID);\\n  614      }\\n  615      else \\n  616:         playerUID = sessionStorage.getItem('uUID');\\n  617      \\n  618      // Open socket connection\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  218              if(isDecider) {\\n  219                  // Session started, let's sign-up the decider for this room\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\n  221              }\\n  222              else {\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\n  293      // Create uid for player\\n  294      if(!sessionStorage.getItem('uUID')) {\\n  295:         playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  296:         sessionStorage.setItem('uUID', playerUID);\\n  297      }\\n  298      else \\n  299:         playerUID = sessionStorage.getItem('uUID');\\n  300  \\n  301      // Disable button and show loading modal\\n  ...\\n  351              ga('send', 'event', 'Login', 'Username', username);\\n  352  \\n  353:             data.uid = playerUID;\\n  354              playerLogin(data);                          \\n  355  \\n\\n9 matches across 3 files\\n\\n\\nSearching 254 files for \\\"emitData\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\n  235  \\t Associate provided data object with current game ID\\n  236  \\t*/\\n  237: \\tvar emitData = function(data) {\\n  238  \\n  239  \\t\\tif(gameCode === undefined && typeof(data.code) !== 'undefined')\\n  ...\\n  659  \\t\\t\\t\\t\\t});\\n  660  \\t\\t\\t\\t\\t$('#overlay #btn-quit-yes').click(function(evt) {\\n  661: \\t\\t\\t\\t\\t\\tsocket.emit('game:exit', emitData());\\n  662  \\t\\t\\t\\t\\t});\\n  663  \\t\\t\\t\\t\\t$('#overlay #btn-quit-no').click(function(evt) {\\n  ...\\n  768  \\n  769  \\t\\t\\t\\t\\t    // Emit event to socket\\n  770: \\t\\t\\t\\t\\t    socket.emit(event, emitData(pkg));\\n  771  \\n  772  \\t\\t\\t\\t\\t    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom\\n  ...\\n  871  \\n  872  \\t\\t\\t\\t\\tif(selected.prop('selectedIndex') > 0)\\n  873: \\t\\t\\t\\t    socket.emit('game:load_screen', emitData({ index: selected.prop('selectedIndex') }));\\n  874  \\n  875  \\t\\t\\t\\t}\\n  ...\\n  888  \\n  889  \\t\\t\\t\\t\\tvar btn = $(evt.currentTarget);\\n  890: \\t\\t\\t\\t\\tsocket.emit('debug:pause', emitData());\\n  891  \\n  892  \\t\\t\\t\\t\\tif(!$(btn).data('resume')) {\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  218              if(isDecider) {\\n  219                  // Session started, let's sign-up the decider for this room\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\n  221              }\\n  222              else {\\n  223                  // Connected, let's sign-up for to receive messages for this room\\n  224:                 socket.emit('room', emitData('player'));\\n  225              }\\n  226  \\n  ...\\n  618  \\n  619                  if(isDecider) {\\n  620:                     socket.emit('game:next_player', emitData());\\n  621                      return;\\n  622                  }\\n  ...\\n  644                  nextPhaseScreen();\\n  645              else if (eventData == \\\"brainstormCountdown\\\" && isDecider){\\n  646:                 socket.emit('game:next', emitData(true));\\n  647              } \\n  648  \\n  ...\\n  668              if(eventData.phase === 'doubledown' && isDecider) {\\n  669                  setTimeout(function() {\\n  670:                     socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData(true));\\n  671                  }, 600);\\n  672              } else if (eventData.phase === 'pitch' && isDecider) {\\n  673                  setTimeout(function() {\\n  674:                     socket.emit((eventData.end ? 'game:next' : 'game:next_player'), emitData(true));\\n  675                  }, 600);\\n  676              }\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\n   67  \\n   68      // Log player in\\n   69:     socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));\\n   70  \\n   71  }\\n\\n12 matches across 3 files\\n\\n\\nSearching 255 files for \\\"'room\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  218              if(isDecider) {\\n  219                  // Session started, let's sign-up the decider for this room\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\n  221              }\\n  222              else {\\n  223                  // Connected, let's sign-up for to receive messages for this room\\n  224:                 socket.emit('room', ('player'));\\n  225              }\\n  226  \\n\\n2 matches in 1 file\\n\\n\\nSearching 256 files for \\\"grunt-nodemon\\\" (case sensitive)\\n\\n0 matches\\n\\nSearching 256 files for \\\"nodemon\\\" (case sensitive)\\n\\n0 matches\\n\\nSearching 1514 files for \\\"nodemon\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/config.codekit:\\n   47  \\t\\t\\\"syntaxCheckerStyle\\\": 1\\n   48  \\t\\t},\\n   49: \\t\\\"\\\\/grunt\\\\/nodemon.js\\\": {\\n   50  \\t\\t\\\"fileType\\\": 64,\\n   51  \\t\\t\\\"ignore\\\": 0,\\n   52  \\t\\t\\\"ignoreWasSetByUser\\\": 0,\\n   53: \\t\\t\\\"inputAbbreviatedPath\\\": \\\"\\\\/grunt\\\\/nodemon.js\\\",\\n   54: \\t\\t\\\"outputAbbreviatedPath\\\": \\\"\\\\/grunt\\\\/min\\\\/nodemon-min.js\\\",\\n   55  \\t\\t\\\"outputPathIsOutsideProject\\\": 0,\\n   56  \\t\\t\\\"outputPathIsSetByUser\\\": 0,\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/docs/INSTALLING.md:\\n   69  ```\\n   70  \\n   71: Install [nodemon](http://nodemon.io/) globally if not installed:\\n   72  ```\\n   73: npm install -g nodemon\\n   74  ```\\n   75  \\n   ..\\n  104  ```\\n  105  \\n  106: This command will lint our code, initialize the development server via nodemon, and start node-inspector.\\n  107  By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.\\n  108  ```\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/el-web-sdk.sublime-workspace:\\n  664  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/app.js\\\",\\n  665  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/templates/helpers/index.js\\\",\\n  666: \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js\\\",\\n  667  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/sites/factory.js\\\",\\n  668  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/Gruntfile.js\\\",\\n  ...\\n  741  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/footer.hbs\\\",\\n  742  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/models/Person.js\\\",\\n  743: \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/grunt/nodemon.js\\\",\\n  744  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/script/sections.hbs\\\",\\n  745  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/views/index.hbs\\\",\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/grunt/concurrent.js:\\n    7  \\n    8  \\tvar devTasks = [\\n    9: \\t\\t'nodemon:serve', \\n   10  \\t\\t'watch'\\n   11  \\t];\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js:\\n   47  \\t\\t\\t\\tignore: ignoreFilter,\\n   48  \\t\\t\\t\\twatch: watchFilter,\\n   49: \\t\\t    callback: function (nodemon) {\\n   50: \\t        nodemon.on('log', function (event) {\\n   51  \\t          console.log(event.colour);\\n   52  \\t        });\\n   53: \\t        nodemon.on('restart', function (event) {\\n   54  \\t          console.log('node restarted');\\n   55  \\t        });\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/out.txt:\\n    <binary>\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/package-lock.json:\\n 6666        \\\"integrity\\\": \\\"sha1-baWhdmjEs91ZYjvaEc9/pMH2Cm8=\\\"\\n 6667      },\\n 6668:     \\\"nodemon\\\": {\\n 6669        \\\"version\\\": \\\"1.18.3\\\",\\n 6670:       \\\"resolved\\\": \\\"https://registry.npmjs.org/nodemon/-/nodemon-1.18.3.tgz\\\",\\n 6671        \\\"integrity\\\": \\\"sha512-XdVfAjGlDKU2nqoGgycxTndkJ5fdwvWJ/tlMGk2vHxMZBrSPVh86OM6z7viAv8BBJWjMgeuYQBofzr6LUoi+7g==\\\",\\n 6672        \\\"requires\\\": {\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/package.json:\\n   38      \\\"node-sass\\\": \\\"^4.9.2\\\",\\n   39      \\\"node-sass-middleware\\\": \\\"^0.11.0\\\",\\n   40:     \\\"nodemon\\\": \\\"^1.9.2\\\",\\n   41      \\\"pluralize\\\": \\\"^1.2.1\\\",\\n   42      \\\"random-number\\\": \\\"0.0.7\\\",\\n   ..\\n   72      \\\"grunt-mongo-bin\\\": \\\"^0.1.0\\\",\\n   73      \\\"grunt-node-inspector\\\": \\\"^0.4.2\\\",\\n   74:     \\\"grunt-nodemon\\\": \\\"^0.2.1\\\",\\n   75      \\\"grunt-notify\\\": \\\"^0.4.5\\\",\\n   76      \\\"grunt-periodic\\\": \\\"^1.0.0\\\",\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/README.md:\\n   69  ```\\n   70  \\n   71: Install [nodemon](http://nodemon.io/) globally if not installed:\\n   72  ```\\n   73: npm install -g nodemon\\n   74  ```\\n   75  \\n   ..\\n  104  ```\\n  105  \\n  106: This command will lint our code, initialize the development server via nodemon, and start node-inspector.\\n  107  By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.\\n  108  ```\\n\\n36 matches across 9 files\\n\\n\\nSearching 1524 files for \\\"this.eventEmitter\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\\n   21          this.Session = require('./SessionManager'),\\n   22          this.events = require('events'),\\n   23:         this.eventEmitter = new this.events.EventEmitter(),\\n   24  \\n   25          this._current_players = {},\\n   ..\\n  340  \\n  341                  // Send the countdownEnded event to the game script\\n  342:                 this.eventEmitter.emit('countdownEnded', data, socket);\\n  343  \\n  344                  // Clear the countdown\\n  ...\\n  386          clearInterval(this._countdown);\\n  387                  \\n  388:         this.eventEmitter.removeAllListeners('countdownEnded');\\n  389      \\n  390      }\\n\\n3 matches in 1 file\\n\",\n  533  \t\t\t\"settings\":\n  534  \t\t\t{\n  ...\n  992  \t\t\t\"uUID\",\n  993  \t\t\t\"arrPlayerUnique\",\n  994: \t\t\t\"FindScreen\",\n  995  \t\t\t\"ShowScreen\",\n  996  \t\t\t\"GetData\",\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n   75  \n   76                  let id = this.currentScreens[this.currentPhaseIndex].id;\n   77:                 this.FindScreen(id, true, socket);\n   78              });\n   79  \n   ..\n  256      }\n  257  \n  258:     FindScreen(screenName, refreshCurrent, socket) {\n  259  \n  260          let screenInfo = _.where(this.currentScreens, {id: screenName})[0];\n  ...\n  441  \n  442          let id = this.currentScreens[this.currentPhaseIndex].id;\n  443:         this.FindScreen(id);\n  444  \n  445      }\n  ...\n  485              this._active_player_index++;\n  486  \n  487:         this.FindScreen(id, true);\n  488  \n  489      }\n  ...\n  506  \n  507          let id = this.currentScreens[this.currentPhaseIndex].id;\n  508:         this.FindScreen(id, true);\n  509  \n  510      }\n  ...\n  582  \n  583          let id = this.currentScreens[this.currentPhaseIndex].id;\n  584:         this.FindScreen(id);\n  585  \n  586      }\n  ...\n  589  \n  590          let id = this.currentScreens[this.currentPhaseIndex].id;\n  591:         this.FindScreen(id, false, socket);\n  592  \n  593      }\n\n15 matches across 2 files\n\n\nSearching 1425 files for \"has re-joined\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  362              }\n  363  \n  364:             // A player has re-joined\n  365              if(eventData.state === 'player_rejoined')\n  366                  playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n  516              this._current_players[player.uid].socket_id = player.socket_id;\n  517  \n  518:             console.info(player.username + ' has re-joined the game and has uid ' + player.uid);\n  519  \n  520              socket.emit(this._strLastEventId, {waitForLoad: true, html: this._objLastTemplate});\n\n2 matches across 2 files\n",
+			"contents": "Searching 1425 files for \"currentPhaseIndex =\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n   39                                ],\n   40          \n   41:         this.currentPhaseIndex = -1,\n   42          this.currentScreenIndex = 0,\n   43          this.allAgendaItems,\n   ..\n   93          this.groupSocket.to(this._current_decider.socket_id).emit('game:decider', true);\n   94  \n   95:         this.currentPhaseIndex = -1;\n   96          this._current_round = 0;\n   97  \n   ..\n  562  \n  563          // Reset defaults\n  564:         this.currentPhaseIndex = -1;\n  565          this._deliberate_time_queue = [];\n  566          this.playersDoubledownDone = 0;\n  ...\n  579      LoadScreenAtIndex(index) {\n  580  \n  581:         this.currentPhaseIndex = index-1;\n  582  \n  583          let id = this.currentScreens[this.currentPhaseIndex].id;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n   48  \n   49    // Tracks current phase index and the screen during each phase\n   50:   currentPhaseIndex = -1,\n   51    currentScreenIndex = 0,\n   52  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  431          case 'game:advance':\n  432  \n  433:             currentPhaseIndex = -1;\n  434  \n  435              break;\n  ...\n  528              updateGameContent(eventData.html, function() {\n  529  \n  530:                 currentPhaseIndex = eventData.phase;\n  531                  setupScreen(undefined, eventData.screen);\n  532  \n\n7 matches across 3 files\n\n\nSearching 1425 files for \"refresh_screen\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n  279  \n  280          let path = 'partials/shared/' + screenName;\n  281:         let eventId = refreshCurrent ? 'game:refresh_screen' : 'game:next_phase';\n  282          let round = this._current_round;\n  283          let template = this.Templates;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  162  \t\t'game:advance',\n  163  \t\t'game:decider',\n  164: \t\t'game:refresh_screen',\n  165  \n  166  \t\t'coins:add',\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  518              break;\n  519  \n  520:         case 'game:refresh_screen':\n  521              \n  522              // Don't show yet?\n\n3 matches across 3 files\n\n\nSearching 1425 files for \"updateGameContent\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  304    * @param {Boolean} pauseAnimate Don't animate screen back in; instead pass animate function to callback to use later\n  305    * @class global\n  306:   * @name updateGameContent\n  307    */\n  308: \tvar updateGameContent = function(content, callback, pauseAnimate) {\n  309  \n  310  \t\t// Inject markup content and fire callback when done\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  499  \n  500              if (eventData.html) {\n  501:                 updateGameContent(eventData.html, function() {\n  502  \n  503                      nextPhase();\n  ...\n  508              }\n  509              else {\n  510:                 updateGameContent(eventData, function() {\n  511  \n  512                      nextPhase();\n  ...\n  526              }\n  527  \n  528:             updateGameContent(eventData.html, function() {\n  529  \n  530                  currentPhaseIndex = eventData.phase+1;\n  ...\n  563              ga('send', 'event', 'Game', 'Event', 'Game Ended');  \n  564  \n  565:             updateGameContent(eventData, function() {\n  566                  openInnerModal(null, true, true);\n  567                  window.location = window.location;\n\n6 matches across 2 files\n\n\nSearching 1425 files for \"ShowScreen\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-workspace:\n  530  \t\t},\n  531  \t\t{\n  532: \t\t\t\"contents\": \"Searching 254 files for \\\"ShowScreen\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\n  254        \\n  255          let data = this.GetData(screenName);\\n  256:         this.ShowScreen(screenName, data, isUnique, refreshCurrent);\\n  257       \\n  258      }\\n  ...\\n  266      * @param {Boolean} Don't send next phase, just refresh current screen(s) with new data?\\n  267      * @class GameLogic\\n  268:     * @name ShowScreen\\n  269      */\\n  270:     ShowScreen(screenName, data, uniqueData, refreshCurrent) {\\n  271  \\n  272          let path = 'partials/shared/' + screenName;\\n\\n3 matches in 1 file\\n\\n\\nSearching 254 files for \\\"FindScreen\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\n  248      }\\n  249  \\n  250:     FindScreen(screenName, refreshCurrent) {\\n  251  \\n  252          let screenInfo = _.where(this.currentScreens, {id: screenName})[0];\\n  ...\\n  429          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  430  \\n  431:         this.FindScreen(id);\\n  432  \\n  433      }\\n  ...\\n  474              this._active_player_index++;\\n  475  \\n  476:         this.FindScreen(id, true);\\n  477  \\n  478      }\\n  ...\\n  495  \\n  496          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  497:         this.FindScreen(id, true);\\n  498  \\n  499      }\\n  ...\\n  529              }\\n  530  \\n  531:             // this.FindScreen(id, false, true);\\n  532          \\n  533          }\\n  ...\\n  573  \\n  574          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  575:         this.FindScreen(id);\\n  576  \\n  577      }\\n\\n6 matches in 1 file\\n\\n\\nSearching 254 files for \\\"uUID\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\n  609  \\n  610      // Create uid for player\\n  611:     if(!sessionStorage.getItem('uUID')) {\\n  612          playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  613:         sessionStorage.setItem('uUID', playerUID);\\n  614      }\\n  615      else \\n  616:         playerUID = sessionStorage.getItem('uUID');\\n  617      \\n  618      // Open socket connection\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n   27      // Remove saved game code, uid, markup, and set to not reconnected\\n   28      sessionStorage.removeItem('gameCode');\\n   29:     sessionStorage.removeItem('uUID');\\n   30      sessionStorage.removeItem('markup');\\n   31      sessionStorage.removeItem('lastDuration'); \\n   ..\\n  211                    gameId: sessionStorage.getItem('gameCode'), \\n  212                    username: sessionStorage.getItem('username'),\\n  213:                   uid: sessionStorage.getItem('uUID'),\\n  214                    decider: isDecider\\n  215                  });\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\n  292  \\n  293      // Create uid for player\\n  294:     if(!sessionStorage.getItem('uUID')) {\\n  295          playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  296:         sessionStorage.setItem('uUID', playerUID);\\n  297      }\\n  298      else \\n  299:         playerUID = sessionStorage.getItem('uUID');\\n  300  \\n  301      // Disable button and show loading modal\\n\\n8 matches across 3 files\\n\\n\\nSearching 254 files for \\\"playerUID\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\n   22  \\n   23    playerId,\\n   24:   playerUID,\\n   25    isDecider,\\n   26  \\ttimeline = new TimelineLite(),\\n   ..\\n  610      // Create uid for player\\n  611      if(!sessionStorage.getItem('uUID')) {\\n  612:         playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  613:         sessionStorage.setItem('uUID', playerUID);\\n  614      }\\n  615      else \\n  616:         playerUID = sessionStorage.getItem('uUID');\\n  617      \\n  618      // Open socket connection\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  218              if(isDecider) {\\n  219                  // Session started, let's sign-up the decider for this room\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\n  221              }\\n  222              else {\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\n  293      // Create uid for player\\n  294      if(!sessionStorage.getItem('uUID')) {\\n  295:         playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  296:         sessionStorage.setItem('uUID', playerUID);\\n  297      }\\n  298      else \\n  299:         playerUID = sessionStorage.getItem('uUID');\\n  300  \\n  301      // Disable button and show loading modal\\n  ...\\n  351              ga('send', 'event', 'Login', 'Username', username);\\n  352  \\n  353:             data.uid = playerUID;\\n  354              playerLogin(data);                          \\n  355  \\n\\n9 matches across 3 files\\n\\n\\nSearching 254 files for \\\"emitData\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\n  235  \\t Associate provided data object with current game ID\\n  236  \\t*/\\n  237: \\tvar emitData = function(data) {\\n  238  \\n  239  \\t\\tif(gameCode === undefined && typeof(data.code) !== 'undefined')\\n  ...\\n  659  \\t\\t\\t\\t\\t});\\n  660  \\t\\t\\t\\t\\t$('#overlay #btn-quit-yes').click(function(evt) {\\n  661: \\t\\t\\t\\t\\t\\tsocket.emit('game:exit', emitData());\\n  662  \\t\\t\\t\\t\\t});\\n  663  \\t\\t\\t\\t\\t$('#overlay #btn-quit-no').click(function(evt) {\\n  ...\\n  768  \\n  769  \\t\\t\\t\\t\\t    // Emit event to socket\\n  770: \\t\\t\\t\\t\\t    socket.emit(event, emitData(pkg));\\n  771  \\n  772  \\t\\t\\t\\t\\t    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom\\n  ...\\n  871  \\n  872  \\t\\t\\t\\t\\tif(selected.prop('selectedIndex') > 0)\\n  873: \\t\\t\\t\\t    socket.emit('game:load_screen', emitData({ index: selected.prop('selectedIndex') }));\\n  874  \\n  875  \\t\\t\\t\\t}\\n  ...\\n  888  \\n  889  \\t\\t\\t\\t\\tvar btn = $(evt.currentTarget);\\n  890: \\t\\t\\t\\t\\tsocket.emit('debug:pause', emitData());\\n  891  \\n  892  \\t\\t\\t\\t\\tif(!$(btn).data('resume')) {\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  218              if(isDecider) {\\n  219                  // Session started, let's sign-up the decider for this room\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\n  221              }\\n  222              else {\\n  223                  // Connected, let's sign-up for to receive messages for this room\\n  224:                 socket.emit('room', emitData('player'));\\n  225              }\\n  226  \\n  ...\\n  618  \\n  619                  if(isDecider) {\\n  620:                     socket.emit('game:next_player', emitData());\\n  621                      return;\\n  622                  }\\n  ...\\n  644                  nextPhaseScreen();\\n  645              else if (eventData == \\\"brainstormCountdown\\\" && isDecider){\\n  646:                 socket.emit('game:next', emitData(true));\\n  647              } \\n  648  \\n  ...\\n  668              if(eventData.phase === 'doubledown' && isDecider) {\\n  669                  setTimeout(function() {\\n  670:                     socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData(true));\\n  671                  }, 600);\\n  672              } else if (eventData.phase === 'pitch' && isDecider) {\\n  673                  setTimeout(function() {\\n  674:                     socket.emit((eventData.end ? 'game:next' : 'game:next_player'), emitData(true));\\n  675                  }, 600);\\n  676              }\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\n   67  \\n   68      // Log player in\\n   69:     socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));\\n   70  \\n   71  }\\n\\n12 matches across 3 files\\n\\n\\nSearching 255 files for \\\"'room\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  218              if(isDecider) {\\n  219                  // Session started, let's sign-up the decider for this room\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\n  221              }\\n  222              else {\\n  223                  // Connected, let's sign-up for to receive messages for this room\\n  224:                 socket.emit('room', ('player'));\\n  225              }\\n  226  \\n\\n2 matches in 1 file\\n\\n\\nSearching 256 files for \\\"grunt-nodemon\\\" (case sensitive)\\n\\n0 matches\\n\\nSearching 256 files for \\\"nodemon\\\" (case sensitive)\\n\\n0 matches\\n\\nSearching 1514 files for \\\"nodemon\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/config.codekit:\\n   47  \\t\\t\\\"syntaxCheckerStyle\\\": 1\\n   48  \\t\\t},\\n   49: \\t\\\"\\\\/grunt\\\\/nodemon.js\\\": {\\n   50  \\t\\t\\\"fileType\\\": 64,\\n   51  \\t\\t\\\"ignore\\\": 0,\\n   52  \\t\\t\\\"ignoreWasSetByUser\\\": 0,\\n   53: \\t\\t\\\"inputAbbreviatedPath\\\": \\\"\\\\/grunt\\\\/nodemon.js\\\",\\n   54: \\t\\t\\\"outputAbbreviatedPath\\\": \\\"\\\\/grunt\\\\/min\\\\/nodemon-min.js\\\",\\n   55  \\t\\t\\\"outputPathIsOutsideProject\\\": 0,\\n   56  \\t\\t\\\"outputPathIsSetByUser\\\": 0,\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/docs/INSTALLING.md:\\n   69  ```\\n   70  \\n   71: Install [nodemon](http://nodemon.io/) globally if not installed:\\n   72  ```\\n   73: npm install -g nodemon\\n   74  ```\\n   75  \\n   ..\\n  104  ```\\n  105  \\n  106: This command will lint our code, initialize the development server via nodemon, and start node-inspector.\\n  107  By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.\\n  108  ```\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/el-web-sdk.sublime-workspace:\\n  664  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/app.js\\\",\\n  665  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/templates/helpers/index.js\\\",\\n  666: \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js\\\",\\n  667  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/sites/factory.js\\\",\\n  668  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/Gruntfile.js\\\",\\n  ...\\n  741  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/footer.hbs\\\",\\n  742  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/models/Person.js\\\",\\n  743: \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/grunt/nodemon.js\\\",\\n  744  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/script/sections.hbs\\\",\\n  745  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/views/index.hbs\\\",\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/grunt/concurrent.js:\\n    7  \\n    8  \\tvar devTasks = [\\n    9: \\t\\t'nodemon:serve', \\n   10  \\t\\t'watch'\\n   11  \\t];\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js:\\n   47  \\t\\t\\t\\tignore: ignoreFilter,\\n   48  \\t\\t\\t\\twatch: watchFilter,\\n   49: \\t\\t    callback: function (nodemon) {\\n   50: \\t        nodemon.on('log', function (event) {\\n   51  \\t          console.log(event.colour);\\n   52  \\t        });\\n   53: \\t        nodemon.on('restart', function (event) {\\n   54  \\t          console.log('node restarted');\\n   55  \\t        });\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/out.txt:\\n    <binary>\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/package-lock.json:\\n 6666        \\\"integrity\\\": \\\"sha1-baWhdmjEs91ZYjvaEc9/pMH2Cm8=\\\"\\n 6667      },\\n 6668:     \\\"nodemon\\\": {\\n 6669        \\\"version\\\": \\\"1.18.3\\\",\\n 6670:       \\\"resolved\\\": \\\"https://registry.npmjs.org/nodemon/-/nodemon-1.18.3.tgz\\\",\\n 6671        \\\"integrity\\\": \\\"sha512-XdVfAjGlDKU2nqoGgycxTndkJ5fdwvWJ/tlMGk2vHxMZBrSPVh86OM6z7viAv8BBJWjMgeuYQBofzr6LUoi+7g==\\\",\\n 6672        \\\"requires\\\": {\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/package.json:\\n   38      \\\"node-sass\\\": \\\"^4.9.2\\\",\\n   39      \\\"node-sass-middleware\\\": \\\"^0.11.0\\\",\\n   40:     \\\"nodemon\\\": \\\"^1.9.2\\\",\\n   41      \\\"pluralize\\\": \\\"^1.2.1\\\",\\n   42      \\\"random-number\\\": \\\"0.0.7\\\",\\n   ..\\n   72      \\\"grunt-mongo-bin\\\": \\\"^0.1.0\\\",\\n   73      \\\"grunt-node-inspector\\\": \\\"^0.4.2\\\",\\n   74:     \\\"grunt-nodemon\\\": \\\"^0.2.1\\\",\\n   75      \\\"grunt-notify\\\": \\\"^0.4.5\\\",\\n   76      \\\"grunt-periodic\\\": \\\"^1.0.0\\\",\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/README.md:\\n   69  ```\\n   70  \\n   71: Install [nodemon](http://nodemon.io/) globally if not installed:\\n   72  ```\\n   73: npm install -g nodemon\\n   74  ```\\n   75  \\n   ..\\n  104  ```\\n  105  \\n  106: This command will lint our code, initialize the development server via nodemon, and start node-inspector.\\n  107  By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.\\n  108  ```\\n\\n36 matches across 9 files\\n\\n\\nSearching 1524 files for \\\"this.eventEmitter\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\\n   21          this.Session = require('./SessionManager'),\\n   22          this.events = require('events'),\\n   23:         this.eventEmitter = new this.events.EventEmitter(),\\n   24  \\n   25          this._current_players = {},\\n   ..\\n  340  \\n  341                  // Send the countdownEnded event to the game script\\n  342:                 this.eventEmitter.emit('countdownEnded', data, socket);\\n  343  \\n  344                  // Clear the countdown\\n  ...\\n  386          clearInterval(this._countdown);\\n  387                  \\n  388:         this.eventEmitter.removeAllListeners('countdownEnded');\\n  389      \\n  390      }\\n\\n3 matches in 1 file\\n\",\n  533  \t\t\t\"settings\":\n  534  \t\t\t{\n  ...\n  993  \t\t\t\"arrPlayerUnique\",\n  994  \t\t\t\"FindScreen\",\n  995: \t\t\t\"ShowScreen\",\n  996  \t\t\t\"GetData\",\n  997  \t\t\t\"player:reconnected\",\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n  262        \n  263          let data = this.GetData(screenName);\n  264:         this.ShowScreen(screenName, data, isUnique, refreshCurrent, socket);\n  265       \n  266      }\n  ...\n  274      * @param {Boolean} Don't send next phase, just refresh current screen(s) with new data?\n  275      * @class GameLogic\n  276:     * @name ShowScreen\n  277      */\n  278:     ShowScreen(screenName, data, uniqueData, refreshCurrent, socket) {\n  279  \n  280          let path = 'partials/shared/' + screenName;\n\n8 matches across 2 files\n\n\nSearching 1425 files for \"FindScreen\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-workspace:\n  530  \t\t},\n  531  \t\t{\n  532: \t\t\t\"contents\": \"Searching 254 files for \\\"ShowScreen\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\n  254        \\n  255          let data = this.GetData(screenName);\\n  256:         this.ShowScreen(screenName, data, isUnique, refreshCurrent);\\n  257       \\n  258      }\\n  ...\\n  266      * @param {Boolean} Don't send next phase, just refresh current screen(s) with new data?\\n  267      * @class GameLogic\\n  268:     * @name ShowScreen\\n  269      */\\n  270:     ShowScreen(screenName, data, uniqueData, refreshCurrent) {\\n  271  \\n  272          let path = 'partials/shared/' + screenName;\\n\\n3 matches in 1 file\\n\\n\\nSearching 254 files for \\\"FindScreen\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\n  248      }\\n  249  \\n  250:     FindScreen(screenName, refreshCurrent) {\\n  251  \\n  252          let screenInfo = _.where(this.currentScreens, {id: screenName})[0];\\n  ...\\n  429          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  430  \\n  431:         this.FindScreen(id);\\n  432  \\n  433      }\\n  ...\\n  474              this._active_player_index++;\\n  475  \\n  476:         this.FindScreen(id, true);\\n  477  \\n  478      }\\n  ...\\n  495  \\n  496          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  497:         this.FindScreen(id, true);\\n  498  \\n  499      }\\n  ...\\n  529              }\\n  530  \\n  531:             // this.FindScreen(id, false, true);\\n  532          \\n  533          }\\n  ...\\n  573  \\n  574          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  575:         this.FindScreen(id);\\n  576  \\n  577      }\\n\\n6 matches in 1 file\\n\\n\\nSearching 254 files for \\\"uUID\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\n  609  \\n  610      // Create uid for player\\n  611:     if(!sessionStorage.getItem('uUID')) {\\n  612          playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  613:         sessionStorage.setItem('uUID', playerUID);\\n  614      }\\n  615      else \\n  616:         playerUID = sessionStorage.getItem('uUID');\\n  617      \\n  618      // Open socket connection\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n   27      // Remove saved game code, uid, markup, and set to not reconnected\\n   28      sessionStorage.removeItem('gameCode');\\n   29:     sessionStorage.removeItem('uUID');\\n   30      sessionStorage.removeItem('markup');\\n   31      sessionStorage.removeItem('lastDuration'); \\n   ..\\n  211                    gameId: sessionStorage.getItem('gameCode'), \\n  212                    username: sessionStorage.getItem('username'),\\n  213:                   uid: sessionStorage.getItem('uUID'),\\n  214                    decider: isDecider\\n  215                  });\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\n  292  \\n  293      // Create uid for player\\n  294:     if(!sessionStorage.getItem('uUID')) {\\n  295          playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  296:         sessionStorage.setItem('uUID', playerUID);\\n  297      }\\n  298      else \\n  299:         playerUID = sessionStorage.getItem('uUID');\\n  300  \\n  301      // Disable button and show loading modal\\n\\n8 matches across 3 files\\n\\n\\nSearching 254 files for \\\"playerUID\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\n   22  \\n   23    playerId,\\n   24:   playerUID,\\n   25    isDecider,\\n   26  \\ttimeline = new TimelineLite(),\\n   ..\\n  610      // Create uid for player\\n  611      if(!sessionStorage.getItem('uUID')) {\\n  612:         playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  613:         sessionStorage.setItem('uUID', playerUID);\\n  614      }\\n  615      else \\n  616:         playerUID = sessionStorage.getItem('uUID');\\n  617      \\n  618      // Open socket connection\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  218              if(isDecider) {\\n  219                  // Session started, let's sign-up the decider for this room\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\n  221              }\\n  222              else {\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\n  293      // Create uid for player\\n  294      if(!sessionStorage.getItem('uUID')) {\\n  295:         playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\n  296:         sessionStorage.setItem('uUID', playerUID);\\n  297      }\\n  298      else \\n  299:         playerUID = sessionStorage.getItem('uUID');\\n  300  \\n  301      // Disable button and show loading modal\\n  ...\\n  351              ga('send', 'event', 'Login', 'Username', username);\\n  352  \\n  353:             data.uid = playerUID;\\n  354              playerLogin(data);                          \\n  355  \\n\\n9 matches across 3 files\\n\\n\\nSearching 254 files for \\\"emitData\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\n  235  \\t Associate provided data object with current game ID\\n  236  \\t*/\\n  237: \\tvar emitData = function(data) {\\n  238  \\n  239  \\t\\tif(gameCode === undefined && typeof(data.code) !== 'undefined')\\n  ...\\n  659  \\t\\t\\t\\t\\t});\\n  660  \\t\\t\\t\\t\\t$('#overlay #btn-quit-yes').click(function(evt) {\\n  661: \\t\\t\\t\\t\\t\\tsocket.emit('game:exit', emitData());\\n  662  \\t\\t\\t\\t\\t});\\n  663  \\t\\t\\t\\t\\t$('#overlay #btn-quit-no').click(function(evt) {\\n  ...\\n  768  \\n  769  \\t\\t\\t\\t\\t    // Emit event to socket\\n  770: \\t\\t\\t\\t\\t    socket.emit(event, emitData(pkg));\\n  771  \\n  772  \\t\\t\\t\\t\\t    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom\\n  ...\\n  871  \\n  872  \\t\\t\\t\\t\\tif(selected.prop('selectedIndex') > 0)\\n  873: \\t\\t\\t\\t    socket.emit('game:load_screen', emitData({ index: selected.prop('selectedIndex') }));\\n  874  \\n  875  \\t\\t\\t\\t}\\n  ...\\n  888  \\n  889  \\t\\t\\t\\t\\tvar btn = $(evt.currentTarget);\\n  890: \\t\\t\\t\\t\\tsocket.emit('debug:pause', emitData());\\n  891  \\n  892  \\t\\t\\t\\t\\tif(!$(btn).data('resume')) {\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  218              if(isDecider) {\\n  219                  // Session started, let's sign-up the decider for this room\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\n  221              }\\n  222              else {\\n  223                  // Connected, let's sign-up for to receive messages for this room\\n  224:                 socket.emit('room', emitData('player'));\\n  225              }\\n  226  \\n  ...\\n  618  \\n  619                  if(isDecider) {\\n  620:                     socket.emit('game:next_player', emitData());\\n  621                      return;\\n  622                  }\\n  ...\\n  644                  nextPhaseScreen();\\n  645              else if (eventData == \\\"brainstormCountdown\\\" && isDecider){\\n  646:                 socket.emit('game:next', emitData(true));\\n  647              } \\n  648  \\n  ...\\n  668              if(eventData.phase === 'doubledown' && isDecider) {\\n  669                  setTimeout(function() {\\n  670:                     socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData(true));\\n  671                  }, 600);\\n  672              } else if (eventData.phase === 'pitch' && isDecider) {\\n  673                  setTimeout(function() {\\n  674:                     socket.emit((eventData.end ? 'game:next' : 'game:next_player'), emitData(true));\\n  675                  }, 600);\\n  676              }\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\n   67  \\n   68      // Log player in\\n   69:     socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));\\n   70  \\n   71  }\\n\\n12 matches across 3 files\\n\\n\\nSearching 255 files for \\\"'room\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  218              if(isDecider) {\\n  219                  // Session started, let's sign-up the decider for this room\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\n  221              }\\n  222              else {\\n  223                  // Connected, let's sign-up for to receive messages for this room\\n  224:                 socket.emit('room', ('player'));\\n  225              }\\n  226  \\n\\n2 matches in 1 file\\n\\n\\nSearching 256 files for \\\"grunt-nodemon\\\" (case sensitive)\\n\\n0 matches\\n\\nSearching 256 files for \\\"nodemon\\\" (case sensitive)\\n\\n0 matches\\n\\nSearching 1514 files for \\\"nodemon\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/config.codekit:\\n   47  \\t\\t\\\"syntaxCheckerStyle\\\": 1\\n   48  \\t\\t},\\n   49: \\t\\\"\\\\/grunt\\\\/nodemon.js\\\": {\\n   50  \\t\\t\\\"fileType\\\": 64,\\n   51  \\t\\t\\\"ignore\\\": 0,\\n   52  \\t\\t\\\"ignoreWasSetByUser\\\": 0,\\n   53: \\t\\t\\\"inputAbbreviatedPath\\\": \\\"\\\\/grunt\\\\/nodemon.js\\\",\\n   54: \\t\\t\\\"outputAbbreviatedPath\\\": \\\"\\\\/grunt\\\\/min\\\\/nodemon-min.js\\\",\\n   55  \\t\\t\\\"outputPathIsOutsideProject\\\": 0,\\n   56  \\t\\t\\\"outputPathIsSetByUser\\\": 0,\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/docs/INSTALLING.md:\\n   69  ```\\n   70  \\n   71: Install [nodemon](http://nodemon.io/) globally if not installed:\\n   72  ```\\n   73: npm install -g nodemon\\n   74  ```\\n   75  \\n   ..\\n  104  ```\\n  105  \\n  106: This command will lint our code, initialize the development server via nodemon, and start node-inspector.\\n  107  By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.\\n  108  ```\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/el-web-sdk.sublime-workspace:\\n  664  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/app.js\\\",\\n  665  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/templates/helpers/index.js\\\",\\n  666: \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js\\\",\\n  667  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/sites/factory.js\\\",\\n  668  \\t\\t\\\"/Users/Johnny/Documents/Projects/el-web-sdk/Gruntfile.js\\\",\\n  ...\\n  741  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/footer.hbs\\\",\\n  742  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/models/Person.js\\\",\\n  743: \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/grunt/nodemon.js\\\",\\n  744  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/script/sections.hbs\\\",\\n  745  \\t\\t\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/views/index.hbs\\\",\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/grunt/concurrent.js:\\n    7  \\n    8  \\tvar devTasks = [\\n    9: \\t\\t'nodemon:serve', \\n   10  \\t\\t'watch'\\n   11  \\t];\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js:\\n   47  \\t\\t\\t\\tignore: ignoreFilter,\\n   48  \\t\\t\\t\\twatch: watchFilter,\\n   49: \\t\\t    callback: function (nodemon) {\\n   50: \\t        nodemon.on('log', function (event) {\\n   51  \\t          console.log(event.colour);\\n   52  \\t        });\\n   53: \\t        nodemon.on('restart', function (event) {\\n   54  \\t          console.log('node restarted');\\n   55  \\t        });\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/out.txt:\\n    <binary>\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/package-lock.json:\\n 6666        \\\"integrity\\\": \\\"sha1-baWhdmjEs91ZYjvaEc9/pMH2Cm8=\\\"\\n 6667      },\\n 6668:     \\\"nodemon\\\": {\\n 6669        \\\"version\\\": \\\"1.18.3\\\",\\n 6670:       \\\"resolved\\\": \\\"https://registry.npmjs.org/nodemon/-/nodemon-1.18.3.tgz\\\",\\n 6671        \\\"integrity\\\": \\\"sha512-XdVfAjGlDKU2nqoGgycxTndkJ5fdwvWJ/tlMGk2vHxMZBrSPVh86OM6z7viAv8BBJWjMgeuYQBofzr6LUoi+7g==\\\",\\n 6672        \\\"requires\\\": {\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/package.json:\\n   38      \\\"node-sass\\\": \\\"^4.9.2\\\",\\n   39      \\\"node-sass-middleware\\\": \\\"^0.11.0\\\",\\n   40:     \\\"nodemon\\\": \\\"^1.9.2\\\",\\n   41      \\\"pluralize\\\": \\\"^1.2.1\\\",\\n   42      \\\"random-number\\\": \\\"0.0.7\\\",\\n   ..\\n   72      \\\"grunt-mongo-bin\\\": \\\"^0.1.0\\\",\\n   73      \\\"grunt-node-inspector\\\": \\\"^0.4.2\\\",\\n   74:     \\\"grunt-nodemon\\\": \\\"^0.2.1\\\",\\n   75      \\\"grunt-notify\\\": \\\"^0.4.5\\\",\\n   76      \\\"grunt-periodic\\\": \\\"^1.0.0\\\",\\n\\n/Users/Johnny/Documents/Projects/el-web-sdk/README.md:\\n   69  ```\\n   70  \\n   71: Install [nodemon](http://nodemon.io/) globally if not installed:\\n   72  ```\\n   73: npm install -g nodemon\\n   74  ```\\n   75  \\n   ..\\n  104  ```\\n  105  \\n  106: This command will lint our code, initialize the development server via nodemon, and start node-inspector.\\n  107  By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.\\n  108  ```\\n\\n36 matches across 9 files\\n\\n\\nSearching 1524 files for \\\"this.eventEmitter\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\\n   21          this.Session = require('./SessionManager'),\\n   22          this.events = require('events'),\\n   23:         this.eventEmitter = new this.events.EventEmitter(),\\n   24  \\n   25          this._current_players = {},\\n   ..\\n  340  \\n  341                  // Send the countdownEnded event to the game script\\n  342:                 this.eventEmitter.emit('countdownEnded', data, socket);\\n  343  \\n  344                  // Clear the countdown\\n  ...\\n  386          clearInterval(this._countdown);\\n  387                  \\n  388:         this.eventEmitter.removeAllListeners('countdownEnded');\\n  389      \\n  390      }\\n\\n3 matches in 1 file\\n\",\n  533  \t\t\t\"settings\":\n  534  \t\t\t{\n  ...\n  992  \t\t\t\"uUID\",\n  993  \t\t\t\"arrPlayerUnique\",\n  994: \t\t\t\"FindScreen\",\n  995  \t\t\t\"ShowScreen\",\n  996  \t\t\t\"GetData\",\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n   75  \n   76                  let id = this.currentScreens[this.currentPhaseIndex].id;\n   77:                 this.FindScreen(id, true, socket);\n   78              });\n   79  \n   ..\n  256      }\n  257  \n  258:     FindScreen(screenName, refreshCurrent, socket) {\n  259  \n  260          let screenInfo = _.where(this.currentScreens, {id: screenName})[0];\n  ...\n  441  \n  442          let id = this.currentScreens[this.currentPhaseIndex].id;\n  443:         this.FindScreen(id);\n  444  \n  445      }\n  ...\n  485              this._active_player_index++;\n  486  \n  487:         this.FindScreen(id, true);\n  488  \n  489      }\n  ...\n  506  \n  507          let id = this.currentScreens[this.currentPhaseIndex].id;\n  508:         this.FindScreen(id, true);\n  509  \n  510      }\n  ...\n  582  \n  583          let id = this.currentScreens[this.currentPhaseIndex].id;\n  584:         this.FindScreen(id);\n  585  \n  586      }\n  ...\n  589  \n  590          let id = this.currentScreens[this.currentPhaseIndex].id;\n  591:         this.FindScreen(id, false, socket);\n  592  \n  593      }\n\n15 matches across 2 files\n\n\nSearching 1425 files for \"has re-joined\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  362              }\n  363  \n  364:             // A player has re-joined\n  365              if(eventData.state === 'player_rejoined')\n  366                  playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n  516              this._current_players[player.uid].socket_id = player.socket_id;\n  517  \n  518:             console.info(player.username + ' has re-joined the game and has uid ' + player.uid);\n  519  \n  520              socket.emit(this._strLastEventId, {waitForLoad: true, html: this._objLastTemplate});\n\n2 matches across 2 files\n\n\nSearching 1425 files for \"GameInSession\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/PlayerLogin.js:\n   93          return;\n   94  \n   95:       if(!session.GameInSession()) {\n   96          currentSocket.emit('game:notfound');\n   97          return;\n\n/Users/Johnny/Documents/Projects/learning-games-core/DOCS.md:\n   83  * **Boolean** Is player active?\n   84  \n   85: ## GameInSession\n   86  \n   87  Get if session is currently active.\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n  222      *\n  223      * @class Core\n  224:     * @name GameInSession\n  225      * @return {Boolean} _game_in_session Is session active?\n  226      */\n  227:     GameInSession() {\n  228  \n  229          return this._game_in_session;\n\n4 matches across 3 files\n\n\nSearching 1425 files for \"_game_in_session\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/Common.js:\n  362  \n  363          // If game is currently in session...\n  364:         if(this._game_in_session) {\n  365  \n  366              // Pause any current timers\n  ...\n  384                  if(this._player_timeout_time_left === 0) {\n  385  \n  386:                     if(!this._game_in_session)\n  387                          return;\n  388                      \n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n   95          this._current_round = 0;\n   96  \n   97:         this._game_in_session = true;\n   98  \n   99          this.Coins.FirstRound(this._current_players, this.GetConfig(), socket);\n\n/Users/Johnny/Documents/Projects/learning-games-core/DOCS.md:\n   89  ### Return:\n   90  \n   91: * **Boolean** _game_in_session Is session active?\n   92  \n   93  ## SetToRestarting\n\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\n   27          this._game_session,\n   28          this._game_timeout,\n   29:         this._game_in_session,\n   30          this._config,\n   31  \n   ..\n   72          this.appRoot = appRoot;\n   73  \n   74:         this._game_in_session = false;\n   75  \n   76          var GameConfig = this.keystone.list('GameConfig').model;\n   ..\n  211  \n  212          // If game is not currently in session, no player is marked as active\n  213:         // if(!this._game_in_session)\n  214          //     return false;\n  215  \n  ...\n  223      * @class Core\n  224      * @name GameInSession\n  225:     * @return {Boolean} _game_in_session Is session active?\n  226      */\n  227      GameInSession() {\n  228  \n  229:         return this._game_in_session;\n  230      \n  231      }\n  ...\n  262          this._current_player_index = 0;\n  263  \n  264:         this._game_in_session = false;\n  265  \n  266          console.info('Game \"' + this._game_session.accessCode + '\" ended! ');\n  ...\n  468              }, 1000);\n  469  \n  470:             this._game_in_session = false;\n  471  \n  472          }\n  ...\n  563  \n  564          // If game is currently in session, give player 10s to refresh before booting them...\n  565:         if(this._game_in_session) {\n  566  \n  567              setTimeout(() => {\n  ...\n  601  \n  602              // If only one player left, end the game now\n  603:             if(Object.keys(this._current_players).length <= 1 && this._game_in_session) {\n  604                  if (this._showing_results && (this._current_round === this._config.roundNumber -1)){\n  605                      return;\n\n13 matches across 4 files\n\n\nSearching 1425 files for \"StartGame\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n   82      }\n   83  \n   84:     StartGame(socket, showTutorial) {\n   85  \n   86          this.tutorialEnabled = showTutorial;\n\n/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js:\n   36  \n   37              if(!session) return;\n   38:             session.StartGame(currentSpace, (pkg.msgData.tutorial === \"true\"));\n   39  \n   40          },\n\n2 matches across 2 files\n\n\nSearching 1425 files for \"game:start\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js:\n   31          },\n   32  \n   33:         'game:start': function(pkg) {\n   34  \n   35              let session = Session.Get(pkg.gameId);\n   ..\n   94          },\n   95  \n   96:         'game:start_timer': function(pkg) {\n   97  \n   98              let session = Session.Get(pkg.gameId);\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/component/timer.hbs:\n   16          <button \n   17          {{#ifeq decider true}}\n   18:           id=\"btn-next\" class=\"submit\" data-event=\"game:start_timer\"\n   19          {{/ifeq}}>\n   20  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  140  \t\t'game:error',\n  141  \t\t'game:tutorial',\n  142: \t\t'game:start',\n  143  \t\t'game:next',\n  144  \t\t'game:next_phase',\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  398              break;\n  399  \n  400:         case 'game:start':\n  401  \n  402              // $('#bottom-bar').show();\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/sfx_button_calls.hbs:\n   22  });\n   23  \n   24: $(\"button#btn-next[data-event='game:start_timer']\").click(function(){\n   25  \tion.sound.play(\"alarm_single\");\n   26  });\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/game.hbs:\n   28  \n   29  \t<div class=\"form row {{!-- hidden-el --}}\" id=\"start\">\n   30:     <input id=\"btn-start-game\" data-event=\"game:start\" class=\"post-button submit hidden-el\" type=\"submit\" name=\"submit\" value=\"start\">\n   31  \t</div>\n   32  </div>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/decider/index.hbs:\n   40  \n   41          <div class=\"form row\" id=\"start\">\n   42:         <input id=\"btn-start-game\" data-event=\"game:start\" class=\"post-button submit\" type=\"submit\" name=\"submit\" value=\"start\">\n   43          </div>\n   44      </div>\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/views/game/player.hbs:\n   88  \n   89        <div class=\"form row\" id=\"start\">\n   90:         {{!-- <input data-event=\"game:start\" class=\"post-button\" type=\"submit\" name=\"submit\" value=\"play!\"> --}}\n   91          <button id=\"btn-start-game\" data-from=\"lobby\" data-to=\"tutorial\">play!</button>\n   92          <button class=\"back-button\" data-from=\"share-code\" data-to=\"deck-choice\">back</button>\n   ..\n   99        <div class=\"col-xs-12 col-centered  form\">\n  100  \n  101:         <div id=\"btn-tutorial\" data-event=\"game:start\" data-package='{\"tutorial\": \"true\"}' class=\"btn btn-default submit\">\n  102            <h2>See Instructions</h2>\n  103          </div>\n  104          <div class=\"btn_cap\">Learn the rules of the game, how to play, and how to win!</div>\n  105  \n  106:         <div id=\"btn-tutorial-skip\" data-event=\"game:start\" data-package='{\"tutorial\": \"false\"}' class=\"btn btn-default submit\">\n  107            <h2>Or tap <strong>here</strong> to skip</h2>\n  108          </div>\n\n11 matches across 8 files\n\n\nSearching 1425 files for \"next_screen\" (case sensitive)\n\n/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-workspace:\n  565  \t\t},\n  566  \t\t{\n  567: \t\t\t\"contents\": \"Searching 1425 files for \\\"currentPhaseIndex =\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\n   39                                ],\\n   40          \\n   41:         this.currentPhaseIndex = -1,\\n   42          this.currentScreenIndex = 0,\\n   43          this.allAgendaItems,\\n   ..\\n   93          this.groupSocket.to(this._current_decider.socket_id).emit('game:decider', true);\\n   94  \\n   95:         this.currentPhaseIndex = -1;\\n   96          this._current_round = 0;\\n   97  \\n   ..\\n  562  \\n  563          // Reset defaults\\n  564:         this.currentPhaseIndex = -1;\\n  565          this._deliberate_time_queue = [];\\n  566          this.playersDoubledownDone = 0;\\n  ...\\n  579      LoadScreenAtIndex(index) {\\n  580  \\n  581:         this.currentPhaseIndex = index-1;\\n  582  \\n  583          let id = this.currentScreens[this.currentPhaseIndex].id;\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\n   48  \\n   49    // Tracks current phase index and the screen during each phase\\n   50:   currentPhaseIndex = -1,\\n   51    currentScreenIndex = 0,\\n   52  \\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  431          case 'game:advance':\\n  432  \\n  433:             currentPhaseIndex = -1;\\n  434  \\n  435              break;\\n  ...\\n  528              updateGameContent(eventData.html, function() {\\n  529  \\n  530:                 currentPhaseIndex = eventData.phase;\\n  531                  setupScreen(undefined, eventData.screen);\\n  532  \\n\\n7 matches across 3 files\\n\\n\\nSearching 1425 files for \\\"refresh_screen\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\n  279  \\n  280          let path = 'partials/shared/' + screenName;\\n  281:         let eventId = refreshCurrent ? 'game:refresh_screen' : 'game:next_phase';\\n  282          let round = this._current_round;\\n  283          let template = this.Templates;\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\n  162  \\t\\t'game:advance',\\n  163  \\t\\t'game:decider',\\n  164: \\t\\t'game:refresh_screen',\\n  165  \\n  166  \\t\\t'coins:add',\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  518              break;\\n  519  \\n  520:         case 'game:refresh_screen':\\n  521              \\n  522              // Don't show yet?\\n\\n3 matches across 3 files\\n\\n\\nSearching 1425 files for \\\"updateGameContent\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\n  304    * @param {Boolean} pauseAnimate Don't animate screen back in; instead pass animate function to callback to use later\\n  305    * @class global\\n  306:   * @name updateGameContent\\n  307    */\\n  308: \\tvar updateGameContent = function(content, callback, pauseAnimate) {\\n  309  \\n  310  \\t\\t// Inject markup content and fire callback when done\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  499  \\n  500              if (eventData.html) {\\n  501:                 updateGameContent(eventData.html, function() {\\n  502  \\n  503                      nextPhase();\\n  ...\\n  508              }\\n  509              else {\\n  510:                 updateGameContent(eventData, function() {\\n  511  \\n  512                      nextPhase();\\n  ...\\n  526              }\\n  527  \\n  528:             updateGameContent(eventData.html, function() {\\n  529  \\n  530                  currentPhaseIndex = eventData.phase+1;\\n  ...\\n  563              ga('send', 'event', 'Game', 'Event', 'Game Ended');  \\n  564  \\n  565:             updateGameContent(eventData, function() {\\n  566                  openInnerModal(null, true, true);\\n  567                  window.location = window.location;\\n\\n6 matches across 2 files\\n\\n\\nSearching 1425 files for \\\"ShowScreen\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-workspace:\\n  530  \\t\\t},\\n  531  \\t\\t{\\n  532: \\t\\t\\t\\\"contents\\\": \\\"Searching 254 files for \\\\\\\"ShowScreen\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\\\n  254        \\\\n  255          let data = this.GetData(screenName);\\\\n  256:         this.ShowScreen(screenName, data, isUnique, refreshCurrent);\\\\n  257       \\\\n  258      }\\\\n  ...\\\\n  266      * @param {Boolean} Don't send next phase, just refresh current screen(s) with new data?\\\\n  267      * @class GameLogic\\\\n  268:     * @name ShowScreen\\\\n  269      */\\\\n  270:     ShowScreen(screenName, data, uniqueData, refreshCurrent) {\\\\n  271  \\\\n  272          let path = 'partials/shared/' + screenName;\\\\n\\\\n3 matches in 1 file\\\\n\\\\n\\\\nSearching 254 files for \\\\\\\"FindScreen\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\\\n  248      }\\\\n  249  \\\\n  250:     FindScreen(screenName, refreshCurrent) {\\\\n  251  \\\\n  252          let screenInfo = _.where(this.currentScreens, {id: screenName})[0];\\\\n  ...\\\\n  429          let id = this.currentScreens[this.currentPhaseIndex].id;\\\\n  430  \\\\n  431:         this.FindScreen(id);\\\\n  432  \\\\n  433      }\\\\n  ...\\\\n  474              this._active_player_index++;\\\\n  475  \\\\n  476:         this.FindScreen(id, true);\\\\n  477  \\\\n  478      }\\\\n  ...\\\\n  495  \\\\n  496          let id = this.currentScreens[this.currentPhaseIndex].id;\\\\n  497:         this.FindScreen(id, true);\\\\n  498  \\\\n  499      }\\\\n  ...\\\\n  529              }\\\\n  530  \\\\n  531:             // this.FindScreen(id, false, true);\\\\n  532          \\\\n  533          }\\\\n  ...\\\\n  573  \\\\n  574          let id = this.currentScreens[this.currentPhaseIndex].id;\\\\n  575:         this.FindScreen(id);\\\\n  576  \\\\n  577      }\\\\n\\\\n6 matches in 1 file\\\\n\\\\n\\\\nSearching 254 files for \\\\\\\"uUID\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\\\n  609  \\\\n  610      // Create uid for player\\\\n  611:     if(!sessionStorage.getItem('uUID')) {\\\\n  612          playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\\\n  613:         sessionStorage.setItem('uUID', playerUID);\\\\n  614      }\\\\n  615      else \\\\n  616:         playerUID = sessionStorage.getItem('uUID');\\\\n  617      \\\\n  618      // Open socket connection\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\\\n   27      // Remove saved game code, uid, markup, and set to not reconnected\\\\n   28      sessionStorage.removeItem('gameCode');\\\\n   29:     sessionStorage.removeItem('uUID');\\\\n   30      sessionStorage.removeItem('markup');\\\\n   31      sessionStorage.removeItem('lastDuration'); \\\\n   ..\\\\n  211                    gameId: sessionStorage.getItem('gameCode'), \\\\n  212                    username: sessionStorage.getItem('username'),\\\\n  213:                   uid: sessionStorage.getItem('uUID'),\\\\n  214                    decider: isDecider\\\\n  215                  });\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\\\n  292  \\\\n  293      // Create uid for player\\\\n  294:     if(!sessionStorage.getItem('uUID')) {\\\\n  295          playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\\\n  296:         sessionStorage.setItem('uUID', playerUID);\\\\n  297      }\\\\n  298      else \\\\n  299:         playerUID = sessionStorage.getItem('uUID');\\\\n  300  \\\\n  301      // Disable button and show loading modal\\\\n\\\\n8 matches across 3 files\\\\n\\\\n\\\\nSearching 254 files for \\\\\\\"playerUID\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\\\n   22  \\\\n   23    playerId,\\\\n   24:   playerUID,\\\\n   25    isDecider,\\\\n   26  \\\\ttimeline = new TimelineLite(),\\\\n   ..\\\\n  610      // Create uid for player\\\\n  611      if(!sessionStorage.getItem('uUID')) {\\\\n  612:         playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\\\n  613:         sessionStorage.setItem('uUID', playerUID);\\\\n  614      }\\\\n  615      else \\\\n  616:         playerUID = sessionStorage.getItem('uUID');\\\\n  617      \\\\n  618      // Open socket connection\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\\\n  218              if(isDecider) {\\\\n  219                  // Session started, let's sign-up the decider for this room\\\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\\\n  221              }\\\\n  222              else {\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\\\n  293      // Create uid for player\\\\n  294      if(!sessionStorage.getItem('uUID')) {\\\\n  295:         playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\\\n  296:         sessionStorage.setItem('uUID', playerUID);\\\\n  297      }\\\\n  298      else \\\\n  299:         playerUID = sessionStorage.getItem('uUID');\\\\n  300  \\\\n  301      // Disable button and show loading modal\\\\n  ...\\\\n  351              ga('send', 'event', 'Login', 'Username', username);\\\\n  352  \\\\n  353:             data.uid = playerUID;\\\\n  354              playerLogin(data);                          \\\\n  355  \\\\n\\\\n9 matches across 3 files\\\\n\\\\n\\\\nSearching 254 files for \\\\\\\"emitData\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\\\n  235  \\\\t Associate provided data object with current game ID\\\\n  236  \\\\t*/\\\\n  237: \\\\tvar emitData = function(data) {\\\\n  238  \\\\n  239  \\\\t\\\\tif(gameCode === undefined && typeof(data.code) !== 'undefined')\\\\n  ...\\\\n  659  \\\\t\\\\t\\\\t\\\\t\\\\t});\\\\n  660  \\\\t\\\\t\\\\t\\\\t\\\\t$('#overlay #btn-quit-yes').click(function(evt) {\\\\n  661: \\\\t\\\\t\\\\t\\\\t\\\\t\\\\tsocket.emit('game:exit', emitData());\\\\n  662  \\\\t\\\\t\\\\t\\\\t\\\\t});\\\\n  663  \\\\t\\\\t\\\\t\\\\t\\\\t$('#overlay #btn-quit-no').click(function(evt) {\\\\n  ...\\\\n  768  \\\\n  769  \\\\t\\\\t\\\\t\\\\t\\\\t    // Emit event to socket\\\\n  770: \\\\t\\\\t\\\\t\\\\t\\\\t    socket.emit(event, emitData(pkg));\\\\n  771  \\\\n  772  \\\\t\\\\t\\\\t\\\\t\\\\t    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom\\\\n  ...\\\\n  871  \\\\n  872  \\\\t\\\\t\\\\t\\\\t\\\\tif(selected.prop('selectedIndex') > 0)\\\\n  873: \\\\t\\\\t\\\\t\\\\t    socket.emit('game:load_screen', emitData({ index: selected.prop('selectedIndex') }));\\\\n  874  \\\\n  875  \\\\t\\\\t\\\\t\\\\t}\\\\n  ...\\\\n  888  \\\\n  889  \\\\t\\\\t\\\\t\\\\t\\\\tvar btn = $(evt.currentTarget);\\\\n  890: \\\\t\\\\t\\\\t\\\\t\\\\tsocket.emit('debug:pause', emitData());\\\\n  891  \\\\n  892  \\\\t\\\\t\\\\t\\\\t\\\\tif(!$(btn).data('resume')) {\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\\\n  218              if(isDecider) {\\\\n  219                  // Session started, let's sign-up the decider for this room\\\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\\\n  221              }\\\\n  222              else {\\\\n  223                  // Connected, let's sign-up for to receive messages for this room\\\\n  224:                 socket.emit('room', emitData('player'));\\\\n  225              }\\\\n  226  \\\\n  ...\\\\n  618  \\\\n  619                  if(isDecider) {\\\\n  620:                     socket.emit('game:next_player', emitData());\\\\n  621                      return;\\\\n  622                  }\\\\n  ...\\\\n  644                  nextPhaseScreen();\\\\n  645              else if (eventData == \\\\\\\"brainstormCountdown\\\\\\\" && isDecider){\\\\n  646:                 socket.emit('game:next', emitData(true));\\\\n  647              } \\\\n  648  \\\\n  ...\\\\n  668              if(eventData.phase === 'doubledown' && isDecider) {\\\\n  669                  setTimeout(function() {\\\\n  670:                     socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData(true));\\\\n  671                  }, 600);\\\\n  672              } else if (eventData.phase === 'pitch' && isDecider) {\\\\n  673                  setTimeout(function() {\\\\n  674:                     socket.emit((eventData.end ? 'game:next' : 'game:next_player'), emitData(true));\\\\n  675                  }, 600);\\\\n  676              }\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\\\n   67  \\\\n   68      // Log player in\\\\n   69:     socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));\\\\n   70  \\\\n   71  }\\\\n\\\\n12 matches across 3 files\\\\n\\\\n\\\\nSearching 255 files for \\\\\\\"'room\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\\\n  218              if(isDecider) {\\\\n  219                  // Session started, let's sign-up the decider for this room\\\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\\\n  221              }\\\\n  222              else {\\\\n  223                  // Connected, let's sign-up for to receive messages for this room\\\\n  224:                 socket.emit('room', ('player'));\\\\n  225              }\\\\n  226  \\\\n\\\\n2 matches in 1 file\\\\n\\\\n\\\\nSearching 256 files for \\\\\\\"grunt-nodemon\\\\\\\" (case sensitive)\\\\n\\\\n0 matches\\\\n\\\\nSearching 256 files for \\\\\\\"nodemon\\\\\\\" (case sensitive)\\\\n\\\\n0 matches\\\\n\\\\nSearching 1514 files for \\\\\\\"nodemon\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/config.codekit:\\\\n   47  \\\\t\\\\t\\\\\\\"syntaxCheckerStyle\\\\\\\": 1\\\\n   48  \\\\t\\\\t},\\\\n   49: \\\\t\\\\\\\"\\\\\\\\/grunt\\\\\\\\/nodemon.js\\\\\\\": {\\\\n   50  \\\\t\\\\t\\\\\\\"fileType\\\\\\\": 64,\\\\n   51  \\\\t\\\\t\\\\\\\"ignore\\\\\\\": 0,\\\\n   52  \\\\t\\\\t\\\\\\\"ignoreWasSetByUser\\\\\\\": 0,\\\\n   53: \\\\t\\\\t\\\\\\\"inputAbbreviatedPath\\\\\\\": \\\\\\\"\\\\\\\\/grunt\\\\\\\\/nodemon.js\\\\\\\",\\\\n   54: \\\\t\\\\t\\\\\\\"outputAbbreviatedPath\\\\\\\": \\\\\\\"\\\\\\\\/grunt\\\\\\\\/min\\\\\\\\/nodemon-min.js\\\\\\\",\\\\n   55  \\\\t\\\\t\\\\\\\"outputPathIsOutsideProject\\\\\\\": 0,\\\\n   56  \\\\t\\\\t\\\\\\\"outputPathIsSetByUser\\\\\\\": 0,\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/docs/INSTALLING.md:\\\\n   69  ```\\\\n   70  \\\\n   71: Install [nodemon](http://nodemon.io/) globally if not installed:\\\\n   72  ```\\\\n   73: npm install -g nodemon\\\\n   74  ```\\\\n   75  \\\\n   ..\\\\n  104  ```\\\\n  105  \\\\n  106: This command will lint our code, initialize the development server via nodemon, and start node-inspector.\\\\n  107  By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.\\\\n  108  ```\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/el-web-sdk.sublime-workspace:\\\\n  664  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/el-web-sdk/app.js\\\\\\\",\\\\n  665  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/el-web-sdk/templates/helpers/index.js\\\\\\\",\\\\n  666: \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js\\\\\\\",\\\\n  667  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/el-web-sdk/sites/factory.js\\\\\\\",\\\\n  668  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/el-web-sdk/Gruntfile.js\\\\\\\",\\\\n  ...\\\\n  741  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/footer.hbs\\\\\\\",\\\\n  742  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/models/Person.js\\\\\\\",\\\\n  743: \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/EL-Website/grunt/nodemon.js\\\\\\\",\\\\n  744  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/script/sections.hbs\\\\\\\",\\\\n  745  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/views/index.hbs\\\\\\\",\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/grunt/concurrent.js:\\\\n    7  \\\\n    8  \\\\tvar devTasks = [\\\\n    9: \\\\t\\\\t'nodemon:serve', \\\\n   10  \\\\t\\\\t'watch'\\\\n   11  \\\\t];\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js:\\\\n   47  \\\\t\\\\t\\\\t\\\\tignore: ignoreFilter,\\\\n   48  \\\\t\\\\t\\\\t\\\\twatch: watchFilter,\\\\n   49: \\\\t\\\\t    callback: function (nodemon) {\\\\n   50: \\\\t        nodemon.on('log', function (event) {\\\\n   51  \\\\t          console.log(event.colour);\\\\n   52  \\\\t        });\\\\n   53: \\\\t        nodemon.on('restart', function (event) {\\\\n   54  \\\\t          console.log('node restarted');\\\\n   55  \\\\t        });\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/out.txt:\\\\n    <binary>\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/package-lock.json:\\\\n 6666        \\\\\\\"integrity\\\\\\\": \\\\\\\"sha1-baWhdmjEs91ZYjvaEc9/pMH2Cm8=\\\\\\\"\\\\n 6667      },\\\\n 6668:     \\\\\\\"nodemon\\\\\\\": {\\\\n 6669        \\\\\\\"version\\\\\\\": \\\\\\\"1.18.3\\\\\\\",\\\\n 6670:       \\\\\\\"resolved\\\\\\\": \\\\\\\"https://registry.npmjs.org/nodemon/-/nodemon-1.18.3.tgz\\\\\\\",\\\\n 6671        \\\\\\\"integrity\\\\\\\": \\\\\\\"sha512-XdVfAjGlDKU2nqoGgycxTndkJ5fdwvWJ/tlMGk2vHxMZBrSPVh86OM6z7viAv8BBJWjMgeuYQBofzr6LUoi+7g==\\\\\\\",\\\\n 6672        \\\\\\\"requires\\\\\\\": {\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/package.json:\\\\n   38      \\\\\\\"node-sass\\\\\\\": \\\\\\\"^4.9.2\\\\\\\",\\\\n   39      \\\\\\\"node-sass-middleware\\\\\\\": \\\\\\\"^0.11.0\\\\\\\",\\\\n   40:     \\\\\\\"nodemon\\\\\\\": \\\\\\\"^1.9.2\\\\\\\",\\\\n   41      \\\\\\\"pluralize\\\\\\\": \\\\\\\"^1.2.1\\\\\\\",\\\\n   42      \\\\\\\"random-number\\\\\\\": \\\\\\\"0.0.7\\\\\\\",\\\\n   ..\\\\n   72      \\\\\\\"grunt-mongo-bin\\\\\\\": \\\\\\\"^0.1.0\\\\\\\",\\\\n   73      \\\\\\\"grunt-node-inspector\\\\\\\": \\\\\\\"^0.4.2\\\\\\\",\\\\n   74:     \\\\\\\"grunt-nodemon\\\\\\\": \\\\\\\"^0.2.1\\\\\\\",\\\\n   75      \\\\\\\"grunt-notify\\\\\\\": \\\\\\\"^0.4.5\\\\\\\",\\\\n   76      \\\\\\\"grunt-periodic\\\\\\\": \\\\\\\"^1.0.0\\\\\\\",\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/README.md:\\\\n   69  ```\\\\n   70  \\\\n   71: Install [nodemon](http://nodemon.io/) globally if not installed:\\\\n   72  ```\\\\n   73: npm install -g nodemon\\\\n   74  ```\\\\n   75  \\\\n   ..\\\\n  104  ```\\\\n  105  \\\\n  106: This command will lint our code, initialize the development server via nodemon, and start node-inspector.\\\\n  107  By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.\\\\n  108  ```\\\\n\\\\n36 matches across 9 files\\\\n\\\\n\\\\nSearching 1524 files for \\\\\\\"this.eventEmitter\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\\\\n   21          this.Session = require('./SessionManager'),\\\\n   22          this.events = require('events'),\\\\n   23:         this.eventEmitter = new this.events.EventEmitter(),\\\\n   24  \\\\n   25          this._current_players = {},\\\\n   ..\\\\n  340  \\\\n  341                  // Send the countdownEnded event to the game script\\\\n  342:                 this.eventEmitter.emit('countdownEnded', data, socket);\\\\n  343  \\\\n  344                  // Clear the countdown\\\\n  ...\\\\n  386          clearInterval(this._countdown);\\\\n  387                  \\\\n  388:         this.eventEmitter.removeAllListeners('countdownEnded');\\\\n  389      \\\\n  390      }\\\\n\\\\n3 matches in 1 file\\\\n\\\",\\n  533  \\t\\t\\t\\\"settings\\\":\\n  534  \\t\\t\\t{\\n  ...\\n  993  \\t\\t\\t\\\"arrPlayerUnique\\\",\\n  994  \\t\\t\\t\\\"FindScreen\\\",\\n  995: \\t\\t\\t\\\"ShowScreen\\\",\\n  996  \\t\\t\\t\\\"GetData\\\",\\n  997  \\t\\t\\t\\\"player:reconnected\\\",\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\n  262        \\n  263          let data = this.GetData(screenName);\\n  264:         this.ShowScreen(screenName, data, isUnique, refreshCurrent, socket);\\n  265       \\n  266      }\\n  ...\\n  274      * @param {Boolean} Don't send next phase, just refresh current screen(s) with new data?\\n  275      * @class GameLogic\\n  276:     * @name ShowScreen\\n  277      */\\n  278:     ShowScreen(screenName, data, uniqueData, refreshCurrent, socket) {\\n  279  \\n  280          let path = 'partials/shared/' + screenName;\\n\\n8 matches across 2 files\\n\\n\\nSearching 1425 files for \\\"FindScreen\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/at-stake-v3.sublime-workspace:\\n  530  \\t\\t},\\n  531  \\t\\t{\\n  532: \\t\\t\\t\\\"contents\\\": \\\"Searching 254 files for \\\\\\\"ShowScreen\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\\\n  254        \\\\n  255          let data = this.GetData(screenName);\\\\n  256:         this.ShowScreen(screenName, data, isUnique, refreshCurrent);\\\\n  257       \\\\n  258      }\\\\n  ...\\\\n  266      * @param {Boolean} Don't send next phase, just refresh current screen(s) with new data?\\\\n  267      * @class GameLogic\\\\n  268:     * @name ShowScreen\\\\n  269      */\\\\n  270:     ShowScreen(screenName, data, uniqueData, refreshCurrent) {\\\\n  271  \\\\n  272          let path = 'partials/shared/' + screenName;\\\\n\\\\n3 matches in 1 file\\\\n\\\\n\\\\nSearching 254 files for \\\\\\\"FindScreen\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\\\n  248      }\\\\n  249  \\\\n  250:     FindScreen(screenName, refreshCurrent) {\\\\n  251  \\\\n  252          let screenInfo = _.where(this.currentScreens, {id: screenName})[0];\\\\n  ...\\\\n  429          let id = this.currentScreens[this.currentPhaseIndex].id;\\\\n  430  \\\\n  431:         this.FindScreen(id);\\\\n  432  \\\\n  433      }\\\\n  ...\\\\n  474              this._active_player_index++;\\\\n  475  \\\\n  476:         this.FindScreen(id, true);\\\\n  477  \\\\n  478      }\\\\n  ...\\\\n  495  \\\\n  496          let id = this.currentScreens[this.currentPhaseIndex].id;\\\\n  497:         this.FindScreen(id, true);\\\\n  498  \\\\n  499      }\\\\n  ...\\\\n  529              }\\\\n  530  \\\\n  531:             // this.FindScreen(id, false, true);\\\\n  532          \\\\n  533          }\\\\n  ...\\\\n  573  \\\\n  574          let id = this.currentScreens[this.currentPhaseIndex].id;\\\\n  575:         this.FindScreen(id);\\\\n  576  \\\\n  577      }\\\\n\\\\n6 matches in 1 file\\\\n\\\\n\\\\nSearching 254 files for \\\\\\\"uUID\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\\\n  609  \\\\n  610      // Create uid for player\\\\n  611:     if(!sessionStorage.getItem('uUID')) {\\\\n  612          playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\\\n  613:         sessionStorage.setItem('uUID', playerUID);\\\\n  614      }\\\\n  615      else \\\\n  616:         playerUID = sessionStorage.getItem('uUID');\\\\n  617      \\\\n  618      // Open socket connection\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\\\n   27      // Remove saved game code, uid, markup, and set to not reconnected\\\\n   28      sessionStorage.removeItem('gameCode');\\\\n   29:     sessionStorage.removeItem('uUID');\\\\n   30      sessionStorage.removeItem('markup');\\\\n   31      sessionStorage.removeItem('lastDuration'); \\\\n   ..\\\\n  211                    gameId: sessionStorage.getItem('gameCode'), \\\\n  212                    username: sessionStorage.getItem('username'),\\\\n  213:                   uid: sessionStorage.getItem('uUID'),\\\\n  214                    decider: isDecider\\\\n  215                  });\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\\\n  292  \\\\n  293      // Create uid for player\\\\n  294:     if(!sessionStorage.getItem('uUID')) {\\\\n  295          playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\\\n  296:         sessionStorage.setItem('uUID', playerUID);\\\\n  297      }\\\\n  298      else \\\\n  299:         playerUID = sessionStorage.getItem('uUID');\\\\n  300  \\\\n  301      // Disable button and show loading modal\\\\n\\\\n8 matches across 3 files\\\\n\\\\n\\\\nSearching 254 files for \\\\\\\"playerUID\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\\\n   22  \\\\n   23    playerId,\\\\n   24:   playerUID,\\\\n   25    isDecider,\\\\n   26  \\\\ttimeline = new TimelineLite(),\\\\n   ..\\\\n  610      // Create uid for player\\\\n  611      if(!sessionStorage.getItem('uUID')) {\\\\n  612:         playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\\\n  613:         sessionStorage.setItem('uUID', playerUID);\\\\n  614      }\\\\n  615      else \\\\n  616:         playerUID = sessionStorage.getItem('uUID');\\\\n  617      \\\\n  618      // Open socket connection\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\\\n  218              if(isDecider) {\\\\n  219                  // Session started, let's sign-up the decider for this room\\\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\\\n  221              }\\\\n  222              else {\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\\\n  293      // Create uid for player\\\\n  294      if(!sessionStorage.getItem('uUID')) {\\\\n  295:         playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));\\\\n  296:         sessionStorage.setItem('uUID', playerUID);\\\\n  297      }\\\\n  298      else \\\\n  299:         playerUID = sessionStorage.getItem('uUID');\\\\n  300  \\\\n  301      // Disable button and show loading modal\\\\n  ...\\\\n  351              ga('send', 'event', 'Login', 'Username', username);\\\\n  352  \\\\n  353:             data.uid = playerUID;\\\\n  354              playerLogin(data);                          \\\\n  355  \\\\n\\\\n9 matches across 3 files\\\\n\\\\n\\\\nSearching 254 files for \\\\\\\"emitData\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\\\\n  235  \\\\t Associate provided data object with current game ID\\\\n  236  \\\\t*/\\\\n  237: \\\\tvar emitData = function(data) {\\\\n  238  \\\\n  239  \\\\t\\\\tif(gameCode === undefined && typeof(data.code) !== 'undefined')\\\\n  ...\\\\n  659  \\\\t\\\\t\\\\t\\\\t\\\\t});\\\\n  660  \\\\t\\\\t\\\\t\\\\t\\\\t$('#overlay #btn-quit-yes').click(function(evt) {\\\\n  661: \\\\t\\\\t\\\\t\\\\t\\\\t\\\\tsocket.emit('game:exit', emitData());\\\\n  662  \\\\t\\\\t\\\\t\\\\t\\\\t});\\\\n  663  \\\\t\\\\t\\\\t\\\\t\\\\t$('#overlay #btn-quit-no').click(function(evt) {\\\\n  ...\\\\n  768  \\\\n  769  \\\\t\\\\t\\\\t\\\\t\\\\t    // Emit event to socket\\\\n  770: \\\\t\\\\t\\\\t\\\\t\\\\t    socket.emit(event, emitData(pkg));\\\\n  771  \\\\n  772  \\\\t\\\\t\\\\t\\\\t\\\\t    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom\\\\n  ...\\\\n  871  \\\\n  872  \\\\t\\\\t\\\\t\\\\t\\\\tif(selected.prop('selectedIndex') > 0)\\\\n  873: \\\\t\\\\t\\\\t\\\\t    socket.emit('game:load_screen', emitData({ index: selected.prop('selectedIndex') }));\\\\n  874  \\\\n  875  \\\\t\\\\t\\\\t\\\\t}\\\\n  ...\\\\n  888  \\\\n  889  \\\\t\\\\t\\\\t\\\\t\\\\tvar btn = $(evt.currentTarget);\\\\n  890: \\\\t\\\\t\\\\t\\\\t\\\\tsocket.emit('debug:pause', emitData());\\\\n  891  \\\\n  892  \\\\t\\\\t\\\\t\\\\t\\\\tif(!$(btn).data('resume')) {\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\\\n  218              if(isDecider) {\\\\n  219                  // Session started, let's sign-up the decider for this room\\\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\\\n  221              }\\\\n  222              else {\\\\n  223                  // Connected, let's sign-up for to receive messages for this room\\\\n  224:                 socket.emit('room', emitData('player'));\\\\n  225              }\\\\n  226  \\\\n  ...\\\\n  618  \\\\n  619                  if(isDecider) {\\\\n  620:                     socket.emit('game:next_player', emitData());\\\\n  621                      return;\\\\n  622                  }\\\\n  ...\\\\n  644                  nextPhaseScreen();\\\\n  645              else if (eventData == \\\\\\\"brainstormCountdown\\\\\\\" && isDecider){\\\\n  646:                 socket.emit('game:next', emitData(true));\\\\n  647              } \\\\n  648  \\\\n  ...\\\\n  668              if(eventData.phase === 'doubledown' && isDecider) {\\\\n  669                  setTimeout(function() {\\\\n  670:                     socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData(true));\\\\n  671                  }, 600);\\\\n  672              } else if (eventData.phase === 'pitch' && isDecider) {\\\\n  673                  setTimeout(function() {\\\\n  674:                     socket.emit((eventData.end ? 'game:next' : 'game:next_player'), emitData(true));\\\\n  675                  }, 600);\\\\n  676              }\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs:\\\\n   67  \\\\n   68      // Log player in\\\\n   69:     socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));\\\\n   70  \\\\n   71  }\\\\n\\\\n12 matches across 3 files\\\\n\\\\n\\\\nSearching 255 files for \\\\\\\"'room\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\\\n  218              if(isDecider) {\\\\n  219                  // Session started, let's sign-up the decider for this room\\\\n  220:                 socket.emit('room', emitData({type: 'decider', username: $('#player-name').val(), uid: playerUID}));\\\\n  221              }\\\\n  222              else {\\\\n  223                  // Connected, let's sign-up for to receive messages for this room\\\\n  224:                 socket.emit('room', ('player'));\\\\n  225              }\\\\n  226  \\\\n\\\\n2 matches in 1 file\\\\n\\\\n\\\\nSearching 256 files for \\\\\\\"grunt-nodemon\\\\\\\" (case sensitive)\\\\n\\\\n0 matches\\\\n\\\\nSearching 256 files for \\\\\\\"nodemon\\\\\\\" (case sensitive)\\\\n\\\\n0 matches\\\\n\\\\nSearching 1514 files for \\\\\\\"nodemon\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/config.codekit:\\\\n   47  \\\\t\\\\t\\\\\\\"syntaxCheckerStyle\\\\\\\": 1\\\\n   48  \\\\t\\\\t},\\\\n   49: \\\\t\\\\\\\"\\\\\\\\/grunt\\\\\\\\/nodemon.js\\\\\\\": {\\\\n   50  \\\\t\\\\t\\\\\\\"fileType\\\\\\\": 64,\\\\n   51  \\\\t\\\\t\\\\\\\"ignore\\\\\\\": 0,\\\\n   52  \\\\t\\\\t\\\\\\\"ignoreWasSetByUser\\\\\\\": 0,\\\\n   53: \\\\t\\\\t\\\\\\\"inputAbbreviatedPath\\\\\\\": \\\\\\\"\\\\\\\\/grunt\\\\\\\\/nodemon.js\\\\\\\",\\\\n   54: \\\\t\\\\t\\\\\\\"outputAbbreviatedPath\\\\\\\": \\\\\\\"\\\\\\\\/grunt\\\\\\\\/min\\\\\\\\/nodemon-min.js\\\\\\\",\\\\n   55  \\\\t\\\\t\\\\\\\"outputPathIsOutsideProject\\\\\\\": 0,\\\\n   56  \\\\t\\\\t\\\\\\\"outputPathIsSetByUser\\\\\\\": 0,\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/docs/INSTALLING.md:\\\\n   69  ```\\\\n   70  \\\\n   71: Install [nodemon](http://nodemon.io/) globally if not installed:\\\\n   72  ```\\\\n   73: npm install -g nodemon\\\\n   74  ```\\\\n   75  \\\\n   ..\\\\n  104  ```\\\\n  105  \\\\n  106: This command will lint our code, initialize the development server via nodemon, and start node-inspector.\\\\n  107  By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.\\\\n  108  ```\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/el-web-sdk.sublime-workspace:\\\\n  664  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/el-web-sdk/app.js\\\\\\\",\\\\n  665  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/el-web-sdk/templates/helpers/index.js\\\\\\\",\\\\n  666: \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js\\\\\\\",\\\\n  667  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/el-web-sdk/sites/factory.js\\\\\\\",\\\\n  668  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/el-web-sdk/Gruntfile.js\\\\\\\",\\\\n  ...\\\\n  741  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/footer.hbs\\\\\\\",\\\\n  742  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/models/Person.js\\\\\\\",\\\\n  743: \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/EL-Website/grunt/nodemon.js\\\\\\\",\\\\n  744  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/partials/script/sections.hbs\\\\\\\",\\\\n  745  \\\\t\\\\t\\\\\\\"/Users/Johnny/Documents/Projects/EL-Website/sites/elab/templates/views/index.hbs\\\\\\\",\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/grunt/concurrent.js:\\\\n    7  \\\\n    8  \\\\tvar devTasks = [\\\\n    9: \\\\t\\\\t'nodemon:serve', \\\\n   10  \\\\t\\\\t'watch'\\\\n   11  \\\\t];\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js:\\\\n   47  \\\\t\\\\t\\\\t\\\\tignore: ignoreFilter,\\\\n   48  \\\\t\\\\t\\\\t\\\\twatch: watchFilter,\\\\n   49: \\\\t\\\\t    callback: function (nodemon) {\\\\n   50: \\\\t        nodemon.on('log', function (event) {\\\\n   51  \\\\t          console.log(event.colour);\\\\n   52  \\\\t        });\\\\n   53: \\\\t        nodemon.on('restart', function (event) {\\\\n   54  \\\\t          console.log('node restarted');\\\\n   55  \\\\t        });\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/out.txt:\\\\n    <binary>\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/package-lock.json:\\\\n 6666        \\\\\\\"integrity\\\\\\\": \\\\\\\"sha1-baWhdmjEs91ZYjvaEc9/pMH2Cm8=\\\\\\\"\\\\n 6667      },\\\\n 6668:     \\\\\\\"nodemon\\\\\\\": {\\\\n 6669        \\\\\\\"version\\\\\\\": \\\\\\\"1.18.3\\\\\\\",\\\\n 6670:       \\\\\\\"resolved\\\\\\\": \\\\\\\"https://registry.npmjs.org/nodemon/-/nodemon-1.18.3.tgz\\\\\\\",\\\\n 6671        \\\\\\\"integrity\\\\\\\": \\\\\\\"sha512-XdVfAjGlDKU2nqoGgycxTndkJ5fdwvWJ/tlMGk2vHxMZBrSPVh86OM6z7viAv8BBJWjMgeuYQBofzr6LUoi+7g==\\\\\\\",\\\\n 6672        \\\\\\\"requires\\\\\\\": {\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/package.json:\\\\n   38      \\\\\\\"node-sass\\\\\\\": \\\\\\\"^4.9.2\\\\\\\",\\\\n   39      \\\\\\\"node-sass-middleware\\\\\\\": \\\\\\\"^0.11.0\\\\\\\",\\\\n   40:     \\\\\\\"nodemon\\\\\\\": \\\\\\\"^1.9.2\\\\\\\",\\\\n   41      \\\\\\\"pluralize\\\\\\\": \\\\\\\"^1.2.1\\\\\\\",\\\\n   42      \\\\\\\"random-number\\\\\\\": \\\\\\\"0.0.7\\\\\\\",\\\\n   ..\\\\n   72      \\\\\\\"grunt-mongo-bin\\\\\\\": \\\\\\\"^0.1.0\\\\\\\",\\\\n   73      \\\\\\\"grunt-node-inspector\\\\\\\": \\\\\\\"^0.4.2\\\\\\\",\\\\n   74:     \\\\\\\"grunt-nodemon\\\\\\\": \\\\\\\"^0.2.1\\\\\\\",\\\\n   75      \\\\\\\"grunt-notify\\\\\\\": \\\\\\\"^0.4.5\\\\\\\",\\\\n   76      \\\\\\\"grunt-periodic\\\\\\\": \\\\\\\"^1.0.0\\\\\\\",\\\\n\\\\n/Users/Johnny/Documents/Projects/el-web-sdk/README.md:\\\\n   69  ```\\\\n   70  \\\\n   71: Install [nodemon](http://nodemon.io/) globally if not installed:\\\\n   72  ```\\\\n   73: npm install -g nodemon\\\\n   74  ```\\\\n   75  \\\\n   ..\\\\n  104  ```\\\\n  105  \\\\n  106: This command will lint our code, initialize the development server via nodemon, and start node-inspector.\\\\n  107  By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.\\\\n  108  ```\\\\n\\\\n36 matches across 9 files\\\\n\\\\n\\\\nSearching 1524 files for \\\\\\\"this.eventEmitter\\\\\\\" (case sensitive)\\\\n\\\\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\\\\n   21          this.Session = require('./SessionManager'),\\\\n   22          this.events = require('events'),\\\\n   23:         this.eventEmitter = new this.events.EventEmitter(),\\\\n   24  \\\\n   25          this._current_players = {},\\\\n   ..\\\\n  340  \\\\n  341                  // Send the countdownEnded event to the game script\\\\n  342:                 this.eventEmitter.emit('countdownEnded', data, socket);\\\\n  343  \\\\n  344                  // Clear the countdown\\\\n  ...\\\\n  386          clearInterval(this._countdown);\\\\n  387                  \\\\n  388:         this.eventEmitter.removeAllListeners('countdownEnded');\\\\n  389      \\\\n  390      }\\\\n\\\\n3 matches in 1 file\\\\n\\\",\\n  533  \\t\\t\\t\\\"settings\\\":\\n  534  \\t\\t\\t{\\n  ...\\n  992  \\t\\t\\t\\\"uUID\\\",\\n  993  \\t\\t\\t\\\"arrPlayerUnique\\\",\\n  994: \\t\\t\\t\\\"FindScreen\\\",\\n  995  \\t\\t\\t\\\"ShowScreen\\\",\\n  996  \\t\\t\\t\\\"GetData\\\",\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\\n   75  \\n   76                  let id = this.currentScreens[this.currentPhaseIndex].id;\\n   77:                 this.FindScreen(id, true, socket);\\n   78              });\\n   79  \\n   ..\\n  256      }\\n  257  \\n  258:     FindScreen(screenName, refreshCurrent, socket) {\\n  259  \\n  260          let screenInfo = _.where(this.currentScreens, {id: screenName})[0];\\n  ...\\n  441  \\n  442          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  443:         this.FindScreen(id);\\n  444  \\n  445      }\\n  ...\\n  485              this._active_player_index++;\\n  486  \\n  487:         this.FindScreen(id, true);\\n  488  \\n  489      }\\n  ...\\n  506  \\n  507          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  508:         this.FindScreen(id, true);\\n  509  \\n  510      }\\n  ...\\n  582  \\n  583          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  584:         this.FindScreen(id);\\n  585  \\n  586      }\\n  ...\\n  589  \\n  590          let id = this.currentScreens[this.currentPhaseIndex].id;\\n  591:         this.FindScreen(id, false, socket);\\n  592  \\n  593      }\\n\\n15 matches across 2 files\\n\\n\\nSearching 1425 files for \\\"has re-joined\\\" (case sensitive)\\n\\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\\n  362              }\\n  363  \\n  364:             // A player has re-joined\\n  365              if(eventData.state === 'player_rejoined')\\n  366                  playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);\\n\\n/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js:\\n  516              this._current_players[player.uid].socket_id = player.socket_id;\\n  517  \\n  518:             console.info(player.username + ' has re-joined the game and has uid ' + player.uid);\\n  519  \\n  520              socket.emit(this._strLastEventId, {waitForLoad: true, html: this._objLastTemplate});\\n\\n2 matches across 2 files\\n\",\n  568  \t\t\t\"settings\":\n  569  \t\t\t{\n  ...\n 1112  \t\t\t\"#ranking\",\n 1113  \t\t\t\".starting\",\n 1114: \t\t\t\"game:next_screen\",\n 1115  \t\t\t\"PlayerTurnDone\",\n 1116  \t\t\t\"playersDoubledownDone\",\n\n/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js:\n  454          let forceScreen = force;\n  455          this.currentScreenIndex++;\n  456:         this.groupSocket.to(this.players_id).emit('game:next_screen', {force: forceScreen});\n  457  \n  458      }\n\n/Users/Johnny/Documents/Projects/at-stake-v3/sockets/handlers/Common.js:\n   58          },\n   59  \n   60:         'game:next_screen': function(pkg) {\n   61  \n   62              let session = Session.Get(pkg.gameId);\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/helpers/index.js:\n  112          // ... just moving to next bubble?\n  113          else\n  114:             strEvent += 'next_screen';\n  115  \n  116          return strEvent;\n  ...\n  124  \n  125          if((playerCount-1 === index) && lastItem)\n  126:             strEvent = 'next_screen';\n  127          else\n  128              strEvent = 'next_modal';\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs:\n  143  \t\t'game:next',\n  144  \t\t'game:next_phase',\n  145: \t\t'game:next_screen',\n  146  \t\t'game:next_round',\n  147  \t\t'game:next_item',\n  ...\n  453  \t\t\t\t\t\t\t$('#overlay').on('hidden', function(evt) {\n  454  \t\t\t\t\t\t\t\t$(evt.currentTarget).off('hidden');\n  455: \t\t            if(gotoNext === 'next_screen')\n  456  \t\t\t            nextPhaseScreen();\n  457  \n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_events.hbs:\n  449              break;\n  450  \n  451:         case 'game:next_screen':\n  452              if(isDecider){\n  453                  ion.sound.play(\"click3\");\n  ...\n  667              if(eventData.phase === 'doubledown' && isDecider) {\n  668                  setTimeout(function() {\n  669:                     socket.emit((eventData.end ? 'game:next_screen' : 'game:next_player'), emitData(true));\n  670                  }, 600);\n  671              } else if (eventData.phase === 'pitch' && isDecider) {\n\n/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/shared/decide.hbs:\n   34  \n   35  \t\t\t{{!-- winner modal --}}\n   36: \t\t\t<div id=\"winner-modal\" class=\"modal inner-modal\" data-duration=\"{{config.decideDuration}}\" data-next=\"next_screen\">\n   37  \t\t\t\t<div class=\"inner inner-winner\">\n   38  \n\n12 matches across 7 files\n",
 			"settings":
 			{
-				"buffer_size": 35298,
+				"buffer_size": 82059,
 				"line_ending": "Unix",
 				"name": "Find Results",
 				"scratch": true
+			}
+		},
+		{
+			"file": "deploy.json",
+			"settings":
+			{
+				"buffer_size": 1784,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Johnny/Documents/Projects/el-web-sdk/.nvmrc",
+			"settings":
+			{
+				"buffer_size": 7,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sockets/handlers/Common.js",
+			"settings":
+			{
+				"buffer_size": 3863,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -585,7 +592,7 @@
 			"file": "templates/partials/script/global.hbs",
 			"settings":
 			{
-				"buffer_size": 22283,
+				"buffer_size": 22341,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -594,7 +601,7 @@
 			"file": "sockets/handlers/PlayerLogin.js",
 			"settings":
 			{
-				"buffer_size": 3835,
+				"buffer_size": 3702,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -603,7 +610,7 @@
 			"file": "routes/index.js",
 			"settings":
 			{
-				"buffer_size": 979,
+				"buffer_size": 964,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -757,13 +764,14 @@
 		"/Users/Johnny/Documents/Projects/learning-games-core",
 		"/Users/Johnny/Documents/Projects/learning-games-core/lib",
 		"/Users/Johnny/Documents/Projects/el-web-sdk",
-		"/Users/Johnny/Documents/Projects/el-web-sdk/grunt"
+		"/Users/Johnny/Documents/Projects/el-web-sdk/jobs"
 	],
 	"file_history":
 	[
+		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
+		"/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js",
 		"/Users/Johnny/Documents/Projects/el-web-sdk/.nvmrc",
 		"/Users/Johnny/Documents/Projects/el-web-sdk/package.json",
-		"/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/global.hbs",
 		"/Users/Johnny/Documents/Projects/el-web-sdk/grunt/concurrent.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/models/Role.js",
@@ -789,7 +797,6 @@
 		"/Users/Johnny/Documents/Projects/at-stake-v3/templates/partials/script/player_logic.hbs",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/grunt/uglify.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/deploy.json",
-		"/Users/Johnny/Documents/Projects/at-stake-v3/lib/GameLogic.js",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/playerview.scss",
 		"/Users/Johnny/Documents/Projects/at-stake-v3/public/styles/_core/homepage.scss",
 		"/Users/Johnny/Documents/Projects/learning-games-core/lib/SessionManager.js",
@@ -993,6 +1000,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"next_screen",
+			"game:start",
+			"StartGame",
+			"_game_in_session",
+			"GameInSession",
 			"has re-joined",
 			"FindScreen",
 			"ShowScreen",
@@ -1115,12 +1127,7 @@
 			"PlayerTurnDone",
 			"playersDoubledownDone",
 			".error-modal",
-			"error-private-mode",
-			"doResize",
-			"error-private-mode",
-			"You cannot play in private/incognito browsing mode.",
-			"isPrivate",
-			"buttonLink"
+			"error-private-mode"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1266,251 +1273,11 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "lib/GameLogic.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 19299,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"SL.134.region_keys":
-							[
-								"SL.gjslint.Highlights.|69e98ae0eb73d8b34ec705d4d6ed015f5b9ff500bf5f17184da3d7e141c7a926|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|a60b563ea033fb4638431a14431bc4eb3476500d35b2cc7e569bacad473d6cfc|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
-								"SL.gjslint.Highlights.|029e19d149458f6948effd41207471ad9c4775f53eff0277f266539235ea7495|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|2a1a51dea87fc5c489fa15823f86d6d96b00ea531c0d0ac5248187998fb644fc|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|5a374f8c4a709abf1e31c4e6220e63eb694ca4d5311d0c68d69deed357ae8c1b|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|475f5038aa226144f35dd7dd3d00937be750029421d710d627a5d00cdac86057|region.redish markup.error.sublime_linter|32",
-								"sublime_linter.protected_regions",
-								"SL.gjslint.Highlights.|91bc58cac11632efb68804558b8f105a0cc62bf83b2076b2bc0b5718cbd50dc0|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|a76a574fe3976f7f55d54cb4e00039c5da3e0c283faffb672429937e147acb94|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|a7a646b2fa53acdd4de05103acd43bdaee47271e88aeacf7ffd61d8a29a77ea5|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|3f62b9b4a79e0a97e858e3305e5e72e5b686dc3510a1373fed343aeecc7fe6c9|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|1318dae04e48ce142219943311d352e964533c1691f196fce006fb8f72c0505a|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|8b613b9a12f2dc9ca3dcccb357937b6d211c655622ef146ea6d2731a2a77ff88|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|abde62eeaeea28d0ab53306125f659960f5c5c438e8f79d34e41721004719247|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|37db2e74c6ca5d2f1a1d8f00881ca852e090885adb1aaeeac40ef23fa38229c2|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|26cded9fede47546adb9cf921a7902ff74c2180a11f8910292e28ec337544208|region.redish markup.error.sublime_linter|32"
-							],
-							"SL.135.region_keys":
-							[
-								"SL.gjslint.Highlights.|2a1a51dea87fc5c489fa15823f86d6d96b00ea531c0d0ac5248187998fb644fc|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|abde62eeaeea28d0ab53306125f659960f5c5c438e8f79d34e41721004719247|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|cff0162d0cedce77e57d8f1afc18e7eaac295a05eb9ec2e7963d1b60d288900c|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|37db2e74c6ca5d2f1a1d8f00881ca852e090885adb1aaeeac40ef23fa38229c2|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|3654c752ae30cecf54c32452f731bb69131f2f66c54d8625c37fac25b496187e|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|0930d22377e6eb9d187ede520430d2c1ecba9782d132e86c43155c502728da01|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|475f5038aa226144f35dd7dd3d00937be750029421d710d627a5d00cdac86057|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|1b1fc281a749c46e826ba6aeebc36a57dac07a66076e2b5f26f52629a776dbc7|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|0cb5316c4237f1e1bb15fb6156932e8a65990b6ed6e8f95e25dbed3c356c9e16|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|c77dec3cc91d98a8f3477de737dc44f95546c0a80cf9c1e3fc0ad3cc0c94de83|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|12d9bd41dcd97899a305fefe643fcc97b0961240ca374e97d26bc0fff8d08272|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
-								"SL.gjslint.Highlights.|69e98ae0eb73d8b34ec705d4d6ed015f5b9ff500bf5f17184da3d7e141c7a926|region.redish markup.error.sublime_linter|32",
-								"sublime_linter.protected_regions",
-								"SL.gjslint.Highlights.|5a374f8c4a709abf1e31c4e6220e63eb694ca4d5311d0c68d69deed357ae8c1b|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|a60b563ea033fb4638431a14431bc4eb3476500d35b2cc7e569bacad473d6cfc|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|d21c0adbe15a4d08bb8da176a9f61f87a247109bf7348922b5f64fd12648dd46|region.redish markup.error.sublime_linter|32"
-							],
-							"SL.28.region_keys":
-							[
-								"sublime_linter.protected_regions"
-							],
-							"SL.53.region_keys":
-							[
-							],
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 8545.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/Users/Johnny/Documents/Projects/el-web-sdk/grunt/nodemon.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1316,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								621,
-								621
-							]
-						],
-						"settings":
-						{
-							"SL.29.region_keys":
-							[
-								"SL.gjslint.Highlights.|3684c10533403fbae61e0369d127fb94b566a6322d952ce2483e695d7b4688ec|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|5fa79d1b62831619f84af2d1cb441e6f33af24ce5bc4953c1aefae1d22f5fae7|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|78eb73ca469c04dafc17cdc2c0879e39599a0e56555083af63bd62501bc393eb|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|796a7ecd8a2482b538be101db87b6609e2d8b35b174a74cc1401134d462e9fae|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|18c7261e01d960c8d5afa67bcc00ddc1f36fbde6ac1298e7929c68101f7db7b3|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|ef5e1fd51e98e8b6a17affffebfd31326ba5d49e972404b100f2cde9f976b438|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|406866c9b64d23995d57335555e7ee44ac05d5b53caa5e2474467d659c77cce3|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|6689169c17e53822b5eeb1bab49113836f7fe94adb61185e853a87a96d296619|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|6c82cbd9c915d42a5b4afa78e3148abb3402b8a0c832ae590b4ca49500f1a5e2|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|0ae727a4e33ddee1725a5d8dd81bfe34d3088bc31adf655352cc79432de480d8|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|fc2d403c3574164e633022a28e28bee0cc61b210da840dad8ef33510de204d33|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|98bc6b53fd54ccb11c6382840809124596da4b50b87429f1c3d11a0e6338ff89|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|98515d0903464215f28148e2ebd51167dd0bed8384d55e23f2e191eba70fd801|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|def73cec8955c89cd58b5c2a82413c181d0000ca8ddb895e778d48a1bf4abcd9|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|9f5690d85d2a1ec8ea3b9db091722b10eb09dc1d08ee9977fb2925ca03513e9e|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|1db021a7d33c1ab85efef2752ef00e3b642eeda06c114883b7d940187c97e718|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|0a1e3f3c32196a66871a1f86594558ac4dd3729a2dd83883f38bfc5e7b2e84ce|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|849d981c783d5106ec7666194a6e317b7876f4260546fa3a3cf0bbbd6cd07d8a|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|964d354ef1136c6bf3a46281be6516ca1aad094a8a7cee4f5eb0fba09bc7519b|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|53b7502af2b0f005784dfa2b4e53ab4e652a9d77db074397810c92850437bea6|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|413dd74ed5159adf41a0691aba0a3329d05ed7d16b8f273c87caac10f105899c|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|14f98d353778898ee42f2d1954b2ff8386a644a2a37c07aedc7fc5af4629a13a|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|c556c57b794841e53c431b40caa817a9978ddb5d5b9f3928cd626850444809cd|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|b1c6297e586804d0f0ad6dc114cc52b03f6fb7c949275bd564fdc63c0f2ad2ec|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|7675b7ca65019d668830e4220c056942d6b73adc92d79798b2f39777e568c69a|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|93732a27d9e5166548f44d30ee48707671ca66d1060d53a9086936b078a26628|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|4e0d18654d8fc7450244828ae5c78f7b25a994f51575e7a18cb2657a68568d71|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|7d8405ad793d83aa2aa0d0cdfe99711dc9d73484be2d085d04639b8dfcb39acb|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|5ea941e15e9013092346dbd2969bfd4c90727e7ced1e565de5065bc9e88c7844|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|f7e3c1cd704834874c55c97783eea584fb4eae8bb0855139e21f95a2c7f9cd4a|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|5ea7db93faba4e0559872716bd0dee0fd75de0baccc9789298da42742457a075|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|c350ee8faec9cfb80483aca4993c6abd5ebd2a5093ade4f942a1b3a017116bc9|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|1a5a7cbcfe7bc0af52b06162b507e3c334e47307bd239c187124f6ada5b031fb|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|50a80cba472d3acefb790ae7537d818b810d9adbd4e67ec3cbad55e6dc3fe93a|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|a81f700d0bd7f92b0d0e534fdbf8d263535d4ebc2ef927ee2fb3d3da5ba6b99c|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|b1213bd6dc778a16fa00e419f474038c7313e7ec62d71dbb97c865172008abc5|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|aba62743849f366d3ed89e5d281ee4562bf2b6c4f5751b2706be625b29492b94|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|8b673173f6102f852605e1211ada89ca1c1e4c7b8a871f9b1a1ab67b528cc02a|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|e3b01068230e3e0b534a87182a3f4cbdd9c707b5637b98c8cfaad613825f031b|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|44fbae69e09631c7b85dd25d23090034f8c4bd9c3fdd348137afd6b8a6d4a266|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|e3ca1a04430bb13eff5a6501d07f442a01beeffd1cf43b9fde3e7dcb2b1fd1b9|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|d239324bbbd238551e5d4c2dc5724a253c9a1cc2270955c6a05446d003f1cc4b|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|b909a1920325cdaeb5422382555edf719855ade2e907db51fef728dd23ac10ed|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|92dbd56609c78f35562cef8c76ffff187ba1175300990c6e9eb009455bda1e52|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|c3fae61036b63db8f5bb2661e9125ed1307b8ce5e5cce8ee46e844b7c38b0bc3|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|b3384fc2eeaeeecd1744730928116585bdd44a82b9b6832dd29e70008f0dac3a|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|a4bb6cde0312ccb59f3486a5846324fe9a1610ebdde93f0074b32b9cf08c9223|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|bf51017c1fc50ddc351a8ef97559dfbdf9528eb582e02b4e015780746da6ba98|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|f2991634fee0a6999bf9a3a7917df60168f96db82baf03d44f5520252e66077d|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|358d74eb064b1e7faeb3eecb49bba2de420c909913325df9771f3b7ba357d488|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|fd1792b0e4d17c84a931fd1862ef561cb06c06ff87b2c74d66be68659cdbf305|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|8ccfc87fd886c673ab4236630de0b6a108894d43c893df4542d16d40b64607e2|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|d78f5591dd07411a58abd3dbebbe171aaf2afb8ae9b0145b04d9be829f6395bf|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|444ee7f5fd2d1cba9d4cc7e238066db12b8ee65f3256d14c4ecc617a81fec072|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|d0f41870707fa435b9d3c76633dfac19a34d4d34e4949e7969228a0a58afd802|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|476e6f9c8629acea0cc4b32552c91da3f70e8255142e6dc0b637d61accd47375|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|3f7a6519aa3371bc60d5a46e1f2ac994629c54cad03b0b45da268b9cd2a9db2f|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
-								"SL.gjslint.Highlights.|37d21f121a14ee20d17d1234cfb99b701f9b1e5a9246853e893eb10ac959fc64|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|737b75f99c5913943ac525f08c4f12f15a9bf24d91ffc3dd65432951b6e6a72b|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|a897bf8030717ba94d1be75fa0559c96f89fe141032fd5f979bc618f2a1fe876|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|5deb718afe5d9396b7b130d94bface63588c895b6e6d2fa4488d7b933345dbb4|region.redish markup.error.sublime_linter|32",
-								"sublime_linter.protected_regions",
-								"SL.gjslint.Highlights.|4ed05031ae5ade89fe622928b94a1425ff7f29a46ac25e293ab85e8a6588a015|region.redish markup.error.sublime_linter|32"
-							],
-							"SL.38.region_keys":
-							[
-								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
-								"SL.gjslint.Highlights.|a897bf8030717ba94d1be75fa0559c96f89fe141032fd5f979bc618f2a1fe876|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|37d21f121a14ee20d17d1234cfb99b701f9b1e5a9246853e893eb10ac959fc64|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|53b7502af2b0f005784dfa2b4e53ab4e652a9d77db074397810c92850437bea6|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|3684c10533403fbae61e0369d127fb94b566a6322d952ce2483e695d7b4688ec|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|3f7a6519aa3371bc60d5a46e1f2ac994629c54cad03b0b45da268b9cd2a9db2f|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|ef5e1fd51e98e8b6a17affffebfd31326ba5d49e972404b100f2cde9f976b438|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|964d354ef1136c6bf3a46281be6516ca1aad094a8a7cee4f5eb0fba09bc7519b|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|f7e3c1cd704834874c55c97783eea584fb4eae8bb0855139e21f95a2c7f9cd4a|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|8ccfc87fd886c673ab4236630de0b6a108894d43c893df4542d16d40b64607e2|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|c556c57b794841e53c431b40caa817a9978ddb5d5b9f3928cd626850444809cd|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|5fa79d1b62831619f84af2d1cb441e6f33af24ce5bc4953c1aefae1d22f5fae7|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|d239324bbbd238551e5d4c2dc5724a253c9a1cc2270955c6a05446d003f1cc4b|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|78eb73ca469c04dafc17cdc2c0879e39599a0e56555083af63bd62501bc393eb|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|e3ca1a04430bb13eff5a6501d07f442a01beeffd1cf43b9fde3e7dcb2b1fd1b9|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|413dd74ed5159adf41a0691aba0a3329d05ed7d16b8f273c87caac10f105899c|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|0ae727a4e33ddee1725a5d8dd81bfe34d3088bc31adf655352cc79432de480d8|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|18c7261e01d960c8d5afa67bcc00ddc1f36fbde6ac1298e7929c68101f7db7b3|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|7d8405ad793d83aa2aa0d0cdfe99711dc9d73484be2d085d04639b8dfcb39acb|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|b3384fc2eeaeeecd1744730928116585bdd44a82b9b6832dd29e70008f0dac3a|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|406866c9b64d23995d57335555e7ee44ac05d5b53caa5e2474467d659c77cce3|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|4ed05031ae5ade89fe622928b94a1425ff7f29a46ac25e293ab85e8a6588a015|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|aba62743849f366d3ed89e5d281ee4562bf2b6c4f5751b2706be625b29492b94|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|e3b01068230e3e0b534a87182a3f4cbdd9c707b5637b98c8cfaad613825f031b|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|5deb718afe5d9396b7b130d94bface63588c895b6e6d2fa4488d7b933345dbb4|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|b909a1920325cdaeb5422382555edf719855ade2e907db51fef728dd23ac10ed|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|b1213bd6dc778a16fa00e419f474038c7313e7ec62d71dbb97c865172008abc5|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|a81f700d0bd7f92b0d0e534fdbf8d263535d4ebc2ef927ee2fb3d3da5ba6b99c|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|476e6f9c8629acea0cc4b32552c91da3f70e8255142e6dc0b637d61accd47375|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|358d74eb064b1e7faeb3eecb49bba2de420c909913325df9771f3b7ba357d488|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|d0f41870707fa435b9d3c76633dfac19a34d4d34e4949e7969228a0a58afd802|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|796a7ecd8a2482b538be101db87b6609e2d8b35b174a74cc1401134d462e9fae|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|8b673173f6102f852605e1211ada89ca1c1e4c7b8a871f9b1a1ab67b528cc02a|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|444ee7f5fd2d1cba9d4cc7e238066db12b8ee65f3256d14c4ecc617a81fec072|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|5ea7db93faba4e0559872716bd0dee0fd75de0baccc9789298da42742457a075|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|0a1e3f3c32196a66871a1f86594558ac4dd3729a2dd83883f38bfc5e7b2e84ce|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|14f98d353778898ee42f2d1954b2ff8386a644a2a37c07aedc7fc5af4629a13a|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|98bc6b53fd54ccb11c6382840809124596da4b50b87429f1c3d11a0e6338ff89|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|f2991634fee0a6999bf9a3a7917df60168f96db82baf03d44f5520252e66077d|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|c3fae61036b63db8f5bb2661e9125ed1307b8ce5e5cce8ee46e844b7c38b0bc3|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|1a5a7cbcfe7bc0af52b06162b507e3c334e47307bd239c187124f6ada5b031fb|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|4e0d18654d8fc7450244828ae5c78f7b25a994f51575e7a18cb2657a68568d71|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|7675b7ca65019d668830e4220c056942d6b73adc92d79798b2f39777e568c69a|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|5ea941e15e9013092346dbd2969bfd4c90727e7ced1e565de5065bc9e88c7844|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|737b75f99c5913943ac525f08c4f12f15a9bf24d91ffc3dd65432951b6e6a72b|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|a4bb6cde0312ccb59f3486a5846324fe9a1610ebdde93f0074b32b9cf08c9223|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|849d981c783d5106ec7666194a6e317b7876f4260546fa3a3cf0bbbd6cd07d8a|region.redish markup.error.sublime_linter|32",
-								"sublime_linter.protected_regions",
-								"SL.gjslint.Highlights.|fd1792b0e4d17c84a931fd1862ef561cb06c06ff87b2c74d66be68659cdbf305|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|def73cec8955c89cd58b5c2a82413c181d0000ca8ddb895e778d48a1bf4abcd9|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|fc2d403c3574164e633022a28e28bee0cc61b210da840dad8ef33510de204d33|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|93732a27d9e5166548f44d30ee48707671ca66d1060d53a9086936b078a26628|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|9f5690d85d2a1ec8ea3b9db091722b10eb09dc1d08ee9977fb2925ca03513e9e|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|bf51017c1fc50ddc351a8ef97559dfbdf9528eb582e02b4e015780746da6ba98|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|d78f5591dd07411a58abd3dbebbe171aaf2afb8ae9b0145b04d9be829f6395bf|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|b1c6297e586804d0f0ad6dc114cc52b03f6fb7c949275bd564fdc63c0f2ad2ec|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|c350ee8faec9cfb80483aca4993c6abd5ebd2a5093ade4f942a1b3a017116bc9|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|6689169c17e53822b5eeb1bab49113836f7fe94adb61185e853a87a96d296619|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|50a80cba472d3acefb790ae7537d818b810d9adbd4e67ec3cbad55e6dc3fe93a|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|1db021a7d33c1ab85efef2752ef00e3b642eeda06c114883b7d940187c97e718|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|98515d0903464215f28148e2ebd51167dd0bed8384d55e23f2e191eba70fd801|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|92dbd56609c78f35562cef8c76ffff187ba1175300990c6e9eb009455bda1e52|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|6c82cbd9c915d42a5b4afa78e3148abb3402b8a0c832ae590b4ca49500f1a5e2|region.redish markup.error.sublime_linter|32",
-								"SL.gjslint.Highlights.|44fbae69e09631c7b85dd25d23090034f8c4bd9c3fdd348137afd6b8a6d4a266|region.redish markup.error.sublime_linter|32"
-							],
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "/Users/Johnny/Documents/Projects/el-web-sdk/grunt/concurrent.js",
 					"semi_transient": false,
 					"settings":
@@ -1528,6 +1295,9 @@
 						],
 						"settings":
 						{
+							"SL.29.region_keys":
+							[
+							],
 							"SL.50.region_keys":
 							[
 								"SL.gjslint.Highlights.|1d662712db47f82eb11fb4d00dee8820efe76f775f224a7b6a9cbd574905d618|region.redish markup.error.sublime_linter|32",
@@ -1560,16 +1330,16 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 1,
 					"file": "templates/partials/script/player_events.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 20004,
+						"buffer_size": 20085,
 						"regions":
 						{
 						},
@@ -1585,6 +1355,12 @@
 							"SL.136.region_keys":
 							[
 							],
+							"SL.30.region_keys":
+							[
+							],
+							"SL.31.region_keys":
+							[
+							],
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1593,16 +1369,16 @@
 						"translation.y": 8528.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 2,
 					"file": "templates/partials/script/player_logic.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10691,
+						"buffer_size": 10611,
 						"regions":
 						{
 						},
@@ -1618,6 +1394,9 @@
 							"SL.146.region_keys":
 							[
 							],
+							"SL.31.region_keys":
+							[
+							],
 							"SL.32.region_keys":
 							[
 							],
@@ -1629,15 +1408,15 @@
 						"translation.y": 2181.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 3,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 35298,
+						"buffer_size": 82059,
 						"regions":
 						{
 							"match":
@@ -1808,6 +1587,174 @@
 									[
 										35108,
 										35121
+									],
+									[
+										35493,
+										35506
+									],
+									[
+										35707,
+										35720
+									],
+									[
+										35896,
+										35909
+									],
+									[
+										36002,
+										36015
+									],
+									[
+										36307,
+										36323
+									],
+									[
+										36498,
+										36514
+									],
+									[
+										36715,
+										36731
+									],
+									[
+										36946,
+										36962
+									],
+									[
+										37173,
+										37189
+									],
+									[
+										37301,
+										37317
+									],
+									[
+										37533,
+										37549
+									],
+									[
+										37690,
+										37706
+									],
+									[
+										37804,
+										37820
+									],
+									[
+										37928,
+										37944
+									],
+									[
+										38114,
+										38130
+									],
+									[
+										38303,
+										38319
+									],
+									[
+										38524,
+										38540
+									],
+									[
+										38866,
+										38875
+									],
+									[
+										39109,
+										39118
+									],
+									[
+										39394,
+										39404
+									],
+									[
+										39537,
+										39547
+									],
+									[
+										39844,
+										39854
+									],
+									[
+										40039,
+										40049
+									],
+									[
+										40248,
+										40258
+									],
+									[
+										40467,
+										40477
+									],
+									[
+										40758,
+										40768
+									],
+									[
+										41071,
+										41081
+									],
+									[
+										41367,
+										41377
+									],
+									[
+										41764,
+										41774
+									],
+									[
+										42072,
+										42082
+									],
+									[
+										54520,
+										54531
+									],
+									[
+										70463,
+										70474
+									],
+									[
+										79731,
+										79742
+									],
+									[
+										80017,
+										80028
+									],
+									[
+										80196,
+										80207
+									],
+									[
+										80468,
+										80479
+									],
+									[
+										80624,
+										80635
+									],
+									[
+										80851,
+										80862
+									],
+									[
+										81072,
+										81083
+									],
+									[
+										81286,
+										81297
+									],
+									[
+										81569,
+										81580
+									],
+									[
+										81966,
+										81977
 									]
 								],
 								"scope": ""
@@ -1816,15 +1763,15 @@
 						"selection":
 						[
 							[
-								35113,
-								35113
+								42267,
+								42267
 							]
 						],
 						"settings":
 						{
 							"detect_indentation": false,
 							"line_numbers": false,
-							"output_tag": 6,
+							"output_tag": 11,
 							"result_base_dir": "",
 							"result_file_regex": "^([^ \t].*):$",
 							"result_line_regex": "^ +([0-9]+):",
@@ -1832,7 +1779,65 @@
 							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 7056.0,
+						"translation.y": 10271.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "deploy.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1784,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								147,
+								147
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/Johnny/Documents/Projects/el-web-sdk/.nvmrc",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 7,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1840,6 +1845,68 @@
 				},
 				{
 					"buffer": 6,
+					"file": "sockets/handlers/Common.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3863,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1275,
+								1286
+							]
+						],
+						"settings":
+						{
+							"SL.39.region_keys":
+							[
+								"SL.gjslint.Highlights.|9131abc2f1946df8a37e00745a87084764d03206d32e271b115383494cbc80a5|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|fd1c08d5d96b6f78c924772b2024605b56e9500a7b6a9f24eb31ae2f907baade|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|2b84e0b668acf64f54960da0907fdb97acdd1b072b647e8339f8e07863165c8f|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|c2a793288b66723e9e26509915c1874487a113e890b6f455fc5d07b2b781e131|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|66ad3a3ba4615649765fe757d0cc6ec0183a7902d7c6136e79aff6a276dccd85|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|e2100eb6061a7b285c7c3e0be758b0df276f3b71cd628afe01dcb158050510f4|region.redish markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.gjslint.Highlights.|202d29c76ee79d2b80762f2a56f0d4a037fb8b7fb164121662c68ad27c7c807f|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|997f7280de52a5f0b425defb91f0178ec4371f996d41cff426ad0204983004b1|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|74d3a5068cf708e1233de21a40f3bab3e4589024e1ca7a20f0baf1221a751897|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|d8811deff722f96b8bae0d753def3062a637b938b3bc9159f6fc604767b41371|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.gjslint.Highlights.|e7b940d280d97e9d8a66b79ae486e06a9279c41237ed14fcd21eb79f96e6f1e5|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|6f7486a2d4cff08168281d014cd52219ab1004c73b8921d21378ff70d8b8b575|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|35c36f625822a283534daeabe4a84393bbd16047036557ce6b6c9930644d4bea|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|e56214a9cea2b442cc044d35b34471411b04207394af647343ebabfd895140b9|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|8bd888b6c6995a6704f257deb4dbbe162e729f20926a2cb7ffd5e8a6c4454661|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|8d8a407c46bb5f2b74fb28c1566fa77685a5aeda3ec5df2965eb4a1a2af70405|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|c06b68c4ae2f621edb9c55e4c1710d66a34327c4a5ddc12fd1f837f0f26c1d5e|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|e9a5cb76cab21a26b027f6f408fd12dadae9e535d40b6b064d93959ab220e0bf|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|6c616dbb5579dec06b7dde83e7029d83df15c26a34ca0a399a046d51c0c145c5|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|b792b71e2662e5fcc617e25273a8e01eaaa1f3e9bf3ad397dc6d4390f9a3262d|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|2b38d6659189dbe38d686038dbedf4a6074e3bb5a23b526d5643051295e8f30b|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|a77669c4470ad40bd241df1dc42e94f34a796a4fe4ed7151ed087b7fb0cb4d3f|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|7944fac45f68d911588b9d44cb67c1f65cff8d774d61bd5f7eaf5d20d945a83d|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|a5af12c05bdaf67a3670234ec91d0696bbd449da55219b47148bfbc183c7af21|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|78e55ef573fb206ea72dea557e8856942ef0ff348ae5ce3e00a932eef5192597|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|45a9ab2eeb549d40e4dede9480e0951bf4cc0474ba8429847e82baf84fcd1168|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|a3732ff10cbdf7d27e60a5ecad5a706d468a00e24eb582f1ec97af1d0650c587|region.redish markup.error.sublime_linter|32"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 604.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
 					"file": "/Users/Johnny/Documents/Projects/learning-games-core/lib/Core.js",
 					"semi_transient": false,
 					"settings":
@@ -1851,12 +1918,48 @@
 						"selection":
 						[
 							[
-								13333,
-								13333
+								5528,
+								5544
 							]
 						],
 						"settings":
 						{
+							"SL.34.region_keys":
+							[
+								"SL.gjslint.Highlights.|3182d512078c40ad02efaad3ac960b34e2092c44ddc5e1c0e4a4938bcd432869|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|f6a4e5cc3cb991f2474da1a05d624c9dad8c6f9a811f9278d13b8ebdbc9cc393|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.gjslint.Highlights.|8864757d5fc386a361f2b33a098c8382bd737244238deb1d1c61c05534986baf|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|192cd87fa625c92a1717f318925801fa927f7e0b59e4beca56345bfb739b0c5a|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|abde62eeaeea28d0ab53306125f659960f5c5c438e8f79d34e41721004719247|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|75e7b3beab99c19488d41005d78fab12b434fc1c9ef3368446870ea80720831c|region.redish markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.gjslint.Highlights.|c8dcf7f4362efc1617c497f5754363643098e0562723279cfa5d91c697d9bf06|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|0930d22377e6eb9d187ede520430d2c1ecba9782d132e86c43155c502728da01|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|fe5debc4d4abb079a1d72776b8ef7e210db86eea7c32f114ab8f1affe37bf031|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|a2f8460176c99b8db4236da60cc4d03e9b431a0044acfaa4db77a2d4ceed8d4c|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|4daa0780cbd12caa1de28b39094154469d6bd671be8b6b5234eab2633caceefd|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|52863cbed718a2f3fdafd8c4413c5693a2463bf8e858dd60690bda9b63f2ca4b|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|e43406e9ca1191091d15ae2bad2dbff12612681c8371d39a22f27830cd6cb01f|region.redish markup.error.sublime_linter|32"
+							],
+							"SL.36.region_keys":
+							[
+								"SL.gjslint.Highlights.|abde62eeaeea28d0ab53306125f659960f5c5c438e8f79d34e41721004719247|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|a2f8460176c99b8db4236da60cc4d03e9b431a0044acfaa4db77a2d4ceed8d4c|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|e43406e9ca1191091d15ae2bad2dbff12612681c8371d39a22f27830cd6cb01f|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|3182d512078c40ad02efaad3ac960b34e2092c44ddc5e1c0e4a4938bcd432869|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|f6a4e5cc3cb991f2474da1a05d624c9dad8c6f9a811f9278d13b8ebdbc9cc393|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|0930d22377e6eb9d187ede520430d2c1ecba9782d132e86c43155c502728da01|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|4daa0780cbd12caa1de28b39094154469d6bd671be8b6b5234eab2633caceefd|region.redish markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.gjslint.Highlights.|fe5debc4d4abb079a1d72776b8ef7e210db86eea7c32f114ab8f1affe37bf031|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|c8dcf7f4362efc1617c497f5754363643098e0562723279cfa5d91c697d9bf06|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|192cd87fa625c92a1717f318925801fa927f7e0b59e4beca56345bfb739b0c5a|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|8864757d5fc386a361f2b33a098c8382bd737244238deb1d1c61c05534986baf|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|52863cbed718a2f3fdafd8c4413c5693a2463bf8e858dd60690bda9b63f2ca4b|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.gjslint.Highlights.|75e7b3beab99c19488d41005d78fab12b434fc1c9ef3368446870ea80720831c|region.redish markup.error.sublime_linter|32"
+							],
 							"SL.38.region_keys":
 							[
 								"SL.gjslint.Highlights.|192cd87fa625c92a1717f318925801fa927f7e0b59e4beca56345bfb739b0c5a|region.redish markup.error.sublime_linter|32",
@@ -1880,19 +1983,19 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 8425.0,
+						"translation.y": 3455.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "templates/partials/script/global.hbs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 22283,
+						"buffer_size": 22341,
 						"regions":
 						{
 						},
@@ -1911,22 +2014,25 @@
 							"SL.32.region_keys":
 							[
 							],
+							"SL.35.region_keys":
+							[
+							],
 							"syntax": "Packages/Handlebars/grammars/Handlebars.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "sockets/handlers/PlayerLogin.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3835,
+						"buffer_size": 3702,
 						"regions":
 						{
 						},
@@ -1939,6 +2045,24 @@
 						],
 						"settings":
 						{
+							"SL.36.region_keys":
+							[
+								"SL.gjslint.Highlights.|a5af12c05bdaf67a3670234ec91d0696bbd449da55219b47148bfbc183c7af21|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|d21c0adbe15a4d08bb8da176a9f61f87a247109bf7348922b5f64fd12648dd46|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|db54ad93abb8364bcd46d15eb0e41b40fb28b10985e42a6b4b05dafd584f635d|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|c2a793288b66723e9e26509915c1874487a113e890b6f455fc5d07b2b781e131|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|401e2bf3e6971ffcab1dc2b1ea943b44b66f96bf219911bce1daa936df03d15f|region.redish markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.gjslint.Highlights.|0fca3baba464ab51fa648efcee33de878610acabb113024ba63f7cc5dd317751|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|4e60d8ce824539a28011ad31e15043ea86f314709911550d725e1d582652c17e|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|9245d0780b5cada09350b3d0d8f324eabd46ddcfa0c28477eb3c2cebc5428d6d|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.gjslint.Highlights.|ac8bb3ce95c6d87f47f242666fb772799f352c78553b72e6d3f1eb533038c77f|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|a6033cb12043eb7bce54d69c696f3562da0e2577a6594686a7e9a96e1bb66173|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|1b1fc281a749c46e826ba6aeebc36a57dac07a66076e2b5f26f52629a776dbc7|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|7378de934258c0b9146b7392acd7a07c99efc01f59e2c91a5f007f2805178f58|region.redish markup.error.sublime_linter|32",
+								"SL.gjslint.Highlights.|530908e256bdc687653e659f9d64e70b1f327a082fb9d2441de79d367ffb2159|region.redish markup.error.sublime_linter|32"
+							],
 							"SL.72.region_keys":
 							[
 							],
@@ -1950,16 +2074,16 @@
 						"translation.y": 720.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 10,
 					"file": "routes/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 979,
+						"buffer_size": 964,
 						"regions":
 						{
 						},
@@ -1992,7 +2116,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 9,
 					"type": "text"
 				}
 			]

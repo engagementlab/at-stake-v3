@@ -2,33 +2,12 @@
 <div id="meet">
 
 	{{!-- RULES - First Round Only and if Tutorial enabled --}}
-	{{#if tutorial}}
+	{{!-- {{#if tutorial}}
 		{{> shared/rules }}
-	{{/if}}
+	{{/if}} --}}
 
 	{{!-- ROLE CARDS --}}
-	<div class="screen {{#unless tutorial}}{{#ifeq round 1}}initial{{/ifeq}}{{/unless}}">
-
-		{{#ifnoteq round 1}}
-			<div id="new-decider" class="inner-modal" data-duration="6">
-				<div class="inner decide-winner">
-					<h1 id="round">Round {{round}}</h1>
-					<h2><span>{{decider}}</span> is the new Decider this round, and everyone else has been assigned new roles. Let's get started!</h2>
-
-					{{#each players}}
-				    <div id="player-{{icon}}" class="player-box player-logo" style="cursor:default;">
-					    <div class="coins">{{coins}}</div>
-						  <div class="info">
-							  <h1>{{username}}</h1>
-						    <h2>{{title}}</h2>
-					    </div>
-					  </div>
-					{{/each}}
-			  </div>
-			</div>
-
-		  <span id="modifier" class="hidden-el" data-inner_modal="true"></span>
-		{{/ifnoteq}}
+	<div class="screen initial">
 
 		{{> component/instructions 
 				decider=true
@@ -37,17 +16,17 @@
 		}}
 
 		{{> component/instructions 
-				heading="Press the Role Card button"
-				body="Press the Role Card buton on the bottom of the screen to review your title and bio."
+				heading="Listen"
+				body=""
 		}}
 
 		{{> component/speech 
 				decider=true
-				body="As the Decider, I will lead you through this round of @Stake. Lets start! Everyone open your role card using the button at the bottom of your screen."
+				body=(combine 'We\'ll be addressing the following question: ' question)
 		}}
 
 		{{> component/speech 
-				body="As the Decider, I will lead you through this round of @Stake. Lets start! Everyone open your role card using the button at the bottom of your screen."
+				body=(combine 'We\'ll be addressing the following question: ' question)
 		}}
 
 	</div>
@@ -58,27 +37,27 @@
 		{{> component/instructions 
 				decider=true
 				heading="Read the text in the blue box aloud"
-				body="Once everyone has reviewed their hidden agenda items, press next to continue."
+				body=""
 		}}
 
 		{{> component/instructions 
 				heading="Review your Hidden Agenda items"
-				body="At the bottom of your role card are your hidden agenda items. Review them now!"
+				body=""
 		}}
 
 		{{> component/speech 
 				decider=true
-				body="You all have a stakeholder role assigned to you. Review your title, bio, and hidden agenda items now. When ready, close your role card by pressing the arrow at the top of the window."
+				body="Now click the character icon down below and get acquainted with who you will be representing during the deliberations. Let your facilitator know when you've finished."
 		}}
 
 		{{> component/speech 
-				body="You all have a stakeholder role assigned to you. Review your title, bio, and hidden agenda items now. When ready, close your role card by pressing the arrow at the top of the window."
+				body="Now click the character icon down below and get acquainted with who you will be representing during the deliberations. Let your facilitator know when you've finished."
 		}}
 
 	</div>
 
 	{{!-- ROLE CARDS / AGENDA ITEMS --}}
-	<div class="screen">
+	{{!-- <div class="screen">
 
 		{{> component/instructions 
 				decider=true
@@ -100,6 +79,24 @@
 				body="On your turn, you will introduce yourself by reading your stakeholder role and short bio to the group. Do not read your hidden agenda items aloud!"
 		}}
 
+	</div> --}}
+	
+	<div class="screen">
+		{{!-- Timer in button mode  --}}
+		{{> component/timer 
+				decider=true				
+				preview=true
+				time=10
+				stage='meet'
+				body='Now that everybody has seen their character, take a minute to think about how you will introduce yourself.'
+		}}
+
+		{{> component/timer 
+				preview=true
+				time=10
+				stage='meet'
+				body='Now that everybody has seen their character, take a minute to think about how you will introduce yourself.'
+		}}
 	</div>
 
 	{{!-- READ ROLES (each player) --}}
