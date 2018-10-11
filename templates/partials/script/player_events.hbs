@@ -620,11 +620,6 @@ socketEvents = function(eventId, eventData) {
                     return;
                 }
             }
-            else if(eventData === 'meetCountdown' && isDecider) {
-                socket.emit('game:next_player', emitData());
-                return;
-            }
-
             
             runMods();
             openInnerModal();
