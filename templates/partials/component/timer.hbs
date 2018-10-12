@@ -2,13 +2,51 @@
 
 * COMPONENT: Timer 
 * @param {Bool} preview - Just show timer 'start' button?
+* @param {Bool} stopwatch - 
 * @param {Bool} button - Timer is start button for decider?
 * @param {String} body - Speech bubble body text for when 'preview' is true
 
 --}}
     
 {{!-- SPEECH W/ BUTTON TO START --}}
-{{!-- {{#ifeq preview true}}  --}}
+{{#ifeq stopwatch true}} 
+
+{{!-- TIMER at 0 --}}
+  <div class="timer_wrap preview stopwatch decider form">
+      
+        <button 
+        {{#ifeq decider true}}
+          id="btn-start-timer" class="submit"
+        {{/ifeq}}>
+
+          <svg viewBox="0 0 100 100" style="display: block; width: 100%;"><path d="M 50,50 m 0,-46 a 46,46 0 1 1 0,92 a 46,46 0 1 1 0,-92" stroke="#fff" stroke-width="8" fill-opacity="0"></path><path d="M 50,50 m 0,-46 a 46,46 0 1 1 0,92 a 46,46 0 1 1 0,-92" stroke="#56d5ff" stroke-width="8" fill="#ff3d6b" style="stroke-dasharray: 289.067, 289.067; stroke-dashoffset: -289.00;"></path></svg>
+
+          <div class="progressbar-text preview">0</div>
+
+          <div class="speech">
+          
+            <h1>
+              {{#ifeq decider true}}
+                Start Timer
+              {{else}}
+                Get Ready!
+              {{/ifeq}}
+            </h1>
+
+          </div>
+
+        </button>
+
+    </div>
+  
+  {{!-- RUNNING TIMER --}}
+  <div class="timer_wrap running stopwatch">
+
+    <div class="timer"></div>
+
+  </div>
+
+{{else}}
     
   {{!-- CIRCULAR TIMER --}}
   <div class="timer_wrap preview {{stage}} {{#ifeq decider true}}decider form{{else}}player{{/ifeq}}">
@@ -45,8 +83,6 @@
         {{/ifeq}}
 
     </div>
-
-{{!-- {{else}} --}}
   
   {{!-- CIRCULAR TIMER --}}
   <div class="timer_wrap running {{stage}} {{#ifeq decider true}}decider{{else}}player{{/ifeq}}">
@@ -69,4 +105,4 @@
 
   </div>
 
-{{!-- {{/ifeq}} --}}
+{{/ifeq}}

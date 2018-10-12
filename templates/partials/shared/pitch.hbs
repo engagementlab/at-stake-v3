@@ -122,55 +122,29 @@
 
 	</div>
 
-	{{!-- COUNTDOWN --}}
+	{{!-- DONE --}}
 	<div class="screen">
-
+{{!-- 		
 		{{> component/instructions
 				decider=true 
-				heading="Wait for the timer to reach zero"
-				body="When the timer reaches zero say, “Time's up!” and make sure they don’t keep pitching!"
+				heading="Read the text in the blue box aloud"
+				body="Once you finish speaking the instructions to other players, press next to continue."
 		}}
 
-		{{!-- active player --}}
-		{{> component/instructions 
-				active_player=player.isActive
-				heading="Pitch your proposal"
-				body="You’re on! Try to keep within the time limit, and stop speaking when time runs out."
-		}}
+		{{> component/instructions
+				heading="Listen to the Decider"
+				body="Get ready to pitch your proposal to the group!"
+		}} --}}
 
-		{{!-- inactive player --}}
-		{{> component/instructions 
-				inactive_player=player.isInactive
-				heading="Listen to the pitching player’s proposal"
-				body="Take notes on the pitching player’s proposal so you can chime in during deliberation!"
-		}}
-
-		{{!-- timers, one for decider and one for non-deciders --}}
-		{{> component/timer 
-				time=config.pitchSeconds
+		{{> component/speech 
 				decider=true
-				next_player=repeatScreen
-				stage='pitch'
-				body=question
-				user=activePlayer.username
-				role=activePlayer.role.title
+				advance=true
+				body="Prepare for deliberation!"
 		}}
 
-		{{> component/timer 
-				time=config.pitchSeconds
-				active_player=player.isActive
-				stage='pitch'
-				body=question
-				user=activePlayer.username
-				role=activePlayer.role.title
-		}}
-
-		{{!-- choice box for buying more time --}}
-		{{> component/choice 
-				active_player=player.isActive
-				all_players=true
+		{{> component/speech
+				body="Prepare for deliberation!"
 		}}
 
 	</div>
-
 </div>

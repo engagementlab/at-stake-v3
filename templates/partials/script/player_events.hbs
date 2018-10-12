@@ -104,11 +104,49 @@ var startTimer = function(secondsLeft, timerAdvance) {
 
 }
 
+
+var startStopwatch = function() {
+    
+    var currentTime = 0;
+    
+    clockInterval = setInterval(function() {
+        currentTime++;
+    }, 1000);
+
+    // Hide preview timer/btn
+    $('.screen:visible .timer_wrap.preview').fadeOut(500, function() {
+        $('.screen:visible .timer_wrap.running').fadeIn();
+    });
+    
+    countdownAnim = new ProgressBar.Circle(
+      '.screen .timer_wrap.running .timer', 
+      {
+          color: '#56d5ff',
+          duration: (60*5)*1000,
+          strokeWidth: 8,
+          trailColor: '#555',
+          trailWidth: 8,
+          fill: '#ff9600',
+          // Set default step function for all animate calls
+          step: function(state, circle) {
+            circle.setText(moment().startOf("day").add(currentTime*1000).format('mm:ss'));
+          }
+      }
+    );
+    countdownAnim.animate(1);
+
+}
+
 var setupScreen = function(screenName, index) {
 
     // Add trigger to go to next step on next-step buttons
     $('.next-step').click(function(evt) {
         nextPhaseScreen();
+    });
+
+    // Add trigger for stopwatch
+    $('#btn-start-timer').click(function(evt) {
+        startStopwatch();
     });
 
     // Reset screen index
@@ -617,11 +655,16 @@ socketEvents = function(eventId, eventData) {
             $('#added-time').hide();
             timerActive = false;
 
-            if(eventData === 'meetCountdown') {
-                nextPhaseScreen();
+            if(eventData === 'meetCountdown' && isDecider) {
+                socket.emit('game:next', emitData());
                 return;
             }
 
+            if(eventData === 'pitchCountdown' && isDecider) {
+                socket.emit('game:next_player', emitData());
+                return;
+            }
+/* 
             // Move right to next player if in double-down
             if(eventData === 'doubledownCountdown') {
 
@@ -630,11 +673,11 @@ socketEvents = function(eventId, eventData) {
                     return;
                 }
             }
-            
+             */
             runMods();
             openInnerModal();
     
-            $('#btn-more-time, #btn-cancel').click(function() {
+/*             $('#btn-more-time, #btn-cancel').click(function() {
 
                 $('#overlay').trigger('hide');
                 
@@ -648,7 +691,7 @@ socketEvents = function(eventId, eventData) {
                 ion.sound.stop("click3");
                 ion.sound.play("player_red");
             });
-
+ */
             if(eventData == "deliberateCountdown") 
                 nextPhaseScreen();
             else if (eventData == "brainstormCountdown" && isDecider){

@@ -52,7 +52,7 @@
 	</div>
 
 	{{!-- INTRO 3 --}}
-	<div class="screen initial">
+	{{!-- <div class="screen initial">
 
 		{{> component/instructions 
 				decider=true
@@ -74,7 +74,7 @@
 				body="Remember! Your objective is to get your proposal chosen by the Decider and/or have your agenda items incorporated into the winning proposal."
 		}}
 
-	</div>
+	</div> --}}
 
 	{{!-- TIMER START --}}
 	<div class="screen">
@@ -86,24 +86,21 @@
 		}}
 		
 		{{> component/instructions 
-				heading="Wait for the Decider to start the timer"
-				body="Once the timer begins, you can begin deliberation."
+				heading="Wait for the Decider to say to begin."
 		}}
 
 		{{!-- Timer in button mode  --}}
 		{{> component/timer 
 				decider=true				
 				preview=true
-				time=config.deliberateSeconds
-				stage="deliberate"
-				body="Get Ready to Deliberate!"
+				stopwatch=true
 		}}
-		{{> component/timer 
+		{{!-- {{> component/timer 
 				preview=true
 				time=config.deliberateSeconds
 				stage="deliberate"
 				body="Get Ready to Deliberate!"
-		}}
+		}} --}}
 
 
 	</div>

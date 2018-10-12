@@ -6,25 +6,23 @@
 		{{> component/instructions 
 				decider=true
 				heading="Read the text in the blue box aloud"
-				body="Once you finish speaking the instructions to other players, press next to continue."
 		}}
 
 		{{> component/instructions 
 				heading="Listen to the Decider"
-				body="Remember to think from your stakeholder's perspective and include your agenda items!"
 		}}
 
 		{{> component/speech 
 				decider=true
-				body=(combine 'In this phase, you will have ' config.thinkSeconds ' seconds to think of a proposal that addresses this question: ' question)
+				body=(combine 'Now you will have ' config.thinkSeconds ' seconds to think of a proposal that addresses this question: ' question)
 		}}
 
 		{{> component/speech 
-				body=(combine 'In this phase, you will have ' config.thinkSeconds ' seconds to think of a proposal that addresses this question: ' question)
+				body=(combine 'Now you will have ' config.thinkSeconds ' seconds to think of a proposal that addresses this question: ' question)
 		}}
 
 	</div>
-
+{{!-- 
 	<div class="screen">
 
 		{{> component/instructions 
@@ -47,11 +45,10 @@
 				body="Remember to think from  your assigned Stakeholder's perspective. When time is up, we will move to the next phase where you will pitch your proposals!"
 		}}
 
-	</div>
+	</div> --}}
 
 	{{!-- TIMER START --}}
 	<div class="screen">
-
 		{{> component/instructions 
 				decider=true
 				heading="Press the button to start the timer"
@@ -60,28 +57,33 @@
 		
 		{{> component/instructions 
 				heading="Get ready to think of a proposal"
-				body="Remember to incorporate your hidden agenda items and embody your stakeholder role!"
+				body="Remember to incorporate your needs and embody your stakeholder role!"
 		}}
+		
+		{{#each players}}
+			{{#ifnoteq decider true}}
 
-		{{!-- Timer in button mode  --}}
-		{{> component/timer 
-				decider=true				
-				preview=true
-				time=config.thinkSeconds
-				stage="think"
-				body="Press the red button to start!"
-		}}
+				{{!-- Timer in button mode  --}}
+				{{> component/timer 
+						decider=true				
+						preview=true
+						time=config.thinkSeconds
+						stage="think"
+						body="Press the red button to start!"
+				}}
 
-		{{> component/timer				
-				preview=true
-				time=config.thinkSeconds
-				stage="think"
-				body=question
-		}}
+				{{> component/timer				
+						preview=true
+						time=config.thinkSeconds
+						stage="think"
+						body=(combine username ', your turn')
+				}}
+		{{/ifnoteq}}
+	{{/each}}
 	</div>
 
 	{{!-- COUNTDOWN --}}
-	<div class="screen">
+	{{!-- <div class="screen">
 
 		{{> component/instructions 
 				decider=true
@@ -107,6 +109,6 @@
 				stage="think"
 		}}
 	
-	</div>
+	</div> --}}
 
 </div>

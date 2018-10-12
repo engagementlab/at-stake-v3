@@ -6,7 +6,7 @@
 		{{> shared/rules }}
 	{{/if}} --}}
 
-	{{!-- ROLE CARDS --}}
+	{{!-- QUESTION --}}
 	<div class="screen initial">
 
 		{{> component/instructions 
@@ -31,7 +31,7 @@
 
 	</div>
 
-	{{!-- ROLE CARDS 2 --}}
+	{{!-- ROLE CARDS --}}
 	<div class="screen">
 
 		{{> component/instructions 
@@ -56,31 +56,7 @@
 
 	</div>
 
-	{{!-- ROLE CARDS / AGENDA ITEMS --}}
-	{{!-- <div class="screen">
-
-		{{> component/instructions 
-				decider=true
-				heading="Read the text in the blue box aloud"
-				body="Once you have finished speaking the instructions, press next to continue"
-		}}
-
-		{{> component/instructions 
-				heading="Listen to the Decider"
-				body="On your turn, read your character role title and bio aloud to the group."
-		}}
-
-		{{> component/speech 
-				decider=true
-				body="On your turn, you will introduce yourself by reading your stakeholder role and short bio to the group. Do not read your hidden agenda items aloud!"
-		}}
-
-		{{> component/speech 
-				body="On your turn, you will introduce yourself by reading your stakeholder role and short bio to the group. Do not read your hidden agenda items aloud!"
-		}}
-
-	</div> --}}
-	
+	{{!-- BRAINSTORM TIMER --}}
 	<div class="screen">
 		{{!-- Timer in button mode  --}}
 		{{> component/timer 
@@ -100,7 +76,7 @@
 	</div>
 
 	{{!-- READ ROLES (each player) --}}
-	{{#each players}}
+	{{!-- {{#each players}}
 		{{#ifnoteq decider true}}
 		<div class="screen">
 			
@@ -126,10 +102,10 @@
 
 		</div>
 		{{/ifnoteq}}
-	{{/each}}
+	{{/each}} --}}
 
 	{{!-- DONE --}}
-	<div class="screen">
+	{{!-- <div class="screen">
 		
 		{{> component/instructions 
 				decider=true
@@ -152,6 +128,6 @@
 				body="Now that everyone has introduced themselves, we will move into the think phase. Remember, you can open and close your role card at any time during the game. "
 		}}
 
-	</div>
+	</div> --}}
 
 </div>

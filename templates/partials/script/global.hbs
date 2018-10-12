@@ -9,7 +9,7 @@
  * ==========
  */
 --}}
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 <script type="text/javascript">
 
 	var socket,
@@ -168,12 +168,9 @@
 	
 	];
 
-	// setInterval(function() {console.log($('#wrapper').offset().left)}, 100)
-
 	/* 
 		Manually position absolutely-positioned elements on window re-size
 	*/
-
 	var finishResize = function() {
 
 		// Show wrapper now that resize is complete
@@ -351,7 +348,7 @@
 	    // Analytics
 	    var phaseName = $('#stages-bar .icon:eq('+currentPhaseIndex+') span').text(),
 					phaseNameFormatted = phaseName.charAt(0).toUpperCase() + phaseName.slice(1);
-      ga('send', 'event', 'Game', 'Phase', phaseNameFormatted);  
+		ga('send', 'event', 'Game', 'Phase', phaseNameFormatted);  
 
 	}
 
