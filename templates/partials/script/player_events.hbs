@@ -543,6 +543,10 @@ socketEvents = function(eventId, eventData) {
                     nextPhase();
                     setupScreen(eventData.name);
 
+                    if(eventData.name === 'meet') {
+                        roleCardOpenClose(true);
+                    }
+
                 });
             }
             else {

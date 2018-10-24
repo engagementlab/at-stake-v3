@@ -114,7 +114,7 @@ function loginFromTo(from, to, timeScale, callback) {
 	
 }
 
-function modalOpenClose(modalElement, open) {
+modalOpenClose = function(modalElement, open) {
 
 	var hidden = { yPercent:100, opacity:0, ease:Expo.easeOut, display:'none' },
 			shown = { yPercent:0, opacity:1, ease:Expo.easeIn, display:'block'};

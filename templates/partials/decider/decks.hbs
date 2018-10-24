@@ -1,48 +1,46 @@
-<div class="glide__bullets"></div>
+{{#each this}}
 
-{{!-- <div class="glide__arrows">
-  <button class="glide__arrow prev" data-glide-dir="<">prev</button>
-  <button class="glide__arrow next" data-glide-dir=">">next</button>
-</div> --}}
-<div class="glide__wrapper">
-  <div class="glide__track">
-    
-    {{#each this}}
+  <section id="scroll">
 
-      <div class="glide__slide" data-id="{{_id}}">
+    <div class="deck" data-id="{{_id}}">
 
-        <div class="deck">
+      <div class="deck-header">
+        <h2 class="medium-font white">{{name}}</h2>
 
-          <div class="deck-header">
-            <h2 class="medium-font white">{{name}}</h2>
-
-            <div class="description white subtitle">
-              {{description}}
-            </div>
-          </div>
-
-          <h3 class="flag medium-font ">Talking Points</h3>
-            {{#each questions}}
-            <div class="question">{{this}}</div>
-
-              {{#if @last}}
-              {{else}}
-                <div class="dot"></div>
-              {{/if}}
-
-            {{/each}}
-
-          <h3 class="flag medium-font">Sample Stakeholders</h3>
-          <div class="stakeholders">
-            {{#limit roles 2}}
-              <div class="deck-role col-xs-6"><p>{{title}}</p></div>
-            {{/limit}}
-          </div>
-
+        <div class="description white subtitle">
+          {{description}}
         </div>
       </div>
 
-    {{/each}}
+    </div>
+
+  </section>
+
+{{/each}}
+
+{{#each this}}
+
+  <div class="deck-modal {{_id}} modal" data-id="{{_id}}">
+      
+    <h2>{{name}}</h2>
+
+    <div class="description">
+      {{description}}
+    </div>
+
+    <div class="question">
+      {{questions.[0]}}
+    </div>
+
+    <div class="stakeholders">
+      {{#limit roles 4}}
+        <div class="deck-role col-xs-6"><p>{{title}}</p></div>
+      {{/limit}}
+    </div>
+
+
+    <button class="btn_submit button_text game_login">select</button>
 
   </div>
-</div>
+
+  {{/each}}

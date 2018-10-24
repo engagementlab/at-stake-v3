@@ -19,11 +19,16 @@
 		<h1 class="header">Needs</h1> 
 		{{!-- <span class="instruction">At the end of the round, you win bonus coins if the Decider thinks your agenda item is included in the winning proposal.</span> --}}
 
-		<div class="agenda-item"><span class="value">100</span><div class="agenda">{{agendaItems.[0]}}</div></div>
-		<div class="agenda-item"><span class="value">200</span><div class="agenda">{{agendaItems.[1]}}</div></div>
+		<div class="agenda-item"><div class="agenda">{{agendaItems.[0]}}</div></div>
+		<div class="agenda-item"><div class="agenda">{{agendaItems.[1]}}</div></div>
 
 		<h1 class="header">Secret Goal</h1> 
-		<div>Get another player to compliment your shoes</div>
+		<div>{{secretGoal}}</div>
+
+
+		<button id="btn-role-done" class="btn" type="submit" name="submit">
+			Continue
+		</button>
 	</div>
 
 </div>
