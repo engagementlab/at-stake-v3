@@ -318,3 +318,31 @@ $mq-desktop				: 1382px !default;
   max-width: (425 + $offset) + px;
 
 }
+
+@mixin button($color-one, $color-two) {
+    
+    @include gradient-vertical($color-one, $color-two, 95%, 5%);
+    color: white;
+    border: 0px;
+    border-radius: 0px;
+    height: 80px; 
+    width: 280px;
+    padding: 0px;
+    margin-bottom: 10%;
+    margin-top: 5%;
+    line-height: 1;
+    letter-spacing: 0px;
+    font-size: 24px;
+	font-family: Roboto;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    text-align: center;
+
+    h1 {
+        font-size: 24px;
+        font-family: Roboto;
+        font-weight: bold;
+    }
+
+}

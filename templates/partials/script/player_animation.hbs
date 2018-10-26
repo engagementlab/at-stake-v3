@@ -14,6 +14,7 @@ var screensAnim,
 		loginAnim,
 		timelineCallback,
 		animationDone = $.Deferred(),
+		introIndex = 0,
 		newGameAnim = new TimelineLite({paused:true}),
 		tutorialAnim = new TimelineLite({paused:true});		
 
@@ -48,7 +49,9 @@ function initTimeline() {
 		         .fromTo($('#share_code'), .5, { autoAlpha:0, yPercent: -20, display:'none' }, { autoAlpha:1, yPercent: 0, display:'block' });
 
 		joinAnim.to($('#choices'), .5, { autoAlpha:0, display:'none' })
-							.fromTo($('#join'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
+							.fromTo($('#join'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block', onComplete:function() {
+								$('#gameContent').addClass('join-bg');
+							}})
 							.fromTo($('#join .back-button'), .5, backBtnFrom, backBtnTo)
 
 		loginAnim.from($('#player-name'), .5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .2)
@@ -326,13 +329,13 @@ $(document).on('show', '.screen', function(evt) {
 	screenOpen($(evt.currentTarget));
 });
 
+function nextIntroScreen() {
 
-{{!-- Role Card Open/Close --}}
-function roleCardOpenClose(open) {
-
-	var hidden = { yPercent:100, opacity:0, ease:Expo.easeOut, display:'none' },
-			shown = { yPercent:0, opacity:1, ease:Expo.easeIn, display:'block' };
-
-	TweenLite.fromTo($('#role-card'), .5, (open ? hidden:shown) , (open ? shown:hidden) );
+	TweenLite.to($($('#intro .panel')[introIndex]), .5, { xPercent:-100, display:'none', onComplete:function() {
+		
+		introIndex++;
+		TweenLite.fromTo($($('#intro .panel')[introIndex]), 1, { xPercent:100 }, { xPercent:0, display:'block', ease:Back.easeOut } )
+		
+	}})
 
 }

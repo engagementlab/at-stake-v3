@@ -1,10 +1,10 @@
 // Images
 $background-main: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/background_tileable.png);
-$player-one-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1492726967/at-stake/playericons/avatar1.svg);
-$player-two-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1492726967/at-stake/playericons/avatar2.svg);
-$player-three-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1492726967/at-stake/playericons/avatar3.svg);
-$player-four-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1492726967/at-stake/playericons/avatar4.svg);
-$player-five-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1492726967/at-stake/playericons/avatar5.svg);
+$player-one-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1540566471/at-stake/playericons/avatar1.svg);
+$player-two-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1540566471/at-stake/playericons/avatar2.svg);
+$player-three-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1540566471/at-stake/playericons/avatar3.svg);
+$player-four-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1540566471/at-stake/playericons/avatar4.svg);
+$player-five-logo: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1540566471/at-stake/playericons/avatar5.svg);
 
 /* COLORS */
 
@@ -21,11 +21,14 @@ $blue-light: #56d5ff;
 $tiffany-blue: #61f5de;
 $dark-sky-blue: #20b5e6;
 $color-teal: #039b8a;
+$bluegreen: #02826a;
+$cerulean-blue: #0067d8;
 
 // Red
 $color-red: #ff4700;
 $red-dark: #ff3000;
 $red-light: #ff8c53;
+$strawberry: #e4323c;
 
 // Orange
 $color-orange: #ff9600;
@@ -40,9 +43,11 @@ $color-pink: #ff115a;
 $pink-dark: #e90048;
 $pink-light: #ff3d6b;
 $pink-red-two: #ff115a;
+$bubble-gum-pink: #ff6ca8;
 
 // Grey/White
-$grey-white: #d8d8d8;
+$grey-white: #c1c1c1;
+$grey-shadow: #e1e1e1;
 $color-grey: #555555;
 $grey-dark: #949494;
 $color-white: #ebebeb; 
@@ -51,7 +56,8 @@ $greyish-brown-70: rgba(85, 85, 85, 0.7);
 // Game
 $logo-color: #00c5c2;
 $action-button: #555555;
-$background-color: $color-turquoise;
+$background-color: white;
+$yellow: #f7f248;
 
 // Heights
 $nav-height: 50px;

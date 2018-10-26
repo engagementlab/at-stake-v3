@@ -17,6 +17,7 @@ var keystone = require('keystone'),
   appRoot = require('app-root-path'),
   Game = require(appRoot + '/lib/GameManager'),
   GameSession = keystone.list('GameSession'),
+  Intro = keystone.list('Intro'),
   Deck = keystone.list('Deck');
 
 var GameManager = require(appRoot + '/lib/GameManager'), 
@@ -43,23 +44,29 @@ exports = module.exports = function(req, res) {
 
       GameSession.model.findOne({accessCode: accessCode}, function (err, game) {
 
-        // If session does not exist, create it; otherwise, flag current one as restarting
-        let sesh = Session.Get(game.accessCode);
-        if(!sesh) {
-          Session.Create(game.accessCode, new GameManager(game));
-          sesh = Session.Get(game.accessCode);
-        }
-        else
-          sesh.SetToRestarting();
+        Intro.model.findOne({}, function (err, intro) {
 
-        locals.game = game;
-        locals.gameConfig = sesh.GetConfig();
-        locals.accessCode = game.accessCode;
+          locals.text = intro.text;
 
-        if(locals.debug)
-          locals.gameScreens = sesh.GetAllScreens();
+          // If session does not exist, create it; otherwise, flag current one as restarting
+          let sesh = Session.Get(game.accessCode);
+          if(!sesh) {
+            Session.Create(game.accessCode, new GameManager(game));
+            sesh = Session.Get(game.accessCode);
+          }
+          else
+            sesh.SetToRestarting();
 
-        next();
+          locals.game = game;
+          locals.gameConfig = sesh.GetConfig();
+          locals.accessCode = game.accessCode;
+
+          if(locals.debug)
+            locals.gameScreens = sesh.GetAllScreens();
+
+          next();
+
+        });
 
       });
 

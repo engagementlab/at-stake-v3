@@ -29,12 +29,12 @@ Deck.add({
 	description: { type: String, required: true, initial: true },
 	questions: { type: Types.TextArray },
 	roles: {
-		      type: Types.Relationship,
-		      ref: 'Role',
-		      many: true,
-		      required: true,
-		      initial: true,
-		      label: 'Roles'
+		type: Types.Relationship,
+		ref: 'Role',
+		many: true,
+		required: true,
+		initial: true,
+		label: 'Roles'
 	},
   dateCreated: { type: Date, noedit: true }
 

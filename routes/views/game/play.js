@@ -13,7 +13,8 @@
  * ==========
  */
 
-var keystone = require('keystone');
+var keystone = require('keystone'),
+    Intro = keystone.list('Intro');
 
 exports = module.exports = function(req, res) {
 
@@ -42,12 +43,17 @@ exports = module.exports = function(req, res) {
   else if(req.params.mode === 'mobile')
     locals.mobile = true;
 
+  Intro.model.findOne({}, function (err, intro) {
 
-  view.on('init', function(next) {
-    next();
+    locals.text = intro.text;
+
+    view.on('init', function(next) {
+      next();
+    });
+
+    // Render the view
+    view.render('game/player');
+
   });
-
-  // Render the view
-  view.render('game/player');
 
 };

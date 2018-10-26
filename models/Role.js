@@ -29,9 +29,10 @@ Role.add(
 	{
 
 		title: { type: String, required: true, initial: true },
-		bio: { type: Types.Markdown, required: true, initial: true },
-		needs: { type: Types.TextArray },
-		secretGoal: { type: String },
+		isFacilitator: { type: Boolean, note: "Only one facilitator needs to exist across all decks." },
+		bio: { type: Types.Markdown, note: "(Instructions for facilitator)" },
+		needs: { type: Types.TextArray, dependsOn: { isFacilitator: false } },
+		secretGoal: { type: String, dependsOn: { isFacilitator: false } },
 		icon: { type: Types.CloudinaryImage, label: 'Unique icon'},
 		dateCreated: { type: Date, noedit: true }
 
@@ -48,7 +49,7 @@ Role.schema.pre('save', function(next) {
 
 });
 
-Role.defaultColumns = 'name';
+Role.defaultColumns = 'title, isFacilitator';
 
 /**
  * Registration

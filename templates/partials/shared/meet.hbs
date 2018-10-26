@@ -12,20 +12,21 @@
 		{{> component/instructions 
 				decider=true
 				heading="Read the text in the blue box aloud"
-				body="Once you finish speaking the instructions to other players, press next to continue."
+				body="Give each player an equal opportunity to introduce their character and how they are impacted by this scenario."
 		}}
 
 		{{> component/instructions 
 				heading="Listen"
 				body=""
+				body="Get ready to pitch your proposal to the group!"
+		}}
+
+		{{> component/timer 
+				decider=true
 		}}
 
 		{{> component/speech 
 				decider=true
-				body=(combine 'We\'ll be addressing the following question: ' question)
-		}}
-
-		{{> component/speech 
 				body=(combine 'We\'ll be addressing the following question: ' question)
 		}}
 
@@ -74,60 +75,5 @@
 				body='Now that everybody has seen their character, take a minute to think about how you will introduce yourself.'
 		}}
 	</div>
-
-	{{!-- READ ROLES (each player) --}}
-	{{!-- {{#each players}}
-		{{#ifnoteq decider true}}
-		<div class="screen">
-			
-			{{> component/instructions 
-					decider=true
-					heading="Read the text in the blue box aloud"
-					body="When the player has finished introducing themselves, press next to continue."
-			}}
-
-			{{> component/instructions 
-					heading="Listen to the Decider"
-					body="If it is your turn, open your rolecard and read you stakeholder title and bio."
-			}}
-
-			{{> component/speech 
-					decider=true
-					body=(combine username ', please open your role card and introduce yourself by reading your stakeholder title and bio to the group.')
-			}}
-
-			{{> component/speech 
-					body=(combine username ', please open your role card and introduce yourself by reading your stakeholder title and bio to the group.')
-			}}
-
-		</div>
-		{{/ifnoteq}}
-	{{/each}} --}}
-
-	{{!-- DONE --}}
-	{{!-- <div class="screen">
-		
-		{{> component/instructions 
-				decider=true
-				heading="Read the text in the blue box aloud"
-				body="Once you have finished speaking the instructions, press next to continue."
-		}}
-
-		{{> component/instructions 
-				heading="Listen to the Decider"
-				body="Remember, you can open and close your role card at anytime during the game! "
-		}}
-
-		{{> component/speech 
-				decider=true
-				advance=true
-				body="Now that everyone has introduced themselves, we will move into the think phase. Remember, you can open and close your role card at any time during the game. "
-		}}
-
-		{{> component/speech 
-				body="Now that everyone has introduced themselves, we will move into the think phase. Remember, you can open and close your role card at any time during the game. "
-		}}
-
-	</div> --}}
 
 </div>

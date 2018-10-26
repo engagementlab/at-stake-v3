@@ -26,6 +26,7 @@
 	timeline = new TimelineLite(),
 	mobileDetect = new MobileDetect(window.navigator.userAgent),
 	isDevice = false,
+	inIntro = false,
 
 	{{#if mobile}}
 		isDevice = true,
@@ -137,8 +138,12 @@
 		'player:assignrole',
 		'player:updatedata',
 
+		'players:read_roles',
+
 		'game:error',
 		'game:tutorial',
+		'game:intro',
+		'game:roles_done',
 		'game:start',
 		'game:next',
 		'game:next_phase',
@@ -352,12 +357,12 @@
 
 	}
 
-	var nextPhaseScreen = function() {
+	var nextPhaseScreen = function(keepModalsOpen) {
 	    
 	    currentScreenIndex++;
       
       // Hide any overlay if visible and its modal does not have 'keep_open' attribute
-      if($('#overlay').is(':visible') && $('#overlay .inner-modal').data('keep_open') === undefined)
+      if(!keepModalsOpen && $('#overlay').is(':visible') && $('#overlay .inner-modal').data('keep_open') === undefined)
 	      $('#overlay').trigger('hide');
 
 	    $.when($($('.screen:not(.skip)')[0]).remove()).then(function() {

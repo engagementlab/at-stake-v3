@@ -17,14 +17,16 @@
 		<div class="line"></div>
 	<div class="agenda-wrap">
 		<h1 class="header">Needs</h1> 
-		{{!-- <span class="instruction">At the end of the round, you win bonus coins if the Decider thinks your agenda item is included in the winning proposal.</span> --}}
 
-		<div class="agenda-item"><div class="agenda">{{agendaItems.[0]}}</div></div>
-		<div class="agenda-item"><div class="agenda">{{agendaItems.[1]}}</div></div>
+		{{#if agendaItems}}
+			<div class="agenda-item"><div class="agenda">{{agendaItems.[0]}}</div></div>
+			<div class="agenda-item"><div class="agenda">{{agendaItems.[1]}}</div></div>
+		{{/if}}
 
-		<h1 class="header">Secret Goal</h1> 
-		<div>{{secretGoal}}</div>
-
+		{{#if secretGoal}}
+			<h1 class="header">Secret Goal</h1> 
+			<div>{{secretGoal}}</div>
+		{{/if}}
 
 		<button id="btn-role-done" class="btn" type="submit" name="submit">
 			Continue

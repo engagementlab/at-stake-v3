@@ -107,34 +107,29 @@ var startTimer = function(secondsLeft, timerAdvance) {
 
 var startStopwatch = function() {
     
-    var currentTime = 0;
+    var currentTime = 0,
+        maxDuration = (60*5)*1000,
+        timer = $('.timer_wrap');
+        text = $('.timer_wrap h1');
     
     clockInterval = setInterval(function() {
-        currentTime++;
+    
+        currentTime += 1000;
+        var perc = (currentTime/maxDuration)*100;
+        timer.css('background', 
+            'linear-gradient(90deg, #FFC0CB ' + perc + '%, #fff ' + perc + '%)'); 
+        text.text(moment().startOf("day").add(currentTime).format('mm:ss'));
+
     }, 1000);
 
     // Hide preview timer/btn
-    $('.screen:visible .timer_wrap.preview').fadeOut(500, function() {
-        $('.screen:visible .timer_wrap.running').fadeIn();
-    });
-    
-    countdownAnim = new ProgressBar.Circle(
-      '.screen .timer_wrap.running .timer', 
-      {
-          color: '#56d5ff',
-          duration: (60*5)*1000,
-          strokeWidth: 8,
-          trailColor: '#555',
-          trailWidth: 8,
-          fill: '#ff9600',
-          // Set default step function for all animate calls
-          step: function(state, circle) {
-            circle.setText(moment().startOf("day").add(currentTime*1000).format('mm:ss'));
-          }
-      }
-    );
-    countdownAnim.animate(1);
+    // $('.timer_wrap.preview').fadeOut(500, function() {
+    //     $('.screen:visible .timer_wrap.running').fadeIn();
+    // });
 
+
+        //   duration: 
+// 
 }
 
 var setupScreen = function(screenName, index) {
@@ -174,7 +169,8 @@ var setupScreen = function(screenName, index) {
     phaseBarProgress();
     runMods();
 
-    $('#overlay').trigger('hide');  
+    if(!inIntro)
+        $('#overlay').trigger('hide');  
 
 }
 
@@ -224,13 +220,22 @@ var setupRoleCard = function(markup) {
                 ion.sound.play("back");
                 $('#overlay').trigger('hide');
             });
+            $('#btn-role-done').on('click', function(evt) {
+                ion.sound.play("back");
+                $('#overlay').trigger('hide');
+                $('#btn-close-role-card').show();
+
+                if(!isDecider)
+                    socket.emit('game:read_role', emitData());
+            });
 
         });
 
-        $('#btn-role-card').on('click', function(evt) {
+        $('#btn-role-card, #btn-facilitator').on('click', function(evt) {
             ion.sound.play("click1");
             openInnerModal('role');
         });
+        
     });
 
 }
@@ -441,6 +446,22 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'players:read_roles':
+
+            
+
+            break;
+
+        case 'game:intro':
+
+            $('#gameContent').removeClass('join-bg');
+            $('.waiting, #decider, #join').fadeOut(function() {
+                $('#intro').fadeIn();
+            });
+            inIntro = true;
+
+            break;
+
         case 'game:start':
 
             sessionStorage.setItem('gameCode', gameCode);
@@ -515,6 +536,11 @@ socketEvents = function(eventId, eventData) {
             // Or if forced, do this for all players
             if(!isDecider || eventData.force)
                 nextPhaseScreen();
+                
+            if(inIntro) {
+                nextIntroScreen();
+                return;
+            }
             
             break;
 
@@ -543,8 +569,10 @@ socketEvents = function(eventId, eventData) {
                     nextPhase();
                     setupScreen(eventData.name);
 
+                    // OPEN ROLE at start of meet phase
                     if(eventData.name === 'meet') {
-                        roleCardOpenClose(true);
+                        openInnerModal('role');
+                        inIntro = false;
                     }
 
                 });
@@ -630,8 +658,10 @@ socketEvents = function(eventId, eventData) {
             break;
             
         case 'game:countdown':
+
             ion.sound.stop("click3");
             $('#btn-time').fadeOut();
+
             ion.sound.play("alarm_single");
             countdownPaused = false;
 
@@ -741,16 +771,19 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:decider':
 
-            isDecider = eventData;
+            isDecider = eventData.facilitator;
+            if(isDecider) 
+                setupRoleCard(eventData.role);
 
             // Analytics
             if(isDecider)
                 ga('send', 'event', 'Game', 'Event', 'Became Decider');  
 
-            if (sessionStorage.getItem('screenName') !== 'debrief')
-                $('#bottom-bar').show();
+            // if (sessionStorage.getItem('screenName') !== 'debrief')
+            //     $('#bottom-bar').show();
 
             $('#btn-role-card').css('visibility', isDecider ? 'hidden' : 'visible');
+            $('#btn-facilitator').css('visibility', !isDecider ? 'hidden' : 'visible');
 
             break;
 

@@ -1,28 +1,28 @@
 #background-logo {
 	position: absolute;
 	bottom: -40px;
-  left: 0px;
-  width: 219px;
-  z-index: 1;
-  opacity: 0.7;
+	left: 0px;
+	width: 219px;
+	z-index: 1;
+	opacity: 0.7;
 }
 
-#overlay {	
+#overlay {
 	background-color: $greyish-brown-70;
 }
 
 #wrapper.game-wrap {
-		@include gradient-vertical($background-color, $turquoise-dark, 55%, 45%);
+	background-color: $background-color;
 }
 
 #gameContent {
-  @include linear_transition(filter, 0.5s);
-	z-index:100;
+	@include linear_transition(filter, 0.5s);
+	z-index: 100;
 	height: 100%;
 	text-align: center;
 	padding: 8px;
 	padding-top: 40px;
-	color: white;
+	// color: white;
 
 	// During the gameplay
 	&.in-game {
@@ -40,6 +40,12 @@
 		@include filter(blur, 2.9px);
 	}
 
+	&.join-bg {
+		background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_425/v1540489023/at-stake/bg/night.png');
+		background-repeat: no-repeat;
+		color: white;
+	}
+
 }
 
 #main_menu {
@@ -51,38 +57,39 @@
 	#btn-menu-back {
 
 		background: none;
-		box-shadow:none;
+		box-shadow: none;
 
 		height: 32px;
 		width: 64px;
-		
-    text-align: center;
-    float: right;
-		font-size: 12px;
-    line-height: 1.17;
 
-    padding-top: 1%;
-    padding-left: 5%;
-		
+		text-align: center;
+		float: right;
+		font-size: 12px;
+		line-height: 1.17;
+
+		padding-top: 1%;
+		padding-left: 5%;
+
 
 		img {
 			height: 25px;
 		}
 
-		&:hover, &:focus {
+		&:hover,
+		&:focus {}
 
-		}
-		
 	}
 
-	#btn-reconnect, #btn-quit-no {
-		@include gradient-vertical($blue-light, $blue-dark, 90%, 10%);	
+	#btn-reconnect,
+	#btn-quit-no {
+		@include gradient-vertical($blue-light, $blue-dark, 90%, 10%);
 	}
 
 	#btn-quit {
-    margin-top: -5%;
-		@include gradient-vertical($pink-red-two, $pink-dark, 90%, 10%);	
+		margin-top: -5%;
+		@include gradient-vertical($pink-red-two, $pink-dark, 90%, 10%);
 	}
+
 	#btn-quit-yes {
 		@include gradient-vertical($pink-red-two, $pink-dark, 90%, 10%);
 	}
@@ -96,19 +103,19 @@
 	width: 70%;
 	display: inline-block;
 	padding: 0px;
-  background-repeat: no-repeat;
+	background-repeat: no-repeat;
 	// background-size: contain;
 	color: $grey-dark;
 
 	background-position: 20px 0px;
-  background-size: 40px 40px;
+	background-size: 40px 40px;
 
 	p {
 		display: inline-block;
 		color: $grey-dark;
-    text-transform: uppercase;
-    line-height: 60px;
-    padding-left: 80px;
+		text-transform: uppercase;
+		line-height: 60px;
+		padding-left: 80px;
 	}
 
 	&.lg {
@@ -119,28 +126,34 @@
 	}
 
 	&#player-0 {
-		background-image : $player-one-logo;
+		background-image: $player-one-logo;
 	}
+
 	&#player-1 {
-		background-image : $player-two-logo;
+		background-image: $player-two-logo;
 	}
+
 	&#player-2 {
-		background-image : $player-three-logo;
+		background-image: $player-three-logo;
 	}
+
 	&#player-3 {
-		background-image : $player-four-logo;
+		background-image: $player-four-logo;
 	}
+
 	&#player-4 {
-		background-image : $player-five-logo;
+		background-image: $player-five-logo;
 	}
 }
 
 // Default button shadow and margin
-.btn { 
+.btn {
 	@include box-shadow(0px, 3px, 0px, darken($background-color, 10%));
 	margin-bottom: 7px;
 
-	&:hover, &:focus, &:visited {
+	&:hover,
+	&:focus,
+	&:visited {
 		@include box-shadow(0px, 3px, 0px, darken($background-color, 10%));
 		// margin-bottom: 7px;
 		cursor: pointer;
@@ -148,7 +161,7 @@
 		outline: none;
 	}
 
-	color: white;
+	// color: white;
 	border: 0px;
 	border-radius: 0px;
 	height:48px;
@@ -157,14 +170,14 @@
 	font-size: 24px;
 	margin-bottom: 10%;
 	margin-top: 5%;
-	font-family: AvenirNext-Bold;
-  font-size: 24px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1;
-  letter-spacing: 0px;
-  text-align: center;
+	font-family: Roboto;
+	font-size: 24px;
+	font-weight: bold;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1;
+	letter-spacing: 0px;
+	text-align: center;
 
 	width: 80%;
 
@@ -172,22 +185,25 @@
 		background-color: $blue-light;
 		border-bottom: 4px solid $dark-sky-blue;
 	}
+
 	&#btn_no {
 		background-color: $sunflower;
 		border-bottom: 4px solid $tangerine;
 	}
 
 }
+
 .btn_cap {
 	width: 100%;
 	margin: 0px auto;
 	margin-bottom: 25px;
-	line-height:1.33;
+	line-height: 1.33;
 	font-size: 12px;
-	height:32px;
+	height: 32px;
 	font-family: AvenirNext-Medium;
 	color: #fafafa;
 	font-weight: 500;
+
 	&.pink {
 		color: $pink-dark;
 	}
@@ -199,36 +215,52 @@
 	text-align: center;
 	margin: 0px;
 }
+
 .subtitle {
-	font-size: 12px;
-	font-family: $avenir-reg;
+	color: $strawberry;
+	font-weight: 600;
+	font-size: 13px;
 	text-align: center;
 	margin: 0px;
 }
+
 .caption {
 	font-family: $avenir-reg;
 	font-size: 12px;
 }
+
 .white {
 	color: white;
 }
+
 .light {
 	line-height: normal;
 }
 
 // Highlight/glow for any block element
 @include keyframes(highlight-pulse) {
-  0%   {box-shadow: 0 0 15px 10px $color-orange}
-	60%  {box-shadow: 0 0 0px 0px $color-orange}
-	100% {box-shadow: 0 0 15px 10px $color-orange}
+	0% {
+		box-shadow: 0 0 15px 10px $color-orange
+	}
+
+	60% {
+		box-shadow: 0 0 0px 0px $color-orange
+	}
+
+	100% {
+		box-shadow: 0 0 15px 10px $color-orange
+	}
 }
+
 .highlight {
 	@include animation('highlight-pulse 3s infinite');
 }
 
 
 .form {
-	&#decider, &#decider-controls {
+
+	&#decider,
+	&#decider-controls {
 		position: absolute;
 		bottom: 0px;
 		width: 100%;
@@ -250,10 +282,10 @@
 			background-color: $turquoise-dark;
 			color: white;
 			border-radius: 5px;
-		  box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
-		  border: solid 1px #ebebeb;
-		  width: 112px;
-		  height: 24px;
+			box-shadow: 0 2px 0 0 rgba(235, 235, 235, 0.75);
+			border: solid 1px #ebebeb;
+			width: 112px;
+			height: 24px;
 		}
 
 		#btn-next {
@@ -267,9 +299,7 @@
 
 	}
 
-	&.role {
-
-	}
+	&.role {}
 }
 
 input.post-button {
@@ -292,14 +322,15 @@ input.post-button {
 }
 
 // HIDE ANY DECIDER-ONLY VIEWS BY DEFAULT
-#decider, #decider-controls {
-		display: none;
+#decider,
+#decider-controls {
+	display: none;
 }
 
 .screen {
 	display: none;
 	float: none;
-  margin: 0 auto; 
+	margin: 0 auto;
 }
 
 // Add background to any "read out loud" decider instructions
@@ -311,13 +342,11 @@ input.post-button {
 
 // Timer Animation
 .timer_wrap {
-	width: 304px;
-  height: 278px;
-  background-color: $turquoise-dark;
-  border: solid 1px #fafafa;
+	border: solid 1px #fafafa;
 	margin: 0 auto;
-
-	&.think, &.deliberate {
+	background: linear-gradient(90deg, $color-teal 0%, #fff 0%);
+	&.think,
+	&.deliberate {
 		height: 216px;
 
 		&.running {
@@ -327,6 +356,7 @@ input.post-button {
 			}
 		}
 	}
+
 	&.running {
 		display: none;
 	}
@@ -338,15 +368,15 @@ input.post-button {
 
 	.body.pitch {
 		color: white;
-    display: inline-block;
-    // margin-top: 48%;
-    font-size: 16px;
-    width: 100%;
-    padding: 8px 6px;
+		display: inline-block;
+		// margin-top: 48%;
+		font-size: 16px;
+		width: 100%;
+		padding: 8px 6px;
 		background-color: transparent;
 		height: 48px;
-    text-align: center;
-    font-family: AvenirNext-DemiBold;
+		text-align: center;
+		font-family: AvenirNext-DemiBold;
 	}
 
 	.active_player {
@@ -360,50 +390,51 @@ input.post-button {
 		text-shadow: 0 2px 0 $turquoise-dark;
 
 		span {
-			text-shadow:none;
+			text-shadow: none;
 			font-size: 16px;
-    	color: white;
-    	font-family: AvenirNext-Bold;
+			color: white;
+			font-family: AvenirNext-Bold;
 		}
 	}
 
 	button {
-    background: none;
-    border: none;
-    max-width: 196px;
-    height: 164px;
+		@include button($grey-white, $grey-shadow);
+		max-width: 196px;
 	}
+
 	svg {
 		margin: 0px auto;
 		margin-top: -40px;
-    max-width: 152px;
+		max-width: 152px;
 	}
+
 	h1 {
-    font-family: $header-type;
-    font-size: 16px;
-    margin-top: 1%;
-    font-family: AvenirNext-Bold;
+		font-family: $header-type;
+		font-size: 16px;
+		margin-top: 1%;
+		font-family: AvenirNext-Bold;
 	}
+
 	p {
 		color: white;
-    display: inline-block;
+		display: inline-block;
 		letter-spacing: -0.8px;
-    font-size: 16px;
-    width: 100%;
-    padding: 8px 6px;
+		font-size: 16px;
+		width: 100%;
+		padding: 8px 6px;
 		background-color: $background-color;
 		height: 48px;
-    text-align: center;
-    font-family: AvenirNext-DemiBold;
-    
+		text-align: center;
+		font-family: AvenirNext-DemiBold;
+
 	}
 
 	.progressbar-text {
 		font-size: 46px;
 		letter-spacing: -2.1px;
-    margin-top: -76%;
-    color: white !important;
-    font-family: AvenirNext-DemiBold;
+		margin-top: -76%;
+		color: white !important;
+		font-family: AvenirNext-DemiBold;
 	}
 
 	&.running {
@@ -411,9 +442,11 @@ input.post-button {
 		.timer {
 			margin-top: 45px;
 		}
+
 		.progressbar-text {
-	    top: 44% !important;
+			top: 44% !important;
 		}
+
 		.speech {
 			position: relative;
 			z-index: 1;
@@ -422,7 +455,7 @@ input.post-button {
 		}
 
 		p {
-		  font-size: 20px;
+			font-size: 20px;
 			padding: 4px;
 			margin-top: 21px;
 			width: 100%;
@@ -430,24 +463,25 @@ input.post-button {
 			height: 48px;
 			font-family: AvenirNext-Bold;
 
-			&.pitch, &.doubledown {
-	    	margin-top: 35px;
-	    }
+			&.pitch,
+			&.doubledown {
+				margin-top: 35px;
+			}
 
 			&.think {
 				font-size: 16px;
 				font-family: AvenirNext-DemiBold;
 				padding: 8px;
-			} 
+			}
 
 			&.active_player {
 				text-shadow: 0 2px 0 $turquoise-dark;
 
 				span {
-					text-shadow:none;
+					text-shadow: none;
 					font-size: 16px;
-		    	color: white;
-		    	font-family: AvenirNext-Bold;
+					color: white;
+					font-family: AvenirNext-Bold;
 				}
 			}
 
@@ -470,26 +504,26 @@ input.post-button {
 	display: none;
 	background-color: $background-color;
 	text-align: justify;
-  line-height: 0;
-  top: 0px;
-  height: 40px;
-  padding-top:17px;
-  padding-left:5px;
-  padding-right:5px;
+	line-height: 0;
+	top: 0px;
+	height: 40px;
+	padding-top: 17px;
+	padding-left: 5px;
+	padding-right: 5px;
 
-  &:after {
-	  content: "";
-	  width: 100%;
-	  display: inline-block;
-	  vertical-align: bottom;
-  }
+	&:after {
+		content: "";
+		width: 100%;
+		display: inline-block;
+		vertical-align: bottom;
+	}
 
-  .icon {
-    position: relative;
-	  display: inline-table;
-	  vertical-align: middle;
+	.icon {
+		position: relative;
+		display: inline-table;
+		vertical-align: middle;
 		z-index: 1;
-		text-align:center;
+		text-align: center;
 		margin-bottom: -15px;
 		border-radius: 50%;
 		top: 0px;
@@ -497,33 +531,33 @@ input.post-button {
 		position: relative;
 
 		-webkit-transition-duration: 0.5s;
-    -webkit-transition-property: all;
-    -webkit-transition-timing-function: ease-in-out;
-    transition: all 0.5s ease-in-out;
+		-webkit-transition-property: all;
+		-webkit-transition-timing-function: ease-in-out;
+		transition: all 0.5s ease-in-out;
 
 		img {
 			display: block;
-	    margin: auto;
+			margin: auto;
 		}
 
 		span {
 			display: flex;
 			color: $turquoise-dark;
-	    margin-top: 15px;
-	    font-size: 15px;
-	    font-family: 'AvenirNext-Bold';
+			margin-top: 15px;
+			font-size: 15px;
+			font-family: 'AvenirNext-Bold';
 		}
 
 		img {
 			display: block;
-	    margin: auto;
-	    height: 100%;
-	    width: 100%;
+			margin: auto;
+			height: 100%;
+			width: 100%;
 		}
 
 		&.disabled {
 			height: 23px;
-			width:23px;
+			width: 23px;
 			background-color: $turquoise-light;
 			box-shadow: 0 2px 0 0 $turquoise-dark;
 			border: 0px transparent;
@@ -532,53 +566,57 @@ input.post-button {
 			img {
 				opacity: 0.7;
 				height: 23px;
-				width:23px;
+				width: 23px;
 			}
+
 			span {
 				display: none;
 			}
 		}
+
 		&:not(.disabled) {
-	    display: inline-block;
+			display: inline-block;
 			height: 40px;
 			width: 40px;
 			max-width: 40px;
 			border: 2px white solid;
-		  background-color: $turquoise-light;
-		  box-shadow: 0 2px 0 0 $turquoise-dark;
+			background-color: $turquoise-light;
+			box-shadow: 0 2px 0 0 $turquoise-dark;
 
 			span {
 				width: 100%;
 
-			  &#doubledown {
-	  	    width: 99px !important;
-			    margin-left: -25px;
-			  }
+				&#doubledown {
+					width: 99px !important;
+					margin-left: -25px;
+				}
 			}
 		}
 
-  }
-  
-	.phase-path {
-    position: absolute;
-    display: block;
-		z-index: 0;
-    height: 5px;
-    width: 95%;
-    top: 68%;
-    left: 10px;          
-    &:after {
-    	content: "";
-    }
+	}
 
-    &#fill {
-	    background-color: #66F6DE;
-	    @include box-shadow(1px, 3px, 3px, #53CDB2);
-    }
+	.phase-path {
+		position: absolute;
+		display: block;
+		z-index: 0;
+		height: 5px;
+		width: 95%;
+		top: 68%;
+		left: 10px;
+
+		&:after {
+			content: "";
+		}
+
+		&#fill {
+			background-color: #66F6DE;
+			@include box-shadow(1px, 3px, 3px, #53CDB2);
+		}
+
 		&#progress {
-	    width: 0%;
-	    background-color: white;
-	    @include linear_transition(width, 0.5s);
+			width: 0%;
+			background-color: white;
+			@include linear_transition(width, 0.5s);
 		}
 	}
 }
@@ -587,7 +625,7 @@ input.post-button {
 .inner-modal {
 	display: none;
 	position: relative;
-	text-align:center;
+	text-align: center;
 	height: 100%;
 	width: 100%;
 	left: 0px;
@@ -615,21 +653,25 @@ input.post-button {
 			margin-top: -2%;
 			color: $color-white;
 		}
+
 		h1#round {
 			@include text-shadow(0, 2px, 0px, rgba(85, 85, 85, 0.24));
 			font-family: $avenir-reg;
-			font-size: 40px;	
-			margin: 0px;		
+			font-size: 40px;
+			margin: 0px;
 		}
+
 		h2 {
 			margin: 4px 8px;
 			width: 100%;
+
 			span {
 				color: $color-white;
 			}
 		}
+
 		.player-box {
-			width:100%;
+			width: 100%;
 			margin: 4px auto;
 
 			h2 {
@@ -650,17 +692,19 @@ input.post-button {
 			background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin-icon-mobile.svg");
 
 			.coins {
-		    position: relative;
-				float: left;   
+				position: relative;
+				float: left;
 				padding-left: 21px;
 				font-size: 16px;
 			}
 		}
+
 		#btn-empty {
 			background-color: darken($blue-light, 30%);
 			border-bottom: 5px $blue-dark solid;
 			@include box-shadow(0px, 2px, 0px, darken($background-color, 10%));
 		}
+
 		#btn-cancel {
 			border-bottom: 5px $orange-dark solid;
 			background-color: $sunflower;
@@ -683,16 +727,17 @@ input.post-button {
 
 			color: $tiffany-blue;
 		}
-	
+
 	}
 
 	&.agenda_item {
 
 		display: none;
+
 		h1 {
 			@include text-shadow(0, 2px, 2px, rgba(0, 0, 0, 0.24));
 		}
-	
+
 		h2 {
 			font-family: AvenirNext-Bold;
 			font-size: 16px;
@@ -707,11 +752,11 @@ input.post-button {
 			h1 {
 				font-family: AvenirNext-Bold;
 				line-height: 1.13;
-			  letter-spacing: -1.4px;
-			  font-size: 32px;
-			  margin: 0px;
+				letter-spacing: -1.4px;
+				font-size: 32px;
+				margin: 0px;
 			}
-		
+
 			h2 {
 				font-family: AvenirNext-DemiBold;
 				font-size: 20px;
@@ -731,10 +776,14 @@ input.post-button {
 		.inner {
 			padding: 8px;
 		}
+
 		.role {
-			#btn_yes, #btn_no {
+
+			#btn_yes,
+			#btn_no {
 
 				margin-bottom: 0px;
+
 				* {
 					margin: 0px;
 					font-size: 20px;
@@ -747,14 +796,15 @@ input.post-button {
 	}
 
 	.coins {
-    position: relative;
-		float: left;   
+		position: relative;
+		float: left;
 		// margin-top: 10%;
 		font-size: 16px;
 	}
 
 	.decide-winner {
 		height: 432px !important;
+
 		h1 {
 			font-family: AvenirNext-DemiBold;
 			font-size: 20px;
@@ -769,15 +819,15 @@ input.post-button {
 		}
 
 	}
-	
+
 	.inner {
 
 		position: relative;
-	  height: 70%;
-	  width: 90%;
-	  top: 60px;
-	  left: 5%;
-	  background-color: $turquoise-dark;
+		height: 70%;
+		width: 90%;
+		top: 60px;
+		left: 5%;
+		background-color: $turquoise-dark;
 		border: white 3px solid;
 		color: white;
 		padding: 8px;
@@ -792,6 +842,7 @@ input.post-button {
 				span {
 					font-size: 12px;
 				}
+
 				height: 64px;
 				font-size: 20px;
 				background-color: $color-red;
@@ -800,21 +851,22 @@ input.post-button {
 				background-repeat: no-repeat;
 				background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1486743650/at-stake/layout/coin-icon-mobile.svg");
 			}
+
 			&#btn-cancel {
 				background-color: $orange-dark;
 			}
 
 			.info {
-		    position: relative;
-		    float: right;
-		    width: 80%;
-		    margin-top:4px;
-		    height: 40px;
-		    font-family: AvenirNext-Bold;
+				position: relative;
+				float: right;
+				width: 80%;
+				margin-top: 4px;
+				height: 40px;
+				font-family: AvenirNext-Bold;
 			}
 
 		}
-		
+
 		.player-box {
 
 			width: 96%;
@@ -826,26 +878,27 @@ input.post-button {
 			height: 48px;
 			background-repeat: no-repeat;
 			background-position: 40px center;
-		  background-size: 40px 40px;
+			background-size: 40px 40px;
 			background-color: $aquamarine;
 
 			&.decided {
 				padding-left: 0px;
-				width:100%;
-				margin-top:20px;
+				width: 100%;
+				margin-top: 20px;
 			}
 
 			&#reward-icon {
 				.coins {
-			    margin-top: -8px;
-			    line-height: 64px;
-			    width: 64px;
-			    height: 64px;
-			    padding: 0px !important;
+					margin-top: -8px;
+					line-height: 64px;
+					width: 64px;
+					height: 64px;
+					padding: 0px !important;
 					background-repeat: no-repeat;
 					background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,w_64/v1490979430/at-stake/layout/icon-yourcoins.svg");
 				}
 			}
+
 			&:not(#reward-icon) {
 				.coins {
 					padding-top: 40px;
@@ -860,6 +913,7 @@ input.post-button {
 				font-family: AvenirNext-DemiBold;
 				@include text-shadow(0, 2px, 0, $color-teal);
 			}
+
 			h2 {
 				color: $color-white;
 				line-height: 1;
@@ -869,14 +923,14 @@ input.post-button {
 			}
 
 			.info {
-		    position: relative;
-		    float: right;
-		    width: 204px;
-		    margin-top:4px;
-		    height: 40px;
-		    font-family: AvenirNext-Bold;
+				position: relative;
+				float: right;
+				width: 204px;
+				margin-top: 4px;
+				height: 40px;
+				font-family: AvenirNext-Bold;
 			}
-		
+
 		}
 
 	}
@@ -884,147 +938,160 @@ input.post-button {
 
 // Player role card
 #role-card {
-  
-  .inner {
-    height: auto;
-  	@include gradient-vertical(#18b898, $white, 20%, 20%);
-  }
-  .caption {
-  	margin-bottom: 15px;
-  }
 
-  #btn-close-role-card {
-  	background: none;
-  	box-shadow:none;
+	.inner {
+		height: auto;
+		@include gradient-vertical(#18b898, $white, 20%, 20%);
+	}
+
+	.caption {
+		margin-bottom: 15px;
+	}
+
+	#btn-close-role-card {
+		display: none;
+		background: none;
+		box-shadow: none;
 		height: 32px;
 		width: 64px;
-		
-    text-align: center;
-    float: right;
+
+		text-align: center;
+		float: right;
 		font-size: 12px;
-    line-height: 1.17;
+		line-height: 1.17;
 
-    padding-top: 1%;
-    padding-left: 5%;
+		padding-top: 1%;
+		padding-left: 5%;
 
-    img {
-    	height:25px;
-    }
-		
-  }
+		img {
+			height: 25px;
+		}
 
-  .swipe {
-  	margin: 4px;
-  }
-  .instruction {
-  	font-family: AvenirNext-Medium;
-	  font-size: 12px;
-	  margin-bottom: 10px
-	  div {
+	}
+
+	.swipe {
+		margin: 4px;
+	}
+
+	.instruction {
+		font-family: AvenirNext-Medium;
+		font-size: 12px;
+
+		margin-bottom: 10px div {
 			font-size: 14px;
 		}
-	  span {
-	  	font-family: AvenirNext-Bold;
-	  }
-  }
-  .icon {
-  	margin: 4px auto;
-    width: 88px;
-    height: 93px;
-    background-repeat: no-repeat;
-    background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1494020349/at-stake/layout/role-icon.svg");
-  }
 
-  .role-info {
-  	color:$orange-dark;
-  	margin: 0px;
-  	margin-top: 16%;
-  	padding-bottom: 0px;
+		span {
+			font-family: AvenirNext-Bold;
+		}
+	}
 
-  	.title {
-  		font-family: AvenirNext-Heavy;
-		  font-size: 24px;
-		  font-weight: 900;
-		  text-align: center;
-		  color: #18b898;
-		  margin: 0px;
-  	}
-  	.description {
-  		height: 32px;
-  	}
-  	
-  	p {
-  		color:#555555;
-  		font-family: AvenirNext;
-		  font-size: 16px;
-		  font-weight: 500;
-  		display:inline;
-  	}
-  }
-  .line {
-  	width: 176px;
-	  height: 2px;
-	  background-color: #59f6de;
-	  margin: 8px auto;
-  }
-  .agenda-wrap {
-  	color: $background-color;
+	.icon {
+		margin: 4px auto;
+		width: 88px;
+		height: 93px;
+		background-repeat: no-repeat;
+		background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1494020349/at-stake/layout/role-icon.svg");
+	}
 
-  	.header {
-  		font-family: AvenirNext-Heavy;
-  		color: #18b898;
-  		font-size: 20px;
-  	}
+	.role-info {
+		color: $orange-dark;
+		margin: 0px;
+		margin-top: 16%;
+		padding-bottom: 0px;
 
-  	.instruction {
-			color:#555555;
-  		font-family: AvenirNext;
-		  font-size: 16px;
-		  font-weight: 500;
-  		display:inline;
-  		div {
-  			font-size: 14px;
-  		}
-  	}
-  }
-  .agenda-item {
-  	border-radius: 100px;
-  	background-color: $background-color;
-  	margin: 16px auto;
-  	height: 56px;
-  	color: white;
+		.title {
+			font-family: AvenirNext-Heavy;
+			font-size: 24px;
+			font-weight: 900;
+			text-align: center;
+			color: #18b898;
+			margin: 0px;
+		}
 
-  	&:nth-child(1) {
-  		margin-top: 8px;
-  	}
-  	.value {
-	  	height: 64px;
-	  	width: 64px;
-	  	margin-top: -4px;
-	  	line-height: 64px;
-	  	display: inline-block;
-	  	float: left;
-	  	font-size: 24px;
-	  	font-family: AvenirNext-Bold;
-	    background-size: 64px 64px;
-	    background-position: center;
-	  	background-repeat: no-repeat;
-	  	background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1490979430/at-stake/layout/icon-yourcoins.svg");
-	  }
-	  .agenda {
-	  	height: 32px;
-      margin: 10px auto;
-	  	width: 200px;
-	  	display:inline-block;
-	  	text-align: left;
-	  	line-height:1.2;
-	  }
-  }
-  
+		.description {
+			height: 32px;
+		}
+
+		p {
+			color: #555555;
+			font-family: AvenirNext;
+			font-size: 16px;
+			font-weight: 500;
+			display: inline;
+		}
+	}
+
+	.line {
+		width: 176px;
+		height: 2px;
+		background-color: #59f6de;
+		margin: 8px auto;
+	}
+
+	.agenda-wrap {
+		color: $background-color;
+
+		.header {
+			font-family: AvenirNext-Heavy;
+			color: #18b898;
+			font-size: 20px;
+		}
+
+		.instruction {
+			color: #555555;
+			font-family: AvenirNext;
+			font-size: 16px;
+			font-weight: 500;
+			display: inline;
+
+			div {
+				font-size: 14px;
+			}
+		}
+	}
+
+	.agenda-item {
+		border-radius: 100px;
+		background-color: $background-color;
+		margin: 16px auto;
+		height: 56px;
+		color: white;
+
+		&:nth-child(1) {
+			margin-top: 8px;
+		}
+
+		.value {
+			height: 64px;
+			width: 64px;
+			margin-top: -4px;
+			line-height: 64px;
+			display: inline-block;
+			float: left;
+			font-size: 24px;
+			font-family: AvenirNext-Bold;
+			background-size: 64px 64px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1490979430/at-stake/layout/icon-yourcoins.svg");
+		}
+
+		.agenda {
+			height: 32px;
+			margin: 10px auto;
+			width: 200px;
+			display: inline-block;
+			text-align: left;
+			line-height: 1.2;
+		}
+	}
+
 }
 
 #rules {
 	height: 100%;
+
 	.screen {
 		// These are hidden by default
 		display: none;
@@ -1033,20 +1100,23 @@ input.post-button {
 
 .rules-screen {
 	min-height: 400px;
+
 	.main-rule {
 		font-family: AvenirNext-Bold;
-	  font-size: 16px;
-	  font-weight: bold;
-	  line-height: 1;
-	  letter-spacing: 0px;
-	  color: #fafafa;
+		font-size: 16px;
+		font-weight: bold;
+		line-height: 1;
+		letter-spacing: 0px;
+		color: #fafafa;
 	}
+
 	.secondary-rule {
 		font-family: AvenirNext;
-	  font-size: 16px;
-	  letter-spacing: -0.7px;
-	  color: #ebebeb;
+		font-size: 16px;
+		letter-spacing: -0.7px;
+		color: #ebebeb;
 	}
+
 	.skip {
 		background: transparent;
 		border: 0px;
@@ -1055,6 +1125,7 @@ input.post-button {
 		left: 20%;
 		bottom: 40%;
 	}
+
 	.next-step {
 		background: transparent;
 		border: 0px;
@@ -1067,10 +1138,10 @@ input.post-button {
 
 // Screen instructions
 .instruction {
-	font-size:16px;
+	font-size: 16px;
 	height: 72px;
-  margin: 0 auto;
-  width: 304px;
+	margin: 0 auto;
+	width: 304px;
 	margin-bottom: 16px;
 	font-family: AvenirNext;
 
@@ -1087,68 +1158,74 @@ input.post-button {
 
 	.rules-image {
 		height: 180px;
+
 		img {
-			height:180px;
+			height: 180px;
 		}
 	}
 
-  // Inactive player - hide this bubble
-  &.hiding {
-  	display: none;
-  }
+	// Inactive player - hide this bubble
+	&.hiding {
+		display: none;
+	}
 }
 
 // Speech bubbles
 blockquote.speech {
-    position: relative;
-    text-align: left;
-    font-size: 16px;
-    width: 100%;
-    height: 287px;
-    padding: 40px 20px;
-    z-index: 1000;
-    color: white;
-    border-left: none;
-    background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1493403872/at-stake/layout/rectangle-4.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position:center;
-    p {
-    	color: white;
-    	line-height: 24px;
-    	font-family: AvenirNext-DemiBold;
-    }
+	position: relative;
+	text-align: left;
+	font-size: 16px;
+	width: 100%;
+	height: 287px;
+	padding: 40px 20px;
+	z-index: 1000;
+	color: white;
+	border-left: none;
+	background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1493403872/at-stake/layout/rectangle-4.svg");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
 
-    // Inactive player - hide this bubble
-    &.hiding {
-    	display: none;
-    }
+	p {
+		color: white;
+		line-height: 24px;
+		font-family: AvenirNext-DemiBold;
+	}
+
+	// Inactive player - hide this bubble
+	&.hiding {
+		display: none;
+	}
 
 }
+
 .speech {
-  // "Next buttons"
-  button {
-    position: absolute;
-    color: $color-white;
-    display: flex;
-    background: none;
-    border: none;
-    right: 10%;
-    bottom: 75px;
-  	font-family: "AvenirNext-Bold";
-	  &.timer {
-	  // 	&:before {
+
+	// "Next buttons"
+	button {
+		position: absolute;
+		color: $color-white;
+		display: flex;
+		background: none;
+		border: none;
+		right: 10%;
+		bottom: 75px;
+		font-family: "AvenirNext-Bold";
+
+		&.timer {
+			// 	&:before {
 			//   left: 103px;
 			// }
-	  }
-	  &.scoreboard {
-	  	height: 32px;
-	  	font-size: 24px;
-	  	right: 0px;
-	  	bottom: inherit;
-	  	color: $color-white;
-	  }
-  }
+		}
+
+		&.scoreboard {
+			height: 32px;
+			font-size: 24px;
+			right: 0px;
+			bottom: inherit;
+			color: $color-white;
+		}
+	}
 }
 
 // Scoreboard 
@@ -1156,13 +1233,15 @@ blockquote.speech {
 
 	.instruction {
 		&:nth-child(2) {
-  		display: none;
+			display: none;
 		}
+
 		&:nth-child(3) {
-  		display: none;
+			display: none;
 		}
+
 		&:nth-child(4) {
-  		display: none;
+			display: none;
 		}
 	}
 
@@ -1172,19 +1251,20 @@ blockquote.speech {
 		border: solid 2px #fafafa;
 		padding: 3%;
 
-    display: -webkit-flex; /* Safari */
-    display: flex;
+		display: -webkit-flex;
+		/* Safari */
+		display: flex;
 
-    flex-direction: column;
+		flex-direction: column;
 
-    .rank.starting {
-    	visibility: hidden;
-    }
+		.rank.starting {
+			visibility: hidden;
+		}
 
 	}
-		
+
 	.player-logo {
-    background-color: $background-color;
+		background-color: $background-color;
 		width: 287px;
 		border-radius: 0px;
 		font-size: 20px;
@@ -1192,25 +1272,25 @@ blockquote.speech {
 		margin: 10px auto;
 		height: 48px;
 
-    background-position: 47px center;
-    background-size: 40px 40px;
+		background-position: 47px center;
+		background-size: 40px 40px;
 
-    .rank {
-    	text-align: left;
+		.rank {
+			text-align: left;
 			padding-top: 3%;
 			padding-left: 3%;
 			float: left;
-    	width: 31px;
-    	height: 48px;
-    	font-size: 16px;
-    	margin-right: 8px;
-    	font-family: $body-type;
+			width: 31px;
+			height: 48px;
+			font-size: 16px;
+			margin-right: 8px;
+			font-family: $body-type;
 			color: $grey-white;
 
 			&.current {
 				display: none;
 			}
-    }
+		}
 
 		.coins {
 			float: left;
@@ -1227,11 +1307,13 @@ blockquote.speech {
 					color: $color-pink;
 					@include text-shadow(0, 1px, 0, $pink-light)
 				}
+
 				&.positive {
 					color: $tiffany-blue;
 					@include text-shadow(0, 1px, 0, $turquoise-dark);
 				}
 			}
+
 			&.current {
 				display: none;
 			}
@@ -1245,6 +1327,7 @@ blockquote.speech {
 			font-family: $header-type;
 			text-shadow: none;
 		}
+
 		h2 {
 			color: $color-white;
 			margin: 0px;
@@ -1254,18 +1337,18 @@ blockquote.speech {
 
 		.info {
 
-		    position: relative;
-		    float: right;
-		    width: 184px;
-		    margin-top:4px;
-		    height: 40px;
-		    font-family: AvenirNext-Bold;
+			position: relative;
+			float: right;
+			width: 184px;
+			margin-top: 4px;
+			height: 40px;
+			font-family: AvenirNext-Bold;
 
-			  h1 {
-				  margin: 0;
-				}
+			h1 {
+				margin: 0;
 			}
-	
+		}
+
 	}
 }
 
@@ -1282,29 +1365,31 @@ footer#bottom-bar {
 	width: 100%;
 	bottom: 8px;
 	left: 0px;
-	height:90px;
+	height: 90px;
 	position: absolute;
 	padding-top: 5px;
 	max-width: 425px;
 	z-index: 1000;
 
-	.col-sm-6, .col-xs-6 {
-		padding-left:8px;
-		padding-right:8px;
+	.col-sm-6,
+	.col-xs-6 {
+		padding-left: 8px;
+		padding-right: 8px;
 		height: 100%;
-	}	
+	}
 
 	#currency {
-		text-align:right;
-		height:100%;
+		text-align: right;
+		height: 100%;
 		min-height: 100px;
 		font-family: AvenirNext-Bold;
 		color: white;
-		
+
 		div {
 			display: inline-block;
 			text-align: center;
 		}
+
 		p {
 			font-size: 8px;
 			margin: 0px;
@@ -1313,6 +1398,7 @@ footer#bottom-bar {
 			padding-bottom: 45px;
 			padding-top: 10px;
 		}
+
 		img {
 			height: 60px;
 			width: 60px;
@@ -1320,22 +1406,24 @@ footer#bottom-bar {
 
 		span {
 			font-size: 12px;
-	  }
+		}
+
 		#player-coins {
 			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_200/v1486743650/at-stake/layout/coin-icon-mobile.svg');
 			height: 100px;
 			width: 60px;
-	    background-repeat: no-repeat;
-	    background-size: 50px 50px;
-	    background-position: center;
+			background-repeat: no-repeat;
+			background-size: 50px 50px;
+			background-position: center;
 		}
+
 		#pot-coins {
 			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_200/v1486743650/at-stake/layout/coin-pot-mobile.svg');
 			height: 100px;
 			width: 60px;
-	    background-repeat: no-repeat;
-	    background-size: 50px 50px;
-	    background-position: center;
+			background-repeat: no-repeat;
+			background-size: 50px 50px;
+			background-position: center;
 		}
 
 	}
@@ -1343,28 +1431,28 @@ footer#bottom-bar {
 	button {
 		margin: 5px;
 		color: white;
-		width: 130px;
-	  height: 36px;
-	  padding-left: 2.4em;
-	  font-size: 16px;
-	  border-radius: 0px;
-	  text-align: left;
-  	background-repeat: no-repeat;
-	  box-shadow: 0px;
-	  border: 0px;
-	  box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
-	  background-size:24px 24px;
-	  background-position: 8px center;
+		// 	width: 130px;
+		//   height: 36px;
+		//   padding-left: 2.4em;
+		font-size: 16px;
+		border-radius: 0px;
+		//   text-align: left;
+		background-repeat: no-repeat;
+		box-shadow: 0px;
+		border: 0px;
+		box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
+		background-size: 24px 24px;
+		background-position: 8px center;
 
-	  &#btn-role-card {
+		/* 	  &#btn-role-card {
 	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/rolecard.svg');
 	  	background-color: $orange-dark;
 	  	border-bottom: 3px darken($orange-dark, 10%) solid;
-	  }
-	  &#btn-menu {
-	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/menu.svg');
-	  	background-color: $orange-light;
-	  	border-bottom: 3px $orange-dark solid;
-	  }
+	  } */
+		&#btn-menu {
+			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/menu.svg');
+			background-color: $orange-light;
+			border-bottom: 3px $orange-dark solid;
+		}
 	}
 }

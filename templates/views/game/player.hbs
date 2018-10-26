@@ -1,7 +1,10 @@
 <section id="lobby">
+		{{> component/timer 
+				decider=true
+		}}
 
   <div id="login-header">
-    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1490382407/at-stake/layout/logo.svg" />
+    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1540484156/at-stake/layout/logo.svg" />
     <p>Deliberate, Negotiate, Decide</p>
   </div>
 
@@ -15,16 +18,16 @@
 
     <div class="form col-xs-12 col-centered">
 
-      <input autocomplete="off" autofill='off' autocorrect="off" autocapitalize="off" spellcheck="false" type="text" id="player-name" maxlength="10" placeholder="Type your name and hit next to begin" class="hidden-el" {{#if username}}value="{{username}}"{{/if}}> <br />
+      <input autocomplete="off" autofill='off' autocorrect="off" autocapitalize="off" spellcheck="false" type="text" id="player-name" maxlength="10" placeholder="What is your name?" class="hidden-el" {{#if username}}value="{{username}}"{{/if}}> <br />
       
       <div class="error">Error!</div>
-      <input id="btn_submit_name" data-package='{"name": "#player-name"}' maxlength="10" class="btn btn-default submit_name hidden-el" type="submit" name="submit" value="Next!">
+      <input id="btn_submit_name" data-package='{"name": "#player-name"}' maxlength="10" class="btn btn-default submit_name hidden-el" type="submit" name="submit" value="Continue">
     </div>
     <div class="login-footer">
       <section id="description">
         <p>@stake is a role playing game that fosters creativity and empathy in small group deliberation.</p>
       </section>
-      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1490382407/at-stake/layout/e-l-logo.svg" height='auto' width='226px' style="margin: 16px"> 
+      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1540484590/at-stake/layout/el-logo.svg" height='auto' width='226px' style="margin: 16px"> 
     </div>
   </div>
 
@@ -39,12 +42,12 @@
 
       <div id="btn_new_game" class="btn btn-default">
         <h2>Start new game</h2>
-      <div class="btn_cap">Select a stakeholder deck and share a room code with other players</div>
+      <div>If you are the facilitator, start a new game</div>
       </div>
 
       <div id="btn_join_game" class="btn btn-default" data-from="choices" data-to="join">
         <h2>Join a game</h2>
-      <div class="btn_cap">Use a room code to join a game</div>
+      {{!-- <div class="btn_cap">Use a room code to join a game</div> --}}
       </div>
 
     </div>
@@ -88,7 +91,7 @@
 
       <div class="form row" id="start">
         {{!-- <input data-event="game:start" class="post-button" type="submit" name="submit" value="play!"> --}}
-        <button id="btn-start-game" class="btn btn-default submit" data-event="game:start" data-package='{"tutorial": "false"}'>play!</button>
+        <button id="btn-start-game" class="btn btn-default submit" data-event="game:intro">play!</button>
         <button class="back-button" data-from="share-code" data-to="deck-choice">back</button>
       </div>
     </div>
@@ -118,8 +121,9 @@
   <div class="lobby form" id="join" style="display:none">
 
     <div class="login input">
-      <input type="text" id="access_code" placeholder="Type your room code here" maxlength="4" {{#if accesscode}}value="{{accesscode}}"{{/if}}> <br />
-      <p class="light instructions">...then <span>press the join game</span> button to begin!</p>
+      <h2>Join your team</h2>
+      <p>Enter your 4 digit room code</p>
+      <input type="text" id="access_code" placeholder="####" maxlength="4" {{#if accesscode}}value="{{accesscode}}"{{/if}}> <br />
       <div class="error">Error!</div>
 
       <button class="back-button" data-from="join" data-to="choices">back</button>
@@ -149,5 +153,33 @@
     </div>
   </div>
 
+  {{!-- GAME INTRO --}}
+  <section class="form" id="intro" style="display:none">
+    
+    <div class="intro panel">
+      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_425/v1540490701/at-stake/bg/street" alt="Intro screen 1 image">
+      <button class="submit" data-event="game:next_screen"><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1540488090/at-stake/icons/check-btn.svg" alt="Go to next screen"></button>
+      <div class="text">{{text.[0]}}</div>
+    </div>
+
+    <div class="intro panel" style="display:none">
+      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_425/v1540490701/at-stake/bg/evil" alt="Intro screen 2 image">
+      <button class="submit" data-event="game:next_screen"><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1540488090/at-stake/icons/check-btn.svg" alt="Go to next screen"></button>
+      <div class="text">{{text.[1]}}</div>
+    </div>
+    
+    <div class="intro panel" style="display:none">
+      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_425/v1540490701/at-stake/bg/city" alt="Intro screen 3 image">
+      <button class="submit" data-event="game:next_screen"><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1540488090/at-stake/icons/check-btn.svg" alt="Go to next screen"></button>
+      <div class="text">{{text.[2]}}</div>
+    </div>
+    
+    <div class="intro panel" style="display:none">
+      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_425/v1540490701/at-stake/bg/bunker" alt="Intro screen 4 image">
+      <button class="submit" data-event="game:start"><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1540488090/at-stake/icons/check-btn.svg" alt="Start game"></button>
+      <div class="text">{{text.[3]}}</div>
+    </div>
+
+  </section>
 
 </section>

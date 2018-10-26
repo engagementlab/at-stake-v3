@@ -9,46 +9,28 @@
 --}}
     
 {{!-- SPEECH W/ BUTTON TO START --}}
-{{#ifeq stopwatch true}} 
+{{!-- {{#ifeq stopwatch true}}  --}}
 
+{{#ifeq decider true}}
 {{!-- TIMER at 0 --}}
-  <div class="timer_wrap preview stopwatch decider form">
-      
-        <button 
-        {{#ifeq decider true}}
-          id="btn-start-timer" class="submit"
-        {{/ifeq}}>
-
-          <svg viewBox="0 0 100 100" style="display: block; width: 100%;"><path d="M 50,50 m 0,-46 a 46,46 0 1 1 0,92 a 46,46 0 1 1 0,-92" stroke="#fff" stroke-width="8" fill-opacity="0"></path><path d="M 50,50 m 0,-46 a 46,46 0 1 1 0,92 a 46,46 0 1 1 0,-92" stroke="#56d5ff" stroke-width="8" fill="#ff3d6b" style="stroke-dasharray: 289.067, 289.067; stroke-dashoffset: -289.00;"></path></svg>
-
-          <div class="progressbar-text preview">0</div>
-
-          <div class="speech">
-          
-            <h1>
-              {{#ifeq decider true}}
-                Start Timer
-              {{else}}
-                Get Ready!
-              {{/ifeq}}
-            </h1>
-
-          </div>
-
-        </button>
-
-    </div>
+<div class="timer_wrap decider form">
   
+  <button 
+  {{#ifeq decider true}}
+    id="btn-start-timer" class="submit"
+  {{/ifeq}}>
+
+    <h1>
+        Start Timer
+    </h1>
+
+  </button>
   {{!-- RUNNING TIMER --}}
-  <div class="timer_wrap running stopwatch">
 
-    <div class="timer"></div>
-
-  </div>
-
-{{else}}
+</div>
+  
     
-  {{!-- CIRCULAR TIMER --}}
+  {{!-- CIRCULAR TIMER
   <div class="timer_wrap preview {{stage}} {{#ifeq decider true}}decider form{{else}}player{{/ifeq}}">
       
         <button 
@@ -103,6 +85,6 @@
             {{#if body}}<p class="body {{stage}}">{{body}}</p>{{/if}}
         {{/ifeq}}
 
-  </div>
+  </div> --}}
 
 {{/ifeq}}

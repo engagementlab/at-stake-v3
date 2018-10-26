@@ -26,6 +26,11 @@ html, body {
 	-webkit-overflow-scrolling: touch;
 }
 
+button {
+	background: none;
+	border: none;
+}
+
 #wrapper {
 	@include box-shadow(0px, 0px, 37px, black);
 	background-color: $background-color;
@@ -96,7 +101,7 @@ button, input {
 // Body
 .body {
 
-  font-family: "AvenirNext";
+  font-family: $body-type;
   color: black;
 	
 }

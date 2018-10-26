@@ -21,6 +21,24 @@ var Common = function (nsp, socket) {
     // Expose handler methods for events
     this.handler = {
 
+        'game:intro': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.Intro(currentSpace);
+                        
+        },
+
+        'game:read_role': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.RoleWasRead();
+                        
+        },
+
         'game:tutorial': function(pkg) {
 
             let session = Session.Get(pkg.gameId);
@@ -35,7 +53,7 @@ var Common = function (nsp, socket) {
             let session = Session.Get(pkg.gameId);
 
             if(!session) return;
-            session.StartGame(currentSpace, (pkg.msgData.tutorial === "true"));
+            session.StartGame(currentSpace, false);
 
         },
 
