@@ -17,7 +17,7 @@
   
   <button 
   {{#ifeq decider true}}
-    id="btn-start-timer" class="submit"
+    id="btn-start-timer" data-event="game:start_timer" class="submit {{#ifeq disabled true}}disabled" disabled="disabled"{{else}}"{{/ifeq}}
   {{/ifeq}}>
 
     <h1>

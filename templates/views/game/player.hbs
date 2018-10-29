@@ -1,7 +1,4 @@
 <section id="lobby">
-		{{> component/timer 
-				decider=true
-		}}
 
   <div id="login-header">
     <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1540484156/at-stake/layout/logo.svg" />
@@ -90,8 +87,10 @@
       </div>
 
       <div class="form row" id="start">
-        {{!-- <input data-event="game:start" class="post-button" type="submit" name="submit" value="play!"> --}}
-        <button id="btn-start-game" class="btn btn-default submit" data-event="game:intro">play!</button>
+        {{!-- <input data-event="game:start" class="post-button" type="submit" name="submit" value="play!">
+        
+         data-event="game:intro" --}}
+        <button id="btn-start-game" class="btn btn-default submit" data-event="game:start">play!</button>
         <button class="back-button" data-from="share-code" data-to="deck-choice">back</button>
       </div>
     </div>

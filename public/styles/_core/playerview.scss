@@ -398,8 +398,16 @@ input.post-button {
 	}
 
 	button {
-		@include button($grey-white, $grey-shadow);
+		@include button($bluegreen, $yellow);
 		max-width: 196px;
+
+		&.disabled {
+			@include button($grey-white, $grey-shadow);
+		}
+
+		&.running {
+			background: linear-gradient(90deg, $bluegreen, #fff 0%);
+		}
 	}
 
 	svg {
@@ -450,28 +458,23 @@ input.post-button {
 		.speech {
 			position: relative;
 			z-index: 1;
-			font-size: 16px;
 			margin-top: -58px;
 		}
 
 		p {
-			font-size: 20px;
-			padding: 4px;
-			margin-top: 21px;
-			width: 100%;
-			background-color: $background-color;
-			height: 48px;
-			font-family: AvenirNext-Bold;
+			font-family: Roboto;
+			font-size: 19px;
+			font-weight: bold;
+			line-height: 1.21;
+			letter-spacing: 0.5px;
+			text-align: center;
+			color: $cerulean-blue;
 
-			&.pitch,
-			&.doubledown {
-				margin-top: 35px;
-			}
-
-			&.think {
-				font-size: 16px;
-				font-family: AvenirNext-DemiBold;
-				padding: 8px;
+			&.body {
+				margin: 0px;
+				color: black;
+				font-size: 13px;
+				font-family: $semibold-type;
 			}
 
 			&.active_player {
@@ -485,138 +488,6 @@ input.post-button {
 				}
 			}
 
-			&.body {
-				margin: 0px;
-				background-color: transparent;
-				color: white;
-				font-size: 16px;
-				font-family: AvenirNext-DemiBold;
-				padding: 8px;
-			}
-
-		}
-	}
-}
-
-// Upper stages bar
-#stages-bar {
-	z-index: 1000;
-	display: none;
-	background-color: $background-color;
-	text-align: justify;
-	line-height: 0;
-	top: 0px;
-	height: 40px;
-	padding-top: 17px;
-	padding-left: 5px;
-	padding-right: 5px;
-
-	&:after {
-		content: "";
-		width: 100%;
-		display: inline-block;
-		vertical-align: bottom;
-	}
-
-	.icon {
-		position: relative;
-		display: inline-table;
-		vertical-align: middle;
-		z-index: 1;
-		text-align: center;
-		margin-bottom: -15px;
-		border-radius: 50%;
-		top: 0px;
-		left: 0px;
-		position: relative;
-
-		-webkit-transition-duration: 0.5s;
-		-webkit-transition-property: all;
-		-webkit-transition-timing-function: ease-in-out;
-		transition: all 0.5s ease-in-out;
-
-		img {
-			display: block;
-			margin: auto;
-		}
-
-		span {
-			display: flex;
-			color: $turquoise-dark;
-			margin-top: 15px;
-			font-size: 15px;
-			font-family: 'AvenirNext-Bold';
-		}
-
-		img {
-			display: block;
-			margin: auto;
-			height: 100%;
-			width: 100%;
-		}
-
-		&.disabled {
-			height: 23px;
-			width: 23px;
-			background-color: $turquoise-light;
-			box-shadow: 0 2px 0 0 $turquoise-dark;
-			border: 0px transparent;
-			margin-bottom: 0px;
-
-			img {
-				opacity: 0.7;
-				height: 23px;
-				width: 23px;
-			}
-
-			span {
-				display: none;
-			}
-		}
-
-		&:not(.disabled) {
-			display: inline-block;
-			height: 40px;
-			width: 40px;
-			max-width: 40px;
-			border: 2px white solid;
-			background-color: $turquoise-light;
-			box-shadow: 0 2px 0 0 $turquoise-dark;
-
-			span {
-				width: 100%;
-
-				&#doubledown {
-					width: 99px !important;
-					margin-left: -25px;
-				}
-			}
-		}
-
-	}
-
-	.phase-path {
-		position: absolute;
-		display: block;
-		z-index: 0;
-		height: 5px;
-		width: 95%;
-		top: 68%;
-		left: 10px;
-
-		&:after {
-			content: "";
-		}
-
-		&#fill {
-			background-color: #66F6DE;
-			@include box-shadow(1px, 3px, 3px, #53CDB2);
-		}
-
-		&#progress {
-			width: 0%;
-			background-color: white;
-			@include linear_transition(width, 0.5s);
 		}
 	}
 }
@@ -940,7 +811,6 @@ input.post-button {
 #role-card {
 
 	.inner {
-		height: auto;
 		@include gradient-vertical(#18b898, $white, 20%, 20%);
 	}
 
@@ -948,8 +818,11 @@ input.post-button {
 		margin-bottom: 15px;
 	}
 
+	#btn-role-done {
+		@include button($cerulean-blue, $yellow);
+	}
+
 	#btn-close-role-card {
-		display: none;
 		background: none;
 		box-shadow: none;
 		height: 32px;
@@ -1007,10 +880,6 @@ input.post-button {
 			text-align: center;
 			color: #18b898;
 			margin: 0px;
-		}
-
-		.description {
-			height: 32px;
 		}
 
 		p {
@@ -1146,14 +1015,21 @@ input.post-button {
 	font-family: AvenirNext;
 
 	div {
-		font-size: 14px;
-		font-family: AvenirNext-DemiBold;
+		font-family: $semibold-type;
+		font-size: 13px;
+		font-weight: 600;
+		line-height: 1.15;
 	}
 
 	h1 {
-		font-size: 16px;
-		line-height: 1.5;
-		font-family: AvenirNext-Bold;
+		font-family: Roboto;
+		font-size: 13px;
+		font-weight: 900;
+		line-height: 2.46;
+		letter-spacing: 1px;
+		text-align: center;
+		text-transform: uppercase;
+		color: $bluegreen;
 	}
 
 	.rules-image {
@@ -1173,23 +1049,35 @@ input.post-button {
 // Speech bubbles
 blockquote.speech {
 	position: relative;
-	text-align: left;
-	font-size: 16px;
-	width: 100%;
-	height: 287px;
-	padding: 40px 20px;
+	text-align: center;
+	
 	z-index: 1000;
-	color: white;
-	border-left: none;
-	background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1493403872/at-stake/layout/rectangle-4.svg");
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
 
 	p {
-		color: white;
-		line-height: 24px;
-		font-family: AvenirNext-DemiBold;
+		color: black;
+		font-size: 13px;
+		font-family: $semibold-type;
+
+		&.body {
+			font-family: Roboto;
+			font-size: 19px;
+			font-weight: bold;
+			line-height: 1.21;
+			letter-spacing: 0.5px;
+			color: $cerulean-blue;
+		}
+
+		&.active_player {
+			text-shadow: 0 2px 0 $turquoise-dark;
+
+			span {
+				text-shadow: none;
+				font-size: 16px;
+				color: white;
+				font-family: AvenirNext-Bold;
+			}
+		}
+
 	}
 
 	// Inactive player - hide this bubble

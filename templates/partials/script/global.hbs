@@ -138,7 +138,7 @@
 		'player:assignrole',
 		'player:updatedata',
 
-		'players:read_roles',
+		'players:ready',
 
 		'game:error',
 		'game:tutorial',
@@ -167,6 +167,7 @@
 		'game:advance',
 		'game:decider',
 		'game:refresh_screen',
+		'game:ready',
 
 		'coins:add',
 		'coins:remove'
@@ -223,7 +224,7 @@
 
 		// Get all absolutely-positioned elements
 		var outerAbsolutes = 
-		$('#wrapper :not(#gameContent *, #homeContent *, #stages-bar *, .modal, .notification, #bottom-bar, #background-logo *)')
+		$('#wrapper :not(#gameContent *, #homeContent *, .modal, .notification, #bottom-bar, #background-logo *)')
 		.filter(function(){
 		  return ($(this).css('position') == 'absolute');
 		});
@@ -351,9 +352,9 @@
 	    $('#overlay').hide();
 
 	    // Analytics
-	    var phaseName = $('#stages-bar .icon:eq('+currentPhaseIndex+') span').text(),
-					phaseNameFormatted = phaseName.charAt(0).toUpperCase() + phaseName.slice(1);
-		ga('send', 'event', 'Game', 'Phase', phaseNameFormatted);  
+	    {{!-- var phaseName = $('#stages-bar .icon:eq('+currentPhaseIndex+') span').text(), --}}
+					{{!-- phaseNameFormatted = phaseName.charAt(0).toUpperCase() + phaseName.slice(1); --}}
+		{{!-- ga('send', 'event', 'Game', 'Phase', phaseNameFormatted);   --}}
 
 	}
 

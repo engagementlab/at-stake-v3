@@ -3,7 +3,6 @@
 * COMPONENT: Speech Bubble 
 * @param {Bool} decider - Is decider speech?
 * @param {Bool} advance - Is last bubble of phase?
-* @param {Bool} timer - 'Next' button kicks off a timer?
 * @param {Bool} active_player - Show this speech only for active player?
 * @param {Bool} inactive_player - Show this speech only for inactive player?
 * @param {String} body - Speech bubble body text
@@ -17,20 +16,4 @@
   {{#if secondary}}
 	  <div>{{secondary}}</div>
   {{/if}}
-  
-  {{#ifeq decider true}}
-	  {{#ifeq decider_next_disabled undefined}}
-		  
-		  {{#ifeq timer true}}
-		    <button class="next-step timer submit" data-event="{{nextEvent this}}">Start Timer</button>
-		  {{else}}
-			  {{#ifeq exit true}}
-			    <button class="next-step submit" data-event="game:exit">exit game</button>
-		    {{else}}
-			    <button class="next-step submit" data-event="{{nextEvent this}}">next</button>
-			  {{/ifeq}}
-		  {{/ifeq}}
-
-	  {{/ifeq}}
-  {{/ifeq}}
 </blockquote>

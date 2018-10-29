@@ -153,19 +153,7 @@ var checkIfLoggedIn = function() {
 }
 
 phaseBarProgress = function() {
-
-    // Change phase icon status
-    $('#stages-bar .icon:eq('+currentPhaseIndex+')').removeClass('disabled');
-    $('#stages-bar .icon:not(:eq('+currentPhaseIndex+'))').addClass('disabled');
-
-    // Update progress bar
-    var currentIcon = $('#stages-bar .icon:not(.disabled)');
-
-    if(currentIcon && currentIcon.length > 0) {
-        var progressLength = currentIcon.position().left;
-        $('#stages-bar #progress').css('width', progressLength+'px');
-    }
-
+    
 }
 
 /* 

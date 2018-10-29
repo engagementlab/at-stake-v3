@@ -109,27 +109,22 @@ var startStopwatch = function() {
     
     var currentTime = 0,
         maxDuration = (60*5)*1000,
-        timer = $('.timer_wrap');
+        timer = $('.timer_wrap button'),
         text = $('.timer_wrap h1');
+
+        timer.addClass('running');
+        timer.css('background', 'linear-gradient(90deg, #f7f248 0%, #02826a 0%)');
     
     clockInterval = setInterval(function() {
     
         currentTime += 1000;
         var perc = (currentTime/maxDuration)*100;
         timer.css('background', 
-            'linear-gradient(90deg, #FFC0CB ' + perc + '%, #fff ' + perc + '%)'); 
+            'linear-gradient(90deg, #f7f248 ' + perc + '%, #02826a ' + perc + '%)'); 
         text.text(moment().startOf("day").add(currentTime).format('mm:ss'));
 
     }, 1000);
 
-    // Hide preview timer/btn
-    // $('.timer_wrap.preview').fadeOut(500, function() {
-    //     $('.screen:visible .timer_wrap.running').fadeIn();
-    // });
-
-
-        //   duration: 
-// 
 }
 
 var setupScreen = function(screenName, index) {
@@ -154,7 +149,6 @@ var setupScreen = function(screenName, index) {
         $('#bottom-bar').hide();
     }
     else {
-        $('#stages-bar').show();
         $('#bottom-bar').show();
         $('#gameContent').addClass('in-game');
     }
@@ -219,14 +213,6 @@ var setupRoleCard = function(markup) {
             $('#btn-close-role-card').on('click', function(evt) {
                 ion.sound.play("back");
                 $('#overlay').trigger('hide');
-            });
-            $('#btn-role-done').on('click', function(evt) {
-                ion.sound.play("back");
-                $('#overlay').trigger('hide');
-                $('#btn-close-role-card').show();
-
-                if(!isDecider)
-                    socket.emit('game:read_role', emitData());
             });
 
         });
@@ -446,9 +432,13 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
-        case 'players:read_roles':
+        case 'game:ready':
 
-            
+            // $('.timer_wrap button').removeClass('disabled');
+            // $('.timer_wrap button').removeAttr('disabled');
+
+            if(currentScreenIndex === 0 && currentPhaseIndex === 1)
+                socket.emit('game:next_screen', emitData());
 
             break;
 
@@ -570,10 +560,14 @@ socketEvents = function(eventId, eventData) {
                     setupScreen(eventData.name);
 
                     // OPEN ROLE at start of meet phase
-                    if(eventData.name === 'meet') {
-                        openInnerModal('role');
-                        inIntro = false;
-                    }
+/*                     if(eventData.name === 'meet') {
+                        $('#btn-role-done').on('click', function(evt) {
+                            ion.sound.play("back");
+                            
+                            if(!isDecider)
+                                socket.emit('game:ready', emitData());
+                        });
+                    } */
 
                 });
             }
@@ -686,13 +680,8 @@ socketEvents = function(eventId, eventData) {
         case 'game:countdown_end':
 
             ion.sound.play("alarm");
-            $('#added-time').hide();
+            // $('#added-time').hide();
             timerActive = false;
-
-            if(eventData === 'meetCountdown' && isDecider) {
-                socket.emit('game:next', emitData());
-                return;
-            }
 
             if(eventData === 'pitchCountdown' && isDecider) {
                 socket.emit('game:next_player', emitData());

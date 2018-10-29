@@ -2,35 +2,45 @@
    
  	<div>       
 	  
-	  <button id="btn-close-role-card" class="btn" type="submit" name="submit" data-keep_enabled="true">
-	     {{{cloudinaryUrl '/v1494604113/at-stake/layout/shape.svg' height=100}}}
-	  </button>
+		{{#ifeq intro true}}
+			<button id="btn-close-role-card" class="btn" type="submit" name="submit" data-keep_enabled="true">
+				{{{cloudinaryUrl '/v1540845195/at-stake/icons/close.svg' height=25}}}
+			</button>
+		{{/ifeq}}
 
 	</div>
 	
 	<div class="role-info">
-		<div class="icon"></div>
-		<h2 class="title">{{title}}</h2>
+		{{!-- <div class="icon"></div> --}}
+		{{#ifeq intro true}}
+			<h2 class="title">Your role: {{title}}</h2>
+		{{else}}
+			<div class="title">{{title}}</div>
+		{{/ifeq}}
 		<div class="description">{{{bio.html}}}</div>
 
 	</div>
-		<div class="line"></div>
-	<div class="agenda-wrap">
-		<h1 class="header">Needs</h1> 
+	
+	<div class="line"></div>
 
+	<div class="agenda-wrap form">
 		{{#if agendaItems}}
+			<h1 class="header">Needs</h1> 
+
 			<div class="agenda-item"><div class="agenda">{{agendaItems.[0]}}</div></div>
 			<div class="agenda-item"><div class="agenda">{{agendaItems.[1]}}</div></div>
 		{{/if}}
 
 		{{#if secretGoal}}
-			<h1 class="header">Secret Goal</h1> 
+			<h1 class="header"><span>&#9734;</span>Secret Goal<span>&#9734;</span></h1> 
 			<div>{{secretGoal}}</div>
 		{{/if}}
-
-		<button id="btn-role-done" class="btn" type="submit" name="submit">
-			Continue
-		</button>
+		
+		{{#ifeq intro true}}
+			<button id="btn-role-done" class="btn submit" type="submit" name="submit" data-event="game:ready">
+				Start
+			</button>
+		{{/ifeq}}
 	</div>
 
 </div>

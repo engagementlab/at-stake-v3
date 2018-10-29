@@ -5,29 +5,62 @@
 	{{!-- {{#if tutorial}}
 		{{> shared/rules }}
 	{{/if}} --}}
-
-	{{!-- QUESTION --}}
 	<div class="screen initial">
+
+		{{> shared/rolecard player.role}}
+
+	</div>
+
+	<div class="screen">
 
 		{{> component/instructions 
 				decider=true
-				heading="Read the text in the blue box aloud"
+				heading="Introductions"
+				body="Introduce your character and how this scenario impacts you. Try to mention your objective you need to meet."
+		}}
+
+		{{> component/instructions 
+				heading="Introductions"
+				body="Introduce your character and how this scenario impacts you. Try to mention your objective you need to meet."
+		}}
+
+		{{> component/speech
+				decider=true
+				body="Problem Scenario"
+				secondary=question
+				scenario=true
+		}}
+
+		{{> component/speech
+				body="Problem Scenario"
+				secondary=question
+				scenario=true
+		}}
+
+	</div>
+
+	{{!-- QUESTION --}}
+	<div class="screen">
+
+		{{> component/instructions 
+				decider=true
+				heading="Introductions"
 				body="Give each player an equal opportunity to introduce their character and how they are impacted by this scenario."
 		}}
 
 		{{> component/instructions 
-				heading="Listen"
-				body=""
-				body="Get ready to pitch your proposal to the group!"
+				heading="Introductions"
+		}}
+
+		{{> component/speech
+				decider=true
+				body="Problem Scenario"
+				secondary=question
 		}}
 
 		{{> component/timer 
 				decider=true
-		}}
-
-		{{> component/speech 
-				decider=true
-				body=(combine 'We\'ll be addressing the following question: ' question)
+				disabled=true
 		}}
 
 	</div>
@@ -37,43 +70,14 @@
 
 		{{> component/instructions 
 				decider=true
-				heading="Read the text in the blue box aloud"
-				body=""
+				heading="Introductions"
+				body="Give each player an equal opportunity to introduce their character and how they are impacted by this scenario."
 		}}
-
-		{{> component/instructions 
-				heading="Review your Hidden Agenda items"
-				body=""
-		}}
-
 		{{> component/speech 
-				decider=true
-				body="Now click the character icon down below and get acquainted with who you will be representing during the deliberations. Let your facilitator know when you've finished."
+				body="Problem Scenario"
+				secondary=question
 		}}
 
-		{{> component/speech 
-				body="Now click the character icon down below and get acquainted with who you will be representing during the deliberations. Let your facilitator know when you've finished."
-		}}
-
-	</div>
-
-	{{!-- BRAINSTORM TIMER --}}
-	<div class="screen">
-		{{!-- Timer in button mode  --}}
-		{{> component/timer 
-				decider=true				
-				preview=true
-				time=10
-				stage='meet'
-				body='Now that everybody has seen their character, take a minute to think about how you will introduce yourself.'
-		}}
-
-		{{> component/timer 
-				preview=true
-				time=10
-				stage='meet'
-				body='Now that everybody has seen their character, take a minute to think about how you will introduce yourself.'
-		}}
 	</div>
 
 </div>

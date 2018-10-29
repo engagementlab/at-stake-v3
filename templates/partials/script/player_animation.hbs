@@ -164,7 +164,7 @@ function innerModalOpenClose(modalElement, open) {
 	//here you pass the filter to the DOM element
 	function applyBlur()
 	{
-	  TweenMax.set(['#gameContent', '#bottom-bar', '#stages-bar'], {webkitFilter:"blur(" + blurElement.a + "px)",filter:"blur(" + blurElement.a + "px)"});  
+	  TweenMax.set(['#gameContent', '#bottom-bar'], {webkitFilter:"blur(" + blurElement.a + "px)",filter:"blur(" + blurElement.a + "px)"});  
 	};
 
 }
@@ -213,7 +213,6 @@ var screenOpen = function(screenElement) {
 		else if(screenElement.data('animation') === 'debrief') {
 			$('#bottom-bar').hide();
 			new TimelineLite()
-			.fromTo($('#stages-bar'), 1, { yPercent:0, autoAlpha:1, height:50, display:'block' }, { yPercent:-100, autoAlpha:0, height:0, display:'none', ease:Expo.easeOut } )
 			.fromTo($('#login-header'), .7, { yPercent:-100, autoAlpha:0 }, { yPercent:0, autoAlpha:1, ease:Expo.easeOut } );
 		}
 	}

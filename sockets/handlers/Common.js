@@ -30,12 +30,12 @@ var Common = function (nsp, socket) {
                         
         },
 
-        'game:read_role': function(pkg) {
+        'game:ready': function(pkg) {
 
             let session = Session.Get(pkg.gameId);
 
             if(!session) return;
-            session.RoleWasRead();
+            session.PlayerDone();
                         
         },
 
