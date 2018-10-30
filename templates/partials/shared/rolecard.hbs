@@ -2,16 +2,15 @@
    
  	<div>       
 	  
-		{{#ifeq intro true}}
+		{{#unless intro}}
 			<button id="btn-close-role-card" class="btn" type="submit" name="submit" data-keep_enabled="true">
 				{{{cloudinaryUrl '/v1540845195/at-stake/icons/close.svg' height=25}}}
 			</button>
-		{{/ifeq}}
+		{{/unless}}
 
 	</div>
 	
 	<div class="role-info">
-		{{!-- <div class="icon"></div> --}}
 		{{#ifeq intro true}}
 			<h2 class="title">Your role: {{title}}</h2>
 		{{else}}
@@ -24,21 +23,24 @@
 	<div class="line"></div>
 
 	<div class="agenda-wrap form">
-		{{#if agendaItems}}
+		{{#if needs}}
 			<h1 class="header">Needs</h1> 
 
-			<div class="agenda-item"><div class="agenda">{{agendaItems.[0]}}</div></div>
-			<div class="agenda-item"><div class="agenda">{{agendaItems.[1]}}</div></div>
+			<div class="agenda-item"><div class="agenda">{{needs.[0]}}</div></div>
+			<div class="agenda-item"><div class="agenda">{{needs.[1]}}</div></div>
 		{{/if}}
 
 		{{#if secretGoal}}
-			<h1 class="header"><span>&#9734;</span>Secret Goal<span>&#9734;</span></h1> 
+			<h1 class="header"><span>&#9733;</span>Secret Goal<span>&#9733;</span></h1> 
 			<div>{{secretGoal}}</div>
 		{{/if}}
 		
 		{{#ifeq intro true}}
-			<button id="btn-role-done" class="btn submit" type="submit" name="submit" data-event="game:ready">
-				Start
+			<button class="btn submit player" type="submit" name="submit" data-event="game:ready" data-package="role">
+				Continue
+			</button>
+			<button id="btn-role-next" class="btn decider next-step" type="submit" name="submit">
+				Continue
 			</button>
 		{{/ifeq}}
 	</div>

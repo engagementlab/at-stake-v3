@@ -7,84 +7,23 @@
 * @param {String} body - Speech bubble body text for when 'preview' is true
 
 --}}
-    
-{{!-- SPEECH W/ BUTTON TO START --}}
-{{!-- {{#ifeq stopwatch true}}  --}}
-
 {{#ifeq decider true}}
-{{!-- TIMER at 0 --}}
-<div class="timer_wrap decider form">
-  
-  <button 
-  {{#ifeq decider true}}
-    id="btn-start-timer" data-event="game:start_timer" class="submit {{#ifeq disabled true}}disabled" disabled="disabled"{{else}}"{{/ifeq}}
-  {{/ifeq}}>
-
-    <h1>
-        Start Timer
-    </h1>
-
-  </button>
-  {{!-- RUNNING TIMER --}}
-
-</div>
-  
+  {{!-- TIMER at 0 --}}
+  <div class="timer_wrap decider form">
     
-  {{!-- CIRCULAR TIMER
-  <div class="timer_wrap preview {{stage}} {{#ifeq decider true}}decider form{{else}}player{{/ifeq}}">
-      
-        <button 
-        {{#ifeq decider true}}
-          id="btn-next" class="submit" data-event="game:start_timer"
-        {{/ifeq}}>
+    <button 
+    {{#ifeq decider true}}
+      id="btn-start-timer" 
+      data-event="game:start_timer" 
+      class="submit {{#ifeq disabled true}}disabled" 
+      disabled="disabled"{{else}}"{{/ifeq}}
+    {{/ifeq}}>
 
-          <svg viewBox="0 0 100 100" style="display: block; width: 100%;"><path d="M 50,50 m 0,-46 a 46,46 0 1 1 0,92 a 46,46 0 1 1 0,-92" stroke="#fff" stroke-width="8" fill-opacity="0"></path><path d="M 50,50 m 0,-46 a 46,46 0 1 1 0,92 a 46,46 0 1 1 0,-92" stroke="#56d5ff" stroke-width="8" fill="#ff3d6b" style="stroke-dasharray: 289.067, 289.067; stroke-dashoffset: -289.00;"></path></svg>
+      <h1>
+          Start Timer
+      </h1>
 
-          <div class="progressbar-text preview">{{time}}</div>
+    </button>
 
-          <div class="speech">
-          
-            <h1>
-              {{#ifeq decider true}}
-                Start Timer
-              {{else}}
-                Get Ready!
-              {{/ifeq}}
-            </h1>
-
-            <span id="modifier" class="hidden-el" data-hide_next="false"></span>
-          </div>
-
-        </button>
-
-        {{#ifeq stage 'pitch'}}
-          {{#if user}}<p class="active_player {{stage}}">{{user}}<br><span>{{role}}</span></p>{{/if}}
-          {{#if body}}<p class="body {{stage}}">{{body}}</p>{{/if}}
-        {{else}}
-          {{#if body}}<p class="body {{stage}}">{{body}}</p>{{/if}}
-        {{/ifeq}}
-
-    </div>
-  
-  {{!-- CIRCULAR TIMER --}}
-  <div class="timer_wrap running {{stage}} {{#ifeq decider true}}decider{{else}}player{{/ifeq}}">
-
-        <div class="timer"></div>
-
-        <div class="speech">
-            <h1>Seconds left</h1>
-        </div>
-
-        {{#ifeq active_player true}}
-          
-          {{#if user}}<p class="active active_player {{stage}}">{{user}}<br><span>{{role}}</span></p>{{/if}}
-          {{#if body}}<p class="body {{stage}}">{{body}}</p>{{/if}}
-
-        {{else}}
-            {{#if user}}<p class="active_player {{stage}}">{{user}}<br><span>{{role}}</span></p>{{/if}}
-            {{#if body}}<p class="body {{stage}}">{{body}}</p>{{/if}}
-        {{/ifeq}}
-
-  </div> --}}
-
+  </div>
 {{/ifeq}}

@@ -35,7 +35,7 @@ var Common = function (nsp, socket) {
             let session = Session.Get(pkg.gameId);
 
             if(!session) return;
-            session.PlayerDone();
+            session.PlayerDone(pkg.msgData);
                         
         },
 

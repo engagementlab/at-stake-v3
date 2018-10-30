@@ -10,19 +10,13 @@
 		}
 	}
 
-	p {
-		color: white;
-	}
-
 	.game_login {
 		display: block;
 		position: absolute;
 		right: 0;
-		bottom: 10px;
-		margin-bottom: 10px;
 		font-size: 24px;
 		font-family: AvenirNext-Bold;
-		color: white;
+		color: black;
 		width: 96px;
 		padding: 0px;
 		min-width: 0px;
@@ -129,33 +123,27 @@
 			right: 0px;
 			bottom: 0px;
 			font-size: 24px;
-			font-family: AvenirNext-Bold;
 		}
 
 		.username {
 			margin-bottom: 20px;
-			font-family: AvenirNext;
 			font-weight: bold;
 			font-style: normal;
 			font-stretch: normal;
 			line-height: 1;
 			letter-spacing: -1.9px;
 			text-align: center;
-			color: $color-white;
 
 			h2 {
 				font-size: 32px;
 				font-weight: 500;
-				text-shadow: 0 2px 2px rgba(0, 0, 0, 0.24);
 
 				span {
-					font-family: AvenirNext-Medium;
 					font-weight: 700;
 				}
 			}
 
 			p {
-				font-family: AvenirNext;
 				font-size: 20px;
 				font-weight: 500;
 				font-style: normal;
@@ -335,7 +323,7 @@
 		.game_login {
 			width: 80%;
 			white-space: normal;
-			color: white;
+			color: black;
 			border: 0px;
 			border-radius: 0px;
 			height: 48px;

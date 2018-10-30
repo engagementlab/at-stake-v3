@@ -1,163 +1,72 @@
 {{!-- DELIBERATE PHASE UI --}}
 <div id="deliberate">
 
-	{{!-- INTRO --}}
-	<div class="screen initial">
-
-		{{> component/instructions 
-				decider=true
-				heading="Read the text in the blue box aloud"
-				body="Once you finish speaking the instructions to other players, press next to continue."
-		}}
-
-		{{> component/instructions 
-				heading="Listen to the Decider"
-				body="Get ready to deliberate with the group!"
-		}}
-
-		{{> component/speech 
-				decider=true
-				body=(combine 'Now that we heard everyone\'s pitch, we will take ' config.deliberateSeconds ' seconds to talk about your proposals. This will be an open discussion led by the Decider.')
-		}}
-
-		{{> component/speech 
-				body=(combine 'Now that we heard everyone\'s pitch, we will take ' config.deliberateSeconds ' seconds to talk about your proposals. This will be an open discussion led by the Decider.')
-		}}
-
-	</div>
-
-	{{!-- INTRO 2 --}}
-	<div class="screen initial">
-
-		{{> component/instructions 
-				decider=true
-				heading="Read the text in the blue box aloud"
-				body="Once you finish speaking the instructions to other players, press next to continue."
-		}}
-
-		{{> component/instructions 
-				heading="Listen to the Decider"
-				body='Get ready to deliberate with the group!'
-		}}
-
-		{{> component/speech 
-				decider=true
-				body="Because this is an open discussion, Stakeholders can chime in at any time to ask questions, offer counterpoints, or ask for changes to any proposal on the table."
-		}}
-
-		{{> component/speech 
-				body="Because this is an open discussion, Stakeholders can chime in at any time to ask questions, offer counterpoints, or ask for changes to any proposal on the table."
-		}}
-
-	</div>
-
-	{{!-- INTRO 3 --}}
-	{{!-- <div class="screen initial">
-
-		{{> component/instructions 
-				decider=true
-				heading="Read the text in the blue box aloud"
-				body="Once you finish speaking the instructions to other players, press next to continue."
-		}}
-
-		{{> component/instructions 
-				heading="Listen to the Decider"
-				body='Get ready to deliberate with the group!'
-		}}
-
-		{{> component/speech 
-				decider=true
-				body="Remember! Your objective is to get your proposal chosen by the Decider and/or have your agenda items in a winning proposal"
-		}}
-
-		{{> component/speech 
-				body="Remember! Your objective is to get your proposal chosen by the Decider and/or have your agenda items incorporated into the winning proposal."
-		}}
-
-	</div> --}}
-
-	{{!-- TIMER START --}}
+	{{!-- WAIT --}}
 	<div class="screen">
 
 		{{> component/instructions 
 				decider=true
-				heading="Press the button to start the timer"
-				body="When everyone is ready, press the button to start the timer and begin deliberation."
+				heading="Deliberate"
+				body="Think of solutions to the problem scenario below. Consider your teammates' needs when deliberating. Keep in mind equity, fidelity,  and cost effectiveness."
+		}}
+
+		{{> component/instructions 
+				heading="Deliberate"
+				body="Think of solutions to the problem scenario below. Consider your teammates' needs when deliberating. Keep in mind equity, fidelity,  and cost effectiveness."
+		}}
+
+		{{> component/speech
+				body="Problem Scenario"
+				secondary=question
+				scenario=true
 		}}
 		
-		{{> component/instructions 
-				heading="Wait for the Decider to say to begin."
-		}}
+		<button id="btn-ready" class="btn submit player" type="submit" name="submit" data-event="game:ready" data-package="next">
+			Ready
+		</button>
 
-		{{!-- Timer in button mode  --}}
-		{{> component/timer 
-				decider=true				
-				preview=true
-				stopwatch=true
+		{{> component/speech
+				decider=true
+				body="Problem Scenario"
+				secondary=question
 		}}
-		{{!-- {{> component/timer 
-				preview=true
-				time=config.deliberateSeconds
-				stage="deliberate"
-				body="Get Ready to Deliberate!"
-		}} --}}
-
 
 	</div>
 
-	{{!-- COUNTDOWN --}}
-	<div class="screen no-transition">
-
-		{{> component/instructions 
-				decider=true
-				heading="Lead a discussion"
-				body="Ask probing questions, take notes on changes, and encourage discussion among players."
-		}}
-		
-		{{> component/instructions 
-				heading="Participate in the open discussion"
-				body="Ask questions, incorporate your agenda in others' plans, or advance your own proposal."
-		}}
- 
-		{{!-- Timer in button mode  --}}
-		{{> component/timer 
-				decider=true
-				time=config.deliberateSeconds
-				stage="deliberate"
-				body="Go! When the timer reaches zero, stop the discussion!"
-		}}
-
-		{{> component/timer
-				time=config.deliberateSeconds
-				stage="deliberate"
-				body="Go! When the timer reaches zero, stop talking!"
-		}}
-	
-	</div>
-
-	{{!-- END --}}
+	{{!-- DELIBERATE --}}
 	<div class="screen">
 
 		{{> component/instructions 
 				decider=true
-				heading="Read the text in the blue box aloud"
-				body="Once you finish speaking the instructions to other players, press next to continue."
+				heading="Deliberate"
+				body="Think of solutions to the problem scenario below. Consider your teammates' needs when deliberating. Keep in mind equity, fidelity,  and cost effectiveness."
 		}}
 
 		{{> component/instructions 
-				heading="Time's up! Stop speaking"
-				body='Listen to the Decider and get ready for the Double-Down phase!'
+				heading="Deliberate"
+				body="Think of solutions to the problem scenario below. Consider your teammates' needs when deliberating. Keep in mind equity, fidelity,  and cost effectiveness."
+		}}
+		
+		{{> component/speech
+				body="Problem Scenario"
+				secondary=question
+				scenario=true
 		}}
 
-		{{> component/speech 
+		{{> component/speech
 				decider=true
-				advance=true
-				body="Time is up! Everyone stop talking. It's time to move to the next phase."
+				body="Problem Scenario"
+				secondary=question
 		}}
 
-		{{> component/speech 
-				body="Time is up! Everyone stop talking. It's time to move to the next phase."
-		}}
+		<div class="player-roles col-sm-6">
+
+			<h3>Team's Roles</h3>
+			{{#each players}}
+				{{username}}<br />{{agendaItems}}<p></p>
+			{{/each}}
+
+		</div>
 
 	</div>
 

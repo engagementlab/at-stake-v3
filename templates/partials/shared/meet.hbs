@@ -1,17 +1,15 @@
 {{!-- MEET PHASE UI --}}
 <div id="meet">
 
-	{{!-- RULES - First Round Only and if Tutorial enabled --}}
-	{{!-- {{#if tutorial}}
-		{{> shared/rules }}
-	{{/if}} --}}
+	{{!-- ROLE --}}
 	<div class="screen initial">
 
 		{{> shared/rolecard player.role}}
 
 	</div>
 
-	<div class="screen">
+	{{!-- PROBLEM --}}
+	<div class="screen form">
 
 		{{> component/instructions 
 				decider=true
@@ -25,18 +23,33 @@
 		}}
 
 		{{> component/speech
+				body="Problem Scenario"
+				secondary=question
+				scenario=true
+		}}
+		
+		<button id="btn-ready" class="btn submit player" type="submit" name="submit" data-event="game:ready" data-package="timer">
+			Ready
+		</button>
+
+		{{> component/speech
 				decider=true
 				body="Problem Scenario"
 				secondary=question
-				scenario=true
 		}}
 
-		{{> component/speech
-				body="Problem Scenario"
-				secondary=question
-				scenario=true
+		{{> component/timer 
+				decider=true
+				disabled=true
 		}}
 
+		<div class="not-ready decider">Wait until every player is ready to continue</div>
+		<button id="skip" class="submit deciders" data-event="game:next" style="display:none;">
+			Skip to Phase 2
+			{{{cloudinaryUrl 'v1540488090/at-stake/icons/check-btn' format='svg'}}}
+			{{!-- <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/.svg" alt="Start game"> --}}
+		</button>
+     
 	</div>
 
 	{{!-- QUESTION --}}
@@ -53,30 +66,25 @@
 		}}
 
 		{{> component/speech
+				body="Problem Scenario"
+				secondary=question
+				scenario=true
+		}}
+
+		{{> component/speech
 				decider=true
 				body="Problem Scenario"
 				secondary=question
 		}}
 
-		{{> component/timer 
-				decider=true
-				disabled=true
-		}}
+		<div class="player-roles col-sm-6">
 
-	</div>
+			<h3>Team's Roles</h3>
+			{{#each playerMap}}
+				{{username}}<br />{{title}}<p></p>
+			{{/each}}
 
-	{{!-- ROLE CARDS --}}
-	<div class="screen">
-
-		{{> component/instructions 
-				decider=true
-				heading="Introductions"
-				body="Give each player an equal opportunity to introduce their character and how they are impacted by this scenario."
-		}}
-		{{> component/speech 
-				body="Problem Scenario"
-				secondary=question
-		}}
+		</div>
 
 	</div>
 
