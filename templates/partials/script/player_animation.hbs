@@ -50,7 +50,7 @@ function initTimeline() {
 
 		joinAnim.to($('#choices'), .5, { autoAlpha:0, display:'none' })
 							.fromTo($('#join'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block', onComplete:function() {
-								//$('#gameContent').addClass('join-bg');
+								$('#join-bg').css('opacity', 1);
 							}})
 							.fromTo($('#join .back-button'), .5, backBtnFrom, backBtnTo)
 

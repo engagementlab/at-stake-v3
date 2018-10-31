@@ -40,10 +40,20 @@
 		@include filter(blur, 2.9px);
 	}
 
-	&.join-bg {
-		background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_425/v1540489023/at-stake/bg/night.png');
+	#join-bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		opacity: 0;
+
+		background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/e_brightness:-60,f_auto/v1540489023/at-stake/bg/night.png');
 		background-repeat: no-repeat;
-		color: white;
+		background-size: cover;
+
+		@include transition(opacity .25s ease-in-out);	
 	}
 
 }
@@ -148,39 +158,9 @@
 
 // Default button shadow and margin
 .btn {
-	@include box-shadow(0px, 3px, 0px, darken($background-color, 10%));
-	margin-bottom: 7px;
 
-	&:hover,
-	&:focus,
-	&:visited {
-		@include box-shadow(0px, 3px, 0px, darken($background-color, 10%));
-		// margin-bottom: 7px;
-		cursor: pointer;
-		color: white;
-		outline: none;
-	}
-
-	// color: white;
-	border: 0px;
-	border-radius: 0px;
-	height:48px;
-	// width: 160px;
-	padding:0px;
-	font-size: 24px;
-	margin-bottom: 10%;
-	margin-top: 5%;
-	font-family: Roboto;
-	font-size: 24px;
-	font-weight: bold;
-	font-style: normal;
-	font-stretch: normal;
-	line-height: 1;
-	letter-spacing: 0px;
-	text-align: center;
-
-	width: 80%;
-
+	@include button($bluegreen, $yellow);
+		
 	&#btn_yes {
 		background-color: $blue-light;
 		border-bottom: 4px solid $dark-sky-blue;
@@ -677,7 +657,7 @@ input.post-button {
 		height: 432px !important;
 
 		h1 {
-			font-family: AvenirNext-DemiBold;
+			font-family: $header-type;
 			font-size: 20px;
 		}
 
@@ -696,12 +676,11 @@ input.post-button {
 		position: relative;
 		height: 70%;
 		width: 90%;
+		margin: 0 auto;
 		top: 60px;
-		left: 5%;
-		background-color: $turquoise-dark;
-		border: white 3px solid;
-		color: white;
-		padding: 8px;
+		background-color: white;
+		color: black;
+// 		padding: 8px;
 
 		.player-logo {
 
@@ -808,10 +787,9 @@ input.post-button {
 }
 
 // Player role card
-#role-card {
+.rolecard-inner {
 
 	.inner {
-		@include gradient-vertical(#18b898, $white, 20%, 20%);
 	}
 
 	.caption {
@@ -827,15 +805,10 @@ input.post-button {
 		box-shadow: none;
 		height: 32px;
 		width: 64px;
-
 		text-align: center;
 		float: right;
-		font-size: 12px;
-		line-height: 1.17;
-
-		padding-top: 1%;
-		padding-left: 5%;
-
+		
+		margin-top: 3%;
 		img {
 			height: 25px;
 		}
@@ -847,7 +820,6 @@ input.post-button {
 	}
 
 	.instruction {
-		font-family: AvenirNext-Medium;
 		font-size: 12px;
 
 		margin-bottom: 10px div {
@@ -868,43 +840,37 @@ input.post-button {
 	}
 
 	.role-info {
-		color: $orange-dark;
-		margin: 0px;
-		margin-top: 16%;
-		padding-bottom: 0px;
 
-		.title {
-			font-family: AvenirNext-Heavy;
-			font-size: 24px;
-			font-weight: 900;
-			text-align: center;
-			color: #18b898;
+		&.card {
+			background-color: $bluegreen;
 			margin: 0px;
-		}
+			padding-bottom: 0px;
 
-		p {
-			color: #555555;
-			font-family: AvenirNext;
-			font-size: 16px;
-			font-weight: 500;
-			display: inline;
+			.title {
+				text-align: left;
+				font-family: $header-type;
+				font-size: 20px;
+				padding: 4%;
+				color: white;
+				margin: 0px;
+			}
 		}
-	}
-
-	.line {
-		width: 176px;
-		height: 2px;
-		background-color: #59f6de;
-		margin: 8px auto;
+		
+		.title {
+			font-family: $roboto;
+		}
 	}
 
 	.agenda-wrap {
-		color: $background-color;
-
+	
 		.header {
-			font-family: AvenirNext-Heavy;
-			color: #18b898;
-			font-size: 20px;
+			font-family: $header-type;
+			font-size: 18px;
+			span {
+				padding-left: 4%;
+				padding-right: 4%;
+				color: $yellow;
+			}
 		}
 
 		.instruction {
@@ -923,19 +889,13 @@ input.post-button {
 	.agenda-item {
 		border-radius: 100px;
 		background-color: $background-color;
-		margin: 16px auto;
 		height: 56px;
-		color: white;
 
 		&:nth-child(1) {
 			margin-top: 8px;
 		}
 
 		.value {
-			height: 64px;
-			width: 64px;
-			margin-top: -4px;
-			line-height: 64px;
 			display: inline-block;
 			float: left;
 			font-size: 24px;
@@ -949,9 +909,8 @@ input.post-button {
 		.agenda {
 			height: 32px;
 			margin: 10px auto;
-			width: 200px;
 			display: inline-block;
-			text-align: left;
+			text-align: center;
 			line-height: 1.2;
 		}
 	}
@@ -1249,6 +1208,8 @@ blockquote.speech {
 
 // BOTTOM BAR (COINS, NEXT)
 footer#bottom-bar {
+	display: inline-flex;
+	align-items: center;
 	font-size: large;
 	width: 100%;
 	bottom: 8px;
@@ -1266,54 +1227,16 @@ footer#bottom-bar {
 		height: 100%;
 	}
 
-	#currency {
-		text-align: right;
-		height: 100%;
-		min-height: 100px;
-		font-family: AvenirNext-Bold;
-		color: white;
-
-		div {
-			display: inline-block;
-			text-align: center;
+	#name-role {
+		width: 56%;
+		text-align: center;
+		#role {
+			font-family: $header-type;
+			font-size: 20px;
+  			line-height: 1.6;
+  			letter-spacing: 0.6px;
+			display: block;
 		}
-
-		p {
-			font-size: 8px;
-			margin: 0px;
-			text-align: center;
-			color: white;
-			padding-bottom: 45px;
-			padding-top: 10px;
-		}
-
-		img {
-			height: 60px;
-			width: 60px;
-		}
-
-		span {
-			font-size: 12px;
-		}
-
-		#player-coins {
-			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_200/v1486743650/at-stake/layout/coin-icon-mobile.svg');
-			height: 100px;
-			width: 60px;
-			background-repeat: no-repeat;
-			background-size: 50px 50px;
-			background-position: center;
-		}
-
-		#pot-coins {
-			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_200/v1486743650/at-stake/layout/coin-pot-mobile.svg');
-			height: 100px;
-			width: 60px;
-			background-repeat: no-repeat;
-			background-size: 50px 50px;
-			background-position: center;
-		}
-
 	}
 
 	button {
@@ -1332,11 +1255,6 @@ footer#bottom-bar {
 		background-size: 24px 24px;
 		background-position: 8px center;
 
-		/* 	  &#btn-role-card {
-	  	background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/rolecard.svg');
-	  	background-color: $orange-dark;
-	  	border-bottom: 3px darken($orange-dark, 10%) solid;
-	  } */
 		&#btn-menu {
 			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/menu.svg');
 			background-color: $orange-light;

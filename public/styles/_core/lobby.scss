@@ -105,26 +105,7 @@
 				border-bottom: 7px solid transparent;
 			}
 		}
-
-		#btn-start-game {
-			width: auto;
-			white-space: normal;
-			color: white;
-			border: 0px;
-			border-radius: 0px;
-			height: auto;
-			padding: 0px;
-			margin: 0px;
-			margin-right: 20px;
-			margin-bottom: 10px;
-			background-color: transparent;
-			font-weight: 800;
-			position: absolute;
-			right: 0px;
-			bottom: 0px;
-			font-size: 24px;
-		}
-
+		
 		.username {
 			margin-bottom: 20px;
 			font-weight: bold;
@@ -160,8 +141,7 @@
 			height: 80%;
 
 			#btn_join_game {
-				@include gradient-vertical($blue-light, $blue-dark, 90%, 10%);
-
+				@include button($bluegreen, $yellow);
 			}
 
 		}
@@ -179,10 +159,6 @@
 
 			h2 {
 				font-size: 20px;
-				line-height: 48px;
-				margin: 0px;
-				margin-bottom: 10px;
-				font-family: AvenirNext-Bold;
 				font-weight: bold;
 				font-style: normal;
 				font-stretch: normal;
@@ -318,6 +294,11 @@
 	.lobby {
 
 		&#join {
+			color: white;
+			
+			#btn_submit_code {
+				@include button($bluegreen, $yellow);
+			}
 		}
 
 		.game_login {
@@ -363,41 +344,41 @@
 		}
 
 		#access_code {
-			height: 48px;
-			width: 95%;
+			
+			width: 200px;
+			height: 60px;
+			background-color: white;
 			margin: 0 auto;
-			font-size: 12px;
+			font-size: 36px;
 			border-radius: 0px;
-			background-color: $color-white;
-			border: 0px;
-			border-top: 3px solid lighten($color-grey, 30%);
+			
+			box-shadow: inset 0 -4px 0 0 $cerulean-blue;
+			border: solid 1.5px $cerulean-blue;
 			margin: 0px;
+
+			text-align: center;
 
 			&::-webkit-input-placeholder {
 				/* Chrome/Opera/Safari */
-				font-size: 14px;
-				height: 48px;
+				font-size: 36px;				
 				text-align: center;
 			}
 
 			&::-moz-placeholder {
 				/* Firefox 19+ */
-				font-size: 14px;
-				height: 48px;
+				font-size: 36px;				
 				text-align: center;
 			}
 
 			&:-ms-input-placeholder {
 				/* IE 10+ */
-				font-size: 14px;
-				height: 48px;
+				font-size: 36px;				
 				text-align: center;
 			}
 
 			&:-moz-placeholder {
 				/* Firefox 18- */
-				font-size: 14px;
-				height: 48px;
+				font-size: 36px;				
 				text-align: center;
 			}
 		}
@@ -505,7 +486,6 @@
 			margin: 0px;
 			margin-bottom: 20px;
 			width: 100%;
-			font-family: AvenirNext-Bold;
 			font-weight: bold;
 		}
 
@@ -523,34 +503,38 @@
 		.access-code {
 			max-width: 200px;
 			height: auto;
-			font-size: 56px !important;
+			font-family: $semibold-type;
+			font-size: 36px !important;
 			padding: 5px;
-			// color: #0098d0;
-			border: 3px solid #61f5de;
-			background-color: #00c2a9;
+			box-shadow: inset 0 -4px 0 0 $cerulean-blue;
+			border: solid 1.5px $cerulean-blue;
+			background-color: black;
 			margin: 10px auto;
-			font-family: $aileron;
 
-			span:nth-child(1) {
-				color: #56f6d6;
-			}
-
-			// TODO: color var
-			span:nth-child(2) {
-				color: #fc2058;
-			}
-
-			span:nth-child(3) {
-				color: #fdb211;
-			}
-
-			span:nth-child(4) {
-				color: #6b00fb;
+			span {
+				&:nth-child(1) {
+					color: $yellow;
+				}				
+				&:nth-child(2) {
+					color: $strawberry;
+				}				
+				&:nth-child(3) {
+					color: $bluegreen;
+				}				
+				&:nth-child(4) {
+					color: $bubble-gum-pink;
+				}
 			}
 		}
 
 		p {
 			font-size: 16px;
+		}
+
+		#btn-start-game {
+			@include button($bluegreen, $yellow);
+			width: 200px;
+			height: 60px;
 		}
 	}
 
@@ -561,8 +545,8 @@
 
 		p {
 			text-align: left;
-			color: #949494;
-			font-family: AvenirNext-Bold;
+			color: white;
+			font-family: $header-type;
 			font-size: 20px;
 			height: 20px;
 			line-height: 40px;
@@ -577,14 +561,10 @@
 	}
 
 	.player-grid {
-		background-color: white;
 		max-height: 60%;
 		min-height: 50%;
 		width: 100%;
 		left: 0px;
-		position: absolute;
-		bottom: 10%;
-		border-top: solid 4px $turquoise-dark;
 	}
 
 
@@ -612,9 +592,7 @@
 				height: $nav-height - 5px;
 				width: auto;
 			}
-
 		}
-
 	}
 
 	#intro {

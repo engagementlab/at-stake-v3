@@ -43,7 +43,6 @@
 
       <div id="btn_join_game" class="btn btn-default" data-from="choices" data-to="join">
         <h2>Join a game</h2>
-      {{!-- <div class="btn_cap">Use a room code to join a game</div> --}}
       </div>
 
     </div>
@@ -71,8 +70,8 @@
       <input type="text" id="player-name" class="hidden-el"> <br />
 
       <div id="share_code"> 
-        <h1>Share Your Room Code</h1>
-        <p>Share this 4 digit code with players. Once at least 3 players have joined, press play to begin</p>
+        <h1>Your Team</h1>
+        {{!-- <p>Share this 4 digit code with players. Once at least 3 players have joined, press play to begin</p> --}}
         <h1 class="access-code"></h1>
       </div>
 
@@ -85,12 +84,15 @@
         </div>
       </div>
 
-      <div class="form row" id="start">
+      <div class="form" id="start">
         {{!-- <input data-event="game:start" class="post-button" type="submit" name="submit" value="play!">
         
          data-event="game:intro" --}}
-        <button id="btn-start-game" class="btn btn-default submit" data-event="game:start">play!</button>
-        <button class="back-button" data-from="share-code" data-to="deck-choice">back</button>
+        <div id="btn-start-game" class="btn btn-default submit" data-event="game:start">
+          <h2>Start</h2>
+        </div>
+
+        {{!-- <button class="back-button" data-from="share-code" data-to="deck-choice">back</button> --}}
       </div>
     </div>
 
@@ -122,6 +124,8 @@
       <h2>Join your team</h2>
       <p>Enter your 4 digit room code</p>
       <input type="text" id="access_code" placeholder="####" maxlength="4" {{#if accesscode}}value="{{accesscode}}"{{/if}}> <br />
+
+      {{!-- <div id="access_code" contenteditable="true">####</div> --}}
       <div class="error">Error!</div>
 
       <button class="back-button" data-from="join" data-to="choices">back</button>
@@ -130,8 +134,8 @@
 
     <div class="row login waiting" style="display:none">
       <div id="game_code"> 
-        <h1>Share Your Room Code</h1>
-        <p class="instructions">Share the 4 digit code with other players so they can join the game.</p>
+        <h1>Your Team</h1>
+        {{!-- <p class="instructions">Share the 4 digit code with other players so they can join the game.</p> --}}
         <h1 class="access-code"></h1>
       </div>
       <div class="player-grid">

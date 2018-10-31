@@ -566,41 +566,41 @@
 
 	var setupDecider = function() {
 
-    isDecider = true;
-	sessionStorage.setItem('isModerator', true);
+		isDecider = true;
+		sessionStorage.setItem('isModerator', true);
 
-    // Accesscode may be provided by server when debugging
-    var gameCodeHtml = '';
-    if(!gameCode) {
-	    gameCode = '{{accessCode}}';
+		// Accesscode may be provided by server when debugging
+		var gameCodeHtml = '';
+		if(!gameCode) {
+			gameCode = '{{accessCode}}';
 
-      _.each(gameCode.split(''), function(char, i) {
-          gameCodeHtml += '<span>' + char + '</span>';
-      });
+			_.each(gameCode.split(''), function(char, i) {
+				gameCodeHtml += '<span>' + char + '</span>';
+			});
 
-	    // Ensure login is gone and all decide UI shows
-	    $('#name,#join,#choices').remove();
-	    $('#share_code .access-code').html(gameCodeHtml);
-	    $('#decider .create').hide();
-      $('#decider').show();
-      $('#decider .waiting, #decider-debugging').show();
-      $('#lobby').addClass('wait');
-
-	    $('#player-name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
-
+			// Ensure login is gone and all decide UI shows
+			$('#name,#join,#choices').remove();
+			$('#share_code .access-code').html(gameCodeHtml);
+			$('#decider .create').hide();
+			$('#decider').show();
+			$('#decider .waiting, #decider-debugging').show();
+			$('#lobby').addClass('wait');
+			$('#player-name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
+			$('#join-bg').css('opacity', 1);
+			$('#player-name').css('opacity', 0);
 		}
 
-    // Create uid for player
-    if(!sessionStorage.getItem('uUID')) {
-        playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
-        sessionStorage.setItem('uUID', playerUID);
-    }
-    else 
-        playerUID = sessionStorage.getItem('uUID');
-    
-    // Open socket connection
-    socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
-    registerEvents();
+		// Create uid for player
+		if(!sessionStorage.getItem('uUID')) {
+			playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
+			sessionStorage.setItem('uUID', playerUID);
+		}
+		else 
+			playerUID = sessionStorage.getItem('uUID');
+		
+		// Open socket connection
+		socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
+		registerEvents();
 
 	}
 

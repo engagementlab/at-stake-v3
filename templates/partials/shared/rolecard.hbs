@@ -1,26 +1,18 @@
 <div class="rolecard-inner inner">
-   
- 	<div>       
-	  
-		{{#unless intro}}
-			<button id="btn-close-role-card" class="btn" type="submit" name="submit" data-keep_enabled="true">
-				{{{cloudinaryUrl '/v1540845195/at-stake/icons/close.svg' height=25}}}
-			</button>
-		{{/unless}}
-
+	
+	<div class="role-info{{#unless intro}} card{{/unless}}">
+		
+			{{#unless intro}}
+				<button id="btn-close-role-card" class="btn" type="submit" name="submit" data-keep_enabled="true">
+					{{{cloudinaryUrl '/v1540845195/at-stake/icons/close.svg' height=25}}}
+				</button>
+			{{/unless}}
+		
+		<h2 class="title">{{#ifeq intro true}}Your role: {{/ifeq}}<b>{{title}}</b></h2>
+	
 	</div>
 	
-	<div class="role-info">
-		{{#ifeq intro true}}
-			<h2 class="title">Your role: {{title}}</h2>
-		{{else}}
-			<div class="title">{{title}}</div>
-		{{/ifeq}}
-		<div class="description">{{{bio.html}}}</div>
-
-	</div>
-	
-	<div class="line"></div>
+	<div class="description">{{{bio.html}}}</div>
 
 	<div class="agenda-wrap form">
 		{{#if needs}}

@@ -457,12 +457,16 @@ socketEvents = function(eventId, eventData) {
                     }
                 }
             }
+            else if(currentPhaseIndex === 2) {
+                socket.emit('game:next_screen', emitData());
+                nextPhaseScreen();                
+            }
 
             break;
 
         case 'game:intro':
 
-            $('#gameContent').removeClass('join-bg');
+			$('#join-bg').css('opacity', 0);
             $('.waiting, #decider, #join').fadeOut(function() {
                 $('#intro').fadeIn();
             });
