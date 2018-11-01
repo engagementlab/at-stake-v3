@@ -1,0 +1,40 @@
+<div class="rolecard-inner inner">
+
+	<div class="role-info card">
+
+        <button id="btn-close-role-card" class="btn" type="submit" name="submit" data-keep_enabled="true">
+            {{{cloudinaryUrl '/v1540845195/at-stake/icons/close.svg' height=25}}}
+        </button>
+		
+		<h2 class="title">Team Info</h2>
+	
+	</div>
+
+	<div class="agenda-wrap team">
+        {{#each this}}
+            {{#if username}}
+                <div class="player-wrap">
+                    <div class="info">
+                            <h2>{{username}}</h2><br />
+
+                        {{#if role.needs}}
+                            {{role.needs.[0]}}<br />
+                            —<br />
+                            {{role.needs.[1]}}
+                        {{/if}}
+                        
+                        <p><span>&#9733;</span> {{role.secretGoal}} </p>
+                    </div>
+                    <div class="check">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                </div>
+            {{/if}}
+        {{/each}}
+	</div>
+
+</div>

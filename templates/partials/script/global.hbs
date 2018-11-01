@@ -139,6 +139,8 @@
 		'player:agenda_item',
 		'player:assignrole',
 		'player:updatedata',
+		'player:callvote',
+		'player:vote',
 
 		'players:ready',
 
@@ -170,9 +172,7 @@
 		'game:decider',
 		'game:refresh_screen',
 		'game:ready',
-
-		'coins:add',
-		'coins:remove'
+		'game:team_info'
 	
 	];
 
@@ -400,6 +400,8 @@
 			}
 			else if(selector === 'role')
 				modalSelector = $('#role-card');
+			else if(selector === 'team')
+				modalSelector = $('#team-info');
 
 			if(modalSelector.length === 0)
 				return;

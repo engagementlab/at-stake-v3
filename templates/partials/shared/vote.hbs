@@ -1,0 +1,36 @@
+{{!-- VOTING UI --}}
+<div id="vote">
+	<div class="form">
+
+		{{> component/instructions 
+				decider=true
+				heading="Call To Vote"
+				body="Listen to the proposal. If it passes, you will have to rate it."
+		}}
+
+		{{> component/instructions 
+				heading="Call To Vote"
+				body="Listen to the proposal. Decide if the proposal fits your needs."
+		}}
+
+		{{> component/speech
+				decider=true
+				body="Problem Scenario"
+				secondary=question
+				scenario=true
+		}}
+
+        {{{cloudinaryUrl 'v1540488090/at-stake/icons/ballotbox' format='svg'}}}
+        
+        <h1>{{username}} called a vote!</h1>
+        <h2>Are you satisfied with this proposal?</h2>
+		
+		<button id="btn-yes" class="btn submit player" type="submit" name="submit" data-event="game:vote" data-package="yes">
+			Yes
+		</button>
+		
+		<button id="btn-no" class="btn submit player" type="submit" name="submit" data-event="game:vote" data-package="no">
+			No
+		</button>
+	</div>
+</div>

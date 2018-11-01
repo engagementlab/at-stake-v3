@@ -223,6 +223,13 @@ var setupRoleCard = function(markup) {
             ion.sound.play("click1");
             openInnerModal('role');
         });
+        $('#btn-team-info').on('click', function(evt) {
+            ion.sound.play("click1");
+            openInnerModal('team');
+        });
+        $('#btn-call-vote').on('click', function(evt) {
+            socket.emit('player:callvote', emitData());
+        });
 
         if(playerName !== undefined)
             $('#bottom-bar #name').text(playerName);
@@ -231,8 +238,8 @@ var setupRoleCard = function(markup) {
         
     });
 
-    $('#btn-role-card').css('display', isDecider ? 'none' : 'block');
-    $('#btn-facilitator').css('display', !isDecider ? 'none' : 'block');
+    $('#btn-role-card, #btn-call-vote').css('display', isDecider ? 'none' : 'block');
+    $('#btn-facilitator, #btn-team-info').css('display', !isDecider ? 'none' : 'block');
 
 }
 
@@ -439,6 +446,18 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'player:updatedata':
+
+            break;
+
+        case 'player:callvote':
+
+            $('#gameContent').prepend(eventData)
+            .promise()
+            .done(function() {
+                
+            });
+
+            $(isDecider ? '.player' : '.decider').remove();
 
             break;
 
@@ -782,6 +801,12 @@ socketEvents = function(eventId, eventData) {
 
             // if (sessionStorage.getItem('screenName') !== 'debrief')
             //     $('#bottom-bar').show();
+
+            break;
+
+        case 'game:team_info':
+
+            $('#team-info').html(eventData);
 
             break;
 

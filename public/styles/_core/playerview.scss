@@ -454,7 +454,7 @@ input.post-button {
 				margin: 0px;
 				color: black;
 				font-size: 13px;
-				font-family: $semibold-type;
+				@include semibold-type;
 			}
 
 			&.active_player {
@@ -788,13 +788,11 @@ input.post-button {
 
 // Player role card
 .rolecard-inner {
-
-	.inner {
-	}
-
-	.caption {
-		margin-bottom: 15px;
-	}
+	@include semibold-type;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.15;
+	letter-spacing: 0px;
 
 	#btn-role-done {
 		@include button($cerulean-blue, $yellow);
@@ -813,30 +811,6 @@ input.post-button {
 			height: 25px;
 		}
 
-	}
-
-	.swipe {
-		margin: 4px;
-	}
-
-	.instruction {
-		font-size: 12px;
-
-		margin-bottom: 10px div {
-			font-size: 14px;
-		}
-
-		span {
-			font-family: AvenirNext-Bold;
-		}
-	}
-
-	.icon {
-		margin: 4px auto;
-		width: 88px;
-		height: 93px;
-		background-repeat: no-repeat;
-		background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1494020349/at-stake/layout/role-icon.svg");
 	}
 
 	.role-info {
@@ -866,10 +840,17 @@ input.post-button {
 		.header {
 			font-family: $header-type;
 			font-size: 18px;
+			margin-top: 18px;
 			span {
-				padding-left: 4%;
-				padding-right: 4%;
+				display: inline-block;
 				color: $yellow;
+				background-color: $cerulean-blue;
+				border-radius: 50%;
+				height: 20px;
+				width: 20px;
+				padding-top: 2px;
+				margin: 2%;
+				font-size: 13px;
 			}
 		}
 
@@ -884,31 +865,82 @@ input.post-button {
 				font-size: 14px;
 			}
 		}
+
+		&.team {
+			.player-wrap {
+				display: flex;
+				flex-direction: row;
+			}
+
+			.switch {
+				position: relative;
+				display: inline-block;
+				width: 60px;
+				height: 34px;
+			}
+			
+			.switch input { 
+				opacity: 0;
+				width: 0;
+				height: 0;
+			}
+			
+			.slider {
+				position: absolute;
+				cursor: pointer;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				width: 50px;
+				height: 10px;
+				border-radius: 10px;
+				background-color: $strawberry-two;
+				@include transition(all .4s);
+			}
+			
+			.slider:before {
+				position: absolute;
+				content: "";
+				left: -5px;
+				bottom: -55%;		
+				width: 25px;
+				height: 25px;
+				border-radius: 50%;
+				box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25), inset 0 -2px 0 0 $yellow;
+				background-color: $cerulean-blue;
+				@include transition(all .4s);
+			}
+			
+			input:checked + .slider {
+				background-color: $bluegreen;
+			}
+			
+			input:focus + .slider {
+				box-shadow: 0 0 1px $bluegreen;
+			}
+			
+			input:checked + .slider:before {
+				@include transform(translateX(145%));
+			}
+		}
+
+		#needs {
+			background-color: #f4f4f4;
+			padding: 15px;
+			#div {
+				&::before {
+					content: '\2014';
+					color: $bluegreen;
+				}
+			}
+		}
 	}
 
 	.agenda-item {
-		border-radius: 100px;
-		background-color: $background-color;
-		height: 56px;
-
-		&:nth-child(1) {
-			margin-top: 8px;
-		}
-
-		.value {
-			display: inline-block;
-			float: left;
-			font-size: 24px;
-			font-family: AvenirNext-Bold;
-			background-size: 64px 64px;
-			background-position: center;
-			background-repeat: no-repeat;
-			background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1490979430/at-stake/layout/icon-yourcoins.svg");
-		}
-
 		.agenda {
-			height: 32px;
-			margin: 10px auto;
+			margin: 5px auto;
+			margin-top: 0;
 			display: inline-block;
 			text-align: center;
 			line-height: 1.2;
@@ -974,7 +1006,7 @@ input.post-button {
 	font-family: AvenirNext;
 
 	div {
-		font-family: $semibold-type;
+		@include semibold-type;
 		font-size: 13px;
 		font-weight: 600;
 		line-height: 1.15;
@@ -1011,11 +1043,12 @@ blockquote.speech {
 	text-align: center;
 	
 	z-index: 1000;
+	border: none;
 
 	p {
 		color: black;
 		font-size: 13px;
-		font-family: $semibold-type;
+		@include semibold-type;
 
 		&.body {
 			font-family: Roboto;
@@ -1042,6 +1075,25 @@ blockquote.speech {
 	// Inactive player - hide this bubble
 	&.hiding {
 		display: none;
+	}
+
+	&.blue {
+		background-color: $cerulean-blue;
+		p {
+			@include semibold-type;
+			font-size: 13px;
+			line-height: 1.23;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			color: white;
+		}
+		div {
+			font-family: $header-type;
+			font-size: 19px;
+			  line-height: 1.21;
+			  letter-spacing: 0.5px;
+			color: white;		  
+		}
 	}
 
 }
@@ -1199,11 +1251,11 @@ blockquote.speech {
 	}
 }
 
-// DEBRIEF
-#debrief {
-	.instruction {
-		margin-top: 120px;
-	}
+// VOTING
+#vote {
+	position: absolute;
+    z-index: 100;
+    background: white;
 }
 
 // BOTTOM BAR (COINS, NEXT)

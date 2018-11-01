@@ -138,39 +138,30 @@ var Common = function (nsp, socket) {
 
         },
 
-        'game:proposal_selected': function(pkg) {
-
-            let session = Session.Get(pkg.gameId);
-
-            if(!session) return;
-            session.ProposalSelected(pkg.msgData);
-
-        },
-
-        'game:agenda_yes': function(pkg) {
-
-            let session = Session.Get(pkg.gameId);
-
-            if(!session) return;
-            session.AgendaItemAction(true);
-
-        },
-
-        'game:agenda_no': function(pkg) {
-
-            let session = Session.Get(pkg.gameId);
-
-            if(!session) return;
-            session.AgendaItemAction(false);
-
-        },
-
         'game:exit': function(pkg) {
 
             let session = Session.Get(pkg.gameId);
 
             if(!session) return;
             session.EndGame(currentSpace);
+
+        },
+
+        'player:callvote': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.PlayerCallVote(currentSocket);
+
+        },
+
+        'player:vote': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.PlayerVote(currentSpace);
 
         },
 

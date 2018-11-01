@@ -9,7 +9,7 @@
 * @param {String} secondary - Speech bubble secondary text, showing under body
 
 --}}
-<blockquote class="speech {{showHide this}} {{#ifeq decider true}}form{{/ifeq}}">
+<blockquote class="speech {{showHide this}} {{#ifeq scenario true}}blue{{/ifeq}} {{#ifeq decider true}}form{{/ifeq}}">
 
   <p>{{body}}</p>
 
