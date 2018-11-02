@@ -449,15 +449,28 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'players:voted':
+
+            $('#vote .btn.submit').remove();
+            $('#vote #' + (eventData.yes ? 'yes' : 'no')).show();
+            
+            TweenLite.to($('#vote'), 1, {autoAlpha:0, display:'none', delay: 3, onComplete: function() {
+                $('#vote').remove();
+            }});
+
+            break;
+
         case 'player:callvote':
+
+            if($('#vote').length > 0) return;
 
             $('#gameContent').prepend(eventData)
             .promise()
             .done(function() {
-                
-            });
 
-            $(isDecider ? '.player' : '.decider').remove();
+                $(isDecider ? '.player' : '.decider').remove();
+
+            });
 
             break;
 

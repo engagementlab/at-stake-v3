@@ -25,12 +25,15 @@
         <h1>{{username}} called a vote!</h1>
         <h2>Are you satisfied with this proposal?</h2>
 		
-		<button id="btn-yes" class="btn submit player" type="submit" name="submit" data-event="game:vote" data-package="yes">
+		<button id="btn-yes" class="btn submit player" type="submit" name="submit" data-event="player:vote" data-package="yes">
 			Yes
 		</button>
 		
-		<button id="btn-no" class="btn submit player" type="submit" name="submit" data-event="game:vote" data-package="no">
+		<button id="btn-no" class="btn submit player" type="submit" name="submit" data-event="player:vote" data-package="no">
 			No
 		</button>
+
+		<h3 id="yes">Vote passed.</h3>
+		<h3 id="no">Vote did not pass.</h3>
 	</div>
 </div>

@@ -1041,8 +1041,6 @@ input.post-button {
 blockquote.speech {
 	position: relative;
 	text-align: center;
-	
-	z-index: 1000;
 	border: none;
 
 	p {
@@ -1255,7 +1253,11 @@ blockquote.speech {
 #vote {
 	position: absolute;
     z-index: 100;
-    background: white;
+	background: white;
+	
+	h3 {
+		display: none;
+	}
 }
 
 // BOTTOM BAR (COINS, NEXT)
