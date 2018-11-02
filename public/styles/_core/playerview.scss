@@ -836,92 +836,58 @@ input.post-button {
 	}
 
 	.agenda-wrap {
+		overflow-y: scroll;
+		overflow-x: hidden;
+		width: 100%;
+		height: 100%;
+		background: white;
 	
 		.header {
 			font-family: $header-type;
 			font-size: 18px;
 			margin-top: 18px;
-			span {
-				display: inline-block;
-				color: $yellow;
-				background-color: $cerulean-blue;
-				border-radius: 50%;
-				height: 20px;
-				width: 20px;
-				padding-top: 2px;
-				margin: 2%;
-				font-size: 13px;
-			}
 		}
-
-		.instruction {
-			color: #555555;
-			font-family: AvenirNext;
-			font-size: 16px;
-			font-weight: 500;
-			display: inline;
-
-			div {
-				font-size: 14px;
-			}
+		.star {
+			display: inline-block;
+			color: $yellow;
+			background-color: $cerulean-blue;
+			border-radius: 50%;
+			height: 20px;
+			width: 20px;
+			padding-top: 2px;
+			margin: 2%;
+			font-size: 13px;
 		}
 
 		&.team {
 			.player-wrap {
 				display: flex;
-				flex-direction: row;
+				flex-direction: column;
+				padding: 3%;
+				width: 100%;
+				&:nth-child(even) {
+					background-color: #f4f4f4;
+				}
 			}
 
-			.switch {
-				position: relative;
-				display: inline-block;
-				width: 60px;
-				height: 34px;
+			.info {
+				text-align: left;
+				h2 {
+					margin-top: 0;
+					font-family: $roboto;
+					font-size: 20px;
+					font-weight: bold;
+					color: black;
+				}
 			}
-			
-			.switch input { 
-				opacity: 0;
-				width: 0;
-				height: 0;
-			}
-			
-			.slider {
-				position: absolute;
-				cursor: pointer;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				width: 50px;
-				height: 10px;
-				border-radius: 10px;
-				background-color: $strawberry-two;
-				@include transition(all .4s);
-			}
-			
-			.slider:before {
-				position: absolute;
-				content: "";
-				left: -5px;
-				bottom: -55%;		
-				width: 25px;
-				height: 25px;
-				border-radius: 50%;
-				box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25), inset 0 -2px 0 0 $yellow;
-				background-color: $cerulean-blue;
-				@include transition(all .4s);
-			}
-			
-			input:checked + .slider {
-				background-color: $bluegreen;
-			}
-			
-			input:focus + .slider {
-				box-shadow: 0 0 1px $bluegreen;
-			}
-			
-			input:checked + .slider:before {
-				@include transform(translateX(145%));
+
+			.check {
+				display: flex;
+				align-items: baseline;
+				flex-direction: row;
+				white-space: pre-wrap;
+				justify-content: space-between;
+				margin-top: 4%;
 			}
 		}
 
@@ -1258,6 +1224,22 @@ blockquote.speech {
 	h3 {
 		display: none;
 	}
+}
+
+// RANKING
+#ranking {
+	h2 {
+		font-family: $header-type;
+		font-size: 20px;
+	}
+	.labels {
+		font-weight: bold;
+		display: flex;
+		justify-content: space-between;
+		padding-left: 1%;
+		padding-right: 1%;
+	}
+
 }
 
 // BOTTOM BAR (COINS, NEXT)

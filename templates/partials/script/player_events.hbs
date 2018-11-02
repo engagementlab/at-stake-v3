@@ -168,6 +168,16 @@ var setupScreen = function(screenName, index) {
     if(!inIntro)
         $('#overlay').trigger('hide');  
 
+    // Hooks for ranking screen
+    if(screenName === 'ranking' && isDecider) {
+        $('#btn-ready').click(function(evt) {
+            nextRankingScreen();
+            $(evt.currentTarget).text('Submit');
+        });
+    
+
+    }
+
 }
 
 var playerDisconnected = function(timeoutTime, names) {

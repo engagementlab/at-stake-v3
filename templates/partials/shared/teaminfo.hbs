@@ -10,22 +10,21 @@
 	
 	</div>
 
-	<div class="agenda-wrap team">
+	<div class="agenda-wrap team toggle">
         {{#each this}}
             {{#if username}}
                 <div class="player-wrap">
                     <div class="info">
-                            <h2>{{username}}</h2><br />
-
+                        <h2>{{username}}</h2>
                         {{#if role.needs}}
                             {{role.needs.[0]}}<br />
                             —<br />
                             {{role.needs.[1]}}
                         {{/if}}
-                        
-                        <p><span>&#9733;</span> {{role.secretGoal}} </p>
                     </div>
-                    <div class="check">
+                    <div class="check">                        
+                        <p><span class="star">&#9733;</span> {{role.secretGoal}} </p>
+
                         <label class="switch">
                             <input type="checkbox">
                             <span class="slider round"></span>

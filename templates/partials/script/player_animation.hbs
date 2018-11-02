@@ -338,3 +338,12 @@ function nextIntroScreen() {
 	}})
 
 }
+
+function nextRankingScreen() {
+
+	TweenLite.to($('#ranking #pt1'), .5, { xPercent:-100, display:'none', onComplete:function() {
+		
+		TweenLite.fromTo($('#ranking #pt2'), 1, { xPercent:100 }, { xPercent:0, display:'block', ease:Back.easeOut } )
+		
+	}});
+}
