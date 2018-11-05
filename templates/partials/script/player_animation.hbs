@@ -339,11 +339,18 @@ function nextIntroScreen() {
 
 }
 
-function nextRankingScreen() {
+function nextRankingScreen(button) {
 
 	TweenLite.to($('#ranking #pt1'), .5, { xPercent:-100, display:'none', onComplete:function() {
 		
 		TweenLite.fromTo($('#ranking #pt2'), 1, { xPercent:100 }, { xPercent:0, display:'block', ease:Back.easeOut } )
+
+            button.text('Submit');
+			button.off();
+			button.click(function(evt) {
+				var ratingVals = $('#pt2 input').map(function(){return $(this).val();}).get();
+				socket.emit('game:ranking', emitData({rating: ratingVals}));
+            });
 		
 	}});
 }

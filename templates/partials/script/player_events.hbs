@@ -105,15 +105,15 @@ var startTimer = function(secondsLeft, timerAdvance) {
 }
 
 
-var startStopwatch = function() {
+var startStopwatch = function(timerDuration) {
     
     var currentTime = 0,
-        maxDuration = (60*5)*1000,
+        maxDuration = timerDuration*1000,
         timer = $('.timer_wrap button'),
         text = $('.timer_wrap h1');
 
         timer.addClass('running');
-        timer.css('background', 'linear-gradient(90deg, #f7f248 0%, #02826a 0%)');
+        timer.css('background', 'linear-gradient(90deg, #0067d8 0%, #000 0%)');
 
     $('#skip').fadeIn();
     
@@ -122,14 +122,25 @@ var startStopwatch = function() {
         currentTime += 1000;
         var perc = (currentTime/maxDuration)*100;
         timer.css('background', 
-            'linear-gradient(90deg, #f7f248 ' + perc + '%, #02826a ' + perc + '%)'); 
+            'linear-gradient(90deg, #0067d8 ' + perc + '%, #000 ' + perc + '%)'); 
         text.text(moment().startOf("day").add(currentTime).format('mm:ss'));
+
+        if(perc === 100) {
+            clearInterval(clockInterval);
+            timer.addClass('done');
+            timer.removeClass('running');
+            timer.css('background', '');
+            $('#skip').fadeOut(function() {
+                $('#time-up, #go-to').fadeIn();
+            });
+
+        }
 
     }, 1000);
 
 }
 
-var setupScreen = function(screenName, index) {
+var setupScreen = function(screenName, index, timerDuration) {
 
     // Add trigger to go to next step on next-step buttons
     $('.next-step').click(function(evt) {
@@ -138,7 +149,7 @@ var setupScreen = function(screenName, index) {
 
     // Add trigger for stopwatch
     $('#btn-start-timer').click(function(evt) {
-        startStopwatch();
+        startStopwatch(timerDuration);
     });
 
     // Reset screen index
@@ -171,11 +182,8 @@ var setupScreen = function(screenName, index) {
     // Hooks for ranking screen
     if(screenName === 'ranking' && isDecider) {
         $('#btn-ready').click(function(evt) {
-            nextRankingScreen();
-            $(evt.currentTarget).text('Submit');
+            nextRankingScreen($(evt.currentTarget));
         });
-    
-
     }
 
 }
@@ -621,7 +629,7 @@ socketEvents = function(eventId, eventData) {
                 updateGameContent(eventData.html, function() {
 
                     nextPhase();
-                    setupScreen(eventData.name);
+                    setupScreen(eventData.name, undefined, eventData.timerDuration);
 
                 });
             }
@@ -836,6 +844,7 @@ socketEvents = function(eventId, eventData) {
         case 'game:end':
 
             $('#gameContent').html(eventData);
+            $('#bottom-bar').hide();
             
             break;
 

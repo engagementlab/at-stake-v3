@@ -44,10 +44,14 @@
 		}}
 
 		<div class="not-ready decider">Wait until every player is ready to continue</div>
+		<div id="time-up" style="display:none">Time’s up! Consider wrapping this discussion up</div>
 		<button id="skip" class="submit deciders" data-event="game:next" style="display:none;">
 			Skip to Phase 2
 			{{{cloudinaryUrl 'v1540488090/at-stake/icons/check-btn' format='svg'}}}
-			{{!-- <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/.svg" alt="Start game"> --}}
+		</button>
+		<button id="go-to" class="submit deciders" data-event="game:next" style="display:none;">
+			Go to Phase 2
+			{{{cloudinaryUrl 'v1540488090/at-stake/icons/check-btn' format='svg'}}}
 		</button>
      
 	</div>

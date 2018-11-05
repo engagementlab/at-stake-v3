@@ -147,6 +147,15 @@ var Common = function (nsp, socket) {
 
         },
 
+        'game:ranking': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.GameRating(pkg.msgData.rating);
+
+        },
+
         'player:callvote': function(pkg) {
 
             let session = Session.Get(pkg.gameId);

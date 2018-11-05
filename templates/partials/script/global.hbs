@@ -176,7 +176,8 @@
 		'game:team_info',
 
 		'game:rank_next',
-		'game:rank_prev'
+		'game:rank_prev',
+		'game:ranking'
 	
 	];
 
@@ -375,9 +376,7 @@
 	    $.when($($('.screen:not(.skip)')[0]).remove()).then(function() {
 
 	        var newScreen = $('.screen:not(.skip)')[0];
-	        $(newScreen).trigger('show');9
-
-
+	        $(newScreen).trigger('show');
 
 	        runMods();
 			

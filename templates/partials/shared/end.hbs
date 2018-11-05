@@ -1,0 +1,18 @@
+{{!-- GAME END UI --}}
+<div id="end">
+
+    {{#if won}}
+        <div class="panel">
+        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_425/v1541442374/at-stake/bg/win" alt="Win image">
+        <h1>Congratulations</h1>
+        <div class="text">Together you've managed to bring a little peace and stability back to the world. Maybe there is hope for the future.</div>
+        </div>
+    {{else}}
+        <div class="panel">
+        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_425/v1541442374/at-stake/bg/lose" alt="Lose image">
+        <h1>Tragedy</h1>
+        <div class="text">Your team wasn't able to present a solution that fixed the problem. Reflect with your group and the facilitator about what went wrong./div>
+        </div>
+    {{/if}}  
+
+</div>

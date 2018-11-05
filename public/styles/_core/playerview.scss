@@ -28,7 +28,7 @@
 	&.in-game {
 		height: calc(100% - 50px);
 
-		// Show coin and points bar
+		// Show buttons
 		footer#bottom-bar {
 			display: block;
 		}
@@ -386,7 +386,12 @@ input.post-button {
 		}
 
 		&.running {
-			background: linear-gradient(90deg, $bluegreen, #fff 0%);
+			background: linear-gradient(90deg, $cerulean-blue, #000 0%);
+		}
+
+		&.done {
+			background-image: none;
+			background-color: $strawberry-two;
 		}
 	}
 
@@ -1242,7 +1247,20 @@ blockquote.speech {
 
 }
 
-// BOTTOM BAR (COINS, NEXT)
+// GAME END
+#end {
+	.text {
+		border: solid 2px black;
+		font-size: 13px;
+		font-weight: 600;
+		line-height: 1.38;
+		letter-spacing: 0px;
+		text-align: center;
+		color: black;
+	}
+}
+
+// BOTTOM BAR
 footer#bottom-bar {
 	display: inline-flex;
 	align-items: center;
@@ -1278,18 +1296,19 @@ footer#bottom-bar {
 	button {
 		margin: 5px;
 		color: white;
-		// 	width: 130px;
-		//   height: 36px;
-		//   padding-left: 2.4em;
 		font-size: 16px;
 		border-radius: 0px;
-		//   text-align: left;
 		background-repeat: no-repeat;
 		box-shadow: 0px;
 		border: 0px;
-		box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
 		background-size: 24px 24px;
 		background-position: 8px center;
+
+		&.disabled {
+			img {
+				@include filter(grayscale, 100%);
+			}
+		}
 
 		&#btn-menu {
 			background-image: url('https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/layout/menu.svg');
