@@ -22,7 +22,6 @@
 	text-align: center;
 	padding: 8px;
 	padding-top: 40px;
-	// color: white;
 
 	// During the gameplay
 	&.in-game {
@@ -80,13 +79,9 @@
 		padding-top: 1%;
 		padding-left: 5%;
 
-
 		img {
 			height: 25px;
 		}
-
-		&:hover,
-		&:focus {}
 
 	}
 
@@ -1094,6 +1089,32 @@ blockquote.speech {
 			color: $color-white;
 		}
 	}
+}
+
+// TIME'S' UP UI 
+#time-up {
+	display: none;
+	background-color: $strawberry-two;
+	color: white;
+}
+
+#deliberate {
+
+	#events {
+		background-color: $cerulean-blue;
+		display: none;
+		
+		#content {
+			padding: 3%;
+			h3 {
+
+			}
+			.event {
+				display: none;
+			}
+		}
+	}
+
 }
 
 // Scoreboard 

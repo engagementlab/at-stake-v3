@@ -39,6 +39,15 @@ var Common = function (nsp, socket) {
                         
         },
 
+        'game:event': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.ShowEvent();
+                        
+        },
+
         'game:tutorial': function(pkg) {
 
             let session = Session.Get(pkg.gameId);
@@ -154,6 +163,15 @@ var Common = function (nsp, socket) {
             if(!session) return;
             session.GameRating(pkg.msgData.rating);
 
+        },
+
+        'game:stop_countdown': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.StopCountdown();
+                        
         },
 
         'player:callvote': function(pkg) {

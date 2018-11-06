@@ -11,6 +11,7 @@
 --}}
 
 var clockInterval,
+    eventCountdown,
     timeoutClock,
     countdownAnim,
     countdownPaused,
@@ -104,7 +105,6 @@ var startTimer = function(secondsLeft, timerAdvance) {
 
 }
 
-
 var startStopwatch = function(timerDuration) {
     
     var currentTime = 0,
@@ -126,17 +126,31 @@ var startStopwatch = function(timerDuration) {
         text.text(moment().startOf("day").add(currentTime).format('mm:ss'));
 
         if(perc === 100) {
+
             clearInterval(clockInterval);
             timer.addClass('done');
             timer.removeClass('running');
             timer.css('background', '');
             $('#skip').fadeOut(function() {
-                $('#time-up, #go-to').fadeIn();
+                $('#times-up, #go-to').fadeIn();
             });
 
         }
 
     }, 1000);
+
+}
+
+var startEventQueue = function() {
+
+    var time = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
+    eventCountdown = setTimeout(function() {
+        
+        $('#events, #events .event:eq(0)').show();
+        clearTimeout(eventCountdown);
+
+    }, time*1000);
+
 
 }
 
@@ -178,6 +192,12 @@ var setupScreen = function(screenName, index, timerDuration) {
 
     if(!inIntro)
         $('#overlay').trigger('hide');  
+
+    // Enable call for vote
+    if(screenName === 'deliberate') {
+        $('#btn-call-vote').removeClass('disabled');
+        $('#btn-call-vote').removeAttr('disabled');
+    }
 
     // Hooks for ranking screen
     if(screenName === 'ranking' && isDecider) {
@@ -492,6 +512,14 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'player:show_event':
+
+            // Show breaking news events for non-facilitator
+            if(!isDecider)
+                $('#events').show();
+
+            break;
+
         case 'game:ready':
 
             if(currentPhaseIndex === 1) {
@@ -509,7 +537,15 @@ socketEvents = function(eventId, eventData) {
             }
             else if(currentPhaseIndex === 2) {
                 socket.emit('game:next_screen', emitData());
-                nextPhaseScreen();                
+                nextPhaseScreen();                  
+
+                if(currentScreenIndex === 1) {
+
+                    // Begin random events
+                    if(isDecider)
+                        startEventQueue();
+
+                }          
             }
 
             break;
@@ -576,9 +612,9 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:next_screen':
-            if(isDecider){
+        
+            if(isDecider)
                 ion.sound.play("click3");
-            }
 
             $('#btn-more-time').click(function() {
                 ion.sound.stop("clic /k3");
@@ -713,7 +749,7 @@ socketEvents = function(eventId, eventData) {
 
             break;
             
-        case 'game:countdown':
+/*         case 'game:countdown':
 
             ion.sound.stop("click3");
             $('#btn-time').fadeOut();
@@ -731,7 +767,7 @@ socketEvents = function(eventId, eventData) {
             startTimer(secondsLeft);
             sessionStorage.setItem('lastDuration', secondsLeft);
 
-            break;
+            break; */
 
         case 'game:countdown_ending':
             $('.form .error').fadeIn().html(eventData);
@@ -742,14 +778,15 @@ socketEvents = function(eventId, eventData) {
         case 'game:countdown_end':
 
             ion.sound.play("alarm");
-            // $('#added-time').hide();
+            $('.player-roles, .speech').hide();
+            $('#time-up').fadeIn();
             timerActive = false;
 
+/* 
             if(eventData === 'pitchCountdown' && isDecider) {
                 socket.emit('game:next_player', emitData());
                 return;
             }
-/* 
             // Move right to next player if in double-down
             if(eventData === 'doubledownCountdown') {
 
@@ -758,11 +795,11 @@ socketEvents = function(eventId, eventData) {
                     return;
                 }
             }
-             */
+             
             runMods();
             openInnerModal();
     
-/*             $('#btn-more-time, #btn-cancel').click(function() {
+             $('#btn-more-time, #btn-cancel').click(function() {
 
                 $('#overlay').trigger('hide');
                 

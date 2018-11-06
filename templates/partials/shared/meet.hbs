@@ -44,7 +44,7 @@
 		}}
 
 		<div class="not-ready decider">Wait until every player is ready to continue</div>
-		<div id="time-up" style="display:none">Time’s up! Consider wrapping this discussion up</div>
+		<div id="times-up" style="display:none">Time’s up! Consider wrapping this discussion up</div>
 		<button id="skip" class="submit deciders" data-event="game:next" style="display:none;">
 			Skip to Phase 2
 			{{{cloudinaryUrl 'v1540488090/at-stake/icons/check-btn' format='svg'}}}
@@ -88,6 +88,12 @@
 				{{username}}<br />{{title}}<p></p>
 			{{/each}}
 
+		</div>
+
+		<div id="time-up" class="player">
+
+			{{{cloudinaryUrl 'v1540488090/at-stake/bg/clock' width='319'}}}
+			<h1>Time's up!</h1>
 		</div>
 
 	</div>

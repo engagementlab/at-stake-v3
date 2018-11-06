@@ -55,17 +55,59 @@
 
 		{{> component/speech
 				decider=true
+				scenario=true
 				body="Problem Scenario"
 				secondary=question
 		}}
+		
+		<div id="events" class="player form">
+			Breaking News
+			<div id="content">
+				Clones develop critical genetic failure
+			</div>
+		</div>
 
-		<div class="player-roles col-sm-6">
+		<div id="events" class="decider form">
+			<div id="content">
+				<div class="event">
+					<h3>New Event</h3>
+					<div>Clones develop critical genetic failure</div>
+				</div>
+				<div class="event">
+					<h3>New Event</h3>
+					<div>Some type of event #1</div>
+				</div>
+				<div class="event">
+					<h3>New Event</h3>
+					<div>Some type of event #2</div>
+				</div>
+			</div>
+
+			<div id="buttons">
+
+				<button id="btn-confirm" class="btn submit" type="submit" name="submit" data-event="game:event" data-package="confirm">
+					&#10004;
+				</button>
+				<button id="btn-reject" class="btn submit" type="submit" name="submit" data-event="game:event" data-package="reject">
+					X
+				</button>
+			</div>
+		</div>
+
+		<div class="player-roles col-sm-6 player">
 
 			<h3>Team's Roles</h3>
 			{{#each players}}
 				{{username}}<br />{{agendaItems}}<p></p>
 			{{/each}}
 
+		</div>
+
+		<div id="time-up" class="player">
+
+			{{{cloudinaryUrl 'v1540488090/at-stake/bg/clock' width='319'}}}
+			<h1>Time's up!</h1>
+			<h3>This would be a good time to call to vote</h3>
 		</div>
 
 	</div>
