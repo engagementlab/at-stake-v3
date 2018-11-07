@@ -746,6 +746,28 @@
 		
 				{{#ifnoteq viewType 'landing'}}
 
+						function globalClickHandler(target) {
+
+							var event = $(target).data().event;
+							var pkg = getFormData($(target));
+
+							// Emit event to socket
+							socket.emit(event, emitData(pkg));
+
+							// If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom
+							if($(target).data().autohide) {
+								new TimelineLite()
+								.to('#' + $('#submitted').data('hide'), .5, {scale:0, autoAlpha:0, display:'none'})
+								.from($('#submitted'), .5, {scale:0, autoAlpha:0});
+							}
+
+							// Disable form button unless explicitly prevented, and show loading...
+							if(!$(target).data().keep_enabled) {
+								$(target).attr('disabled', 'disabled');
+								loadToggle(true);
+							}
+
+						}
 						/**
 						 * Listen for forms that dispatch socket events.
 						 *
@@ -754,26 +776,7 @@
 						 * @class global
 						 */
 						$(document).on('click', '.form .submit', function(evt) {
-						    
-					    var event = $(this).data().event;
-					    var pkg = getFormData($(this));
-
-					    // Emit event to socket
-					    socket.emit(event, emitData(pkg));
-
-					    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom
-					    if($(this).data().autohide) {
-					        new TimelineLite()
-					        .to('#' + $('#submitted').data('hide'), .5, {scale:0, autoAlpha:0, display:'none'})
-					        .from($('#submitted'), .5, {scale:0, autoAlpha:0});
-					    }
-
-					    // Disable form button unless explicitly prevented, and show loading...
-					    if(!$(this).data().keep_enabled) {
-				        $(evt.currentTarget).attr('disabled', 'disabled');
-				        loadToggle(true);
-					    }
-
+						    globalClickHandler(evt.currentTarget)					    
 						});
 
 				{{/ifnoteq}}

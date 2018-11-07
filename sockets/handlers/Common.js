@@ -44,7 +44,7 @@ var Common = function (nsp, socket) {
             let session = Session.Get(pkg.gameId);
 
             if(!session) return;
-            session.ShowEvent();
+            session.ShowEvent(pkg.msgData.state, pkg.msgData.index);
                         
         },
 

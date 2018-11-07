@@ -59,47 +59,57 @@
 				body="Problem Scenario"
 				secondary=question
 		}}
-		
+
 		<div id="events" class="player form">
-			Breaking News
 			<div id="content">
-				Clones develop critical genetic failure
+				{{#each events}}
+					<div class="event">
+						<h3>Breaking News</h3>
+						<div>{{text}}</div>
+						<span>tap to dismiss</span>
+					</div>
+				{{/each}}
 			</div>
 		</div>
 
 		<div id="events" class="decider form">
-			<div id="content">
+			{{#each events}}
 				<div class="event">
-					<h3>New Event</h3>
-					<div>Clones develop critical genetic failure</div>
+					<div class="content">
+						
+						<div>
+							<h3>New Event</h3>
+						 	<h1>{{text}}</h1>
+						</div>
+		
+						<div class="buttons">
+							<button id="btn-confirm" class="btn submit" type="submit" name="submit" data-event="game:event" data-package='{ "state":"confirm", "index":"{{@index}}" }'>
+								&#x2714;
+							</button>
+							<button id="btn-reject" class="btn submit" type="submit" name="submit" data-event="game:event" data-package='{ "state":"reject", "index":"{{@index}}" }'>
+								&#65794;
+							</button>
+						</div>
+					</div>
 				</div>
-				<div class="event">
-					<h3>New Event</h3>
-					<div>Some type of event #1</div>
-				</div>
-				<div class="event">
-					<h3>New Event</h3>
-					<div>Some type of event #2</div>
-				</div>
-			</div>
-
-			<div id="buttons">
-
-				<button id="btn-confirm" class="btn submit" type="submit" name="submit" data-event="game:event" data-package="confirm">
-					&#10004;
-				</button>
-				<button id="btn-reject" class="btn submit" type="submit" name="submit" data-event="game:event" data-package="reject">
-					X
-				</button>
-			</div>
+			{{/each}}
 		</div>
 
 		<div class="player-roles col-sm-6 player">
 
-			<h3>Team's Roles</h3>
-			{{#each players}}
-				{{username}}<br />{{agendaItems}}<p></p>
-			{{/each}}
+			<h1>Team's Needs</h2>
+			<div class="grid">
+				{{#each players}}
+					<div class="player{{#if isFacilitator}} facilitator{{/if}}">
+						{{username}}
+						{{#if isFacilitator}}
+							<div>Facilitator</div>
+						{{else}}
+							<div>{{needs.[0]}}<br />{{needs.[1]}}</div>
+						{{/if}}
+					</div>
+				{{/each}}
+			</div>
 
 		</div>
 

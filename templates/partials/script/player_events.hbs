@@ -144,13 +144,33 @@ var startStopwatch = function(timerDuration) {
 var startEventQueue = function() {
 
     var time = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
+    
     eventCountdown = setTimeout(function() {
-        
-        $('#events, #events .event:eq(0)').show();
-        clearTimeout(eventCountdown);
-
+        showEvent();
     }, time*1000);
 
+}
+
+var showEvent = function() {
+
+    // Pick event at random
+    var numEvents = $('#events .event').length-1;
+    var index = Math.floor(Math.random() * (numEvents - 0 + 1)) + 0;
+    var thisEvt = $('#events .event:eq(' + index + ')');
+
+    $('#events').show();
+    thisEvt.show();
+    thisEvt.find('.buttons button').on('click', (function(evt) {   
+        
+        thisEvt.remove();
+        $('#events').hide();
+
+        globalClickHandler(evt.currentTarget);
+        startEventQueue();
+
+    }));
+
+    clearTimeout(eventCountdown);
 
 }
 
@@ -515,12 +535,26 @@ socketEvents = function(eventId, eventData) {
         case 'player:show_event':
 
             // Show breaking news events for non-facilitator
-            if(!isDecider)
+            if(!isDecider) {
+                var thisEvent = $('#events .event:eq(' + eventData + ')');
                 $('#events').show();
+                thisEvent.show();
+                thisEvent.click(function(evt) {
+                    $('#events').hide();
+                    $(evt.currentTarget).remove();
+                });
+            }
 
             break;
 
         case 'game:ready':
+
+            // TEMP
+            nextPhaseScreen();
+            socket.emit('game:next_screen', emitData());
+            // Begin random events
+            if(isDecider)
+                startEventQueue();
 
             if(currentPhaseIndex === 1) {
                 if(eventData ==='role') {
@@ -537,7 +571,7 @@ socketEvents = function(eventId, eventData) {
             }
             else if(currentPhaseIndex === 2) {
                 socket.emit('game:next_screen', emitData());
-                nextPhaseScreen();                  
+                nextPhaseScreen();
 
                 if(currentScreenIndex === 1) {
 

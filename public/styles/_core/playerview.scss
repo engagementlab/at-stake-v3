@@ -1091,6 +1091,25 @@ blockquote.speech {
 	}
 }
 
+.player-roles {
+	.grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+
+		.player {
+			border: solid 2px black;
+			div {
+				font-family: $roboto;
+			}
+
+			&.facilitator {
+				color: #a0a0a0;
+			}
+		}
+	}
+}
+
 // TIME'S' UP UI 
 #time-up {
 	display: none;
@@ -1102,15 +1121,62 @@ blockquote.speech {
 
 	#events {
 		background-color: $cerulean-blue;
+		@include box-shadow(0, 0, 8px, rgba(0, 0, 0, 0.25));
 		display: none;
-		
-		#content {
-			padding: 3%;
-			h3 {
 
+		&.player {
+			text-align: center;
+			padding: 4%;
+			cursor: pointer;
+			background-color: $strawberry-two;
+			h3 {
+				text-align: center;
 			}
-			.event {
-				display: none;
+			span {
+				font-family: $roboto;
+				font-size: 12px;
+				font-weight: 500;
+				letter-spacing: 0.1px;
+				color: #a4050f;
+			}
+		}
+
+		h3 {
+			text-transform: uppercase;	
+			font-size: 13px;
+			font-weight: 600;
+			line-height: 1.23;
+			text-align: left;
+		}
+		.event {
+			display: none;
+			color: white;
+		}
+		.content {
+			display: flex;
+			flex-direction: row;
+			align-items: center;			
+			justify-content: space-between;
+
+			div {
+				margin: 0;
+				padding-left: 4%;
+			}
+			.buttons {
+				display: flex;
+				flex-direction: column;
+				button {
+					width: 50px;
+					height: 50px;
+					margin: 0;
+					padding: 0;
+					background-image: none;
+					background-color: $bluegreen;
+
+					&:nth-child(2) {
+						background-color: $strawberry-two;
+					}
+				}
 			}
 		}
 	}
