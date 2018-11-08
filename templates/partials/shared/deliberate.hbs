@@ -21,7 +21,7 @@
 				scenario=true
 		}}
 		
-		<button id="btn-ready" class="btn submit player" type="submit" name="submit" data-event="game:ready" data-package="next">
+		<button id="btn-ready" class="btn submit player" type="submit" name="submit" data-event="game:ready" data-package="timer">
 			Ready
 		</button>
 
@@ -29,7 +29,36 @@
 				decider=true
 				body="Problem Scenario"
 				secondary=question
+				scenario=true
 		}}
+		{{> component/timer 
+				decider=true
+				disabled=true
+		}}
+
+		<div id="events" class="decider form">
+			{{#each events}}
+				<div class="event">
+					<div class="content">
+						
+						<div>
+							<h3>New Event</h3>
+						 	<h1>{{text}}</h1>
+						</div>
+		
+						<div class="buttons">
+							<button id="btn-confirm" class="btn submit" type="submit" name="submit" data-event="game:event" data-package='{ "state":"confirm", "index":"{{@index}}" }'>
+								&#x2714;
+							</button>
+							<button id="btn-reject" class="btn submit" type="submit" name="submit" data-event="game:event" data-package='{ "state":"reject", "index":"{{@index}}" }'>
+								&#65794;
+							</button>
+						</div>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+
 
 	</div>
 
@@ -60,41 +89,6 @@
 				secondary=question
 		}}
 
-		<div id="events" class="player form">
-			<div id="content">
-				{{#each events}}
-					<div class="event">
-						<h3>Breaking News</h3>
-						<div>{{text}}</div>
-						<span>tap to dismiss</span>
-					</div>
-				{{/each}}
-			</div>
-		</div>
-
-		<div id="events" class="decider form">
-			{{#each events}}
-				<div class="event">
-					<div class="content">
-						
-						<div>
-							<h3>New Event</h3>
-						 	<h1>{{text}}</h1>
-						</div>
-		
-						<div class="buttons">
-							<button id="btn-confirm" class="btn submit" type="submit" name="submit" data-event="game:event" data-package='{ "state":"confirm", "index":"{{@index}}" }'>
-								&#x2714;
-							</button>
-							<button id="btn-reject" class="btn submit" type="submit" name="submit" data-event="game:event" data-package='{ "state":"reject", "index":"{{@index}}" }'>
-								&#65794;
-							</button>
-						</div>
-					</div>
-				</div>
-			{{/each}}
-		</div>
-
 		<div class="player-roles col-sm-6 player">
 
 			<h1>Team's Needs</h2>
@@ -112,6 +106,19 @@
 			</div>
 
 		</div>
+
+		<div id="events" class="player form">
+			<div id="content">
+				{{#each events}}
+					<div class="event">
+						<h3>Breaking News</h3>
+						<div>{{text}}</div>
+						<span>tap to dismiss</span>
+					</div>
+				{{/each}}
+			</div>
+		</div>
+
 
 		<div id="time-up" class="player">
 

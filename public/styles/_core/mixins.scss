@@ -350,4 +350,5 @@ $mq-desktop				: 1382px !default;
 @mixin semibold-type {
     font-family: $body-type;
     font-size: 13px;
+    font-weight: 600;
 }

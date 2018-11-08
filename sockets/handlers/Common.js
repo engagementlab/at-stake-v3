@@ -192,6 +192,15 @@ var Common = function (nsp, socket) {
 
         },
 
+        'player:vote_end': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.PlayerVoteEnd(currentSpace);
+
+        },
+
         /* Pauses all game cooldowns (debugging only) */
         'debug:pause': function(pkg) {
 

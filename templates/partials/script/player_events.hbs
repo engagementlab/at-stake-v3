@@ -509,12 +509,30 @@ socketEvents = function(eventId, eventData) {
 
         case 'players:voted':
 
-            $('#vote .btn.submit').remove();
-            $('#vote #' + (eventData.yes ? 'yes' : 'no')).show();
-            
-            TweenLite.to($('#vote'), 1, {autoAlpha:0, display:'none', delay: 3, onComplete: function() {
-                $('#vote').remove();
-            }});
+        
+            if(!isDecider && !eventData.yes) {
+                $('#vote #content').remove();
+                $('#vote #results').show();
+            }
+
+            if(eventData.yes && isDecider)
+                socket.emit('game:next', emitData(true));
+            else {
+                if(eventData.votecallerid === playerUID) {
+                    $('#btn-try-again').show();
+                    $('#btn-try-again').click(function() {            
+                        socket.emit('player:vote_end', emitData());
+                    });
+                }
+            }
+
+            break;
+
+        case 'players:vote_ended':
+
+                TweenLite.to($('#vote'), 1, {autoAlpha:0, display:'none', onComplete: function() {
+                    $('#vote').remove();
+                }});
 
             break;
 
@@ -549,37 +567,33 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:ready':
 
-            // TEMP
-            nextPhaseScreen();
-            socket.emit('game:next_screen', emitData());
-            // Begin random events
-            if(isDecider)
-                startEventQueue();
-
             if(currentPhaseIndex === 1) {
                 if(eventData ==='role') {
                     playersReady = true;
                     socket.emit('game:next_screen', emitData());
                 }
-                if(currentScreenIndex === 1) {  
+                // if(currentScreenIndex === 1) {  
                     if(eventData ==='timer') {
                         $('.timer_wrap button').removeClass('disabled');
                         $('.timer_wrap button').removeAttr('disabled');
                         $('.not-ready').fadeOut();
                     }
-                }
+                // }
             }
-            else if(currentPhaseIndex === 2) {
-                socket.emit('game:next_screen', emitData());
-                nextPhaseScreen();
 
-                if(currentScreenIndex === 1) {
+            else if(currentPhaseIndex === 2) {
+                // socket.emit('game:next_screen', emitData());
+                // nextPhaseScreen();
+                $('.timer_wrap button').removeClass('disabled');
+                $('.timer_wrap button').removeAttr('disabled');
+
+                // if(currentScreenIndex === 1) {
 
                     // Begin random events
                     if(isDecider)
                         startEventQueue();
 
-                }          
+                // }          
             }
 
             break;
@@ -847,12 +861,12 @@ socketEvents = function(eventId, eventData) {
                 ion.sound.stop("click3");
                 ion.sound.play("player_red");
             });
- */
             if(eventData == "deliberateCountdown") 
                 nextPhaseScreen();
             else if (eventData == "brainstormCountdown" && isDecider){
                 socket.emit('game:next', emitData(true));
             } 
+ */
 
             break;
 
@@ -914,8 +928,13 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:end':
 
-            $('#gameContent').html(eventData);
-            $('#bottom-bar').hide();
+            updateGameContent(eventData, function() {
+                if(isDecider)
+                    TweenLite.to($('#btn-start-over'), 1, {autoAlpha:1, delay:4, display:'block'});
+
+                $('#bottom-bar').hide();
+
+            });
             
             break;
 

@@ -4,11 +4,17 @@
 	{{!-- WAIT FOR RANK --}}
 	<div class="screen player">
 
-		{{> component/speech
-				body="Ranking is taking place"
-				secondary="Your plan is being ranked!"
+		{{> component/instructions 
+				heading="Call To Vote"
 		}}
 
+		<div id="content" class="content">
+
+            <h1>Everyone agreed with the proposal!</h1>
+            Wait as the facilitator reviews.
+
+        </div>
+    
 	</div>
 
 	{{!-- RANKING --}}

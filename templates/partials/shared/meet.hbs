@@ -25,7 +25,7 @@
 		{{> component/speech
 				body="Problem Scenario"
 				secondary=question
-				scenario=true
+				bold=true
 		}}
 		
 		<button id="btn-ready" class="btn submit player" type="submit" name="submit" data-event="game:ready" data-package="timer">
@@ -36,6 +36,7 @@
 				decider=true
 				body="Problem Scenario"
 				secondary=question
+				bold=true
 		}}
 
 		{{> component/timer 
@@ -72,21 +73,32 @@
 		{{> component/speech
 				body="Problem Scenario"
 				secondary=question
-				scenario=true
+				bold=true
 		}}
 
 		{{> component/speech
 				decider=true
 				body="Problem Scenario"
 				secondary=question
+				bold=true
 		}}
 
 		<div class="player-roles col-sm-6">
 
 			<h3>Team's Roles</h3>
-			{{#each playerMap}}
-				{{username}}<br />{{title}}<p></p>
-			{{/each}}
+
+			<div class="grid">
+				{{#each playerMap}}
+					<div class="player{{#if isFacilitator}} facilitator{{/if}}">
+						{{username}}
+						{{#if isFacilitator}}
+							<div>Facilitator</div>
+						{{else}}
+							<div>{{title}}</div>
+						{{/if}}
+					</div>
+				{{/each}}
+			</div>
 
 		</div>
 

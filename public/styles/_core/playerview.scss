@@ -20,7 +20,8 @@
 	z-index: 100;
 	height: 100%;
 	text-align: center;
-	padding: 8px;
+	padding: 0;
+	padding-bottom: 8px;
 	padding-top: 40px;
 
 	// During the gameplay
@@ -965,7 +966,7 @@ input.post-button {
 // Screen instructions
 .instruction {
 	font-size: 16px;
-	height: 72px;
+// 	height: 72px;
 	margin: 0 auto;
 	width: 304px;
 	margin-bottom: 16px;
@@ -1054,9 +1055,21 @@ blockquote.speech {
 		div {
 			font-family: $header-type;
 			font-size: 19px;
-			  line-height: 1.21;
-			  letter-spacing: 0.5px;
+			line-height: 1.21;
+			letter-spacing: 0.5px;
 			color: white;		  
+		}
+	}
+
+	&.bold {
+
+		p {
+			@include semibold-type;
+			text-transform: uppercase;
+		}
+		div {
+			font-family: $header-type;
+			color: $cerulean-blue;
 		}
 	}
 
@@ -1310,11 +1323,47 @@ blockquote.speech {
 // VOTING
 #vote {
 	position: absolute;
-    z-index: 100;
+	z-index: 100;
+	height: 100%;
+	width: 100%;
 	background: white;
+
+
+	.player {
+		#content {
+			background-color: $bubble-gum-pink;
+		}
+	}
+	.content {
+		color: white;
+		padding: 3%;
+		min-height: 420px;
 	
-	h3 {
+		h1 {
+			font-family: $header-type;
+			font-size: 36px;
+		}
+		h2 {
+			font-size: 18px;
+		}
+	}
+	#content {
+		&.decider {
+			h1 {
+				color: $cerulean-blue;
+			}
+		}
+		button {
+			width: 120px;
+			height: 50px;
+			&#btn-no {
+				background-image: linear-gradient(to bottom, $strawberry-two 95%, $yellow 5%)
+			}
+		}
+	}
+	#results {
 		display: none;
+		background-color: $strawberry-two;
 	}
 }
 
@@ -1332,10 +1381,26 @@ blockquote.speech {
 		padding-right: 1%;
 	}
 
+	.player {
+		#content {
+			color: white; 
+			background-color: $bluegreen;
+			height: 100%;
+			h1 {
+				font-family: $header-type;
+				font-size: 36px;
+			} 
+		}
+	}
+
 }
 
 // GAME END
 #end {
+	#btn-start-over {
+		display: none;
+	}
+	
 	.text {
 		border: solid 2px black;
 		font-size: 13px;

@@ -1,5 +1,8 @@
 {{!-- GAME END UI --}}
-<div id="end">
+<div id="end" class="form">
+    <button id="btn-start-over" class="btn submit decider" type="submit" name="submit" data-event="game:exit">
+        Play Again
+    </button>
 
     {{#if won}}
         <div class="panel">
