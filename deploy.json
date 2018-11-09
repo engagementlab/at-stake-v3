@@ -32,7 +32,7 @@
       "ref": "origin/v3.1",
       "path": "/srv/at-stake-v3",
       "pre-deploy-local" : "echo 'NPM linking at-stake-v3 and restarting app.'; git pull git@github.com:engagementgamelab/el-web-sdk.git master;",
-      "post-deploy" : "npm i ; npm update ; cd /srv/framework/current/ ; npm i ; grunt compile --sites=at-stake --env staging ; nvm use ; NODE_ENV=staging pm2 restart 0"
+      "post-deploy" : "npm i ; npm update ; cd /srv/framework/current/ ; nvm use  ; npm i ; grunt compile --sites=at-stake --env staging ; NODE_ENV=staging pm2 restart 'server'"
     },
     
     "production" : {
