@@ -17,28 +17,32 @@
 	<div class="agenda-wrap form">
 
 		<div id="needs">
-			{{#if needs}}
 				<h1 class="header">Needs</h1> 
-
+			{{#if needs}}
 				<div class="agenda-item"><div class="agenda">{{needs.[0]}}</div></div>
 				<span id="div"></span>
 				<div class="agenda-item"><div class="agenda">{{needs.[1]}}</div></div>
+			{{else}}
+				<div class="agenda-item"><div class="agenda">Example need 1</div></div>
+				<span id="div"></span>
+				<div class="agenda-item"><div class="agenda">Example need 2</div></div>
 			{{/if}}
 		</div>
 
-		{{#if secretGoal}}
 			
-			<h1 class="header"><span class="star">&#9733;</span>Secret Goal<span class="star">&#9733;</span></h1> 
+		<h1 class="header"><span class="star">&#9733;</span>Secret Goal<span class="star">&#9733;</span></h1> 
+		{{#if secretGoal}}
 			<div>{{secretGoal}}</div>
-
+		{{else}}
+			<div>Example goal</div>
 		{{/if}}
 		
 		{{#ifeq intro true}}
-			
+{{!-- 			
 			<button class="btn submit player" type="submit" name="submit" data-event="game:ready" data-package="role">
 				Continue
-			</button>
-			<button id="btn-role-next" class="btn decider next-step" type="submit" name="submit">
+			</button> --}}
+			<button id="btn-role-next" class="btn next-step" type="submit" name="submit">
 				Continue
 			</button>
 

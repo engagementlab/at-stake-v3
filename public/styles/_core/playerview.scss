@@ -1364,6 +1364,10 @@ blockquote.speech {
 	#results {
 		display: none;
 		background-color: $strawberry-two;
+		
+		#btn-try-again, div {
+			display: none;
+		}
 	}
 }
 

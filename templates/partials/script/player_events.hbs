@@ -213,12 +213,6 @@ var setupScreen = function(screenName, index, timerDuration) {
     if(!inIntro)
         $('#overlay').trigger('hide');  
 
-    // Enable call for vote
-    if(screenName === 'deliberate') {
-        $('#btn-call-vote').removeClass('disabled');
-        $('#btn-call-vote').removeAttr('disabled');
-    }
-
     // Hooks for ranking screen
     if(screenName === 'ranking' && isDecider) {
         $('#btn-ready').click(function(evt) {
@@ -508,7 +502,6 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'players:voted':
-
         
             if(!isDecider && !eventData.yes) {
                 $('#vote #content').remove();
@@ -520,9 +513,11 @@ socketEvents = function(eventId, eventData) {
             else {
                 if(eventData.votecallerid === playerUID) {
                     $('#btn-try-again').show();
+                    $('#votecaller').show();
                     $('#btn-try-again').click(function() {            
                         socket.emit('player:vote_end', emitData());
                     });
+                    $('#voter').show();
                 }
             }
 
@@ -568,10 +563,10 @@ socketEvents = function(eventId, eventData) {
         case 'game:ready':
 
             if(currentPhaseIndex === 1) {
-                if(eventData ==='role') {
-                    playersReady = true;
-                    socket.emit('game:next_screen', emitData());
-                }
+                // if(eventData ==='role') {
+                //     playersReady = true;
+                //     socket.emit('game:next_screen', emitData());
+                // }
                 // if(currentScreenIndex === 1) {  
                     if(eventData ==='timer') {
                         $('.timer_wrap button').removeClass('disabled');
@@ -797,25 +792,34 @@ socketEvents = function(eventId, eventData) {
 
             break;
             
-/*         case 'game:countdown':
+         case 'game:countdown':
+
+
+         
 
             ion.sound.stop("click3");
-            $('#btn-time').fadeOut();
+            // $('#btn-time').fadeOut();
 
             ion.sound.play("alarm_single");
-            countdownPaused = false;
+            // countdownPaused = false;
 
-            if(clockInterval)
-                clearInterval(clockInterval);
+            // if(clockInterval)
+            //     clearInterval(clockInterval);
 
-            if(countdownAnim)
-                $('.screen .timer').empty();
+            // if(countdownAnim)
+            //     $('.screen .timer').empty();
                    
-            var secondsLeft = eventData.duration; 
-            startTimer(secondsLeft);
-            sessionStorage.setItem('lastDuration', secondsLeft);
+            // var secondsLeft = eventData.duration; 
+            // startTimer(secondsLeft);
+            // sessionStorage.setItem('lastDuration', secondsLeft);
 
-            break; */
+            // Enable call for vote
+            if(eventData.name === "deliberateCountdown") {
+                $('#btn-call-vote').removeClass('disabled');
+                $('#btn-call-vote').removeAttr('disabled');
+            }
+
+            break;
 
         case 'game:countdown_ending':
             $('.form .error').fadeIn().html(eventData);

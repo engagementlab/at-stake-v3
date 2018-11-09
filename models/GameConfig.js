@@ -20,7 +20,8 @@ var Types = keystone.Field.Types;
 
 var GameConfig = new keystone.List('GameConfig', {
 		label: 'Games Config',
-    candelete: false
+		nodelete: true,
+		nocreate: true
 });
 
 GameConfig.add(
@@ -30,20 +31,6 @@ GameConfig.add(
 		  playerCountRangeMin: { type: Number, label: "Player Allowed Count Min", required: true, initial: true },
 		  playerCountRangeMax: { type: Number, label: "Player Allowed Count Max", required: true, initial: true },
 		  timeTimeoutPlayer: { type: Number, label: "Player Disconnect Timeout", note: "Time (seconds) before game ends after player disconnects", required: true, initial: true }
-		},
-	  
-	  /*
-		* Coin settings
-		*/
-		'Coin settings', {
-		  potCoinCount: { type: Number, label: "Pot Coin Count", note: "Number of coins that players start with at the beginning of the game", required: true, initial: true },
-		  playerStartCoinCount: { type: Number, label: "Player Start Coin Count", note: "Number of coins that players start with at the beginning of the game", required: true, initial: true },
-		  deciderStartCoinCount: { type: Number, label: "Decider Start Coin Count", note: "Number of coins that the Decider starts with at the beginning of the game", required: true, initial: true },
-		  // playerRoundStartCoinCount: { type: Number, label: "Player Round Start Coin Count", note: "Number of coins that players start with at the beginning of a round (after round 1)", required: true, initial: true },
-		  // deciderRoundStartCoinCount: { type: Number, label: "Decider Round Start Coin Count", note: "Number of coins that the Decider starts with at the beginning of a round (after round 1)", required: true, initial: true },
-		  rewardAmounts: { type: Types.TextArray, label: "Reward Amounts", note: "Number of coins awarded for having a player's agenda point included in plan (*MUST BE TWO AMOUNTS*)", required: false, initial: false },
-		  extraTimeCost: { type: Number, label: "Extra Time Cost", note: "Number of coins it costs to get extra time while pitching", required: true, initial: true },
-		  doubledownTimeCost: { type: Number, label: "Double-down Time Cost", note: "Number of coins it costs to get Double-down time", required: true, initial: true }
 		},
 
 	  /*

@@ -39,14 +39,22 @@
                             <input type="checkbox">
                             <span class="slider round"></span>
                         </label>
-                        <span>{{needs.[0]}}</span>
+                        {{#if needs}}
+                            <span>{{needs.[0]}}</span>
+                        {{else}}
+                            <span>Example need 1</span>
+                        {{/if}}
                     </div>
                     <div class="need">    
                         <label class="switch">
                             <input type="checkbox">
                             <span class="slider round"></span>
                         </label>
-                        <span>{{needs.[1]}}</span>
+                        {{#if needs}}
+                            <span>{{needs.[1]}}</span>
+                        {{else}}
+                            <span>Example need 2</span>
+                        {{/if}}
                     </div>
                 </div>
 
