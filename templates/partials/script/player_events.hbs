@@ -16,6 +16,7 @@ var clockInterval,
     countdownAnim,
     countdownPaused,
     playerWasReconnected,
+    currentTooltips = [],
     startAnim = new TimelineLite({paused: true}).fromTo($('#btn-start-game'), 1, {scale:0, autoAlpha:0}, {scale:1, autoAlpha:1, visibility:'visible', ease:Elastic.easeOut});
 
 // If true, screen doesn't advance right away via 'game:next',
@@ -220,6 +221,22 @@ var setupScreen = function(screenName, index, timerDuration) {
         });
     }
 
+    // Setup any tooltips
+    var tooltips = $('.tooltip-content');
+    if(tooltips.length > 0) {
+        _.each(tooltips, function(tip, ind) {
+            var content = $(tip).text();
+            var element = $(tip).parent()[0];
+            // Delete content
+            $(tip).remove();
+
+            // Make/show tooltip
+            var tooltip = tippy(element, { content: content, theme: "default", arrow: true });
+            currentTooltips.push(tooltip.instances);
+            
+            element._tippy.show();
+        });
+    }
 }
 
 var playerDisconnected = function(timeoutTime, names) {
@@ -502,7 +519,7 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'players:voted':
-        
+
             if(!isDecider && !eventData.yes) {
                 $('#vote #content').remove();
                 $('#vote #results').show();

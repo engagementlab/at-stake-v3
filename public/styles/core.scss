@@ -429,4 +429,19 @@ input[type=range] {
 	}
 }
 
+.tippy-tooltip.default-theme {
+		font-family: $roboto;
+		font-size: 12px; 
+		max-width: 160px;
+		color: black;
+		background-color: $yellow;
+		border-radius: 0;
+		.tippy-arrow {
+			border-top-color: $yellow;
+		}
+}
+
+.tooltip-content {
+	display: none;
+}
 // END Main Content
