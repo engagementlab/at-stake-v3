@@ -131,6 +131,7 @@ function innerModalOpenClose(modalElement, open) {
 	var overlayStart, overlayEnd, start, end;
 	var timeline = new TimelineLite({onComplete: function() {
 		$('#overlay').trigger(open ? 'opened' : 'hidden');	
+		showTooltips();
 	}});
  	
  	if(open) {
@@ -194,7 +195,9 @@ function quitOpenClose(open, message) {
 
 var screenOpen = function(screenElement) {
 
-	screenElement.show();
+	screenElement.show(function() {
+		showTooltips();
+	});
 
 	var hidden = { scale:0, opacity:0, display:'none' },
 			shown = { scale:1, opacity:1, ease: Elastic.easeOut.config(1, 0.75), display:'block', transformOrigin:'70% bottom' };

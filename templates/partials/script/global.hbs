@@ -15,19 +15,21 @@
 
 	var socket,
 	socketEvents,
-  gameCode,
-  deck,
-  gameEnded = false,
-  timerActive = false,
+	gameCode,
+	deck,
+	gameEnded = false,
+	timerActive = false,
     playersReady = false,
+	
 	gameContainer,
-
-  playerId,
-  playerUID,
-  playerName,
-  isDecider,
+	playerId,
+	playerUID,
+	playerName,
+	isDecider,
+    currentTooltips = [],
 	timeline = new TimelineLite(),
 	mobileDetect = new MobileDetect(window.navigator.userAgent),
+	
 	isDevice = false,
 	inIntro = false,
 
@@ -245,6 +247,50 @@
 
 	findAbsolutes();
 
+	var showTooltips = function() {
+		
+		// Setup any tooltips
+		var tooltips = $('.tooltip-content');
+		if(tooltips.length > 0) {
+			_.each(tooltips, function(tip, ind) {
+
+				// Is supposed to show?
+				var data = $(tip).data();
+				var isEmpty = Object.keys(data).length === 0;
+				if((data.screen === currentScreenIndex &&
+					data.phase === currentPhaseIndex) ||
+					isEmpty) {
+
+					// Skip if parent element not visible yet
+					if(!$(tip).parent().is(':visible')) return;
+				
+					var content = $(tip).text();
+					var element = $(tip).parent()[0];
+					// Delete content
+					$(tip).remove();
+
+					// Make/show tooltip
+					var tooltip = tippy(element, { content: content, theme: "default", placement: "top", arrow: true });
+					currentTooltips.push(tooltip.instances[0]);
+
+					element._tippy.show();
+
+				}
+
+			});
+		}
+	}
+
+	var deleteTooltips = function() {
+
+		_.each(currentTooltips, function(tip, ind) {
+			tip.destroy();
+		});
+		currentTooltips = [];
+
+
+	}
+
 	/* 
 	 Associate provided data object with current game ID
 	*/
@@ -432,14 +478,8 @@
 
 	    $.when($('#overlay').append(modalSelector.first())).then(function() {
 		    $('#overlay').trigger('show', [noAnimate]);
-	    });
-
-	    // Enable/disable ability to buy coins
-      var cost = parseInt($('#overlay .inner-modal .coins').text());
-      var coins = parseInt($('#player-coins span').text());
-      var disableBuy = (coins - cost) < 0;
-      $('#overlay ' + (disableBuy ? '#btn-more-time' : '#btn-empty')).remove();    
-
+		});
+		
 	    var modalDuration = $('#overlay .inner-modal').data('duration');
 
 	    if(modalDuration) {

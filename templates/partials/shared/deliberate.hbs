@@ -47,13 +47,15 @@
 						</div>
 		
 						<div class="buttons">
-							<button id="btn-confirm" class="btn submit" type="submit" name="submit" data-event="game:event" data-package='{ "state":"confirm", "index":"{{@index}}" }'>
+							<button id="btn-confirm" class="btn submit" type="submit" name="submit" data-event="game:event" data-package='{ "state":"confirm", "index":"{{@index}}" }'>	
+								{{#ifeq @index 0}}<detail class="tooltip-content">You can choose to accept or ignore events that will complicate players' solutions.</detail>{{/ifeq}}
 								&#x2714;
 							</button>
 							<button id="btn-reject" class="btn submit" type="submit" name="submit" data-event="game:event" data-package='{ "state":"reject", "index":"{{@index}}" }'>
 								&#65794;
 							</button>
 						</div>
+						
 					</div>
 				</div>
 			{{/each}}

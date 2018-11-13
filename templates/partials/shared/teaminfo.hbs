@@ -17,17 +17,26 @@
                     <div class="info">
                         <h2>{{username}}</h2>
                         {{#if role.needs}}
-                            {{role.needs.[0]}}<br />
-                            —<br />
+                            {{role.needs.[0]}}
+                                <br />—<br />
                             {{role.needs.[1]}}
+                        {{/if}}
+                        {{#if role.agendaItems}}
+                            {{role.agendaItems.[0]}}
+                                <br />—<br />
+                            {{role.agendaItems.[1]}}
                         {{/if}}
                     </div>
                     <div class="check">                        
-                        <p><span class="star">&#9733;</span> {{role.secretGoal}} </p>
+                        <p><span class="star">&#9733;</span> {{role.secretGoal}}</p>
 
                         <label class="switch">
+                            {{#ifeq @index 0}}
+                                <detail class="tooltip-content">When a player meets their secret goal, you can check it off. They'll score extra points at the end of the game.</detail>
+                            {{/ifeq}}
                             <input type="checkbox">
-                            <span class="slider round"></span>
+                            <span class="slider round">
+                            </span>
                         </label>
                     </div>
 

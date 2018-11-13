@@ -16,7 +16,6 @@ var clockInterval,
     countdownAnim,
     countdownPaused,
     playerWasReconnected,
-    currentTooltips = [],
     startAnim = new TimelineLite({paused: true}).fromTo($('#btn-start-game'), 1, {scale:0, autoAlpha:0}, {scale:1, autoAlpha:1, visibility:'visible', ease:Elastic.easeOut});
 
 // If true, screen doesn't advance right away via 'game:next',
@@ -154,13 +153,13 @@ var startEventQueue = function() {
 
 var showEvent = function() {
 
-    // Pick event at random
-    var numEvents = $('#events .event').length-1;
-    var index = Math.floor(Math.random() * (numEvents - 0 + 1)) + 0;
-    var thisEvt = $('#events .event:eq(' + index + ')');
+    // Pick first event in list
+    var thisEvt = $('#events .event:first');
 
     $('#events').show();
     thisEvt.show();
+    showTooltips();
+    
     thisEvt.find('.buttons button').on('click', (function(evt) {   
         
         thisEvt.remove();
@@ -220,23 +219,6 @@ var setupScreen = function(screenName, index, timerDuration) {
             nextRankingScreen($(evt.currentTarget));
         });
     }
-
-    // Setup any tooltips
-    var tooltips = $('.tooltip-content');
-    if(tooltips.length > 0) {
-        _.each(tooltips, function(tip, ind) {
-            var content = $(tip).text();
-            var element = $(tip).parent()[0];
-            // Delete content
-            $(tip).remove();
-
-            // Make/show tooltip
-            var tooltip = tippy(element, { content: content, theme: "default", arrow: true });
-            currentTooltips.push(tooltip.instances);
-            
-            element._tippy.show();
-        });
-    }
 }
 
 var playerDisconnected = function(timeoutTime, names) {
@@ -291,6 +273,7 @@ var setupRoleCard = function(markup) {
         $('#btn-role-card, #btn-facilitator').on('click', function(evt) {
             ion.sound.play("click1");
             openInnerModal('role');
+            deleteTooltips();
         });
         $('#btn-team-info').on('click', function(evt) {
             ion.sound.play("click1");
@@ -579,33 +562,20 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:ready':
 
-            if(currentPhaseIndex === 1) {
-                // if(eventData ==='role') {
-                //     playersReady = true;
-                //     socket.emit('game:next_screen', emitData());
-                // }
-                // if(currentScreenIndex === 1) {  
-                    if(eventData ==='timer') {
-                        $('.timer_wrap button').removeClass('disabled');
-                        $('.timer_wrap button').removeAttr('disabled');
-                        $('.not-ready').fadeOut();
-                    }
-                // }
+            if(currentPhaseIndex === 0 && eventData ==='timer') {
+                $('.timer_wrap button').removeClass('disabled');
+                $('.timer_wrap button').removeAttr('disabled');
+                $('.not-ready').fadeOut();
             }
 
-            else if(currentPhaseIndex === 2) {
-                // socket.emit('game:next_screen', emitData());
-                // nextPhaseScreen();
+            else if(currentPhaseIndex === 1) {
                 $('.timer_wrap button').removeClass('disabled');
                 $('.timer_wrap button').removeAttr('disabled');
 
-                // if(currentScreenIndex === 1) {
+                // Begin random events
+                if(isDecider)
+                    startEventQueue();
 
-                    // Begin random events
-                    if(isDecider)
-                        startEventQueue();
-
-                // }          
             }
 
             break;
