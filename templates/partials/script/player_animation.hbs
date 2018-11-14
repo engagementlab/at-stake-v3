@@ -358,8 +358,15 @@ function nextRankingScreen(button) {
             button.text('Submit');
 			button.off();
 			button.click(function(evt) {
+				var needsMet = 0;
+				
+				$.each($('#pt1 input'), function( key, value ) {
+					if($(value).val() === 'on')
+						needsMet++;
+				});
+
 				var ratingVals = $('#pt2 input').map(function(){return $(this).val();}).get();
-				socket.emit('game:ranking', emitData({rating: ratingVals}));
+				socket.emit('game:ranking', emitData({needs: needsMet, rating: ratingVals}));
             });
 		
 	}});

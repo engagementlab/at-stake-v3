@@ -38,19 +38,17 @@ GameConfig.add(
 		*/
 		'Time settings', {
 		  thinkSeconds: { type: Number, label: "Meet Seconds", note: 'Amount of time in the "think" segment of the round', required: true, initial: true },
-		  pitchSeconds: { type: Number, label: "Pitch Seconds", note: 'Amount of time in the "pitch" segment of the round', required: true, initial: true },
-		  // extraSeconds: { type: Number, label: "Extra Seconds", note: 'Amount of time given to a player if they choose to use additional time for their pitch', required: true, initial: true },
-		  // doubledownSeconds: { type: Number, label: "Double-down Seconds", note: 'Amount of time given to a player if they buy Double-down time', required: true, initial: true },
 		  deliberateSeconds: { type: Number, label: "Deliberate Seconds", note: 'Amount of time in the "deliberate" segment of the round', required: true, initial: true }
 		}, 
 
-		/*
+	/*
 		* Animation settings
 		*/
-		'Animation settings', {
+/* 			'Animation settings', {
 		  decideDuration: { type: Number, label: "Think Seconds", note: 'Duration of proposal and agenda decide modals', required: true, initial: true },
 		  winnerDuration: { type: Number, label: "Game Winner Modal Seconds", note: 'Duration of game winner modals', required: true, initial: true }
 		}, 
+ */
 
 		/*
 		* Debrief settings

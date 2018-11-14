@@ -1382,6 +1382,10 @@ blockquote.speech {
 
 // RANKING
 #ranking {
+	
+    margin-left: 3%;
+    margin-right: 3%;
+
 	h2 {
 		font-family: $header-type;
 		font-size: 20px;
@@ -1403,6 +1407,29 @@ blockquote.speech {
 				font-family: $header-type;
 				font-size: 36px;
 			} 
+		}
+	}
+
+	.user {
+		p {
+			padding-bottom: 3%;
+		}
+		hr {
+			width: 85%;
+			border-bottom: 2px solid #e1e1e1;
+		}
+
+		.needs {
+			display: flex;
+			flex-direction: row;
+			align-content: center;
+			justify-content: space-around;
+
+			.need {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
 		}
 	}
 

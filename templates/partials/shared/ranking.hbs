@@ -30,55 +30,58 @@
             <h2>Did the team meet their needs?</h2>
 
             {{#each players}}
-                
                 <div class="user toggle">
-                    {{username}}<br />
+                    <p>{{username}}</p>
 
-                    <div class="need">    
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                        {{#if needs}}
-                            <span>{{needs.[0]}}</span>
-                        {{else}}
-                            <span>Example need 1</span>
-                        {{/if}}
+                    <div class="needs">
+                        <div class="need">    
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                            {{#if needs}}
+                                <span>{{needs.[0]}}</span>
+                            {{else}}
+                                <span>Example need 1</span>
+                            {{/if}}
+                        </div>
+                        <div class="need">    
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                            {{#if needs}}
+                                <span>{{needs.[1]}}</span>
+                            {{else}}
+                                <span>Example need 2</span>
+                            {{/if}}
+                        </div>
                     </div>
-                    <div class="need">    
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                        {{#if needs}}
-                            <span>{{needs.[1]}}</span>
-                        {{else}}
-                            <span>Example need 2</span>
-                        {{/if}}
-                    </div>
+
+                    <hr{{#if @last}} style="display:none"{{/if}} />
+
                 </div>
-
             {{/each}}
         </div>
 
         <div id="pt2" style="display:none">
 
             <h2>Equity</h2>
-            <input type="range" id="equity" min="1" value="1" max="10" step="1">
+            <input type="range" id="equity" min="1" value="1" max="5" step="1">
             <div class="labels">
-                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
             </div>
 
-            <h2>Fidelity</h2>
-            <input type="range" id="fidelity" min="1" value="1" max="10" step="1">
+            <h2>Inclusivity</h2>
+            <input type="range" id="inclusivity" min="1" value="1" max="5" step="1">
             <div class="labels">
-                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
             </div>
 
-            <h2>Cost Effectiveness</h2>
-            <input type="range" id="cost-effectiveness" min="1" value="1" max="10" step="1">
+            <h2>Creativity</h2>
+            <input type="range" id="creativity" min="1" value="1" max="5" step="1">
             <div class="labels">
-                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
             </div>
         </div>
 		

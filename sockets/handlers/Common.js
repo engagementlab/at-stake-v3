@@ -161,7 +161,7 @@ var Common = function (nsp, socket) {
             let session = Session.Get(pkg.gameId);
 
             if(!session) return;
-            session.GameRating(pkg.msgData.rating);
+            session.GameRating(pkg.msgData);
 
         },
 
