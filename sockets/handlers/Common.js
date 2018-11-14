@@ -174,6 +174,15 @@ var Common = function (nsp, socket) {
                         
         },
 
+        'player:met_goal': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.PlayerMetGoal(pkg.msgData.uid);
+
+        },
+
         'player:callvote': function(pkg) {
 
             let session = Session.Get(pkg.gameId);

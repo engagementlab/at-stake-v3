@@ -848,6 +848,15 @@ input.post-button {
 			font-size: 18px;
 			margin-top: 18px;
 		}
+		.goal {
+			width: 90%;
+			text-align: left;
+			.star {
+				margin: 0;
+				padding-top: 3px;
+				padding-left: 1%;
+			}
+		}
 		.star {
 			display: inline-block;
 			color: $yellow;
@@ -1418,17 +1427,42 @@ blockquote.speech {
 
 // BOTTOM BAR
 footer#bottom-bar {
+	position: absolute;
 	display: inline-flex;
-	align-items: center;
+	flex-direction: column;
 	font-size: large;
 	width: 100%;
-	bottom: 8px;
+	bottom: 0px;
 	left: 0px;
 	height: 90px;
-	position: absolute;
 	padding-top: 5px;
 	max-width: 425px;
 	z-index: 1000;
+
+	// GOAL MET NOTIFICATION
+	#secret-goal {
+	    display: flex;
+	    align-items: center;
+    	flex-direction: row;
+    	justify-content: space-around;
+		width: 100%;
+		height: 30px;
+		margin-top: 0;
+		position: absolute;
+		font-family: $header-type;
+		font-size: 12px;
+		text-align: center;
+		background-color: $yellow;
+	}
+
+	#info {
+		display: flex;
+		z-index: 10;
+    	position: relative;
+    	background-color: white;
+		align-items: center;
+		width: 100%;
+	}
 
 	.col-sm-6,
 	.col-xs-6 {

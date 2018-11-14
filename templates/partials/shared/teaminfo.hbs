@@ -16,25 +16,21 @@
                 <div class="player-wrap">
                     <div class="info">
                         <h2>{{username}}</h2>
+                        {{!-- {{{jsonPrint this}}} --}}
                         {{#if role.needs}}
                             {{role.needs.[0]}}
                                 <br />—<br />
                             {{role.needs.[1]}}
                         {{/if}}
-                        {{#if role.agendaItems}}
-                            {{role.agendaItems.[0]}}
-                                <br />—<br />
-                            {{role.agendaItems.[1]}}
-                        {{/if}}
                     </div>
                     <div class="check">                        
-                        <p><span class="star">&#9733;</span> {{role.secretGoal}}</p>
+                        <div class="goal"><span class="star">&#9733;</span> {{role.secretGoal}}</div>
 
-                        <label class="switch">
+                        <label class="switch form">
                             {{#ifeq @index 0}}
                                 <detail class="tooltip-content">When a player meets their secret goal, you can check it off. They'll score extra points at the end of the game.</detail>
                             {{/ifeq}}
-                            <input type="checkbox">
+                            <input type="checkbox" class="btn submit" data-event="player:met_goal" data-package='{"uid":"{{uid}}"}'>
                             <span class="slider round">
                             </span>
                         </label>

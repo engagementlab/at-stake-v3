@@ -190,26 +190,34 @@
                 </div>
 
                 <footer id="bottom-bar" style="display: none">
-                    
-                    <button id="btn-role-card" class="player">
-                        <detail class="tooltip-content" data-phase="0" data-screen="1">You can access your character info here at any point during the game</detail>
-                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/icons/role">
-                    </button>
 
-                    <button id="btn-facilitator" class="decider">
-                        <detail class="tooltip-content" data-phase="0" data-screen="1">You can access your character info here at any point during the game</detail>
-                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1540839844/at-stake/icons/facilitator">
-                    </button>
-
-                    <div id="name-role">
-                        <span id="name"></span>
-                        <span id="role"></span>
+                    <div id="secret-goal">
+                        {{{cloudinaryUrl '/v1494604113/at-stake/icons/star.svg' height=auto}}}
+                        <span>You accomplished your secret goal!</span>
+                        {{{cloudinaryUrl '/v1494604113/at-stake/icons/star.svg' height=auto}}}
                     </div>
-                    <button id="btn-team-info"><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1541022175/at-stake/icons/teaminfo.svg"></button>
-                    <button id="btn-call-vote" class="disabled" disabled="disabled">
-                        <detail class="tooltip-content" data-phase="1" data-screen="1">You can now <b>call a vote</b> at any time if you feel your team has reached a solution</detail>
-                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1541097057/at-stake/icons/calltovote.svg">
-                    </button>
+
+                    <div id="info">
+                        <button id="btn-role-card" class="player">
+                            <detail class="tooltip-content" data-phase="0" data-screen="1">You can access your character info here at any point during the game</detail>
+                            <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1492806723/at-stake/icons/role">
+                        </button>
+
+                        <button id="btn-facilitator" class="decider">
+                            <detail class="tooltip-content" data-phase="0" data-screen="1">You can access your character info here at any point during the game</detail>
+                            <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1540839844/at-stake/icons/facilitator">
+                        </button>
+
+                        <div id="name-role">
+                            <span id="name"></span>
+                            <span id="role"></span>
+                        </div>
+                        <button id="btn-team-info"><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1541022175/at-stake/icons/teaminfo.svg"></button>
+                        <button id="btn-call-vote" class="disabled" disabled="disabled">
+                            <detail class="tooltip-content" data-phase="1" data-screen="1">You can now <b>call a vote</b> at any time if you feel your team has reached a solution</detail>
+                            <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1541097057/at-stake/icons/calltovote.svg">
+                        </button>
+                    </div>
                                         
                 </footer>
 

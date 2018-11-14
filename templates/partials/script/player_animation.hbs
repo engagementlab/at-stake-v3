@@ -290,6 +290,13 @@ var scoreboardOpen = function() {
 	.fromTo($('.rank.current'), 1, { autoAlpha:0, x:'10%', display:'none' }, { autoAlpha:1, x:'0%', display:'block' });
 }
 
+var showGoalNotification = function() {
+
+	TweenLite.to($('#secret-goal'), .5, {marginTop:'-7%', ease:Back.easeOut});
+	TweenLite.to($('#secret-goal'), .5, {marginTop:0, delay:3, ease:Back.easeIn});
+
+}
+
 /*
 	Modal animation handles
 */

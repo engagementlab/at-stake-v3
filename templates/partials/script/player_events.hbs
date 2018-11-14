@@ -159,7 +159,7 @@ var showEvent = function() {
     $('#events').show();
     thisEvt.show();
     showTooltips();
-    
+
     thisEvt.find('.buttons button').on('click', (function(evt) {   
         
         thisEvt.remove();
@@ -266,6 +266,7 @@ var setupRoleCard = function(markup) {
             $('#btn-close-role-card').on('click', function(evt) {
                 ion.sound.play("back");
                 $('#overlay').trigger('hide');
+                deleteTooltips();
             });
 
         });
@@ -602,29 +603,6 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
-        case 'game:next_item':
-
-            var modalToOpen = eventData.chosen ? 'yes' : 'no';
-            var modalToRemove = !eventData.chosen ? 'yes' : 'no';
-
-            if (!isDecider && eventData.chosen){
-                ion.sound.play("player_pink");
-                ion.sound.play("coins");
-            } else if(!isDecider && !eventData.chosen){
-                ion.sound.play("player_red");
-            }
-
-            $('.agenda_item.' + modalToRemove).first().remove();
-            openInnerModal('.' + modalToOpen);
- 
-            break;
-
-        case 'game:advance':
-
-            currentPhaseIndex = -1;
-
-            break;
-
         case 'game:skip_rules':
 
             $.when($('.screen.rules-screen').remove()).then(
@@ -734,6 +712,13 @@ socketEvents = function(eventId, eventData) {
 
                 openInnerModal();
             });
+
+            break;
+
+        case 'game:met_goal':
+
+            $('#secret-goal span').text(eventData + ' accomplished their secret goal!');
+            showGoalNotification();
 
             break;
 
