@@ -340,12 +340,21 @@ $(document).on('show', '.screen', function(evt) {
 
 function nextIntroScreen() {
 
-	TweenLite.to($($('#intro .panel')[introIndex]), .5, { xPercent:-100, display:'none', onComplete:function() {
+	TweenLite.to($($('#intro .panel .text')[introIndex]), .5, { yPercent:100, display:'none', ease:Back.easeIn });
+
+	TweenLite.fromTo($($('#intro .panel img')[introIndex]), .5, { opacity:1 }, { opacity:0, display:'none', onComplete:function() {
 		
+		var xP = _.range(-25, -20);
+		var yP = _.range(-25, -20);
+	
 		introIndex++;
-		TweenLite.fromTo($($('#intro .panel')[introIndex]), 1, { xPercent:100 }, { xPercent:0, display:'block', ease:Back.easeOut } )
+		$($('#intro .panel')[introIndex]).show();
+		TweenLite.fromTo($($('#intro .content img')[introIndex]), 1, { opacity:0 }, { opacity:1, display:'block' } );
+		TweenLite.fromTo($($('#intro .content img')[introIndex]), 10, { scale:1, xPercent:xP, yPercent:-25 } , { scale:.5, xPercent:0, yPercent:0 } );
+
+		TweenLite.from($($('#intro .panel .text')[introIndex]), 1, { yPercent:100, ease:Back.easeOut });
 		
-	}})
+	}});
 
 }
 
