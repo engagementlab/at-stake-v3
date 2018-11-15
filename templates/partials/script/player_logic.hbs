@@ -178,7 +178,7 @@ newGameHandler = function() {
 
             $('#decider #decks .btn_submit').click(function(evt) {
                 var data = {};
-                var deckName = $(".deck-modal:visible h2").text();
+                var deckName = $(".deck.ui-state-active h2 span").text();
 
                 data.deciderName = $('#player-name').val();
 
@@ -187,7 +187,7 @@ newGameHandler = function() {
                     return;
                 }
 
-                data.deckId = $(".deck-modal:visible").data('id');
+                data.deckId = $(".deck.ui-state-active").data('id');
                 data.accessCode = $('#share_code .access-code span').text();
 
               $.post(
@@ -256,9 +256,17 @@ newGameHandler = function() {
 
                         // Tell mobile action has completed
                         $('body').trigger('mobileCallback');
+                        $('#decks').accordion({
+                            collapsible: true,
+                            active: false,
+                            beforeActivate: function( event, ui ) {
+                                // Hide/show deck descriptions
+                                $.each($('h2.deck').not(ui.newPanel.context), function( key, value ) {
+                                    $(value).find('.description').fadeOut(150);
+                                });
 
-                        $('.deck').click(function(evt) {
-                            modalOpenClose($('.deck-modal.' + $(evt.currentTarget).data('id')), true);
+                                $(ui.newPanel.context).find('.description').fadeIn(500);
+                            }
                         });
 
                         selectBtnListener();

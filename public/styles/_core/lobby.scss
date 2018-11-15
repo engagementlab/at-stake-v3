@@ -1,4 +1,3 @@
-
 // ** GAME LOBBY ** //
 #lobby {
 
@@ -106,7 +105,7 @@
 				border-bottom: 7px solid transparent;
 			}
 		}
-		
+
 		.username {
 			margin-bottom: 20px;
 			font-weight: bold;
@@ -247,18 +246,21 @@
 				height: 48px;
 				text-align: center;
 			}
+
 			&::-moz-placeholder {
 				font-size: 14px;
 				height: 48px;
 				text-align: center;
 
 			}
+
 			&:-ms-input-placeholder {
 				font-size: 14px;
 				height: 48px;
 				text-align: center;
 
 			}
+
 			&:-moz-placeholder {
 				font-size: 14px;
 				height: 48px;
@@ -288,7 +290,8 @@
 		}
 	}
 
-	#btn_submit_name, #btn_new_game {
+	#btn_submit_name,
+	#btn_new_game {
 		@include button($cerulean-blue, $yellow);
 	}
 
@@ -296,7 +299,7 @@
 
 		&#join {
 			color: white;
-			
+
 			#btn_submit_code {
 				@include button($bluegreen, $yellow);
 			}
@@ -345,14 +348,14 @@
 		}
 
 		#access_code {
-			
+
 			width: 200px;
 			height: 60px;
 			background-color: white;
 			margin: 0 auto;
 			font-size: 36px;
 			border-radius: 0px;
-			
+
 			box-shadow: inset 0 -4px 0 0 $cerulean-blue;
 			border: solid 1.5px $cerulean-blue;
 			margin: 0px;
@@ -361,25 +364,25 @@
 
 			&::-webkit-input-placeholder {
 				/* Chrome/Opera/Safari */
-				font-size: 36px;				
+				font-size: 36px;
 				text-align: center;
 			}
 
 			&::-moz-placeholder {
 				/* Firefox 19+ */
-				font-size: 36px;				
+				font-size: 36px;
 				text-align: center;
 			}
 
 			&:-ms-input-placeholder {
 				/* IE 10+ */
-				font-size: 36px;				
+				font-size: 36px;
 				text-align: center;
 			}
 
 			&:-moz-placeholder {
 				/* Firefox 18- */
-				font-size: 36px;				
+				font-size: 36px;
 				text-align: center;
 			}
 		}
@@ -416,58 +419,101 @@
 
 		#decks {
 			width: 100%;
-			height: 270px;
 			visibility: hidden;
+			@include box-shadow(0, 0, 8px, rgba(0, 0, 0, 0.25));
 
-			button {
-				color: $color-turquoise;
-				margin: 5px 5px;
-				padding: 2px;
-				border-radius: 4px;
-				border: none;
-			}
+			.deck {
+					
+					&.ui-state-active {
+						.header img {
+							opacity: 0;
+						}
+					}
 
-			#scroll {
-				overflow-y: scroll;
-			
-				.deck {
-					font-size: small;
-					color: black;
-					margin: 1%;
-					display: inline-block;
-					width: 98%;
-					cursor: pointer;
-					box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
-	
-					.deck-header {
-						padding: 8px;
-						color: white;
+				.header {
+					padding: 8px;
+					text-align: left;
+
+					font-weight: 700;
+					font-size: 20px;
+					font-family: $header-type;
+
+					img {
+						float: right;
+						opacity: 1;
+
+						@include transition(opacity .5s);
+					}
+				}
+
+				margin: 0;
+				padding: 0px;
+				color: white;
+
+				.description {
+					font-size: 13px;
+					font-weight: 600;
+					margin-top: 2%;
+					margin-left: 5%;
+					margin-right: 5%;
+				}
+
+				&:nth-child(1) {
+					.header {
 						background-color: $strawberry;
-						text-align: left;
-						// box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
-						font-weight: 700;
-						font-size: 20px;
-						font-family: $header-type;
+					}
 
-						img {
-							float: right;
-						}
-	
-						h2 {
-							margin: 0px;
-						}
-	
-						.description {
-							font-size: 12px;
-						}
+					.description {
+						color: $strawberry;
+					}
+				}
+
+				&:nth-child(3) {
+					.header {
+						background-color: $bubble-gum-pink;
+					}
+
+					.description {
+						color: $bubble-gum-pink;
+					}
+				}
+
+				&:nth-child(5) {
+					.header {
+						background-color: $cerulean-blue;
+
+					}
+
+					.description {
+						color: $cerulean-blue;
 					}
 				}
 			}
 
-			.deck-modal {
-				background-color: white;
-				color: black;
+			.info {
+				h1 {
+					margin: 2%;
+				}
+
+				button {
+					color: $color-turquoise;
+					margin: 5px 5px;
+					margin-top: -7%;
+					padding: 2px;
+					border-radius: 4px;
+					border: none;
+				}
+
+				.grid {
+					margin-left: 2%;
+					margin-right: 2%;
+				}
+
+				.player {
+					padding: 5%;
+				}
 			}
+
 
 		}
 	}
@@ -513,13 +559,16 @@
 			span {
 				&:nth-child(1) {
 					color: $yellow;
-				}				
+				}
+
 				&:nth-child(2) {
 					color: $strawberry;
-				}				
+				}
+
 				&:nth-child(3) {
 					color: $bluegreen;
-				}				
+				}
+
 				&:nth-child(4) {
 					color: $bubble-gum-pink;
 				}
@@ -598,8 +647,9 @@
 		button {
 			position: absolute;
 			right: 9%;
-			bottom: 11%;		
+			bottom: 11%;
 		}
+
 		.text {
 			border: solid 2px black;
 			font-size: 13px;

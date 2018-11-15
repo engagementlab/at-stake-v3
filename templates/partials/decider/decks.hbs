@@ -1,46 +1,69 @@
-{{#each this}}
+{{!-- <ul> --}}
+  {{#each this}}
 
-  <section id="scroll">
+  {{!-- <section id="scroll"> --}}
 
-    <div class="deck" data-id="{{_id}}">
+    {{!-- <li> --}}
 
-      <div class="deck-header">
-        <h2><span>{{name}}</span> <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1540488090/at-stake/icons/magnify.svg" alt="Magnifying glass icon"/></h2>
+      {{!-- <input type="checkbox" checked>
+      <i></i> --}}
+
+      <h2 class="deck" data-id="{{_id}}">
+        <div class="header">
+          <span>{{name}}</span>
+          {{{cloudinaryUrl 'v1540488090/at-stake/icons/magnify' class='open' format='svg' alt='Magnifying glass icon'}}}
+        </div>
+
+        <div class="description">
+          {{description}}
+        </div>
+      </h2>
+
+      <div class="info">
+        <div class="question">
+          <h1>Scenario</h1>
+          {{questions.[0]}}
+        </div>
+
+        <div class="player-roles">
+          <h1>Sample Roles</h1>
+
+          <div class="grid">
+            {{#limit roles 4}}
+              <div class="player">{{title}}</div>
+            {{/limit}}
+          </div>
+          <button class="btn_submit button_text">
+            {{{cloudinaryUrl 'v1540488090/at-stake/icons/check-btn' format='svg' alt='Select this deck'}}}
+          </button>
+        </div>
+
       </div>
 
-      <div class="description subtitle">
-        {{description}}
-      </div>
-
-    </div>
-
-  </section>
-
-{{/each}}
-
-{{#each this}}
-
-  <div class="deck-modal {{_id}} modal" data-id="{{_id}}">
-      
-    <h2>{{name}}</h2>
-
-    <div class="description">
-      {{description}}
-    </div>
-
-    <div class="question">
-      {{questions.[0]}}
-    </div>
-
-    <div class="stakeholders">
-      {{#limit roles 4}}
-        <div class="deck-role col-xs-6"><p>{{title}}</p></div>
-      {{/limit}}
-    </div>
+    {{!-- </li> --}}
 
 
-    <button class="btn_submit button_text game_login"><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1540488090/at-stake/icons/check-btn.svg" alt="Select this deck"></button>
+    {{!-- <div> --}}
 
-  </div>
+
+      {{!--  --}}
+
+      {{!-- </div>
+
+  </section> --}}
 
   {{/each}}
+{{!-- </ul> --}}
+
+{{!-- {{#each this}}
+
+<div class="deck-modal {{_id}} modal" data-id="{{_id}}">
+
+  <h2>{{name}}</h2>
+
+  <div class="description">
+    {{description}}
+  </div>
+</div>
+
+{{/each}} --}}
