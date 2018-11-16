@@ -601,6 +601,9 @@ socketEvents = function(eventId, eventData) {
             // Analytics
             ga('send', 'event', 'Game', 'Event', 'Game Started');  
 
+            // Show bottom bar
+            $('#bottom-bar').fadeIn();
+
             break;
 
         case 'game:skip_rules':

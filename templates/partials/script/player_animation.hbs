@@ -341,11 +341,16 @@ $(document).on('show', '.screen', function(evt) {
 function openIntro() {
 
 	var xP = _.range(-50, 50);
-	var yP = _.range(-25, -20);
+	// var yP = _.range(-25, -20);
 
 	$('#intro').show();
+	if(isDecider)
+		$('#intro button').show();
+	else
+		$('#intro button').remove();
+
 	TweenLite.fromTo($($('#intro .content img')[introIndex]), 1, { opacity:0 }, { opacity:1, display:'block' } );
-	TweenLite.fromTo($($('#intro .content img')[introIndex]), 10, { scale:1, xPercent:xP, yPercent:yP } , { scale:.5, xPercent:0, yPercent:0 } );
+	// TweenLite.fromTo($($('#intro .content img')[introIndex]), 10, { scale:1, xPercent:xP, yPercent:yP } , { scale:.5, xPercent:0, yPercent:0 } );
 
 	TweenLite.fromTo($($('#intro .panel .text')[introIndex]), 1, { yPercent:100 }, { yPercent:0, ease:Back.easeOut });
 
@@ -363,7 +368,7 @@ function nextIntroScreen() {
 		introIndex++;
 		$($('#intro .panel')[introIndex]).show();
 		TweenLite.fromTo($($('#intro .content img')[introIndex]), 1, { opacity:0 }, { opacity:1, display:'block' } );
-		TweenLite.fromTo($($('#intro .content img')[introIndex]), 10, { scale:1, xPercent:xP, yPercent:yP } , { scale:.5, xPercent:0, yPercent:0 } );
+		// TweenLite.fromTo($($('#intro .content img')[introIndex]), 10, { scale:1, xPercent:xP, yPercent:yP } , { scale:.5, xPercent:0, yPercent:0 } );
 
 		TweenLite.from($($('#intro .panel .text')[introIndex]), 1, { yPercent:100, ease:Back.easeOut });
 		

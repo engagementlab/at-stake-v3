@@ -45,7 +45,7 @@ GameConfig.add(
 		* Scoring settings
 		*/
 			'Scoring settings', {
-		  minWinThreshold: { type: Number, label: "Minimum Score Threshold", note: 'The percent out of possible max score (needs * secret goal * num of players + ratings) final score must reach to win (0-100).', required: true, initial: true },
+		  minWinThreshold: { type: Number, label: "Minimum Score Threshold", note: 'The percent out of possible max score (needs * secret goal * num of players + ratings) final score must reach to win (0-100).', required: true, initial: true, default: 75 },
 		}, 
 
 
