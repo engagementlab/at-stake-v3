@@ -22,7 +22,8 @@
 	text-align: center;
 	padding: 0;
 	padding-bottom: 8px;
-	padding-top: 40px;
+	// padding-top: 40px;
+	overflow-y: scroll;
 
 	// During the gameplay
 	&.in-game {

@@ -42,13 +42,12 @@ GameConfig.add(
 		}, 
 
 	/*
-		* Animation settings
+		* Scoring settings
 		*/
-/* 			'Animation settings', {
-		  decideDuration: { type: Number, label: "Think Seconds", note: 'Duration of proposal and agenda decide modals', required: true, initial: true },
-		  winnerDuration: { type: Number, label: "Game Winner Modal Seconds", note: 'Duration of game winner modals', required: true, initial: true }
+			'Scoring settings', {
+		  minWinThreshold: { type: Number, label: "Minimum Score Threshold", note: 'The percent out of possible max score (needs * secret goal * num of players + ratings) final score must reach to win (0-100).', required: true, initial: true },
 		}, 
- */
+
 
 		/*
 		* Debrief settings
