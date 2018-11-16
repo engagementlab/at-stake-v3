@@ -585,7 +585,7 @@ socketEvents = function(eventId, eventData) {
 
 			$('#join-bg').css('opacity', 0);
             $('.waiting, #decider, #join').fadeOut(function() {
-                $('#intro').fadeIn();
+                openIntro();
             });
             inIntro = true;
 
