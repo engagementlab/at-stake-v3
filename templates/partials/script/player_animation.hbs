@@ -376,6 +376,34 @@ function nextIntroScreen() {
 
 }
 
+function openInterstitial() {
+
+	var anim = { perc:0 };
+	var el = $('#interstitial');
+	TweenMax.to(anim, 3, {perc:100, 
+		onUpdate: function () {
+			el.css('background', 'linear-gradient(135deg, #002ab7 ' + anim.perc + '%, #fff ' + anim.perc + '%)'); 
+		},
+		ease:Expo.easeInOut
+	});
+	TweenLite.fromTo($(el).find('img'), 1, { autoAlpha:0 }, { autoAlpha:1, display:'block', delay:2.5 });
+	TweenLite.fromTo($(el).find('h2'), 1, { yPercent:50, autoAlpha:0 }, { yPercent:0, autoAlpha:1, display:'block', delay:2.5, ease:Back.easeOut });
+	TweenLite.fromTo($(el).find('h1'), 1, { yPercent:50, autoAlpha:0 }, { yPercent:0, autoAlpha:1, display:'block', delay:4, ease:Back.easeOut });
+
+	TweenLite.fromTo($(el).children(), 1, { autoAlpha:1 }, { autoAlpha:0, display:'none', delay:7 });
+	TweenMax.to(anim, 3, {perc:0, 
+		onUpdate: function () {
+			el.css('background', 'linear-gradient(-45deg, #002ab7 ' + anim.perc + '%, rgba(0,0,0,0) ' + anim.perc + '%)'); 
+		},
+		onComplete: function() {
+			$(el).remove();
+		},
+		delay:7,
+		ease:Expo.easeInOut
+	});
+
+}
+
 function nextRankingScreen(button) {
 
 	TweenLite.to($('#ranking #pt1'), .5, { xPercent:-100, display:'none', onComplete:function() {

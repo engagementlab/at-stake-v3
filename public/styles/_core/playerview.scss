@@ -1323,6 +1323,31 @@ blockquote.speech {
 	}
 }
 
+// INTERSTITIAL
+#interstitial {
+	position: absolute;
+	z-index: 100;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	background-image: linear-gradient(120deg, $true-blue 0%, rgba(255,255,255,0) 1%);
+	color: white;
+
+	img {
+		max-width: 90vw;
+		display: none;
+	}
+	h1 {
+		display: none;		
+		font-size: 36px;
+	}
+	h2 {
+		display: none;
+		font-size: 18px;
+	}
+}
+
 // VOTING
 #vote {
 	position: absolute;

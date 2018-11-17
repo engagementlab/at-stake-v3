@@ -219,6 +219,8 @@ var setupScreen = function(screenName, index, timerDuration) {
             nextRankingScreen($(evt.currentTarget));
         });
     }
+
+    openInterstitial();
 }
 
 var playerDisconnected = function(timeoutTime, names) {
@@ -768,9 +770,6 @@ socketEvents = function(eventId, eventData) {
             break;
             
          case 'game:countdown':
-
-
-         
 
             ion.sound.stop("click3");
             // $('#btn-time').fadeOut();
