@@ -98,7 +98,7 @@ const PlayerLogin = function(nsp, socket, emitter) {
       }
 
       // See if this player is still marked as active inside game session
-      // if(session.PlayerIsActive(payload.uid)) {
+      if(session.PlayerIsActive(payload.uid)) {
 
         var player = {socket_id: currentSocket.id, username: payload.username, uid: payload.uid};
         
@@ -108,10 +108,10 @@ const PlayerLogin = function(nsp, socket, emitter) {
                             currentSocket,
                             payload.decider);
 
-      /*}
+      }
       else {
         logger.info('login:active', 'Player "' + payload.uid + '" not active.');
-      }*/
+      }
       
     },
 

@@ -55,10 +55,8 @@
     <div class="form create col-sm-12 col-lg-12 col-centered" id="deck-choice">
 
       <h3 class="white">Select a Deck</h3>
-      <div class="form-prompt">Swipe left or right or use the arrow keys to select a Stakeholder deck. When ready, press next.</div>
       
-      <section id="decks" class="glide">
-
+      <section id="decks">
       </section>
       
       <div class="error">Error!</div>
@@ -142,9 +140,10 @@
   <div class="lobby form" id="rejoin" style="display:none">
 
     <div class="login input">
-      <p class="light instructions">You were playing the active session w/ code "<span id="code">CODE</span>". Resume?</p>
+      <div class="form-prompt">You were playing the active session w/ code "<span id="code">CODE</span>". Resume?</div>
+      <p class="light instructions"></p>
       <input type="text" id="access_code_hidden" maxlength="4" style="display: none">
-      <input id="btn_submit_rejoin" class="btn-default game_login" type="submit" name="submit" value="Yes">
+      <input id="btn_submit_rejoin" class="btn btn-default game_login" type="submit" name="submit" value="Yes">
     </div>
   </div>
 

@@ -1,8 +1,13 @@
 {{!-- DELIBERATE PHASE UI --}}
 <div id="deliberate">
-
-	{{!-- WAIT --}}
+	
+	{{!-- INTRO/WAIT --}}
 	<div class="screen form">
+
+		{{> component/interstitial 
+			title="Deliberation"
+			phase=2
+		}}
 
 		{{> component/instructions 
 				decider=true
@@ -21,9 +26,10 @@
 				scenario=true
 		}}
 		
-		<button id="btn-ready" class="btn submit player" type="submit" name="submit" data-event="game:ready" data-package="timer">
-			Ready
-		</button>
+
+			<button id="btn-ready" class="btn submit player" type="submit" name="submit" data-event="game:ready" data-package="timer">
+				Ready
+			</button>
 
 		{{> component/speech
 				decider=true
@@ -31,10 +37,19 @@
 				secondary=question
 				scenario=true
 		}}
-		{{> component/timer 
-				decider=true
-				disabled=true
-		}}
+
+		{{!-- Show timer if already running --}}
+		{{#ifeq timerRunning false}}
+			{{> component/timer 
+					decider=true
+					disabled=false
+			}}
+		{{else}}
+			{{> component/timer 
+					decider=true
+					disabled=true
+			}}
+		{{/ifeq}}
 
 		<div id="events" class="decider form">
 			{{#each events}}
@@ -61,11 +76,10 @@
 			{{/each}}
 		</div>
 
-
 	</div>
 
 	{{!-- DELIBERATE --}}
-	<div class="screen">
+	<div class="screen restart">
 
 		{{> component/instructions 
 				decider=true

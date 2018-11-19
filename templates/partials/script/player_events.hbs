@@ -207,7 +207,6 @@ var setupScreen = function(screenName, index, timerDuration) {
     // Animate initial
     screenOpen($('.screen:not(.skip):eq(' + currentScreenIndex + ')'));
 
-    phaseBarProgress();
     runMods();
 
     if(!inIntro)
@@ -496,6 +495,9 @@ socketEvents = function(eventId, eventData) {
 
         case 'player:assignrole':
 
+            // Save game code for resuming
+            sessionStorage.setItem('gameCode', gameCode);
+            
             setupRoleCard(eventData);
 
             break;
@@ -594,8 +596,6 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:start':
-
-            sessionStorage.setItem('gameCode', gameCode);
 
             $('#agenda-items .role:visible').remove();
             $('#agenda-items .role').first().show();

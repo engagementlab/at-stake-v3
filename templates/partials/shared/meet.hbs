@@ -2,16 +2,20 @@
 <div id="meet">
 
 	{{!-- ROLE --}}
-	<div class="screen initial">
 
-		{{> component/interstitial 
-			title="Introduction"
-			phase=1
-		}}
-		
-		{{> shared/rolecard player.role}}
+	{{!-- Skip if timer running --}}
+	{{#ifeq timerRunning false}}
+		<div class="screen initial">
 
-	</div>
+			{{> component/interstitial 
+				title="Introduction"
+				phase=1
+			}}
+			
+			{{> shared/rolecard intro=true role=player.role}}
+
+		</div>
+	{{/ifeq}}
 
 	{{!-- PROBLEM --}}
 	<div class="screen form">
