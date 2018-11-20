@@ -34,80 +34,9 @@ var resetSession = function() {
 
 }
 
-var startTimer = function(secondsLeft, timerAdvance) {
+var startStopwatch = function(timerDuration, timerCurrent) {
     
-    var wasPaused = false;
-    if($('.screen:visible .timer_wrap.running').length === 0)
-        return;
-
-    if(secondsLeft > 0)
-       timerActive = true;
-            
-    clockInterval = setInterval(function() {
-
-        function clockTick() {
-            secondsLeft--;
-        }
-
-        // Resume timer UI if timer paused due to player disconnect or 
-        if((!countdownPaused && wasPaused))
-            countdownAnim.animate(1, {duration: secondsLeft*1000});
-
-        wasPaused = countdownPaused;
-
-        // If timer paused, stop UI animation and bail
-        if(countdownPaused) { 
-            countdownAnim.stop(); 
-            return;
-        }
-
-        clockTick();
-
-        if(secondsLeft === 0) {
-            clearInterval(clockInterval);
-            timerActive = false;
-        }
-
-    }, 1000);
-
-    // Hide preview timer/btn
-    $('.screen:visible .timer_wrap.preview').fadeOut(500, function() {
-        $('.screen:visible .timer_wrap.running').fadeIn();
-    });
-    
-    countdownAnim = new ProgressBar.Circle(
-      '.screen .timer_wrap.running .timer', 
-      {
-          color: '#56d5ff',
-          duration: secondsLeft*1000,
-          easing: 'easeInOut',
-          strokeWidth: 8,
-          trailColor: '#fff',
-          trailWidth: 8,
-          fill: '#ff3d6b',
-          // Set default step function for all animate calls
-          step: function(state, circle) {
-            circle.setText(secondsLeft);
-          }
-      }
-    );
-
-    // If timer is being force-advanced, set progress
-    if(timerAdvance && sessionStorage.getItem('lastDuration')) {
-        var original = parseInt(sessionStorage.getItem('lastDuration'));
-        var progressRatio = (secondsLeft / original);
-    
-        countdownAnim.set(progressRatio);
-        countdownAnim.animate(1, {duration: original*1000});
-    }
-    else
-        countdownAnim.animate(1);
-
-}
-
-var startStopwatch = function(timerDuration) {
-    
-    var currentTime = 0,
+    var currentTime = timerCurrent ? timerCurrent*1000 : 0,
         maxDuration = timerDuration*1000,
         timer = $('.timer_wrap button'),
         text = $('.timer_wrap h1');
@@ -151,6 +80,26 @@ var startEventQueue = function() {
 
 }
 
+var screenReady = function() {
+
+    if(currentPhaseIndex === 0) {
+        $('.timer_wrap button').removeClass('disabled');
+        $('.timer_wrap button').removeAttr('disabled');
+        $('.not-ready').fadeOut();
+    }
+
+    else if(currentPhaseIndex === 1) {
+        $('.timer_wrap button').removeClass('disabled');
+        $('.timer_wrap button').removeAttr('disabled');
+
+        // Begin random events
+        if(isDecider)
+            startEventQueue();
+
+    }
+
+}
+
 var showEvent = function() {
 
     // Pick first event in list
@@ -187,7 +136,8 @@ var setupScreen = function(screenName, index, timerDuration) {
     });
 
     // Reset screen index
-    currentScreenIndex = (index === undefined) ? 0 : index;
+    // if(!isDecider)
+        currentScreenIndex = (index === undefined) ? 0 : index;
 
     $(isDecider ? '.player' : '.decider').remove();
 
@@ -223,38 +173,15 @@ var setupScreen = function(screenName, index, timerDuration) {
 }
 
 var playerDisconnected = function(timeoutTime, names) {
-
-    // openInnerModal();
-
+    
     if(!names || names.length === 0)
         return;
     
     var modal = $('#error-player-disconnected');
-
     modal.find('#player').text(names.join(', '));
-    // modal.find('h2 #time').text(timeLeft + 's');
-
-    // if(names.length > 1) {
-    //     plural.show();
-    //     singular.hide();
-    // }
-    // else {
-    //     plural.hide();
-    //     singular.show();
-    // }
-
+    
     if(!modal.is(':visible'))
         modal.trigger('show');
-
-    // timeoutClock = setInterval(function() {
-
-    //     timeLeft--;
-    //     modal.find('h2 #time').text(timeLeft + 's');
-
-    //     if(timeLeft === 0)
-    //         clearInterval(timeoutClock);
-
-    // }, 1000);
 
 }
 
@@ -393,8 +320,8 @@ socketEvents = function(eventId, eventData) {
 
             isDecider = eventData.is_decider;
 
-            var markup = sessionStorage.getItem('markup');
-            var roleCard = sessionStorage.getItem('role');
+            // var markup = sessionStorage.getItem('markup');
+            // var roleCard = sessionStorage.getItem('role');
 
             if (sessionStorage.getItem('screenName') !== 'debrief')
                 $('#bottom-bar').show();
@@ -402,9 +329,9 @@ socketEvents = function(eventId, eventData) {
             if (isDecider)
                 $('#btn-role-card').css('visibility', 'hidden');
 
-            setupRoleCard(roleCard);
+            setupRoleCard(eventData.role);
             
-            $('#gameContent').html(markup).promise().done(function() {
+/*             $('#gameContent').html(markup).promise().done(function() {
                 
                 setupScreen();
 
@@ -434,7 +361,7 @@ socketEvents = function(eventId, eventData) {
             // Refresh coins UI
             $('#pot-coins span').text(eventData.pot);
             $('#player-coins span').text(eventData.coins);
-
+ */
             break;
 
         case 'player:lost':
@@ -497,7 +424,7 @@ socketEvents = function(eventId, eventData) {
 
             // Save game code for resuming
             sessionStorage.setItem('gameCode', gameCode);
-            
+
             setupRoleCard(eventData);
 
             break;
@@ -566,22 +493,8 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:ready':
-
-            if(currentPhaseIndex === 0 && eventData ==='timer') {
-                $('.timer_wrap button').removeClass('disabled');
-                $('.timer_wrap button').removeAttr('disabled');
-                $('.not-ready').fadeOut();
-            }
-
-            else if(currentPhaseIndex === 1) {
-                $('.timer_wrap button').removeClass('disabled');
-                $('.timer_wrap button').removeAttr('disabled');
-
-                // Begin random events
-                if(isDecider)
-                    startEventQueue();
-
-            }
+        
+            screenReady();
 
             break;
 
@@ -678,7 +591,7 @@ socketEvents = function(eventId, eventData) {
                 updateGameContent(eventData.html, function() {
 
                     nextPhase();
-                    setupScreen(eventData.name, undefined, eventData.timerDuration);
+                    setupScreen(eventData.name, undefined, eventData.timerLength);
 
                 });
             }
@@ -708,12 +621,24 @@ socketEvents = function(eventId, eventData) {
 
                 setupScreen(undefined, eventData.screen);
 
-                // Move immediately to restart point in current phase, by removing screens before it and showing it
-                $($('.screen')[currentScreenIndex]).prevAll().remove();
+                // If timer running, update to current duration
+                if(eventData.timerRunning)
+                    startStopwatch(eventData.timerLength, eventData.timerDuration);
 
-                // Hide any previously hidden elements
-                // $('.screen.restart .hidden-el').css({visibility:'hidden'});
-                // $('.screen.restart').show();
+                // Players already marked as ready
+                if(eventData.ready)
+                    screenReady();
+
+                if(!isDecider) {
+
+                    // Move immediately to restart point in current phase, by removing screens before it and showing it
+                    $($('.screen')[currentScreenIndex]).prevAll().remove();
+
+                    // Hide any previously hidden elements
+                    // $('.screen.restart .hidden-el').css({visibility:'hidden'});
+                    $('.screen.restart').show();
+
+                }
 
                 openInnerModal();
             });
@@ -772,20 +697,7 @@ socketEvents = function(eventId, eventData) {
          case 'game:countdown':
 
             ion.sound.stop("click3");
-            // $('#btn-time').fadeOut();
-
             ion.sound.play("alarm_single");
-            // countdownPaused = false;
-
-            // if(clockInterval)
-            //     clearInterval(clockInterval);
-
-            // if(countdownAnim)
-            //     $('.screen .timer').empty();
-                   
-            // var secondsLeft = eventData.duration; 
-            // startTimer(secondsLeft);
-            // sessionStorage.setItem('lastDuration', secondsLeft);
 
             // Enable call for vote
             if(eventData.name === "deliberateCountdown") {
@@ -893,8 +805,8 @@ socketEvents = function(eventId, eventData) {
             if(isDecider)
                 ga('send', 'event', 'Game', 'Event', 'Became Decider');  
 
-            // if (sessionStorage.getItem('screenName') !== 'debrief')
-            //     $('#bottom-bar').show();
+            // Save game code for resuming
+            sessionStorage.setItem('gameCode', gameCode);
 
             break;
 
