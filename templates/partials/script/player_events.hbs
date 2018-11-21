@@ -136,8 +136,7 @@ var setupScreen = function(screenName, index, timerDuration) {
     });
 
     // Reset screen index
-    // if(!isDecider)
-        currentScreenIndex = (index === undefined) ? 0 : index;
+    currentScreenIndex = (index === undefined) ? 0 : index;
 
     $(isDecider ? '.player' : '.decider').remove();
 
@@ -330,38 +329,7 @@ socketEvents = function(eventId, eventData) {
                 $('#btn-role-card').css('visibility', 'hidden');
 
             setupRoleCard(eventData.role);
-            
-/*             $('#gameContent').html(markup).promise().done(function() {
-                
-                setupScreen();
 
-                var secondsLeft = eventData.resume_duration; 
-                if(secondsLeft && secondsLeft > 0)
-                    startTimer(secondsLeft, true);
-                else {
-                    // Check if timer element is left-over; if so, timer is now at 0 and should show next btn
-                    startTimer(0);
-                    if(isDecider)
-                        $('#btn-next').show();
-                }
-
-                $('#name, .login.input').fadeOut(function() {
-
-                    $('#begin').addClass('wait');
-                    $('#join, .login.waiting').fadeIn();
-
-                });
-
-                $('#error-disconnected').trigger('hide');
-
-                playerDisconnected(eventData.timeout_remaining, eventData.disconnected_players);
-
-            });
-
-            // Refresh coins UI
-            $('#pot-coins span').text(eventData.pot);
-            $('#player-coins span').text(eventData.coins);
- */
             break;
 
         case 'player:lost':
@@ -718,47 +686,10 @@ socketEvents = function(eventId, eventData) {
             ion.sound.play("alarm");
             $('.player-roles, .speech').hide();
             $('#time-up').fadeIn();
+            
             timerActive = false;
-
-/* 
-            if(eventData === 'pitchCountdown' && isDecider) {
-                socket.emit('game:next_player', emitData());
-                return;
-            }
-            // Move right to next player if in double-down
-            if(eventData === 'doubledownCountdown') {
-
-                if(isDecider) {
-                    socket.emit('game:next_player', emitData());
-                    return;
-                }
-            }
-             
-            runMods();
-            openInnerModal();
-    
-             $('#btn-more-time, #btn-cancel').click(function() {
-
-                $('#overlay').trigger('hide');
-                
-            });
-            $('#btn-more-time').click(function() {
-                ion.sound.stop("click3");
-                ion.sound.play("player_yellow");
-            });
-
-            $('#btn-cancel').click(function() {
-                ion.sound.stop("click3");
-                ion.sound.play("player_red");
-            });
-            if(eventData == "deliberateCountdown") 
-                nextPhaseScreen();
-            else if (eventData == "brainstormCountdown" && isDecider){
-                socket.emit('game:next', emitData(true));
-            } 
- */
-
-            break;
+           
+             break;
 
         case 'game:countdown_player':
             
