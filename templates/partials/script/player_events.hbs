@@ -267,16 +267,13 @@ socketEvents = function(eventId, eventData) {
                 return;
 
             // Remove saved sesh
-            {{!-- resetSession(); --}}
+            resetSession();
 
             // if ($('.modal'))
             //     $('.modal').fadeOut();
 
             // Show main menu w/ error
-            // openInnerModal('menu', false, false, 'disconnected');
-
-            // remove the css added on connect
-            $('#wrapper').css('overflow-y', 'scroll').css('position', 'relative');
+            openInnerModal('menu', false, false, 'disconnected');
 
             break;
 
@@ -603,7 +600,6 @@ socketEvents = function(eventId, eventData) {
                     $($('.screen')[currentScreenIndex]).prevAll().remove();
 
                     // Hide any previously hidden elements
-                    // $('.screen.restart .hidden-el').css({visibility:'hidden'});
                     $('.screen.restart').show();
 
                 }
@@ -619,6 +615,13 @@ socketEvents = function(eventId, eventData) {
             showGoalNotification();
 
             break;
+
+            case 'game:met_need':
+    
+                // $('#secret-goal span').text(eventData + ' accomplished their secret goal!');
+                // showGoalNotification();
+                showNeedNotification(eventData)
+                break;
 
         case 'game:ending':
 

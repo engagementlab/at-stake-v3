@@ -129,24 +129,6 @@ var Common = function (nsp, socket) {
 
         },
 
-        'game:more_time': function(pkg) {
-
-            let session = Session.Get(pkg.gameId);
-
-            if(!session) return;
-            session.AddTime(currentSpace, pkg.msgData);
-
-        },
-
-        'game:turn_done': function(pkg) {
-
-            let session = Session.Get(pkg.gameId);
-
-            if(!session) return;
-            session.PlayerTurnDone(currentSpace);
-
-        },
-
         'game:exit': function(pkg) {
 
             let session = Session.Get(pkg.gameId);
@@ -180,6 +162,15 @@ var Common = function (nsp, socket) {
 
             if(!session) return;
             session.PlayerMetGoal(pkg.msgData.uid);
+
+        },
+
+        'player:met_need': function(pkg) {
+
+            let session = Session.Get(pkg.gameId);
+
+            if(!session) return;
+            session.PlayerMetNeed(pkg.msgData.uid, pkg.msgData.index);
 
         },
 

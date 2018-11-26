@@ -297,6 +297,16 @@ var showGoalNotification = function() {
 
 }
 
+var showNeedNotification = function(text) {
+
+	var content = $('<div><em>'+text+'</em> was met!</div>');
+	$('#ranking #results').append(content);
+
+	TweenLite.fromTo(content, .7, { autoAlpha:0, y:'10%', display:'none' }, { autoAlpha:1, display:'block', ease:Back.easeOut });
+	TweenLite.to(content, .7, { autoAlpha:0, y:'10%', display:'none', delay:2, ease:Back.easeIn });
+
+}
+
 /*
 	Modal animation handles
 */

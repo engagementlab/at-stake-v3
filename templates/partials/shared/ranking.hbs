@@ -14,6 +14,10 @@
             Wait as the facilitator reviews.
 
         </div>
+
+        <div id="results">
+            
+        </div>
     
 	</div>
 
@@ -26,7 +30,7 @@
 				body="Rate how well the team's proposal meets the criteria below."
 		}}
 
-        <div id="pt1">
+        <div id="pt1" class="form">
             <h2>Did the team meet their needs?</h2>
 
             {{#each players}}
@@ -36,7 +40,7 @@
                     <div class="needs">
                         <div class="need">    
                             <label class="switch">
-                                <input type="checkbox">
+                                <input type="checkbox" class="btn submit" data-event="player:met_need" data-package='{"uid":"{{uid}}", "index":"0"}'>
                                 <span class="slider round"></span>
                             </label>
                             {{#if needs}}
@@ -47,7 +51,7 @@
                         </div>
                         <div class="need">    
                             <label class="switch">
-                                <input type="checkbox">
+                                <input type="checkbox" class="btn submit" data-event="player:met_need" data-package='{"uid":"{{uid}}", "index":"1"}'>
                                 <span class="slider round"></span>
                             </label>
                             {{#if needs}}
