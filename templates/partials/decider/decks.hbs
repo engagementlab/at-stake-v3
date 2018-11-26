@@ -1,35 +1,35 @@
 {{#each this}}
 
-<h2 class="deck" data-id="{{_id}}">
-  <div class="header">
-    <span>{{name}}</span>
-    {{{cloudinaryUrl 'v1540488090/at-stake/icons/magnify' class='open' format='svg' alt='Magnifying glass icon'}}}
-  </div>
-
-  <div class="description">
-    {{description}}
-  </div>
-</h2>
-
-<div class="info">
-  <div class="question">
-    <h1>Scenario</h1>
-    {{questions.[0]}}
-  </div>
-
-  <div class="player-roles">
-    <h1>Sample Roles</h1>
-
-    <div class="grid">
-      {{#limit roles 4}}
-      <div class="player">{{title}}</div>
-      {{/limit}}
+  <h2 class="deck" data-id="{{_id}}">
+    <div class="header">
+      <span>{{name}}</span>
+      {{{cloudinaryUrl 'v1540488090/at-stake/icons/magnify' class='open' format='svg' alt='Magnifying glass icon'}}}
     </div>
-    <button class="btn_submit button_text">
-      {{{cloudinaryUrl 'v1540488090/at-stake/icons/check-btn' format='svg' alt='Select this deck'}}}
-    </button>
-  </div>
 
-</div>
+    <div class="description">
+      {{description}}
+    </div>
+  </h2>
+
+  <div class="info">
+    <div class="question">
+      <h1>Scenario</h1>
+      {{questions.[0]}}
+    </div>
+
+    <div class="player-roles">
+      <h1>Sample Roles</h1>
+
+      <div class="grid">
+        {{#limit roles 4}}
+          <div class="player">{{title}}</div>
+        {{/limit}}
+      </div>
+      <button class="btn_submit button_text">
+        {{{cloudinaryUrl 'v1540488090/at-stake/icons/check-btn' format='svg' alt='Select this deck'}}}
+      </button>
+    </div>
+
+  </div>
 
 {{/each}}

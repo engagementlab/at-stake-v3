@@ -28,14 +28,14 @@ function initTimeline() {
 	loginAnim = new TimelineMax({paused:true});
 	
 		var backBtnFrom = { autoAlpha:0, xPercent:20, display:'none' },
-				backBtnTo = { autoAlpha:1, xPercent:0, display:'block', ease:Expo.easeOut };
+			backBtnTo = { autoAlpha:1, xPercent:0, display:'block', ease:Expo.easeOut };
 
 		var joinAnim = new TimelineLite(),
-				lobbyAnim = new TimelineLite();
+			lobbyAnim = new TimelineLite();
 
 		newGameAnim.to($('#join, #share-code'), .01, { autoAlpha:0, display:'none' })
 							.fromTo($('#choices'), .5, { autoAlpha:1, display:'block' }, { autoAlpha:0, display:'none' })
-							.to($('#login-header'), .5, { autoAlpha:0, height:0, display:'none' })
+							.to($('#login-header'), 1, {autoAlpha:0, height:0, display:'none', ease:Expo.easeIn})
 							.fromTo($('#decider'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block' })
 							.call(function() {
 								if(timelineCallback)
@@ -52,10 +52,11 @@ function initTimeline() {
 							.fromTo($('#join'), .5, { autoAlpha:0, display:'none' }, { autoAlpha:1, display:'block', onComplete:function() {
 								$('#join-bg').css('opacity', 1);
 							}})
+							.to($('#login-header'), 1, {autoAlpha:0, height:0, display:'none', ease:Expo.easeIn})
 							.fromTo($('#join .back-button'), .5, backBtnFrom, backBtnTo)
 
-		loginAnim.from($('#player-name'), .5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .2)
-	           .from($('#btn_submit_name'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut}).append('name')
+		loginAnim.from($('#player-name'), .5, {yPercent:-20, autoAlpha:0, delay:.4, ease:Expo.easeOut}, .2)
+	           .from($('#btn_submit_name'), .5, {yPercent:20, autoAlpha:0, delay:.3, ease:Expo.easeOut}).append('name')
 
 						 .to($('#name'), .5, { autoAlpha:0, display:'none' })
 
@@ -95,6 +96,8 @@ function loginFromTo(from, to, timeScale, callback) {
 		tutorialAnim.play();
 		return;
 	}
+	else if((from === 'choices' && to === 'name') || (from === 'join' && to === 'choices'))
+		$('#join-bg').css('opacity', 0);
 
 	// Failsafe
 	if(!loginAnim)

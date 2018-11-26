@@ -388,7 +388,7 @@ socketEvents = function(eventId, eventData) {
         case 'player:assignrole':
 
             // Save game code for resuming
-            sessionStorage.setItem('gameCode', gameCode);
+            // sessionStorage.setItem('gameCode', gameCode);
 
             setupRoleCard(eventData);
 
@@ -414,8 +414,8 @@ socketEvents = function(eventId, eventData) {
                     $('#btn-try-again').click(function() {            
                         socket.emit('player:vote_end', emitData());
                     });
-                    $('#voter').show();
                 }
+                $('#voter').show();
             }
 
             break;
@@ -568,6 +568,9 @@ socketEvents = function(eventId, eventData) {
 
                 });
             }          
+
+            // Save game code for resuming
+            sessionStorage.setItem('gameCode', gameCode);
             
             break;
 
@@ -738,9 +741,6 @@ socketEvents = function(eventId, eventData) {
             // Analytics
             if(isDecider)
                 ga('send', 'event', 'Game', 'Event', 'Became Decider');  
-
-            // Save game code for resuming
-            sessionStorage.setItem('gameCode', gameCode);
 
             break;
 
