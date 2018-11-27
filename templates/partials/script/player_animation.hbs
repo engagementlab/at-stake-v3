@@ -16,7 +16,8 @@ var screensAnim,
 		animationDone = $.Deferred(),
 		introIndex = 0,
 		newGameAnim = new TimelineLite({paused:true}),
-		tutorialAnim = new TimelineLite({paused:true});		
+		tutorialAnim = new TimelineLite({paused:true}),
+		notificationAnim = new TimelineLite({paused:true});		
 
 $('.lobby .btn, .back-button, #btn-start-game').click(function(evt) {
 	if($(evt.currentTarget).data('from'))
@@ -293,10 +294,16 @@ var scoreboardOpen = function() {
 	.fromTo($('.rank.current'), 1, { autoAlpha:0, x:'10%', display:'none' }, { autoAlpha:1, x:'0%', display:'block' });
 }
 
-var showGoalNotification = function() {
+var showGoalNotification = function(user) {
 
-	TweenLite.to($('#secret-goal'), .5, {marginTop:'-7%', ease:Back.easeOut});
-	TweenLite.to($('#secret-goal'), .5, {marginTop:0, delay:3, ease:Back.easeIn});
+	// notifications.push(user);
+	notificationAnim.to($('#secret-goal'), .5, {marginTop:'-7%', ease:Back.easeOut, onStart:function() {
+		$('#secret-goal span').text(user + ' accomplished their secret goal!');
+	}});
+	notificationAnim.to($('#secret-goal'), .5, {marginTop:0, delay:3, ease:Back.easeIn});
+
+	if(!notificationAnim.isActive())
+		notificationAnim.play();
 
 }
 
@@ -419,23 +426,30 @@ function openInterstitial() {
 
 function nextRankingScreen(button) {
 
-	TweenLite.to($('#ranking #pt1'), .5, { xPercent:-100, display:'none', onComplete:function() {
+	var from = $('#ranking .form:visible'),
+	to = $('#ranking .form:visible').next();
+
+	TweenLite.to(from, .5, { xPercent:-100, display:'none', onComplete:function() {
 		
-		TweenLite.fromTo($('#ranking #pt2'), 1, { xPercent:100 }, { xPercent:0, display:'block', ease:Back.easeOut } )
+		TweenLite.fromTo(to, 1, { xPercent:100 }, { xPercent:0, display:'block', ease:Back.easeOut } );
+
+		if(to.attr('id') === 'pt3') {
 
             button.text('Submit');
 			button.off();
 			button.click(function(evt) {
 				var needsMet = 0;
 				
-				$.each($('#pt1 input'), function( key, value ) {
+				$.each($('#pt2 input'), function( key, value ) {
 					if($(value).val() === 'on')
 						needsMet++;
 				});
 
-				var ratingVals = $('#pt2 input').map(function(){return $(this).val();}).get();
+				var ratingVals = $('#pt3 input').map(function(){return $(this).val();}).get();
 				socket.emit('game:ranking', emitData({needs: needsMet, rating: ratingVals}));
-            });
+			});
+		
+		}
 		
 	}});
 }

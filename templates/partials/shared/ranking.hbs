@@ -31,6 +31,34 @@
 		}}
 
         <div id="pt1" class="form">
+            <h2>Did the team meet any secret goals?</h2>
+
+            {{#each players}}
+
+                <div class="check toggle">              
+                    <p>{{username}}</p>
+                    <div class="goal">{{secretGoal}}</div>
+
+                    <label class="switch form">
+                        {{#ifeq @index 0}}
+                            <detail class="tooltip-content">When a player meets their secret goal, you can check it off. They'll score extra points at the end of the game.</detail>
+                        {{/ifeq}}
+                        <input type="checkbox" class="btn submit" 
+                            {{#unless goatMet}}
+                            data-event="player:met_goal" data-package='{"uid":"{{uid}}"}'
+                            {{else}}
+                            checked="checked" disabled="disabled"
+                            {{/unless}}
+                        >
+                        <span class="slider round">
+                        </span>
+                    </label>
+                </div>
+
+            {{/each}}
+        </div>
+
+        <div id="pt2" class="form" style="display:none">
             <h2>Did the team meet their needs?</h2>
 
             {{#each players}}
@@ -68,7 +96,7 @@
             {{/each}}
         </div>
 
-        <div id="pt2" style="display:none">
+        <div id="pt3" class="form" style="display:none">
 
             <h2>Equity</h2>
             <input type="range" id="equity" min="1" value="1" max="5" step="1">

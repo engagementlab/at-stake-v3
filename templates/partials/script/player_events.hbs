@@ -614,17 +614,15 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:met_goal':
 
-            $('#secret-goal span').text(eventData + ' accomplished their secret goal!');
-            showGoalNotification();
+            showGoalNotification(eventData);
 
             break;
 
-            case 'game:met_need':
-    
-                // $('#secret-goal span').text(eventData + ' accomplished their secret goal!');
-                // showGoalNotification();
-                showNeedNotification(eventData)
-                break;
+        case 'game:met_need':
+
+            showNeedNotification(eventData)
+
+            break;
 
         case 'game:ending':
 
