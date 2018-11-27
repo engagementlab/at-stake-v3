@@ -22,12 +22,17 @@
 	text-align: center;
 	padding: 0;
 	padding-bottom: 8px;
-	// padding-top: 40px;
 	overflow-y: scroll;
+
+	// Immediate child 
+	&> div {
+		height: 100%;
+		overflow: hidden;
+	}
 
 	// During the gameplay
 	&.in-game {
-		height: calc(100% - 50px);
+		height: calc(100% - 90px);
 
 		// Show buttons
 		footer#bottom-bar {
@@ -301,6 +306,10 @@ input.post-button {
 	display: none;
 	float: none;
 	margin: 0 auto;
+	height: 100%;
+	&.bg {
+		background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_320/v1543356372/at-stake/bg/bg-screen.png");
+	}
 }
 
 // Add background to any "read out loud" decider instructions
@@ -314,7 +323,6 @@ input.post-button {
 .timer_wrap {
 	border: solid 1px #fafafa;
 	margin: 0 auto;
-	background: linear-gradient(90deg, $color-teal 0%, #fff 0%);
 	&.think,
 	&.deliberate {
 		height: 216px;
@@ -969,11 +977,12 @@ input.post-button {
 // Screen instructions
 .instruction {
 	font-size: 16px;
-// 	height: 72px;
-	margin: 0 auto;
-	width: 304px;
 	margin-bottom: 16px;
 	font-family: AvenirNext;
+	background-color: white;
+	padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
 
 	div {
 		@include semibold-type;

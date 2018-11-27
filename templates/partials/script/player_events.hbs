@@ -139,6 +139,9 @@ var setupScreen = function(screenName, index, timerDuration) {
     currentScreenIndex = (index === undefined) ? 0 : index;
 
     $(isDecider ? '.player' : '.decider').remove();
+    // Remove non-facilitator bg
+    if(isDecider)
+        $('.screen').removeClass('bg');
 
     if(screenName == 'debrief') {
         $('#gameContent').removeClass('in-game');
