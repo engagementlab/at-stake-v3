@@ -15,11 +15,10 @@
  */
 
 var keystone = require('keystone'),
-    async = require('async'),
-    appRoot = require('app-root-path');
+    async = require('async');
     
 var GameSession = keystone.list('GameSession'),
-    Game = require(appRoot + '/lib/GameManager'),
+    Game = require('../../lib/GameManager'),
     Session = require('learning-games-core').SessionManager,
     Deck = keystone.list('Deck');
 
@@ -59,7 +58,7 @@ exports.create = function(req, res) {
  */
 exports.generate = function(req, res) {
 
-    var TemplateLoader = require(appRoot + '/lib/TemplateLoader');
+    var TemplateLoader = require('../lib/TemplateLoader');
     const randomstring = require('randomstring'); 
     let gameCode;
 

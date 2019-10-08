@@ -14,8 +14,7 @@
  */
 
 var keystone = require('keystone'),
-    appRoot = require('app-root-path'),
-    TemplateLoader = require(appRoot + '/lib/TemplateLoader'),
+    TemplateLoader = require('../../lib/TemplateLoader'),
     GameSession = keystone.list('GameSession');
 
 // var debugData = 

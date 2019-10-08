@@ -1,51 +1,88 @@
-// Return server object
-var serverStart = function() {
+'use strict';
+/**
+ * @Stake server
+ * Developed by Engagement Lab, 2015-19
+ * ==============
+ * App start
+ *
+ * @author Johnny Richardson
+ *
+ * ==========
+ */
 
-  /* Global accessor for logger  */
-  logger = require('winston');
+// Load .env vars
+if(process.env.NODE_ENV !== 'test')
+	require('dotenv').config();
+
+const winston = require('winston'),
+path = require('path'),
+merge = require('merge'), 
+bodyParser = require('body-parser'),
+handlebars = require('express-handlebars'),
+elHbs = require('el-hbs')(),
+
+logFormat = winston.format.combine(
+winston.format.colorize(),
+	winston.format.timestamp(),
+	winston.format.align(),
+	winston.format.printf((info) => {
+		const {
+		timestamp, level, message, ...args
+		} = info;
+
+		const ts = timestamp.slice(0, 19).replace('T', ' ');
+		return `${ts} [${level}]: ${message} ${Object.keys(args).length ? JSON.stringify(args, null, 2) : ''}`;
+	}),
+);
+global.logger = winston.createLogger({
+	level: 'info',
+	format: logFormat,
+	transports: [
+		new winston.transports.Console()
+	]
+});
+
+	const bootstrap = require('@engagementlab/el-bootstrapper'), express = require('express'), app = express();
+	// for parsing application/json
+	app.use(bodyParser.json()); 
 	
-	var express = require('express');
-	var app = express();
+	// for parsing application/xwww-
+	app.use(bodyParser.urlencoded({ extended: true })); 
 
-	 // support json encoded bodies
-	var bodyParser = require('body-parser');
-	app.use(bodyParser.json());
-	app.use(bodyParser.urlencoded({ extended: true }));
+	var hbsInstance = handlebars({
+											layoutsDir: 'templates/layouts/',
+											partialsDir: 'templates/partials/',
+											defaultLayout: 'base',
+											helpers: merge(require('./templates/helpers')(), elHbs),
+											extname: '.hbs'
+										});
 
-	// Enable view template compilation caching
-	app.enable('view cache');
+	app.engine('hbs', hbsInstance);
+	app.set('view engine', 'hbs');
+	app.set('views', path.join(__dirname, '/templates/views'));
 
-	return app;
+	bootstrap.start(
+		'./config.json', 
+		app,
+		__dirname + '/', 
+		{
+			'name': '@Stake CMS',
 
-};
-
-// Any custom app initialization logic should go here
-var appStart = function(app) {
+			// Setup SASS and Handlebars
+			'sass': ['public'],
+			'static': ['public'],
+			'view engine': 'handlebars',
+			'handlebars': hbsInstance,
+			'custom engine': hbsInstance.engine,
+		},
+		() => {
+			
+			app.listen(process.env.PORT);
 	
-	var keystone = require('keystone'),
-			appServer = keystone.get('appServer'),
-			rootDir = require('app-root-path');
-
-	var io = require(rootDir + '/sockets/')(appServer);
-
-};
-
-module.exports = function(frameworkDir, shared) {
-
-	// Add main dependencies and EL web framework dependencies if not mounted with EL framework API
-	// if(!shared)
-	require('app-module-path').addPath(frameworkDir + '/node_modules'); 
+			var mongoose = require('mongoose');
+			mongoose.connect('mongodb://localhost/at-stake', {useNewUrlParser: true, useUnifiedTopology: true});
+			var db = mongoose.connection;
+			db.on('error', console.error.bind(console, 'connection error:'));
 	
-	// Obtain app root path and set as keystone's module root
-	var keystoneInst = require('keystone');
-	
-
-	return { 
-
-		keystone: keystoneInst,
-		server: serverStart,
-		start: appStart	
-
-	}
-
-};
+		}
+	);

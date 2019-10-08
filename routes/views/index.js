@@ -50,7 +50,7 @@ exports = module.exports = function(req, res) {
 	    	locals.content = resultHomepage;
 			  
 			  // Render the view
-		    view.render('index');
+		    res.render('index');
 
 		  });
 		 

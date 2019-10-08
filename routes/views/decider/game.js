@@ -14,13 +14,10 @@
  * ==========
  */
 var keystone = require('keystone'),
-  appRoot = require('app-root-path'),
-  Game = require(appRoot + '/lib/GameManager'),
   GameSession = keystone.list('GameSession'),
-  Intro = keystone.list('Intro'),
-  Deck = keystone.list('Deck');
+  Intro = keystone.list('Intro');
 
-var GameManager = require(appRoot + '/lib/GameManager'), 
+var GameManager = require('../../../lib/GameManager'), 
     Session = require('learning-games-core').SessionManager;
     
 exports = module.exports = function(req, res) {

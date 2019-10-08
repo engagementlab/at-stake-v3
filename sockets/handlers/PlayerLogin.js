@@ -12,10 +12,8 @@
  */
 'use strict';
 
-const appRoot = require('app-root-path'),
-      logger = require('winston'),
+const logger = require('winston'),
       colors = require('colors'),
-
       TemplateLoader = require(appRoot + '/lib/TemplateLoader'),
       Session = require('learning-games-core').SessionManager,
       Common = require(appRoot + '/lib/Common');

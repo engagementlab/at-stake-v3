@@ -13,7 +13,6 @@
  * ==========
  */
 var keystone = require('keystone'),
-    appRoot = require('app-root-path'),
     GameSession = keystone.list('GameSession'),
     Session = require('learning-games-core').SessionManager;
 
