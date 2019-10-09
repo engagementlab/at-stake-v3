@@ -58,7 +58,7 @@ exports.create = function(req, res) {
  */
 exports.generate = function(req, res) {
 
-    var TemplateLoader = require('../lib/TemplateLoader');
+    var TemplateLoader = require('../../lib/TemplateLoader');
     const randomstring = require('randomstring'); 
     let gameCode;
 

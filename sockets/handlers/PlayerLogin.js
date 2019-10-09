@@ -13,14 +13,9 @@
 'use strict';
 
 const logger = require('winston'),
-      colors = require('colors'),
-      TemplateLoader = require(appRoot + '/lib/TemplateLoader'),
-      Session = require('learning-games-core').SessionManager,
-      Common = require(appRoot + '/lib/Common');
+      Session = require('learning-games-core').SessionManager;
 
 const PlayerLogin = function(nsp, socket, emitter) {
-
-  const Templates = new TemplateLoader();
 
   const currentSpace = nsp;
   const currentSocket = socket;

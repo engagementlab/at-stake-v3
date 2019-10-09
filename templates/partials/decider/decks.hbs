@@ -21,9 +21,9 @@
       <h1>Sample Roles</h1>
 
       <div class="grid">
-        {{#limit roles 4}}
+        {{#each roles}}
           <div class="player">{{title}}</div>
-        {{/limit}}
+        {{/each}}
       </div>
       <button class="btn_submit button_text">
         {{{cloudinaryUrl 'v1540488090/at-stake/icons/check-btn' format='svg' alt='Select this deck'}}}

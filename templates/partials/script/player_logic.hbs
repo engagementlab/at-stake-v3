@@ -47,7 +47,7 @@ var playerLogin = function(data) {
     
     // Open socket connection
     if(!socket) {
-        socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
+        socket = io('//{{host}}', {path: '/at-stake-socket/', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
         registerEvents();
     }
 
@@ -60,7 +60,7 @@ var playerLogin = function(data) {
 
     // Open socket connection
     if(!socket) { 
-        socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
+        socket = io('//{{host}}', {path: '/at-stake-socket/', 'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
         registerEvents();
     } 
 
@@ -139,7 +139,7 @@ var checkIfLoggedIn = function() {
             $('#btn_submit_rejoin').click(function() {
                 
                 isDecider = sessionStorage.getItem('isModerator');
-                socket = io('//{{host}}', {path: '/at-stake-socket', 'reconnection': true, 'reconnectionDelay': 500, 'maxReconnectionAttempts': Infinity});
+                socket = io('//{{host}}', {path: '/at-stake-socket/', 'reconnection': true, 'reconnectionDelay': 500, 'maxReconnectionAttempts': Infinity});
                 registerEvents();
 
             });

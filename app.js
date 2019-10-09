@@ -34,6 +34,10 @@ winston.format.colorize(),
 		return `${ts} [${level}]: ${message} ${Object.keys(args).length ? JSON.stringify(args, null, 2) : ''}`;
 	}),
 );
+
+// Globals
+global._ = require('underscore');
+
 global.logger = winston.createLogger({
 	level: 'info',
 	format: logFormat,
@@ -43,23 +47,27 @@ global.logger = winston.createLogger({
 });
 
 	const bootstrap = require('@engagementlab/el-bootstrapper'), express = require('express'), app = express();
+	global.hbsInstance = handlebars.create({
+									layoutsDir: 'templates/layouts/',
+									partialsDir: 'templates/partials/',
+									defaultLayout: 'base',
+									helpers: merge(require('./templates/helpers')(), elHbs),
+									extname: '.hbs'
+								});
+
+
 	// for parsing application/json
 	app.use(bodyParser.json()); 
-	
+
 	// for parsing application/xwww-
 	app.use(bodyParser.urlencoded({ extended: true })); 
 
-	var hbsInstance = handlebars({
-											layoutsDir: 'templates/layouts/',
-											partialsDir: 'templates/partials/',
-											defaultLayout: 'base',
-											helpers: merge(require('./templates/helpers')(), elHbs),
-											extname: '.hbs'
-										});
-
-	app.engine('hbs', hbsInstance);
+	app.engine('hbs', global.hbsInstance.engine);
+	
 	app.set('view engine', 'hbs');
 	app.set('views', path.join(__dirname, '/templates/views'));
+
+	app.use(express.static('public'))
 
 	bootstrap.start(
 		'./config.json', 
@@ -77,12 +85,16 @@ global.logger = winston.createLogger({
 		},
 		() => {
 			
-			app.listen(process.env.PORT);
-	
 			var mongoose = require('mongoose');
 			mongoose.connect('mongodb://localhost/at-stake', {useNewUrlParser: true, useUnifiedTopology: true});
 			var db = mongoose.connection;
 			db.on('error', console.error.bind(console, 'connection error:'));
+
+			// Load sockets and serve http
+			let http = require('http').Server(app);
+			require('./sockets/')(http);
+			
+			http.listen(process.env.PORT);
 	
 		}
 	);

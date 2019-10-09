@@ -1,6 +1,6 @@
-module.exports = function(app, socket) {
+module.exports = function(app) {
 
-  var io = require('socket.io')(app, {path: '/at-stake-socket/'});
+  var io = require('socket.io')(app, {path: '/at-stake-socket'});
 
   var CommonHandler = require('./handlers/Common'),
       PlayerLogin = require('./handlers/PlayerLogin');
@@ -24,5 +24,8 @@ module.exports = function(app, socket) {
     socket.send(socket.id);
 
   });
+
+ logger.info('socket.io inititalized');
+
 
 };

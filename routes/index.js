@@ -10,7 +10,9 @@ var keystone = require('keystone');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
 
+router.use(middleware.locals);
 // Import Route Controllers
+
 var routes = {
     api: importRoutes('./api'),
     views: importRoutes('./views')
