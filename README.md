@@ -1,6 +1,6 @@
 # @Stake
 
-[![Zenhub Badge](//dxssrr2j0sq4w.cloudfront.net/3.2.0/img/external/zenhub-badge.png)](https://zenhub.com)
+[![Zenhub Badge](https://dxssrr2j0sq4w.cloudfront.net/3.2.0/img/external/zenhub-badge.png)](https://zenhub.com)
 
 @Stake is a game that fosters democracy, empathy, and creative problem solving for civic issues. Players take on a variety of roles and pitch ideas under a time pressure, competing to produce the best idea in the eyes of the table's "Decider."
 
