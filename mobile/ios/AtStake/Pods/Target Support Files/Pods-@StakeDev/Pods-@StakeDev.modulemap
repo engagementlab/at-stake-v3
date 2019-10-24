@@ -1,6 +1,0 @@
-framework module Pods__StakeDev {
-  umbrella header "Pods-@StakeDev-umbrella.h"
-
-  export *
-  module * { export * }
-}

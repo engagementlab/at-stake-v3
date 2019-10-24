@@ -1,6 +1,0 @@
-framework module Pods__StakeUITests {
-  umbrella header "Pods-@StakeUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
