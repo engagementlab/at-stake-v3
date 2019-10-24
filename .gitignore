@@ -6,3 +6,4 @@ public/styles/core.css
 *.map
 
 .env
+client/.next

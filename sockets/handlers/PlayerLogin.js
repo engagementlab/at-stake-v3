@@ -131,6 +131,11 @@ const PlayerLogin = function(nsp, socket, emitter) {
       if(playerGameId && session)
           session.PlayerLost(currentSocket.id, currentSocket);
 
+    },
+
+    'hello': (payload) => {
+      console.log('ping ')
+      currentSocket.emit('ohhai');
     }
   
   };

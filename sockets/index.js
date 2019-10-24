@@ -20,6 +20,7 @@ module.exports = function(app) {
             socket.on(event, handler[event]);
         }
     }
+    // socket.emit('pong');
 
     socket.send(socket.id);
 

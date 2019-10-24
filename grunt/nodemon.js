@@ -1,6 +1,6 @@
 module.exports = function(grunt, options) {
 
-	var ignoreFilter = ['../node_modules/.git/', '../node_modules/node_modules/'];
+	var ignoreFilter = ['../node_modules/.git/', '../node_modules/node_modules/', '../client/'];
 	// var watchFilter = [];
 	// var fs = require('fs');
 

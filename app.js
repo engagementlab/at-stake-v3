@@ -78,10 +78,7 @@ global.logger = winston.createLogger({
 
 			// Setup SASS and Handlebars
 			'sass': ['public'],
-			'static': ['public'],
-			'view engine': 'handlebars',
-			'handlebars': hbsInstance,
-			'custom engine': hbsInstance.engine,
+			'static': ['public']
 		},
 		() => {
 			
