@@ -89,9 +89,9 @@ exports.generate = function(req, res) {
                 deck.roles = _.sample(deck.roles, 6);
             });
 
-            Templates.Load('partials/decider/decks', decks, function(html) {
+            Templates.Load('partials/decider/decks', decks, function(data) {
 
-                res.send({code: gameCode, html: html});
+                res.send({code: gameCode, decks: data});
 
             });
 
