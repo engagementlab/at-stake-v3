@@ -18,7 +18,7 @@
     "console-remote-client": "^0.4.3",
     "dotenv": "^8.1.0",
     "el-hbs": "https://github.com/engagementlab/el-hbs.git",
-    "express": "4.16.3",
+    "express": "4.17.3",
     "express-handlebars": "^3.1.0",
     "html-entities": "1.2.0",
     "learning-games-core": "git://github.com/engagementgamelab/learning-games-core.git#production",
